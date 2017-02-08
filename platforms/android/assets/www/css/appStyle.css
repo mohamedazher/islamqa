@@ -1,0 +1,47 @@
+
+
+/**
+ * The first commented line is your dabblet's title
+ */
+
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+html {
+    overflow: scroll;
+    font-family: Helvetica;
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+}
+body {
+    font-family: Helvetica, sans-serif;
+    margin: 0; font-size: 13px; line-height: 1.231;
+}
+
+#body{
+    background-color:#ffffff;
+}
+#bg{
+    background-color:#FFFFFF;
+}
+
+#viewport {
+    /*// background-color: #32516e;*/
+    /*background-color:#2c343d;*/
+}
+
+#close-mask {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background-color: transparent;
+}
