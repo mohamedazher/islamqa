@@ -253,7 +253,7 @@ function populateAns() {
                     getData("answers" + qInserting);
                     }
                 } else {
-                    window.localStorage.setItem('upgrade3', "false");
+                    window.localStorage.setItem('upgrade4', "false");
                     window.localStorage.setItem('rateApp', "true");
                     upgrade="false";
                     renderCategories();

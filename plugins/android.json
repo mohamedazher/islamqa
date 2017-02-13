@@ -21,7 +21,17 @@
         },
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "com.dkurve.betterislamqa"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.dkurve.betterislamqa"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.dkurve.betterislamqa"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.dkurve.betterislamqa"
+        }
+    }
 }

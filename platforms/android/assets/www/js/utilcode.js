@@ -32,7 +32,7 @@ function popView() {
     window.RightViewNavigator.popView();
 }
 function clearData() {
-    window.localStorage.setItem('upgrade3', "true");
+    window.localStorage.setItem('upgrade4', "true");
     MessageDialogController.showMessage(stringsDB.data_cleared_successfully, null, stringsDB.ok, stringsDB.data_cleared);
 }
 
@@ -390,36 +390,32 @@ function checkConnection() {
     //alert('Connection type: ' + states[networkState]);
 
 }
-function sendQuestionShare(questionUrl, questionNo, shortQuestion) {
+function sendQuestionShare(questionUrl, questionNo,shortQuestion) {
     var regex = /(<([^>]+)>)/ig;
-    regex = /^\s*/gm;
-    if (fnCalled) {
-        return;
-    }
-    fnCalled = true;
+    /*      if (fnCalled) {
+     return;
+     }
+     fnCalled = true;*/
 
+
+    //var content = processAnswer(question,answer);
 
     var shareMsg = stringsDB.question + " " + questionNo + ": " + shortQuestion + "- " + stringsDB.islamqa_url + questionUrl + "\n\n" + stringsDB.download_from + " http://goo.gl/nKqwhA " + stringsDB.and_enter + " " + questionNo + " " + stringsDB.in_the_search_box;
+    //var shareMsg = "Question: "+$(content[0]).text()+" \n\nAnswer:"+$(content[1]).text()+" http://goo.gl/TjSpT3";;
+    //var shareMsg = "Question: " + question.replace(regex, "").replace('\n', '').replace('\t', '') + " \n\n Answer: " + $.trim(answer.replace(regex, "").replace('\n', '').replace('\t', '')) + "\n\n Shared from Shaykh Assim Al Hakeem's Official Android App - http://goo.gl/TjSpT3";
+    //console.log("SHARE CONTENT IS "+shareMsg);
 
-    if(platform=='Android'){
-    window.plugins.share.show({
-            subject: "",
-            text: shareMsg
-        },
-        function () {
-            fnCalled = false;
-        }, // Success function
+    var onError = function () {
+        navigator.notification.alert("Error Sharing Content, Please Try Again", null, "Error Sharing Content", "Ok");
+        /* fnCalled = false;*/
+    };
+    var onSuccess = function () {
+    };
 
-        function () {
-            MessageDialogController.showMessage(stringsDB.error_sharing_try_again, null, stringsDB.error_sharing_content, stringsDB.ok);
-            fnCalled = false;
-        } // Failure function
-    );
-    }
-    else{
-        window.plugins.socialsharing.share(shareMsg);
-
-    }
+    window.plugins.socialsharing.shareWithOptions({
+        message: shareMsg,
+        subject: ''
+    }, onSuccess, onError);
 }
 function processSearch(query) {
     query = query.removeStopWords();
@@ -956,7 +952,7 @@ function checkForUpdate() {
     var syncId = window.localStorage.getItem('syncId');
     logNow("SYNCID IS " + syncId);
 
-    var dUrl = "http://www.dawahdesk.com/projects/islamqa/index3.php?task=checkForUpdate&sync_no=" + syncId + "&platform=android";
+    var dUrl = "http://www.illumeacademy.com/projects/islamqa/index3.php?task=checkForUpdate&sync_no=" + syncId + "&platform=android";
     logNow("CALLING URL " + dUrl);
 
     var checkUpdate = $.ajax({//Checking for update files.

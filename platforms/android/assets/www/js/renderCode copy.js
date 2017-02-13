@@ -264,7 +264,7 @@ function renderCatList(id) {
 function loadNext(id, skip, count, query) {
     logNow('LOAD NEXT CALLED');
     var colour ='';
-    if(window.localStorage.getItem('upgrade3')!='false'){
+    if(window.localStorage.getItem('upgrade4')!='false'){
         return;
     }
     onNav();
@@ -794,7 +794,7 @@ function doAsk(frm) {
 }
 
 function showSearch(category) {
-    if(window.localStorage.getItem('upgrade3')!='false'){
+    if(window.localStorage.getItem('upgrade4')!='false'){
         return;
     }
     logNow("SUB 1 CLASS " + $('#sub1').attr('class'));
@@ -831,7 +831,7 @@ function showSearch(category) {
 }
 
 function renderSearch(cate) {
-    if(window.localStorage.getItem('upgrade3')!='false'){
+    if(window.localStorage.getItem('upgrade4')!='false'){
         return;
     }
     $('#searchAlert').addClass('in');
@@ -879,7 +879,7 @@ function doSearch(category, frm) {
 }
 
 function renderAbout() {
-    if(window.localStorage.getItem('upgrade3')!='false'){
+    if(window.localStorage.getItem('upgrade4')!='false'){
         return;
     }
     if (fnCalled) {

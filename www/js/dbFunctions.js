@@ -245,7 +245,7 @@ function loadAnsw(qInserting) {
         //$('.progress>span').css('width', '100%');
         //$('.progress>span>span').html('100%');
         rendered = true;
-        window.localStorage.setItem('upgrade3', "false");
+        window.localStorage.setItem('upgrade4', "false");
         window.localStorage.setItem('rateApp', "true");
         upgrade = "false";
 //        renderCategories();
@@ -378,7 +378,7 @@ function loadAns2() {
                 });
                 //})(ansD);
 //                if(value==10){
-//                    window.localStorage.setItem('upgrade3', "false");
+//                    window.localStorage.setItem('upgrade4', "false");
 //                    window.localStorage.setItem('rateApp', "true");
 //                    upgrade="false";
 //                    renderCategories();
@@ -410,7 +410,7 @@ function populateAns(tx) {
         qInserting = qInserting + 1;
     }
     qInserting = 1;
-    window.localStorage.setItem('upgrade3', "false");
+    window.localStorage.setItem('upgrade4', "false");
     window.localStorage.setItem('rateApp', "true");
     upgrade = "false";
     renderCategories();

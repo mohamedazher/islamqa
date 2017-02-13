@@ -19,6 +19,7 @@ function renderImportDatabase() {
 
     rootView.view.html(html);
     window.setTimeout(function () {
+
         if (getStorageItem('questionsLoaded') == 'true') {
             $('#alert1').removeClass('in');
             $('#lcButton1').attr('disabled', 'disabled');
@@ -131,7 +132,7 @@ function layoutColumns() {
 }
 
 function renderCategories() {
-    if (getStorageItem('upgrade3') != 'false') {
+    if (getStorageItem('upgrade4') != 'false') {
         return;
     }
     onNav();
@@ -265,7 +266,7 @@ function loadNext(id, skip, count, query) {
     fnCalled=true;
     var colour = '';
     var isFolder = false;
-    if (getStorageItem('upgrade3') != 'false') {
+    if (getStorageItem('upgrade4') != 'false') {
         return;
     }
     onNav();
@@ -431,7 +432,7 @@ function loadAns(id) {
     });
 }
 function renderFolders(skip, count) {
-    if (getStorageItem('upgrade3') != 'false') {
+    if (getStorageItem('upgrade4') != 'false') {
         return;
     }
     counts = new Array();
@@ -462,10 +463,7 @@ function renderFolders(skip, count) {
 function renderAns(id) {
     logNow("Render Ans called with " + id);
     showLoad();
-    if (fnCalled) {
-        return;
-    }
-    fnCalled = true;
+
     onNav();
     var htmlDiv = '', question = '', questionUrl = '', questionNo = '', shortQuestion = '', isFav = false;
 
@@ -525,7 +523,7 @@ var fnCalled = false;
 
 
 function renderSearch(cate) {
-    if (getStorageItem('upgrade3') != 'false') {
+    if (getStorageItem('upgrade4') != 'false') {
         return;
     }
     $('#searchAlert').addClass('in');
@@ -548,7 +546,7 @@ function doSearchNow() {
 }
 
 function renderSettings() {
-    if (getStorageItem('upgrade3') != 'false') {
+    if (getStorageItem('upgrade4') != 'false') {
         return;
     }
     if (fnCalled) {
@@ -580,7 +578,7 @@ function renderSettings() {
 }
 
 function renderAbout() {
-    if (getStorageItem('upgrade3') != 'false') {
+    if (getStorageItem('upgrade4') != 'false') {
         return;
     }
     if (fnCalled) {
