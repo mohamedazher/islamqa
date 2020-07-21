@@ -44,7 +44,7 @@ function getData(file) {
         success: function (data, textStatus, jqXHR) {
             data = JSON.stringify(data);
             //window.localStorage.setItem('jsonDataTime', new Date());
-            //logNow("GOT DATA FROM js/"+file+".js");
+            logNow("GOT DATA FROM js/"+file+".js");
             dataGot = '';
             dataGot = JSON.parse(data);
 
@@ -425,7 +425,7 @@ var WebSqlAdapter = function () {
     this.initialize = function () {
         logNow("DB OPENED ");
         if(platform=='IOS'){
-            this.db = window.sqlitePlugin.openDatabase("Database", "1.0", "IslamQA", -1);
+                this.db = window.sqlitePlugin.openDatabase("islamqa.db", "1.0", "IslamQA", -1);
         }
         else if(platform=='Android'){
             this.db = window.openDatabase("islamqa", "1.0", "Question and Answers Db", 100000000);

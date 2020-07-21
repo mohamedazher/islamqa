@@ -1,5 +1,5 @@
 function logNow(msg) {
-    var doLog = false;
+    var doLog = true;
     if (msg != '' && doLog == true) {
         console.log(msg);
     }
