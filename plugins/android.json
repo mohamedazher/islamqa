@@ -1,37 +1,43 @@
 {
-    "prepare_queue": {
-        "installed": [],
-        "uninstalled": []
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.dkurve.betterislamqa"
     },
-    "config_munge": {
-        "files": {}
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.dkurve.betterislamqa"
     },
-    "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.dkurve.betterislamqa"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.dkurve.betterislamqa"
-        },
-        "cordova-plugin-x-socialsharing": {
-            "PACKAGE_NAME": "com.dkurve.betterislamqa"
-        },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.dkurve.betterislamqa"
-        },
-        "cordova-sqlite-storage": {
-            "PACKAGE_NAME": "com.dkurve.betterislamqa"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.dkurve.betterislamqa"
-        },
-        "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "com.dkurve.betterislamqa"
-        }
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.dkurve.betterislamqa"
     },
-    "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.dkurve.betterislamqa"
-        }
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.dkurve.betterislamqa"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.dkurve.betterislamqa"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.dkurve.betterislamqa"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.dkurve.betterislamqa"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "com.dkurve.betterislamqa"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.dkurve.betterislamqa"
     }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.dkurve.betterislamqa"
+    }
+  }
 }

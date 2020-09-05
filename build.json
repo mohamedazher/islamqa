@@ -1,0 +1,18 @@
+{
+  "android": {
+    "debug": {
+      "keystore": "/media/SSD/islamqa/uploadkey.jks",
+      "storePassword": "Imations_#@$$^@",
+      "alias": "dawahdesk",
+      "password" : "Imations_#@$$^@",
+      "keystoreType": ""
+    },
+    "release": {
+      "keystore": "/media/SSD/islamqa/uploadkey.jks",
+      "storePassword": "Imations_#@$$^@",
+      "alias": "dawahdesk",
+      "password" : "Imations_#@$$^@",
+      "keystoreType": ""
+    }
+  }
+}
