@@ -11,6 +11,12 @@ const router = createRouter({
       meta: { title: 'BetterIslam Q&A' }
     },
     {
+      path: '/import',
+      name: 'import',
+      component: () => import('@/views/ImportView.vue'),
+      meta: { title: 'Import Data' }
+    },
+    {
       path: '/browse',
       name: 'browse',
       component: () => import('@/views/BrowseView.vue'),

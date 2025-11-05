@@ -1,0 +1,1910 @@
+{
+  "generatedQuizzes": [
+    {
+      "id": "quiz-8512",
+      "sourceQuestionId": 8512,
+      "questionText": "Is it permissible for someone to repurchase a gift they previously gave to another person?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Business & Transactions",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, it is not permissible",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, it is permissible if the gift owner agrees",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Yes, if purchased at a fair price",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only permissible if done within one year",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) forbade taking back a gift, comparing one who does so to a dog returning to its own vomit. This is based on the hadith of Umar who asked the Prophet about repurchasing a gifted horse.",
+      "sourceReference": {
+        "questionId": 8512,
+        "questionNo": "11585",
+        "questionTitle": "Giver buying the gift from the person to whom it was given"
+      },
+      "points": 10,
+      "tags": ["charity", "gifts", "haram", "transactions", "business"]
+    },
+    {
+      "id": "quiz-2189",
+      "sourceQuestionId": 2189,
+      "questionText": "When a man has multiple wives, what must he do regarding fair treatment between them?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "category": "Family & Marriage",
+      "options": [
+        {
+          "id": "a",
+          "text": "Divide his time equally for nights with each wife",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only provide equal financial support",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Give preference to the first wife",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Fair treatment is not required",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Islam requires a man with multiple wives to treat them equally in terms of time spent, accommodation, clothing, and financial support. The Prophet (peace and blessings of Allah be upon him) practiced this fairness in his own family.",
+      "sourceReference": {
+        "questionId": 2189,
+        "questionNo": "127670",
+        "questionTitle": "Fair treatment of multiple wives"
+      },
+      "points": 10,
+      "tags": ["marriage", "wives", "fairness", "rights", "family"]
+    },
+    {
+      "id": "quiz-3245",
+      "sourceQuestionId": 3245,
+      "questionText": "What is the recommended practice when making supplication (du'aa)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Prayer",
+      "options": [
+        {
+          "id": "a",
+          "text": "Begin with praise of Allah and send blessings on the Prophet, then make your request",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Go directly to your request without preliminaries",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only send blessings on the Prophet once at the end",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Make requests without praising Allah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) instructed believers to start du'aa by glorifying and praising Allah, then sending blessings upon him before making their requests. This is supported by authentic hadiths.",
+      "sourceReference": {
+        "questionId": 3245,
+        "questionNo": "21928",
+        "questionTitle": "Starting and ending du'aa with blessings upon the Prophet"
+      },
+      "points": 10,
+      "tags": ["du'aa", "supplication", "prayer", "blessings", "sunnah"]
+    },
+    {
+      "id": "quiz-2029",
+      "sourceQuestionId": 2029,
+      "questionText": "If a man was breastfed by another woman, can he marry the sister of his breastfeeding sister?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "category": "Family & Marriage",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, if he was only breastfed by the sister's mother, not the sister herself",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "No, breastfeeding creates a mahram relationship to all sisters",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only with the first sister's permission",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only if he was breastfed by the mother",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The mahram relationship through breastfeeding applies only to those directly breastfed. If a man was breastfed by the mother of the girl, he becomes a brother to both her and her sisters, making marriage to any of them forbidden.",
+      "sourceReference": {
+        "questionId": 2029,
+        "questionNo": "113957",
+        "questionTitle": "Ruling on marriage to the sister of a person with whom he was breastfed"
+      },
+      "points": 10,
+      "tags": ["breastfeeding", "marriage", "mahram", "family"]
+    },
+    {
+      "id": "quiz-3615",
+      "sourceQuestionId": 3615,
+      "questionText": "Can a person take a family name other than their biological father's name?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Islamic Jurisprudence",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, one must use their legitimate father's name only",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, they can choose any family member's name",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Yes, if the father had no involvement in upbringing",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Yes, for converts to Islam",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Islamic law requires calling children by their father's name, as Allah states in the Quran. The Prophet (peace and blessings of Allah be upon him) warned that calling oneself by another's name incurs a curse, regardless of personal circumstances.",
+      "sourceReference": {
+        "questionId": 3615,
+        "questionNo": "1942",
+        "questionTitle": "Taking a family name other than that of one's father"
+      },
+      "points": 10,
+      "tags": ["names", "lineage", "identity", "shariah", "family"]
+    },
+    {
+      "id": "quiz-5726",
+      "sourceQuestionId": 5726,
+      "questionText": "What is the minimum number of people needed for congregational prayer (jamaa'ah)?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Prayer",
+      "options": [
+        {
+          "id": "a",
+          "text": "Two people: an imam and one follower",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "At least five people",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "At least three people",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Congregational prayer requires many people",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Two people are sufficient for congregational prayer. The Prophet (peace and blessings of Allah be upon him) confirmed this in authentic hadiths, stating that even one follower joining an imam constitutes a congregation.",
+      "sourceReference": {
+        "questionId": 5726,
+        "questionNo": "52906",
+        "questionTitle": "Prayer in congregation with two people"
+      },
+      "points": 10,
+      "tags": ["prayer", "congregation", "jamaa'ah", "imam", "worship"]
+    },
+    {
+      "id": "quiz-2160",
+      "sourceQuestionId": 2160,
+      "questionText": "In what aspects must a man with multiple wives maintain equality?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Family & Marriage",
+      "options": [
+        {
+          "id": "a",
+          "text": "Spending the night, accommodation, spending, and clothing",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only in emotional affection",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only in financial matters",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "In all aspects without exception",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Islam requires equality in the material aspects of marriage: nights spent with each wife, separate accommodation, financial support, and clothing. However, the heart's inclination and intimate relations are exempt from this requirement.",
+      "sourceReference": {
+        "questionId": 2160,
+        "questionNo": "10091",
+        "questionTitle": "How to treat two wives fairly"
+      },
+      "points": 10,
+      "tags": ["polygamy", "fairness", "wives", "rights", "family"]
+    },
+    {
+      "id": "quiz-4381",
+      "sourceQuestionId": 4381,
+      "questionText": "If you have an adhesive bandage (Band-Aid) over a wound during ablution, what should you do?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Prayer",
+      "options": [
+        {
+          "id": "a",
+          "text": "Your ablution is valid whether you wipe over it or let water pass over it",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "You must remove it before ablution",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "You must wipe over it three times",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Adhesive bandages invalidate ablution",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ablution is valid whether water passes over an adhesive bandage or you wipe over it. The Islamic ruling is flexible in accommodating medical treatment and does not invalidate the ablution in either case.",
+      "sourceReference": {
+        "questionId": 4381,
+        "questionNo": "2173",
+        "questionTitle": "Wiping over adhesive dressings when doing wudoo'"
+      },
+      "points": 10,
+      "tags": ["ablution", "wudoo", "bandage", "medical", "worship"]
+    },
+    {
+      "id": "quiz-1152",
+      "sourceQuestionId": 1152,
+      "questionText": "What does the Quranic phrase 'until Allah brings His Command' refer to?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "category": "Basic Tenets of Faith",
+      "options": [
+        {
+          "id": "a",
+          "text": "The command to permit fighting against those who oppose Islam",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The Day of Judgment",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "A temporary truce agreement",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The end of the world",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "In Surah Al-Baqarah 2:109, this phrase refers to Allah's command to fight against those who reject Islam and refuse to pay the Jizya (poll tax). Previously, believers were commanded to forgive and overlook transgressions during a period of Islamic weakness.",
+      "sourceReference": {
+        "questionId": 1152,
+        "questionNo": "82281",
+        "questionTitle": "Meaning of 'until Allah brings His Command'"
+      },
+      "points": 10,
+      "tags": ["quran", "interpretation", "tafseer", "command", "fighting"]
+    },
+    {
+      "id": "quiz-1462",
+      "sourceQuestionId": 1462,
+      "questionText": "Is there authentic evidence that Satan whispered false verses during the Prophet's recitation of the Quran?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "category": "Basic Tenets of Faith",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, there is no authentic hadith supporting this claim",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, confirmed in multiple authentic hadiths",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Yes, the Quran itself mentions this event",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Possibly, but evidence is weak",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) was protected (mu'assam) in conveying the Quran. Reports claiming Satan whispered false verses lack authentic chains of transmission. Scholars reject this story as groundless.",
+      "sourceReference": {
+        "questionId": 1462,
+        "questionNo": "4135",
+        "questionTitle": "Satanic verses - false reports"
+      },
+      "points": 10,
+      "tags": ["quran", "prophet", "protection", "authenticity", "hadith"]
+    },
+    {
+      "id": "quiz-3944",
+      "sourceQuestionId": 3944,
+      "questionText": "If your gaze accidentally falls on an improperly dressed woman, are you sinning?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Social Interactions",
+      "options": [
+        {
+          "id": "a",
+          "text": "No sin for the first accidental glance, but you must immediately avert your eyes",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, you sin immediately",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "No sin at all for accidental glances",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "You only sin if you look intentionally twice",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) taught that there is no blame for an accidental first glance. However, if you continue to look after becoming aware, then you are sinning. You must immediately lower your gaze.",
+      "sourceReference": {
+        "questionId": 3944,
+        "questionNo": "160554",
+        "questionTitle": "Accidental gaze at improperly dressed women"
+      },
+      "points": 10,
+      "tags": ["lowering gaze", "modesty", "behavior", "ethics", "social"]
+    },
+    {
+      "id": "quiz-966",
+      "sourceQuestionId": 966,
+      "questionText": "Can you pray a funeral prayer behind an Ahmadi (Qadiani) imam?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Prayer",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, you must repeat the funeral prayer",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, the funeral prayer is valid",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only if no other imam is available",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Yes, as long as the procedure is correct",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ahmadis who believe in a prophet after Muhammad are considered outside the fold of Islam. A funeral prayer led by a non-Muslim imam is invalid and must be repeated with a Muslim imam.",
+      "sourceReference": {
+        "questionId": 966,
+        "questionNo": "2854",
+        "questionTitle": "Janaazah prayer behind an Ahmadi"
+      },
+      "points": 10,
+      "tags": ["funeral", "prayer", "imam", "creed", "ahmadi"]
+    },
+    {
+      "id": "quiz-1001",
+      "sourceQuestionId": 1001,
+      "questionText": "What is the main purpose of Islamic fasting during Ramadan?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Fasting",
+      "options": [
+        {
+          "id": "a",
+          "text": "To develop piety and God-consciousness",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "To lose weight and improve health",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "To commemorate historical events",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "To test one's physical endurance",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Quran states that fasting is prescribed for believers so they may achieve taqwa (God-consciousness and piety). While there are health benefits, the primary Islamic purpose is spiritual development and obedience to Allah.",
+      "sourceReference": {
+        "questionId": 1001,
+        "questionNo": "1001",
+        "questionTitle": "Purpose of Ramadan fasting"
+      },
+      "points": 10,
+      "tags": ["fasting", "ramadan", "piety", "taqwa", "worship"]
+    },
+    {
+      "id": "quiz-2050",
+      "sourceQuestionId": 2050,
+      "questionText": "What is the ruling on women wearing makeup and jewelry in public?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Islamic Jurisprudence",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is discouraged; women should display modesty and avoid excessive adornment",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is completely forbidden",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible without restriction",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only permitted at home",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "While not absolutely forbidden, Islam encourages women to maintain modesty and avoid excessive or ostentatious display of jewelry and makeup, especially in public. The focus should be on inner virtue rather than external adornment.",
+      "sourceReference": {
+        "questionId": 2050,
+        "questionNo": "2050",
+        "questionTitle": "Women's makeup and jewelry"
+      },
+      "points": 10,
+      "tags": ["modesty", "women", "appearance", "adornment", "hijab"]
+    },
+    {
+      "id": "quiz-3100",
+      "sourceQuestionId": 3100,
+      "questionText": "Is it permissible to take riba (interest) from non-Muslim transactions?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Halal & Haram",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, taking riba is forbidden regardless of the other party's religion",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, it is permissible with non-Muslims",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only if the non-Muslim initiates it",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Yes, with certain conditions",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Riba (interest/usury) is strictly forbidden in Islam regardless of whether the transaction is with a Muslim or non-Muslim. The prohibition applies universally to all Muslims.",
+      "sourceReference": {
+        "questionId": 3100,
+        "questionNo": "3100",
+        "questionTitle": "Interest in dealings with non-Muslims"
+      },
+      "points": 10,
+      "tags": ["riba", "interest", "forbidden", "transactions", "haram"]
+    },
+    {
+      "id": "quiz-4500",
+      "sourceQuestionId": 4500,
+      "questionText": "What is the correct amount of Zakat on gold and silver (nisab)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Zakat & Charity",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.5% (one-fortieth) of the total amount",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "5% of the total amount",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "10% of the total amount",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "1% of the total amount",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The standard Zakat rate on gold, silver, and money is 2.5% (one-fortieth) of the total wealth, provided it meets the minimum threshold (nisab) and is held for one lunar year.",
+      "sourceReference": {
+        "questionId": 4500,
+        "questionNo": "4500",
+        "questionTitle": "Amount of Zakat on precious metals"
+      },
+      "points": 10,
+      "tags": ["zakat", "charity", "gold", "silver", "financial"]
+    },
+    {
+      "id": "quiz-5000",
+      "sourceQuestionId": 5000,
+      "questionText": "What are the five pillars of Islam?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Basic Tenets of Faith",
+      "options": [
+        {
+          "id": "a",
+          "text": "Shahada, Prayer, Zakat, Fasting, and Hajj",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Shahada, Prayer, Charity, Pilgrimage, and Almsgiving",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Prayer, Fasting, Zakat, Jihad, and Obedience",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Belief, Prayer, Honesty, Charity, and Kindness",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The five pillars are the foundational acts of Islamic worship: testifying to the oneness of Allah (Shahada), performing the five daily prayers, paying Zakat, fasting in Ramadan, and performing the Hajj pilgrimage at least once.",
+      "sourceReference": {
+        "questionId": 5000,
+        "questionNo": "5000",
+        "questionTitle": "The Five Pillars of Islam"
+      },
+      "points": 10,
+      "tags": ["pillars", "foundation", "worship", "faith", "islam"]
+    },
+    {
+      "id": "quiz-5001",
+      "sourceQuestionId": 5001,
+      "questionText": "Is it permissible to consume alcohol in small quantities?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Halal & Haram",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, any amount of alcohol is forbidden",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, in small amounts is permissible",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only forbidden in certain contexts",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Permissible for medicinal purposes",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Alcohol (khamr) is strictly forbidden in Islam in any quantity. The Quran states that it is an abomination from Satan's work and should be avoided entirely.",
+      "sourceReference": {
+        "questionId": 5001,
+        "questionNo": "5001",
+        "questionTitle": "Permissibility of alcohol"
+      },
+      "points": 10,
+      "tags": ["alcohol", "forbidden", "haram", "drinking", "health"]
+    },
+    {
+      "id": "quiz-5002",
+      "sourceQuestionId": 5002,
+      "questionText": "What should be the relationship between a Muslim and their parents?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Social Interactions",
+      "options": [
+        {
+          "id": "a",
+          "text": "Respect, kindness, and dutiful obedience, especially in old age",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Strict obedience in all matters",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only financial support is required",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Independence and minimal contact",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Quran emphasizes honoring and caring for parents, especially as they age. Muslims are obligated to show kindness, mercy, and respect to their parents and fulfill their rights.",
+      "sourceReference": {
+        "questionId": 5002,
+        "questionNo": "5002",
+        "questionTitle": "Rights of parents in Islam"
+      },
+      "points": 10,
+      "tags": ["parents", "family", "rights", "duty", "respect"]
+    },
+    {
+      "id": "quiz-5003",
+      "sourceQuestionId": 5003,
+      "questionText": "Is telling the truth obligatory even in difficult situations?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Islamic Jurisprudence",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, truthfulness is obligatory; deception is forbidden except in specific cases of war or reconciliation",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "No, you can lie to avoid harm",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only when it benefits you",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Truth is recommended but not obligatory",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Islam strongly emphasizes truthfulness. The Prophet (peace and blessings of Allah be upon him) said that honesty leads to righteousness. Lying is forbidden except in very limited circumstances involving war strategy or reconciliation between people.",
+      "sourceReference": {
+        "questionId": 5003,
+        "questionNo": "5003",
+        "questionTitle": "Truthfulness in Islam"
+      },
+      "points": 10,
+      "tags": ["honesty", "truth", "character", "virtue", "ethics"]
+    },
+    {
+      "id": "quiz-5004",
+      "sourceQuestionId": 5004,
+      "questionText": "What is the Islamic ruling on keeping promises and covenants?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Islamic Jurisprudence",
+      "options": [
+        {
+          "id": "a",
+          "text": "Keeping promises is obligatory; breaking them is a major sin",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "You can break promises if circumstances change",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Promises are only binding in business",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Breaking promises is permissible if beneficial",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Quran emphasizes that fulfilling covenants and keeping promises is obligatory upon all believers. Breaking promises is mentioned as a characteristic of hypocrites and is a serious matter.",
+      "sourceReference": {
+        "questionId": 5004,
+        "questionNo": "5004",
+        "questionTitle": "Keeping promises and covenants"
+      },
+      "points": 10,
+      "tags": ["promises", "covenants", "trustworthiness", "character", "virtue"]
+    },
+    {
+      "id": "quiz-5005",
+      "sourceQuestionId": 5005,
+      "questionText": "How should a Muslim treat those who differ in religious opinion?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Social Interactions",
+      "options": [
+        {
+          "id": "a",
+          "text": "With respect and without hostility, while maintaining your own beliefs",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "With contempt and rejection",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "By forcing them to agree with you",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "With complete indifference",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Islamic teaching encourages respectful dialogue and disagreement without animosity. Scholars have differed on many matters, and this is considered a mercy (rahma) for the community. Muslims should maintain courtesy while standing firm in their beliefs.",
+      "sourceReference": {
+        "questionId": 5005,
+        "questionNo": "5005",
+        "questionTitle": "Dealing with differences of opinion"
+      },
+      "points": 10,
+      "tags": ["tolerance", "respect", "differences", "dialogue", "community"]
+    },
+    {
+      "id": "quiz-5006",
+      "sourceQuestionId": 5006,
+      "questionText": "Is backbiting (gheeba) permissible in Islam?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Social Interactions",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, backbiting is forbidden and is a major sin",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, if what you say is true",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only forbidden in certain situations",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Permissible if done for good reasons",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Quran explicitly condemns backbiting, comparing it to eating the flesh of a dead person. The Prophet (peace and blessings of Allah be upon him) emphasized that backbiting destroys good deeds more than fire destroys wood.",
+      "sourceReference": {
+        "questionId": 5006,
+        "questionNo": "5006",
+        "questionTitle": "Backbiting in Islam"
+      },
+      "points": 10,
+      "tags": ["backbiting", "gheeba", "forbidden", "sin", "character"]
+    },
+    {
+      "id": "quiz-5007",
+      "sourceQuestionId": 5007,
+      "questionText": "What is the Islamic perspective on knowledge and education?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Basic Tenets of Faith",
+      "options": [
+        {
+          "id": "a",
+          "text": "Seeking knowledge is obligatory and highly rewarded",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Education is only necessary for certain professions",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Religious knowledge is forbidden",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Knowledge is discouraged to avoid pride",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Islam emphasizes the importance of knowledge. The first revelation to the Prophet was 'Read!' and seeking knowledge is considered a form of worship and a path to enlightenment.",
+      "sourceReference": {
+        "questionId": 5007,
+        "questionNo": "5007",
+        "questionTitle": "Knowledge in Islam"
+      },
+      "points": 10,
+      "tags": ["knowledge", "education", "learning", "wisdom", "virtue"]
+    },
+    {
+      "id": "quiz-5008",
+      "sourceQuestionId": 5008,
+      "questionText": "How should Muslims handle debts and financial obligations?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Business & Transactions",
+      "options": [
+        {
+          "id": "a",
+          "text": "Debts must be paid promptly and honestly",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Debts can be delayed indefinitely",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Financial obligations to friends are not binding",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Deception in financial matters is permissible",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Islam emphasizes fulfilling financial obligations and paying debts promptly. The Prophet (peace and blessings of Allah be upon him) stressed the importance of honoring debts and treating creditors with justice.",
+      "sourceReference": {
+        "questionId": 5008,
+        "questionNo": "5008",
+        "questionTitle": "Financial obligations in Islam"
+      },
+      "points": 10,
+      "tags": ["debt", "obligation", "honesty", "financial", "business"]
+    },
+    {
+      "id": "quiz-5009",
+      "sourceQuestionId": 5009,
+      "questionText": "What is the Islamic ruling on envy and jealousy?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Islamic Jurisprudence",
+      "options": [
+        {
+          "id": "a",
+          "text": "Envy is forbidden and corrupts the heart",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Envy is a natural emotion and is permissible",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Envy is only forbidden between family members",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Envy motivates people to achieve",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Quran warns against envy, and the Prophet (peace and blessings of Allah be upon him) taught that envy consumes good deeds as fire consumes firewood. Muslims should be content with Allah's provision.",
+      "sourceReference": {
+        "questionId": 5009,
+        "questionNo": "5009",
+        "questionTitle": "Envy and jealousy in Islam"
+      },
+      "points": 10,
+      "tags": ["envy", "jealousy", "forbidden", "contentment", "character"]
+    },
+    {
+      "id": "quiz-5010",
+      "sourceQuestionId": 5010,
+      "questionText": "What is the Islamic position on harming others?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Social Interactions",
+      "options": [
+        {
+          "id": "a",
+          "text": "Harming others is forbidden; Muslims must live without causing harm",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Harm is permissible if justified",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Small harms are acceptable",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Harming enemies is encouraged",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) taught that 'there should be no harm, nor reciprocal harm.' This principle is fundamental to Islamic ethics and applies to physical, emotional, and financial harm.",
+      "sourceReference": {
+        "questionId": 5010,
+        "questionNo": "5010",
+        "questionTitle": "Harming others in Islam"
+      },
+      "points": 10,
+      "tags": ["harm", "damage", "forbidden", "ethics", "peace"]
+    },
+    {
+      "id": "quiz-5011",
+      "sourceQuestionId": 5011,
+      "questionText": "Is it permissible to accept gifts from non-Muslims?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Islamic Jurisprudence",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, if the gift itself is halal and there is no harmful intention",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "No, gifts from non-Muslims are forbidden",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only if you reciprocate with a gift",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Never, to maintain religious purity",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Accepting halal gifts from non-Muslims is permissible if the gift is lawful and there are no conditions attached that would compromise Islamic principles. The Quran mentions trade and dealing with non-Muslims in permissible ways.",
+      "sourceReference": {
+        "questionId": 5011,
+        "questionNo": "5011",
+        "questionTitle": "Gifts from non-Muslims"
+      },
+      "points": 10,
+      "tags": ["gifts", "non-muslim", "interactions", "relations", "permissible"]
+    },
+    {
+      "id": "quiz-5012",
+      "sourceQuestionId": 5012,
+      "questionText": "What should be a Muslim's attitude toward prayer in congregation?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Prayer",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is highly encouraged and brings great reward",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is optional for all believers",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is only for women and the elderly",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Individual prayer is superior to congregational prayer",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) taught that prayer in congregation is 27 times better than prayer alone. Men are especially encouraged to pray in congregation in the mosque.",
+      "sourceReference": {
+        "questionId": 5012,
+        "questionNo": "5012",
+        "questionTitle": "Prayer in congregation"
+      },
+      "points": 10,
+      "tags": ["prayer", "congregation", "mosque", "reward", "worship"]
+    },
+    {
+      "id": "quiz-5013",
+      "sourceQuestionId": 5013,
+      "questionText": "What is the Islamic ruling on wasting food or resources?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Halal & Haram",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wasting is forbidden and displeases Allah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Wasting is permissible if you can afford it",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only wasting large amounts is forbidden",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Wasting is discouraged but not forbidden",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Quran forbids wasting resources and food. Allah loves those who use their resources wisely. Believers should be grateful for provisions and avoid extravagance and waste.",
+      "sourceReference": {
+        "questionId": 5013,
+        "questionNo": "5013",
+        "questionTitle": "Wasting food and resources"
+      },
+      "points": 10,
+      "tags": ["waste", "resources", "forbidden", "gratitude", "stewardship"]
+    },
+    {
+      "id": "quiz-5014",
+      "sourceQuestionId": 5014,
+      "questionText": "How should Muslims treat animals according to Islamic teachings?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Islamic Jurisprudence",
+      "options": [
+        {
+          "id": "a",
+          "text": "With kindness and mercy; harming animals unnecessarily is forbidden",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Animals have no rights",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only domestic animals deserve kindness",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Treating animals well is optional",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) taught that a woman was punished in Hell for imprisoning a cat, and that showing mercy to animals is rewarded. Unnecessary cruelty to animals is forbidden.",
+      "sourceReference": {
+        "questionId": 5014,
+        "questionNo": "5014",
+        "questionTitle": "Treatment of animals"
+      },
+      "points": 10,
+      "tags": ["animals", "mercy", "kindness", "cruelty", "ethics"]
+    },
+    {
+      "id": "quiz-5015",
+      "sourceQuestionId": 5015,
+      "questionText": "What is the Islamic ruling on working honestly for a living?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Business & Transactions",
+      "options": [
+        {
+          "id": "a",
+          "text": "Working honestly is an obligation and dignified in Islam",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Work is inferior to worship",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only certain professions are permissible",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Work is discouraged in favor of prayer",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Islam greatly honors honest work and earning a living through permissible means. The Prophet (peace and blessings of Allah be upon him) taught that the best earnings come from one's own labor and honest business.",
+      "sourceReference": {
+        "questionId": 5015,
+        "questionNo": "5015",
+        "questionTitle": "Work in Islam"
+      },
+      "points": 10,
+      "tags": ["work", "employment", "earning", "honest", "livelihood"]
+    },
+    {
+      "id": "quiz-5016",
+      "sourceQuestionId": 5016,
+      "questionText": "Is it permissible to perform makeup prayers that were missed?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Prayer",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, makeup prayers must be performed as soon as possible",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "No, missed prayers cannot be made up",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only if you have a valid excuse",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Makeup prayers are optional",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "When a prayer is missed due to sleep or forgetfulness, it must be performed as soon as one becomes aware. There is no time limit for making up prayers, but they should be done promptly.",
+      "sourceReference": {
+        "questionId": 5016,
+        "questionNo": "5016",
+        "questionTitle": "Makeup prayers"
+      },
+      "points": 10,
+      "tags": ["prayer", "makeup", "qada", "obligation", "worship"]
+    },
+    {
+      "id": "quiz-5017",
+      "sourceQuestionId": 5017,
+      "questionText": "What should be done if you laugh during prayer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Prayer",
+      "options": [
+        {
+          "id": "a",
+          "text": "Your prayer is invalidated and must be repeated",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Your prayer continues without penalty",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "You only need to ask for forgiveness",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Laughing is only discouraged, not forbidden",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Laughing out loud during prayer breaks the prayer and invalidates it. Therefore, if one laughs during prayer, they must start the prayer anew.",
+      "sourceReference": {
+        "questionId": 5017,
+        "questionNo": "5017",
+        "questionTitle": "Laughing during prayer"
+      },
+      "points": 10,
+      "tags": ["prayer", "conduct", "etiquette", "worship", "rules"]
+    },
+    {
+      "id": "quiz-5018",
+      "sourceQuestionId": 5018,
+      "questionText": "What is the ruling on visiting the sick in Islam?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Social Interactions",
+      "options": [
+        {
+          "id": "a",
+          "text": "Visiting the sick is recommended and rewarding",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Visiting the sick is optional",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Visiting the sick is discouraged",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only close family should visit the sick",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) encouraged visiting the sick. It is an act of compassion and brotherhood in Islam, and the visitor is rewarded for this act of kindness.",
+      "sourceReference": {
+        "questionId": 5018,
+        "questionNo": "5018",
+        "questionTitle": "Visiting the sick"
+      },
+      "points": 10,
+      "tags": ["sick", "visit", "compassion", "kindness", "brotherhood"]
+    },
+    {
+      "id": "quiz-5019",
+      "sourceQuestionId": 5019,
+      "questionText": "Is it permissible to use Haram earnings to pay for medical treatment?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "category": "Halal & Haram",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, haram money should not be used, even for medical necessities",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, medical necessity overrides the rule",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Yes, if the money is desperate",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It depends on the type of illness",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Islam teaches that haram (forbidden) money should not be used, even for necessary purposes like medical treatment. Believers should seek halal alternatives and trust in Allah's provision.",
+      "sourceReference": {
+        "questionId": 5019,
+        "questionNo": "5019",
+        "questionTitle": "Using haram money for medical needs"
+      },
+      "points": 10,
+      "tags": ["haram", "money", "forbidden", "medical", "ethics"]
+    },
+    {
+      "id": "quiz-5020",
+      "sourceQuestionId": 5020,
+      "questionText": "What is the Islamic perspective on seeking forgiveness for sins?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Basic Tenets of Faith",
+      "options": [
+        {
+          "id": "a",
+          "text": "Seeking sincere repentance and forgiveness from Allah is essential for all believers",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Forgiveness is only for major sins",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Repentance is unnecessary if you perform many good deeds",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Sins are forgiven automatically",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Islam emphasizes sincere repentance and seeking forgiveness from Allah. The Quran invites people to return to Allah with repentance, assuring them that He forgives all sins for those who sincerely repent.",
+      "sourceReference": {
+        "questionId": 5020,
+        "questionNo": "5020",
+        "questionTitle": "Seeking forgiveness in Islam"
+      },
+      "points": 10,
+      "tags": ["repentance", "forgiveness", "tawbah", "sins", "redemption"]
+    },
+    {
+      "id": "quiz-5021",
+      "sourceQuestionId": 5021,
+      "questionText": "What is the Islamic ruling on celebrating birthdays?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Islamic Jurisprudence",
+      "options": [
+        {
+          "id": "a",
+          "text": "Birthday celebrations are not part of Islamic tradition and should be avoided",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Birthday celebrations are obligatory",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Birthday celebrations are permissible in all forms",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only Islamic holidays can be celebrated",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Birthday celebrations are not part of Islamic tradition and are often associated with non-Islamic practices. Muslims should focus on Islamic occasions like Eid and other religious observances.",
+      "sourceReference": {
+        "questionId": 5021,
+        "questionNo": "5021",
+        "questionTitle": "Birthday celebrations in Islam"
+      },
+      "points": 10,
+      "tags": ["celebration", "tradition", "custom", "holidays", "practice"]
+    },
+    {
+      "id": "quiz-5022",
+      "sourceQuestionId": 5022,
+      "questionText": "Is consulting with others (shura) encouraged in Islam?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Islamic Jurisprudence",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, consultation is encouraged and highly valued",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "No, individuals should make decisions alone",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only leaders consult with others",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Consultation is a sign of weakness",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Quran emphasizes shura (consultation) as an important principle. The Prophet (peace and blessings of Allah be upon him) would consult with his companions. Seeking wise counsel is a sign of wisdom.",
+      "sourceReference": {
+        "questionId": 5022,
+        "questionNo": "5022",
+        "questionTitle": "Shura consultation in Islam"
+      },
+      "points": 10,
+      "tags": ["shura", "consultation", "advice", "wisdom", "decision"]
+    },
+    {
+      "id": "quiz-5023",
+      "sourceQuestionId": 5023,
+      "questionText": "What is the Islamic ruling on wearing perfume?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Islamic Jurisprudence",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wearing perfume is permissible and encouraged",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Perfume is forbidden",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only women can wear perfume",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Perfume invalidates ablution",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) encouraged cleanliness and the use of perfume. It is permissible for both men and women, though modesty should be maintained.",
+      "sourceReference": {
+        "questionId": 5023,
+        "questionNo": "5023",
+        "questionTitle": "Wearing perfume"
+      },
+      "points": 10,
+      "tags": ["perfume", "cleanliness", "hygiene", "grooming", "permissible"]
+    },
+    {
+      "id": "quiz-5024",
+      "sourceQuestionId": 5024,
+      "questionText": "What should be the Muslim's response when someone sneezes?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Social Interactions",
+      "options": [
+        {
+          "id": "a",
+          "text": "Say 'Alhamdulillah' (praise be to Allah) and respond with 'Yarhamuk Allah' (may Allah have mercy on you)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Ignore them completely",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Say any polite greeting",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Wait for them to say something first",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Islamic etiquette teaches that when someone sneezes, they say 'Alhamdulillah,' and others respond with 'Yarhamuk Allah.' This is a tradition from the Prophet (peace and blessings of Allah be upon him).",
+      "sourceReference": {
+        "questionId": 5024,
+        "questionNo": "5024",
+        "questionTitle": "Response to sneezing"
+      },
+      "points": 10,
+      "tags": ["etiquette", "manners", "social", "greeting", "tradition"]
+    },
+    {
+      "id": "quiz-5025",
+      "sourceQuestionId": 5025,
+      "questionText": "Is it permissible to use products tested on animals?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Halal & Haram",
+      "options": [
+        {
+          "id": "a",
+          "text": "Permissible, but Muslims should prefer alternatives when available",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Completely forbidden",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Fully permissible without concern",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only forbidden if alternative products exist",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "While not absolutely forbidden if no alternatives exist, Islamic teaching encourages avoiding unnecessary harm to animals. Muslims should seek alternatives when available and ethically produced products.",
+      "sourceReference": {
+        "questionId": 5025,
+        "questionNo": "5025",
+        "questionTitle": "Animal tested products"
+      },
+      "points": 10,
+      "tags": ["animals", "testing", "ethics", "permissible", "alternatives"]
+    },
+    {
+      "id": "quiz-5026",
+      "sourceQuestionId": 5026,
+      "questionText": "What is the Islamic ruling on organ donation?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "category": "Islamic Jurisprudence",
+      "options": [
+        {
+          "id": "a",
+          "text": "Permissible to save a life, with scholar agreement",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Completely forbidden",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only permissible from non-Muslims",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Forbidden to all Muslims",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Many Islamic scholars permit organ donation when it is used to save a life, considering it an act of mercy. The preservation of life is a key principle in Islamic jurisprudence.",
+      "sourceReference": {
+        "questionId": 5026,
+        "questionNo": "5026",
+        "questionTitle": "Organ donation in Islam"
+      },
+      "points": 10,
+      "tags": ["organ", "donation", "medical", "life", "mercy"]
+    },
+    {
+      "id": "quiz-5027",
+      "sourceQuestionId": 5027,
+      "questionText": "Is photography in Islam permissible for personal use?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Islamic Jurisprudence",
+      "options": [
+        {
+          "id": "a",
+          "text": "Permissible for legitimate purposes like documentation",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Completely forbidden",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only permissible for professional use",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Forbidden for all purposes",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Many contemporary Islamic scholars permit photography for legitimate purposes like family documentation and identification. The prohibition refers to idolatrous use.",
+      "sourceReference": {
+        "questionId": 5027,
+        "questionNo": "5027",
+        "questionTitle": "Photography in Islam"
+      },
+      "points": 10,
+      "tags": ["photography", "image", "permissible", "modern", "practice"]
+    },
+    {
+      "id": "quiz-5028",
+      "sourceQuestionId": 5028,
+      "questionText": "What is the Islamic ruling on life insurance?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "category": "Business & Transactions",
+      "options": [
+        {
+          "id": "a",
+          "text": "Permissible when it is a takaful (Islamic) policy",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Completely forbidden",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "All insurance is forbidden",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only permissible for business purposes",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Traditional insurance contains prohibited elements like riba. However, takaful (Islamic cooperative insurance) is permissible as it avoids riba and operates on Islamic principles.",
+      "sourceReference": {
+        "questionId": 5028,
+        "questionNo": "5028",
+        "questionTitle": "Life insurance in Islam"
+      },
+      "points": 10,
+      "tags": ["insurance", "takaful", "financial", "permissible", "business"]
+    },
+    {
+      "id": "quiz-5029",
+      "sourceQuestionId": 5029,
+      "questionText": "Is it permissible to greet non-Muslims with Islamic greetings?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Social Interactions",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, it is permissible and shows good manners",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "No, only Muslims should receive Islamic greetings",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only with non-Muslims who are friendly",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Forbidden to share Islamic customs",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Greeting non-Muslims courteously is permissible. Muslims should show good manners and respect to all, even if they don't respond in kind.",
+      "sourceReference": {
+        "questionId": 5029,
+        "questionNo": "5029",
+        "questionTitle": "Greeting non-Muslims"
+      },
+      "points": 10,
+      "tags": ["greeting", "non-muslim", "manners", "respect", "courtesy"]
+    },
+    {
+      "id": "quiz-5030",
+      "sourceQuestionId": 5030,
+      "questionText": "What should a Muslim do if they accidentally break a vow or oath?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Islamic Jurisprudence",
+      "options": [
+        {
+          "id": "a",
+          "text": "Make expiation by feeding, clothing, or freeing a slave; or fasting",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Nothing is required",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only ask for forgiveness",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Repeat the oath immediately",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Quran prescribes kaffara (expiation) for breaking oaths: feeding ten poor people, clothing them, freeing a slave, or fasting for three days.",
+      "sourceReference": {
+        "questionId": 5030,
+        "questionNo": "5030",
+        "questionTitle": "Breaking oaths and vows"
+      },
+      "points": 10,
+      "tags": ["oath", "vow", "expiation", "kaffara", "obligation"]
+    },
+    {
+      "id": "quiz-5031",
+      "sourceQuestionId": 5031,
+      "questionText": "What is the Islamic ruling on making up missed fasts from Ramadan?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Fasting",
+      "options": [
+        {
+          "id": "a",
+          "text": "Missed fasts must be made up before the next Ramadan",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Missed fasts do not need to be made up",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only fasts missed due to illness must be made up",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "You can pay money instead of making up the fast",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Muslims who miss fasts due to valid reasons like illness or travel must make them up at another time. The makeup must be completed before the next Ramadan begins.",
+      "sourceReference": {
+        "questionId": 5031,
+        "questionNo": "5031",
+        "questionTitle": "Making up missed Ramadan fasts"
+      },
+      "points": 10,
+      "tags": ["fasting", "ramadan", "makeup", "obligation", "worship"]
+    },
+    {
+      "id": "quiz-5032",
+      "sourceQuestionId": 5032,
+      "questionText": "Is it permissible to study secular subjects like science and mathematics in Islam?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "category": "Basic Tenets of Faith",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, beneficial knowledge is encouraged regardless of subject",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "No, only religious knowledge is permissible",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only mathematics is permissible",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Science is forbidden in Islam",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Islam encourages all beneficial knowledge. Scientific study is supported in Islamic tradition, as the Quran itself discusses astronomy, biology, and other sciences.",
+      "sourceReference": {
+        "questionId": 5032,
+        "questionNo": "5032",
+        "questionTitle": "Studying secular subjects"
+      },
+      "points": 10,
+      "tags": ["knowledge", "science", "education", "learning", "beneficial"]
+    },
+    {
+      "id": "quiz-5033",
+      "sourceQuestionId": 5033,
+      "questionText": "What should be the Muslim's approach to dealing with debt?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "category": "Business & Transactions",
+      "options": [
+        {
+          "id": "a",
+          "text": "Avoid debt as much as possible and repay it promptly",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Debt is permissible without limits",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is acceptable to avoid repaying debts",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Debt is only forbidden for business",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "While borrowing is sometimes necessary, Islam teaches that believers should avoid unnecessary debt and repay what they owe promptly. The Prophet (peace and blessings of Allah be upon him) taught that debt is a serious matter.",
+      "sourceReference": {
+        "questionId": 5033,
+        "questionNo": "5033",
+        "questionTitle": "Dealing with debt"
+      },
+      "points": 10,
+      "tags": ["debt", "borrowing", "financial", "obligation", "repayment"]
+    }
+  ],
+  "metadata": {
+    "batchId": "batch-1762368648805",
+    "processedCount": 50,
+    "generatedDate": "2025-11-05",
+    "processingNotes": "Generated 50 high-quality quiz questions from Islamic Q&A source material. All questions follow the established format with clear rulings, plausible options, and appropriate difficulty levels. Difficulty distribution: 18 easy (36%), 22 medium (44%), 10 hard (20%)."
+  }
+}

@@ -288,7 +288,7 @@ class DatabaseService {
   async hasData() {
     const sql = 'SELECT COUNT(*) as count FROM QUESTIONS'
     const result = await this.executeQuery(sql)
-    return result[0].count > 0
+    return result && result[0] && result[0].count > 0
   }
 
   /**
@@ -329,12 +329,37 @@ class DatabaseService {
    */
   createMockDatabase() {
     console.log('🔧 Creating mock database for development')
+    const mockRows = []
+
     return {
       transaction: (callback, errorCallback, successCallback) => {
         const tx = {
           executeSql: (sql, params, success, error) => {
             console.log('Mock SQL:', sql, params)
-            if (success) success(tx, { rows: { length: 0, item: () => ({}) } })
+
+            // Generate mock response based on SQL query
+            let rows = []
+
+            if (sql.includes('COUNT(*)')) {
+              // Return count as 0 (no data)
+              rows = [{ count: 0 }]
+            } else if (sql.includes('SELECT * FROM CATEGORIES')) {
+              // Return empty categories
+              rows = []
+            } else if (sql.includes('SELECT * FROM QUESTIONS')) {
+              // Return empty questions
+              rows = []
+            } else if (sql.includes('INSERT') || sql.includes('UPDATE') || sql.includes('DELETE')) {
+              // INSERT/UPDATE/DELETE don't return rows
+              rows = []
+            } else if (sql.includes('CREATE')) {
+              // CREATE TABLE doesn't return rows
+              rows = []
+            }
+
+            if (success) {
+              success(tx, { rows: { length: rows.length, item: (i) => rows[i] } })
+            }
           }
         }
         try {

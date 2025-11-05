@@ -12,7 +12,7 @@
     <!-- Content -->
     <div class="flex-1 overflow-y-auto p-4">
       <!-- Loading State -->
-      <div v-if="questionsStore.isLoading" class="flex items-center justify-center h-64">
+      <div v-if="dataStore.isLoading" class="flex items-center justify-center h-64">
         <div class="text-center">
           <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
           <p class="mt-4 text-gray-600">Loading categories...</p>
@@ -22,7 +22,7 @@
       <!-- Categories Grid -->
       <div v-else class="grid grid-cols-1 gap-3">
         <CategoryCard
-          v-for="category in questionsStore.rootCategories"
+          v-for="category in rootCategories"
           :key="category.id"
           :category="category"
           @click="selectCategory(category)"
@@ -30,7 +30,7 @@
       </div>
 
       <!-- Empty State -->
-      <div v-if="!questionsStore.isLoading && questionsStore.rootCategories.length === 0" class="text-center py-12">
+      <div v-if="!dataStore.isLoading && rootCategories.length === 0" class="text-center py-12">
         <div class="text-6xl mb-4">📚</div>
         <h3 class="text-lg font-semibold text-gray-900 mb-2">No Categories Yet</h3>
         <p class="text-gray-600">Import data to see categories</p>
@@ -40,17 +40,19 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { useQuestionsStore } from '@/stores/questions'
+import { useDataStore } from '@/stores/data'
 import CategoryCard from '@/components/browse/CategoryCard.vue'
 
 const router = useRouter()
-const questionsStore = useQuestionsStore()
+const dataStore = useDataStore()
+
+const rootCategories = computed(() => dataStore.getCategoriesByParent(0))
 
 onMounted(async () => {
-  if (!questionsStore.isInitialized) {
-    await questionsStore.initialize()
+  if (!dataStore.isLoaded) {
+    await dataStore.loadData()
   }
 })
 
