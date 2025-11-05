@@ -1,39 +1,61 @@
 <template>
-  <div class="browse-view h-full flex flex-col bg-gray-50">
-    <!-- Header -->
-    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4 shadow flex items-center">
-      <button @click="goBack" class="mr-3 text-2xl">←</button>
-      <div>
-        <h1 class="text-xl font-bold">Browse Categories</h1>
-        <p class="text-blue-100 text-sm">Explore Islamic Q&A by topic</p>
-      </div>
-    </header>
+  <div class="browse-view min-h-screen">
+    <!-- Page Header -->
+    <PageHeader
+      title="Browse Categories"
+      subtitle="Explore Islamic Q&A organized by topic"
+      :show-back="false"
+    >
+      <template #actions>
+        <Button
+          variant="ghost"
+          size="sm"
+          @click="$router.push('/search')"
+          class="hidden sm:flex"
+        >
+          <template #icon>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </template>
+          Search
+        </Button>
+      </template>
+    </PageHeader>
 
-    <!-- Content -->
-    <div class="flex-1 overflow-y-auto p-4">
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 lg:px-6 xl:px-8 py-6">
       <!-- Loading State -->
-      <div v-if="dataStore.isLoading" class="flex items-center justify-center h-64">
-        <div class="text-center">
-          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p class="mt-4 text-gray-600">Loading categories...</p>
-        </div>
+      <div v-if="dataStore.isLoading" class="space-y-3">
+        <SkeletonCard v-for="i in 6" :key="i" />
       </div>
 
       <!-- Categories Grid -->
-      <div v-else class="grid grid-cols-1 gap-3">
-        <CategoryCard
-          v-for="category in rootCategories"
-          :key="category.id"
-          :category="category"
-          @click="selectCategory(category)"
-        />
+      <div v-else-if="rootCategories.length > 0" class="space-y-3">
+        <transition-group name="slide-up" appear>
+          <CategoryCard
+            v-for="(category, index) in rootCategories"
+            :key="category.id"
+            :category="category"
+            :style="{ 'animation-delay': `${index * 30}ms` }"
+            @click="selectCategory(category)"
+          />
+        </transition-group>
       </div>
 
       <!-- Empty State -->
-      <div v-if="!dataStore.isLoading && rootCategories.length === 0" class="text-center py-12">
-        <div class="text-6xl mb-4">📚</div>
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">No Categories Yet</h3>
-        <p class="text-gray-600">Import data to see categories</p>
+      <div v-else class="text-center py-20">
+        <div class="text-8xl mb-6">📚</div>
+        <h3 class="text-2xl font-bold text-neutral-900 mb-2">No Categories Available</h3>
+        <p class="text-neutral-600 mb-6">Import data to explore Islamic Q&A categories</p>
+        <Button variant="primary" size="lg" @click="$router.push('/import')">
+          <template #icon>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+          </template>
+          Start Import
+        </Button>
       </div>
     </div>
   </div>
@@ -43,7 +65,10 @@
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDataStore } from '@/stores/data'
+import PageHeader from '@/components/common/PageHeader.vue'
+import Button from '@/components/common/Button.vue'
 import CategoryCard from '@/components/browse/CategoryCard.vue'
+import SkeletonCard from '@/components/common/SkeletonCard.vue'
 
 const router = useRouter()
 const dataStore = useDataStore()
@@ -55,10 +80,6 @@ onMounted(async () => {
     await dataStore.loadData()
   }
 })
-
-function goBack() {
-  router.back()
-}
 
 function selectCategory(category) {
   router.push(`/category/${category.id}`)
