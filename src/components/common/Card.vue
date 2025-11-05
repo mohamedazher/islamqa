@@ -1,7 +1,7 @@
 <template>
   <component
     :is="clickable ? 'button' : 'div'"
-    class="card relative bg-white rounded-xl border border-neutral-200 transition-all"
+    class="card relative bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 transition-all"
     :class="[
       clickable ? 'cursor-pointer card-hover active:scale-[0.98]' : '',
       padding === 'none' ? '' : padding === 'sm' ? 'p-3' : padding === 'md' ? 'p-4' : 'p-6',
