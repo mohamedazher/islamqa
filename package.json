@@ -4,8 +4,7 @@
   "displayName": "BetterIslam Q&A",
   "cordova": {
     "platforms": [
-      "ios",
-      "android"
+      "ios"
     ],
     "plugins": {
       "cordova-plugin-compat": {},
@@ -23,7 +22,8 @@
     "q": "^1.5.1"
   },
   "devDependencies": {
-    "cordova-android": "^9.1.0",
+    "cordova-android": "^14.0.1",
+    "cordova-browser": "^7.0.0",
     "cordova-plugin-device": "^3.0.0",
     "cordova-plugin-file": "^6.0.1",
     "cordova-plugin-splashscreen": "^6.0.2",
