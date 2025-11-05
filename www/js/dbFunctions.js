@@ -28,7 +28,7 @@ function createDB() {
     $('#progressQ>span>span').html('1%');
     $('#alertBt1').css('display', 'none');
 
-    if(platform=='Android'){
+    if(platform=='Android' &&  false){
         db = window.openDatabase("islamqa", "1.0", "Question and Answers Db", 100000000);
     }
 
@@ -424,8 +424,45 @@ var WebSqlAdapter = function () {
 
     this.initialize = function () {
         logNow("DB OPENED ");
-        if(platform=='IOS'){
-                this.db = window.sqlitePlugin.openDatabase("islamqa.db", "1.0", "IslamQA", -1);
+        if(platform=='IOS' || platform=='Android'){
+//                this.db = window.sqlitePlugin.openDatabase("islamqa.db", "1.0", "IslamQA", -1);
+                    var self = this; // <-- Store the 'this' context in the 'self' variable
+
+                    window.sqlitePlugin.openDatabase(
+                        {
+                            name: 'islamqa.db',
+                            location: 'default'
+                            // createFromLocation: 1 // If using a pre-populated DB
+                        },
+                        // Use a standard function for the success callback
+                        function(dbRef) { // <--- Standard function declaration
+                            console.log('Database islamqa.db opened successfully');
+                            // Use 'self' to refer to the WebSqlAdapter instance
+                            self.db = dbRef; // <--- Assign the opened database object using 'self'
+                            db = dbRef;
+                            console.log('self.db assigned successfully.');
+
+                            var upgrade = getStorageItem('upgrade4');
+
+                            if (upgrade != "false") {
+
+                            }else{
+
+                                renderCards();
+                                //Getting all question numbers to check if in fav
+                                refreshFavourites();}
+                        },
+                        // Use a standard function for the error callback
+                        function(error) { // <--- Standard function declaration
+                            console.error('Error opening database islamqa.db: ', JSON.stringify(error));
+                            // Use 'self' to refer to the WebSqlAdapter instance
+                            self.db = null; // Indicate that DB initialization failed
+                            // Example: self.initializationFailed(error);
+                        }
+                    );
+
+                    // Remember: Code here still executes before the callbacks.
+                    // self.db (this.db) will not be set yet.
         }
         else if(platform=='Android'){
             this.db = window.openDatabase("islamqa", "1.0", "Question and Answers Db", 100000000);
