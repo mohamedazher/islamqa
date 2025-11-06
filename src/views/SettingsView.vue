@@ -197,7 +197,7 @@ const { isDark, toggleTheme } = useTheme()
 const dataStore = useDataStore()
 
 const appName = 'BetterIslam Q&A'
-const appVersion = '1.6.1'
+const appVersion = __APP_VERSION__ // Injected by Vite from package.json
 const currentYear = new Date().getFullYear()
 
 const stats = ref({
