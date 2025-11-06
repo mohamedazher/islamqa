@@ -62,12 +62,14 @@
 import { useRouter, useRoute } from 'vue-router'
 import { ref, onMounted } from 'vue'
 import { useDataStore } from '@/stores/data'
+import { useGamificationStore } from '@/stores/gamification'
 import Icon from '@/components/common/Icon.vue'
 import Button from '@/components/common/Button.vue'
 
 const router = useRouter()
 const route = useRoute()
 const dataStore = useDataStore()
+const gamificationStore = useGamificationStore()
 
 const currentQuestion = ref(null)
 const currentAnswer = ref(null)
@@ -92,6 +94,9 @@ onMounted(async () => {
 
     currentQuestion.value = question
     currentAnswer.value = answer
+
+    // Track question read for gamification
+    gamificationStore.readQuestion()
 
     // Check if bookmarked
     const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]')
@@ -122,6 +127,8 @@ function toggleBookmark() {
   } else {
     // Add bookmark
     bookmarks.push(questionId)
+    // Track bookmark creation for gamification
+    gamificationStore.createBookmark()
   }
 
   isBookmarked.value = !isBookmarked.value

@@ -41,10 +41,10 @@ const router = createRouter({
       meta: { title: 'Search' }
     },
     {
-      path: '/folders',
-      name: 'folders',
+      path: '/bookmarks',
+      name: 'bookmarks',
       component: () => import('@/views/FoldersView.vue'),
-      meta: { title: 'My Folders' }
+      meta: { title: 'My Bookmarks' }
     },
     {
       path: '/quiz',

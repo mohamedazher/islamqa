@@ -1,12 +1,12 @@
 <template>
   <div class="category-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
     <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow flex items-center">
-      <button @click="goBack" class="mr-3 text-2xl hover:opacity-80 transition-opacity">
+      <button @click="goBack" class="mr-3 text-2xl hover:opacity-80 transition-opacity flex-shrink-0">
         <Icon name="arrowLeft" size="md" />
       </button>
-      <div class="flex-1">
-        <h1 class="text-xl font-bold">{{ currentCategory?.category_links || 'Category' }}</h1>
-        <p class="text-primary-100 dark:text-primary-200 text-sm">{{ currentCategorySummary }}</p>
+      <div class="flex-1 min-w-0">
+        <h1 class="text-lg md:text-xl font-bold line-clamp-2 break-words">{{ currentCategory?.category_links || 'Category' }}</h1>
+        <p class="text-primary-100 dark:text-primary-200 text-xs md:text-sm truncate">{{ currentCategorySummary }}</p>
       </div>
     </header>
 
@@ -34,8 +34,8 @@
               @click="selectCategory(subcat)"
               class="bg-white dark:bg-neutral-800 rounded-lg shadow dark:shadow-neutral-900/50 p-4 cursor-pointer transition-all hover:shadow-md dark:hover:shadow-neutral-900 active:bg-primary-50 dark:active:bg-primary-900/20"
             >
-              <h4 class="font-semibold text-neutral-900 dark:text-neutral-100">{{ subcat.category_links }}</h4>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">{{ subcategorySummaries[subcat.element] || 'Loading...' }}</p>
+              <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 line-clamp-2 break-words">{{ subcat.category_links }}</h4>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1 truncate">{{ subcategorySummaries[subcat.element] || 'Loading...' }}</p>
             </div>
           </div>
         </div>
@@ -163,3 +163,12 @@ function selectQuestion(question) {
 }
 
 </script>
+
+<style scoped>
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+</style>

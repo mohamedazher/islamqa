@@ -82,7 +82,7 @@ const navigation = [
   { name: 'Browse', to: '/browse', icon: 'book' },
   { name: 'Search', to: '/search', icon: 'search' },
   { name: 'Quiz', to: '/quiz', icon: 'lightning', badge: 'NEW' },
-  { name: 'My Folders', to: '/folders', icon: 'folder' },
+  { name: 'My Bookmarks', to: '/bookmarks', icon: 'bookmark' },
   { name: 'Settings', to: '/settings', icon: 'cog' },
 ]
 

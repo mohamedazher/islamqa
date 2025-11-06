@@ -119,6 +119,37 @@
           </div>
         </Card>
 
+        <!-- Tier Card -->
+        <Card padding="lg" v-if="gamification.currentTier">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">Your Tier</h3>
+            <span class="text-3xl">{{ gamification.currentTier.icon }}</span>
+          </div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="text-2xl font-bold" :style="{ color: gamification.currentTier.color }">
+              {{ gamification.currentTier.name }}
+            </div>
+            <div class="text-sm text-neutral-600 dark:text-neutral-400">
+              {{ gamification.currentTier.benefits }}
+            </div>
+          </div>
+          <div v-if="gamification.nextTier">
+            <div class="flex items-center justify-between text-xs mb-2">
+              <span class="text-neutral-600 dark:text-neutral-400">Next: {{ gamification.nextTier.name }}</span>
+              <span class="font-medium text-neutral-700 dark:text-neutral-300">{{ gamification.tierProgress }}%</span>
+            </div>
+            <div class="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2">
+              <div
+                class="h-2 rounded-full transition-all duration-700"
+                :style="{ width: gamification.tierProgress + '%', backgroundColor: gamification.nextTier.color }"
+              ></div>
+            </div>
+          </div>
+          <div v-else class="text-sm text-primary-600 dark:text-primary-400 font-medium">
+            🎉 Maximum tier achieved!
+          </div>
+        </Card>
+
         <!-- Stats Card -->
         <Card padding="lg">
           <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Your Stats</h3>
@@ -126,11 +157,11 @@
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
-                  <Icon name="book" size="md" class="text-blue-700 dark:text-blue-400" />
+                  <Icon name="document" size="md" class="text-blue-700 dark:text-blue-400" />
                 </div>
                 <div>
-                  <div class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">{{ stats.categories }}</div>
-                  <div class="text-xs text-neutral-600 dark:text-neutral-400">Categories</div>
+                  <div class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">{{ gamification.stats.questionsRead }}</div>
+                  <div class="text-xs text-neutral-600 dark:text-neutral-400">Questions Read</div>
                 </div>
               </div>
             </div>
@@ -138,11 +169,11 @@
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
-                  <Icon name="folder" size="md" class="text-green-700 dark:text-green-400" />
+                  <Icon name="bookmark" size="md" class="text-green-700 dark:text-green-400" />
                 </div>
                 <div>
-                  <div class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">{{ stats.bookmarks }}</div>
-                  <div class="text-xs text-neutral-600 dark:text-neutral-400">Bookmarks</div>
+                  <div class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">{{ gamification.stats.bookmarksCreated }}</div>
+                  <div class="text-xs text-neutral-600 dark:text-neutral-400">Bookmarks Created</div>
                 </div>
               </div>
             </div>
@@ -243,10 +274,10 @@ const quickActions = [
     badge: 'NEW'
   },
   {
-    name: 'Folders',
-    icon: 'folder',
+    name: 'Bookmarks',
+    icon: 'bookmark',
     description: 'Saved items',
-    to: '/folders'
+    to: '/bookmarks'
   }
 ]
 
