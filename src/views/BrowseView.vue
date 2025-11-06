@@ -24,7 +24,7 @@
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 lg:px-6 xl:px-8 py-6">
       <!-- Loading State -->
-      <div v-if="dataStore.isLoading" class="space-y-3">
+      <div v-if="isLoading" class="space-y-3">
         <SkeletonCard v-for="i in 6" :key="i" />
       </div>
 
@@ -60,7 +60,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDataStore } from '@/stores/data'
 import PageHeader from '@/components/common/PageHeader.vue'
@@ -72,11 +72,17 @@ import SkeletonCard from '@/components/common/SkeletonCard.vue'
 const router = useRouter()
 const dataStore = useDataStore()
 
-const rootCategories = computed(() => dataStore.getCategoriesByParent(0))
+const rootCategories = ref([])
+const isLoading = ref(true)
 
 onMounted(async () => {
-  if (!dataStore.isLoaded) {
-    await dataStore.loadData()
+  try {
+    isLoading.value = true
+    rootCategories.value = await dataStore.getCategoriesByParent(0)
+  } catch (error) {
+    console.error('Error loading categories:', error)
+  } finally {
+    isLoading.value = false
   }
 })
 

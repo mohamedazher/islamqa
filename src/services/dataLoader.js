@@ -1,7 +1,9 @@
 /**
  * Data Loader Service
- * Loads Q&A data from the old JS files
+ * Loads Q&A data from JS files and imports to IndexedDB
  */
+
+import dexieDb from './dexieDatabase'
 
 class DataLoaderService {
   constructor() {
@@ -11,75 +13,108 @@ class DataLoaderService {
   }
 
   /**
-   * Load all data and import to database
+   * Get the correct base path for data files
    */
-  async loadAndImport(db, onProgress) {
+  getDataPath() {
+    // For Cordova builds, files are in www/js/
+    // For web builds, files are in public/data/ (served as /data/)
+    if (window.cordova) {
+      return './js'
+    }
+    return '/data'
+  }
+
+  /**
+   * Load all data and import to IndexedDB
+   */
+  async loadAndImport(onProgress) {
     try {
+      // Check if already imported
+      const isImported = await dexieDb.isImported()
+      if (isImported) {
+        console.log('✅ Data already imported')
+        if (onProgress) onProgress({ step: 'Data already loaded', progress: 100 })
+        return true
+      }
+
       this.isLoading = true
       this.progress = 0
 
-      // Step 1: Load and import categories (from www-old-backup/js/categories.js)
+      // Step 1: Load and import categories
       this.currentStep = 'Loading categories...'
-      if (onProgress) onProgress({ step: this.currentStep, progress: 0 })
+      if (onProgress) onProgress({ step: this.currentStep, progress: 5 })
 
       const categoriesData = await this.loadCategories()
       if (categoriesData && categoriesData.length > 0) {
-        await db.importCategories(categoriesData)
+        await dexieDb.importCategories(categoriesData)
         this.progress = 20
         if (onProgress) onProgress({ step: 'Categories imported', progress: 20 })
       }
 
       // Step 2: Load and import questions (4 files)
       this.currentStep = 'Loading questions...'
-      if (onProgress) onProgress({ step: this.currentStep, progress: 25 })
+      if (onProgress) onProgress({ step: this.currentStep, progress: 20 })
 
       for (let i = 1; i <= 4; i++) {
         const questionsData = await this.loadQuestions(i)
         if (questionsData && questionsData.length > 0) {
-          await db.importQuestions(questionsData)
+          await dexieDb.importQuestions(questionsData)
         }
-        const progress = 25 + (i * 15)
+        const progress = 20 + (i * 10)
         this.progress = progress
         if (onProgress) onProgress({ step: `Questions part ${i} imported`, progress })
       }
 
       // Step 3: Load and import answers (12 files)
       this.currentStep = 'Loading answers...'
-      if (onProgress) onProgress({ step: this.currentStep, progress: 85 })
+      if (onProgress) onProgress({ step: this.currentStep, progress: 60 })
 
       for (let i = 1; i <= 12; i++) {
         const answersData = await this.loadAnswers(i)
         if (answersData && answersData.length > 0) {
-          await db.importAnswers(answersData)
+          await dexieDb.importAnswers(answersData)
         }
-        const progress = 85 + (i * 1.25)
+        const progress = 60 + (i * 3)
         this.progress = progress
         if (onProgress) onProgress({ step: `Answers part ${i} imported`, progress })
       }
 
+      // Mark as imported
+      await dexieDb.markAsImported()
+
       this.progress = 100
       if (onProgress) onProgress({ step: 'Import complete!', progress: 100 })
+
+      // Log stats
+      const stats = await dexieDb.getStats()
+      console.log('📊 Database stats:', stats)
 
       this.isLoading = false
       return true
     } catch (error) {
       this.isLoading = false
-      console.error('Data import failed:', error)
+      console.error('❌ Data import failed:', error)
       throw error
     }
   }
 
   /**
-   * Load categories from old JS file
+   * Load categories from JS file
    */
   async loadCategories() {
     try {
-      const response = await fetch('/www-old-backup/js/categories.js')
+      const basePath = this.getDataPath()
+      const response = await fetch(`${basePath}/categories.js`)
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+      }
       const text = await response.text()
       // Extract JSON from JavaScript file
       const jsonMatch = text.match(/\[.*\]/s)
       if (jsonMatch) {
-        return JSON.parse(jsonMatch[0])
+        const data = JSON.parse(jsonMatch[0])
+        console.log(`📁 Loaded ${data.length} categories`)
+        return data
       }
       console.error('Could not extract JSON from categories.js')
       return []
@@ -90,16 +125,22 @@ class DataLoaderService {
   }
 
   /**
-   * Load questions from old JS file (parts 1-4)
+   * Load questions from JS file (parts 1-4)
    */
   async loadQuestions(part) {
     try {
-      const response = await fetch(`/www-old-backup/js/questions${part}.js`)
+      const basePath = this.getDataPath()
+      const response = await fetch(`${basePath}/questions${part}.js`)
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+      }
       const text = await response.text()
       // Extract JSON from JavaScript file
       const jsonMatch = text.match(/\[.*\]/s)
       if (jsonMatch) {
-        return JSON.parse(jsonMatch[0])
+        const data = JSON.parse(jsonMatch[0])
+        console.log(`📝 Loaded ${data.length} questions (part ${part})`)
+        return data
       }
       return []
     } catch (error) {
@@ -109,22 +150,42 @@ class DataLoaderService {
   }
 
   /**
-   * Load answers from old JS file (parts 1-12)
+   * Load answers from JS file (parts 1-12)
    */
   async loadAnswers(part) {
     try {
-      const response = await fetch(`/www-old-backup/js/answers${part}.js`)
+      const basePath = this.getDataPath()
+      const response = await fetch(`${basePath}/answers${part}.js`)
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+      }
       const text = await response.text()
       // Extract JSON from JavaScript file
       const jsonMatch = text.match(/\[.*\]/s)
       if (jsonMatch) {
-        return JSON.parse(jsonMatch[0])
+        const data = JSON.parse(jsonMatch[0])
+        console.log(`💬 Loaded ${data.length} answers (part ${part})`)
+        return data
       }
       return []
     } catch (error) {
       console.error(`Failed to load answers part ${part}:`, error)
       return []
     }
+  }
+
+  /**
+   * Check if data is already imported
+   */
+  async isDataImported() {
+    return await dexieDb.isImported()
+  }
+
+  /**
+   * Get database statistics
+   */
+  async getStats() {
+    return await dexieDb.getStats()
   }
 }
 

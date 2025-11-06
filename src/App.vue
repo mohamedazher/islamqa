@@ -24,15 +24,35 @@
 import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
+import { useDataStore } from '@/stores/data'
 import DesktopSidebar from '@/components/layout/DesktopSidebar.vue'
 import MobileBottomNav from '@/components/layout/MobileBottomNav.vue'
 
 const router = useRouter()
 const { initTheme } = useTheme()
+const dataStore = useDataStore()
 
-onMounted(() => {
+onMounted(async () => {
   // Initialize theme
   initTheme()
+
+  console.log('🌐 Running in browser mode')
+
+  // Check if data is imported
+  try {
+    const isImported = await dataStore.isDataImported()
+    const currentPath = router.currentRoute.value.path
+
+    if (!isImported && currentPath !== '/import') {
+      console.log('⚠️  Data not imported, redirecting to import page')
+      router.push('/import')
+    } else if (isImported) {
+      // Initialize data store
+      await dataStore.initialize()
+    }
+  } catch (error) {
+    console.error('Error checking import status:', error)
+  }
 
   // Handle Android back button
   if (window.cordova && window.device && window.device.platform === 'Android') {
