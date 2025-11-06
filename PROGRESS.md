@@ -1,8 +1,8 @@
 # 📊 Project Progress & Modernization Summary
 
-**Branch**: `claude/islamic-qa-app-planning-011CUq94UCWu8dK2eyhrkCNy`
-**Date**: November 2025
-**Status**: ✅ Dark Mode & Deployment Ready
+**Branch**: `master` (merged from feature branch)
+**Date**: November 6, 2025
+**Status**: ✅ Core Navigation Fixed & Live on GitHub Pages
 
 ---
 
@@ -245,7 +245,10 @@ See **MIGRATION.md** for step-by-step instructions on moving this branch to a ne
 ## ✅ What Works Right Now
 
 **Full Features:**
-- ✅ Browse categories (with dark mode)
+- ✅ Browse categories (with dark mode) - **FIXED: Element ID navigation**
+- ✅ Category navigation - **NEW: Fixed subcategory loading**
+- ✅ Question loading - **FIXED: String ID lookups**
+- ✅ Answer display - **FIXED: Proper question_id matching**
 - ✅ Search questions with fuzzy matching (with dark mode)
 - ✅ View question answers (with dark mode)
 - ✅ Bookmark questions
@@ -259,14 +262,63 @@ See **MIGRATION.md** for step-by-step instructions on moving this branch to a ne
 **Deployment:**
 - ✅ Cordova builds for Android/iOS
 - ✅ Web deployment to GitHub Pages
-- ✅ Automatic deployment on push to main
+- ✅ Automatic deployment on push to master
+- ✅ Live at: https://mohamedazher.github.io/islamqa/
+
+---
+
+## 🔧 Recent Bug Fixes (November 6, 2025)
+
+### Navigation Flow Issues Fixed
+
+**1. Category Navigation (ID Mismatch)**
+- **Problem**: Categories have dual IDs - `id` (row number) and `element` (semantic ID)
+- **Fixed**: Updated CategoryView and BrowseView to use `element` instead of `id`
+- **Result**: Clicking categories now loads subcategories correctly
+
+**2. Question Loading (Data Type Issues)**
+- **Problem**: Questions stored with string IDs ("564") but lookup used parseInt()
+- **Fixed**: Updated `getQuestion()` to try string lookup first, then integer as fallback
+- **Result**: Questions now load correctly from database
+
+**3. Promise Rendering in Templates**
+- **Problem**: Async functions called in Vue templates rendered as "[object Promise]"
+- **Fixed**: CategoryCard uses `ref()` + `onMounted()`, CategoryView computes summaries upfront
+- **Result**: Category counts display correctly (e.g., "3 subcategories • 15 questions")
+
+**4. Database Adapter Improvements**
+- **Added logging** to getAnswer() and getQuestion() for debugging
+- **Robust fallbacks** for both string and integer ID formats
+- **Comment documentation** explaining ID field usage
+
+### Commits Made
+1. `Fix category and question navigation using element IDs`
+2. `Fix [object Promise] rendering in category views`
+3. `Fix remaining [object Promise] rendering by computing summaries upfront`
+4. `Add dexie dependency for IndexedDB support`
+
+### Deployment Status
+- ✅ All 3 bug fix commits merged to master
+- ✅ Pushed to origin/master
+- ✅ GitHub Actions workflow completed successfully (49s)
+- ✅ Deployed to https://mohamedazher.github.io/islamqa/
 
 ---
 
 ## 🎯 Summary
 
-**This branch is production-ready** for the core browsing experience with a professional modern UI and full dark mode support. The main browsing flows (Home → Browse → Category → Question → Search) are polished and complete.
+**The app is now fully functional and deployed!** The complete navigation flow works:
+1. Browse categories ✅
+2. Click category → Load subcategories ✅
+3. Click subcategory → Load questions ✅
+4. Click question → Load answer ✅
+5. Search questions ✅
 
-The remaining views (Quiz, Folders, Import) are fully functional but just need the same dark mode treatment applied to them - this is optional polish work that can be done later.
+All core features working with modern Vue 3 architecture, dark mode support, and professional UI.
 
-**Ready to deploy!** 🚀
+**Next priorities** (if continuing):
+1. Scale quiz questions (currently 2205, target 500-1000 high-quality)
+2. Data migration to API-based system (current: JS files, future: API)
+3. Complete dark mode for Quiz/Folders/Import views (optional polish)
+
+**Ready to use!** 🚀
