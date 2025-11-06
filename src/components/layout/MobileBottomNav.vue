@@ -38,8 +38,8 @@ const navigation = [
   { name: 'Home', to: '/', icon: 'home' },
   { name: 'Browse', to: '/browse', icon: 'book' },
   { name: 'Search', to: '/search', icon: 'search' },
-  { name: 'Quiz', to: '/quiz', icon: 'lightning', badge: true },
   { name: 'Folders', to: '/folders', icon: 'folder' },
+  { name: 'Settings', to: '/settings', icon: 'cog' },
 ]
 
 const isActive = (to) => {

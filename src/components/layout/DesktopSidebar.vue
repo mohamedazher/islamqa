@@ -83,6 +83,7 @@ const navigation = [
   { name: 'Search', to: '/search', icon: 'search' },
   { name: 'Quiz', to: '/quiz', icon: 'lightning', badge: 'NEW' },
   { name: 'My Folders', to: '/folders', icon: 'folder' },
+  { name: 'Settings', to: '/settings', icon: 'cog' },
 ]
 
 const isActive = (to) => {
