@@ -1,10 +1,15 @@
 <template>
-  <div class="folders-view h-full flex flex-col bg-gray-50">
-    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4 shadow flex items-center">
-      <button @click="goBack" class="mr-3 text-2xl">←</button>
+  <div class="folders-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
+    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow flex items-center">
+      <button @click="goBack" class="mr-3 hover:opacity-80 transition-opacity">
+        <Icon name="arrowLeft" size="md" />
+      </button>
       <div class="flex-1">
-        <h1 class="text-xl font-bold">My Folders</h1>
-        <p class="text-blue-100 text-sm">{{ bookmarkedQuestions.length }} bookmarks</p>
+        <div class="flex items-center gap-2">
+          <Icon name="folder" size="md" />
+          <h1 class="text-xl font-bold">My Folders</h1>
+        </div>
+        <p class="text-primary-100 text-sm">{{ bookmarkedQuestions.length }} bookmarks</p>
       </div>
     </header>
 
@@ -12,8 +17,8 @@
       <!-- Loading State -->
       <div v-if="dataStore.isLoading" class="flex items-center justify-center h-32">
         <div class="text-center">
-          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p class="mt-4 text-gray-600">Loading bookmarks...</p>
+          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 dark:border-primary-400 mx-auto"></div>
+          <p class="mt-4 text-neutral-600 dark:text-neutral-400">Loading bookmarks...</p>
         </div>
       </div>
 
@@ -21,10 +26,13 @@
       <div v-else-if="bookmarkedQuestions.length > 0">
         <div class="mb-4">
           <div class="flex items-center justify-between">
-            <h2 class="text-lg font-semibold text-gray-900">🔖 Bookmarked Questions</h2>
+            <div class="flex items-center gap-2">
+              <Icon name="bookmark" size="md" class="text-primary-600 dark:text-primary-400" />
+              <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">Bookmarked Questions</h2>
+            </div>
             <button
               @click="clearAll"
-              class="text-sm text-red-600 hover:text-red-700 font-medium"
+              class="text-sm text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium"
             >
               Clear all
             </button>
@@ -34,22 +42,22 @@
           <div
             v-for="question in bookmarkedQuestions"
             :key="question.id"
-            class="bg-white rounded-lg shadow p-4"
+            class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-4"
           >
             <div class="flex items-start justify-between">
               <div
                 @click="selectQuestion(question)"
-                class="flex-1 cursor-pointer hover:text-blue-600 transition"
+                class="flex-1 cursor-pointer hover:text-primary-600 dark:hover:text-primary-400 transition"
               >
-                <h4 class="font-semibold text-gray-900 mb-2 line-clamp-2">{{ question.question }}</h4>
-                <p class="text-sm text-gray-600 mb-2 line-clamp-1">{{ question.question_full }}</p>
-                <span class="text-xs text-blue-600 font-medium">Q#{{ question.question_no }}</span>
+                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2 line-clamp-2">{{ question.question }}</h4>
+                <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2 line-clamp-1">{{ question.question_full }}</p>
+                <span class="text-xs text-primary-600 dark:text-primary-400 font-medium">Q#{{ question.question_no }}</span>
               </div>
               <button
                 @click="removeBookmark(question.id)"
-                class="ml-3 text-xl hover:text-red-600 transition"
+                class="ml-3 hover:text-red-600 dark:hover:text-red-400 transition"
               >
-                ✕
+                <Icon name="xCircle" size="md" class="text-neutral-400 dark:text-neutral-500 hover:text-red-600 dark:hover:text-red-400" />
               </button>
             </div>
           </div>
@@ -58,12 +66,14 @@
 
       <!-- Empty State -->
       <div v-else class="text-center py-12">
-        <div class="text-6xl mb-4">📭</div>
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">No bookmarks yet</h3>
-        <p class="text-gray-600 mb-6">Start bookmarking questions to save them for later</p>
+        <div class="flex justify-center mb-4">
+          <Icon name="folder" size="xl" class="text-neutral-300 dark:text-neutral-700 w-16 h-16" />
+        </div>
+        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">No bookmarks yet</h3>
+        <p class="text-neutral-600 dark:text-neutral-400 mb-6">Start bookmarking questions to save them for later</p>
         <button
           @click="goToBrowse"
-          class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition"
+          class="bg-primary-600 dark:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-700 dark:hover:bg-primary-600 transition"
         >
           Browse Questions
         </button>
@@ -76,6 +86,7 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDataStore } from '@/stores/data'
+import Icon from '@/components/common/Icon.vue'
 
 const router = useRouter()
 const dataStore = useDataStore()
