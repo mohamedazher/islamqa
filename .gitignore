@@ -9,6 +9,8 @@ hooks/
 build/
 dist/
 .cordova/
+www/assets/
+www/index.html
 
 # IDE and editor files
 .vscode/
