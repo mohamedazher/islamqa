@@ -1,10 +1,19 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import { readFileSync } from 'fs'
+
+// Read version from package.json
+const packageJson = JSON.parse(readFileSync('./package.json', 'utf-8'))
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
+
+  // Inject app version as global constant
+  define: {
+    __APP_VERSION__: JSON.stringify(packageJson.version)
+  },
 
   // Base path for GitHub Pages (https://username.github.io/repo-name/)
   base: '/islamqa/',
