@@ -79,11 +79,16 @@ onMounted(async () => {
     loading.value = true
     const questionId = route.params.id
 
+    console.log('Loading question:', questionId)
+
     // Load question and answer from database
     const [question, answer] = await Promise.all([
       dataStore.getQuestion(questionId),
       dataStore.getAnswer(questionId)
     ])
+
+    console.log('Question loaded:', question)
+    console.log('Answer loaded:', answer)
 
     currentQuestion.value = question
     currentAnswer.value = answer

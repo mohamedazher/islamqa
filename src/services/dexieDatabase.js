@@ -184,10 +184,24 @@ class DexieDatabase extends Dexie {
 
   /**
    * Get question by ID
+   * Questions are stored with string IDs ("1", "2", etc.)
    */
   async getQuestion(id) {
     try {
-      return await this.questions.get(parseInt(id))
+      // Try with string first (as stored in data)
+      const idStr = String(id)
+      let question = await this.questions.get(idStr)
+
+      console.log(`Looking for question with id="${idStr}":`, question)
+
+      // If not found and id looks numeric, try as integer
+      if (!question && !isNaN(id)) {
+        const idInt = parseInt(id)
+        question = await this.questions.get(idInt)
+        console.log(`Trying with id=${idInt}:`, question)
+      }
+
+      return question
     } catch (error) {
       console.error('Error getting question:', error)
       return null
@@ -196,16 +210,23 @@ class DexieDatabase extends Dexie {
 
   /**
    * Get answer by question ID
+   * Answers are indexed by question_id field which links to questions.id
    */
   async getAnswer(questionId) {
     try {
-      // Try with string first (as stored in data), then try with integer
+      // Convert to string for consistent comparison (data stores as strings)
       const questionStr = String(questionId)
+
+      // Try primary lookup by question_id (stored as string)
       let answer = await this.answers.where('question_id').equals(questionStr).first()
 
-      // If not found and questionId looks numeric, try as integer
+      console.log(`Looking for answer with question_id="${questionStr}":`, answer)
+
+      // If not found, try with integer format
       if (!answer && !isNaN(questionId)) {
-        answer = await this.answers.where('question_id').equals(parseInt(questionId)).first()
+        const questionInt = parseInt(questionId)
+        answer = await this.answers.where('question_id').equals(questionInt).first()
+        console.log(`Trying with question_id=${questionInt}:`, answer)
       }
 
       return answer

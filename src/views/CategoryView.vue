@@ -6,7 +6,7 @@
       </button>
       <div class="flex-1">
         <h1 class="text-xl font-bold">{{ currentCategory?.category_links || 'Category' }}</h1>
-        <p class="text-primary-100 dark:text-primary-200 text-sm">{{ currentCategory ? getContentSummary(currentCategory.element) : '' }}</p>
+        <p class="text-primary-100 dark:text-primary-200 text-sm">{{ currentCategorySummary }}</p>
       </div>
     </header>
 
@@ -35,7 +35,7 @@
               class="bg-white dark:bg-neutral-800 rounded-lg shadow dark:shadow-neutral-900/50 p-4 cursor-pointer transition-all hover:shadow-md dark:hover:shadow-neutral-900 active:bg-primary-50 dark:active:bg-primary-900/20"
             >
               <h4 class="font-semibold text-neutral-900 dark:text-neutral-100">{{ subcat.category_links }}</h4>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">{{ getContentSummary(subcat.element) }}</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">{{ getCachedSummary(subcat.element) }}</p>
             </div>
           </div>
         </div>
@@ -84,6 +84,39 @@ const currentCategory = ref(null)
 const subcategories = ref([])
 const categoryQuestions = ref([])
 const isLoading = ref(true)
+const currentCategorySummary = ref('')
+
+// Cache for summary text to avoid recalculating
+const summaryCache = new Map()
+
+// Get cached summary or calculate it
+async function getCachedSummary(categoryElement) {
+  // Return cached if available
+  if (summaryCache.has(categoryElement)) {
+    return summaryCache.get(categoryElement)
+  }
+
+  // Calculate and cache
+  try {
+    const [subCategories, questions] = await Promise.all([
+      dataStore.getCategoriesByParent(categoryElement),
+      dataStore.getQuestionsByCategory(categoryElement)
+    ])
+
+    let summary = ''
+    if (subCategories.length > 0) {
+      summary = `${subCategories.length} subcategories • ${questions.length} questions`
+    } else {
+      summary = `${questions.length} questions`
+    }
+
+    summaryCache.set(categoryElement, summary)
+    return summary
+  } catch (error) {
+    console.error('Error getting content summary:', error)
+    return ''
+  }
+}
 
 // Function to load category by ID
 const loadCategory = async () => {
@@ -103,6 +136,14 @@ const loadCategory = async () => {
 
       subcategories.value = subcats
       categoryQuestions.value = questions
+
+      // Calculate and cache current category summary
+      currentCategorySummary.value = await getCachedSummary(currentCategory.value.element)
+
+      // Preload summaries for subcategories
+      subcats.forEach(subcat => {
+        getCachedSummary(subcat.element).catch(err => console.error('Error preloading summary:', err))
+      })
 
       // Debug logging
       console.log('Category ID:', categoryId)
@@ -135,23 +176,4 @@ function selectQuestion(question) {
   router.push(`/question/${question.id}`)
 }
 
-async function getContentSummary(categoryElement) {
-  try {
-    const [subCategories, questions] = await Promise.all([
-      dataStore.getCategoriesByParent(categoryElement),
-      dataStore.getQuestionsByCategory(categoryElement)
-    ])
-
-    // If there are subcategories, show both counts
-    if (subCategories.length > 0) {
-      return `${subCategories.length} subcategories • ${questions.length} questions`
-    }
-
-    // Otherwise, show only questions
-    return `${questions.length} questions`
-  } catch (error) {
-    console.error('Error getting content summary:', error)
-    return ''
-  }
-}
 </script>

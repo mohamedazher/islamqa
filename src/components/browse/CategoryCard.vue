@@ -41,7 +41,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { useDataStore } from '@/stores/data'
 import Card from '@/components/common/Card.vue'
 import Icon from '@/components/common/Icon.vue'
@@ -57,12 +57,20 @@ const props = defineProps({
 
 defineEmits(['click'])
 
-const subcategoryCount = computed(() => {
-  return dataStore.getCategoriesByParent(props.category.element).length
-})
+const subcategoryCount = ref(0)
+const questionCount = ref(0)
 
-const questionCount = computed(() => {
-  return dataStore.getQuestionsByCategory(props.category.element).length
+onMounted(async () => {
+  try {
+    const [subcats, questions] = await Promise.all([
+      dataStore.getCategoriesByParent(props.category.element),
+      dataStore.getQuestionsByCategory(props.category.element)
+    ])
+    subcategoryCount.value = subcats.length
+    questionCount.value = questions.length
+  } catch (error) {
+    console.error('Error loading category counts:', error)
+  }
 })
 
 const categoryIcon = computed(() => {
