@@ -28,7 +28,7 @@
       </div>
 
       <!-- Import Banner -->
-      <div v-if="!dataStore.isLoaded" class="mb-6 animate-slide-up">
+      <div v-if="!dataStore.isReady" class="mb-6 animate-slide-up">
         <Card padding="md" class="bg-gradient-to-r from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-800/20 border-amber-200 dark:border-amber-800/30">
           <div class="flex items-start gap-4">
             <div class="w-12 h-12 bg-amber-100 dark:bg-amber-800/30 rounded-lg flex items-center justify-center">
@@ -83,7 +83,7 @@
       </div>
 
       <!-- Stats & Progress Section -->
-      <div v-if="dataStore.isLoaded" class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 mb-8">
+      <div v-if="dataStore.isReady" class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 mb-8">
         <!-- Gamification Progress Card -->
         <Card padding="lg" class="lg:col-span-2 bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-primary-900/20 dark:via-neutral-900 dark:to-accent-900/20">
           <div class="flex items-start justify-between mb-4">
@@ -129,7 +129,7 @@
                   <Icon name="book" size="md" class="text-blue-700 dark:text-blue-400" />
                 </div>
                 <div>
-                  <div class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">{{ dataStore.categories.length }}</div>
+                  <div class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">{{ stats.categories }}</div>
                   <div class="text-xs text-neutral-600 dark:text-neutral-400">Categories</div>
                 </div>
               </div>
@@ -163,7 +163,7 @@
       </div>
 
       <!-- Recent Achievements -->
-      <div v-if="dataStore.isLoaded && recentAchievements.length > 0" class="mb-8">
+      <div v-if="dataStore.isReady && recentAchievements.length > 0" class="mb-8">
         <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Recent Achievements</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <Card
@@ -218,6 +218,7 @@ const dataStore = useDataStore()
 const gamification = useGamificationStore()
 
 const stats = ref({
+  categories: 0,
   bookmarks: 0
 })
 
@@ -261,8 +262,11 @@ onMounted(async () => {
     // Initialize gamification
     gamification.initializeFromStorage()
 
-    // Load bookmarks from localStorage if data is already loaded
-    if (dataStore.isLoaded) {
+    // Load database stats if data is ready
+    if (dataStore.isReady) {
+      const dbStats = await dataStore.getStats()
+      stats.value.categories = dbStats.categories
+
       const bookmarked = JSON.parse(localStorage.getItem('bookmarkedQuestions') || '[]')
       stats.value.bookmarks = bookmarked.length
     }

@@ -121,12 +121,10 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { useDataStore } from '@/stores/data'
-import db from '@/services/database'
+import dataLoader from '@/services/dataLoader'
 import Icon from '@/components/common/Icon.vue'
 
 const router = useRouter()
-const dataStore = useDataStore()
 
 const isImporting = ref(false)
 const progress = ref(0)
@@ -134,8 +132,12 @@ const currentStep = ref('')
 const error = ref('')
 
 onMounted(async () => {
-  // Ensure database is initialized
-  await db.initialize()
+  // Check if data is already imported
+  const isImported = await dataLoader.isDataImported()
+  if (isImported) {
+    console.log('✅ Data already imported, redirecting to home...')
+    router.push('/')
+  }
 })
 
 async function startImport() {
@@ -144,35 +146,22 @@ async function startImport() {
   progress.value = 0
 
   try {
-    // Simulate import progress
-    const steps = [
-      { step: 'Loading categories...', progress: 10 },
-      { step: 'Loading questions part 1...', progress: 20 },
-      { step: 'Loading questions part 2...', progress: 30 },
-      { step: 'Loading questions part 3...', progress: 40 },
-      { step: 'Loading questions part 4...', progress: 50 },
-      { step: 'Loading answers part 1...', progress: 60 },
-      { step: 'Loading answers part 2...', progress: 70 },
-      { step: 'Loading answers part 3...', progress: 80 },
-      { step: 'Loading answers part 4...', progress: 90 },
-      { step: 'Finalizing...', progress: 95 }
-    ]
+    console.log('📥 Starting data import...')
 
-    for (const step of steps) {
-      await new Promise(resolve => setTimeout(resolve, 200))
-      currentStep.value = step.step
-      progress.value = step.progress
-    }
-
-    // Actually load the data
-    console.log('📥 Starting data load...')
-    await dataStore.loadData()
+    // Import data with progress tracking
+    await dataLoader.loadAndImport((progressInfo) => {
+      currentStep.value = progressInfo.step
+      progress.value = progressInfo.progress
+    })
 
     progress.value = 100
     currentStep.value = 'Import complete!'
     console.log('✅ Import finished')
+
+    // Wait a moment before redirecting
+    await new Promise(resolve => setTimeout(resolve, 1000))
   } catch (err) {
-    console.error('Import failed:', err)
+    console.error('❌ Import failed:', err)
     error.value = err.message || 'Import failed. Please try again.'
     isImporting.value = false
   }

@@ -74,11 +74,11 @@
           <!-- Stats Grid -->
           <div class="grid grid-cols-3 gap-3 pt-2">
             <div class="bg-primary-50 dark:bg-primary-950/30 rounded-lg p-3 text-center">
-              <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">{{ dataStore.questions?.length || '8000+' }}</div>
+              <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">{{ stats.questions > 0 ? stats.questions : '8000+' }}</div>
               <div class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">Questions</div>
             </div>
             <div class="bg-accent-50 dark:bg-accent-950/30 rounded-lg p-3 text-center">
-              <div class="text-2xl font-bold text-accent-600 dark:text-accent-400">{{ dataStore.categories?.length || '269' }}</div>
+              <div class="text-2xl font-bold text-accent-600 dark:text-accent-400">{{ stats.categories > 0 ? stats.categories : '269' }}</div>
               <div class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">Categories</div>
             </div>
             <div class="bg-primary-50 dark:bg-primary-950/30 rounded-lg p-3 text-center">
@@ -186,7 +186,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
 import { useDataStore } from '@/stores/data'
@@ -199,6 +199,22 @@ const dataStore = useDataStore()
 const appName = 'BetterIslam Q&A'
 const appVersion = '1.6.1'
 const currentYear = new Date().getFullYear()
+
+const stats = ref({
+  categories: 0,
+  questions: 0,
+  answers: 0
+})
+
+onMounted(async () => {
+  try {
+    if (dataStore.isReady) {
+      stats.value = await dataStore.getStats()
+    }
+  } catch (error) {
+    console.error('Error loading stats:', error)
+  }
+})
 
 function goBack() {
   router.back()

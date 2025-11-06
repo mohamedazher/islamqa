@@ -1,176 +1,235 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import dexieDb from '@/services/dexieDatabase'
 
 /**
- * Data Store - Loads and caches data from old JS files
- * This allows the app to work in browser mode for development
+ * Data Store - Reads data from IndexedDB (Dexie)
+ * All data persistence is handled by Dexie database
  */
 export const useDataStore = defineStore('data', () => {
-  const categories = ref([])
-  const questions = ref([])
-  const answers = ref([])
   const isLoading = ref(false)
-  const isLoaded = ref(false)
+  const isReady = ref(false)
 
   /**
-   * Load all data from old JS files
+   * Initialize the store (check if database is ready)
    */
-  async function loadData() {
-    if (isLoaded.value) return
-
+  async function initialize() {
     try {
-      isLoading.value = true
-      console.log('📚 Loading data from old JS files...')
-
-      // Load categories
-      await loadCategories()
-
-      // Load all questions (4 parts)
-      for (let i = 1; i <= 4; i++) {
-        await loadQuestions(i)
+      const hasData = await dexieDb.hasData()
+      isReady.value = hasData
+      if (hasData) {
+        const stats = await dexieDb.getStats()
+        console.log('✅ Data store initialized:', stats)
+      } else {
+        console.log('⚠️  Database is empty, need to import data')
       }
-
-      // Load all answers (12 parts)
-      for (let i = 1; i <= 12; i++) {
-        await loadAnswers(i)
-      }
-
-      isLoaded.value = true
-      console.log(`✅ Data loaded: ${categories.value.length} categories, ${questions.value.length} questions, ${answers.value.length} answers`)
     } catch (error) {
-      console.error('Failed to load data:', error)
-    } finally {
-      isLoading.value = false
+      console.error('Failed to initialize data store:', error)
+      isReady.value = false
     }
   }
 
   /**
-   * Load categories
+   * Get categories by parent ID
    */
-  async function loadCategories() {
+  async function getCategoriesByParent(parentElement = 0) {
     try {
-      const response = await fetch('/www-old-backup/js/categories.js')
-      const text = await response.text()
-      const jsonMatch = text.match(/\[[\s\S]*\]/m)
-      if (jsonMatch) {
-        categories.value = JSON.parse(jsonMatch[0])
-        console.log(`📁 Loaded ${categories.value.length} categories`)
-      }
+      return await dexieDb.getCategories(parentElement)
     } catch (error) {
-      console.error('Failed to load categories:', error)
+      console.error('Error getting categories:', error)
+      return []
     }
-  }
-
-  /**
-   * Load questions (parts 1-4)
-   */
-  async function loadQuestions(part) {
-    try {
-      const response = await fetch(`/www-old-backup/js/questions${part}.js`)
-      const text = await response.text()
-      const jsonMatch = text.match(/\[[\s\S]*\]/m)
-      if (jsonMatch) {
-        const partQuestions = JSON.parse(jsonMatch[0])
-        questions.value.push(...partQuestions)
-        console.log(`📝 Loaded ${partQuestions.length} questions (part ${part})`)
-      }
-    } catch (error) {
-      console.error(`Failed to load questions part ${part}:`, error)
-    }
-  }
-
-  /**
-   * Load answers (parts 1-12)
-   */
-  async function loadAnswers(part) {
-    try {
-      const response = await fetch(`/www-old-backup/js/answers${part}.js`)
-      const text = await response.text()
-      const jsonMatch = text.match(/\[[\s\S]*\]/m)
-      if (jsonMatch) {
-        const partAnswers = JSON.parse(jsonMatch[0])
-        answers.value.push(...partAnswers)
-        console.log(`💬 Loaded ${partAnswers.length} answers (part ${part})`)
-      }
-    } catch (error) {
-      console.error(`Failed to load answers part ${part}:`, error)
-    }
-  }
-
-  /**
-   * Get categories by parent (using element field)
-   */
-  function getCategoriesByParent(parentElement = 0) {
-    return categories.value.filter(cat => cat.parent == parentElement || cat.parent === parentElement.toString())
   }
 
   /**
    * Get category by ID
    */
-  function getCategory(id) {
-    return categories.value.find(cat => cat.id == id)
+  async function getCategory(id) {
+    try {
+      return await dexieDb.getCategory(id)
+    } catch (error) {
+      console.error('Error getting category:', error)
+      return null
+    }
   }
 
   /**
-   * Get category by element
+   * Get questions by category ID
    */
-  function getCategoryByElement(element) {
-    return categories.value.find(cat => cat.element == element)
-  }
-
-  /**
-   * Get questions by category (using element field)
-   */
-  function getQuestionsByCategory(categoryElement) {
-    return questions.value.filter(q => q.category_id == categoryElement)
+  async function getQuestionsByCategory(categoryId, limit = 100, offset = 0) {
+    try {
+      return await dexieDb.getQuestionsByCategory(categoryId, limit, offset)
+    } catch (error) {
+      console.error('Error getting questions:', error)
+      return []
+    }
   }
 
   /**
    * Get question by ID
    */
-  function getQuestion(id) {
-    return questions.value.find(q => q.id == id)
+  async function getQuestion(id) {
+    try {
+      return await dexieDb.getQuestion(id)
+    } catch (error) {
+      console.error('Error getting question:', error)
+      return null
+    }
   }
 
   /**
    * Get answer by question ID
    */
-  function getAnswer(questionId) {
-    return answers.value.find(a => a.question_id == questionId)
+  async function getAnswer(questionId) {
+    try {
+      return await dexieDb.getAnswer(questionId)
+    } catch (error) {
+      console.error('Error getting answer:', error)
+      return null
+    }
   }
 
   /**
    * Search questions
    */
-  function searchQuestions(term) {
-    const lowerTerm = term.toLowerCase()
-    return questions.value.filter(q =>
-      q.question.toLowerCase().includes(lowerTerm) ||
-      q.question_full.toLowerCase().includes(lowerTerm)
-    )
+  async function searchQuestions(term, limit = 50) {
+    try {
+      return await dexieDb.searchQuestions(term, limit)
+    } catch (error) {
+      console.error('Error searching questions:', error)
+      return []
+    }
+  }
+
+  /**
+   * Get all questions (for fuzzy search)
+   */
+  async function getAllQuestions() {
+    try {
+      return await dexieDb.getAllQuestions()
+    } catch (error) {
+      console.error('Error getting all questions:', error)
+      return []
+    }
+  }
+
+  /**
+   * Get user folders
+   */
+  async function getFolders() {
+    try {
+      return await dexieDb.getFolders()
+    } catch (error) {
+      console.error('Error getting folders:', error)
+      return []
+    }
+  }
+
+  /**
+   * Create a new folder
+   */
+  async function createFolder(folderName) {
+    try {
+      return await dexieDb.createFolder(folderName)
+    } catch (error) {
+      console.error('Error creating folder:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Delete a folder
+   */
+  async function deleteFolder(folderId) {
+    try {
+      await dexieDb.deleteFolder(folderId)
+    } catch (error) {
+      console.error('Error deleting folder:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Add question to folder
+   */
+  async function addQuestionToFolder(questionId, folderId) {
+    try {
+      await dexieDb.addQuestionToFolder(questionId, folderId)
+    } catch (error) {
+      console.error('Error adding question to folder:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Remove question from folder
+   */
+  async function removeQuestionFromFolder(questionId, folderId) {
+    try {
+      await dexieDb.removeQuestionFromFolder(questionId, folderId)
+    } catch (error) {
+      console.error('Error removing question from folder:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Get questions in a folder
+   */
+  async function getQuestionsInFolder(folderId) {
+    try {
+      return await dexieDb.getQuestionsInFolder(folderId)
+    } catch (error) {
+      console.error('Error getting folder questions:', error)
+      return []
+    }
+  }
+
+  /**
+   * Check if data is imported
+   */
+  async function isDataImported() {
+    try {
+      return await dexieDb.isImported()
+    } catch (error) {
+      console.error('Error checking import status:', error)
+      return false
+    }
+  }
+
+  /**
+   * Get database statistics
+   */
+  async function getStats() {
+    try {
+      return await dexieDb.getStats()
+    } catch (error) {
+      console.error('Error getting stats:', error)
+      return { categories: 0, questions: 0, answers: 0 }
+    }
   }
 
   return {
     // State
-    categories,
-    questions,
-    answers,
     isLoading,
-    isLoaded,
+    isReady,
 
     // Actions
-    loadData,
-    loadCategories,
-    loadQuestions,
-    loadAnswers,
-
-    // Getters
+    initialize,
     getCategoriesByParent,
     getCategory,
-    getCategoryByElement,
     getQuestionsByCategory,
     getQuestion,
     getAnswer,
-    searchQuestions
+    searchQuestions,
+    getAllQuestions,
+    getFolders,
+    createFolder,
+    deleteFolder,
+    addQuestionToFolder,
+    removeQuestionFromFolder,
+    getQuestionsInFolder,
+    isDataImported,
+    getStats
   }
 })

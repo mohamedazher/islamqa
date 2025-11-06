@@ -15,7 +15,7 @@
 
     <div class="flex-1 overflow-y-auto p-4">
       <!-- Loading State -->
-      <div v-if="dataStore.isLoading" class="flex items-center justify-center h-32">
+      <div v-if="isLoading" class="flex items-center justify-center h-32">
         <div class="text-center">
           <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 dark:border-primary-400 mx-auto"></div>
           <p class="mt-4 text-neutral-600 dark:text-neutral-400">Loading bookmarks...</p>
@@ -93,17 +93,30 @@ const dataStore = useDataStore()
 
 const bookmarkIds = ref([])
 
-const bookmarkedQuestions = computed(() => {
-  return bookmarkIds.value
-    .map(id => dataStore.getQuestion(id))
-    .filter(q => q !== undefined)
-})
+const bookmarkedQuestions = ref([])
+const isLoading = ref(true)
 
 // Load bookmarks from localStorage
 function loadBookmarks() {
   const stored = localStorage.getItem('bookmarks')
   if (stored) {
     bookmarkIds.value = JSON.parse(stored)
+  }
+}
+
+// Load questions for bookmarks
+async function loadBookmarkedQuestions() {
+  try {
+    isLoading.value = true
+    const questions = await Promise.all(
+      bookmarkIds.value.map(id => dataStore.getQuestion(id))
+    )
+    bookmarkedQuestions.value = questions.filter(q => q !== null && q !== undefined)
+  } catch (error) {
+    console.error('Error loading bookmarked questions:', error)
+    bookmarkedQuestions.value = []
+  } finally {
+    isLoading.value = false
   }
 }
 
@@ -114,16 +127,18 @@ function saveBookmarks() {
 }
 
 // Remove single bookmark
-function removeBookmark(questionId) {
+async function removeBookmark(questionId) {
   bookmarkIds.value = bookmarkIds.value.filter(id => id !== parseInt(questionId))
   saveBookmarks()
+  await loadBookmarkedQuestions()
 }
 
 // Clear all bookmarks
-function clearAll() {
+async function clearAll() {
   if (confirm('Are you sure you want to clear all bookmarks?')) {
     bookmarkIds.value = []
     saveBookmarks()
+    await loadBookmarkedQuestions()
   }
 }
 
@@ -143,11 +158,7 @@ function goToBrowse() {
 // Initialize
 onMounted(async () => {
   loadBookmarks()
-
-  // Wait for data to load if needed
-  if (!dataStore.isLoaded) {
-    await dataStore.loadData()
-  }
+  await loadBookmarkedQuestions()
 
   console.log('📂 Folders view loaded with', bookmarkIds.value.length, 'bookmarks')
 })

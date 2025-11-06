@@ -12,7 +12,7 @@
 
     <div class="flex-1 overflow-y-auto p-4">
       <!-- Loading State -->
-      <div v-if="dataStore.isLoading" class="flex items-center justify-center h-64">
+      <div v-if="isLoading" class="flex items-center justify-center h-64">
         <div class="text-center">
           <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 dark:border-primary-400 mx-auto"></div>
           <p class="mt-4 text-neutral-600 dark:text-neutral-400">Loading...</p>
@@ -71,7 +71,7 @@
 
 <script setup>
 import { useRouter, useRoute } from 'vue-router'
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useDataStore } from '@/stores/data'
 import Icon from '@/components/common/Icon.vue'
 import QuestionListItem from '@/components/browse/QuestionListItem.vue'
@@ -81,35 +81,40 @@ const route = useRoute()
 const dataStore = useDataStore()
 
 const currentCategory = ref(null)
-
-const subcategories = computed(() => {
-  if (!currentCategory.value) return []
-  // Use element field, not id, for subcategories
-  return dataStore.getCategoriesByParent(currentCategory.value.element)
-})
-
-const categoryQuestions = computed(() => {
-  if (!currentCategory.value) return []
-  // Use element field, not id, for questions
-  return dataStore.getQuestionsByCategory(currentCategory.value.element)
-})
+const subcategories = ref([])
+const categoryQuestions = ref([])
+const isLoading = ref(true)
 
 // Function to load category by ID
 const loadCategory = async () => {
-  const categoryId = route.params.id
+  try {
+    isLoading.value = true
+    const categoryId = route.params.id
 
-  // Load data if not loaded yet
-  if (!dataStore.isLoaded) {
-    await dataStore.loadData()
+    // Load category
+    currentCategory.value = await dataStore.getCategory(categoryId)
+
+    if (currentCategory.value) {
+      // Load subcategories and questions
+      const [subcats, questions] = await Promise.all([
+        dataStore.getCategoriesByParent(currentCategory.value.element),
+        dataStore.getQuestionsByCategory(currentCategory.value.element)
+      ])
+
+      subcategories.value = subcats
+      categoryQuestions.value = questions
+
+      // Debug logging
+      console.log('Category ID:', categoryId)
+      console.log('Current Category:', currentCategory.value)
+      console.log('Subcategories:', subcategories.value)
+      console.log('Questions:', categoryQuestions.value)
+    }
+  } catch (error) {
+    console.error('Error loading category:', error)
+  } finally {
+    isLoading.value = false
   }
-
-  currentCategory.value = dataStore.getCategory(categoryId)
-
-  // Debug logging
-  console.log('Category ID:', categoryId)
-  console.log('Current Category:', currentCategory.value)
-  console.log('Subcategories:', subcategories.value)
-  console.log('Questions:', categoryQuestions.value)
 }
 
 onMounted(loadCategory)
@@ -129,20 +134,23 @@ function selectQuestion(question) {
   router.push(`/question/${question.id}`)
 }
 
-function getQuestionCount(categoryElement) {
-  return dataStore.getQuestionsByCategory(categoryElement).length
-}
+async function getContentSummary(categoryElement) {
+  try {
+    const [subCategories, questions] = await Promise.all([
+      dataStore.getCategoriesByParent(categoryElement),
+      dataStore.getQuestionsByCategory(categoryElement)
+    ])
 
-function getContentSummary(categoryElement) {
-  const subCategories = dataStore.getCategoriesByParent(categoryElement)
-  const questions = dataStore.getQuestionsByCategory(categoryElement)
+    // If there are subcategories, show both counts
+    if (subCategories.length > 0) {
+      return `${subCategories.length} subcategories • ${questions.length} questions`
+    }
 
-  // If there are subcategories, show both counts
-  if (subCategories.length > 0) {
-    return `${subCategories.length} subcategories • ${questions.length} questions`
+    // Otherwise, show only questions
+    return `${questions.length} questions`
+  } catch (error) {
+    console.error('Error getting content summary:', error)
+    return ''
   }
-
-  // Otherwise, show only questions
-  return `${questions.length} questions`
 }
 </script>

@@ -342,18 +342,20 @@ function goBack() {
 
 // Initialize
 onMounted(async () => {
-  // Initialize gamification
-  gamification.initializeFromStorage()
+  try {
+    // Initialize gamification
+    gamification.initializeFromStorage()
 
-  // Wait for data to load
-  if (!dataStore.isLoaded) {
-    await dataStore.loadData()
+    // Load all questions from database
+    const questions = await dataStore.getAllQuestions()
+
+    // Initialize quiz service
+    quizService.value = new QuizService(questions)
+
+    console.log('🎯 Quiz view initialized with', questions.length, 'questions')
+  } catch (error) {
+    console.error('Error initializing quiz:', error)
   }
-
-  // Initialize quiz service
-  quizService.value = new QuizService(dataStore.questions)
-
-  console.log('🎯 Quiz view initialized')
 })
 </script>
 
