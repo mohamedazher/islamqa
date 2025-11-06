@@ -75,22 +75,27 @@ const loading = ref(false)
 const isBookmarked = ref(false)
 
 onMounted(async () => {
-  loading.value = true
-  const questionId = route.params.id
+  try {
+    loading.value = true
+    const questionId = route.params.id
 
-  // Load data if not loaded yet
-  if (!dataStore.isLoaded) {
-    await dataStore.loadData()
+    // Load question and answer from database
+    const [question, answer] = await Promise.all([
+      dataStore.getQuestion(questionId),
+      dataStore.getAnswer(questionId)
+    ])
+
+    currentQuestion.value = question
+    currentAnswer.value = answer
+
+    // Check if bookmarked
+    const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]')
+    isBookmarked.value = bookmarks.includes(parseInt(questionId))
+  } catch (error) {
+    console.error('Error loading question:', error)
+  } finally {
+    loading.value = false
   }
-
-  currentQuestion.value = dataStore.getQuestion(questionId)
-  currentAnswer.value = dataStore.getAnswer(questionId)
-
-  // Check if bookmarked
-  const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]')
-  isBookmarked.value = bookmarks.includes(parseInt(questionId))
-
-  loading.value = false
 })
 
 function goBack() {

@@ -176,16 +176,18 @@ function goBack() {
 
 // Initialize
 onMounted(async () => {
-  loadSearchHistory()
+  try {
+    loadSearchHistory()
 
-  // Wait for data to load if needed
-  if (!dataStore.isLoaded) {
-    await dataStore.loadData()
+    // Load all questions from database
+    const questions = await dataStore.getAllQuestions()
+
+    // Initialize search service with questions
+    searchService.value = new SearchService(questions)
+
+    console.log('🔍 Search service initialized with', questions.length, 'questions')
+  } catch (error) {
+    console.error('Error initializing search:', error)
   }
-
-  // Initialize search service with questions
-  searchService.value = new SearchService(dataStore.questions)
-
-  console.log('🔍 Search service initialized with', dataStore.questions.length, 'questions')
 })
 </script>
