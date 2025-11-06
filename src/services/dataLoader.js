@@ -21,7 +21,9 @@ class DataLoaderService {
     if (window.cordova) {
       return './js'
     }
-    return '/data'
+    // Use Vite's base URL for web builds to support GitHub Pages deployment
+    const baseUrl = import.meta.env.BASE_URL || '/'
+    return `${baseUrl}data`.replace(/\/+/g, '/') // Normalize slashes
   }
 
   /**
