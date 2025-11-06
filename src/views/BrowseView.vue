@@ -14,9 +14,7 @@
           class="hidden sm:flex"
         >
           <template #icon>
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
+            <Icon name="search" size="md" />
           </template>
           Search
         </Button>
@@ -45,14 +43,14 @@
 
       <!-- Empty State -->
       <div v-else class="text-center py-20">
-        <div class="text-8xl mb-6">📚</div>
-        <h3 class="text-2xl font-bold text-neutral-900 mb-2">No Categories Available</h3>
-        <p class="text-neutral-600 mb-6">Import data to explore Islamic Q&A categories</p>
+        <div class="w-24 h-24 bg-neutral-100 dark:bg-neutral-800 rounded-full flex items-center justify-center mx-auto mb-6">
+          <Icon name="book" size="xl" class="text-neutral-400 dark:text-neutral-600" />
+        </div>
+        <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">No Categories Available</h3>
+        <p class="text-neutral-600 dark:text-neutral-400 mb-6">Import data to explore Islamic Q&A categories</p>
         <Button variant="primary" size="lg" @click="$router.push('/import')">
           <template #icon>
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-            </svg>
+            <Icon name="download" size="md" />
           </template>
           Start Import
         </Button>
@@ -67,6 +65,7 @@ import { useRouter } from 'vue-router'
 import { useDataStore } from '@/stores/data'
 import PageHeader from '@/components/common/PageHeader.vue'
 import Button from '@/components/common/Button.vue'
+import Icon from '@/components/common/Icon.vue'
 import CategoryCard from '@/components/browse/CategoryCard.vue'
 import SkeletonCard from '@/components/common/SkeletonCard.vue'
 

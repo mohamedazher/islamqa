@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="min-h-screen bg-neutral-50">
+  <div id="app" class="min-h-screen bg-white dark:bg-neutral-950 transition-colors duration-200">
     <!-- Desktop Sidebar Navigation -->
     <DesktopSidebar />
 
@@ -23,18 +23,22 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { useTheme } from '@/composables/useTheme'
 import DesktopSidebar from '@/components/layout/DesktopSidebar.vue'
 import MobileBottomNav from '@/components/layout/MobileBottomNav.vue'
 
 const router = useRouter()
+const { initTheme } = useTheme()
 
 onMounted(() => {
+  // Initialize theme
+  initTheme()
+
   // Handle Android back button
   if (window.cordova && window.device && window.device.platform === 'Android') {
     document.addEventListener('backbutton', handleBackButton, false)
   }
 
-  // Initialize stores (if needed)
   console.log('✅ App mounted successfully')
 })
 

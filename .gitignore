@@ -47,3 +47,4 @@ plugins/fetch.json
 
 # Build configuration with sensitive info
 build.json
+www/.nojekyll
