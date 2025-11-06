@@ -148,11 +148,14 @@ class DexieDatabase extends Dexie {
   }
 
   /**
-   * Get category by ID
+   * Get category by element (actual category ID, not row id)
+   * The route passes element as the ID since that's the semantic identifier
    */
-  async getCategory(id) {
+  async getCategory(elementId) {
     try {
-      return await this.categories.get(parseInt(id))
+      // Convert to string for consistent comparison with how data is stored
+      const elementStr = String(elementId)
+      return await this.categories.where('element').equals(elementStr).first()
     } catch (error) {
       console.error('Error getting category:', error)
       return null

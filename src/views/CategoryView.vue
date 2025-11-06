@@ -127,7 +127,8 @@ function goBack() {
 }
 
 function selectCategory(category) {
-  router.push(`/category/${category.id}`)
+  // Use element (actual category ID) not id (row number)
+  router.push(`/category/${category.element}`)
 }
 
 function selectQuestion(question) {
