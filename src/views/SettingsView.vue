@@ -148,6 +148,36 @@
         </div>
       </section>
 
+      <!-- Data Management Section -->
+      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
+        <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+            <Icon name="database" size="md" class="text-primary-600 dark:text-primary-400" />
+            Data Management
+          </h2>
+        </div>
+        <div class="p-4">
+          <div class="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg p-4">
+            <div class="flex items-start gap-3 mb-3">
+              <Icon name="exclamation" size="md" class="text-red-600 dark:text-red-400 mt-0.5" />
+              <div>
+                <h3 class="font-semibold text-red-900 dark:text-red-100 mb-1">Clear All Data</h3>
+                <p class="text-sm text-red-800 dark:text-red-300 mb-3">
+                  This will delete all imported questions, answers, categories, and your bookmarks. You'll need to re-import the data to use the app.
+                </p>
+                <button
+                  @click="confirmClearData"
+                  :disabled="isClearing"
+                  class="px-4 py-2 bg-red-600 hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-600 text-white rounded-lg font-medium transition disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {{ isClearing ? 'Clearing...' : 'Clear All Data' }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Legal Section -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
@@ -190,6 +220,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
 import { useDataStore } from '@/stores/data'
+import dexieDb from '@/services/dexieDatabase'
 import Icon from '@/components/common/Icon.vue'
 
 const router = useRouter()
@@ -206,6 +237,8 @@ const stats = ref({
   answers: 0
 })
 
+const isClearing = ref(false)
+
 onMounted(async () => {
   try {
     if (dataStore.isReady) {
@@ -218,5 +251,46 @@ onMounted(async () => {
 
 function goBack() {
   router.back()
+}
+
+async function confirmClearData() {
+  const confirmed = confirm(
+    'Are you sure you want to clear all data?\n\n' +
+    'This will delete:\n' +
+    '• All imported questions and answers\n' +
+    '• All categories\n' +
+    '• All bookmarks and folders\n\n' +
+    'You will need to re-import the data to use the app again.'
+  )
+
+  if (!confirmed) return
+
+  try {
+    isClearing.value = true
+    console.log('🗑️  Clearing all data...')
+
+    // Clear the database
+    await dexieDb.clearAllData()
+
+    // Clear local storage items
+    localStorage.removeItem('bookmarks')
+    localStorage.removeItem('bookmarkedQuestions')
+    localStorage.removeItem('bookmarkCount')
+
+    // Reset data store state
+    dataStore.isReady = false
+
+    console.log('✅ All data cleared')
+
+    alert('All data has been cleared successfully. Redirecting to import page...')
+
+    // Redirect to import page
+    router.push('/import')
+  } catch (error) {
+    console.error('❌ Error clearing data:', error)
+    alert('Failed to clear data. Please try again.')
+  } finally {
+    isClearing.value = false
+  }
 }
 </script>

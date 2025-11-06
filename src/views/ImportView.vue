@@ -121,10 +121,12 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { useDataStore } from '@/stores/data'
 import dataLoader from '@/services/dataLoader'
 import Icon from '@/components/common/Icon.vue'
 
 const router = useRouter()
+const dataStore = useDataStore()
 
 const isImporting = ref(false)
 const progress = ref(0)
@@ -157,6 +159,10 @@ async function startImport() {
     progress.value = 100
     currentStep.value = 'Import complete!'
     console.log('✅ Import finished')
+
+    // Initialize data store after import
+    await dataStore.initialize()
+    console.log('✅ Data store initialized')
 
     // Wait a moment before redirecting
     await new Promise(resolve => setTimeout(resolve, 1000))

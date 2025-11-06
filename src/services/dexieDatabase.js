@@ -134,13 +134,13 @@ class DexieDatabase extends Dexie {
 
   /**
    * Get all categories or filter by parent
+   * parentId can be "0" for root categories or element id like "218" for subcategories
    */
   async getCategories(parentId = 0) {
     try {
-      if (parentId === 0) {
-        return await this.categories.where('parent').equals(0).toArray()
-      }
-      return await this.categories.where('parent').equals(parentId).toArray()
+      // Convert to string for consistent comparison (data stores parent as strings)
+      const parentStr = String(parentId)
+      return await this.categories.where('parent').equals(parentStr).toArray()
     } catch (error) {
       console.error('Error getting categories:', error)
       return []
@@ -160,13 +160,16 @@ class DexieDatabase extends Dexie {
   }
 
   /**
-   * Get questions by category ID
+   * Get questions by category ID (element, not id)
+   * categoryId should be the element field (e.g. "218"), not the primary id
    */
   async getQuestionsByCategory(categoryId, limit = 100, offset = 0) {
     try {
+      // Convert to string for consistent comparison (data stores category_id as strings)
+      const categoryStr = String(categoryId)
       return await this.questions
         .where('category_id')
-        .equals(parseInt(categoryId))
+        .equals(categoryStr)
         .offset(offset)
         .limit(limit)
         .toArray()
@@ -193,7 +196,16 @@ class DexieDatabase extends Dexie {
    */
   async getAnswer(questionId) {
     try {
-      return await this.answers.where('question_id').equals(parseInt(questionId)).first()
+      // Try with string first (as stored in data), then try with integer
+      const questionStr = String(questionId)
+      let answer = await this.answers.where('question_id').equals(questionStr).first()
+
+      // If not found and questionId looks numeric, try as integer
+      if (!answer && !isNaN(questionId)) {
+        answer = await this.answers.where('question_id').equals(parseInt(questionId)).first()
+      }
+
+      return answer
     } catch (error) {
       console.error('Error getting answer:', error)
       return null
