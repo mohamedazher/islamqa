@@ -23,6 +23,16 @@ export const useGamificationStore = defineStore('gamification', () => {
     longestStreak: 0
   })
 
+  // Define tier system
+  const tiers = [
+    { name: 'Bronze', minPoints: 0, color: '#cd7f32', icon: '🥉', benefits: 'Getting started' },
+    { name: 'Silver', minPoints: 500, color: '#c0c0c0', icon: '🥈', benefits: 'Making progress' },
+    { name: 'Gold', minPoints: 1500, color: '#ffd700', icon: '🥇', benefits: 'Dedicated learner' },
+    { name: 'Platinum', minPoints: 3000, color: '#e5e4e2', icon: '💎', benefits: 'Knowledge expert' },
+    { name: 'Diamond', minPoints: 5000, color: '#b9f2ff', icon: '💠', benefits: 'Master scholar' },
+    { name: 'Legend', minPoints: 10000, color: '#ff6b6b', icon: '👑', benefits: 'Islamic knowledge champion' }
+  ]
+
   // Define all achievements
   const allAchievements = [
     {
@@ -116,6 +126,34 @@ export const useGamificationStore = defineStore('gamification', () => {
 
   const lockedAchievements = computed(() => {
     return achievements.value.filter(a => !a.unlocked)
+  })
+
+  const currentTier = computed(() => {
+    // Find the highest tier the user qualifies for
+    for (let i = tiers.length - 1; i >= 0; i--) {
+      if (points.value >= tiers[i].minPoints) {
+        return tiers[i]
+      }
+    }
+    return tiers[0] // Default to Bronze
+  })
+
+  const nextTier = computed(() => {
+    const currentIndex = tiers.findIndex(t => t.name === currentTier.value.name)
+    return currentIndex < tiers.length - 1 ? tiers[currentIndex + 1] : null
+  })
+
+  const tierProgress = computed(() => {
+    if (!nextTier.value) return 100 // Max tier reached
+
+    const currentMin = currentTier.value.minPoints
+    const nextMin = nextTier.value.minPoints
+    const progress = ((points.value - currentMin) / (nextMin - currentMin)) * 100
+    return Math.min(Math.round(progress), 100)
+  })
+
+  const levelProgress = computed(() => {
+    return Math.round((points.value % 500) / 5)
   })
 
   // Actions
@@ -277,12 +315,17 @@ export const useGamificationStore = defineStore('gamification', () => {
     lastQuizDate,
     achievements,
     stats,
+    tiers,
 
     // Computed
     currentLevel,
     pointsToNextLevel,
+    levelProgress,
     unlockedAchievements,
     lockedAchievements,
+    currentTier,
+    nextTier,
+    tierProgress,
 
     // Methods
     initializeFromStorage,

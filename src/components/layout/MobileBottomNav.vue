@@ -38,7 +38,7 @@ const navigation = [
   { name: 'Home', to: '/', icon: 'home' },
   { name: 'Browse', to: '/browse', icon: 'book' },
   { name: 'Search', to: '/search', icon: 'search' },
-  { name: 'Folders', to: '/folders', icon: 'folder' },
+  { name: 'Bookmarks', to: '/bookmarks', icon: 'bookmark' },
   { name: 'Settings', to: '/settings', icon: 'cog' },
 ]
 

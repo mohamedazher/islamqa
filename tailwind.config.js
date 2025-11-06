@@ -8,19 +8,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Modern, sophisticated blue-violet palette (like Linear, Vercel)
+        // Modern emerald green palette (works great in light & dark modes)
         primary: {
-          50: '#f5f7ff',
-          100: '#ebefff',
-          200: '#d6deff',
-          300: '#b3c1ff',
-          400: '#8c9eff',
-          500: '#6366f1', // Main brand color
-          600: '#4f46e5',
-          700: '#4338ca',
-          800: '#3730a3',
-          900: '#312e81',
-          950: '#1e1b4b',
+          50: '#ecfdf5',
+          100: '#d1fae5',
+          200: '#a7f3d0',
+          300: '#6ee7b7',
+          400: '#34d399',
+          500: '#10b981', // Main brand color
+          600: '#059669',
+          700: '#047857',
+          800: '#065f46',
+          900: '#064e3b',
+          950: '#022c22',
         },
         // Accent teal for highlights
         accent: {
