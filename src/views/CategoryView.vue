@@ -35,7 +35,7 @@
               class="bg-white dark:bg-neutral-800 rounded-lg shadow dark:shadow-neutral-900/50 p-4 cursor-pointer transition-all hover:shadow-md dark:hover:shadow-neutral-900 active:bg-primary-50 dark:active:bg-primary-900/20"
             >
               <h4 class="font-semibold text-neutral-900 dark:text-neutral-100">{{ subcat.category_links }}</h4>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">{{ getCachedSummary(subcat.element) }}</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">{{ subcategorySummaries[subcat.element] || 'Loading...' }}</p>
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@
 
 <script setup>
 import { useRouter, useRoute } from 'vue-router'
-import { ref, onMounted, watch } from 'vue'
+import { ref, reactive, onMounted, watch } from 'vue'
 import { useDataStore } from '@/stores/data'
 import Icon from '@/components/common/Icon.vue'
 import QuestionListItem from '@/components/browse/QuestionListItem.vue'
@@ -85,37 +85,14 @@ const subcategories = ref([])
 const categoryQuestions = ref([])
 const isLoading = ref(true)
 const currentCategorySummary = ref('')
+const subcategorySummaries = reactive({})
 
-// Cache for summary text to avoid recalculating
-const summaryCache = new Map()
-
-// Get cached summary or calculate it
-async function getCachedSummary(categoryElement) {
-  // Return cached if available
-  if (summaryCache.has(categoryElement)) {
-    return summaryCache.get(categoryElement)
+// Helper function to generate summary text
+function generateSummary(subcatsCount, questionsCount) {
+  if (subcatsCount > 0) {
+    return `${subcatsCount} subcategories • ${questionsCount} questions`
   }
-
-  // Calculate and cache
-  try {
-    const [subCategories, questions] = await Promise.all([
-      dataStore.getCategoriesByParent(categoryElement),
-      dataStore.getQuestionsByCategory(categoryElement)
-    ])
-
-    let summary = ''
-    if (subCategories.length > 0) {
-      summary = `${subCategories.length} subcategories • ${questions.length} questions`
-    } else {
-      summary = `${questions.length} questions`
-    }
-
-    summaryCache.set(categoryElement, summary)
-    return summary
-  } catch (error) {
-    console.error('Error getting content summary:', error)
-    return ''
-  }
+  return `${questionsCount} questions`
 }
 
 // Function to load category by ID
@@ -137,13 +114,22 @@ const loadCategory = async () => {
       subcategories.value = subcats
       categoryQuestions.value = questions
 
-      // Calculate and cache current category summary
-      currentCategorySummary.value = await getCachedSummary(currentCategory.value.element)
+      // Calculate current category summary
+      currentCategorySummary.value = generateSummary(subcats.length, questions.length)
 
-      // Preload summaries for subcategories
-      subcats.forEach(subcat => {
-        getCachedSummary(subcat.element).catch(err => console.error('Error preloading summary:', err))
-      })
+      // Load and cache summaries for all subcategories
+      for (const subcat of subcats) {
+        try {
+          const [subSubcats, subQuestions] = await Promise.all([
+            dataStore.getCategoriesByParent(subcat.element),
+            dataStore.getQuestionsByCategory(subcat.element)
+          ])
+          subcategorySummaries[subcat.element] = generateSummary(subSubcats.length, subQuestions.length)
+        } catch (error) {
+          console.error(`Error loading summary for subcategory ${subcat.element}:`, error)
+          subcategorySummaries[subcat.element] = 'Error loading'
+        }
+      }
 
       // Debug logging
       console.log('Category ID:', categoryId)
