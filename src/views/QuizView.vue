@@ -28,6 +28,137 @@
 
     <!-- Content -->
     <div class="flex-1 overflow-y-auto p-4">
+      <!-- First Time Guide Modal -->
+      <div v-if="showFirstTimeGuide" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-neutral-900 rounded-lg shadow-xl max-w-md w-full p-6">
+          <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">Welcome to Quiz Mode!</h2>
+          <div class="space-y-4 text-neutral-700 dark:text-neutral-300">
+            <div>
+              <h3 class="font-semibold text-primary-600 dark:text-primary-400 mb-1">🎯 How It Works</h3>
+              <p class="text-sm">Test your Islamic knowledge with various quiz modes. Choose categories and difficulty levels to customize your learning experience.</p>
+            </div>
+            <div>
+              <h3 class="font-semibold text-primary-600 dark:text-primary-400 mb-1">📚 Quiz Modes</h3>
+              <ul class="text-sm space-y-1 list-disc list-inside">
+                <li><strong>Daily Quiz:</strong> 5 questions, same for everyone</li>
+                <li><strong>Rapid Fire:</strong> 20 quick questions, timed</li>
+                <li><strong>Category Quiz:</strong> Choose topics that interest you</li>
+                <li><strong>Challenge:</strong> Harder questions for advanced learners</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-semibold text-primary-600 dark:text-primary-400 mb-1">⭐ Earn Points</h3>
+              <p class="text-sm">Complete quizzes to earn points, maintain streaks, and unlock achievements. Track your progress and level up!</p>
+            </div>
+          </div>
+          <button
+            @click="closeFirstTimeGuide"
+            class="w-full bg-primary-600 dark:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 dark:hover:bg-primary-600 transition mt-6"
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz Customization Modal -->
+      <div v-if="showCustomizationModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-neutral-900 rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+          <div class="sticky top-0 bg-white dark:bg-neutral-900 border-b dark:border-neutral-800 p-4">
+            <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Customize Quiz</h2>
+          </div>
+
+          <div class="p-4 space-y-6">
+            <!-- Difficulty Selection -->
+            <div>
+              <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Difficulty Level</h3>
+              <div class="grid grid-cols-4 gap-2">
+                <button
+                  v-for="diff in ['all', 'easy', 'medium', 'hard']"
+                  :key="diff"
+                  @click="selectedDifficulty = diff"
+                  :class="[
+                    'px-3 py-2 rounded-lg text-sm font-medium transition',
+                    selectedDifficulty === diff
+                      ? 'bg-primary-600 dark:bg-primary-700 text-white'
+                      : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700'
+                  ]"
+                >
+                  {{ diff.charAt(0).toUpperCase() + diff.slice(1) }}
+                </button>
+              </div>
+            </div>
+
+            <!-- Category Selection -->
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="font-semibold text-neutral-900 dark:text-neutral-100">Categories</h3>
+                <button
+                  @click="toggleAllCategories"
+                  class="text-sm text-primary-600 dark:text-primary-400 hover:underline"
+                >
+                  {{ selectedCategories.length === availableCategories.length ? 'Deselect All' : 'Select All' }}
+                </button>
+              </div>
+              <div class="space-y-2">
+                <button
+                  v-for="category in availableCategories"
+                  :key="category"
+                  @click="toggleCategory(category)"
+                  :class="[
+                    'w-full px-3 py-2 rounded-lg text-sm text-left transition flex items-center justify-between',
+                    selectedCategories.includes(category)
+                      ? 'bg-primary-50 dark:bg-primary-950/30 border-2 border-primary-600 dark:border-primary-700 text-primary-900 dark:text-primary-100'
+                      : 'bg-neutral-50 dark:bg-neutral-800 border-2 border-transparent text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700'
+                  ]"
+                >
+                  <span>{{ category }}</span>
+                  <Icon v-if="selectedCategories.includes(category)" name="check" size="xs" class="text-primary-600 dark:text-primary-400" />
+                </button>
+              </div>
+            </div>
+
+            <!-- Number of Questions -->
+            <div>
+              <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Number of Questions</h3>
+              <div class="flex items-center gap-3">
+                <button
+                  @click="questionCount = Math.max(5, questionCount - 5)"
+                  class="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 flex items-center justify-center"
+                >
+                  <span class="text-xl font-bold">-</span>
+                </button>
+                <div class="flex-1 text-center">
+                  <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">{{ questionCount }}</div>
+                  <div class="text-xs text-neutral-600 dark:text-neutral-400">questions</div>
+                </div>
+                <button
+                  @click="questionCount = Math.min(50, questionCount + 5)"
+                  class="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 flex items-center justify-center"
+                >
+                  <span class="text-xl font-bold">+</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="sticky bottom-0 bg-white dark:bg-neutral-900 border-t dark:border-neutral-800 p-4 space-y-2">
+            <button
+              @click="startCustomQuiz"
+              :disabled="selectedCategories.length === 0"
+              class="w-full bg-primary-600 dark:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 dark:hover:bg-primary-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Start Quiz
+            </button>
+            <button
+              @click="closeCustomizationModal"
+              class="w-full bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-300 dark:hover:bg-neutral-700 transition"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- Quiz Mode Selection -->
       <div v-if="!currentQuiz" class="space-y-4">
         <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Choose a quiz mode:</h2>
@@ -53,7 +184,7 @@
 
         <!-- Rapid Fire Quiz Card -->
         <button
-          @click="startRapidFireQuiz"
+          @click="openCustomization('rapid-fire')"
           class="w-full bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-5 text-left hover:shadow-md dark:hover:shadow-neutral-700/50 hover:bg-primary-50 dark:hover:bg-primary-950/30 transition"
         >
           <div class="flex items-center justify-between mb-2">
@@ -63,22 +194,22 @@
             </div>
             <span class="text-xs bg-accent-100 dark:bg-accent-900/50 text-accent-700 dark:text-accent-300 px-3 py-1 rounded-full">+100 pts</span>
           </div>
-          <p class="text-sm text-neutral-600 dark:text-neutral-400">20 questions · 60 seconds · Fast paced</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">20 questions · 60 seconds · Customize topics</p>
         </button>
 
-        <!-- Category Quiz Card -->
+        <!-- Custom Category Quiz Card -->
         <button
-          @click="showCategorySelector = true"
+          @click="openCustomization('custom')"
           class="w-full bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-5 text-left hover:shadow-md dark:hover:shadow-neutral-700/50 hover:bg-primary-50 dark:hover:bg-primary-950/30 transition"
         >
           <div class="flex items-center justify-between mb-2">
             <div class="flex items-center gap-2">
               <Icon name="book" size="md" class="text-primary-600 dark:text-primary-400" />
-              <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Category Quiz</h3>
+              <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Custom Quiz</h3>
             </div>
-            <span class="text-xs bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 px-3 py-1 rounded-full">+50 pts</span>
+            <span class="text-xs bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 px-3 py-1 rounded-full">Variable pts</span>
           </div>
-          <p class="text-sm text-neutral-600 dark:text-neutral-400">10 questions · Pick your topic</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Choose categories & difficulty</p>
         </button>
 
         <!-- Challenge Mode Card -->
@@ -260,7 +391,16 @@ const answered = ref(false)
 const quizCompleted = ref(false)
 const quizResults = ref(null)
 const newAchievements = ref([])
-const showCategorySelector = ref(false)
+const userAnswers = ref([]) // Track all user answers for scoring
+
+// Customization state
+const showCustomizationModal = ref(false)
+const showFirstTimeGuide = ref(false)
+const availableCategories = ref([])
+const selectedCategories = ref([])
+const selectedDifficulty = ref('all')
+const questionCount = ref(10)
+const customizationMode = ref('custom') // 'custom' or 'rapid-fire'
 
 const currentQuestion = computed(() => {
   if (!currentQuiz.value || currentQuestionIndex.value >= currentQuiz.value.questions.length) {
@@ -269,19 +409,91 @@ const currentQuestion = computed(() => {
   return currentQuiz.value.questions[currentQuestionIndex.value]
 })
 
+// First-time guide management
+function checkFirstTimeUser() {
+  const hasSeenGuide = localStorage.getItem('quiz-guide-seen')
+  if (!hasSeenGuide) {
+    showFirstTimeGuide.value = true
+  }
+}
+
+function closeFirstTimeGuide() {
+  localStorage.setItem('quiz-guide-seen', 'true')
+  showFirstTimeGuide.value = false
+}
+
+// Customization modal management
+function openCustomization(mode) {
+  customizationMode.value = mode
+
+  // Set defaults based on mode
+  if (mode === 'rapid-fire') {
+    questionCount.value = 20
+  } else {
+    questionCount.value = 10
+  }
+
+  // Reset to all categories selected by default
+  selectedCategories.value = [...availableCategories.value]
+  selectedDifficulty.value = 'all'
+
+  showCustomizationModal.value = true
+}
+
+function closeCustomizationModal() {
+  showCustomizationModal.value = false
+}
+
+function toggleCategory(category) {
+  const index = selectedCategories.value.indexOf(category)
+  if (index > -1) {
+    selectedCategories.value.splice(index, 1)
+  } else {
+    selectedCategories.value.push(category)
+  }
+}
+
+function toggleAllCategories() {
+  if (selectedCategories.value.length === availableCategories.value.length) {
+    selectedCategories.value = []
+  } else {
+    selectedCategories.value = [...availableCategories.value]
+  }
+}
+
+function startCustomQuiz() {
+  if (selectedCategories.value.length === 0) {
+    return
+  }
+
+  if (customizationMode.value === 'rapid-fire') {
+    currentQuiz.value = quizService.value.getRapidFireQuiz({
+      categories: selectedCategories.value,
+      difficulty: selectedDifficulty.value
+    })
+  } else {
+    currentQuiz.value = quizService.value.getCustomQuiz({
+      categories: selectedCategories.value,
+      difficulty: selectedDifficulty.value,
+      count: questionCount.value,
+      mode: 'custom'
+    })
+  }
+
+  currentQuestionIndex.value = 0
+  selectedAnswer.value = null
+  answered.value = false
+  userAnswers.value = []
+  showCustomizationModal.value = false
+}
+
 // Quiz Mode Starters
 function startDailyQuiz() {
   currentQuiz.value = quizService.value.getDailyQuiz()
   currentQuestionIndex.value = 0
   selectedAnswer.value = null
   answered.value = false
-}
-
-function startRapidFireQuiz() {
-  currentQuiz.value = quizService.value.getRapidFireQuiz()
-  currentQuestionIndex.value = 0
-  selectedAnswer.value = null
-  answered.value = false
+  userAnswers.value = [] // Reset answers array
 }
 
 function startChallengeQuiz() {
@@ -289,6 +501,7 @@ function startChallengeQuiz() {
   currentQuestionIndex.value = 0
   selectedAnswer.value = null
   answered.value = false
+  userAnswers.value = [] // Reset answers array
 }
 
 function selectAnswer(optionIndex) {
@@ -298,6 +511,9 @@ function selectAnswer(optionIndex) {
 }
 
 function nextQuestion() {
+  // Save the current answer before moving to next question
+  userAnswers.value.push(selectedAnswer.value)
+
   if (currentQuestionIndex.value < currentQuiz.value.questions.length - 1) {
     currentQuestionIndex.value++
     selectedAnswer.value = null
@@ -308,8 +524,8 @@ function nextQuestion() {
 }
 
 function completeQuiz() {
-  const answers = [] // Would collect from user selections
-  quizResults.value = quizService.value.calculateScore(currentQuiz.value, answers)
+  // Calculate score using the collected user answers
+  quizResults.value = quizService.value.calculateScore(currentQuiz.value, userAnswers.value)
 
   // Award points and check achievements
   const previousUnlocked = gamification.unlockedAchievements.length
@@ -318,6 +534,11 @@ function completeQuiz() {
   newAchievements.value = gamification.unlockedAchievements.slice(-newlyUnlocked)
 
   quizCompleted.value = true
+
+  console.log('✅ Quiz completed!', {
+    answers: userAnswers.value,
+    results: quizResults.value
+  })
 }
 
 function restartQuiz() {
@@ -328,6 +549,7 @@ function restartQuiz() {
   selectedAnswer.value = null
   answered.value = false
   currentQuestionIndex.value = 0
+  userAnswers.value = [] // Reset answers array
 }
 
 function goBack() {
@@ -346,13 +568,26 @@ onMounted(async () => {
     // Initialize gamification
     gamification.initializeFromStorage()
 
-    // Load all questions from database
+    // Load all questions from database (for fallback)
     const questions = await dataStore.getAllQuestions()
 
     // Initialize quiz service
     quizService.value = new QuizService(questions)
 
-    console.log('🎯 Quiz view initialized with', questions.length, 'questions')
+    // Load pre-generated high-quality quizzes
+    await quizService.value.loadPreGeneratedQuizzes()
+
+    // Get available categories from loaded quizzes
+    availableCategories.value = quizService.value.getAvailableCategories()
+    selectedCategories.value = [...availableCategories.value] // Select all by default
+
+    // Check if first-time user
+    checkFirstTimeUser()
+
+    console.log('🎯 Quiz view initialized')
+    console.log('  - Database questions:', questions.length)
+    console.log('  - Pre-generated quizzes:', quizService.value.preGeneratedQuizzes.length)
+    console.log('  - Available categories:', availableCategories.value.length)
   } catch (error) {
     console.error('Error initializing quiz:', error)
   }

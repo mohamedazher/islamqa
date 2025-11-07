@@ -10,6 +10,7 @@ dist/
 .cordova/
 www/assets/
 www/index.html
+www/data/*.js
 
 # IDE and editor files
 .vscode/
@@ -47,3 +48,7 @@ plugins/fetch.json
 # Build configuration with sensitive info
 build.json
 www/.nojekyll
+
+# Quiz generation intermediate files
+quiz-generation/batches/*.json
+quiz-generation/scripts/*.cjs
