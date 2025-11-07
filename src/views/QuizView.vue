@@ -93,13 +93,17 @@
               <div class="flex items-center justify-between mb-3">
                 <h3 class="font-semibold text-neutral-900 dark:text-neutral-100">Categories</h3>
                 <button
+                  v-if="availableCategories.length > 0"
                   @click="toggleAllCategories"
                   class="text-sm text-primary-600 dark:text-primary-400 hover:underline"
                 >
                   {{ selectedCategories.length === availableCategories.length ? 'Deselect All' : 'Select All' }}
                 </button>
               </div>
-              <div class="space-y-2">
+              <div v-if="availableCategories.length === 0" class="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg p-4">
+                <p class="text-sm text-red-900 dark:text-red-100">⚠️ No categories available. Check console for errors.</p>
+              </div>
+              <div v-else class="space-y-2">
                 <button
                   v-for="category in availableCategories"
                   :key="category"
@@ -424,6 +428,11 @@ function closeFirstTimeGuide() {
 
 // Customization modal management
 function openCustomization(mode) {
+  console.log('🎨 Opening customization modal:', mode)
+  console.log('  - Available categories:', availableCategories.value)
+  console.log('  - Quiz service loaded:', quizService.value?.loaded)
+  console.log('  - Pre-generated quizzes count:', quizService.value?.preGeneratedQuizzes?.length)
+
   customizationMode.value = mode
 
   // Set defaults based on mode
@@ -436,6 +445,9 @@ function openCustomization(mode) {
   // Reset to all categories selected by default
   selectedCategories.value = [...availableCategories.value]
   selectedDifficulty.value = 'all'
+
+  console.log('  - Selected categories after reset:', selectedCategories.value)
+  console.log('  - Modal will show:', showCustomizationModal.value)
 
   showCustomizationModal.value = true
 }

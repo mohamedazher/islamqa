@@ -248,11 +248,21 @@ class QuizService {
    * Get all available categories from pre-generated quizzes
    */
   getAvailableCategories() {
+    console.log('📂 Getting available categories...')
+    console.log('  - Loaded:', this.loaded)
+    console.log('  - Quiz count:', this.preGeneratedQuizzes.length)
+
     if (!this.loaded || this.preGeneratedQuizzes.length === 0) {
+      console.warn('  ⚠️ Cannot get categories - quizzes not loaded')
       return []
     }
+
+    // Extract unique categories
     const categories = [...new Set(this.preGeneratedQuizzes.map(q => q.category))]
-    return categories.sort()
+    const sortedCategories = categories.sort()
+
+    console.log('  ✅ Found categories:', sortedCategories)
+    return sortedCategories
   }
 
   /**
