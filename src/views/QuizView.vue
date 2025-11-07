@@ -261,6 +261,7 @@ const quizCompleted = ref(false)
 const quizResults = ref(null)
 const newAchievements = ref([])
 const showCategorySelector = ref(false)
+const userAnswers = ref([]) // Track all user answers for scoring
 
 const currentQuestion = computed(() => {
   if (!currentQuiz.value || currentQuestionIndex.value >= currentQuiz.value.questions.length) {
@@ -275,6 +276,7 @@ function startDailyQuiz() {
   currentQuestionIndex.value = 0
   selectedAnswer.value = null
   answered.value = false
+  userAnswers.value = [] // Reset answers array
 }
 
 function startRapidFireQuiz() {
@@ -282,6 +284,7 @@ function startRapidFireQuiz() {
   currentQuestionIndex.value = 0
   selectedAnswer.value = null
   answered.value = false
+  userAnswers.value = [] // Reset answers array
 }
 
 function startChallengeQuiz() {
@@ -289,6 +292,7 @@ function startChallengeQuiz() {
   currentQuestionIndex.value = 0
   selectedAnswer.value = null
   answered.value = false
+  userAnswers.value = [] // Reset answers array
 }
 
 function selectAnswer(optionIndex) {
@@ -298,6 +302,9 @@ function selectAnswer(optionIndex) {
 }
 
 function nextQuestion() {
+  // Save the current answer before moving to next question
+  userAnswers.value.push(selectedAnswer.value)
+
   if (currentQuestionIndex.value < currentQuiz.value.questions.length - 1) {
     currentQuestionIndex.value++
     selectedAnswer.value = null
@@ -308,8 +315,8 @@ function nextQuestion() {
 }
 
 function completeQuiz() {
-  const answers = [] // Would collect from user selections
-  quizResults.value = quizService.value.calculateScore(currentQuiz.value, answers)
+  // Calculate score using the collected user answers
+  quizResults.value = quizService.value.calculateScore(currentQuiz.value, userAnswers.value)
 
   // Award points and check achievements
   const previousUnlocked = gamification.unlockedAchievements.length
@@ -318,6 +325,11 @@ function completeQuiz() {
   newAchievements.value = gamification.unlockedAchievements.slice(-newlyUnlocked)
 
   quizCompleted.value = true
+
+  console.log('✅ Quiz completed!', {
+    answers: userAnswers.value,
+    results: quizResults.value
+  })
 }
 
 function restartQuiz() {
@@ -328,6 +340,7 @@ function restartQuiz() {
   selectedAnswer.value = null
   answered.value = false
   currentQuestionIndex.value = 0
+  userAnswers.value = [] // Reset answers array
 }
 
 function goBack() {
