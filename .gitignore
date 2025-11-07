@@ -4,6 +4,7 @@ package-lock.json
 
 # Build outputs
 platforms/
+plugins/
 hooks/
 build/
 dist/
@@ -52,3 +53,7 @@ www/.nojekyll
 # Quiz generation intermediate files
 quiz-generation/batches/*.json
 quiz-generation/scripts/*.cjs
+
+# Firebase configuration files (contain API keys)
+google-services.json
+GoogleService-Info.plist

@@ -32,6 +32,7 @@
 - **📴 Offline First** - SQLite database for offline access
 - **🚀 Progressive Web App** - Installable on any device
 - **📱 Hybrid Mobile** - Apache Cordova for Android/iOS
+- **📊 Firebase Analytics** - Cross-platform usage tracking (Web, iOS, Android)
 - **🎨 TailwindCSS** - Utility-first CSS framework
 - **⚙️ Modern Stack** - Vue 3, Vite, Pinia, Vue Router
 
@@ -272,11 +273,17 @@ yarn cordova:build:ios
 
 ## 📖 Documentation
 
+### General
 - **[CLAUDE.md](CLAUDE.md)** - Project overview & development guidelines
 - **[DEPLOYMENT.md](DEPLOYMENT.md)** - Deployment instructions
 - **[PROGRESS.md](PROGRESS.md)** - What's been accomplished
 - **[MIGRATION.md](MIGRATION.md)** - Migration guide (for moving repos)
 - **[MODERNIZATION_PLAN.md](MODERNIZATION_PLAN.md)** - Original modernization plan
+
+### Firebase Analytics
+- **[docs/FIREBASE_README.md](docs/FIREBASE_README.md)** - Analytics overview, quick start & API reference
+- **[docs/ANALYTICS_QUICK_REFERENCE.md](docs/ANALYTICS_QUICK_REFERENCE.md)** - Developer quick reference
+- **[FIREBASE_ANALYTICS_SETUP.md](FIREBASE_ANALYTICS_SETUP.md)** - Initial setup guide (for reference)
 
 ---
 
@@ -289,6 +296,7 @@ yarn cordova:build:ios
 - [x] Responsive design
 - [x] Core views updated
 - [x] GitHub Pages deployment
+- [x] Firebase Analytics integration (Web, iOS, Android)
 
 ### 🚧 In Progress
 - [ ] Complete dark mode for all views (Quiz, Folders, Import)
