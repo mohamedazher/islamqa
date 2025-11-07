@@ -57,7 +57,7 @@
           clickable
           padding="lg"
           @click="viewQuestion(questionOfTheDay.id)"
-          class="relative overflow-hidden bg-gradient-to-br from-primary-500 via-primary-600 to-accent-600 dark:from-primary-700 dark:via-primary-800 dark:to-accent-800 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+          class="relative overflow-hidden bg-gradient-to-br from-emerald-400 via-teal-400 to-cyan-500 dark:from-emerald-500 dark:via-teal-500 dark:to-cyan-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
         >
           <!-- Decorative background pattern -->
           <div class="absolute inset-0 opacity-10">
@@ -373,8 +373,8 @@ const quickActions = [
     icon: 'book',
     description: 'Explore categories',
     to: '/browse',
-    color: 'bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20',
-    iconBg: 'bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700',
+    color: 'bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-800/20',
+    iconBg: 'bg-gradient-to-br from-blue-400 via-cyan-400 to-teal-500 dark:from-blue-500 dark:via-cyan-500 dark:to-teal-600',
     iconColor: 'text-white'
   },
   {
@@ -382,8 +382,8 @@ const quickActions = [
     icon: 'search',
     description: 'Find answers',
     to: '/search',
-    color: 'bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20',
-    iconBg: 'bg-gradient-to-br from-purple-500 to-purple-600 dark:from-purple-600 dark:to-purple-700',
+    color: 'bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-800/20',
+    iconBg: 'bg-gradient-to-br from-purple-400 via-pink-400 to-rose-500 dark:from-purple-500 dark:via-pink-500 dark:to-rose-600',
     iconColor: 'text-white'
   },
   {
@@ -392,8 +392,8 @@ const quickActions = [
     description: 'Test knowledge',
     to: '/quiz',
     badge: 'NEW',
-    color: 'bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-800/20',
-    iconBg: 'bg-gradient-to-br from-amber-500 to-amber-600 dark:from-amber-600 dark:to-amber-700',
+    color: 'bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/20 dark:to-orange-800/20',
+    iconBg: 'bg-gradient-to-br from-yellow-400 via-orange-400 to-red-400 dark:from-yellow-500 dark:via-orange-500 dark:to-red-500',
     iconColor: 'text-white'
   },
   {
@@ -401,8 +401,8 @@ const quickActions = [
     icon: 'bookmark',
     description: 'Saved items',
     to: '/bookmarks',
-    color: 'bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-900/20 dark:to-pink-800/20',
-    iconBg: 'bg-gradient-to-br from-pink-500 to-pink-600 dark:from-pink-600 dark:to-pink-700',
+    color: 'bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/20 dark:to-teal-800/20',
+    iconBg: 'bg-gradient-to-br from-emerald-400 via-teal-400 to-cyan-500 dark:from-emerald-500 dark:via-teal-500 dark:to-cyan-600',
     iconColor: 'text-white'
   }
 ]
