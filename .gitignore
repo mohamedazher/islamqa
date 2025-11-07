@@ -10,6 +10,7 @@ dist/
 .cordova/
 www/assets/
 www/index.html
+www/data/*.js
 
 # IDE and editor files
 .vscode/
