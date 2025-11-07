@@ -1,6 +1,12 @@
 # Firebase Analytics Setup Guide
 
-This guide will help you set up Firebase Analytics for the BetterIslam Q&A app across Web, iOS, and Android platforms.
+> **📋 Note**: Setup is already complete for this project!
+> For usage, quick start, and API reference, see **[docs/FIREBASE_README.md](./docs/FIREBASE_README.md)**
+> This guide documents the initial setup process for reference.
+
+---
+
+This guide documents how to set up Firebase Analytics for the BetterIslam Q&A app across Web, iOS, and Android platforms.
 
 ## Overview
 
