@@ -48,3 +48,7 @@ plugins/fetch.json
 # Build configuration with sensitive info
 build.json
 www/.nojekyll
+
+# Quiz generation intermediate files
+quiz-generation/batches/*.json
+quiz-generation/scripts/*.cjs
