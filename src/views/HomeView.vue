@@ -50,6 +50,54 @@
         </Card>
       </div>
 
+      <!-- Question of the Day -->
+      <div v-if="dataStore.isReady && questionOfTheDay" class="mb-8 animate-slide-up">
+        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">✨ Question of the Day</h3>
+        <Card
+          clickable
+          padding="lg"
+          @click="viewQuestion(questionOfTheDay.id)"
+          class="relative overflow-hidden bg-gradient-to-br from-primary-500 via-primary-600 to-accent-600 dark:from-primary-700 dark:via-primary-800 dark:to-accent-800 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+        >
+          <!-- Decorative background pattern -->
+          <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white rounded-full -translate-y-32 translate-x-32"></div>
+            <div class="absolute bottom-0 left-0 w-48 h-48 bg-white rounded-full translate-y-24 -translate-x-24"></div>
+          </div>
+
+          <div class="relative">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                  <Icon name="star" size="md" class="text-white" />
+                </div>
+                <div class="text-xs font-medium bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+                  {{ new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) }}
+                </div>
+              </div>
+              <div class="text-xs font-bold bg-accent-400/80 dark:bg-accent-600/80 px-3 py-1 rounded-full">
+                Daily
+              </div>
+            </div>
+
+            <h4 class="text-xl font-bold mb-3 line-clamp-3 leading-relaxed">
+              {{ questionOfTheDay.question }}
+            </h4>
+
+            <div class="flex items-center gap-4 text-sm">
+              <div class="flex items-center gap-1 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <Icon name="book" size="xs" class="text-white" />
+                <span>Read Answer</span>
+              </div>
+              <div class="flex items-center gap-1 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <Icon name="lightning" size="xs" class="text-white" />
+                <span>+10 points</span>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </div>
+
       <!-- Quick Actions Grid -->
       <div class="mb-8">
         <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Quick Access</h3>
@@ -79,6 +127,61 @@
               <p class="text-xs lg:text-sm text-neutral-600 dark:text-neutral-400">{{ action.description }}</p>
             </div>
           </Card>
+        </div>
+      </div>
+
+      <!-- Random Questions Carousel -->
+      <div v-if="dataStore.isReady && randomQuestions.length > 0" class="mb-8">
+        <div class="flex items-center justify-between mb-4 px-1">
+          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">🌟 Explore Questions</h3>
+          <button
+            @click="refreshRandomQuestions"
+            class="text-sm text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1"
+          >
+            <Icon name="lightning" size="xs" />
+            Refresh
+          </button>
+        </div>
+
+        <!-- Horizontal Scrolling Container -->
+        <div class="relative -mx-4 px-4 lg:-mx-0 lg:px-0">
+          <div class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide lg:grid lg:grid-cols-3 lg:overflow-visible">
+            <Card
+              v-for="question in randomQuestions"
+              :key="question.id"
+              clickable
+              padding="md"
+              @click="viewQuestion(question.id)"
+              class="flex-shrink-0 w-[85%] sm:w-[70%] lg:w-auto snap-start group hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-white to-neutral-50 dark:from-neutral-900 dark:to-neutral-800 border border-neutral-200 dark:border-neutral-700"
+            >
+              <div class="space-y-3">
+                <!-- Category Badge -->
+                <div class="flex items-center justify-between">
+                  <div class="text-2xs font-bold uppercase tracking-wide text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950/30 px-2 py-1 rounded">
+                    {{ question.category || 'General' }}
+                  </div>
+                  <Icon name="arrowRight" size="xs" class="text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors" />
+                </div>
+
+                <!-- Question Preview -->
+                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 line-clamp-3 leading-relaxed min-h-[3.75rem]">
+                  {{ question.question }}
+                </h4>
+
+                <!-- Meta Info -->
+                <div class="flex items-center gap-3 text-2xs text-neutral-600 dark:text-neutral-400">
+                  <div class="flex items-center gap-1">
+                    <Icon name="document" size="xs" />
+                    <span>Q{{ question.id }}</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <Icon name="book" size="xs" />
+                    <span>Full Answer</span>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
       </div>
 
@@ -253,6 +356,9 @@ const stats = ref({
   bookmarks: 0
 })
 
+const questionOfTheDay = ref(null)
+const randomQuestions = ref([])
+
 const quickActions = [
   {
     name: 'Browse',
@@ -300,11 +406,58 @@ onMounted(async () => {
 
       const bookmarked = JSON.parse(localStorage.getItem('bookmarkedQuestions') || '[]')
       stats.value.bookmarks = bookmarked.length
+
+      // Load Question of the Day
+      await loadQuestionOfTheDay()
+
+      // Load random questions
+      await loadRandomQuestions()
     }
   } catch (error) {
     console.error('Failed to initialize:', error)
   }
 })
+
+async function loadQuestionOfTheDay() {
+  try {
+    // Use today's date as a seed for consistent daily question
+    const today = new Date()
+    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000)
+
+    const allQuestions = await dataStore.getAllQuestions()
+    if (allQuestions.length > 0) {
+      // Select a consistent question for today
+      const questionIndex = dayOfYear % allQuestions.length
+      questionOfTheDay.value = allQuestions[questionIndex]
+
+      // Track that user viewed QOTD for gamification
+      const lastViewedDate = localStorage.getItem('qotd-last-viewed')
+      const todayStr = today.toDateString()
+      if (lastViewedDate !== todayStr) {
+        localStorage.setItem('qotd-last-viewed', todayStr)
+      }
+    }
+  } catch (error) {
+    console.error('Failed to load Question of the Day:', error)
+  }
+}
+
+async function loadRandomQuestions() {
+  try {
+    const allQuestions = await dataStore.getAllQuestions()
+    if (allQuestions.length > 0) {
+      // Select 6 random questions
+      const shuffled = [...allQuestions].sort(() => Math.random() - 0.5)
+      randomQuestions.value = shuffled.slice(0, 6)
+    }
+  } catch (error) {
+    console.error('Failed to load random questions:', error)
+  }
+}
+
+async function refreshRandomQuestions() {
+  await loadRandomQuestions()
+}
 
 function navigate(path) {
   router.push(path)
@@ -313,4 +466,37 @@ function navigate(path) {
 function startImport() {
   router.push('/import')
 }
+
+function viewQuestion(questionId) {
+  // Award points for viewing QOTD
+  if (questionOfTheDay.value && questionId === questionOfTheDay.value.id) {
+    const today = new Date().toDateString()
+    const lastClaimed = localStorage.getItem('qotd-points-claimed')
+    if (lastClaimed !== today) {
+      gamification.readQuestion()
+      gamification.readQuestion() // Extra points for QOTD (2x5 = 10 points)
+      localStorage.setItem('qotd-points-claimed', today)
+    }
+  } else {
+    gamification.readQuestion()
+  }
+
+  router.push({
+    name: 'question',
+    params: { id: questionId }
+  })
+}
 </script>
+
+<style scoped>
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+</style>

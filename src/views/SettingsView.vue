@@ -86,6 +86,15 @@
               <div class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">Offline</div>
             </div>
           </div>
+
+          <!-- Share App Button -->
+          <button
+            @click="handleShareApp"
+            class="w-full mt-4 bg-gradient-to-r from-primary-600 to-accent-600 dark:from-primary-700 dark:to-accent-700 text-white px-6 py-3 rounded-lg font-semibold hover:from-primary-700 hover:to-accent-700 dark:hover:from-primary-600 dark:hover:to-accent-600 transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+          >
+            <Icon name="share" size="md" />
+            Share App with Friends
+          </button>
         </div>
       </section>
 
@@ -222,6 +231,7 @@ import { useTheme } from '@/composables/useTheme'
 import { useDataStore } from '@/stores/data'
 import dexieDb from '@/services/dexieDatabase'
 import Icon from '@/components/common/Icon.vue'
+import { shareApp } from '@/utils/sharing'
 
 const router = useRouter()
 const { isDark, toggleTheme } = useTheme()
@@ -251,6 +261,21 @@ onMounted(async () => {
 
 function goBack() {
   router.back()
+}
+
+async function handleShareApp() {
+  try {
+    const result = await shareApp()
+
+    if (result.success && result.platform === 'clipboard') {
+      alert(result.message || 'App link copied to clipboard!')
+    }
+  } catch (error) {
+    console.error('Error sharing app:', error)
+    if (!error.cancelled) {
+      alert('Failed to share app. Please try again.')
+    }
+  }
 }
 
 async function confirmClearData() {
