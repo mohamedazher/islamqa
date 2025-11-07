@@ -1,15 +1,15 @@
 <template>
   <div class="settings-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow">
-      <button @click="goBack" class="hover:opacity-80 transition-opacity mb-3 lg:hidden">
+    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow flex items-center">
+      <button @click="goBack" class="mr-3 hover:opacity-80 transition-opacity lg:hidden">
         <Icon name="arrowLeft" size="md" />
       </button>
-      <div class="flex items-center gap-3">
-        <Icon name="cog" size="lg" />
-        <div>
-          <h1 class="text-xl font-bold">Settings</h1>
-          <p class="text-primary-100 text-sm">Customize your experience</p>
+      <div class="flex items-center gap-3 flex-1 min-w-0">
+        <Icon name="cog" size="lg" class="flex-shrink-0" />
+        <div class="min-w-0">
+          <h1 class="text-lg md:text-xl font-bold truncate">Settings</h1>
+          <p class="text-primary-100 dark:text-primary-200 text-xs md:text-sm truncate">Customize your experience</p>
         </div>
       </div>
     </header>

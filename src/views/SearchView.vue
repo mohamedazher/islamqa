@@ -2,9 +2,12 @@
   <div class="search-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
     <!-- Header -->
     <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow">
-      <button @click="goBack" class="text-2xl mb-3 hover:opacity-80 transition-opacity">
-        <Icon name="arrowLeft" size="md" />
-      </button>
+      <div class="flex items-center gap-3 mb-3">
+        <button @click="goBack" class="hover:opacity-80 transition-opacity flex-shrink-0">
+          <Icon name="arrowLeft" size="md" />
+        </button>
+        <h1 class="text-lg font-bold">Search Questions</h1>
+      </div>
       <div class="relative">
         <input
           v-model="searchTerm"

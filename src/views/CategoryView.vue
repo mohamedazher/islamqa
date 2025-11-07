@@ -23,19 +23,35 @@
       <div v-else class="space-y-6">
         <!-- Subcategories Section -->
         <div v-if="subcategories.length > 0">
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3 flex items-center gap-2">
-            <Icon name="folder" size="md" />
+          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center gap-2">
+            <Icon name="folder" size="md" class="text-primary-600 dark:text-primary-400" />
             Subcategories
           </h3>
-          <div class="grid grid-cols-1 gap-3">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             <div
-              v-for="subcat in subcategories"
+              v-for="(subcat, index) in subcategories"
               :key="subcat.id"
               @click="selectCategory(subcat)"
-              class="bg-white dark:bg-neutral-800 rounded-lg shadow dark:shadow-neutral-900/50 p-4 cursor-pointer transition-all hover:shadow-md dark:hover:shadow-neutral-900 active:bg-primary-50 dark:active:bg-primary-900/20"
+              class="group relative overflow-hidden bg-gradient-to-br rounded-xl shadow-md hover:shadow-xl dark:shadow-neutral-900/50 p-5 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+              :class="getCategoryGradient(index)"
             >
-              <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 line-clamp-2 break-words">{{ subcat.category_links }}</h4>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1 truncate">{{ subcategorySummaries[subcat.element] || 'Loading...' }}</p>
+              <!-- Decorative Circle -->
+              <div class="absolute -right-4 -top-4 w-24 h-24 rounded-full opacity-10 bg-white"></div>
+
+              <div class="relative">
+                <div class="flex items-start gap-3">
+                  <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Icon name="folder" size="lg" class="text-white" />
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h4 class="font-bold text-white line-clamp-2 break-words mb-2 leading-snug">{{ subcat.category_links }}</h4>
+                    <p class="text-xs text-white/90 flex items-center gap-2">
+                      <span class="bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full">{{ subcategorySummaries[subcat.element] || 'Loading...' }}</span>
+                    </p>
+                  </div>
+                  <Icon name="chevronRight" size="md" class="text-white/70 group-hover:text-white transition-colors" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -148,6 +164,19 @@ onMounted(loadCategory)
 
 // Watch for route changes to reload category when navigating between categories
 watch(() => route.params.id, loadCategory)
+
+// Get gradient color for category card
+function getCategoryGradient(index) {
+  const gradients = [
+    'from-primary-500 via-primary-600 to-primary-700 dark:from-primary-600 dark:via-primary-700 dark:to-primary-800',
+    'from-accent-500 via-accent-600 to-accent-700 dark:from-accent-600 dark:via-accent-700 dark:to-accent-800',
+    'from-blue-500 via-blue-600 to-blue-700 dark:from-blue-600 dark:via-blue-700 dark:to-blue-800',
+    'from-purple-500 via-purple-600 to-purple-700 dark:from-purple-600 dark:via-purple-700 dark:to-purple-800',
+    'from-pink-500 via-pink-600 to-pink-700 dark:from-pink-600 dark:via-pink-700 dark:to-pink-800',
+    'from-orange-500 via-orange-600 to-orange-700 dark:from-orange-600 dark:via-orange-700 dark:to-orange-800'
+  ]
+  return gradients[index % gradients.length]
+}
 
 function goBack() {
   router.back()

@@ -52,7 +52,7 @@
 
       <!-- Question of the Day -->
       <div v-if="dataStore.isReady && questionOfTheDay" class="mb-8 animate-slide-up">
-        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">✨ Question of the Day</h3>
+        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Question of the Day</h3>
         <Card
           clickable
           padding="lg"
@@ -108,23 +108,29 @@
             clickable
             padding="md"
             @click="navigate(action.to)"
-            class="group relative overflow-hidden"
+            class="group relative overflow-hidden hover:shadow-lg transition-all duration-300"
+            :class="action.color"
           >
-            <div class="absolute inset-0 bg-gradient-to-br from-transparent to-neutral-50 dark:to-neutral-800 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <div class="relative">
-              <div class="flex items-center justify-between mb-3">
-                <div class="w-10 h-10 lg:w-12 lg:h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Icon :name="action.icon" size="lg" class="text-primary-700 dark:text-primary-400" />
-                </div>
-                <span
-                  v-if="action.badge"
-                  class="px-2 py-0.5 text-2xs font-bold rounded-full bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-400 animate-pulse"
+              <div class="flex flex-col items-center text-center space-y-3">
+                <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-md"
+                  :class="action.iconBg"
                 >
-                  {{ action.badge }}
-                </span>
+                  <Icon :name="action.icon" size="xl" :class="action.iconColor" />
+                </div>
+                <div>
+                  <h4 class="font-bold text-neutral-900 dark:text-neutral-100 mb-1 flex items-center justify-center gap-1">
+                    {{ action.name }}
+                    <span
+                      v-if="action.badge"
+                      class="px-1.5 py-0.5 text-2xs font-bold rounded-full bg-accent-500 dark:bg-accent-600 text-white animate-pulse"
+                    >
+                      {{ action.badge }}
+                    </span>
+                  </h4>
+                  <p class="text-2xs lg:text-xs text-neutral-600 dark:text-neutral-400">{{ action.description }}</p>
+                </div>
               </div>
-              <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">{{ action.name }}</h4>
-              <p class="text-xs lg:text-sm text-neutral-600 dark:text-neutral-400">{{ action.description }}</p>
             </div>
           </Card>
         </div>
@@ -133,7 +139,7 @@
       <!-- Random Questions Carousel -->
       <div v-if="dataStore.isReady && randomQuestions.length > 0" class="mb-8">
         <div class="flex items-center justify-between mb-4 px-1">
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">🌟 Explore Questions</h3>
+          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">Explore Questions</h3>
           <button
             @click="refreshRandomQuestions"
             class="text-sm text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1"
@@ -145,7 +151,7 @@
 
         <!-- Horizontal Scrolling Container -->
         <div class="relative -mx-4 px-4 lg:-mx-0 lg:px-0">
-          <div class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide lg:grid lg:grid-cols-3 lg:overflow-visible">
+          <div ref="carouselContainer" class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide lg:grid lg:grid-cols-3 lg:overflow-visible scroll-smooth">
             <Card
               v-for="question in randomQuestions"
               :key="question.id"
@@ -157,8 +163,8 @@
               <div class="space-y-3">
                 <!-- Category Badge -->
                 <div class="flex items-center justify-between">
-                  <div class="text-2xs font-bold uppercase tracking-wide text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950/30 px-2 py-1 rounded">
-                    {{ question.category || 'General' }}
+                  <div v-if="question.categoryName" class="text-2xs font-bold uppercase tracking-wide text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950/30 px-2 py-1 rounded truncate max-w-[150px]">
+                    {{ question.categoryName }}
                   </div>
                   <Icon name="arrowRight" size="xs" class="text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors" />
                 </div>
@@ -172,7 +178,7 @@
                 <div class="flex items-center gap-3 text-2xs text-neutral-600 dark:text-neutral-400">
                   <div class="flex items-center gap-1">
                     <Icon name="document" size="xs" />
-                    <span>Q{{ question.id }}</span>
+                    <span>Q{{ question.question_no || question.id }}</span>
                   </div>
                   <div class="flex items-center gap-1">
                     <Icon name="book" size="xs" />
@@ -339,7 +345,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDataStore } from '@/stores/data'
 import { useGamificationStore } from '@/stores/gamification'
@@ -358,32 +364,46 @@ const stats = ref({
 
 const questionOfTheDay = ref(null)
 const randomQuestions = ref([])
+const carouselContainer = ref(null)
+let autoScrollInterval = null
 
 const quickActions = [
   {
     name: 'Browse',
     icon: 'book',
     description: 'Explore categories',
-    to: '/browse'
+    to: '/browse',
+    color: 'bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20',
+    iconBg: 'bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700',
+    iconColor: 'text-white'
   },
   {
     name: 'Search',
     icon: 'search',
     description: 'Find answers',
-    to: '/search'
+    to: '/search',
+    color: 'bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20',
+    iconBg: 'bg-gradient-to-br from-purple-500 to-purple-600 dark:from-purple-600 dark:to-purple-700',
+    iconColor: 'text-white'
   },
   {
     name: 'Quiz',
     icon: 'lightning',
     description: 'Test knowledge',
     to: '/quiz',
-    badge: 'NEW'
+    badge: 'NEW',
+    color: 'bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-800/20',
+    iconBg: 'bg-gradient-to-br from-amber-500 to-amber-600 dark:from-amber-600 dark:to-amber-700',
+    iconColor: 'text-white'
   },
   {
     name: 'Bookmarks',
     icon: 'bookmark',
     description: 'Saved items',
-    to: '/bookmarks'
+    to: '/bookmarks',
+    color: 'bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-900/20 dark:to-pink-800/20',
+    iconBg: 'bg-gradient-to-br from-pink-500 to-pink-600 dark:from-pink-600 dark:to-pink-700',
+    iconColor: 'text-white'
   }
 ]
 
@@ -399,6 +419,11 @@ onMounted(async () => {
     // Initialize gamification
     gamification.initializeFromStorage()
 
+    // Initialize data store if not ready
+    if (!dataStore.isReady) {
+      await dataStore.initialize()
+    }
+
     // Load database stats if data is ready
     if (dataStore.isReady) {
       const dbStats = await dataStore.getStats()
@@ -412,9 +437,19 @@ onMounted(async () => {
 
       // Load random questions
       await loadRandomQuestions()
+
+      // Start auto-scroll for carousel on mobile
+      startAutoScroll()
     }
   } catch (error) {
     console.error('Failed to initialize:', error)
+  }
+})
+
+onBeforeUnmount(() => {
+  // Clean up auto-scroll interval
+  if (autoScrollInterval) {
+    clearInterval(autoScrollInterval)
   }
 })
 
@@ -448,7 +483,30 @@ async function loadRandomQuestions() {
     if (allQuestions.length > 0) {
       // Select 6 random questions
       const shuffled = [...allQuestions].sort(() => Math.random() - 0.5)
-      randomQuestions.value = shuffled.slice(0, 6)
+      const selectedQuestions = shuffled.slice(0, 6)
+
+      // Load category names for each question
+      const questionsWithCategories = await Promise.all(
+        selectedQuestions.map(async (question) => {
+          try {
+            if (question.category_id) {
+              const category = await dataStore.getCategory(question.category_id)
+              return {
+                ...question,
+                categoryName: category?.category_links || 'Islamic Q&A'
+              }
+            }
+          } catch (error) {
+            console.error('Error loading category for question:', question.id, error)
+          }
+          return {
+            ...question,
+            categoryName: 'Islamic Q&A'
+          }
+        })
+      )
+
+      randomQuestions.value = questionsWithCategories
     }
   } catch (error) {
     console.error('Failed to load random questions:', error)
@@ -457,6 +515,30 @@ async function loadRandomQuestions() {
 
 async function refreshRandomQuestions() {
   await loadRandomQuestions()
+}
+
+function startAutoScroll() {
+  // Only auto-scroll on mobile (screen width < 1024px)
+  if (window.innerWidth >= 1024) return
+
+  // Auto-scroll every 5 seconds
+  autoScrollInterval = setInterval(() => {
+    if (!carouselContainer.value) return
+
+    const container = carouselContainer.value
+    const cardWidth = container.firstElementChild?.offsetWidth || 0
+    const gap = 16 // 1rem gap
+    const scrollAmount = cardWidth + gap
+
+    // Check if we're at the end
+    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+      // Reset to beginning
+      container.scrollTo({ left: 0, behavior: 'smooth' })
+    } else {
+      // Scroll to next card
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+    }
+  }, 5000) // 5 seconds
 }
 
 function navigate(path) {
