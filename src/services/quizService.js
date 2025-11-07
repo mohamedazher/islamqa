@@ -201,13 +201,102 @@ class QuizService {
   }
 
   /**
+   * Get all available categories from pre-generated quizzes
+   */
+  getAvailableCategories() {
+    if (!this.loaded || this.preGeneratedQuizzes.length === 0) {
+      return []
+    }
+    const categories = [...new Set(this.preGeneratedQuizzes.map(q => q.category))]
+    return categories.sort()
+  }
+
+  /**
+   * Get custom quiz with category and difficulty filters
+   */
+  getCustomQuiz(options = {}) {
+    const {
+      categories = [], // Array of category names, empty = all
+      difficulty = 'all', // 'easy', 'medium', 'hard', 'all'
+      count = 10,
+      mode = 'custom'
+    } = options
+
+    if (!this.loaded || this.preGeneratedQuizzes.length === 0) {
+      return this.generateQuiz({ mode, count })
+    }
+
+    // Start with all quizzes
+    let filtered = [...this.preGeneratedQuizzes]
+
+    // Filter by categories if specified
+    if (categories.length > 0) {
+      filtered = filtered.filter(q => categories.includes(q.category))
+    }
+
+    // Filter by difficulty if specified
+    if (difficulty !== 'all') {
+      filtered = filtered.filter(q => q.difficulty === difficulty)
+    }
+
+    // Shuffle and select
+    const shuffled = this.shuffleArray(filtered)
+    const selected = shuffled.slice(0, Math.min(count, shuffled.length))
+
+    return {
+      id: `custom-${Date.now()}`,
+      name: 'Custom Quiz',
+      description: this.getQuizDescription(categories, difficulty, count),
+      mode: mode,
+      questions: selected,
+      timeLimit: null,
+      points: count * 10
+    }
+  }
+
+  /**
+   * Generate description for custom quiz
+   */
+  getQuizDescription(categories, difficulty, count) {
+    const parts = []
+    parts.push(`${count} questions`)
+
+    if (categories.length > 0) {
+      if (categories.length === 1) {
+        parts.push(categories[0])
+      } else {
+        parts.push(`${categories.length} categories`)
+      }
+    }
+
+    if (difficulty !== 'all') {
+      parts.push(difficulty.charAt(0).toUpperCase() + difficulty.slice(1))
+    }
+
+    return parts.join(' · ')
+  }
+
+  /**
    * Get rapid fire quiz (20 questions, timed)
    */
-  getRapidFireQuiz(categoryId = null) {
+  getRapidFireQuiz(options = {}) {
+    const { categories = [], difficulty = 'all' } = options
+
     // Use pre-generated quizzes if available
     if (this.loaded && this.preGeneratedQuizzes.length > 0) {
+      // Apply filters if specified
+      let filtered = [...this.preGeneratedQuizzes]
+
+      if (categories.length > 0) {
+        filtered = filtered.filter(q => categories.includes(q.category))
+      }
+
+      if (difficulty !== 'all') {
+        filtered = filtered.filter(q => q.difficulty === difficulty)
+      }
+
       // Shuffle and select 20 random quizzes
-      const shuffled = this.shuffleArray([...this.preGeneratedQuizzes])
+      const shuffled = this.shuffleArray(filtered)
       const selected = shuffled.slice(0, Math.min(20, shuffled.length))
 
       return {
