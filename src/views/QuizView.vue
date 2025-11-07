@@ -93,13 +93,17 @@
               <div class="flex items-center justify-between mb-3">
                 <h3 class="font-semibold text-neutral-900 dark:text-neutral-100">Categories</h3>
                 <button
+                  v-if="availableCategories.length > 0"
                   @click="toggleAllCategories"
                   class="text-sm text-primary-600 dark:text-primary-400 hover:underline"
                 >
                   {{ selectedCategories.length === availableCategories.length ? 'Deselect All' : 'Select All' }}
                 </button>
               </div>
-              <div class="space-y-2">
+              <div v-if="availableCategories.length === 0" class="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg p-4">
+                <p class="text-sm text-red-900 dark:text-red-100">⚠️ No categories available. Check console for errors.</p>
+              </div>
+              <div v-else class="space-y-2">
                 <button
                   v-for="category in availableCategories"
                   :key="category"
@@ -424,6 +428,11 @@ function closeFirstTimeGuide() {
 
 // Customization modal management
 function openCustomization(mode) {
+  console.log('🎨 Opening customization modal:', mode)
+  console.log('  - Available categories:', availableCategories.value)
+  console.log('  - Quiz service loaded:', quizService.value?.loaded)
+  console.log('  - Pre-generated quizzes count:', quizService.value?.preGeneratedQuizzes?.length)
+
   customizationMode.value = mode
 
   // Set defaults based on mode
@@ -436,6 +445,9 @@ function openCustomization(mode) {
   // Reset to all categories selected by default
   selectedCategories.value = [...availableCategories.value]
   selectedDifficulty.value = 'all'
+
+  console.log('  - Selected categories after reset:', selectedCategories.value)
+  console.log('  - Modal will show:', showCustomizationModal.value)
 
   showCustomizationModal.value = true
 }
@@ -565,31 +577,37 @@ function goBack() {
 // Initialize
 onMounted(async () => {
   try {
+    console.log('🎯 Initializing Quiz View...')
+
     // Initialize gamification
     gamification.initializeFromStorage()
 
-    // Load all questions from database (for fallback)
+    // Load all questions from database (for reference only)
     const questions = await dataStore.getAllQuestions()
+    console.log(`  📚 Database has ${questions.length} questions (not used for quizzes)`)
 
     // Initialize quiz service
     quizService.value = new QuizService(questions)
 
-    // Load pre-generated high-quality quizzes
+    // Load pre-generated high-quality quizzes (REQUIRED - no fallback)
+    console.log('  🔄 Loading pre-generated quizzes...')
     await quizService.value.loadPreGeneratedQuizzes()
 
     // Get available categories from loaded quizzes
     availableCategories.value = quizService.value.getAvailableCategories()
     selectedCategories.value = [...availableCategories.value] // Select all by default
 
+    console.log('  ✅ Quiz service ready')
+    console.log('  - Pre-generated quizzes:', quizService.value.preGeneratedQuizzes.length)
+    console.log('  - Available categories:', availableCategories.value)
+
     // Check if first-time user
     checkFirstTimeUser()
 
-    console.log('🎯 Quiz view initialized')
-    console.log('  - Database questions:', questions.length)
-    console.log('  - Pre-generated quizzes:', quizService.value.preGeneratedQuizzes.length)
-    console.log('  - Available categories:', availableCategories.value.length)
+    console.log('🎯 Quiz view initialized successfully!')
   } catch (error) {
-    console.error('Error initializing quiz:', error)
+    console.error('❌ FATAL ERROR initializing quiz view:', error)
+    alert(`Failed to load quiz questions: ${error.message}\n\nPlease check the console for details.`)
   }
 })
 </script>

@@ -12,18 +12,77 @@ class QuizService {
    * Load pre-generated quizzes from JSON file
    */
   async loadPreGeneratedQuizzes() {
+    console.log('🔄 Loading pre-generated quizzes from /data/quiz-questions.json...')
+
     try {
       const response = await fetch('/data/quiz-questions.json')
+
+      console.log('📡 Fetch response:', {
+        ok: response.ok,
+        status: response.status,
+        statusText: response.statusText,
+        url: response.url
+      })
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+      }
+
       const data = await response.json()
-      this.preGeneratedQuizzes = data.quizzes || []
+      console.log('📦 Raw data received:', {
+        version: data.version,
+        totalQuizzes: data.totalQuizzes,
+        actualQuizCount: data.quizzes?.length || 0
+      })
+
+      if (!data.quizzes || data.quizzes.length === 0) {
+        throw new Error('No quizzes found in quiz-questions.json')
+      }
+
+      // Transform loaded quizzes to match expected format
+      this.preGeneratedQuizzes = data.quizzes.map(quiz => this.transformQuizFormat(quiz))
+
       this.loaded = true
-      console.log(`✅ Loaded ${this.preGeneratedQuizzes.length} pre-generated quizzes`)
+      console.log(`✅ Successfully loaded and transformed ${this.preGeneratedQuizzes.length} quizzes`)
+      console.log('📋 Sample transformed quiz:', this.preGeneratedQuizzes[0])
+
       return this.preGeneratedQuizzes
     } catch (error) {
-      console.error('❌ Failed to load pre-generated quizzes:', error)
-      console.warn('⚠️ Falling back to on-the-fly generation')
+      console.error('❌ CRITICAL: Failed to load pre-generated quizzes')
+      console.error('   Error:', error)
+      console.error('   Stack:', error.stack)
       this.loaded = false
-      return []
+      throw error // Don't swallow the error - let it bubble up
+    }
+  }
+
+  /**
+   * Transform pre-generated quiz format to match UI expectations
+   */
+  transformQuizFormat(quiz) {
+    // Find the correct answer index
+    const correctIndex = quiz.options.findIndex(opt => opt.isCorrect === true)
+
+    // Transform options to expected format with numeric indices
+    const transformedOptions = quiz.options.map((opt, idx) => ({
+      text: opt.text,
+      id: idx,
+      isCorrect: opt.isCorrect || false
+    }))
+
+    return {
+      id: quiz.id,
+      sourceQuestionId: quiz.sourceQuestionId,
+      questionText: quiz.questionText,
+      type: quiz.type,
+      difficulty: quiz.difficulty,
+      category: quiz.category,
+      options: transformedOptions,
+      correctOptionId: correctIndex, // Add the index of correct answer
+      explanation: quiz.explanation,
+      sourceReference: quiz.sourceReference,
+      points: quiz.points || 10,
+      tags: quiz.tags || []
     }
   }
 
@@ -156,37 +215,22 @@ class QuizService {
    * Get daily quiz (same quiz all day)
    */
   getDailyQuiz(date = new Date()) {
-    // Use pre-generated quizzes if available
-    if (this.loaded && this.preGeneratedQuizzes.length > 0) {
-      const dayString = date.toISOString().split('T')[0]
-      const seed = dayString.split('-').reduce((acc, num) => acc + parseInt(num), 0)
-
-      // Select 5 questions using seed for consistent daily quiz
-      const selected = this.selectQuizzesWithSeed(5, seed)
-
-      return {
-        id: `daily-${dayString}`,
-        name: 'Daily Quiz',
-        description: 'Your daily challenge',
-        mode: 'daily',
-        questions: selected,
-        timeLimit: null,
-        points: 50
-      }
+    if (!this.loaded || this.preGeneratedQuizzes.length === 0) {
+      throw new Error('Pre-generated quizzes not loaded. Cannot generate daily quiz.')
     }
 
-    // Fallback to old generation method
     const dayString = date.toISOString().split('T')[0]
     const seed = dayString.split('-').reduce((acc, num) => acc + parseInt(num), 0)
-    const startIdx = seed % Math.max(this.questions.length - 5, 1)
-    const dailyQuestions = this.questions.slice(startIdx, startIdx + 5)
+
+    // Select 5 questions using seed for consistent daily quiz
+    const selected = this.selectQuizzesWithSeed(5, seed)
 
     return {
       id: `daily-${dayString}`,
       name: 'Daily Quiz',
       description: 'Your daily challenge',
       mode: 'daily',
-      questions: dailyQuestions.map((q, idx) => this.questionToQuizItem(q, 'daily')),
+      questions: selected,
       timeLimit: null,
       points: 50
     }
@@ -204,11 +248,21 @@ class QuizService {
    * Get all available categories from pre-generated quizzes
    */
   getAvailableCategories() {
+    console.log('📂 Getting available categories...')
+    console.log('  - Loaded:', this.loaded)
+    console.log('  - Quiz count:', this.preGeneratedQuizzes.length)
+
     if (!this.loaded || this.preGeneratedQuizzes.length === 0) {
+      console.warn('  ⚠️ Cannot get categories - quizzes not loaded')
       return []
     }
+
+    // Extract unique categories
     const categories = [...new Set(this.preGeneratedQuizzes.map(q => q.category))]
-    return categories.sort()
+    const sortedCategories = categories.sort()
+
+    console.log('  ✅ Found categories:', sortedCategories)
+    return sortedCategories
   }
 
   /**
@@ -223,7 +277,7 @@ class QuizService {
     } = options
 
     if (!this.loaded || this.preGeneratedQuizzes.length === 0) {
-      return this.generateQuiz({ mode, count })
+      throw new Error('Pre-generated quizzes not loaded. Cannot generate custom quiz.')
     }
 
     // Start with all quizzes
@@ -282,45 +336,31 @@ class QuizService {
   getRapidFireQuiz(options = {}) {
     const { categories = [], difficulty = 'all' } = options
 
-    // Use pre-generated quizzes if available
-    if (this.loaded && this.preGeneratedQuizzes.length > 0) {
-      // Apply filters if specified
-      let filtered = [...this.preGeneratedQuizzes]
-
-      if (categories.length > 0) {
-        filtered = filtered.filter(q => categories.includes(q.category))
-      }
-
-      if (difficulty !== 'all') {
-        filtered = filtered.filter(q => q.difficulty === difficulty)
-      }
-
-      // Shuffle and select 20 random quizzes
-      const shuffled = this.shuffleArray(filtered)
-      const selected = shuffled.slice(0, Math.min(20, shuffled.length))
-
-      return {
-        id: `rapid-fire-${Date.now()}`,
-        name: 'Rapid Fire',
-        description: '20 quick questions',
-        mode: 'rapid-fire',
-        questions: selected,
-        timeLimit: 60,
-        pointsPerQuestion: 5
-      }
+    if (!this.loaded || this.preGeneratedQuizzes.length === 0) {
+      throw new Error('Pre-generated quizzes not loaded. Cannot generate rapid fire quiz.')
     }
 
-    // Fallback to old generation
+    // Apply filters if specified
+    let filtered = [...this.preGeneratedQuizzes]
+
+    if (categories.length > 0) {
+      filtered = filtered.filter(q => categories.includes(q.category))
+    }
+
+    if (difficulty !== 'all') {
+      filtered = filtered.filter(q => q.difficulty === difficulty)
+    }
+
+    // Shuffle and select 20 random quizzes
+    const shuffled = this.shuffleArray(filtered)
+    const selected = shuffled.slice(0, Math.min(20, shuffled.length))
+
     return {
       id: `rapid-fire-${Date.now()}`,
       name: 'Rapid Fire',
       description: '20 quick questions',
       mode: 'rapid-fire',
-      questions: this.generateQuiz({
-        mode: 'rapid-fire',
-        count: 20,
-        categoryId
-      }),
+      questions: selected,
       timeLimit: 60,
       pointsPerQuestion: 5
     }
@@ -349,39 +389,25 @@ class QuizService {
    * Get challenge quiz (increasing difficulty)
    */
   getChallengeQuiz() {
-    // Use pre-generated quizzes if available, prefer hard/medium difficulty
-    if (this.loaded && this.preGeneratedQuizzes.length > 0) {
-      // Filter for harder quizzes first, then shuffle
-      const hardQuizzes = this.preGeneratedQuizzes.filter(q => q.difficulty === 'hard')
-      const mediumQuizzes = this.preGeneratedQuizzes.filter(q => q.difficulty === 'medium')
-
-      // Combine hard and medium, prioritizing hard
-      const challengePool = [...hardQuizzes, ...mediumQuizzes]
-      const shuffled = this.shuffleArray(challengePool)
-      const selected = shuffled.slice(0, Math.min(15, shuffled.length))
-
-      return {
-        id: `challenge-${Date.now()}`,
-        name: 'Challenge Mode',
-        description: 'Test your knowledge',
-        mode: 'challenge',
-        questions: selected,
-        timeLimit: 90,
-        points: 150
-      }
+    if (!this.loaded || this.preGeneratedQuizzes.length === 0) {
+      throw new Error('Pre-generated quizzes not loaded. Cannot generate challenge quiz.')
     }
 
-    // Fallback to old generation
+    // Filter for harder quizzes first, then shuffle
+    const hardQuizzes = this.preGeneratedQuizzes.filter(q => q.difficulty === 'hard')
+    const mediumQuizzes = this.preGeneratedQuizzes.filter(q => q.difficulty === 'medium')
+
+    // Combine hard and medium, prioritizing hard
+    const challengePool = [...hardQuizzes, ...mediumQuizzes]
+    const shuffled = this.shuffleArray(challengePool)
+    const selected = shuffled.slice(0, Math.min(15, shuffled.length))
+
     return {
       id: `challenge-${Date.now()}`,
       name: 'Challenge Mode',
       description: 'Test your knowledge',
       mode: 'challenge',
-      questions: this.generateQuiz({
-        mode: 'challenge',
-        count: 15,
-        difficulty: 'hard'
-      }),
+      questions: selected,
       timeLimit: 90,
       points: 150
     }
