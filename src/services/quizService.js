@@ -15,7 +15,10 @@ class QuizService {
     try {
       const response = await fetch('/data/quiz-questions.json')
       const data = await response.json()
-      this.preGeneratedQuizzes = data.quizzes || []
+
+      // Transform loaded quizzes to match expected format
+      this.preGeneratedQuizzes = (data.quizzes || []).map(quiz => this.transformQuizFormat(quiz))
+
       this.loaded = true
       console.log(`✅ Loaded ${this.preGeneratedQuizzes.length} pre-generated quizzes`)
       return this.preGeneratedQuizzes
@@ -24,6 +27,36 @@ class QuizService {
       console.warn('⚠️ Falling back to on-the-fly generation')
       this.loaded = false
       return []
+    }
+  }
+
+  /**
+   * Transform pre-generated quiz format to match UI expectations
+   */
+  transformQuizFormat(quiz) {
+    // Find the correct answer index
+    const correctIndex = quiz.options.findIndex(opt => opt.isCorrect === true)
+
+    // Transform options to expected format with numeric indices
+    const transformedOptions = quiz.options.map((opt, idx) => ({
+      text: opt.text,
+      id: idx,
+      isCorrect: opt.isCorrect || false
+    }))
+
+    return {
+      id: quiz.id,
+      sourceQuestionId: quiz.sourceQuestionId,
+      questionText: quiz.questionText,
+      type: quiz.type,
+      difficulty: quiz.difficulty,
+      category: quiz.category,
+      options: transformedOptions,
+      correctOptionId: correctIndex, // Add the index of correct answer
+      explanation: quiz.explanation,
+      sourceReference: quiz.sourceReference,
+      points: quiz.points || 10,
+      tags: quiz.tags || []
     }
   }
 
