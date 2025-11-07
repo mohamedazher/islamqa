@@ -12,10 +12,14 @@ class QuizService {
    * Load pre-generated quizzes from JSON file
    */
   async loadPreGeneratedQuizzes() {
-    console.log('🔄 Loading pre-generated quizzes from /data/quiz-questions.json...')
+    // Use Vite's base URL for web builds to support GitHub Pages deployment
+    const baseUrl = import.meta.env.BASE_URL || '/'
+    const quizDataPath = `${baseUrl}data/quiz-questions.json`.replace(/\/+/g, '/')
+
+    console.log(`🔄 Loading pre-generated quizzes from ${quizDataPath}...`)
 
     try {
-      const response = await fetch('/data/quiz-questions.json')
+      const response = await fetch(quizDataPath)
 
       console.log('📡 Fetch response:', {
         ok: response.ok,
