@@ -12,15 +12,15 @@
 import { initializeApp } from 'firebase/app'
 import { getAnalytics, logEvent as firebaseLogEvent, setUserId as firebaseSetUserId, setUserProperties as firebaseSetUserProperties } from 'firebase/analytics'
 
-// Firebase web config - REPLACE WITH YOUR ACTUAL CONFIG FROM FIREBASE CONSOLE
+// Firebase web config
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-  measurementId: "YOUR_MEASUREMENT_ID"
+  apiKey: "AIzaSyAOc2d3NPbuWzF5rWE3Fx8Ij7EGm4dFNT8",
+  authDomain: "betterislamqa.firebaseapp.com",
+  projectId: "betterislamqa",
+  storageBucket: "betterislamqa.firebasestorage.app",
+  messagingSenderId: "1062208000513",
+  appId: "1:1062208000513:web:d7c0b7697df2ab88d12600",
+  measurementId: "G-99MZ5VYR07"
 }
 
 let analyticsInstance = null
