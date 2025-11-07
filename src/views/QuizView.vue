@@ -565,31 +565,37 @@ function goBack() {
 // Initialize
 onMounted(async () => {
   try {
+    console.log('🎯 Initializing Quiz View...')
+
     // Initialize gamification
     gamification.initializeFromStorage()
 
-    // Load all questions from database (for fallback)
+    // Load all questions from database (for reference only)
     const questions = await dataStore.getAllQuestions()
+    console.log(`  📚 Database has ${questions.length} questions (not used for quizzes)`)
 
     // Initialize quiz service
     quizService.value = new QuizService(questions)
 
-    // Load pre-generated high-quality quizzes
+    // Load pre-generated high-quality quizzes (REQUIRED - no fallback)
+    console.log('  🔄 Loading pre-generated quizzes...')
     await quizService.value.loadPreGeneratedQuizzes()
 
     // Get available categories from loaded quizzes
     availableCategories.value = quizService.value.getAvailableCategories()
     selectedCategories.value = [...availableCategories.value] // Select all by default
 
+    console.log('  ✅ Quiz service ready')
+    console.log('  - Pre-generated quizzes:', quizService.value.preGeneratedQuizzes.length)
+    console.log('  - Available categories:', availableCategories.value)
+
     // Check if first-time user
     checkFirstTimeUser()
 
-    console.log('🎯 Quiz view initialized')
-    console.log('  - Database questions:', questions.length)
-    console.log('  - Pre-generated quizzes:', quizService.value.preGeneratedQuizzes.length)
-    console.log('  - Available categories:', availableCategories.value.length)
+    console.log('🎯 Quiz view initialized successfully!')
   } catch (error) {
-    console.error('Error initializing quiz:', error)
+    console.error('❌ FATAL ERROR initializing quiz view:', error)
+    alert(`Failed to load quiz questions: ${error.message}\n\nPlease check the console for details.`)
   }
 })
 </script>
