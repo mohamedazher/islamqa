@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { useAnalytics } from '@/services/analytics'
 
 // Use hash mode for Cordova (no server routing needed)
 const router = createRouter({
@@ -64,6 +65,13 @@ const router = createRouter({
 // Update document title on route change
 router.afterEach((to) => {
   document.title = to.meta.title || 'BetterIslam Q&A'
+
+  // Track screen views automatically
+  const { logScreen } = useAnalytics()
+  logScreen(to.name || 'unknown', {
+    page_path: to.path,
+    page_title: to.meta.title || 'BetterIslam Q&A'
+  })
 })
 
 export default router

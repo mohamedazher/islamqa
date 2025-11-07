@@ -3,6 +3,7 @@ import { createPinia } from 'pinia'
 import router from './router'
 import App from './App.vue'
 import './assets/styles/main.css'
+import { initializeAnalytics } from './services/analytics'
 
 // Wait for Cordova to be ready
 const initApp = () => {
@@ -15,6 +16,9 @@ const initApp = () => {
   app.mount('#app')
 
   console.log('✅ Vue app initialized')
+
+  // Initialize Firebase Analytics
+  initializeAnalytics()
 }
 
 // Check if we're in Cordova environment
