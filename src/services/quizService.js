@@ -1,9 +1,30 @@
 /**
- * Quiz Service - Generates quizzes with different modes and difficulty
+ * Quiz Service - Loads pre-generated quizzes and provides different modes
  */
 class QuizService {
   constructor(questions = []) {
-    this.questions = questions
+    this.questions = questions // Legacy database questions (for backward compatibility)
+    this.preGeneratedQuizzes = [] // Pre-generated high-quality quizzes
+    this.loaded = false
+  }
+
+  /**
+   * Load pre-generated quizzes from JSON file
+   */
+  async loadPreGeneratedQuizzes() {
+    try {
+      const response = await fetch('/data/quiz-questions.json')
+      const data = await response.json()
+      this.preGeneratedQuizzes = data.quizzes || []
+      this.loaded = true
+      console.log(`✅ Loaded ${this.preGeneratedQuizzes.length} pre-generated quizzes`)
+      return this.preGeneratedQuizzes
+    } catch (error) {
+      console.error('❌ Failed to load pre-generated quizzes:', error)
+      console.warn('⚠️ Falling back to on-the-fly generation')
+      this.loaded = false
+      return []
+    }
   }
 
   /**
@@ -135,11 +156,28 @@ class QuizService {
    * Get daily quiz (same quiz all day)
    */
   getDailyQuiz(date = new Date()) {
-    // Use date as seed for consistent daily quiz
+    // Use pre-generated quizzes if available
+    if (this.loaded && this.preGeneratedQuizzes.length > 0) {
+      const dayString = date.toISOString().split('T')[0]
+      const seed = dayString.split('-').reduce((acc, num) => acc + parseInt(num), 0)
+
+      // Select 5 questions using seed for consistent daily quiz
+      const selected = this.selectQuizzesWithSeed(5, seed)
+
+      return {
+        id: `daily-${dayString}`,
+        name: 'Daily Quiz',
+        description: 'Your daily challenge',
+        mode: 'daily',
+        questions: selected,
+        timeLimit: null,
+        points: 50
+      }
+    }
+
+    // Fallback to old generation method
     const dayString = date.toISOString().split('T')[0]
     const seed = dayString.split('-').reduce((acc, num) => acc + parseInt(num), 0)
-
-    // Select questions based on seed
     const startIdx = seed % Math.max(this.questions.length - 5, 1)
     const dailyQuestions = this.questions.slice(startIdx, startIdx + 5)
 
@@ -155,9 +193,35 @@ class QuizService {
   }
 
   /**
+   * Select quizzes using seed for deterministic selection
+   */
+  selectQuizzesWithSeed(count, seed) {
+    const startIdx = seed % Math.max(this.preGeneratedQuizzes.length - count, 1)
+    return this.preGeneratedQuizzes.slice(startIdx, startIdx + count)
+  }
+
+  /**
    * Get rapid fire quiz (20 questions, timed)
    */
   getRapidFireQuiz(categoryId = null) {
+    // Use pre-generated quizzes if available
+    if (this.loaded && this.preGeneratedQuizzes.length > 0) {
+      // Shuffle and select 20 random quizzes
+      const shuffled = this.shuffleArray([...this.preGeneratedQuizzes])
+      const selected = shuffled.slice(0, Math.min(20, shuffled.length))
+
+      return {
+        id: `rapid-fire-${Date.now()}`,
+        name: 'Rapid Fire',
+        description: '20 quick questions',
+        mode: 'rapid-fire',
+        questions: selected,
+        timeLimit: 60,
+        pointsPerQuestion: 5
+      }
+    }
+
+    // Fallback to old generation
     return {
       id: `rapid-fire-${Date.now()}`,
       name: 'Rapid Fire',
@@ -168,7 +232,7 @@ class QuizService {
         count: 20,
         categoryId
       }),
-      timeLimit: 60, // 60 seconds total
+      timeLimit: 60,
       pointsPerQuestion: 5
     }
   }
@@ -196,6 +260,29 @@ class QuizService {
    * Get challenge quiz (increasing difficulty)
    */
   getChallengeQuiz() {
+    // Use pre-generated quizzes if available, prefer hard/medium difficulty
+    if (this.loaded && this.preGeneratedQuizzes.length > 0) {
+      // Filter for harder quizzes first, then shuffle
+      const hardQuizzes = this.preGeneratedQuizzes.filter(q => q.difficulty === 'hard')
+      const mediumQuizzes = this.preGeneratedQuizzes.filter(q => q.difficulty === 'medium')
+
+      // Combine hard and medium, prioritizing hard
+      const challengePool = [...hardQuizzes, ...mediumQuizzes]
+      const shuffled = this.shuffleArray(challengePool)
+      const selected = shuffled.slice(0, Math.min(15, shuffled.length))
+
+      return {
+        id: `challenge-${Date.now()}`,
+        name: 'Challenge Mode',
+        description: 'Test your knowledge',
+        mode: 'challenge',
+        questions: selected,
+        timeLimit: 90,
+        points: 150
+      }
+    }
+
+    // Fallback to old generation
     return {
       id: `challenge-${Date.now()}`,
       name: 'Challenge Mode',

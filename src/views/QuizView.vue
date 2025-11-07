@@ -359,13 +359,18 @@ onMounted(async () => {
     // Initialize gamification
     gamification.initializeFromStorage()
 
-    // Load all questions from database
+    // Load all questions from database (for fallback)
     const questions = await dataStore.getAllQuestions()
 
     // Initialize quiz service
     quizService.value = new QuizService(questions)
 
-    console.log('🎯 Quiz view initialized with', questions.length, 'questions')
+    // Load pre-generated high-quality quizzes
+    await quizService.value.loadPreGeneratedQuizzes()
+
+    console.log('🎯 Quiz view initialized')
+    console.log('  - Database questions:', questions.length)
+    console.log('  - Pre-generated quizzes:', quizService.value.preGeneratedQuizzes.length)
   } catch (error) {
     console.error('Error initializing quiz:', error)
   }
