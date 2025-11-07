@@ -13,6 +13,7 @@ export const useGamificationStore = defineStore('gamification', () => {
   const achievements = ref([])
   const quizzesTaken = ref(0)
   const questionsRead = ref(0)
+  const readQuestionIds = ref(new Set()) // Track unique questions read
 
   const stats = ref({
     totalPoints: 0,
@@ -166,6 +167,8 @@ export const useGamificationStore = defineStore('gamification', () => {
       lastQuizDate.value = data.lastQuizDate || null
       achievements.value = data.achievements || allAchievements.map(a => ({ ...a }))
       stats.value = data.stats || stats.value
+      // Restore read question IDs from array
+      readQuestionIds.value = new Set(data.readQuestionIds || [])
     } else {
       // Initialize with all achievements locked
       achievements.value = allAchievements.map(a => ({ ...a, unlocked: false }))
@@ -175,10 +178,11 @@ export const useGamificationStore = defineStore('gamification', () => {
   function saveToStorage() {
     localStorage.setItem('gamification', JSON.stringify({
       points: points.value,
-      streak: points.value,
+      streak: streak.value, // Fixed: was saving points.value instead of streak.value
       lastQuizDate: lastQuizDate.value,
       achievements: achievements.value,
-      stats: stats.value
+      stats: stats.value,
+      readQuestionIds: Array.from(readQuestionIds.value) // Convert Set to array for storage
     }))
   }
 
@@ -206,7 +210,14 @@ export const useGamificationStore = defineStore('gamification', () => {
     saveToStorage()
   }
 
-  function readQuestion() {
+  function readQuestion(questionId) {
+    // Only count unique questions
+    if (!questionId || readQuestionIds.value.has(questionId)) {
+      return // Already read this question
+    }
+
+    // Track this question as read
+    readQuestionIds.value.add(questionId)
     stats.value.questionsRead++
     awardPoints(5, 'Question read')
     checkAchievements()

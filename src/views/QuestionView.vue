@@ -95,8 +95,8 @@ onMounted(async () => {
     currentQuestion.value = question
     currentAnswer.value = answer
 
-    // Track question read for gamification
-    gamificationStore.readQuestion()
+    // Track question read for gamification (only unique questions count)
+    gamificationStore.readQuestion(questionId)
 
     // Check if bookmarked
     const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]')
