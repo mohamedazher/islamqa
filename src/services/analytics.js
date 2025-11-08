@@ -10,7 +10,7 @@
  *   logEvent('question_viewed', { question_id: 123 })
  */
 
-import { initializeApp } from 'firebase/app'
+import { initializeApp, getApps, getApp } from 'firebase/app'
 import { getAnalytics, logEvent as firebaseLogEvent, setUserId as firebaseSetUserId, setUserProperties as firebaseSetUserProperties, setAnalyticsCollectionEnabled } from 'firebase/analytics'
 import { isAnalyticsEnabled } from './privacyConsent'
 
@@ -48,7 +48,8 @@ export function initializeAnalytics() {
   if (isWeb) {
     // Initialize Firebase Web SDK
     try {
-      const app = initializeApp(firebaseConfig)
+      // Check if Firebase app already exists, otherwise initialize
+      const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp()
       analyticsInstance = getAnalytics(app)
 
       // Set collection enabled based on consent

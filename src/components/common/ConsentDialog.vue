@@ -168,7 +168,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, watch } from 'vue'
 import Icon from './Icon.vue'
 import { usePrivacyConsent } from '@/services/privacyConsent'
 
@@ -184,6 +184,11 @@ const emit = defineEmits(['update:modelValue', 'accept', 'reject'])
 const { acceptAll, rejectAll } = usePrivacyConsent()
 const showDialog = ref(props.modelValue)
 const showDetails = ref(false)
+
+// Watch for prop changes from parent
+watch(() => props.modelValue, (newValue) => {
+  showDialog.value = newValue
+})
 
 function handleAccept() {
   acceptAll()
@@ -201,10 +206,6 @@ function close() {
   showDialog.value = false
   emit('update:modelValue', false)
 }
-
-onMounted(() => {
-  showDialog.value = props.modelValue
-})
 </script>
 
 <style scoped>
