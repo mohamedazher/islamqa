@@ -1,6 +1,7 @@
 /**
  * Firebase Analytics Service
  * Works seamlessly across Web, iOS, and Android platforms
+ * Privacy-compliant: Respects user consent preferences
  *
  * Usage in Vue components:
  *   import { useAnalytics } from '@/services/analytics'
@@ -10,7 +11,8 @@
  */
 
 import { initializeApp } from 'firebase/app'
-import { getAnalytics, logEvent as firebaseLogEvent, setUserId as firebaseSetUserId, setUserProperties as firebaseSetUserProperties } from 'firebase/analytics'
+import { getAnalytics, logEvent as firebaseLogEvent, setUserId as firebaseSetUserId, setUserProperties as firebaseSetUserProperties, setAnalyticsCollectionEnabled } from 'firebase/analytics'
+import { isAnalyticsEnabled } from './privacyConsent'
 
 // Firebase web config
 const firebaseConfig = {
@@ -25,11 +27,13 @@ const firebaseConfig = {
 
 let analyticsInstance = null
 let isInitialized = false
+let analyticsEnabled = false
 const isCordova = !!window.cordova
 const isWeb = !isCordova
 
 /**
  * Initialize Firebase Analytics
+ * Only collects data if user has consented
  */
 export function initializeAnalytics() {
   if (isInitialized) {
@@ -37,25 +41,88 @@ export function initializeAnalytics() {
     return
   }
 
+  // Check user consent
+  analyticsEnabled = isAnalyticsEnabled()
+  console.log('[Analytics] User consent status:', analyticsEnabled ? 'Granted' : 'Denied')
+
   if (isWeb) {
     // Initialize Firebase Web SDK
     try {
       const app = initializeApp(firebaseConfig)
       analyticsInstance = getAnalytics(app)
+
+      // Set collection enabled based on consent
+      setAnalyticsCollectionEnabled(analyticsInstance, analyticsEnabled)
+
       isInitialized = true
-      console.log('[Analytics] ✅ Firebase Web SDK initialized')
+      console.log('[Analytics] ✅ Firebase Web SDK initialized (collection:', analyticsEnabled ? 'enabled' : 'disabled', ')')
     } catch (error) {
       console.error('[Analytics] ❌ Web initialization error:', error)
     }
   } else {
     // Cordova plugin initializes automatically
     if (window.FirebasePlugin) {
+      // Set collection enabled for Cordova
+      window.FirebasePlugin.setAnalyticsCollectionEnabled(analyticsEnabled)
       isInitialized = true
-      console.log('[Analytics] ✅ Firebase Cordova plugin ready')
+      console.log('[Analytics] ✅ Firebase Cordova plugin ready (collection:', analyticsEnabled ? 'enabled' : 'disabled', ')')
     } else {
       console.warn('[Analytics] ⚠️ Firebase Cordova plugin not found')
     }
   }
+
+  // Listen for consent changes
+  window.addEventListener('consent-changed', handleConsentChange)
+}
+
+/**
+ * Handle consent preference changes
+ * @param {CustomEvent} event
+ */
+function handleConsentChange(event) {
+  const newConsent = event.detail
+  const newAnalyticsEnabled = newConsent.analytics
+
+  if (newAnalyticsEnabled === analyticsEnabled) {
+    return // No change
+  }
+
+  analyticsEnabled = newAnalyticsEnabled
+  console.log('[Analytics] Consent changed, analytics now:', analyticsEnabled ? 'enabled' : 'disabled')
+
+  if (isInitialized) {
+    if (isWeb && analyticsInstance) {
+      setAnalyticsCollectionEnabled(analyticsInstance, analyticsEnabled)
+    } else if (window.FirebasePlugin) {
+      window.FirebasePlugin.setAnalyticsCollectionEnabled(analyticsEnabled)
+    }
+  }
+}
+
+/**
+ * Enable or disable analytics collection
+ * @param {boolean} enabled
+ */
+export function setEnabled(enabled) {
+  analyticsEnabled = enabled
+
+  if (isInitialized) {
+    if (isWeb && analyticsInstance) {
+      setAnalyticsCollectionEnabled(analyticsInstance, enabled)
+      console.log('[Analytics] Collection', enabled ? 'enabled' : 'disabled')
+    } else if (window.FirebasePlugin) {
+      window.FirebasePlugin.setAnalyticsCollectionEnabled(enabled)
+      console.log('[Analytics] Collection', enabled ? 'enabled' : 'disabled')
+    }
+  }
+}
+
+/**
+ * Check if analytics is currently enabled
+ * @returns {boolean}
+ */
+export function isEnabled() {
+  return analyticsEnabled
 }
 
 /**
@@ -68,8 +135,8 @@ export function useAnalytics() {
    * @param {object} additionalParams - Additional parameters
    */
   const logScreen = (screenName, additionalParams = {}) => {
-    if (!isInitialized) {
-      console.warn('[Analytics] Not initialized, skipping screen log')
+    if (!isInitialized || !analyticsEnabled) {
+      // Silently skip if not consented
       return
     }
 
@@ -94,8 +161,8 @@ export function useAnalytics() {
    * @param {object} params - Event parameters
    */
   const logEvent = (eventName, params = {}) => {
-    if (!isInitialized) {
-      console.warn('[Analytics] Not initialized, skipping event log')
+    if (!isInitialized || !analyticsEnabled) {
+      // Silently skip if not consented
       return
     }
 
@@ -113,8 +180,7 @@ export function useAnalytics() {
    * @param {object} properties - User properties object
    */
   const setUserProperties = (properties) => {
-    if (!isInitialized) {
-      console.warn('[Analytics] Not initialized, skipping user properties')
+    if (!isInitialized || !analyticsEnabled) {
       return
     }
 
@@ -134,8 +200,7 @@ export function useAnalytics() {
    * @param {string} userId - Unique user identifier
    */
   const setUserId = (userId) => {
-    if (!isInitialized) {
-      console.warn('[Analytics] Not initialized, skipping user ID')
+    if (!isInitialized || !analyticsEnabled) {
       return
     }
 
@@ -228,6 +293,8 @@ export function useAnalytics() {
     logQuizEvent,
     setUserProperties,
     setUserId,
+    setEnabled,
+    isEnabled,
     isCordova,
     isWeb
   }
