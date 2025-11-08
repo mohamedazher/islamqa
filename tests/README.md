@@ -1,0 +1,262 @@
+# Breakage Detection Tests
+
+## 🎯 Purpose
+
+These tests catch **critical app failures** before deployment. They focus on the most common ways the app breaks:
+
+1. **Data structure changes** - If you modify categories.js or questions/answers files incorrectly
+2. **Missing files** - If critical files are accidentally deleted
+3. **Service integrity** - If database or data loading services are broken
+4. **Component integrity** - If critical Vue components are missing
+5. **Data relationships** - If category/question relationships are broken
+
+## 🏗️ Architecture
+
+**Your app uses:**
+- **Vue 3** - Modern reactive UI framework
+- **Vite** - Fast build tool
+- **Dexie (IndexedDB)** - Client-side database (replaced old SQLite)
+- **Cordova** - Cross-platform mobile wrapper
+
+**Data flow:**
+```
+Data files (www/js/*.js)
+  → dataLoader.js (fetches and parses)
+    → dexieDatabase.js (stores in IndexedDB)
+      → Vue components (display)
+```
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies (first time only)
+yarn install
+
+# Run all breakage detection tests
+yarn test:breakage
+
+# Run tests in watch mode (for development)
+yarn test:watch
+
+# Run all tests
+yarn test
+```
+
+## ✅ What Gets Tested
+
+### 1. Data Files Structure (CRITICAL)
+- ✓ categories.js has 200+ categories with required fields
+- ✓ All 4 question files exist (questions1-4.js)
+- ✓ All 12 answer files exist (answers1-12.js)
+- ✓ Data files have valid JSON structure
+- ✓ Categories have unique IDs and elements
+
+### 2. Service Files Integrity (CRITICAL)
+- ✓ dexieDatabase.js exists with required schema
+- ✓ dataLoader.js exists with import methods
+- ✓ searchService.js exists
+- ✓ All required database methods are defined
+
+### 3. Vue Components Integrity
+- ✓ All critical view components exist
+- ✓ App.vue exists and is valid
+- ✓ Component templates are not broken
+
+### 4. Data Relationships (CRITICAL)
+- ✓ Categories have valid parent relationships
+- ✓ No excessive orphaned categories
+- ✓ No duplicate category IDs or elements
+
+### 5. Build Configuration
+- ✓ package.json has Vue, Dexie, Vite dependencies
+- ✓ config.xml is valid Cordova configuration
+- ✓ Main entry point (src/main.js) exists
+
+### 6. Data Loading Logic
+- ✓ dataLoader handles all 4 question files
+- ✓ dataLoader handles all 12 answer files
+- ✓ Database schema version is defined
+
+## 📊 Test Output Example
+
+```
+ ✓ tests/breakage-detection.test.js (18 tests) 450ms
+
+   ✓ Data Files Structure (CRITICAL) (4)
+     ✓ categories.js must have valid structure
+       ✅ Found 269 categories with 9 root categories
+     ✓ all 4 questions files must exist and be valid
+       ✅ All 4 question files exist and are valid
+     ✓ all 12 answer files must exist
+       ✅ All 12 answer files exist
+     ✓ sample question file has valid structure
+       ✅ Question files have valid structure
+
+   ✓ Service Files Integrity (CRITICAL) (3)
+     ✓ dexieDatabase.js must exist and have required schema
+       ✅ dexieDatabase.js has required schema and methods
+     ✓ dataLoader.js must exist and have required methods
+       ✅ dataLoader.js has required methods
+     ✓ all critical service files must exist
+       ✅ All critical service files exist
+
+   ✓ Vue Components Integrity (2)
+     ✓ critical view components must exist
+       ✅ All critical view components exist
+     ✓ App.vue must exist and be valid
+       ✅ App.vue exists and is valid
+
+   ✓ Data Relationships (CRITICAL) (2)
+     ✓ categories must have valid parent relationships
+       ✅ All categories have valid parent relationships
+     ✓ categories must have unique IDs and elements
+       ✅ All 269 categories have unique IDs and elements
+
+   ✓ Build Configuration (3)
+     ✓ package.json must have required dependencies
+       ✅ package.json has all required dependencies
+     ✓ config.xml must be valid Cordova configuration
+       ✅ config.xml is valid
+     ✓ main entry point must exist
+       ✅ Main entry point exists
+
+   ✓ Data Loading Logic (2)
+     ✓ dataLoader must handle all data file parts correctly
+       ✅ dataLoader handles all data files correctly
+     ✓ database schema version must be defined
+       ✅ Database schema version is defined
+
+Test Files  1 passed (1)
+     Tests  18 passed (18)
+      Time  450ms
+```
+
+## 🔧 When to Run Tests
+
+### Automatically (CI/CD)
+Tests run automatically on:
+- Every push to main/master/develop branches
+- Every pull request
+- Before building Android/iOS releases (`yarn cordova:build:android`)
+- Before deploying web version (`yarn predeploy`)
+
+### Manually
+Run tests manually when you:
+- Modify categories.js
+- Modify questions or answers files
+- Change database schema in dexieDatabase.js
+- Update dataLoader.js
+- Add/remove Vue components
+- Before committing data changes
+
+## 🚨 Common Failures and Fixes
+
+### ❌ Test: "categories.js must have valid structure" fails
+
+**Cause:** You edited categories.js and broke the JSON structure
+
+**Fix:**
+1. Check for syntax errors (missing commas, quotes)
+2. Ensure all categories have required fields: `id`, `category_links`, `category_url`, `element`, `parent`
+3. Validate structure: Each field should be a string
+4. Test parsing: Open browser console and paste the file content
+
+**Example of valid category:**
+```json
+{
+  "id": "1",
+  "category_links": "Basic Tenets of Faith",
+  "category_url": "cat/218",
+  "element": "218",
+  "parent": "0"
+}
+```
+
+### ❌ Test: "all 4 questions files must exist" fails
+
+**Cause:** One or more question files are missing or renamed
+
+**Fix:** Ensure these files exist:
+- `www/js/questions1.js` (or `public/data/questions1.js`)
+- `www/js/questions2.js`
+- `www/js/questions3.js`
+- `www/js/questions4.js`
+
+### ❌ Test: "dexieDatabase.js must have required schema" fails
+
+**Cause:** You modified the database service and removed critical code
+
+**Fix:** Ensure dexieDatabase.js has:
+- Table definitions: `categories`, `questions`, `answers`, `folders`
+- Methods: `importCategories`, `importQuestions`, `importAnswers`
+- Schema version: `this.version(1).stores({...})`
+
+### ❌ Test: "categories must have valid parent relationships" fails
+
+**Cause:** Too many categories have non-existent parent references
+
+**Fix:**
+1. Check the test output for orphaned category examples
+2. Either add the missing parent categories, or fix the parent references
+3. Root categories should have `parent: "0"`
+
+### ❌ Test: "dataLoader must handle all data file parts" fails
+
+**Cause:** You modified dataLoader.js and changed the file loading logic
+
+**Fix:** Ensure dataLoader.js has:
+- Loop for questions: `for (let i = 1; i <= 4; i++)`
+- Loop for answers: `for (let i = 1; i <= 12; i++)`
+- Template literals: `` `questions${part}.js` ``, `` `answers${part}.js` ``
+
+## 🛡️ What These Tests DON'T Catch
+
+These are **smoke tests** - they catch obvious breakage, but won't catch:
+- Logic bugs in Vue components
+- UI rendering issues
+- Performance problems
+- Edge cases in search functionality
+- Race conditions in data loading
+
+For those, you'll need:
+- Unit tests for individual functions
+- Component tests for Vue components
+- E2E tests for full user flows
+- Manual testing
+
+## 📝 Adding More Tests
+
+To add tests for new features:
+
+```javascript
+describe('My New Feature', () => {
+  test('should not break when...', () => {
+    // Your test code
+    const result = someFunction();
+    expect(result).toBe(expected);
+  });
+});
+```
+
+## 🎓 Test Framework
+
+- **Framework:** [Vitest](https://vitest.dev/) - Fast, Vite-native testing
+- **Test Runner:** Node.js environment
+- **Assertions:** `expect()` API (Jest-compatible)
+
+## 🤔 Why These Specific Tests?
+
+Each test targets a **real breakage scenario**:
+
+1. **Data structure tests** - Catches when you accidentally break JSON while editing data
+2. **File existence tests** - Catches when files are accidentally deleted or renamed
+3. **Service tests** - Catches when critical code is removed during refactoring
+4. **Component tests** - Catches when Vue files are deleted
+5. **Relationship tests** - Catches data inconsistencies that crash the app
+6. **Config tests** - Catches broken dependencies or build configuration
+
+## 📚 Learn More
+
+- [Vitest Documentation](https://vitest.dev/)
+- [Testing Best Practices](https://vitest.dev/guide/best-practices)
+- [Vue Test Utils](https://test-utils.vuejs.org/) - For component testing (future)
