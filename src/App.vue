@@ -18,10 +18,7 @@
       </main>
     </div>
 
-    <!-- Privacy Consent Dialog (shown on first launch) -->
-    <ConsentDialog v-model="showConsentDialog" @accept="handleConsentAccept" @reject="handleConsentReject" />
-
-    <!-- Onboarding Slides (shown after consent on first launch) -->
+    <!-- Integrated Onboarding (includes privacy consent and data import) -->
     <OnboardingSlides v-model="showOnboarding" @complete="handleOnboardingComplete" @skip="handleOnboardingSkip" />
   </div>
 </template>
@@ -33,16 +30,13 @@ import { useTheme } from '@/composables/useTheme'
 import { useDataStore } from '@/stores/data'
 import DesktopSidebar from '@/components/layout/DesktopSidebar.vue'
 import MobileBottomNav from '@/components/layout/MobileBottomNav.vue'
-import ConsentDialog from '@/components/common/ConsentDialog.vue'
 import OnboardingSlides from '@/components/common/OnboardingSlides.vue'
-import { hasUserBeenAsked } from '@/services/privacyConsent'
 import { shouldShowOnboarding } from '@/services/onboarding'
 
 const router = useRouter()
 const { initTheme } = useTheme()
 const dataStore = useDataStore()
 
-const showConsentDialog = ref(false)
 const showOnboarding = ref(false)
 
 onMounted(async () => {
@@ -51,7 +45,27 @@ onMounted(async () => {
 
   console.log('🌐 Running in browser mode')
 
-  // Check if data is imported
+  // Check if we should show onboarding (first launch)
+  // Onboarding now includes privacy consent and data import
+  setTimeout(() => {
+    if (shouldShowOnboarding()) {
+      console.log('[Onboarding] First launch detected, showing integrated onboarding')
+      showOnboarding.value = true
+    } else {
+      // If not first launch, check if data is imported
+      checkDataImport()
+    }
+  }, 1000)
+
+  // Handle Android back button
+  if (window.cordova && window.device && window.device.platform === 'Android') {
+    document.addEventListener('backbutton', handleBackButton, false)
+  }
+
+  console.log('✅ App mounted successfully')
+})
+
+async function checkDataImport() {
   try {
     const isImported = await dataStore.isDataImported()
     const currentPath = router.currentRoute.value.path
@@ -66,56 +80,22 @@ onMounted(async () => {
   } catch (error) {
     console.error('Error checking import status:', error)
   }
-
-  // Handle Android back button
-  if (window.cordova && window.device && window.device.platform === 'Android') {
-    document.addEventListener('backbutton', handleBackButton, false)
-  }
-
-  // Check if we need to show consent dialog
-  // Delay to show after app is ready
-  setTimeout(() => {
-    if (!hasUserBeenAsked()) {
-      console.log('[Privacy] First launch detected, showing consent dialog')
-      showConsentDialog.value = true
-    }
-  }, 1500)
-
-  console.log('✅ App mounted successfully')
-})
-
-function handleConsentAccept() {
-  console.log('[Privacy] User accepted analytics')
-  showConsentDialog.value = false
-  // Show onboarding after consent
-  checkAndShowOnboarding()
-}
-
-function handleConsentReject() {
-  console.log('[Privacy] User declined analytics')
-  showConsentDialog.value = false
-  // Show onboarding after consent
-  checkAndShowOnboarding()
-}
-
-function checkAndShowOnboarding() {
-  // Small delay to ensure consent dialog is fully closed
-  setTimeout(() => {
-    if (shouldShowOnboarding()) {
-      console.log('[Onboarding] First launch, showing onboarding')
-      showOnboarding.value = true
-    }
-  }, 300)
 }
 
 function handleOnboardingComplete() {
-  console.log('[Onboarding] User completed onboarding')
+  console.log('[Onboarding] User completed onboarding (with privacy & import)')
   showOnboarding.value = false
+
+  // Initialize data store after onboarding complete
+  checkDataImport()
 }
 
 function handleOnboardingSkip() {
   console.log('[Onboarding] User skipped onboarding')
   showOnboarding.value = false
+
+  // Still check data import even if skipped
+  checkDataImport()
 }
 
 const handleBackButton = (e) => {

@@ -108,7 +108,8 @@ export function getOnboardingSlides() {
       title: 'Welcome to BetterIslam Q&A',
       description: 'Access 11,000+ authentic Islamic Q&A completely offline. Browse categories, search questions, and learn at your own pace.',
       image: null,
-      color: 'primary'
+      color: 'primary',
+      type: 'info'
     },
     {
       id: 'browse',
@@ -116,7 +117,8 @@ export function getOnboardingSlides() {
       title: 'Browse Categories',
       description: 'Explore 269 categories covering all aspects of Islam. From prayer to business, find answers to your questions organized by topic.',
       image: null,
-      color: 'accent'
+      color: 'accent',
+      type: 'info'
     },
     {
       id: 'search',
@@ -124,7 +126,8 @@ export function getOnboardingSlides() {
       title: 'Powerful Search',
       description: 'Search across thousands of questions instantly. Find exactly what you\'re looking for with our fast offline search.',
       image: null,
-      color: 'primary'
+      color: 'primary',
+      type: 'info'
     },
     {
       id: 'bookmarks',
@@ -132,7 +135,8 @@ export function getOnboardingSlides() {
       title: 'Save Your Favorites',
       description: 'Bookmark important questions for quick access. Create custom folders to organize your saved content.',
       image: null,
-      color: 'accent'
+      color: 'accent',
+      type: 'info'
     },
     {
       id: 'quiz',
@@ -140,7 +144,17 @@ export function getOnboardingSlides() {
       title: 'Test Your Knowledge',
       description: 'Take quizzes to test your Islamic knowledge. Track your progress and compete on the leaderboard.',
       image: null,
-      color: 'primary'
+      color: 'primary',
+      type: 'info'
+    },
+    {
+      id: 'privacy',
+      icon: 'shield',
+      title: 'Your Privacy Matters',
+      description: 'We respect your privacy. Choose whether to share anonymous usage data to help us improve the app.',
+      image: null,
+      color: 'accent',
+      type: 'privacy'
     },
     {
       id: 'offline',
@@ -148,7 +162,17 @@ export function getOnboardingSlides() {
       title: '100% Offline Access',
       description: 'Everything works offline - no internet needed! All content is stored locally on your device for instant access anytime, anywhere.',
       image: null,
-      color: 'accent'
+      color: 'primary',
+      type: 'info'
+    },
+    {
+      id: 'import',
+      icon: 'download',
+      title: 'Setup Your Database',
+      description: 'Let\'s import 8000+ Islamic Q&A items to your device. This takes a few minutes and enables full offline access.',
+      image: null,
+      color: 'accent',
+      type: 'import'
     }
   ]
 }
