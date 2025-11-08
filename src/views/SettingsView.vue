@@ -1,15 +1,15 @@
 <template>
   <div class="settings-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow">
-      <button @click="goBack" class="hover:opacity-80 transition-opacity mb-3 lg:hidden">
+    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow flex items-center">
+      <button @click="goBack" class="mr-3 hover:opacity-80 transition-opacity lg:hidden">
         <Icon name="arrowLeft" size="md" />
       </button>
-      <div class="flex items-center gap-3">
-        <Icon name="cog" size="lg" />
-        <div>
-          <h1 class="text-xl font-bold">Settings</h1>
-          <p class="text-primary-100 text-sm">Customize your experience</p>
+      <div class="flex items-center gap-3 flex-1 min-w-0">
+        <Icon name="cog" size="lg" class="flex-shrink-0" />
+        <div class="min-w-0">
+          <h1 class="text-lg md:text-xl font-bold truncate">Settings</h1>
+          <p class="text-primary-100 dark:text-primary-200 text-xs md:text-sm truncate">Customize your experience</p>
         </div>
       </div>
     </header>
@@ -86,6 +86,15 @@
               <div class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">Offline</div>
             </div>
           </div>
+
+          <!-- Share App Button -->
+          <button
+            @click="handleShareApp"
+            class="w-full mt-4 bg-gradient-to-r from-primary-600 to-accent-600 dark:from-primary-700 dark:to-accent-700 text-white px-6 py-3 rounded-lg font-semibold hover:from-primary-700 hover:to-accent-700 dark:hover:from-primary-600 dark:hover:to-accent-600 transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+          >
+            <Icon name="share" size="md" />
+            Share App with Friends
+          </button>
         </div>
       </section>
 
@@ -222,6 +231,7 @@ import { useTheme } from '@/composables/useTheme'
 import { useDataStore } from '@/stores/data'
 import dexieDb from '@/services/dexieDatabase'
 import Icon from '@/components/common/Icon.vue'
+import { shareApp } from '@/utils/sharing'
 
 const router = useRouter()
 const { isDark, toggleTheme } = useTheme()
@@ -251,6 +261,21 @@ onMounted(async () => {
 
 function goBack() {
   router.back()
+}
+
+async function handleShareApp() {
+  try {
+    const result = await shareApp()
+
+    if (result.success && result.platform === 'clipboard') {
+      alert(result.message || 'App link copied to clipboard!')
+    }
+  } catch (error) {
+    console.error('Error sharing app:', error)
+    if (!error.cancelled) {
+      alert('Failed to share app. Please try again.')
+    }
+  }
 }
 
 async function confirmClearData() {

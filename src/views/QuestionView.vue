@@ -8,9 +8,14 @@
         <h1 class="text-xl font-bold">Question</h1>
         <p class="text-primary-100 dark:text-primary-200 text-sm">Q#{{ currentQuestion?.question_no }}</p>
       </div>
-      <button @click="toggleBookmark" class="p-2 hover:bg-white/10 rounded-lg transition-colors">
-        <Icon :name="isBookmarked ? 'bookmarkSolid' : 'bookmark'" size="lg" :class="isBookmarked ? 'text-accent-400' : 'text-white'" />
-      </button>
+      <div class="flex items-center gap-2">
+        <button @click="handleShare" class="p-2 hover:bg-white/10 rounded-lg transition-colors">
+          <Icon name="share" size="lg" class="text-white" />
+        </button>
+        <button @click="toggleBookmark" class="p-2 hover:bg-white/10 rounded-lg transition-colors">
+          <Icon :name="isBookmarked ? 'bookmarkSolid' : 'bookmark'" size="lg" :class="isBookmarked ? 'text-accent-400' : 'text-white'" />
+        </button>
+      </div>
     </header>
 
     <div class="flex-1 overflow-y-auto p-4">
@@ -65,6 +70,7 @@ import { useDataStore } from '@/stores/data'
 import { useGamificationStore } from '@/stores/gamification'
 import Icon from '@/components/common/Icon.vue'
 import Button from '@/components/common/Button.vue'
+import { shareQuestion } from '@/utils/sharing'
 
 const router = useRouter()
 const route = useRoute()
@@ -135,6 +141,24 @@ function toggleBookmark() {
   localStorage.setItem('bookmarks', JSON.stringify(bookmarks))
   localStorage.setItem('bookmarkCount', bookmarks.length.toString())
   console.log('Bookmark toggled:', isBookmarked.value)
+}
+
+async function handleShare() {
+  if (!currentQuestion.value) return
+
+  try {
+    const result = await shareQuestion(currentQuestion.value, currentAnswer.value)
+
+    if (result.success && result.platform === 'clipboard') {
+      // Show a toast notification if copied to clipboard
+      alert(result.message || 'Copied to clipboard!')
+    }
+  } catch (error) {
+    console.error('Error sharing question:', error)
+    if (!error.cancelled) {
+      alert('Failed to share question. Please try again.')
+    }
+  }
 }
 </script>
 

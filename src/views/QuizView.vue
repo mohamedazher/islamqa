@@ -349,6 +349,66 @@
             </div>
           </div>
 
+          <!-- Detailed Answer Summary -->
+          <div class="mt-6 space-y-3">
+            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 text-left mb-3">Review Your Answers</h3>
+            <div
+              v-for="(result, idx) in quizResults.results"
+              :key="idx"
+              class="bg-neutral-50 dark:bg-neutral-800 rounded-lg p-4 text-left"
+            >
+              <div class="flex items-start gap-3">
+                <!-- Correct/Incorrect Icon -->
+                <div
+                  :class="[
+                    'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm',
+                    result.isCorrect
+                      ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
+                      : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400'
+                  ]"
+                >
+                  {{ result.isCorrect ? '✓' : '✗' }}
+                </div>
+
+                <div class="flex-1 min-w-0">
+                  <!-- Question Text -->
+                  <h4 class="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+                    Question {{ idx + 1 }}: {{ currentQuiz.questions[idx].questionText }}
+                  </h4>
+
+                  <!-- Answer Details -->
+                  <div class="space-y-1 text-sm">
+                    <div
+                      :class="[
+                        'flex items-center gap-2',
+                        result.isCorrect
+                          ? 'text-green-700 dark:text-green-400'
+                          : 'text-red-700 dark:text-red-400'
+                      ]"
+                    >
+                      <span class="font-semibold">Your answer:</span>
+                      <span>{{ currentQuiz.questions[idx].options[result.userAnswerId]?.text || 'No answer' }}</span>
+                    </div>
+                    <div v-if="!result.isCorrect" class="flex items-center gap-2 text-green-700 dark:text-green-400">
+                      <span class="font-semibold">Correct answer:</span>
+                      <span>{{ currentQuiz.questions[idx].options[result.correctOptionId].text }}</span>
+                    </div>
+                  </div>
+
+                  <!-- Link to Full Question (if sourceQuestionId exists) -->
+                  <button
+                    v-if="currentQuiz.questions[idx].sourceQuestionId"
+                    @click="viewFullQuestion(currentQuiz.questions[idx].sourceQuestionId)"
+                    class="mt-3 text-sm font-medium text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1"
+                  >
+                    <Icon name="book" size="xs" />
+                    Read full explanation
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Achievement Notification -->
           <div v-if="newAchievements.length > 0" class="bg-accent-50 dark:bg-accent-950/30 border border-accent-200 dark:border-accent-800 rounded-lg p-4 mb-4">
             <p class="font-semibold text-accent-900 dark:text-accent-100 mb-2">🎉 Achievement Unlocked!</p>
@@ -565,13 +625,22 @@ function restartQuiz() {
 }
 
 function goBack() {
-  if (currentQuiz.value) {
+  // Only warn about lost progress if quiz is active but not completed
+  if (currentQuiz.value && !quizCompleted.value) {
     if (confirm('Are you sure? Your progress will be lost.')) {
       restartQuiz()
     }
   } else {
     router.back()
   }
+}
+
+function viewFullQuestion(questionId) {
+  // Navigate to the full question view
+  router.push({
+    name: 'question',
+    params: { id: questionId }
+  })
 }
 
 // Initialize
