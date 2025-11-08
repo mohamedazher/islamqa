@@ -315,6 +315,16 @@
               <span class="font-semibold">Explanation: </span>
               {{ currentQuestion.explanation }}
             </p>
+
+            <!-- Link to Full Question (if sourceQuestionId exists) -->
+            <button
+              v-if="currentQuestion.sourceQuestionId"
+              @click="viewFullQuestion(currentQuestion.sourceQuestionId)"
+              class="mt-3 text-sm font-semibold text-primary-700 dark:text-primary-300 hover:underline flex items-center gap-1"
+            >
+              <Icon name="book" size="xs" />
+              Read full explanation
+            </button>
           </div>
         </div>
 
