@@ -112,7 +112,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import Icon from './Icon.vue'
 import { getOnboardingSlides, completeOnboarding, skipOnboarding } from '@/services/onboarding'
 
@@ -131,6 +131,15 @@ const pulseAnimation = ref(true)
 const slides = getOnboardingSlides()
 
 const isLastSlide = computed(() => currentSlide.value === slides.length - 1)
+
+// Watch for prop changes from parent
+watch(() => props.modelValue, (newValue) => {
+  showOnboarding.value = newValue
+  // Reset to first slide when reopening
+  if (newValue) {
+    currentSlide.value = 0
+  }
+})
 
 function nextSlide() {
   if (currentSlide.value < slides.length - 1) {
@@ -191,7 +200,6 @@ function handleKeydown(e) {
 }
 
 onMounted(() => {
-  showOnboarding.value = props.modelValue
   window.addEventListener('keydown', handleKeydown)
 })
 
