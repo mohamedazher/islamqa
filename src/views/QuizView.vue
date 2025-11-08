@@ -441,6 +441,7 @@ import { useRouter } from 'vue-router'
 import { useDataStore } from '@/stores/data'
 import { useGamificationStore } from '@/stores/gamification'
 import QuizService from '@/services/quizService'
+import leaderboardService from '@/services/leaderboardService'
 import Icon from '@/components/common/Icon.vue'
 
 const router = useRouter()
@@ -456,6 +457,7 @@ const quizCompleted = ref(false)
 const quizResults = ref(null)
 const newAchievements = ref([])
 const userAnswers = ref([]) // Track all user answers for scoring
+const quizStartTime = ref(null) // Track quiz start time for leaderboard
 
 // Customization state
 const showCustomizationModal = ref(false)
@@ -556,6 +558,7 @@ function startCustomQuiz() {
   selectedAnswer.value = null
   answered.value = false
   userAnswers.value = []
+  quizStartTime.value = Date.now() // Track start time
   showCustomizationModal.value = false
 }
 
@@ -566,6 +569,7 @@ function startDailyQuiz() {
   selectedAnswer.value = null
   answered.value = false
   userAnswers.value = [] // Reset answers array
+  quizStartTime.value = Date.now() // Track start time
 }
 
 function startChallengeQuiz() {
@@ -574,6 +578,7 @@ function startChallengeQuiz() {
   selectedAnswer.value = null
   answered.value = false
   userAnswers.value = [] // Reset answers array
+  quizStartTime.value = Date.now() // Track start time
 }
 
 function selectAnswer(optionIndex) {
@@ -595,7 +600,7 @@ function nextQuestion() {
   }
 }
 
-function completeQuiz() {
+async function completeQuiz() {
   // Calculate score using the collected user answers
   quizResults.value = quizService.value.calculateScore(currentQuiz.value, userAnswers.value)
 
@@ -604,6 +609,24 @@ function completeQuiz() {
   gamification.completeQuiz(quizResults.value.score, quizResults.value.accuracy)
   const newlyUnlocked = gamification.unlockedAchievements.length - previousUnlocked
   newAchievements.value = gamification.unlockedAchievements.slice(-newlyUnlocked)
+
+  // Submit to leaderboard
+  try {
+    const timeTaken = quizStartTime.value ? Math.floor((Date.now() - quizStartTime.value) / 1000) : 0
+    await leaderboardService.submitScore({
+      score: quizResults.value.score,
+      correct: quizResults.value.correct,
+      total: quizResults.value.total,
+      accuracy: quizResults.value.accuracy,
+      quizId: currentQuiz.value.id,
+      mode: currentQuiz.value.mode,
+      timeTaken: timeTaken
+    })
+    console.log('✅ Score submitted to leaderboard')
+  } catch (error) {
+    console.error('⚠️ Failed to submit score to leaderboard:', error)
+    // Don't block user if leaderboard submission fails
+  }
 
   quizCompleted.value = true
 
@@ -650,6 +673,15 @@ onMounted(async () => {
 
     // Initialize gamification
     gamification.initializeFromStorage()
+
+    // Initialize leaderboard service
+    try {
+      await leaderboardService.initUser()
+      console.log('  ✅ Leaderboard service initialized')
+    } catch (error) {
+      console.error('  ⚠️ Failed to initialize leaderboard:', error)
+      // Don't block quiz if leaderboard fails
+    }
 
     // Load all questions from database (for reference only)
     const questions = await dataStore.getAllQuestions()

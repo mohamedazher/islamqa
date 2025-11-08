@@ -54,6 +54,12 @@ const router = createRouter({
       meta: { title: 'Quiz' }
     },
     {
+      path: '/leaderboard',
+      name: 'leaderboard',
+      component: () => import('@/views/LeaderboardView.vue'),
+      meta: { title: 'Leaderboard' }
+    },
+    {
       path: '/settings',
       name: 'settings',
       component: () => import('@/views/SettingsView.vue'),
