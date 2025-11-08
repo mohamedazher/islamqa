@@ -32,19 +32,24 @@ Data files (www/js/*.js)
 # Install dependencies (first time only)
 yarn install
 
-# Run all breakage detection tests
+# Run breakage detection tests only
 yarn test:breakage
+
+# Run quiz and bookmarks tests only
+yarn test:features
+
+# Run all tests (recommended before deployment)
+yarn test:all
 
 # Run tests in watch mode (for development)
 yarn test:watch
-
-# Run all tests
-yarn test
 ```
 
 ## ✅ What Gets Tested
 
-### 1. Data Files Structure (CRITICAL)
+### Core App Tests (16 tests)
+
+#### 1. Data Files Structure (CRITICAL)
 - ✓ categories.js has 200+ categories with required fields
 - ✓ All 4 question files exist (questions1-4.js)
 - ✓ All 12 answer files exist (answers1-12.js)
@@ -72,12 +77,54 @@ yarn test
 - ✓ config.xml is valid Cordova configuration
 - ✓ Main entry point (src/main.js) exists
 
-### 6. Data Loading Logic
+#### 6. Data Loading Logic
 - ✓ dataLoader handles all 4 question files
 - ✓ dataLoader handles all 12 answer files
 - ✓ Database schema version is defined
 
+### Quiz & Bookmarks Tests (18 tests)
+
+#### 7. Quiz System - Data File Integrity (CRITICAL)
+- ✓ quiz-questions.json exists (both Cordova and web builds)
+- ✓ Quiz data has valid structure (version, totalQuizzes, quizzes array)
+- ✓ Has minimum 100 quizzes (currently 445!)
+- ✓ Each quiz has required fields (id, questionText, type, difficulty, category, options)
+- ✓ Each option has valid structure (id, text, isCorrect)
+- ✓ **Each quiz has exactly one correct answer** (validates all 445 quizzes)
+- ✓ Valid difficulty levels (easy, medium, hard) - distribution shown
+- ✓ Valid question types (multiple-choice, true-false)
+- ✓ Diverse categories (11 unique categories found)
+
+#### 8. Quiz Service Integrity
+- ✓ quizService.js exists with required methods
+- ✓ QuizView.vue component exists
+
+#### 9. Bookmarks System - Database Schema
+- ✓ Database has folders and folder_questions tables
+- ✓ Database has all bookmark methods (createFolder, deleteFolder, addQuestionToFolder, etc.)
+- ✓ Database schema supports folder operations with proper indexes
+
+#### 10. Bookmarks System - UI Components
+- ✓ FoldersView.vue exists with bookmark UI
+- ✓ QuestionView.vue exists with bookmark functionality
+
+#### 11. Quiz and Bookmarks Integration
+- ✓ Router has quiz and bookmarks routes
+- ✓ Quiz categories align with question system
+
 ## 📊 Test Output Example
+
+**All Tests Combined (34 tests total)**
+```
+ ✓ tests/breakage-detection.test.js (16 tests)
+ ✓ tests/quiz-and-bookmarks.test.js (18 tests)
+
+Test Files  2 passed (2)
+     Tests  34 passed (34)
+  Duration  2.68s
+```
+
+**Breakage Detection Tests**
 
 ```
  ✓ tests/breakage-detection.test.js (18 tests) 450ms
@@ -144,9 +191,12 @@ Tests run automatically on:
 Run tests manually when you:
 - Modify categories.js
 - Modify questions or answers files
+- **Modify quiz-questions.json**
+- **Add or edit quiz data**
 - Change database schema in dexieDatabase.js
-- Update dataLoader.js
+- Update dataLoader.js or quizService.js
 - Add/remove Vue components
+- **Modify bookmark/folder functionality**
 - Before committing data changes
 
 ## 🚨 Common Failures and Fixes
@@ -208,6 +258,53 @@ Run tests manually when you:
 - Loop for questions: `for (let i = 1; i <= 4; i++)`
 - Loop for answers: `for (let i = 1; i <= 12; i++)`
 - Template literals: `` `questions${part}.js` ``, `` `answers${part}.js` ``
+
+### ❌ Test: "quiz-questions.json must exist" fails
+
+**Cause:** Quiz data file is missing or in wrong location
+
+**Fix:** Ensure quiz-questions.json exists in:
+- `www/data/quiz-questions.json` (for Cordova builds)
+- `public/data/quiz-questions.json` (for web builds)
+
+### ❌ Test: "each quiz must have exactly one correct answer" fails
+
+**Cause:** You edited quiz-questions.json and broke the answer structure
+
+**Fix:**
+1. Check the test output for which quiz IDs have errors
+2. Ensure each quiz has exactly one option with `isCorrect: true`
+3. All other options must have `isCorrect: false`
+
+**Example of valid quiz options:**
+```json
+"options": [
+  { "id": "a", "text": "Correct answer", "isCorrect": true },
+  { "id": "b", "text": "Wrong answer", "isCorrect": false },
+  { "id": "c", "text": "Wrong answer", "isCorrect": false }
+]
+```
+
+### ❌ Test: "quizzes must have valid difficulty levels" fails
+
+**Cause:** You added quizzes with invalid difficulty values
+
+**Fix:** Ensure all quizzes have difficulty set to one of:
+- `"easy"`
+- `"medium"`
+- `"hard"`
+
+### ❌ Test: "database must have bookmark methods" fails
+
+**Cause:** You modified dexieDatabase.js and removed bookmark functionality
+
+**Fix:** Ensure dexieDatabase.js has these methods:
+- `createFolder()`
+- `deleteFolder()`
+- `addQuestionToFolder()`
+- `removeQuestionFromFolder()`
+- `getQuestionsInFolder()`
+- `getFolders()`
 
 ## 🛡️ What These Tests DON'T Catch
 
