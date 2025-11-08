@@ -37,9 +37,9 @@ const route = useRoute()
 const navigation = [
   { name: 'Home', to: '/', icon: 'home' },
   { name: 'Browse', to: '/browse', icon: 'book' },
-  { name: 'Search', to: '/search', icon: 'search' },
-  { name: 'Bookmarks', to: '/bookmarks', icon: 'bookmark' },
-  { name: 'Settings', to: '/settings', icon: 'cog' },
+  { name: 'Quiz', to: '/quiz', icon: 'lightning', badge: true },
+  { name: 'Board', to: '/leaderboard', icon: 'trophy', badge: true },
+  { name: 'More', to: '/settings', icon: 'cog' },
 ]
 
 const isActive = (to) => {
