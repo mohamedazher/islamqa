@@ -125,13 +125,14 @@ To enable the leaderboard, you need to:
 6. ✅ Time taken recorded for future challenges
 7. ✅ User can immediately view updated rankings
 
-**Next Steps for Leaderboard:**
-- [ ] Add username customization UI
-- [ ] Implement friend system (compete with specific users)
-- [ ] Add achievements tied to leaderboard ranks
-- [ ] Weekly challenges with special prizes
-- [ ] Notifications for rank changes
-- [ ] Clan/Group leaderboards for community building
+**Future Enhancements:**
+See `docs/LEADERBOARD_SETUP.md` for comprehensive enhancement roadmap including:
+- 🎯 Tier 1: Username customization, profiles, filters (1 week)
+- 🏆 Tier 2: Friend system, badges, clans (2 weeks)
+- 📊 Tier 3: Weekly challenges, tournaments, streak competitions (3 weeks)
+- 🔔 Tier 4: Notifications, analytics, social sharing (2 weeks)
+- 💎 Tier 5: Virtual rewards, seasons, real-world prizes (4 weeks)
+- 🛡️ Tier 6: Enhanced security, moderation tools, anti-cheat (ongoing)
 
 ---
 
