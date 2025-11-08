@@ -98,6 +98,33 @@
         </div>
       </section>
 
+      <!-- Help & Tutorial Section -->
+      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
+        <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+            <Icon name="info" size="md" class="text-primary-600 dark:text-primary-400" />
+            Help & Tutorial
+          </h2>
+        </div>
+        <div class="p-4">
+          <button
+            @click="showTutorial"
+            class="w-full flex items-center justify-between px-4 py-3 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-950/30 dark:to-accent-950/30 rounded-lg hover:from-primary-100 hover:to-accent-100 dark:hover:from-primary-950/50 dark:hover:to-accent-950/50 transition-colors group"
+          >
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-10 h-10 bg-primary-600 dark:bg-primary-500 rounded-full flex items-center justify-center">
+                <Icon name="lightning" size="md" class="text-white" />
+              </div>
+              <div>
+                <div class="font-medium text-neutral-900 dark:text-neutral-100">View App Tutorial</div>
+                <div class="text-xs text-neutral-600 dark:text-neutral-400">Learn about all features and how to use them</div>
+              </div>
+            </div>
+            <Icon name="arrowRight" size="sm" class="text-primary-600 dark:text-primary-400 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+      </section>
+
       <!-- Links Section -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
@@ -283,6 +310,9 @@
         </p>
       </div>
     </div>
+
+    <!-- Onboarding Tutorial Dialog -->
+    <OnboardingSlides v-model="showOnboardingDialog" @complete="handleOnboardingClose" @skip="handleOnboardingClose" />
   </div>
 </template>
 
@@ -296,6 +326,7 @@ import Icon from '@/components/common/Icon.vue'
 import { shareApp } from '@/utils/sharing'
 import { usePrivacyConsent } from '@/services/privacyConsent'
 import { useAnalytics } from '@/services/analytics'
+import OnboardingSlides from '@/components/common/OnboardingSlides.vue'
 
 const router = useRouter()
 const { isDark, toggleTheme } = useTheme()
@@ -315,6 +346,7 @@ const stats = ref({
 
 const isClearing = ref(false)
 const analyticsEnabled = ref(isAnalyticsEnabled)
+const showOnboardingDialog = ref(false)
 
 onMounted(async () => {
   try {
@@ -355,6 +387,16 @@ function toggleAnalytics() {
 
 function showPrivacyInfo() {
   router.push('/privacy')
+}
+
+function showTutorial() {
+  showOnboardingDialog.value = true
+  console.log('[Settings] Opening tutorial')
+}
+
+function handleOnboardingClose() {
+  showOnboardingDialog.value = false
+  console.log('[Settings] Tutorial closed')
 }
 
 async function confirmClearData() {

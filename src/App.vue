@@ -20,6 +20,9 @@
 
     <!-- Privacy Consent Dialog (shown on first launch) -->
     <ConsentDialog v-model="showConsentDialog" @accept="handleConsentAccept" @reject="handleConsentReject" />
+
+    <!-- Onboarding Slides (shown after consent on first launch) -->
+    <OnboardingSlides v-model="showOnboarding" @complete="handleOnboardingComplete" @skip="handleOnboardingSkip" />
   </div>
 </template>
 
@@ -31,13 +34,16 @@ import { useDataStore } from '@/stores/data'
 import DesktopSidebar from '@/components/layout/DesktopSidebar.vue'
 import MobileBottomNav from '@/components/layout/MobileBottomNav.vue'
 import ConsentDialog from '@/components/common/ConsentDialog.vue'
+import OnboardingSlides from '@/components/common/OnboardingSlides.vue'
 import { hasUserBeenAsked } from '@/services/privacyConsent'
+import { shouldShowOnboarding } from '@/services/onboarding'
 
 const router = useRouter()
 const { initTheme } = useTheme()
 const dataStore = useDataStore()
 
 const showConsentDialog = ref(false)
+const showOnboarding = ref(false)
 
 onMounted(async () => {
   // Initialize theme
@@ -81,11 +87,35 @@ onMounted(async () => {
 function handleConsentAccept() {
   console.log('[Privacy] User accepted analytics')
   showConsentDialog.value = false
+  // Show onboarding after consent
+  checkAndShowOnboarding()
 }
 
 function handleConsentReject() {
   console.log('[Privacy] User declined analytics')
   showConsentDialog.value = false
+  // Show onboarding after consent
+  checkAndShowOnboarding()
+}
+
+function checkAndShowOnboarding() {
+  // Small delay to ensure consent dialog is fully closed
+  setTimeout(() => {
+    if (shouldShowOnboarding()) {
+      console.log('[Onboarding] First launch, showing onboarding')
+      showOnboarding.value = true
+    }
+  }, 300)
+}
+
+function handleOnboardingComplete() {
+  console.log('[Onboarding] User completed onboarding')
+  showOnboarding.value = false
+}
+
+function handleOnboardingSkip() {
+  console.log('[Onboarding] User skipped onboarding')
+  showOnboarding.value = false
 }
 
 const handleBackButton = (e) => {
