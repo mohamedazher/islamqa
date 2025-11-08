@@ -47,6 +47,68 @@
         </div>
       </section>
 
+      <!-- Profile Section -->
+      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
+        <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+            <Icon name="user" size="md" class="text-primary-600 dark:text-primary-400" />
+            Profile
+          </h2>
+        </div>
+        <div class="p-4 space-y-4">
+          <!-- Profile Avatar & Username -->
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 dark:from-amber-500 dark:to-orange-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+              {{ userProfile.username ? userProfile.username.charAt(0).toUpperCase() : '?' }}
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2">
+                <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100">{{ userProfile.username }}</h3>
+                <button
+                  @click="openUsernameDialog"
+                  class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                  title="Edit username"
+                >
+                  <Icon name="edit" size="sm" />
+                </button>
+              </div>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400 font-mono">
+                ID: {{ userProfile.userId ? userProfile.userId.substring(0, 8) : 'Loading...' }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="grid grid-cols-3 gap-3">
+            <div class="bg-amber-50 dark:bg-amber-950/30 rounded-lg p-3 text-center border border-amber-200 dark:border-amber-800">
+              <div class="text-2xl font-bold text-amber-600 dark:text-amber-400">{{ userProfile.totalScore }}</div>
+              <div class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">Total Score</div>
+            </div>
+            <div class="bg-orange-50 dark:bg-orange-950/30 rounded-lg p-3 text-center border border-orange-200 dark:border-orange-800">
+              <div class="text-2xl font-bold text-orange-600 dark:text-orange-400">{{ userProfile.quizzesTaken }}</div>
+              <div class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">Quizzes</div>
+            </div>
+            <div class="bg-primary-50 dark:bg-primary-950/30 rounded-lg p-3 text-center border border-primary-200 dark:border-primary-800">
+              <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">{{ userProfile.level }}</div>
+              <div class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">Level</div>
+            </div>
+          </div>
+
+          <!-- Account Type Badge -->
+          <div class="bg-neutral-50 dark:bg-neutral-950/50 rounded-lg p-3 border border-neutral-200 dark:border-neutral-800">
+            <div class="flex items-center gap-2">
+              <Icon name="shield" size="sm" class="text-neutral-600 dark:text-neutral-400" />
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">
+                <strong class="text-neutral-900 dark:text-neutral-100">Account Type:</strong> Anonymous User
+              </p>
+            </div>
+            <p class="text-xs text-neutral-500 dark:text-neutral-500 mt-1 ml-6">
+              Your progress is saved locally and synced to the leaderboard
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- About Section -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
@@ -313,6 +375,51 @@
 
     <!-- Onboarding Tutorial Dialog -->
     <OnboardingSlides v-model="showOnboardingDialog" @complete="handleOnboardingClose" @skip="handleOnboardingClose" />
+
+    <!-- Username Edit Dialog -->
+    <div v-if="showUsernameDialog" class="fixed inset-0 bg-black/50 dark:bg-black/70 flex items-center justify-center z-50 p-4" @click.self="closeUsernameDialog">
+      <div class="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl max-w-md w-full p-6 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Edit Username</h3>
+          <button @click="closeUsernameDialog" class="text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors">
+            <Icon name="close" size="md" />
+          </button>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+            Choose your username
+          </label>
+          <input
+            v-model="newUsername"
+            type="text"
+            maxlength="30"
+            placeholder="Enter new username"
+            class="w-full px-4 py-3 bg-neutral-50 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500"
+            @keyup.enter="handleUpdateUsername"
+          />
+          <p class="text-xs text-neutral-500 dark:text-neutral-500 mt-2">
+            Max 30 characters. This will be displayed on the leaderboard.
+          </p>
+        </div>
+
+        <div class="flex gap-3 pt-2">
+          <button
+            @click="closeUsernameDialog"
+            class="flex-1 px-4 py-3 bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded-lg font-medium hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors"
+          >
+            Cancel
+          </button>
+          <button
+            @click="handleUpdateUsername"
+            :disabled="isUpdatingUsername || !newUsername.trim()"
+            class="flex-1 px-4 py-3 bg-gradient-to-r from-primary-600 to-accent-600 dark:from-primary-500 dark:to-accent-500 text-white rounded-lg font-medium hover:from-primary-700 hover:to-accent-700 dark:hover:from-primary-600 dark:hover:to-accent-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {{ isUpdatingUsername ? 'Updating...' : 'Update' }}
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -327,6 +434,8 @@ import { shareApp } from '@/utils/sharing'
 import { usePrivacyConsent } from '@/services/privacyConsent'
 import { useAnalytics } from '@/services/analytics'
 import OnboardingSlides from '@/components/common/OnboardingSlides.vue'
+import leaderboardService from '@/services/leaderboardService'
+import { getFirestore, doc, getDoc } from 'firebase/firestore'
 
 const router = useRouter()
 const { isDark, toggleTheme } = useTheme()
@@ -348,11 +457,27 @@ const isClearing = ref(false)
 const analyticsEnabled = ref(isAnalyticsEnabled)
 const showOnboardingDialog = ref(false)
 
+// User profile data
+const userProfile = ref({
+  userId: null,
+  username: 'Loading...',
+  totalScore: 0,
+  quizzesTaken: 0,
+  level: 1,
+  lastActive: null
+})
+const showUsernameDialog = ref(false)
+const newUsername = ref('')
+const isUpdatingUsername = ref(false)
+
 onMounted(async () => {
   try {
     if (dataStore.isReady) {
       stats.value = await dataStore.getStats()
     }
+
+    // Load user profile
+    await loadUserProfile()
   } catch (error) {
     console.error('Error loading stats:', error)
   }
@@ -437,6 +562,80 @@ async function confirmClearData() {
     alert('Failed to clear data. Please try again.')
   } finally {
     isClearing.value = false
+  }
+}
+
+// Profile management functions
+async function loadUserProfile() {
+  try {
+    // Initialize user in leaderboard service
+    const userInfo = await leaderboardService.initUser()
+
+    userProfile.value.userId = userInfo.userId
+    userProfile.value.username = userInfo.username
+
+    // Fetch user stats from Firestore
+    if (userInfo.userId) {
+      const userRef = doc(leaderboardService.db, 'users', userInfo.userId)
+      const userDoc = await getDoc(userRef)
+
+      if (userDoc.exists()) {
+        const data = userDoc.data()
+        userProfile.value.totalScore = data.totalScore || 0
+        userProfile.value.quizzesTaken = data.quizzesTaken || 0
+        userProfile.value.level = data.level || 1
+        userProfile.value.lastActive = data.lastActive
+      }
+    }
+
+    console.log('✅ User profile loaded:', userProfile.value)
+  } catch (error) {
+    console.error('❌ Error loading user profile:', error)
+    userProfile.value.username = 'Error loading profile'
+  }
+}
+
+function openUsernameDialog() {
+  newUsername.value = userProfile.value.username
+  showUsernameDialog.value = true
+}
+
+function closeUsernameDialog() {
+  showUsernameDialog.value = false
+  newUsername.value = ''
+}
+
+async function handleUpdateUsername() {
+  if (!newUsername.value.trim()) {
+    alert('Please enter a username')
+    return
+  }
+
+  if (newUsername.value.trim().length > 30) {
+    alert('Username must be 30 characters or less')
+    return
+  }
+
+  try {
+    isUpdatingUsername.value = true
+
+    // Update username in leaderboard service
+    await leaderboardService.updateUsername(newUsername.value.trim())
+
+    // Update local state
+    userProfile.value.username = newUsername.value.trim()
+
+    console.log('✅ Username updated successfully')
+
+    closeUsernameDialog()
+
+    // Show success message
+    alert('Username updated successfully!')
+  } catch (error) {
+    console.error('❌ Error updating username:', error)
+    alert('Failed to update username. Please try again.')
+  } finally {
+    isUpdatingUsername.value = false
   }
 }
 </script>
