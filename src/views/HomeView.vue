@@ -1,18 +1,18 @@
 <template>
   <div class="home-view min-h-screen">
     <!-- Hero Section - Desktop only -->
-    <div class="hidden lg:block bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 dark:from-primary-700 dark:via-primary-800 dark:to-primary-900 text-white">
-      <div class="max-w-7xl mx-auto px-6 xl:px-8 py-12">
+    <div class="hidden lg:block bg-gradient-to-br from-emerald-400 via-teal-400 to-cyan-500 dark:from-emerald-500 dark:via-teal-500 dark:to-cyan-600 text-white">
+      <div class="max-w-7xl mx-auto px-6 xl:px-8 py-8">
         <div class="flex items-center justify-between">
           <div>
-            <h1 class="text-4xl xl:text-5xl font-bold mb-3">As-salamu alaykum</h1>
-            <p class="text-xl text-primary-100 dark:text-primary-200">Explore authentic Islamic knowledge from trusted sources</p>
+            <h1 class="text-3xl xl:text-4xl font-bold mb-2">As-salamu alaykum</h1>
+            <p class="text-lg text-white/90">Continue your Islamic learning journey</p>
           </div>
-          <div class="bg-white/10 dark:bg-black/20 backdrop-blur-sm rounded-2xl p-6 min-w-[200px]">
+          <div class="bg-white/20 backdrop-blur-md rounded-2xl p-5 min-w-[180px]">
             <div class="text-center">
-              <div class="text-sm text-primary-100 dark:text-primary-200 mb-1">Your Level</div>
-              <div class="text-4xl font-bold mb-2">{{ gamification.currentLevel }}</div>
-              <div class="text-xs text-primary-100 dark:text-primary-200">{{ gamification.points }} points</div>
+              <div class="text-xs text-white/80 mb-1">Your Level</div>
+              <div class="text-3xl font-bold mb-1">{{ gamification.currentLevel }}</div>
+              <div class="text-xs text-white/80">{{ gamification.points }} points</div>
             </div>
           </div>
         </div>
@@ -23,7 +23,7 @@
     <div class="max-w-7xl mx-auto px-4 lg:px-6 xl:px-8 py-6 lg:py-8">
       <!-- Mobile Header -->
       <div class="lg:hidden mb-6">
-        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-1">Welcome back</h2>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-1">As-salamu alaykum</h2>
         <p class="text-neutral-600 dark:text-neutral-400">Continue your Islamic learning journey</p>
       </div>
 
@@ -89,9 +89,9 @@
                 <Icon name="book" size="xs" class="text-white" />
                 <span>Read Answer</span>
               </div>
-              <div class="flex items-center gap-1 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full">
+              <div class="flex items-center gap-1 bg-accent-400/90 dark:bg-accent-500/90 backdrop-blur-sm px-3 py-1.5 rounded-full font-semibold">
                 <Icon name="lightning" size="xs" class="text-white" />
-                <span>+10 points</span>
+                <span>Earn 10 Points</span>
               </div>
             </div>
           </div>

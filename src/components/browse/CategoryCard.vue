@@ -22,17 +22,17 @@
       <!-- White Content Section -->
       <div class="p-1 w-full">
         <div class="bg-white dark:bg-neutral-900 rounded-b-[20px] px-6 py-5 min-h-[100px] flex flex-col justify-center">
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 text-center line-clamp-2 mb-2">
+          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 text-center line-clamp-2 mb-3">
             {{ category.category_links }}
           </h3>
-          <div class="flex items-center justify-center gap-4 text-sm text-neutral-600 dark:text-neutral-400">
-            <span v-if="subcategoryCount > 0" class="flex items-center gap-1 bg-neutral-100 dark:bg-neutral-800 px-3 py-1 rounded-full">
+          <div class="flex items-center justify-center gap-3 text-sm text-neutral-600 dark:text-neutral-400">
+            <span v-if="subcategoryCount > 0" class="flex items-center gap-1.5 bg-neutral-100 dark:bg-neutral-800 px-3 py-1.5 rounded-full">
               <Icon name="folder" size="xs" />
-              {{ subcategoryCount }}
+              <span class="font-medium">{{ subcategoryCount }}</span>
             </span>
-            <span class="flex items-center gap-1 bg-neutral-100 dark:bg-neutral-800 px-3 py-1 rounded-full">
+            <span class="flex items-center gap-1.5 bg-neutral-100 dark:bg-neutral-800 px-3 py-1.5 rounded-full">
               <Icon name="document" size="xs" />
-              {{ questionCount }}
+              <span class="font-medium">{{ questionCount }}</span>
             </span>
           </div>
         </div>
