@@ -21,8 +21,8 @@
 
       <!-- White Content Section -->
       <div class="p-1 w-full">
-        <div class="bg-white dark:bg-neutral-900 rounded-b-[20px] px-6 py-5 min-h-[100px] flex flex-col justify-center">
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 text-center line-clamp-2 mb-3">
+        <div class="bg-white dark:bg-neutral-900 rounded-b-[20px] px-6 py-5 min-h-[120px] flex flex-col justify-between">
+          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 text-center line-clamp-2 h-[54px] flex items-center justify-center">
             {{ category.category_links }}
           </h3>
           <div class="flex items-center justify-center gap-3 text-sm text-neutral-600 dark:text-neutral-400">
@@ -117,16 +117,31 @@ onMounted(async () => {
 const categoryIcon = computed(() => {
   // Map categories to icons for better visual hierarchy
   const name = props.category.category_links.toLowerCase()
+
+  // Specific category matches
+  if (name.includes('basic tenets') || name.includes('belief') || name.includes('faith')) return '✨'
+  if (name.includes('principles of fiqh')) return '⚖️'
+  if (name.includes('quran') || name.includes('qur')) return '📖'
+  if (name.includes('knowledge') && name.includes('propagation')) return '💡'
+  if (name.includes('hadith') || name.includes('hadeeth')) return '📜'
+  if (name.includes('jihaad') || name.includes('jihad')) return '🛡️'
+  if (name.includes('family')) return '👨‍👩‍👧‍👦'
+  if (name.includes('history') || name.includes('biography')) return '📜'
+  if (name.includes('enjoining') || name.includes('forbidding')) return '✋'
+  if (name.includes('pedagogy') || name.includes('education') || name.includes('upbringing')) return '🎓'
+  if (name.includes('psychological') || name.includes('social problem')) return '💭'
+  if (name.includes('politics') || name.includes('political')) return '🏛️'
+  if (name.includes('etiquette') || name.includes('moral') || name.includes('heart-softener')) return '💝'
+
+  // General category patterns
   if (name.includes('prayer') || name.includes('salah')) return '🤲'
   if (name.includes('fasting') || name.includes('ramadan')) return '🌙'
   if (name.includes('hajj') || name.includes('pilgrimage')) return '🕋'
   if (name.includes('zakat') || name.includes('charity')) return '💰'
-  if (name.includes('marriage') || name.includes('family')) return '💑'
-  if (name.includes('quran') || name.includes('qur')) return '📖'
-  if (name.includes('hadith') || name.includes('hadeeth')) return '📜'
-  if (name.includes('belief') || name.includes('faith')) return '✨'
+  if (name.includes('marriage')) return '💑'
   if (name.includes('law') || name.includes('ruling')) return '⚖️'
   if (name.includes('business') || name.includes('transaction')) return '💼'
+
   return '📚'
 })
 
