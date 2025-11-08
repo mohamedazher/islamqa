@@ -157,6 +157,68 @@
         </div>
       </section>
 
+      <!-- Privacy Section -->
+      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
+        <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+            <Icon name="shield" size="md" class="text-primary-600 dark:text-primary-400" />
+            Privacy & Data
+          </h2>
+        </div>
+        <div class="p-4 space-y-4">
+          <!-- Analytics Toggle -->
+          <div class="flex items-start justify-between">
+            <div class="flex-1 pr-4">
+              <h3 class="font-medium text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+                Analytics
+                <span v-if="!analyticsEnabled" class="text-xs bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-2 py-0.5 rounded">Disabled</span>
+              </h3>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-0.5">
+                Help improve the app by sharing anonymous usage data. No personal information is collected.
+              </p>
+            </div>
+            <button
+              @click="toggleAnalytics"
+              class="relative inline-flex h-9 w-16 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-neutral-900 flex-shrink-0"
+              :class="analyticsEnabled ? 'bg-primary-600 dark:bg-primary-500' : 'bg-neutral-300 dark:bg-neutral-700'"
+            >
+              <span
+                class="inline-flex h-7 w-7 transform items-center justify-center rounded-full bg-white shadow-sm transition-transform"
+                :class="analyticsEnabled ? 'translate-x-8' : 'translate-x-1'"
+              >
+                <Icon :name="analyticsEnabled ? 'check' : 'close'" size="sm" class="text-neutral-700" />
+              </span>
+            </button>
+          </div>
+
+          <!-- Privacy Info Link -->
+          <button
+            @click="showPrivacyInfo"
+            class="w-full flex items-center justify-between px-4 py-3 bg-primary-50 dark:bg-primary-950/30 rounded-lg hover:bg-primary-100 dark:hover:bg-primary-950/50 transition-colors group"
+          >
+            <div class="flex items-center gap-3 text-left">
+              <Icon name="document" size="md" class="text-primary-600 dark:text-primary-400" />
+              <div>
+                <div class="font-medium text-primary-900 dark:text-primary-100">Privacy Information</div>
+                <div class="text-xs text-primary-700 dark:text-primary-300">What data we collect and why</div>
+              </div>
+            </div>
+            <Icon name="chevronRight" size="sm" class="text-primary-600 dark:text-primary-400 group-hover:translate-x-1 transition-transform" />
+          </button>
+
+          <!-- Current Status -->
+          <div class="bg-neutral-50 dark:bg-neutral-950/50 rounded-lg p-3 border border-neutral-200 dark:border-neutral-800">
+            <p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              <strong class="text-neutral-900 dark:text-neutral-100">Status:</strong>
+              Analytics collection is currently <strong>{{ analyticsEnabled ? 'enabled' : 'disabled' }}</strong>.
+              {{ analyticsEnabled
+                ? 'Anonymous usage data is being collected to improve the app.'
+                : 'No analytics data is being collected.' }}
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- Data Management Section -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
@@ -232,10 +294,14 @@ import { useDataStore } from '@/stores/data'
 import dexieDb from '@/services/dexieDatabase'
 import Icon from '@/components/common/Icon.vue'
 import { shareApp } from '@/utils/sharing'
+import { usePrivacyConsent } from '@/services/privacyConsent'
+import { useAnalytics } from '@/services/analytics'
 
 const router = useRouter()
 const { isDark, toggleTheme } = useTheme()
 const dataStore = useDataStore()
+const { isAnalyticsEnabled, updateConsent } = usePrivacyConsent()
+const { setEnabled } = useAnalytics()
 
 const appName = 'BetterIslam Q&A'
 const appVersion = __APP_VERSION__ // Injected by Vite from package.json
@@ -248,6 +314,7 @@ const stats = ref({
 })
 
 const isClearing = ref(false)
+const analyticsEnabled = ref(isAnalyticsEnabled)
 
 onMounted(async () => {
   try {
@@ -276,6 +343,18 @@ async function handleShareApp() {
       alert('Failed to share app. Please try again.')
     }
   }
+}
+
+function toggleAnalytics() {
+  analyticsEnabled.value = !analyticsEnabled.value
+  updateConsent('analytics', analyticsEnabled.value)
+  setEnabled(analyticsEnabled.value)
+
+  console.log('[Settings] Analytics', analyticsEnabled.value ? 'enabled' : 'disabled')
+}
+
+function showPrivacyInfo() {
+  router.push('/privacy')
 }
 
 async function confirmClearData() {

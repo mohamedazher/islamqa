@@ -17,20 +17,27 @@
         </router-view>
       </main>
     </div>
+
+    <!-- Privacy Consent Dialog (shown on first launch) -->
+    <ConsentDialog v-model="showConsentDialog" @accept="handleConsentAccept" @reject="handleConsentReject" />
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
 import { useDataStore } from '@/stores/data'
 import DesktopSidebar from '@/components/layout/DesktopSidebar.vue'
 import MobileBottomNav from '@/components/layout/MobileBottomNav.vue'
+import ConsentDialog from '@/components/common/ConsentDialog.vue'
+import { hasUserBeenAsked } from '@/services/privacyConsent'
 
 const router = useRouter()
 const { initTheme } = useTheme()
 const dataStore = useDataStore()
+
+const showConsentDialog = ref(false)
 
 onMounted(async () => {
   // Initialize theme
@@ -59,8 +66,27 @@ onMounted(async () => {
     document.addEventListener('backbutton', handleBackButton, false)
   }
 
+  // Check if we need to show consent dialog
+  // Delay to show after app is ready
+  setTimeout(() => {
+    if (!hasUserBeenAsked()) {
+      console.log('[Privacy] First launch detected, showing consent dialog')
+      showConsentDialog.value = true
+    }
+  }, 1500)
+
   console.log('✅ App mounted successfully')
 })
+
+function handleConsentAccept() {
+  console.log('[Privacy] User accepted analytics')
+  showConsentDialog.value = false
+}
+
+function handleConsentReject() {
+  console.log('[Privacy] User declined analytics')
+  showConsentDialog.value = false
+}
 
 const handleBackButton = (e) => {
   e.preventDefault()
