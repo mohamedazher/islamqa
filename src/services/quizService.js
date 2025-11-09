@@ -1,459 +1,347 @@
 /**
- * Quiz Service - Loads pre-generated quizzes and provides different modes
+ * Quiz Service - Generate quizzes from the database using reference IDs
+ *
+ * UPDATED: Uses Dexie database with semantic reference IDs instead of pre-generated JSON
+ * All questions referenced by their semantic reference ID from IslamQA
  */
+
+import dexieDb from './dexieDatabase'
+
 class QuizService {
-  constructor(questions = []) {
-    this.questions = questions // Legacy database questions (for backward compatibility)
-    this.preGeneratedQuizzes = [] // Pre-generated high-quality quizzes
-    this.loaded = false
+  constructor() {
+    this.db = dexieDb
   }
 
   /**
-   * Load pre-generated quizzes from JSON file
+   * Get daily quiz (deterministic - same quiz all day)
+   * Uses date-based seed for consistent selection
    */
-  async loadPreGeneratedQuizzes() {
-    // Use Vite's base URL for web builds to support GitHub Pages deployment
-    const baseUrl = import.meta.env.BASE_URL || '/'
-    const quizDataPath = `${baseUrl}data/quiz-questions.json`.replace(/\/+/g, '/')
-
-    console.log(`🔄 Loading pre-generated quizzes from ${quizDataPath}...`)
-
+  async getDailyQuiz() {
     try {
-      const response = await fetch(quizDataPath)
+      const today = new Date().toISOString().split('T')[0]
+      const seed = today.split('-').reduce((acc, num) => acc + parseInt(num), 0)
 
-      console.log('📡 Fetch response:', {
-        ok: response.ok,
-        status: response.status,
-        statusText: response.statusText,
-        url: response.url
-      })
-
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+      // Get all questions (will be filtered)
+      const allQuestions = await this.db.getAllQuestions()
+      if (allQuestions.length === 0) {
+        throw new Error('No questions in database')
       }
 
-      const data = await response.json()
-      console.log('📦 Raw data received:', {
-        version: data.version,
-        totalQuizzes: data.totalQuizzes,
-        actualQuizCount: data.quizzes?.length || 0
-      })
+      // Use seed to consistently select 5 questions for the day
+      const selected = this.selectWithSeed(allQuestions, 5, seed)
 
-      if (!data.quizzes || data.quizzes.length === 0) {
-        throw new Error('No quizzes found in quiz-questions.json')
-      }
+      // Transform to quiz format
+      const quizQuestions = selected.map(q => this.transformToQuizQuestion(q))
 
-      // Transform loaded quizzes to match expected format
-      this.preGeneratedQuizzes = data.quizzes.map(quiz => this.transformQuizFormat(quiz))
-
-      this.loaded = true
-      console.log(`✅ Successfully loaded and transformed ${this.preGeneratedQuizzes.length} quizzes`)
-      console.log('📋 Sample transformed quiz:', this.preGeneratedQuizzes[0])
-
-      return this.preGeneratedQuizzes
-    } catch (error) {
-      console.error('❌ CRITICAL: Failed to load pre-generated quizzes')
-      console.error('   Error:', error)
-      console.error('   Stack:', error.stack)
-      this.loaded = false
-      throw error // Don't swallow the error - let it bubble up
-    }
-  }
-
-  /**
-   * Transform pre-generated quiz format to match UI expectations
-   */
-  transformQuizFormat(quiz) {
-    // Find the correct answer index
-    const correctIndex = quiz.options.findIndex(opt => opt.isCorrect === true)
-
-    // Transform options to expected format with numeric indices
-    const transformedOptions = quiz.options.map((opt, idx) => ({
-      text: opt.text,
-      id: idx,
-      isCorrect: opt.isCorrect || false
-    }))
-
-    return {
-      id: quiz.id,
-      sourceQuestionId: quiz.sourceQuestionId,
-      questionText: quiz.questionText,
-      type: quiz.type,
-      difficulty: quiz.difficulty,
-      category: quiz.category,
-      options: transformedOptions,
-      correctOptionId: correctIndex, // Add the index of correct answer
-      explanation: quiz.explanation,
-      sourceReference: quiz.sourceReference,
-      points: quiz.points || 10,
-      tags: quiz.tags || []
-    }
-  }
-
-  /**
-   * Generate a quiz with specified options
-   */
-  generateQuiz(options = {}) {
-    const {
-      mode = 'daily',           // daily, rapid-fire, category, challenge
-      count = 5,
-      categoryId = null,
-      difficulty = 'medium'
-    } = options
-
-    let selectedQuestions = this.questions
-
-    // Filter by category if specified
-    if (categoryId) {
-      selectedQuestions = selectedQuestions.filter(q => q.category_id == categoryId)
-    }
-
-    // Filter by difficulty if needed
-    if (difficulty !== 'all') {
-      selectedQuestions = this.filterByDifficulty(selectedQuestions, difficulty)
-    }
-
-    // Shuffle and select random questions
-    const shuffled = this.shuffleArray([...selectedQuestions])
-    const selected = shuffled.slice(0, Math.min(count, shuffled.length))
-
-    // Convert questions to quiz items with options
-    return selected.map(q => this.questionToQuizItem(q, mode))
-  }
-
-  /**
-   * Convert a question to a quiz item with multiple choice options
-   */
-  questionToQuizItem(question, mode = 'daily') {
-    // For true/false mode, generate boolean options
-    if (mode === 'true-false') {
       return {
-        id: question.id,
-        questionText: question.question,
-        questionNumber: question.question_no,
-        category: question.category_id,
-        mode: 'true-false',
-        options: [
-          { text: 'True', value: true, id: 1 },
-          { text: 'False', value: false, id: 2 }
-        ],
-        correctOptionId: this.extractTrueOrFalse(question.answers ? question.answers : '') ? 1 : 2,
-        explanation: `Answer: This is a true/false question about Islamic knowledge`,
-        points: 10
+        id: `daily-${today}`,
+        name: 'Daily Quiz',
+        description: 'Your daily Islamic knowledge challenge',
+        mode: 'daily',
+        questions: quizQuestions,
+        timeLimit: null,
+        points: 50
       }
-    }
-
-    // For multiple choice, generate 4 options
-    const correctAnswer = this.extractCorrectAnswer(question)
-    const options = this.generateMultipleChoiceOptions(question, correctAnswer)
-
-    return {
-      id: question.id,
-      questionText: question.question,
-      questionNumber: question.question_no,
-      category: question.category_id,
-      mode: 'multiple-choice',
-      options: options,
-      correctOptionId: options.findIndex(opt => opt.isCorrect),
-      explanation: `The correct answer is: ${correctAnswer}`,
-      points: 10
+    } catch (error) {
+      console.error('Error generating daily quiz:', error)
+      throw error
     }
   }
 
   /**
-   * Extract key facts from question text
+   * Get rapid-fire quiz (20 questions, timed)
+   * Dynamic selection with difficulty filter
    */
-  extractCorrectAnswer(question) {
-    // For now, return a simple fact from question text
-    // In real implementation, would parse answer HTML
-    if (question.question_full) {
-      const words = question.question_full.split(' ')
-      return words.slice(0, Math.min(5, words.length)).join(' ')
-    }
-    return 'Yes'
-  }
+  async getRapidFireQuiz(options = {}) {
+    try {
+      const { difficulty = 'all', categories = [] } = options
 
-  /**
-   * Generate multiple choice options
-   * Correct answer + 3 plausible wrong answers
-   */
-  generateMultipleChoiceOptions(question, correctAnswer) {
-    const options = [
-      {
-        text: correctAnswer,
-        isCorrect: true,
-        id: 1
+      let questions = await this.db.getAllQuestions()
+
+      // Filter by categories if specified
+      if (categories && categories.length > 0) {
+        questions = questions.filter(q =>
+          q.primary_category && categories.includes(q.primary_category) ||
+          (q.categories && q.categories.some(cat => categories.includes(cat)))
+        )
       }
-    ]
 
-    // Generate plausible wrong answers based on question variations
-    const wrongAnswers = [
-      'None of the above',
-      'It depends on circumstances',
-      'All of the above',
-      'Not mentioned in Islamic teachings'
-    ]
+      // Shuffle and select 20 questions
+      const selected = this.shuffleArray([...questions]).slice(0, 20)
 
-    // Add 3 random wrong answers
-    for (let i = 0; i < 3; i++) {
-      options.push({
-        text: wrongAnswers[i],
-        isCorrect: false,
-        id: i + 2
-      })
-    }
+      // Transform to quiz format
+      const quizQuestions = selected.map(q => this.transformToQuizQuestion(q))
 
-    // Shuffle options
-    return this.shuffleArray(options)
-  }
-
-  /**
-   * Extract true/false from answer
-   */
-  extractTrueOrFalse(answerText) {
-    const lowerText = answerText.toLowerCase()
-    return lowerText.includes('yes') || lowerText.includes('permissible') || lowerText.includes('allowed')
-  }
-
-  /**
-   * Get daily quiz (same quiz all day)
-   */
-  getDailyQuiz(date = new Date()) {
-    if (!this.loaded || this.preGeneratedQuizzes.length === 0) {
-      throw new Error('Pre-generated quizzes not loaded. Cannot generate daily quiz.')
-    }
-
-    const dayString = date.toISOString().split('T')[0]
-    const seed = dayString.split('-').reduce((acc, num) => acc + parseInt(num), 0)
-
-    // Select 5 questions using seed for consistent daily quiz
-    const selected = this.selectQuizzesWithSeed(5, seed)
-
-    return {
-      id: `daily-${dayString}`,
-      name: 'Daily Quiz',
-      description: 'Your daily challenge',
-      mode: 'daily',
-      questions: selected,
-      timeLimit: null,
-      points: 50
+      return {
+        id: `rapid-fire-${Date.now()}`,
+        name: 'Rapid Fire',
+        description: '20 quick questions - answer fast!',
+        mode: 'rapid-fire',
+        questions: quizQuestions,
+        timeLimit: 60,
+        pointsPerQuestion: 5
+      }
+    } catch (error) {
+      console.error('Error generating rapid-fire quiz:', error)
+      throw error
     }
   }
 
   /**
-   * Select quizzes using seed for deterministic selection
+   * Get category-specific quiz
+   * Queries all questions from a specific category
    */
-  selectQuizzesWithSeed(count, seed) {
-    const startIdx = seed % Math.max(this.preGeneratedQuizzes.length - count, 1)
-    return this.preGeneratedQuizzes.slice(startIdx, startIdx + count)
+  async getCategoryQuiz(categoryReference, count = 10, difficulty = 'all') {
+    try {
+      const categoryReference_num = typeof categoryReference === 'string'
+        ? parseInt(categoryReference, 10)
+        : categoryReference
+
+      // Get questions from this category
+      const questions = await this.db.getQuestionsByCategory(categoryReference_num, 1000)
+
+      if (questions.length === 0) {
+        throw new Error(`No questions found for category ${categoryReference_num}`)
+      }
+
+      // Shuffle and select
+      const selected = this.shuffleArray([...questions]).slice(0, Math.min(count, questions.length))
+
+      // Transform to quiz format
+      const quizQuestions = selected.map(q => this.transformToQuizQuestion(q))
+
+      return {
+        id: `category-${categoryReference_num}-${Date.now()}`,
+        name: 'Category Quiz',
+        description: `Test your knowledge in this category`,
+        mode: 'category',
+        questions: quizQuestions,
+        categoryReference: categoryReference_num,
+        timeLimit: null,
+        points: count * 10
+      }
+    } catch (error) {
+      console.error('Error generating category quiz:', error)
+      throw error
+    }
   }
 
   /**
-   * Get all available categories from pre-generated quizzes
+   * Get custom quiz with filters
    */
-  getAvailableCategories() {
-    console.log('📂 Getting available categories...')
-    console.log('  - Loaded:', this.loaded)
-    console.log('  - Quiz count:', this.preGeneratedQuizzes.length)
+  async getCustomQuiz(options = {}) {
+    try {
+      const {
+        categories = [],  // Array of category references
+        difficulty = 'all',
+        count = 10
+      } = options
 
-    if (!this.loaded || this.preGeneratedQuizzes.length === 0) {
-      console.warn('  ⚠️ Cannot get categories - quizzes not loaded')
+      let questions = await this.db.getAllQuestions()
+
+      // Filter by categories if specified
+      if (categories.length > 0) {
+        questions = questions.filter(q =>
+          q.primary_category && categories.includes(q.primary_category) ||
+          (q.categories && q.categories.some(cat => categories.includes(cat)))
+        )
+      }
+
+      // Shuffle and select
+      const selected = this.shuffleArray([...questions]).slice(0, Math.min(count, questions.length))
+
+      // Transform to quiz format
+      const quizQuestions = selected.map(q => this.transformToQuizQuestion(q))
+
+      return {
+        id: `custom-${Date.now()}`,
+        name: 'Custom Quiz',
+        description: `${count} questions${categories.length > 0 ? ' from selected categories' : ''}`,
+        mode: 'custom',
+        questions: quizQuestions,
+        selectedCategories: categories,
+        timeLimit: null,
+        points: count * 10
+      }
+    } catch (error) {
+      console.error('Error generating custom quiz:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Get challenge quiz (15 harder questions)
+   */
+  async getChallengeQuiz() {
+    try {
+      // Get random questions (all have similar difficulty in our data)
+      const allQuestions = await this.db.getAllQuestions()
+      if (allQuestions.length === 0) {
+        throw new Error('No questions in database')
+      }
+
+      // Select 15 random questions for challenge
+      const selected = this.shuffleArray([...allQuestions]).slice(0, Math.min(15, allQuestions.length))
+
+      // Transform to quiz format
+      const quizQuestions = selected.map(q => this.transformToQuizQuestion(q))
+
+      return {
+        id: `challenge-${Date.now()}`,
+        name: 'Challenge Mode',
+        description: 'Test your Islamic knowledge - 15 challenging questions',
+        mode: 'challenge',
+        questions: quizQuestions,
+        timeLimit: 90,
+        points: 150
+      }
+    } catch (error) {
+      console.error('Error generating challenge quiz:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Get all available categories for quiz filtering
+   */
+  async getAvailableCategories() {
+    try {
+      const categories = await this.db.getCategories(null) // Get root categories
+      console.log(`Found ${categories.length} available categories for quiz`)
+      return categories
+    } catch (error) {
+      console.error('Error getting available categories:', error)
       return []
     }
-
-    // Extract unique categories
-    const categories = [...new Set(this.preGeneratedQuizzes.map(q => q.category))]
-    const sortedCategories = categories.sort()
-
-    console.log('  ✅ Found categories:', sortedCategories)
-    return sortedCategories
   }
 
   /**
-   * Get custom quiz with category and difficulty filters
-   */
-  getCustomQuiz(options = {}) {
-    const {
-      categories = [], // Array of category names, empty = all
-      difficulty = 'all', // 'easy', 'medium', 'hard', 'all'
-      count = 10,
-      mode = 'custom'
-    } = options
-
-    if (!this.loaded || this.preGeneratedQuizzes.length === 0) {
-      throw new Error('Pre-generated quizzes not loaded. Cannot generate custom quiz.')
-    }
-
-    // Start with all quizzes
-    let filtered = [...this.preGeneratedQuizzes]
-
-    // Filter by categories if specified
-    if (categories.length > 0) {
-      filtered = filtered.filter(q => categories.includes(q.category))
-    }
-
-    // Filter by difficulty if specified
-    if (difficulty !== 'all') {
-      filtered = filtered.filter(q => q.difficulty === difficulty)
-    }
-
-    // Shuffle and select
-    const shuffled = this.shuffleArray(filtered)
-    const selected = shuffled.slice(0, Math.min(count, shuffled.length))
-
-    return {
-      id: `custom-${Date.now()}`,
-      name: 'Custom Quiz',
-      description: this.getQuizDescription(categories, difficulty, count),
-      mode: mode,
-      questions: selected,
-      timeLimit: null,
-      points: count * 10
-    }
-  }
-
-  /**
-   * Generate description for custom quiz
-   */
-  getQuizDescription(categories, difficulty, count) {
-    const parts = []
-    parts.push(`${count} questions`)
-
-    if (categories.length > 0) {
-      if (categories.length === 1) {
-        parts.push(categories[0])
-      } else {
-        parts.push(`${categories.length} categories`)
-      }
-    }
-
-    if (difficulty !== 'all') {
-      parts.push(difficulty.charAt(0).toUpperCase() + difficulty.slice(1))
-    }
-
-    return parts.join(' · ')
-  }
-
-  /**
-   * Get rapid fire quiz (20 questions, timed)
-   */
-  getRapidFireQuiz(options = {}) {
-    const { categories = [], difficulty = 'all' } = options
-
-    if (!this.loaded || this.preGeneratedQuizzes.length === 0) {
-      throw new Error('Pre-generated quizzes not loaded. Cannot generate rapid fire quiz.')
-    }
-
-    // Apply filters if specified
-    let filtered = [...this.preGeneratedQuizzes]
-
-    if (categories.length > 0) {
-      filtered = filtered.filter(q => categories.includes(q.category))
-    }
-
-    if (difficulty !== 'all') {
-      filtered = filtered.filter(q => q.difficulty === difficulty)
-    }
-
-    // Shuffle and select 20 random quizzes
-    const shuffled = this.shuffleArray(filtered)
-    const selected = shuffled.slice(0, Math.min(20, shuffled.length))
-
-    return {
-      id: `rapid-fire-${Date.now()}`,
-      name: 'Rapid Fire',
-      description: '20 quick questions',
-      mode: 'rapid-fire',
-      questions: selected,
-      timeLimit: 60,
-      pointsPerQuestion: 5
-    }
-  }
-
-  /**
-   * Get category quiz
-   */
-  getCategoryQuiz(categoryId, count = 10) {
-    return {
-      id: `category-${categoryId}-${Date.now()}`,
-      name: 'Category Quiz',
-      description: `Learn about category ${categoryId}`,
-      mode: 'category',
-      questions: this.generateQuiz({
-        mode: 'category',
-        count,
-        categoryId
-      }),
-      timeLimit: null,
-      points: 50
-    }
-  }
-
-  /**
-   * Get challenge quiz (increasing difficulty)
-   */
-  getChallengeQuiz() {
-    if (!this.loaded || this.preGeneratedQuizzes.length === 0) {
-      throw new Error('Pre-generated quizzes not loaded. Cannot generate challenge quiz.')
-    }
-
-    // Filter for harder quizzes first, then shuffle
-    const hardQuizzes = this.preGeneratedQuizzes.filter(q => q.difficulty === 'hard')
-    const mediumQuizzes = this.preGeneratedQuizzes.filter(q => q.difficulty === 'medium')
-
-    // Combine hard and medium, prioritizing hard
-    const challengePool = [...hardQuizzes, ...mediumQuizzes]
-    const shuffled = this.shuffleArray(challengePool)
-    const selected = shuffled.slice(0, Math.min(15, shuffled.length))
-
-    return {
-      id: `challenge-${Date.now()}`,
-      name: 'Challenge Mode',
-      description: 'Test your knowledge',
-      mode: 'challenge',
-      questions: selected,
-      timeLimit: 90,
-      points: 150
-    }
-  }
-
-  /**
-   * Calculate score and feedback
+   * Calculate quiz score and generate results
    */
   calculateScore(quiz, answers) {
-    let score = 0
-    let correct = 0
-    const results = []
+    try {
+      let correct = 0
+      const results = []
 
-    quiz.questions.forEach((question, idx) => {
-      const userAnswerId = answers[idx]
-      const isCorrect = userAnswerId === question.correctOptionId
+      quiz.questions.forEach((question, idx) => {
+        const userAnswerIndex = answers[idx]
+        const isCorrect = userAnswerIndex === question.correctOptionId
 
-      if (isCorrect) {
-        correct++
-        score += question.points
+        if (isCorrect) {
+          correct++
+        }
+
+        results.push({
+          questionReference: question.reference,  // Use reference ID
+          userAnswerIndex,
+          isCorrect,
+          correctOptionIndex: question.correctOptionId,
+          pointsEarned: isCorrect ? (question.points || 10) : 0
+        })
+      })
+
+      const total = quiz.questions.length
+      const accuracy = Math.round((correct / total) * 100)
+      const totalPoints = quiz.questions.reduce((sum, q) => sum + (q.points || 10), 0)
+      const score = results.reduce((sum, r) => sum + r.pointsEarned, 0)
+
+      return {
+        score,
+        correct,
+        total,
+        accuracy,
+        maxScore: totalPoints,
+        results,
+        feedback: this.generateFeedback(accuracy)
+      }
+    } catch (error) {
+      console.error('Error calculating score:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Save quiz attempt to database
+   */
+  async saveQuizAttempt(quizConfig, answers, score) {
+    try {
+      const attempt = {
+        quiz_config_id: quizConfig.id,
+        answers,  // Array of answer indices
+        correct: score.correct,
+        total: score.total,
+        accuracy: score.accuracy,
+        points: score.score,
+        timestamp: Date.now(),
+        session_id: this.generateSessionId()  // For grouping by user session
       }
 
-      results.push({
-        questionId: question.id,
-        userAnswerId,
-        isCorrect,
-        correctOptionId: question.correctOptionId,
-        pointsEarned: isCorrect ? question.points : 0
-      })
-    })
+      const attemptId = await this.db.saveQuizAttempt(attempt)
+      console.log(`✅ Saved quiz attempt with ID: ${attemptId}`)
+      return attemptId
+    } catch (error) {
+      console.error('Error saving quiz attempt:', error)
+      throw error
+    }
+  }
 
-    const accuracy = Math.round((correct / quiz.questions.length) * 100)
-    const totalPoints = quiz.questions.reduce((sum, q) => sum + q.points, 0)
+  /**
+   * Get quiz statistics
+   */
+  async getQuizStats() {
+    try {
+      const stats = await this.db.getQuizStats()
+      return stats
+    } catch (error) {
+      console.error('Error getting quiz stats:', error)
+      return { total_attempts: 0, average_score: 0, total_points: 0 }
+    }
+  }
+
+  /**
+   * Transform a database question into a quiz question with multiple choice options
+   * Uses the question and answer to generate options
+   */
+  transformToQuizQuestion(question) {
+    // Simple strategy: use question as affirmative, create a true/false style question
+    // This works well for Islamic rulings and knowledge testing
+
+    const questionText = question.title || question.question.substring(0, 200)
+
+    // Extract a true/false answer from the text
+    const answerText = (question.answer || '').toLowerCase()
+    const isTrue = answerText.includes('permissible') ||
+                   answerText.includes('allowed') ||
+                   answerText.includes('permissible') ||
+                   answerText.includes('recommended') ||
+                   answerText.includes('not forbidden') ||
+                   answerText.includes('is permitted')
+
+    // Create options: True/False or similar alternatives
+    const correctIndex = isTrue ? 0 : 1
+    const options = [
+      { text: 'The statement is correct according to Islamic teachings', id: 0, isCorrect: isTrue },
+      { text: 'The statement is incorrect according to Islamic teachings', id: 1, isCorrect: !isTrue }
+    ]
+
+    // Shuffle options to avoid always putting correct answer first
+    if (Math.random() > 0.5) {
+      options.reverse()
+    }
 
     return {
-      score,
-      correct,
-      total: quiz.questions.length,
-      accuracy,
-      maxScore: totalPoints,
-      results,
-      feedback: this.generateFeedback(accuracy)
+      reference: question.reference,
+      questionText: questionText,
+      question: question.question,
+      answer: question.answer,
+      explanation: question.answer,  // Full answer serves as explanation
+      primaryCategory: question.primary_category,
+      categories: question.categories,
+      options: options,
+      correctOptionId: options.findIndex(opt => opt.isCorrect),
+      points: 10,
+      tags: question.tags || [],
+      difficulty: 'medium'  // All questions treated as medium difficulty for now
     }
   }
 
@@ -474,20 +362,25 @@ class QuizService {
   shuffleArray(array) {
     const shuffled = [...array]
     for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
     }
     return shuffled
   }
 
   /**
-   * Utility: Filter by difficulty
+   * Utility: Select items using a seed for deterministic results
    */
-  filterByDifficulty(questions, difficulty) {
-    // For now, simple random selection as difficulty indicator
-    if (difficulty === 'easy') return questions.slice(0, Math.floor(questions.length * 0.5))
-    if (difficulty === 'hard') return questions.slice(Math.floor(questions.length * 0.5))
-    return questions
+  selectWithSeed(array, count, seed) {
+    const startIdx = seed % Math.max(array.length - count, 1)
+    return array.slice(startIdx, startIdx + count)
+  }
+
+  /**
+   * Generate a session ID for tracking user quiz session
+   */
+  generateSessionId() {
+    return `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
   }
 }
 

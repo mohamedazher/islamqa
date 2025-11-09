@@ -23,7 +23,11 @@ class DexieDatabase extends Dexie {
       folders: '++id, folder_name',
       folder_questions: '++id, reference, folder_id',
       latest_questions: 'reference, primary_category',  // UPDATED: primary_category instead of category_id
-      settings: 'key'
+      settings: 'key',
+      // NEW: Quiz system tables
+      quiz_configurations: '++id, mode, difficulty',
+      quiz_attempts: '++id, session_id, completion_date',
+      quiz_sessions: '++id, quiz_config_id'  // For active quiz sessions
     })
 
     // Shortcuts to tables
@@ -34,6 +38,10 @@ class DexieDatabase extends Dexie {
     this.folder_questions = this.table('folder_questions')
     this.latest_questions = this.table('latest_questions')
     this.settings = this.table('settings')
+    // NEW: Quiz tables
+    this.quiz_configurations = this.table('quiz_configurations')
+    this.quiz_attempts = this.table('quiz_attempts')
+    this.quiz_sessions = this.table('quiz_sessions')
   }
 
   /**
@@ -385,6 +393,114 @@ class DexieDatabase extends Dexie {
   }
 
   /**
+   * Get quiz configurations by mode
+   * Modes: 'daily', 'rapid-fire', 'category', 'challenge'
+   */
+  async getQuizConfigurations(mode = null) {
+    try {
+      let query = this.quiz_configurations
+      if (mode) {
+        query = query.where('mode').equals(mode)
+      }
+      const configs = await query.toArray()
+      console.log(`Found ${configs.length} quiz configurations${mode ? ` for mode=${mode}` : ''}`)
+      return configs
+    } catch (error) {
+      console.error('Error getting quiz configurations:', error)
+      return []
+    }
+  }
+
+  /**
+   * Get a specific quiz configuration
+   */
+  async getQuizConfiguration(configId) {
+    try {
+      const config = await this.quiz_configurations.get(configId)
+      return config || null
+    } catch (error) {
+      console.error('Error getting quiz configuration:', error)
+      return null
+    }
+  }
+
+  /**
+   * Create a quiz configuration (for seeding initial data)
+   */
+  async createQuizConfiguration(config) {
+    try {
+      const id = await this.quiz_configurations.add(config)
+      console.log(`✅ Created quiz configuration with id=${id}`)
+      return id
+    } catch (error) {
+      console.error('Error creating quiz configuration:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Save a quiz attempt
+   */
+  async saveQuizAttempt(attempt) {
+    try {
+      const id = await this.quiz_attempts.add({
+        ...attempt,
+        completion_date: Date.now()
+      })
+      console.log(`✅ Saved quiz attempt with id=${id}`)
+      return id
+    } catch (error) {
+      console.error('Error saving quiz attempt:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Get quiz attempts (optionally filtered by session_id)
+   */
+  async getQuizAttempts(sessionId = null) {
+    try {
+      let query = this.quiz_attempts
+      if (sessionId) {
+        query = query.where('session_id').equals(sessionId)
+      }
+      const attempts = await query.toArray()
+      return attempts
+    } catch (error) {
+      console.error('Error getting quiz attempts:', error)
+      return []
+    }
+  }
+
+  /**
+   * Get quiz stats (total attempts, average score, etc)
+   */
+  async getQuizStats() {
+    try {
+      const attempts = await this.quiz_attempts.toArray()
+      if (attempts.length === 0) {
+        return { total_attempts: 0, average_score: 0, total_points: 0 }
+      }
+
+      const total_points = attempts.reduce((sum, a) => sum + (a.points || 0), 0)
+      const total_correct = attempts.reduce((sum, a) => sum + (a.correct || 0), 0)
+      const total_questions = attempts.reduce((sum, a) => sum + (a.total || 0), 0)
+      const average_accuracy = total_questions > 0 ? (total_correct / total_questions * 100).toFixed(1) : 0
+
+      return {
+        total_attempts: attempts.length,
+        total_points,
+        total_questions,
+        total_correct,
+        average_accuracy: parseFloat(average_accuracy)
+      }
+    } catch (error) {
+      console.error('Error getting quiz stats:', error)
+      return { total_attempts: 0, average_score: 0, total_points: 0 }
+    }
+  }
+
+  /**
    * Clear all data (for debugging/reset)
    * UPDATED: Removed answers from transaction since table no longer exists
    */
@@ -396,7 +512,10 @@ class DexieDatabase extends Dexie {
         this.folders,
         this.folder_questions,
         this.latest_questions,
-        this.settings
+        this.settings,
+        this.quiz_configurations,
+        this.quiz_attempts,
+        this.quiz_sessions
       ], async () => {
         await this.categories.clear()
         await this.questions.clear()
@@ -404,6 +523,9 @@ class DexieDatabase extends Dexie {
         await this.folder_questions.clear()
         await this.latest_questions.clear()
         await this.settings.clear()
+        await this.quiz_configurations.clear()
+        await this.quiz_attempts.clear()
+        await this.quiz_sessions.clear()
       })
       console.log('✅ Database cleared')
     } catch (error) {
