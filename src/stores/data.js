@@ -151,10 +151,11 @@ export const useDataStore = defineStore('data', () => {
 
   /**
    * Add question to folder
+   * UPDATED: Uses questionReference (semantic ID) instead of questionId
    */
-  async function addQuestionToFolder(questionId, folderId) {
+  async function addQuestionToFolder(questionReference, folderId) {
     try {
-      await dexieDb.addQuestionToFolder(questionId, folderId)
+      await dexieDb.addQuestionToFolder(questionReference, folderId)
     } catch (error) {
       console.error('Error adding question to folder:', error)
       throw error
@@ -163,10 +164,11 @@ export const useDataStore = defineStore('data', () => {
 
   /**
    * Remove question from folder
+   * UPDATED: Uses questionReference (semantic ID) instead of questionId
    */
-  async function removeQuestionFromFolder(questionId, folderId) {
+  async function removeQuestionFromFolder(questionReference, folderId) {
     try {
-      await dexieDb.removeQuestionFromFolder(questionId, folderId)
+      await dexieDb.removeQuestionFromFolder(questionReference, folderId)
     } catch (error) {
       console.error('Error removing question from folder:', error)
       throw error

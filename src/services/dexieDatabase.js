@@ -10,19 +10,20 @@ class DexieDatabase extends Dexie {
   constructor() {
     super('IslamQA')
 
-    // Define database schema
-    // UPDATED: Using new dump file data structure
-    // - categories: reference is the semantic ID (from IslamQA), parent_reference for hierarchy
-    // - questions: reference is semantic ID, primary_category for main category link
-    // - answers are now embedded in questions.answer, no separate table needed
+    // Define database schema (final)
+    // Using semantic reference IDs from IslamQA as primary keys for all data
+    // - categories: reference (semantic ID) is primary key
+    // - questions: reference (semantic ID) is primary key
+    // - folder_questions: uses reference (semantic ID)
+    // - latest_questions: uses reference (semantic ID)
+    // - answers are embedded in questions.answer field (no separate table)
     this.version(1).stores({
-      categories: '++id, reference, parent_reference',  // ++id is Dexie internal PK, reference is semantic ID
-      questions: '++id, reference, primary_category',   // ++id is Dexie internal PK, reference is semantic ID
-      // REMOVED: answers table - answers are now embedded in questions.answer field
+      categories: 'reference, parent_reference',
+      questions: 'reference, primary_category',
       folders: '++id, folder_name',
-      folder_questions: '++id, question_id, folder_id',
-      latest_questions: 'id, category_id',
-      settings: 'key' // Store import status and other settings
+      folder_questions: '++id, reference, folder_id',
+      latest_questions: 'reference, category_id',
+      settings: 'key'
     })
 
     // Shortcuts to tables
@@ -294,13 +295,14 @@ class DexieDatabase extends Dexie {
 
   /**
    * Add question to folder
+   * UPDATED: Uses reference (semantic ID) instead of question_id
    */
-  async addQuestionToFolder(questionId, folderId) {
+  async addQuestionToFolder(questionReference, folderId) {
     try {
       // Check if already exists
       const existing = await this.folder_questions
-        .where('[question_id+folder_id]')
-        .equals([questionId, folderId])
+        .where('[reference+folder_id]')
+        .equals([questionReference, folderId])
         .first()
 
       if (existing) {
@@ -308,7 +310,7 @@ class DexieDatabase extends Dexie {
       }
 
       await this.folder_questions.add({
-        question_id: questionId,
+        reference: questionReference,  // Store the semantic ID reference
         folder_id: folderId
       })
     } catch (error) {
@@ -319,12 +321,13 @@ class DexieDatabase extends Dexie {
 
   /**
    * Remove question from folder
+   * UPDATED: Uses reference (semantic ID) instead of question_id
    */
-  async removeQuestionFromFolder(questionId, folderId) {
+  async removeQuestionFromFolder(questionReference, folderId) {
     try {
       await this.folder_questions
-        .where('[question_id+folder_id]')
-        .equals([questionId, folderId])
+        .where('[reference+folder_id]')
+        .equals([questionReference, folderId])
         .delete()
     } catch (error) {
       console.error('Error removing question from folder:', error)
@@ -334,6 +337,7 @@ class DexieDatabase extends Dexie {
 
   /**
    * Get questions in a folder
+   * UPDATED: Uses reference (semantic ID) instead of question_id
    */
   async getQuestionsInFolder(folderId) {
     try {
@@ -342,10 +346,10 @@ class DexieDatabase extends Dexie {
         .equals(folderId)
         .toArray()
 
-      const questionIds = folderQuestions.map(fq => fq.question_id)
+      const questionReferences = folderQuestions.map(fq => fq.reference)
       const questions = await this.questions
-        .where('id')
-        .anyOf(questionIds)
+        .where('reference')
+        .anyOf(questionReferences)
         .toArray()
 
       return questions
