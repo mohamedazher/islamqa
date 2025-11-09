@@ -5,7 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52ec5402-d293-431f-a00e-2146a096c558" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/answers1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/answers10.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/answers11.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/answers12.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/answers2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/answers3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/answers4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/answers5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/answers6.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/answers7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/answers8.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/answers9.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/categories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/questions1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/questions2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/questions3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/questions4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/data-backup-20251106-211243/quiz-questions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backups/questions-backup-20251108-183255.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/data/categories.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/data-extraction/ANALYSIS_COMPLETE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/data-extraction/API_ENDPOINTS_SUMMARY.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/data-extraction/API_PARAMETERS_ANALYSIS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/data-extraction/API_QUICK_REFERENCE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/data-extraction/API_QUICK_REFERENCE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/data-extraction/API_TESTING_RESULTS.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/data-extraction/INDEX.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/data-extraction/ISLAMQA_API_ANALYSIS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/data-extraction/test_apis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/data-extraction/test_apis_v2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/data-extraction/bundle.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/data-extraction/extract_fresh.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/data-extraction/extract_parallel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/data-extraction/run-pipeline-parallel.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/data-extraction/run-pipeline.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/data-extraction/transform.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/data-extraction/verify-format.cjs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +76,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/mohamedazher/Halsimplify/islamqa",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>

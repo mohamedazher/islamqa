@@ -1,6 +1,6 @@
-# 🚀 IslamQA Data Extraction System - Complete Guide
+# 🚀 IslamQA Data Extraction - Dump File Method
 
-**Complete automated pipeline to extract, transform, and bundle Islamic Q&A data**
+**Fast, simple, and reliable data extraction using official IslamQA dump files**
 
 ---
 
@@ -8,324 +8,250 @@
 
 1. [Overview](#overview)
 2. [Quick Start](#quick-start)
-3. [Parallel Extraction (Recommended)](#parallel-extraction-recommended)
-4. [Sequential Extraction (Fallback)](#sequential-extraction-fallback)
-5. [Pipeline Stages](#pipeline-stages)
-6. [Configuration](#configuration)
-7. [Performance](#performance)
-8. [Format Verification](#format-verification)
-9. [API Issues & Troubleshooting](#api-issues--troubleshooting)
-10. [Architecture Details](#architecture-details)
-11. [Examples](#examples)
-12. [FAQ](#faq)
+3. [How It Works](#how-it-works)
+4. [Output](#output)
+5. [Configuration](#configuration)
+6. [Advanced Usage](#advanced-usage)
+7. [Troubleshooting](#troubleshooting)
 
 ---
 
 ## Overview
 
-### What This System Does
+### What This Does
 
-Automatically extracts Islamic Q&A data from IslamQA API, transforms it to your app's format, and bundles it for deployment.
+Downloads pre-packaged NDJSON dump files from IslamQA's CDN and transforms them into your app's format.
 
 ```
-IslamQA API → Extract → Transform → Bundle → App-Ready JSON
+IslamQA CDN → Download Dump → Parse NDJSON → Transform → App-Ready JSON
 ```
 
-### Two Extraction Methods
+### Why Dump Files vs API?
 
-| Method | Speed | When to Use |
-|--------|-------|-------------|
-| **Parallel** ⚡ | 2-6 hours | **Recommended** - Production use |
-| **Sequential** | 6 days | Fallback, debugging, strict rate limits |
+| Aspect | API Method (Old) | Dump Files (New) |
+|--------|------------------|------------------|
+| **Time** | 40-50 minutes | ~30 seconds ⚡ |
+| **Requests** | Thousands | 2 (manifest + dump) |
+| **Complexity** | High | Low ✅ |
+| **Reliability** | Pagination, rate limits | Single download ✅ |
+| **Data Freshness** | Real-time | Daily dumps |
 
-**Speed Improvement: 10-50x faster with parallel!** ⚡
+**Result: 100x faster with simpler code!**
 
 ### What You Get
 
-- **269 categories** organized hierarchically
-- **8000+ questions** with full answers
-- **Perfect format** for your app's Dexie database
-- **Validated** and ready to import
+- **268 categories** with full hierarchy (parent-child relationships, ancestors)
+- **15,622 questions** with complete HTML answers
+- **2.98M** views on most popular question
+- **86 MB** of Islamic Q&A content
+- **Perfect format** for your app
 
 ---
 
 ## Quick Start
 
-### Parallel Extraction (Recommended ⚡)
+### One Command
 
 ```bash
 cd tools/data-extraction
-
-# Test mode (5 categories, ~5 minutes)
-./run-pipeline-parallel.sh --test 5 --workers 2
-
-# Production (all categories, 2-6 hours)
-./run-pipeline-parallel.sh --workers 4
-
-# Fast production (1-2 hours)
-./run-pipeline-parallel.sh --workers 8 --delay 0.3
+python3 download_dumps.py
 ```
 
-### Sequential Extraction (Fallback)
-
-```bash
-cd tools/data-extraction
-
-# Test mode (100 references, ~30 seconds)
-./run-pipeline.sh --test
-
-# Production (250k references, ~6 days)
-./run-pipeline.sh
-```
+**That's it!** In ~30 seconds you'll have all the data.
 
 ### Output
 
 Data will be in `public/data/`:
-- `categories.json` - All categories
-- `questions.json` - All questions
-- `answers.json` - All answers
-- `manifest.json` - Metadata
+- `categories.json` (94 KB) - 268 categories
+- `questions.json` (86 MB) - 15,622 Q&As
+- `metadata.json` (184 B) - Generation info
 
 ---
 
-## Parallel Extraction (Recommended)
+## How It Works
 
-### Why Parallel?
-
-**10-50x faster than sequential!**
-
-| Aspect | Sequential | Parallel |
-|--------|-----------|----------|
-| **Time** | 6 days | 2-6 hours |
-| **API Calls** | 250,000 | ~10,000 |
-| **Hit Rate** | 5-10% | ~100% |
-| **Efficiency** | Low | High ✅ |
-
-### How It Works
+### Step-by-Step Process
 
 ```
-Step 1: Extract all 269 categories (1 API call, ~2 seconds)
-   ↓
-Step 2: Spawn N workers (e.g., 4) to process categories in parallel
-   ├─ Worker 1: Categories 1-67
-   ├─ Worker 2: Categories 68-134
-   ├─ Worker 3: Categories 135-201
-   └─ Worker 4: Categories 202-269
-   ↓
-Step 3: Each worker extracts questions for its assigned categories
-   ↓
-Step 4: Merge all results
-   ↓
-Step 5: Transform → Bundle → Done!
+┌─────────────────────────────────────────────────────┐
+│ Step 1: Download Manifest                           │
+│   URL: files.zadapps.info/m.islamqa.info/           │
+│        dumps/manifest.json                           │
+│   Time: < 1 second                                   │
+│   Purpose: Find latest dump file                     │
+└─────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────┐
+│ Step 2: Find Latest English Dump                    │
+│   Folder: dumps/2025-11-02-220000/en/               │
+│   File: data.ndjson.gz                               │
+│   Size: 28.7 MB compressed                           │
+│         97.0 MB uncompressed                         │
+│   Records: 17,911                                    │
+└─────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────┐
+│ Step 3: Download Dump File                          │
+│   Time: ~10-15 seconds                               │
+│   Progress: Live progress bar                        │
+│   Note: Server auto-decompresses gzip                │
+└─────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────┐
+│ Step 4: Parse NDJSON                                │
+│   Format: One JSON object per line                   │
+│   Types: topic, answer, source, file, learn-with-us  │
+│   Extracted:                                         │
+│     - 268 topics/categories                          │
+│     - 15,622 answers/questions                       │
+│     - Other metadata                                 │
+│   Time: ~5 seconds                                   │
+└─────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────┐
+│ Step 5: Transform to App Format                     │
+│   Categories:                                        │
+│     - Build parent-child relationships               │
+│     - Calculate hierarchy levels                     │
+│     - Add ancestor paths                             │
+│   Questions:                                         │
+│     - Extract from topics field                      │
+│     - Map categories                                 │
+│     - Preserve HTML content                          │
+│     - Add metadata                                   │
+│   Time: ~5 seconds                                   │
+└─────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────┐
+│ Step 6: Save Output                                 │
+│   Files:                                             │
+│     - categories.json (94 KB)                        │
+│     - questions.json (86 MB)                         │
+│     - metadata.json (184 B)                          │
+│   Time: ~5 seconds                                   │
+└─────────────────────────────────────────────────────┘
+                        ↓
+                   ✅ DONE!
+        Total Time: ~30 seconds
 ```
 
-### Usage
+### Data Structure
 
-```bash
-# Basic (4 workers, balanced)
-./run-pipeline-parallel.sh
-
-# Faster (8 workers)
-./run-pipeline-parallel.sh --workers 8
-
-# Conservative (respectful to API)
-./run-pipeline-parallel.sh --workers 2 --delay 1.0
-
-# Test first (recommended)
-./run-pipeline-parallel.sh --test 5 --workers 2
-```
-
-### Configuration Options
-
-```bash
---workers N     # Number of parallel processes (default: 4)
---delay X       # Seconds between requests (default: 0.5)
---test N        # Test mode: only N categories
---lang CODE     # Language code (default: en)
-```
-
-### Estimated Times
-
-| Workers | Delay | Time | Speedup |
-|---------|-------|------|---------|
-| 2 | 1.0s | 10-12 hours | 12x |
-| 4 | 0.5s | 4-6 hours | 25x |
-| 8 | 0.5s | 2-4 hours | 40x |
-| 8 | 0.3s | 1-2 hours | 70x |
-| 16 | 0.3s | 30m-1hr | 100x+ |
-
-### Monitoring Progress
-
-```bash
-# Terminal 1: Run extraction
-./run-pipeline-parallel.sh --workers 4
-
-# Terminal 2: Watch progress
-watch -n 5 'ls -1 raw/categories/ | wc -l'  # Should reach 269
-
-# Terminal 3: Check questions
-watch -n 10 'jq "length" raw/questions.json 2>/dev/null || echo 0'
-```
-
----
-
-## Sequential Extraction (Fallback)
-
-### When to Use
-
-- API has very strict rate limits
-- Debugging specific reference ranges
-- As fallback if parallel has issues
-- Extremely resource-constrained environments
-
-### How It Works
-
-```
-Scan references 1 → 2 → 3 → ... → 250,000
-├─ Check if question exists
-├─ If yes: save it
-└─ If no: skip (90% are missing - this is normal)
-```
-
-### Usage
-
-```bash
-# Test mode (100 references)
-./run-pipeline.sh --test
-
-# Full extraction (250,000 references)
-./run-pipeline.sh
-
-# Custom range
-./run-pipeline.sh --range 1000 2000
-
-# Skip extraction if you have raw/ data
-./run-pipeline.sh --quick
-```
-
-### Configuration Options
-
-```bash
---test          # Test mode: 100 references
---range X Y     # Extract references X to Y
---delay X       # Seconds between requests (default: 2.0)
---quick         # Skip extraction, just transform/bundle
-```
-
----
-
-## Pipeline Stages
-
-### Stage 1: Extract from API
-
-**Input**: IslamQA API endpoints
-**Output**: `raw/categories.json`, `raw/questions.json`
-
-**API Format**:
+**NDJSON Dump Format:**
 ```json
-{
-  "reference": 115156,
-  "title": "Question title",
-  "question": "<p>HTML question text</p>",
-  "answer": "<p>HTML answer text</p>",
-  "category_reference": 218,
-  "tags": ["Faith"],
-  "views": 12345,
-  "date": "2025-11-06"
-}
+{"serial":1581425672000,"op":"created","type":"answer","data":{
+  "type":"answer",
+  "reference":11789,
+  "title":"Question title",
+  "question":"<p>HTML question</p>",
+  "body":"<p>HTML answer</p>",
+  "topics":[{"reference":170,"title":"Category","ancestors":[...]}],
+  "source":{"reference":1,"title":"Sheikh Name"},
+  "views":8467,
+  "contentLangs":["en","ar","fr"]
+}}
+
+{"serial":1762126300847,"op":"created","type":"topic","data":{
+  "reference":92,
+  "title":"Category Title",
+  "parentId":90,
+  "answerCount":56,
+  "ancestors":[{"reference":55,"title":"Parent Category"}]
+}}
 ```
 
-**Error Handling**:
-- ✅ Skips missing questions (404)
-- ✅ Retries on network errors
-- ✅ Saves progress regularly
-- ✅ Handles malformed responses
-
-### Stage 2: Transform to App Format
-
-**Script**: `transform.cjs`
-**Input**: `raw/*.json` (API format)
-**Output**: `transformed/*.json` (App format)
-
-**Transformations**:
-1. **Categories**:
-   - `reference` → `element`
-   - `title` → `category_links`
-   - `parent_reference` → `parent` (with "0" for root)
-   - Add sequential `id` (1, 2, 3...)
-
-2. **Questions**:
-   - Split combined data into questions + answers
-   - Strip HTML for plain text summary
-   - Add sequential `id` matching answers
-   - Map field names to app format
-
-3. **Answers**:
-   - Extract from questions data
-   - Link via sequential IDs
-   - Preserve HTML formatting
-
-**App Format**:
+**App Format:**
 ```json
 // categories.json
 {
-  "id": "1",
-  "element": "218",
-  "category_links": "Basic Tenets of Faith",
-  "category_url": "cat/218",
-  "parent": "0",
-  "status": "done"
+  "reference": 92,
+  "title": "Category Title",
+  "description": "Category description",
+  "parent_reference": 90,
+  "children_references": [93, 94, 95],
+  "has_subcategories": true,
+  "has_questions": true,
+  "question_count": 56,
+  "level": 2,
+  "ancestors": [55, 90],
+  "url": "/category/92"
 }
 
 // questions.json
 {
-  "id": "1",
-  "category_id": "218",
-  "question": "Question title",
-  "question_full": "<p>HTML question</p>",
-  "question_url": "/en/115156",
-  "question_no": "115156",
-  "status": "done"
-}
-
-// answers.json
-{
-  "id": "1",
-  "question_id": "1",
-  "answers": "<p>HTML answer</p>"
+  "reference": 11789,
+  "title": "Question title",
+  "question": "<p>HTML question</p>",
+  "answer": "<p>HTML answer</p>",
+  "categories": [170],
+  "primary_category": 170,
+  "tags": ["Category Title"],
+  "taxonomies": {...},
+  "views": 8467,
+  "date": "2000-08-08T00:00:00.000Z",
+  "content_langs": ["en","ar","fr"],
+  "bookmarked": false,
+  "last_read": null
 }
 ```
 
-### Stage 3: Bundle for App
+---
 
-**Script**: `bundle.cjs`
-**Input**: `transformed/*.json`
-**Output**: `public/data/*.json` + `manifest.json`
+## Output
 
-**Features**:
-- ✅ Data integrity validation
-- ✅ Required fields check
-- ✅ Type validation
-- ✅ Count verification
-- ✅ Relationship validation
-- ✅ SHA256 checksums
-- ✅ Metadata generation
+### File Details
 
-**Manifest**:
+| File | Size | Records | Description |
+|------|------|---------|-------------|
+| `categories.json` | 94 KB | 268 | Categories with hierarchy |
+| `questions.json` | 86 MB | 15,622 | Complete Q&As with HTML |
+| `metadata.json` | 184 B | - | Generation metadata |
+
+### Sample Category
+
 ```json
 {
-  "version": "1.0.0",
-  "generated_at": "2025-11-06T12:00:00.000Z",
-  "counts": {
-    "categories": 269,
-    "questions": 8523,
-    "answers": 8523
-  },
-  "checksums": {
-    "categories": "abc123...",
-    "questions": "def456...",
-    "answers": "ghi789..."
-  }
+  "reference": 3,
+  "title": "Basic Tenets of Faith",
+  "description": "Discusses what the Muslim must believe...",
+  "parent_reference": null,
+  "children_references": [21, 4, 20, 22, 19, 15],
+  "has_subcategories": true,
+  "has_questions": true,
+  "question_count": 121,
+  "level": 0,
+  "ancestors": [],
+  "url": "/category/3"
+}
+```
+
+### Sample Question
+
+```json
+{
+  "reference": 329,
+  "title": "Is Masturbation Haram in Islam?",
+  "question": "<p>I have a question which I am shy to ask...</p>",
+  "answer": "<div id=\"toc_container\">...</div>",
+  "categories": [245],
+  "primary_category": 245,
+  "tags": ["Forbidden Matters"],
+  "views": 2980371,
+  "date": "1997-11-24T00:00:00.000Z",
+  "content_langs": ["en", "ar", "fr", "hi", "ur"]
+}
+```
+
+### Metadata
+
+```json
+{
+  "version": "3.0.0",
+  "method": "dump-file-extraction",
+  "language": "en",
+  "total_categories": 268,
+  "total_questions": 15622,
+  "generated_at": "2025-11-09T16:30:47.031107Z"
 }
 ```
 
@@ -333,455 +259,215 @@ Scan references 1 → 2 → 3 → ... → 250,000
 
 ## Configuration
 
-### Parallel Extraction Settings
+### Change Language
 
-**Workers**: Number of parallel processes
-```bash
---workers 2     # Conservative
---workers 4     # Balanced (default)
---workers 8     # Fast
---workers 16    # Very fast (use carefully)
+Edit `download_dumps.py`:
+
+```python
+LANG = "en"  # Change to: ar, fr, ur, id, es, etc.
 ```
 
-**Recommendation**: Start with 4, increase if needed. Check your CPU cores: `nproc`
+Available languages: ar (Arabic), en (English), ur (Urdu), fr (French), id (Indonesian), es (Spanish), tr (Turkish), bn (Bengali), ru (Russian), hi (Hindi), fa (Persian), pt (Portuguese), zh (Chinese), ge (Georgian), ug (Uyghur), tg (Tajik), ta (Tamil)
 
-**Delay**: Seconds between requests
-```bash
---delay 2.0     # Conservative
---delay 0.5     # Balanced (default)
---delay 0.3     # Fast
---delay 0.1     # Very fast (use carefully)
+### Change Output Directory
+
+Edit `download_dumps.py`:
+
+```python
+OUTPUT_DIR = Path(__file__).parent.parent.parent / "public" / "data"
 ```
 
-**Recommendation**: Start with 0.5s, adjust based on API response
+### CDN Base URL
 
-**Test Mode**: Process limited categories
-```bash
---test 5        # Quick test (5 categories)
---test 20       # Medium test (20 categories)
---test 50       # Large test (50 categories)
+The script uses:
+```python
+CDN_BASE_URL = "https://files.zadapps.info/m.islamqa.info"
 ```
 
-### Sequential Extraction Settings
+---
 
-**Delay**: Seconds between requests
+## Advanced Usage
+
+### Verify Output
+
 ```bash
---delay 3.0     # Very conservative
---delay 2.0     # Conservative (default)
---delay 1.0     # Balanced
---delay 0.5     # Fast (may trigger limits)
+# Check files exist
+ls -lh public/data/
+
+# View metadata
+cat public/data/metadata.json | jq .
+
+# Count records
+jq 'length' public/data/categories.json  # Should be 268
+jq 'length' public/data/questions.json   # Should be 15,622
+
+# View sample category
+jq '.[0]' public/data/categories.json
+
+# View sample question
+jq '.[0]' public/data/questions.json
 ```
 
-**Range**: Reference IDs to scan
+### Incremental Updates (Future)
+
+The manifest also includes delta dumps for incremental updates:
+
 ```bash
---range 1 100           # Test range
---range 1 10000         # Small extraction
---range 1 100000        # Medium extraction
---range 1 250000        # Full extraction
+# Delta files track created/updated/deleted records
+# Format: dumps/deltas/2025-11-03-210000/en/data.ndjson.gz
+# Size: Usually < 1 KB (very few daily changes)
 ```
+
+To implement delta updates, modify the script to:
+1. Track `lastSerial` from previous extraction
+2. Download only delta files since last serial
+3. Apply changes (created/updated/deleted) to existing data
+
+### Alternative: Using curl
+
+If you prefer shell scripts:
+
+```bash
+# Download manifest
+curl -o manifest.json \
+  "https://files.zadapps.info/m.islamqa.info/dumps/manifest.json"
+
+# Extract dump URL (requires jq)
+DUMP_URL=$(jq -r '.dumps[] | select(.lang=="en") | .folder + "/" + .file.name' manifest.json | head -1)
+
+# Download dump
+curl -o data.ndjson.gz \
+  "https://files.zadapps.info/m.islamqa.info/$DUMP_URL"
+
+# Decompress (if needed)
+gunzip data.ndjson.gz
+
+# Parse with jq or Python
+```
+
+---
+
+## Troubleshooting
+
+### Issue: Download fails
+
+**Solutions:**
+```bash
+# Check internet connection
+ping files.zadapps.info
+
+# Check URL manually
+curl -I "https://files.zadapps.info/m.islamqa.info/dumps/manifest.json"
+
+# Increase timeout in script
+response = self.session.get(url, timeout=120)
+```
+
+### Issue: Parsing errors
+
+**Check:**
+```bash
+# Verify NDJSON format
+head -1 data.ndjson | jq .
+
+# Count lines
+wc -l data.ndjson
+```
+
+**Solutions:**
+- Re-download dump file
+- Check for corrupted download
+- Verify JSON syntax
+
+### Issue: Out of memory
+
+**Solutions:**
+```bash
+# Process in chunks (modify script to stream parse)
+# Or use a machine with more RAM
+# Minimum: 1 GB free memory
+```
+
+### Issue: Old data
+
+**Check manifest for latest dump:**
+```bash
+curl -s "https://files.zadapps.info/m.islamqa.info/dumps/manifest.json" | jq '.dumps[] | select(.lang=="en") | {folder, date}'
+```
+
+**Note:** Dumps are updated daily/weekly by IslamQA
 
 ---
 
 ## Performance
 
-### Speed Comparison
+### Benchmarks
 
-| Method | Time | API Calls | Efficiency |
-|--------|------|-----------|------------|
-| Sequential | 140 hours | 250,000 | Low |
-| Parallel (4w) | 4-6 hours | ~10,000 | High ✅ |
-| Parallel (8w) | 2-4 hours | ~10,000 | Very High ✅ |
-
-### File Sizes
-
-Typical output:
-- `categories.json`: 50-100 KB
-- `questions.json`: 5-15 MB
-- `answers.json`: 20-40 MB
-- **Total**: 25-55 MB
+| Operation | Time | Notes |
+|-----------|------|-------|
+| Download manifest | < 1s | Tiny JSON file |
+| Download dump | 10-15s | 28.7 MB compressed |
+| Parse NDJSON | 5s | 17,911 records |
+| Transform data | 5s | Build relationships |
+| Save output | 5s | Write JSON files |
+| **Total** | **~30s** | **100x faster than API!** |
 
 ### Resource Usage
 
-**Parallel Extraction**:
-- CPU: N workers × ~30% per worker
-- Memory: ~100-200 MB per worker
-- Network: Moderate (many small requests)
-- Disk: Minimal (< 100 MB)
-
-**Sequential Extraction**:
-- CPU: ~10% (single process)
-- Memory: ~50 MB
-- Network: Low (sequential requests)
-- Disk: Minimal
-
-### Optimization Tips
-
-1. **Use parallel for production** - 10-50x faster
-2. **Test first** - Run with `--test 5` to verify
-3. **Match workers to CPU** - Generally workers = cores / 2
-4. **Adjust delay based on API** - Start conservative, speed up if stable
-5. **Monitor progress** - Watch logs for issues
-6. **Run in background** - Use `nohup` for long extractions
-
----
-
-## Format Verification
-
-### Verify Output Format
-
-```bash
-# Verify transformed data
-node verify-format.cjs
-
-# Verify app data
-node verify-format.cjs ../../public/data
-```
-
-### Expected Output
-
-```
-✅ Categories: 269 items - All fields correct
-✅ Questions: 3000+ items - All fields correct
-✅ Answers: 3000+ items - All fields correct
-
-All formats are correct!
-Your data is ready for import.
-```
-
-### Validation Checks
-
-The verification script checks:
-- ✅ Required fields present
-- ✅ Field types correct (all strings)
-- ✅ Question count matches answer count
-- ✅ Parent-child relationships valid
-- ✅ No null/undefined values
-- ✅ IDs are sequential
-
-### Manual Verification
-
-```bash
-# Check category structure
-jq '.[0]' public/data/categories.js
-
-# Check question structure
-jq '.[0]' public/data/questions1.js
-
-# Check answer structure
-jq '.[0]' public/data/answers1.js
-
-# Count records
-head -c 1000 public/data/categories.js  # View first 1000 chars
-```
-
----
-
-## API Issues & Troubleshooting
-
-### Common Issues
-
-#### 1. API Returns 403 Forbidden
-
-**Cause**: Authentication required, rate limiting, or access restrictions
-
-**Solutions**:
-```bash
-# Increase delay
-./run-pipeline-parallel.sh --delay 2.0
-
-# Reduce workers
-./run-pipeline-parallel.sh --workers 2
-
-# Try different headers (edit extract_parallel.py)
-session.headers.update({
-    'User-Agent': 'Mozilla/5.0...',
-    'Referer': 'https://islamqa.info/'
-})
-
-# Contact IslamQA for API access
-```
-
-**Workaround**: Use existing data in `public/data/` (already in correct format!)
-
-#### 2. Workers Not Starting
-
-**Check multiprocessing**:
-```bash
-python3 -c "import multiprocessing as mp; print(mp.cpu_count())"
-```
-
-**Solution**: Try fewer workers
-```bash
-./run-pipeline-parallel.sh --workers 2
-```
-
-#### 3. API Rate Limiting
-
-**Symptoms**: Many timeout errors, 429 responses
-
-**Solutions**:
-```bash
-# Increase delay
---delay 2.0
-
-# Reduce workers
---workers 2
-
-# Combine both
-./run-pipeline-parallel.sh --workers 2 --delay 2.0
-```
-
-#### 4. Out of Memory
-
-**Symptoms**: Process killed, memory errors
-
-**Solutions**:
-```bash
-# Reduce workers
-./run-pipeline-parallel.sh --workers 2
-
-# Process in batches
-./run-pipeline-parallel.sh --test 50  # First 50 categories
-```
-
-#### 5. Incomplete Extraction
-
-**Check progress**:
-```bash
-# Categories extracted
-ls -1 raw/categories/ 2>/dev/null | wc -l  # Should be 269
-
-# Questions collected
-jq 'length' raw/questions.json 2>/dev/null || echo "Not yet generated"
-```
-
-**Resume extraction**:
-```bash
-# Re-run, it will skip completed categories
-./run-pipeline-parallel.sh
-```
-
----
-
-## Architecture Details
-
-### Directory Structure
-
-```
-tools/data-extraction/
-├── extract_parallel.py          # Parallel extraction
-├── extract_fresh.py             # Sequential extraction
-├── transform.cjs                # Format transformation
-├── bundle.cjs                   # Validation & bundling
-├── verify-format.cjs            # Format verification
-├── run-pipeline-parallel.sh     # Parallel orchestrator
-├── run-pipeline.sh              # Sequential orchestrator
-├── README.md                    # This comprehensive guide
-│
-├── raw/                         # Extraction output
-│   ├── categories/              # Per-category results (parallel)
-│   ├── categories.json          # All categories
-│   ├── questions.json           # All questions
-│   └── metadata.json            # Stats
-│
-├── transformed/                 # After transformation
-│   ├── categories.json          # App format
-│   ├── questions.json           # App format
-│   └── answers.json             # App format
-│
-└── ../../public/data/          # Final bundle
-    ├── categories.js            # Ready for app
-    ├── questions1.js            # Ready for app
-    ├── answers1.js              # Ready for app
-    └── manifest.json            # Metadata
-```
-
-### Data Flow
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    COMPLETE PIPELINE                         │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  IslamQA API                                                 │
-│       ↓                                                      │
-│  extract_parallel.py OR extract_fresh.py                     │
-│       ↓                                                      │
-│  raw/categories.json, raw/questions.json (API format)        │
-│       ↓                                                      │
-│  transform.cjs                                               │
-│       ↓                                                      │
-│  transformed/*.json (App format)                             │
-│       ↓                                                      │
-│  bundle.cjs                                                  │
-│       ↓                                                      │
-│  public/data/*.json (Optimized & ready for import)           │
-│       ↓                                                      │
-│  App imports to Dexie IndexedDB                              │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
-
----
-
-## Examples
-
-### Example 1: Quick Test
-
-```bash
-cd tools/data-extraction
-
-# Test parallel with 5 categories
-./run-pipeline-parallel.sh --test 5 --workers 2
-
-# Expected: ~5 minutes, ~50-100 questions
-# Output: public/data/*.json
-```
-
-### Example 2: Production Extraction (Balanced)
-
-```bash
-cd tools/data-extraction
-
-# Run in background
-nohup ./run-pipeline-parallel.sh --workers 4 --delay 0.5 > extraction.log 2>&1 &
-
-# Monitor progress
-tail -f extraction.log
-
-# Check progress
-watch -n 10 'ls -1 raw/categories/ 2>/dev/null | wc -l'
-```
-
-### Example 3: Fast Extraction
-
-```bash
-cd tools/data-extraction
-
-# Use more workers and lower delay
-./run-pipeline-parallel.sh --workers 8 --delay 0.3
-
-# Expected: 1-2 hours for full extraction
-```
-
-### Example 4: Verify Output
-
-```bash
-# After extraction completes:
-
-# Verify format
-node verify-format.cjs
-
-# Check counts
-echo "Categories: $(ls public/data/categories.js 2>/dev/null && echo 'Found' || echo 'Not found')"
-
-# View manifest
-cat ../../public/data/manifest.json 2>/dev/null | jq . || echo "Manifest not yet generated"
-```
-
----
-
-## FAQ
-
-### Q: Which method should I use?
-
-**A**: Use **parallel extraction** for production. It's 10-50x faster and more efficient.
-
-### Q: Is parallel extraction safe?
-
-**A**: Yes, with reasonable settings (4-8 workers, 0.5s delay). Start conservative and adjust.
-
-### Q: What if I get rate-limited?
-
-**A**: Increase delay (`--delay 2.0`) and reduce workers (`--workers 2`).
-
-### Q: Can I pause and resume?
-
-**A**: Yes! Parallel saves per-category, sequential saves every 50 questions. Just re-run.
-
-### Q: How much faster is parallel really?
-
-**A**: Typically 10-20x faster. With optimal settings, up to 50-100x faster.
-
-### Q: What if the API returns 403?
-
-**A**: Try different headers, contact IslamQA, or use existing data in `public/data/` (already perfect!).
-
-### Q: Does it use more bandwidth?
-
-**A**: No, actually less! Parallel only fetches questions that exist (~100% hit rate vs 5-10%).
-
-### Q: What format does my app need?
-
-**A**: The pipeline produces exactly the right format automatically. Verified ✅
-
-### Q: How do I know if extraction is complete?
-
-**A**: Check `ls -1 raw/categories/ | wc -l` should equal 269 (or your --test number).
-
-### Q: Can I run on Windows?
-
-**A**: The Python scripts work on Windows. The bash scripts need WSL or Git Bash.
-
-### Q: How much disk space needed?
-
-**A**: About 100 MB during extraction, final bundle is ~55 MB.
-
-### Q: Is the output format verified?
-
-**A**: Yes! Run `node verify-format.cjs` to confirm. Format is 100% correct ✅
+- **Network**: 28.7 MB download
+- **Disk**: 100 MB temporary, 90 MB final
+- **Memory**: ~200 MB peak
+- **CPU**: Minimal (mostly I/O bound)
+
+### Comparison
+
+| Method | Time | API Calls | Complexity | Reliability |
+|--------|------|-----------|------------|-------------|
+| Old (API) | 40-50 min | 1000s | High | Medium |
+| New (Dump) | 30 sec | 2 | Low ✅ | High ✅ |
+| **Speedup** | **100x** | **500x fewer** | **Much simpler** | **Much better** |
 
 ---
 
 ## Summary
 
-### Quick Commands
+### Quick Reference
 
 ```bash
-# Parallel (recommended) - 2-6 hours
-./run-pipeline-parallel.sh --workers 4
-
-# Sequential (fallback) - 6 days
-./run-pipeline.sh
-
-# Test first (5 minutes)
-./run-pipeline-parallel.sh --test 5
+# One command to get all data
+python3 download_dumps.py
 
 # Verify output
-node verify-format.cjs
+ls -lh public/data/
+cat public/data/metadata.json
+
+# Check counts
+jq 'length' public/data/categories.json   # 268
+jq 'length' public/data/questions.json    # 15,622
 ```
 
-### Speed Comparison
+### What You Get
 
-| Method | Time | Speedup |
-|--------|------|---------|
-| Sequential | 140 hours | 1x |
-| Parallel (4w) | 4-6 hours | 25x ⚡ |
-| Parallel (8w) | 2-4 hours | 40x ⚡ |
-| Parallel (16w) | 30m-1hr | 100x+ ⚡ |
-
-### Output
-
-Data ready for your app in `public/data/`:
-- ✅ `categories.json` - 269 categories
-- ✅ `questions.json` - 8000+ questions
-- ✅ `answers.json` - 8000+ answers
-- ✅ `manifest.json` - Metadata
+✅ 268 categories with full hierarchy
+✅ 15,622 Q&As with complete HTML content
+✅ Perfect format for your app
+✅ 100x faster than API method
+✅ Simpler, more reliable code
 
 ### Next Steps
 
-1. **Test the system**: `./run-pipeline-parallel.sh --test 5`
-2. **Verify output**: `node verify-format.cjs`
-3. **Run production** (when API accessible): `./run-pipeline-parallel.sh`
-4. **Import to app**: Use ImportView to load into Dexie
+1. **Run extraction**: `python3 download_dumps.py`
+2. **Verify output**: Check `public/data/` directory
+3. **Integrate with app**: Use the JSON files in your Cordova app
 
 ---
 
-**Created**: November 6, 2025
-**Version**: 2.0.0
+**Created**: November 9, 2025
+**Version**: 3.0.0
+**Method**: Dump File Extraction
 **Status**: ✅ Production Ready
-**Recommended**: ⚡ Parallel Extraction (10-50x faster!)
+**Performance**: ⚡ 100x faster than API method!
 
 ---
 
-**This is your complete guide to data extraction. Everything you need is here!** 🚀
+**Simple, fast, and reliable!** 🚀
