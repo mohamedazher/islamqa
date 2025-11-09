@@ -385,22 +385,15 @@ describe('Quiz and Bookmarks Integration', () => {
   });
 
   test('quiz categories should align with question categories', () => {
-    let quizPath = path.join(__dirname, '../www/data/quiz-questions.json');
-    if (!fs.existsSync(quizPath)) {
-      quizPath = path.join(__dirname, '../public/data/quiz-questions.json');
-    }
-
-    let categoriesPath = path.join(__dirname, '../www/js/categories.js');
-    if (!fs.existsSync(categoriesPath)) {
-      categoriesPath = path.join(__dirname, '../public/data/categories.js');
-    }
+    // UPDATED: Load from new dump file format (categories.json)
+    const quizPath = path.join(__dirname, '../public/data/quiz-questions.json');
+    const categoriesPath = path.join(__dirname, '../public/data/categories.json');
 
     const quizContent = fs.readFileSync(quizPath, 'utf-8');
     const quizData = JSON.parse(quizContent);
 
     const catContent = fs.readFileSync(categoriesPath, 'utf-8');
-    const catMatch = catContent.match(/\[(.*)\]/s);
-    const categories = JSON.parse(catMatch[0]);
+    const categories = JSON.parse(catContent);
 
     // Extract quiz categories
     const quizCategories = new Set(quizData.quizzes.map(q => q.category));
