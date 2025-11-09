@@ -82,19 +82,33 @@ async function checkDataImport() {
   }
 }
 
-function handleOnboardingComplete() {
+async function handleOnboardingComplete() {
   console.log('[Onboarding] User completed onboarding (with privacy & import)')
   showOnboarding.value = false
 
-  // Initialize data store after onboarding complete
-  checkDataImport()
+  // Data should be imported by now, initialize data store
+  try {
+    await dataStore.initialize()
+    console.log('✅ Data store initialized after onboarding')
+
+    // Navigate to home if not already there
+    if (router.currentRoute.value.path !== '/') {
+      router.push('/')
+    }
+  } catch (error) {
+    console.error('❌ Error initializing data store after onboarding:', error)
+    // Fallback: check data import status
+    checkDataImport()
+  }
 }
 
 function handleOnboardingSkip() {
-  console.log('[Onboarding] User skipped onboarding')
+  // Skip functionality deprecated - onboarding is now mandatory
+  // This handler is kept for compatibility if skip is triggered from tutorial view in settings
+  console.log('[Onboarding] Skip triggered (deprecated)')
   showOnboarding.value = false
 
-  // Still check data import even if skipped
+  // Check if data needs to be imported
   checkDataImport()
 }
 
