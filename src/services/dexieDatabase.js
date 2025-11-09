@@ -141,13 +141,20 @@ class DexieDatabase extends Dexie {
     try {
       // Handle root categories separately (null values can't use .equals())
       if (parentReference === null) {
-        return await this.categories
+        const results = await this.categories
           .filter(cat => cat.parent_reference === null)
           .toArray()
+        console.log(`Found ${results.length} root categories (parent_reference=null)`)
+        return results
       }
 
+      // Convert to number if it's a string (from route params)
+      const refNum = typeof parentReference === 'string' ? parseInt(parentReference, 10) : parentReference
+
       // Query by parent_reference for non-null values
-      return await this.categories.where('parent_reference').equals(parentReference).toArray()
+      const results = await this.categories.where('parent_reference').equals(refNum).toArray()
+      console.log(`Found ${results.length} categories with parent_reference=${refNum}`)
+      return results
     } catch (error) {
       console.error('Error getting categories:', error)
       return []
@@ -161,7 +168,11 @@ class DexieDatabase extends Dexie {
    */
   async getCategory(reference) {
     try {
-      return await this.categories.where('reference').equals(reference).first()
+      // Convert to number if it's a string (from route params)
+      const refNum = typeof reference === 'string' ? parseInt(reference, 10) : reference
+      const category = await this.categories.where('reference').equals(refNum).first()
+      console.log(`Looking for category with reference=${refNum}:`, category)
+      return category
     } catch (error) {
       console.error('Error getting category:', error)
       return null
@@ -176,12 +187,18 @@ class DexieDatabase extends Dexie {
    */
   async getQuestionsByCategory(categoryReference, limit = 100, offset = 0) {
     try {
-      return await this.questions
+      // Convert to number if it's a string (from route params)
+      const refNum = typeof categoryReference === 'string' ? parseInt(categoryReference, 10) : categoryReference
+
+      const results = await this.questions
         .where('primary_category')
-        .equals(categoryReference)
+        .equals(refNum)
         .offset(offset)
         .limit(limit)
         .toArray()
+
+      console.log(`Found ${results.length} questions for primary_category=${refNum}`)
+      return results
     } catch (error) {
       console.error('Error getting questions:', error)
       return []
