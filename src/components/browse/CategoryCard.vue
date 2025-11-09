@@ -22,8 +22,9 @@
       <!-- White Content Section -->
       <div class="p-1 w-full">
         <div class="bg-white dark:bg-neutral-900 rounded-b-[20px] px-6 py-5 min-h-[120px] flex flex-col justify-between">
+          <!-- UPDATED: Changed category_links to title (new data structure) -->
           <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 text-center line-clamp-2 h-[54px] flex items-center justify-center">
-            {{ category.category_links }}
+            {{ category.title || category.category_links }}
           </h3>
           <div class="flex items-center justify-center gap-3 text-sm text-neutral-600 dark:text-neutral-400">
             <span v-if="subcategoryCount > 0" class="flex items-center gap-1.5 bg-neutral-100 dark:bg-neutral-800 px-3 py-1.5 rounded-full">
@@ -59,8 +60,9 @@
 
       <!-- Content -->
       <div class="flex-1 min-w-0">
+        <!-- UPDATED: Changed category_links to title (new data structure) -->
         <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 text-base mb-1 line-clamp-2">
-          {{ category.category_links }}
+          {{ category.title || category.category_links }}
         </h3>
         <div class="flex items-center gap-2 text-xs text-neutral-600 dark:text-neutral-400">
           <span v-if="subcategoryCount > 0" class="flex items-center gap-1">
@@ -103,9 +105,10 @@ const questionCount = ref(0)
 
 onMounted(async () => {
   try {
+    // UPDATED: Changed to use reference instead of element
     const [subcats, questions] = await Promise.all([
-      dataStore.getCategoriesByParent(props.category.element),
-      dataStore.getQuestionsByCategory(props.category.element)
+      dataStore.getCategoriesByParent(props.category.reference),
+      dataStore.getQuestionsByCategory(props.category.reference)
     ])
     subcategoryCount.value = subcats.length
     questionCount.value = questions.length
@@ -115,8 +118,9 @@ onMounted(async () => {
 })
 
 const categoryIcon = computed(() => {
+  // UPDATED: Changed category_links to title (new data structure)
   // Map categories to icons for better visual hierarchy
-  const name = props.category.category_links.toLowerCase()
+  const name = (props.category.title || props.category.category_links || '').toLowerCase()
 
   // Specific category matches
   if (name.includes('basic tenets') || name.includes('belief') || name.includes('faith')) return '✨'
@@ -166,8 +170,9 @@ const gradientClass = computed(() => {
     'bg-gradient-to-br from-green-400 via-lime-400 to-yellow-400 dark:from-green-500 dark:via-lime-500 dark:to-yellow-500',
   ]
 
+  // UPDATED: Changed to use reference instead of element
   // Use category ID to consistently assign same gradient
-  const index = props.category.element % gradients.length
+  const index = props.category.reference % gradients.length
   return gradients[index]
 })
 </script>

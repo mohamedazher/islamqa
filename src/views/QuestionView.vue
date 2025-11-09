@@ -6,7 +6,8 @@
       </button>
       <div class="flex-1">
         <h1 class="text-xl font-bold">Question</h1>
-        <p class="text-primary-100 dark:text-primary-200 text-sm">Q#{{ currentQuestion?.question_no }}</p>
+        <!-- UPDATED: Changed question_no to reference (semantic ID from IslamQA) -->
+        <p class="text-primary-100 dark:text-primary-200 text-sm">Q#{{ currentQuestion?.reference }}</p>
       </div>
       <div class="flex items-center gap-2">
         <button @click="handleShare" class="p-2 hover:bg-white/10 rounded-lg transition-colors">
@@ -28,17 +29,20 @@
       </div>
 
       <!-- Question & Answer Content -->
-      <div v-else-if="currentQuestion && currentAnswer" class="space-y-6">
+      <div v-else-if="currentQuestion" class="space-y-6">
         <!-- Question Section -->
         <div class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-900/50 p-6">
-          <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">{{ currentQuestion.question }}</h2>
-          <p class="text-neutral-600 dark:text-neutral-400">{{ currentQuestion.question_full }}</p>
+          <!-- UPDATED: Changed to title field (new data structure) -->
+          <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">{{ currentQuestion.title }}</h2>
+          <!-- UPDATED: Changed to question field (HTML content) - removed question_full -->
+          <div class="prose prose-sm dark:prose-invert max-w-none text-neutral-600 dark:text-neutral-400" v-html="currentQuestion.question"></div>
         </div>
 
         <!-- Answer Section -->
         <div class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-900/50 p-6">
           <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Answer</h3>
-          <div class="prose prose-sm dark:prose-invert max-w-none text-neutral-700 dark:text-neutral-300" v-html="currentAnswer.answers"></div>
+          <!-- UPDATED: Changed to access answer directly from currentQuestion (no longer separate table) -->
+          <div class="prose prose-sm dark:prose-invert max-w-none text-neutral-700 dark:text-neutral-300" v-html="currentQuestion.answer"></div>
         </div>
 
         <!-- Related Questions Section (placeholder) -->
@@ -89,23 +93,23 @@ onMounted(async () => {
 
     console.log('Loading question:', questionId)
 
-    // Load question and answer from database
-    const [question, answer] = await Promise.all([
-      dataStore.getQuestion(questionId),
-      dataStore.getAnswer(questionId)
-    ])
+    // UPDATED: Load question (answer is embedded in question.answer)
+    const question = await dataStore.getQuestion(questionId)
 
     console.log('Question loaded:', question)
-    console.log('Answer loaded:', answer)
 
     currentQuestion.value = question
-    currentAnswer.value = answer
+    // DEPRECATED: No longer need separate answer query - answer is in question.answer
 
     // Track question read for gamification (only unique questions count)
-    gamificationStore.readQuestion(questionId)
+    // UPDATED: Use reference instead of id
+    if (question) {
+      gamificationStore.readQuestion(question.reference)
+    }
 
     // Check if bookmarked
     const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]')
+    // UPDATED: Use reference for bookmark tracking
     isBookmarked.value = bookmarks.includes(parseInt(questionId))
   } catch (error) {
     console.error('Error loading question:', error)
@@ -122,7 +126,8 @@ function toggleBookmark() {
   if (!currentQuestion.value) return
 
   const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]')
-  const questionId = parseInt(currentQuestion.value.id)
+  // UPDATED: Use reference instead of id
+  const questionId = currentQuestion.value.reference
 
   if (isBookmarked.value) {
     // Remove bookmark
@@ -147,7 +152,8 @@ async function handleShare() {
   if (!currentQuestion.value) return
 
   try {
-    const result = await shareQuestion(currentQuestion.value, currentAnswer.value)
+    // UPDATED: Pass only currentQuestion (answer is embedded in question.answer)
+    const result = await shareQuestion(currentQuestion.value)
 
     if (result.success && result.platform === 'clipboard') {
       // Show a toast notification if copied to clipboard

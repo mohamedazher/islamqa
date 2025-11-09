@@ -5,7 +5,8 @@
         <Icon name="arrowLeft" size="md" />
       </button>
       <div class="flex-1 min-w-0">
-        <h1 class="text-lg md:text-xl font-bold line-clamp-2 break-words">{{ currentCategory?.category_links || 'Category' }}</h1>
+        <!-- UPDATED: Changed category_links to title (new data structure) -->
+        <h1 class="text-lg md:text-xl font-bold line-clamp-2 break-words">{{ currentCategory?.title || 'Category' }}</h1>
         <p class="text-primary-100 dark:text-primary-200 text-xs md:text-sm truncate">{{ currentCategorySummary }}</p>
       </div>
     </header>
@@ -44,9 +45,10 @@
                     <Icon name="folder" size="lg" class="text-white" />
                   </div>
                   <div class="flex-1 min-w-0">
-                    <h4 class="font-bold text-white line-clamp-2 break-words mb-2 leading-snug">{{ subcat.category_links }}</h4>
+                    <!-- UPDATED: Changed category_links to title, element to reference -->
+                    <h4 class="font-bold text-white line-clamp-2 break-words mb-2 leading-snug">{{ subcat.title }}</h4>
                     <p class="text-xs text-white/90 flex items-center gap-2">
-                      <span class="bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full">{{ subcategorySummaries[subcat.element] || 'Loading...' }}</span>
+                      <span class="bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full">{{ subcategorySummaries[subcat.reference] || 'Loading...' }}</span>
                     </p>
                   </div>
                   <Icon name="chevronRight" size="md" class="text-white/70 group-hover:text-white transition-colors" />
@@ -121,10 +123,10 @@ const loadCategory = async () => {
     currentCategory.value = await dataStore.getCategory(categoryId)
 
     if (currentCategory.value) {
-      // Load subcategories and questions
+      // UPDATED: Changed to use reference instead of element
       const [subcats, questions] = await Promise.all([
-        dataStore.getCategoriesByParent(currentCategory.value.element),
-        dataStore.getQuestionsByCategory(currentCategory.value.element)
+        dataStore.getCategoriesByParent(currentCategory.value.reference),
+        dataStore.getQuestionsByCategory(currentCategory.value.reference)
       ])
 
       subcategories.value = subcats
@@ -136,14 +138,15 @@ const loadCategory = async () => {
       // Load and cache summaries for all subcategories
       for (const subcat of subcats) {
         try {
+          // UPDATED: Changed to use reference instead of element
           const [subSubcats, subQuestions] = await Promise.all([
-            dataStore.getCategoriesByParent(subcat.element),
-            dataStore.getQuestionsByCategory(subcat.element)
+            dataStore.getCategoriesByParent(subcat.reference),
+            dataStore.getQuestionsByCategory(subcat.reference)
           ])
-          subcategorySummaries[subcat.element] = generateSummary(subSubcats.length, subQuestions.length)
+          subcategorySummaries[subcat.reference] = generateSummary(subSubcats.length, subQuestions.length)
         } catch (error) {
-          console.error(`Error loading summary for subcategory ${subcat.element}:`, error)
-          subcategorySummaries[subcat.element] = 'Error loading'
+          console.error(`Error loading summary for subcategory ${subcat.reference}:`, error)
+          subcategorySummaries[subcat.reference] = 'Error loading'
         }
       }
 
@@ -193,12 +196,13 @@ function goBack() {
 }
 
 function selectCategory(category) {
-  // Use element (actual category ID) not id (row number)
-  router.push(`/category/${category.element}`)
+  // UPDATED: Use reference (semantic ID from IslamQA) not element
+  router.push(`/category/${category.reference}`)
 }
 
 function selectQuestion(question) {
-  router.push(`/question/${question.id}`)
+  // UPDATED: Use reference (semantic ID from IslamQA) not id
+  router.push(`/question/${question.reference}`)
 }
 
 </script>

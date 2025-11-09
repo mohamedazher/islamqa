@@ -11,10 +11,14 @@ class DexieDatabase extends Dexie {
     super('IslamQA')
 
     // Define database schema
+    // UPDATED: Using new dump file data structure
+    // - categories: reference is the semantic ID (from IslamQA), parent_reference for hierarchy
+    // - questions: reference is semantic ID, primary_category for main category link
+    // - answers are now embedded in questions.answer, no separate table needed
     this.version(1).stores({
-      categories: 'id, parent, element',
-      questions: 'id, category_id, question',
-      answers: 'id, question_id',
+      categories: '++id, reference, parent_reference',  // ++id is Dexie internal PK, reference is semantic ID
+      questions: '++id, reference, primary_category',   // ++id is Dexie internal PK, reference is semantic ID
+      // REMOVED: answers table - answers are now embedded in questions.answer field
       folders: '++id, folder_name',
       folder_questions: '++id, question_id, folder_id',
       latest_questions: 'id, category_id',
@@ -24,7 +28,7 @@ class DexieDatabase extends Dexie {
     // Shortcuts to tables
     this.categories = this.table('categories')
     this.questions = this.table('questions')
-    this.answers = this.table('answers')
+    // REMOVED: this.answers - no longer needed
     this.folders = this.table('folders')
     this.folder_questions = this.table('folder_questions')
     this.latest_questions = this.table('latest_questions')
@@ -74,22 +78,21 @@ class DexieDatabase extends Dexie {
 
   /**
    * Get database statistics
+   * UPDATED: Removed answers count since answers are embedded in questions
    */
   async getStats() {
     try {
-      const [categoriesCount, questionsCount, answersCount] = await Promise.all([
+      const [categoriesCount, questionsCount] = await Promise.all([
         this.categories.count(),
-        this.questions.count(),
-        this.answers.count()
+        this.questions.count()
       ])
       return {
         categories: categoriesCount,
-        questions: questionsCount,
-        answers: answersCount
+        questions: questionsCount
       }
     } catch (error) {
       console.error('Error getting stats:', error)
-      return { categories: 0, questions: 0, answers: 0 }
+      return { categories: 0, questions: 0 }
     }
   }
 
@@ -120,27 +123,23 @@ class DexieDatabase extends Dexie {
   }
 
   /**
-   * Import answers in bulk
+   * DEPRECATED: Answers are now embedded in questions
+   * This method is no longer needed - answers come with the question data
    */
   async importAnswers(answers) {
-    try {
-      await this.answers.bulkPut(answers)
-      console.log(`✅ Imported ${answers.length} answers`)
-    } catch (error) {
-      console.error('Error importing answers:', error)
-      throw error
-    }
+    console.warn('⚠️  importAnswers() is deprecated. Answers are now embedded in questions.answer')
+    // Silently succeed for backward compatibility, but don't do anything
   }
 
   /**
-   * Get all categories or filter by parent
-   * parentId can be "0" for root categories or element id like "218" for subcategories
+   * Get all categories or filter by parent reference
+   * UPDATED: Now uses parent_reference (semantic ID) instead of parent element
+   * parentReference can be null for root categories, or reference like 3, 21, 4 for subcategories
    */
-  async getCategories(parentId = 0) {
+  async getCategories(parentReference = null) {
     try {
-      // Convert to string for consistent comparison (data stores parent as strings)
-      const parentStr = String(parentId)
-      return await this.categories.where('parent').equals(parentStr).toArray()
+      // Query by parent_reference
+      return await this.categories.where('parent_reference').equals(parentReference).toArray()
     } catch (error) {
       console.error('Error getting categories:', error)
       return []
@@ -148,14 +147,13 @@ class DexieDatabase extends Dexie {
   }
 
   /**
-   * Get category by element (actual category ID, not row id)
-   * The route passes element as the ID since that's the semantic identifier
+   * Get category by reference (semantic ID from IslamQA)
+   * UPDATED: Now queries by reference field instead of element
+   * The route passes reference as the ID since that's the semantic identifier
    */
-  async getCategory(elementId) {
+  async getCategory(reference) {
     try {
-      // Convert to string for consistent comparison with how data is stored
-      const elementStr = String(elementId)
-      return await this.categories.where('element').equals(elementStr).first()
+      return await this.categories.where('reference').equals(reference).first()
     } catch (error) {
       console.error('Error getting category:', error)
       return null
@@ -163,16 +161,16 @@ class DexieDatabase extends Dexie {
   }
 
   /**
-   * Get questions by category ID (element, not id)
-   * categoryId should be the element field (e.g. "218"), not the primary id
+   * Get questions by category reference (semantic ID)
+   * UPDATED: Now uses primary_category instead of category_id
+   * categoryReference should be the reference field (e.g. 3, 21, 245)
+   * Note: Questions can belong to multiple categories (categories array), but we query by primary_category
    */
-  async getQuestionsByCategory(categoryId, limit = 100, offset = 0) {
+  async getQuestionsByCategory(categoryReference, limit = 100, offset = 0) {
     try {
-      // Convert to string for consistent comparison (data stores category_id as strings)
-      const categoryStr = String(categoryId)
       return await this.questions
-        .where('category_id')
-        .equals(categoryStr)
+        .where('primary_category')
+        .equals(categoryReference)
         .offset(offset)
         .limit(limit)
         .toArray()
@@ -183,24 +181,16 @@ class DexieDatabase extends Dexie {
   }
 
   /**
-   * Get question by ID
-   * Questions are stored with string IDs ("1", "2", etc.)
+   * Get question by reference (semantic ID from IslamQA)
+   * UPDATED: Now queries by reference field instead of id
    */
-  async getQuestion(id) {
+  async getQuestion(reference) {
     try {
-      // Try with string first (as stored in data)
-      const idStr = String(id)
-      let question = await this.questions.get(idStr)
+      // Convert to number if it's a string
+      const refNum = typeof reference === 'string' ? parseInt(reference) : reference
 
-      console.log(`Looking for question with id="${idStr}":`, question)
-
-      // If not found and id looks numeric, try as integer
-      if (!question && !isNaN(id)) {
-        const idInt = parseInt(id)
-        question = await this.questions.get(idInt)
-        console.log(`Trying with id=${idInt}:`, question)
-      }
-
+      const question = await this.questions.where('reference').equals(refNum).first()
+      console.log(`Looking for question with reference=${refNum}:`, question)
       return question
     } catch (error) {
       console.error('Error getting question:', error)
@@ -209,27 +199,21 @@ class DexieDatabase extends Dexie {
   }
 
   /**
-   * Get answer by question ID
-   * Answers are indexed by question_id field which links to questions.id
+   * Get answer by question reference
+   * UPDATED: Answers are now embedded in the question object (question.answer field)
+   * This method retrieves the full question which contains the answer
    */
-  async getAnswer(questionId) {
+  async getAnswer(questionReference) {
     try {
-      // Convert to string for consistent comparison (data stores as strings)
-      const questionStr = String(questionId)
+      // Convert to number if it's a string
+      const refNum = typeof questionReference === 'string' ? parseInt(questionReference) : questionReference
 
-      // Try primary lookup by question_id (stored as string)
-      let answer = await this.answers.where('question_id').equals(questionStr).first()
+      // Get the question which contains the answer
+      const question = await this.questions.where('reference').equals(refNum).first()
+      console.log(`Looking for answer for question with reference=${refNum}`)
 
-      console.log(`Looking for answer with question_id="${questionStr}":`, answer)
-
-      // If not found, try with integer format
-      if (!answer && !isNaN(questionId)) {
-        const questionInt = parseInt(questionId)
-        answer = await this.answers.where('question_id').equals(questionInt).first()
-        console.log(`Trying with question_id=${questionInt}:`, answer)
-      }
-
-      return answer
+      // Return the question object which contains the answer field
+      return question
     } catch (error) {
       console.error('Error getting answer:', error)
       return null
@@ -373,13 +357,13 @@ class DexieDatabase extends Dexie {
 
   /**
    * Clear all data (for debugging/reset)
+   * UPDATED: Removed answers from transaction since table no longer exists
    */
   async clearAllData() {
     try {
       await this.transaction('rw', [
         this.categories,
         this.questions,
-        this.answers,
         this.folders,
         this.folder_questions,
         this.latest_questions,
@@ -387,7 +371,6 @@ class DexieDatabase extends Dexie {
       ], async () => {
         await this.categories.clear()
         await this.questions.clear()
-        await this.answers.clear()
         await this.folders.clear()
         await this.folder_questions.clear()
         await this.latest_questions.clear()

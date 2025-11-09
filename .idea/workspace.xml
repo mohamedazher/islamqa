@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52ec5402-d293-431f-a00e-2146a096c558" name="Default" comment="" />
+    <list default="true" id="52ec5402-d293-431f-a00e-2146a096c558" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATA_MIGRATION_PLAN.md" beforeDir="false" afterPath="$PROJECT_DIR$/DATA_MIGRATION_PLAN.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/categories.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/data/categories.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/data/metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/questions.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/data/questions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/browse/CategoryCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/browse/CategoryCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/browse/QuestionListItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/browse/QuestionListItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/dataLoader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/dataLoader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/dexieDatabase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/dexieDatabase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/sharing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/sharing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/BrowseView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BrowseView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/CategoryView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CategoryView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/FoldersView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/FoldersView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/HomeView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/QuestionView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/QuestionView.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +111,7 @@
       <workItem from="1486705010402" duration="148000" />
       <workItem from="1486706005312" duration="3000" />
       <workItem from="1486706164168" duration="1612000" />
-      <workItem from="1762706131524" duration="328000" />
+      <workItem from="1762706131524" duration="620000" />
     </task>
     <servers />
   </component>

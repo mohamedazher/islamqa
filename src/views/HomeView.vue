@@ -53,10 +53,11 @@
       <!-- Question of the Day -->
       <div v-if="dataStore.isReady && questionOfTheDay" class="mb-8 animate-slide-up">
         <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Question of the Day</h3>
+        <!-- UPDATED: Changed .id to .reference, .question to .title -->
         <Card
           clickable
           padding="lg"
-          @click="viewQuestion(questionOfTheDay.id)"
+          @click="viewQuestion(questionOfTheDay.reference)"
           class="relative overflow-hidden bg-gradient-to-br from-emerald-400 via-teal-400 to-cyan-500 dark:from-emerald-500 dark:via-teal-500 dark:to-cyan-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
         >
           <!-- Decorative background pattern -->
@@ -81,7 +82,7 @@
             </div>
 
             <h4 class="text-xl font-bold mb-3 line-clamp-3 leading-relaxed">
-              {{ questionOfTheDay.question }}
+              {{ questionOfTheDay.title }}
             </h4>
 
             <div class="flex items-center gap-4 text-sm">
@@ -152,12 +153,13 @@
         <!-- Horizontal Scrolling Container -->
         <div class="relative -mx-4 px-4 lg:-mx-0 lg:px-0">
           <div ref="carouselContainer" class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide lg:grid lg:grid-cols-3 lg:overflow-visible scroll-smooth">
+            <!-- UPDATED: Changed .id to .reference, .question to .title, .question_no to .reference -->
             <Card
               v-for="question in randomQuestions"
-              :key="question.id"
+              :key="question.reference"
               clickable
               padding="md"
-              @click="viewQuestion(question.id)"
+              @click="viewQuestion(question.reference)"
               class="flex-shrink-0 w-[85%] sm:w-[70%] lg:w-auto snap-start group hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-white to-neutral-50 dark:from-neutral-900 dark:to-neutral-800 border border-neutral-200 dark:border-neutral-700"
             >
               <div class="space-y-3">
@@ -171,14 +173,14 @@
 
                 <!-- Question Preview -->
                 <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 line-clamp-3 leading-relaxed min-h-[3.75rem]">
-                  {{ question.question }}
+                  {{ question.title }}
                 </h4>
 
                 <!-- Meta Info -->
                 <div class="flex items-center gap-3 text-2xs text-neutral-600 dark:text-neutral-400">
                   <div class="flex items-center gap-1">
                     <Icon name="document" size="xs" />
-                    <span>Q{{ question.question_no || question.id }}</span>
+                    <span>Q{{ question.reference }}</span>
                   </div>
                   <div class="flex items-center gap-1">
                     <Icon name="book" size="xs" />
@@ -485,19 +487,20 @@ async function loadRandomQuestions() {
       const shuffled = [...allQuestions].sort(() => Math.random() - 0.5)
       const selectedQuestions = shuffled.slice(0, 6)
 
+      // UPDATED: Changed to use primary_category instead of category_id, title instead of category_links
       // Load category names for each question
       const questionsWithCategories = await Promise.all(
         selectedQuestions.map(async (question) => {
           try {
-            if (question.category_id) {
-              const category = await dataStore.getCategory(question.category_id)
+            if (question.primary_category) {
+              const category = await dataStore.getCategory(question.primary_category)
               return {
                 ...question,
-                categoryName: category?.category_links || 'Islamic Q&A'
+                categoryName: category?.title || 'Islamic Q&A'
               }
             }
           } catch (error) {
-            console.error('Error loading category for question:', question.id, error)
+            console.error('Error loading category for question:', question.reference, error)
           }
           return {
             ...question,

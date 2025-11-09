@@ -11,13 +11,23 @@ export function isCordova() {
 
 /**
  * Share a question using Cordova plugin or Web Share API
+ * UPDATED: Answers are now embedded in question.answer field
  */
-export async function shareQuestion(question, answer = null) {
-  const title = `Islamic Q&A: ${question.question || question.questionText}`
-  const text = answer
-    ? `Q: ${question.question || question.questionText}\n\nA: ${stripHtml(answer.answers || answer.explanation || '').substring(0, 200)}...`
-    : `Q: ${question.question || question.questionText}`
-  const url = `https://islamqa.info/${question.question_no || question.id}` // Fallback URL
+export async function shareQuestion(question) {
+  // UPDATED: Use title field (new data structure)
+  const title = `Islamic Q&A: ${question.title || question.question || question.questionText}`
+
+  // UPDATED: Answer is now embedded in question.answer field
+  const answerText = question.answer
+    ? stripHtml(question.answer).substring(0, 200)
+    : ''
+
+  const text = answerText
+    ? `Q: ${question.title || question.question || question.questionText}\n\nA: ${answerText}...`
+    : `Q: ${question.title || question.question || question.questionText}`
+
+  // UPDATED: Use reference field instead of question_no or id
+  const url = `https://islamqa.info/${question.reference || question.question_no || question.id}`
 
   return share({
     title,

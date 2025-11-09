@@ -78,7 +78,8 @@ const isLoading = ref(true)
 onMounted(async () => {
   try {
     isLoading.value = true
-    rootCategories.value = await dataStore.getCategoriesByParent(0)
+    // UPDATED: Pass null instead of 0 for root categories (new data structure)
+    rootCategories.value = await dataStore.getCategoriesByParent(null)
   } catch (error) {
     console.error('Error loading categories:', error)
   } finally {
@@ -87,7 +88,7 @@ onMounted(async () => {
 })
 
 function selectCategory(category) {
-  // Use element (actual category ID) not id (row number)
-  router.push(`/category/${category.element}`)
+  // UPDATED: Use reference (semantic ID from IslamQA) not element
+  router.push(`/category/${category.reference}`)
 }
 </script>

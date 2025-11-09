@@ -38,10 +38,11 @@
             </button>
           </div>
         </div>
+        <!-- UPDATED: Changed to use reference instead of id, question_no, and question_full fields -->
         <div class="grid grid-cols-1 gap-3">
           <div
             v-for="question in bookmarkedQuestions"
-            :key="question.id"
+            :key="question.reference"
             class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-4"
           >
             <div class="flex items-start justify-between">
@@ -49,12 +50,12 @@
                 @click="selectQuestion(question)"
                 class="flex-1 cursor-pointer hover:text-primary-600 dark:hover:text-primary-400 transition"
               >
-                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2 line-clamp-2">{{ question.question }}</h4>
-                <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2 line-clamp-1">{{ question.question_full }}</p>
-                <span class="text-xs text-primary-600 dark:text-primary-400 font-medium">Q#{{ question.question_no }}</span>
+                <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2 line-clamp-2">{{ question.title }}</h4>
+                <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2 line-clamp-1">{{ question.title }}</p>
+                <span class="text-xs text-primary-600 dark:text-primary-400 font-medium">Q#{{ question.reference }}</span>
               </div>
               <button
-                @click="removeBookmark(question.id)"
+                @click="removeBookmark(question.reference)"
                 class="ml-3 hover:text-red-600 dark:hover:text-red-400 transition"
               >
                 <Icon name="xCircle" size="md" class="text-neutral-400 dark:text-neutral-500 hover:text-red-600 dark:hover:text-red-400" />
@@ -143,8 +144,9 @@ async function clearAll() {
 }
 
 // Navigate to question
+// UPDATED: Changed to use reference instead of id
 function selectQuestion(question) {
-  router.push(`/question/${question.id}`)
+  router.push(`/question/${question.reference}`)
 }
 
 function goBack() {
