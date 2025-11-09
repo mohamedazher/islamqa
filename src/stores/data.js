@@ -30,11 +30,12 @@ export const useDataStore = defineStore('data', () => {
   }
 
   /**
-   * Get categories by parent ID
+   * Get categories by parent reference
+   * UPDATED: Uses parent_reference (semantic ID) instead of parentElement
    */
-  async function getCategoriesByParent(parentElement = 0) {
+  async function getCategoriesByParent(parentReference = null) {
     try {
-      return await dexieDb.getCategories(parentElement)
+      return await dexieDb.getCategories(parentReference)
     } catch (error) {
       console.error('Error getting categories:', error)
       return []

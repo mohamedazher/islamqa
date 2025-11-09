@@ -22,15 +22,15 @@ class SearchService {
 
     this.fuseInstance = new Fuse(this.questions, {
       keys: [
-        { name: 'question', weight: 0.7 },      // Question title (70% weight)
-        { name: 'question_full', weight: 0.3 }   // Full question text (30% weight)
+        { name: 'title', weight: 0.7 },      // Question title (70% weight) - new field name
+        { name: 'question', weight: 0.3 }     // Question HTML content (30% weight) - now used instead of question_full
       ],
-      threshold: 0.4,                            // 0.4 = more fuzzy, allows typos
-      ignoreLocation: true,                      // Don't prioritize position
-      minMatchCharLength: 2,                     // Match at least 2 characters
-      useExtendedSearch: false,                  // Standard fuzzy, not extended
-      includeScore: true,                        // Include relevance score
-      isCaseSensitive: false                     // Case insensitive
+      threshold: 0.4,                        // 0.4 = more fuzzy, allows typos
+      ignoreLocation: true,                  // Don't prioritize position
+      minMatchCharLength: 2,                 // Match at least 2 characters
+      useExtendedSearch: false,              // Standard fuzzy, not extended
+      includeScore: true,                    // Include relevance score
+      isCaseSensitive: false                 // Case insensitive
     })
   }
 
@@ -67,6 +67,7 @@ class SearchService {
   /**
    * Combined search: exact + fuzzy
    * First tries exact substring match, then fuzzy fallback
+   * UPDATED: Uses 'title' and 'question' fields, and 'reference' as ID
    */
   search(term) {
     if (!term || term.trim().length === 0) {
@@ -76,27 +77,34 @@ class SearchService {
     const searchTerm = term.trim().toLowerCase()
 
     // Exact substring matches (prioritized)
-    const exactMatches = this.questions.filter(q =>
-      q.question.toLowerCase().includes(searchTerm) ||
-      q.question_full.toLowerCase().includes(searchTerm)
-    )
+    // UPDATED: Now searches in title and question fields (not question_full)
+    const exactMatches = this.questions.filter(q => {
+      const title = q.title ? q.title.toLowerCase() : ''
+      const question = q.question ? q.question.toLowerCase() : ''
+      return title.includes(searchTerm) || question.includes(searchTerm)
+    })
 
     // Fuzzy matches
     const fuzzyMatches = this.fuzzySearch(term)
 
     // Combine: exact matches first, then fuzzy (excluding duplicates)
-    const exactIds = new Set(exactMatches.map(q => q.id))
-    const fuzzyUnique = fuzzyMatches.filter(q => !exactIds.has(q.id))
+    // UPDATED: Uses reference (semantic ID) instead of id
+    const exactIds = new Set(exactMatches.map(q => q.reference))
+    const fuzzyUnique = fuzzyMatches.filter(q => !exactIds.has(q.reference))
 
     return [...exactMatches, ...fuzzyUnique]
   }
 
   /**
    * Search by category (filter results)
+   * UPDATED: Uses primary_category and categories array instead of category_id
    */
-  searchByCategory(term, categoryElement) {
+  searchByCategory(term, categoryReference) {
     const allResults = this.search(term)
-    return allResults.filter(q => q.category_id == categoryElement)
+    return allResults.filter(q =>
+      q.primary_category === categoryReference ||
+      (q.categories && q.categories.includes(categoryReference))
+    )
   }
 
   /**
