@@ -139,7 +139,14 @@ class DexieDatabase extends Dexie {
    */
   async getCategories(parentReference = null) {
     try {
-      // Query by parent_reference
+      // Handle root categories separately (null values can't use .equals())
+      if (parentReference === null) {
+        return await this.categories
+          .filter(cat => cat.parent_reference === null)
+          .toArray()
+      }
+
+      // Query by parent_reference for non-null values
       return await this.categories.where('parent_reference').equals(parentReference).toArray()
     } catch (error) {
       console.error('Error getting categories:', error)
