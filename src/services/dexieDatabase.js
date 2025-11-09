@@ -22,7 +22,7 @@ class DexieDatabase extends Dexie {
       questions: 'reference, primary_category',
       folders: '++id, folder_name',
       folder_questions: '++id, reference, folder_id',
-      latest_questions: 'reference, category_id',
+      latest_questions: 'reference, primary_category',  // UPDATED: primary_category instead of category_id
       settings: 'key'
     })
 
@@ -223,14 +223,15 @@ class DexieDatabase extends Dexie {
 
   /**
    * Search questions by text
+   * UPDATED: Searches in title and question fields (not question_full)
    */
   async searchQuestions(searchTerm, limit = 50) {
     try {
       const term = searchTerm.toLowerCase()
       const results = await this.questions
         .filter(q =>
-          q.question?.toLowerCase().includes(term) ||
-          q.question_full?.toLowerCase().includes(term)
+          q.title?.toLowerCase().includes(term) ||
+          q.question?.toLowerCase().includes(term)
         )
         .limit(limit)
         .toArray()
