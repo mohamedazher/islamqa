@@ -63,7 +63,7 @@
         <div class="grid grid-cols-1 gap-3">
           <QuestionListItem
             v-for="question in results"
-            :key="question.id"
+            :key="question.reference"
             :question="question"
             @click="selectQuestion(question)"
           />
@@ -159,9 +159,10 @@ function selectHistory(term) {
 }
 
 // Navigate to question
+// UPDATED: Use reference (semantic ID) instead of id
 function selectQuestion(question) {
   saveToHistory(searchTerm.value)
-  router.push(`/question/${question.id}`)
+  router.push(`/question/${question.reference}`)
 }
 
 // Hide history with delay (for click handling)

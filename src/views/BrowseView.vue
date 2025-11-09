@@ -33,7 +33,7 @@
         <transition-group name="slide-up" appear>
           <CategoryCard
             v-for="(category, index) in rootCategories"
-            :key="category.id"
+            :key="category.reference"
             :category="category"
             :style="{ 'animation-delay': `${index * 30}ms` }"
             @click="selectCategory(category)"

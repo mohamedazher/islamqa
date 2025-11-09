@@ -31,7 +31,7 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             <div
               v-for="(subcat, index) in subcategories"
-              :key="subcat.id"
+              :key="subcat.reference"
               @click="selectCategory(subcat)"
               class="group relative overflow-hidden bg-gradient-to-br rounded-xl shadow-md hover:shadow-xl dark:shadow-neutral-900/50 p-5 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
               :class="getCategoryGradient(index)"
@@ -67,7 +67,7 @@
           <div class="grid grid-cols-1 gap-3">
             <QuestionListItem
               v-for="question in categoryQuestions"
-              :key="question.id"
+              :key="question.reference"
               :question="question"
               @click="selectQuestion(question)"
             />
