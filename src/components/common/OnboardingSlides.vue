@@ -7,15 +7,7 @@
       >
         <!-- Onboarding Content -->
         <div class="relative w-full h-full flex flex-col">
-          <!-- Skip Button -->
-          <div class="absolute top-4 right-4 z-10">
-            <button
-              @click="handleSkip"
-              class="px-4 py-2 text-white/80 hover:text-white text-sm font-medium transition-colors"
-            >
-              Skip
-            </button>
-          </div>
+          <!-- Skip button removed - onboarding is now mandatory for first-time setup -->
 
           <!-- Slides Container -->
           <div class="flex-1 flex items-center justify-center p-6 md:p-12">
@@ -446,11 +438,10 @@ function handleKeydown(e) {
     nextSlide()
   } else if (e.key === 'ArrowLeft') {
     previousSlide()
-  } else if (e.key === 'Escape') {
-    handleSkip()
-  } else if (e.key === 'Enter' && isLastSlide.value) {
+  } else if (e.key === 'Enter' && isLastSlide.value && importComplete.value) {
     handleComplete()
   }
+  // Escape key skip removed - onboarding is mandatory
 }
 
 onMounted(() => {

@@ -317,21 +317,25 @@
           </h2>
         </div>
         <div class="p-4">
-          <div class="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg p-4">
+          <div class="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 border border-red-200 dark:border-red-800 rounded-lg p-4">
             <div class="flex items-start gap-3 mb-3">
               <Icon name="exclamation" size="md" class="text-red-600 dark:text-red-400 mt-0.5" />
-              <div>
-                <h3 class="font-semibold text-red-900 dark:text-red-100 mb-1">Clear All Data</h3>
+              <div class="flex-1">
+                <h3 class="font-semibold text-red-900 dark:text-red-100 mb-1">Clear Data</h3>
                 <p class="text-sm text-red-800 dark:text-red-300 mb-3">
-                  This will delete all imported questions, answers, categories, and your bookmarks. You'll need to re-import the data to use the app.
+                  Choose what data you want to clear. You can selectively remove the database, bookmarks, quiz progress, or settings.
                 </p>
                 <button
-                  @click="confirmClearData"
+                  @click="openClearDataDialog"
                   :disabled="isClearing"
-                  class="px-4 py-2 bg-red-600 hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-600 text-white rounded-lg font-medium transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  class="px-4 py-2 bg-red-600 hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-600 text-white rounded-lg font-medium transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                 >
-                  {{ isClearing ? 'Clearing...' : 'Clear All Data' }}
+                  <Icon name="cog" size="sm" />
+                  {{ isClearing ? 'Clearing...' : 'Manage Data' }}
                 </button>
+                <p class="text-xs text-red-700 dark:text-red-400 mt-2 italic">
+                  💡 Tip: Click 10 times within 3 seconds for developer reset
+                </p>
               </div>
             </div>
           </div>
@@ -375,6 +379,9 @@
 
     <!-- Onboarding Tutorial Dialog -->
     <OnboardingSlides v-model="showOnboardingDialog" @complete="handleOnboardingClose" @skip="handleOnboardingClose" />
+
+    <!-- Clear Data Dialog -->
+    <ClearDataDialog v-model="showClearDataDialog" @clear="handleClearData" />
 
     <!-- Username Edit Dialog -->
     <div v-if="showUsernameDialog" class="fixed inset-0 bg-black/50 dark:bg-black/70 flex items-center justify-center z-50 p-4" @click.self="closeUsernameDialog">
@@ -434,8 +441,10 @@ import { shareApp } from '@/utils/sharing'
 import { usePrivacyConsent } from '@/services/privacyConsent'
 import { useAnalytics } from '@/services/analytics'
 import OnboardingSlides from '@/components/common/OnboardingSlides.vue'
+import ClearDataDialog from '@/components/common/ClearDataDialog.vue'
 import leaderboardService from '@/services/leaderboardService'
 import { getFirestore, doc, getDoc } from 'firebase/firestore'
+import { resetOnboarding } from '@/services/onboarding'
 
 const router = useRouter()
 const { isDark, toggleTheme } = useTheme()
@@ -456,6 +465,9 @@ const stats = ref({
 const isClearing = ref(false)
 const analyticsEnabled = ref(isAnalyticsEnabled)
 const showOnboardingDialog = ref(false)
+const showClearDataDialog = ref(false)
+const clearClickCount = ref(0)
+const clearClickTimer = ref(null)
 
 // User profile data
 const userProfile = ref({
@@ -524,42 +536,140 @@ function handleOnboardingClose() {
   console.log('[Settings] Tutorial closed')
 }
 
-async function confirmClearData() {
+function openClearDataDialog() {
+  // Track clicks for developer reset feature
+  clearClickCount.value++
+
+  // Reset counter after 3 seconds
+  if (clearClickTimer.value) {
+    clearTimeout(clearClickTimer.value)
+  }
+  clearClickTimer.value = setTimeout(() => {
+    clearClickCount.value = 0
+  }, 3000)
+
+  // Developer reset: 10 clicks within 3 seconds
+  if (clearClickCount.value >= 10) {
+    handleDeveloperReset()
+    return
+  }
+
+  // Normal flow: open dialog
+  showClearDataDialog.value = true
+}
+
+async function handleClearData(selections) {
+  try {
+    isClearing.value = true
+    console.log('🗑️  Clearing selected data...', selections)
+
+    // Clear database (questions, answers, categories)
+    if (selections.database || selections.resetEverything) {
+      console.log('🗑️  Clearing database...')
+      await dexieDb.clearAllData()
+      dataStore.isReady = false
+    }
+
+    // Clear bookmarks
+    if (selections.bookmarks || selections.resetEverything) {
+      console.log('🗑️  Clearing bookmarks...')
+      localStorage.removeItem('bookmarks')
+      localStorage.removeItem('bookmarkedQuestions')
+      localStorage.removeItem('bookmarkCount')
+    }
+
+    // Clear quiz progress
+    if (selections.quizProgress || selections.resetEverything) {
+      console.log('🗑️  Clearing quiz progress...')
+      localStorage.removeItem('userProfile')
+      localStorage.removeItem('quiz_history')
+      localStorage.removeItem('quiz_stats')
+      // Reset user profile in this component
+      userProfile.value.totalScore = 0
+      userProfile.value.quizzesTaken = 0
+      userProfile.value.level = 1
+    }
+
+    // Clear app settings
+    if (selections.settings || selections.resetEverything) {
+      console.log('🗑️  Clearing app settings...')
+      localStorage.removeItem('theme')
+      localStorage.removeItem('privacy_consent')
+      localStorage.removeItem('analytics_enabled')
+    }
+
+    // Reset onboarding
+    if (selections.resetEverything) {
+      console.log('🗑️  Resetting onboarding...')
+      resetOnboarding()
+    }
+
+    console.log('✅ Data cleared successfully')
+
+    // Close dialog
+    showClearDataDialog.value = false
+
+    // Show success message
+    let message = 'Selected data has been cleared successfully.'
+
+    // Determine redirect
+    if (selections.database || selections.resetEverything) {
+      message += '\n\nRedirecting to import page...'
+      alert(message)
+      router.push('/import')
+    } else if (selections.resetEverything) {
+      message += '\n\nPlease refresh the app to see onboarding again.'
+      alert(message)
+      // Could reload the page here
+      window.location.reload()
+    } else {
+      alert(message)
+    }
+  } catch (error) {
+    console.error('❌ Error clearing data:', error)
+    alert('Failed to clear data. Please try again.')
+  } finally {
+    isClearing.value = false
+  }
+}
+
+async function handleDeveloperReset() {
+  console.log('🔧 Developer reset triggered!')
+  clearClickCount.value = 0
+
   const confirmed = confirm(
-    'Are you sure you want to clear all data?\n\n' +
-    'This will delete:\n' +
-    '• All imported questions and answers\n' +
-    '• All categories\n' +
-    '• All bookmarks and folders\n\n' +
-    'You will need to re-import the data to use the app again.'
+    '🔧 DEVELOPER RESET\n\n' +
+    'This will clear EVERYTHING including:\n' +
+    '• All database data\n' +
+    '• All localStorage\n' +
+    '• All settings\n' +
+    '• Onboarding status\n\n' +
+    'This is useful for testing first-launch experience.\n\n' +
+    'Continue?'
   )
 
   if (!confirmed) return
 
   try {
     isClearing.value = true
-    console.log('🗑️  Clearing all data...')
+    console.log('🔧 Performing complete developer reset...')
 
-    // Clear the database
+    // Clear database
     await dexieDb.clearAllData()
-
-    // Clear local storage items
-    localStorage.removeItem('bookmarks')
-    localStorage.removeItem('bookmarkedQuestions')
-    localStorage.removeItem('bookmarkCount')
-
-    // Reset data store state
     dataStore.isReady = false
 
-    console.log('✅ All data cleared')
+    // Clear ALL localStorage
+    localStorage.clear()
 
-    alert('All data has been cleared successfully. Redirecting to import page...')
+    console.log('✅ Complete reset done')
 
-    // Redirect to import page
-    router.push('/import')
+    alert('🔧 Developer reset complete!\n\nThe page will now reload to show onboarding.')
+
+    // Reload page to start fresh
+    window.location.reload()
   } catch (error) {
-    console.error('❌ Error clearing data:', error)
-    alert('Failed to clear data. Please try again.')
+    console.error('❌ Error in developer reset:', error)
+    alert('Failed to perform developer reset.')
   } finally {
     isClearing.value = false
   }
