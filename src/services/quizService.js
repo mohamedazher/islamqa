@@ -30,8 +30,8 @@ class QuizService {
       // Use seed to consistently select 5 questions for the day
       const selected = this.selectWithSeed(allQuestions, 5, seed)
 
-      // Transform to quiz format
-      const quizQuestions = selected.map(q => this.transformToQuizQuestion(q))
+      // Transform to quiz format (now async)
+      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
 
       return {
         id: `daily-${today}`,
@@ -69,8 +69,8 @@ class QuizService {
       // Shuffle and select 20 questions
       const selected = this.shuffleArray([...questions]).slice(0, 20)
 
-      // Transform to quiz format
-      const quizQuestions = selected.map(q => this.transformToQuizQuestion(q))
+      // Transform to quiz format (now async)
+      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
 
       return {
         id: `rapid-fire-${Date.now()}`,
@@ -107,8 +107,8 @@ class QuizService {
       // Shuffle and select
       const selected = this.shuffleArray([...questions]).slice(0, Math.min(count, questions.length))
 
-      // Transform to quiz format
-      const quizQuestions = selected.map(q => this.transformToQuizQuestion(q))
+      // Transform to quiz format (now async)
+      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
 
       return {
         id: `category-${categoryReference_num}-${Date.now()}`,
@@ -150,8 +150,8 @@ class QuizService {
       // Shuffle and select
       const selected = this.shuffleArray([...questions]).slice(0, Math.min(count, questions.length))
 
-      // Transform to quiz format
-      const quizQuestions = selected.map(q => this.transformToQuizQuestion(q))
+      // Transform to quiz format (now async)
+      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
 
       return {
         id: `custom-${Date.now()}`,
@@ -183,8 +183,8 @@ class QuizService {
       // Select 15 random questions for challenge
       const selected = this.shuffleArray([...allQuestions]).slice(0, Math.min(15, allQuestions.length))
 
-      // Transform to quiz format
-      const quizQuestions = selected.map(q => this.transformToQuizQuestion(q))
+      // Transform to quiz format (now async)
+      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
 
       return {
         id: `challenge-${Date.now()}`,
@@ -300,25 +300,58 @@ class QuizService {
 
   /**
    * Transform a database question into a quiz question with multiple choice options
-   * Uses the question and answer to generate options
+   * First checks for LLM-generated enhancements in database
+   * Falls back to dynamic generation if enhancement not available
+   *
+   * ENHANCED: Now supports pre-generated professional quiz options from quiz_enhancements table
+   * while falling back to automatic generation for non-enhanced questions
    */
-  transformToQuizQuestion(question) {
-    // Simple strategy: use question as affirmative, create a true/false style question
-    // This works well for Islamic rulings and knowledge testing
+  async transformToQuizQuestion(question) {
+    // Try to get pre-generated enhancement (high-quality LLM-generated options)
+    const enhancement = await this.db.getQuizEnhancement(question.reference)
 
+    if (enhancement) {
+      // Use LLM-enhanced options if available
+      console.log(`📚 Using enhanced options for question ${question.reference}`)
+      return {
+        reference: question.reference,
+        questionText: enhancement.questionText || (question.title || question.question.substring(0, 200)),
+        question: question.question,
+        answer: question.answer,
+        explanation: enhancement.explanation || question.answer,
+        primaryCategory: question.primary_category,
+        categories: question.categories,
+        options: enhancement.options || [],
+        correctOptionId: (enhancement.options || []).findIndex(opt => opt.isCorrect),
+        points: enhancement.points || 10,
+        tags: enhancement.tags || question.tags || [],
+        difficulty: enhancement.difficulty || 'medium',
+        isEnhanced: true  // Flag to indicate this uses pre-generated options
+      }
+    }
+
+    // Fallback: Generate options dynamically if no enhancement available
+    console.log(`🔄 Generating dynamic options for question ${question.reference} (not enhanced)`)
+    return this.generateDynamicOptions(question)
+  }
+
+  /**
+   * Generate quiz options dynamically (fallback when no enhancement available)
+   * Simple strategy: use question as affirmative, create true/false style question
+   * This works well for Islamic rulings and knowledge testing
+   */
+  generateDynamicOptions(question) {
     const questionText = question.title || question.question.substring(0, 200)
 
     // Extract a true/false answer from the text
     const answerText = (question.answer || '').toLowerCase()
     const isTrue = answerText.includes('permissible') ||
                    answerText.includes('allowed') ||
-                   answerText.includes('permissible') ||
                    answerText.includes('recommended') ||
                    answerText.includes('not forbidden') ||
                    answerText.includes('is permitted')
 
     // Create options: True/False or similar alternatives
-    const correctIndex = isTrue ? 0 : 1
     const options = [
       { text: 'The statement is correct according to Islamic teachings', id: 0, isCorrect: isTrue },
       { text: 'The statement is incorrect according to Islamic teachings', id: 1, isCorrect: !isTrue }
@@ -341,7 +374,8 @@ class QuizService {
       correctOptionId: options.findIndex(opt => opt.isCorrect),
       points: 10,
       tags: question.tags || [],
-      difficulty: 'medium'  // All questions treated as medium difficulty for now
+      difficulty: 'medium',
+      isEnhanced: false  // Flag to indicate this uses dynamic generation
     }
   }
 
