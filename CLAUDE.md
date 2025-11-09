@@ -1,314 +1,610 @@
-# CLAUDE.md
+# CLAUDE.md - IslamQA Development Guide
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code when working with this repository.
 
 ## Project Overview
 
-**BetterIslam Q&A** is a hybrid mobile application built with Apache Cordova that provides offline access to Islamic Q&A content from Islam Q&A (IslamQA.com). The app features browseable categories, searchable questions, custom folders for organization, and a persistent SQLite database of ~50MB containing 8000+ Q&As.
+**IslamQA** is a modern Vue 3 + Vite web application (with Cordova mobile support) that provides offline access to Islamic Q&A content from IslamQA.com. The app features hierarchical category browsing, fuzzy search, bookmarks, gamification system, and competitive leaderboards.
 
-- **Framework**: Apache Cordova (hybrid mobile)
-- **Languages**: JavaScript, HTML, CSS
-- **Platforms**: Android 4.2+, iOS 9+
-- **Current Version**: 1.6.1 (Play Store)
-- **Package**: com.dkurve.betterislamqa
+- **Framework**: Vue 3 (Composition API) with Vite
+- **Platforms**: Web (GitHub Pages), Android (Cordova), iOS (Cordova)
+- **Current Version**: 2.0+ (modernization complete, production-ready)
+- **Data**: 15,622 questions across 268 categories
+- **Database**: Dexie (IndexedDB) for cross-platform offline storage
+- **State Management**: Pinia stores
+- **Styling**: Tailwind CSS with dark mode support
 
-## Build and Development Commands
+---
+
+## Quick Start
 
 ### Prerequisites
 ```bash
+# Node.js 18+
+node --version
+
+# Install Yarn (recommended)
+npm install -g yarn
+
 # Install dependencies
 yarn install
-
-# Install Cordova globally (if needed)
-npm install -g cordova
 ```
 
-### Platform Setup
+### Development
 ```bash
-# Add Android platform
-cordova platform add android
+# Start dev server (web)
+yarn dev
+# Visit http://localhost:3000
 
-# Add iOS platform (macOS only)
-cordova platform add ios
+# Build for web (GitHub Pages)
+yarn build:web
+
+# Build for Cordova (mobile)
+yarn build
+
+# Build Android APK
+yarn cordova:build:android
+
+# Build iOS app (macOS only)
+yarn cordova:build:ios
 ```
 
-### Building
-```bash
-# Development builds
-cordova build android
-cordova build ios
-
-# Release builds (requires build.json with signing keys)
-cordova build android --release
-cordova build ios --release
-
-# Clean and rebuild
-cordova clean
-cordova build android
-```
-
-### Running
-```bash
-# Run on Android emulator
-cordova emulate android
-
-# Run on Android device
-cordova run android
-
-# Run on iOS simulator
-cordova emulate ios
-
-# Run on iOS device
-cordova run ios
-```
-
-### Configuration Files
-- `config.xml` - Cordova configuration (app metadata, permissions, plugins, icons)
-- `build.json` - Signing credentials for release builds
-- `platforms/android/build.gradle` - Android Gradle configuration
-- `platforms/android/AndroidManifest.xml` - Android permissions and manifest
+---
 
 ## Architecture Overview
 
-The application uses a **single-page app (SPA) architecture** with a stack-based view navigation system:
-
+### Tech Stack
 ```
 ┌─────────────────────────────────────┐
-│     UI Layer (HTML/CSS/JS)          │
-│  - Handlebars templates             │
-│  - jQuery event handling            │
-│  - ViewNavigator stack-based nav    │
+│     UI Layer                        │
+│  Vue 3 (Composition API)            │
+│  Tailwind CSS + Dark Mode           │
+│  Responsive Components              │
 ├─────────────────────────────────────┤
-│  Application Layer                  │
-│  - renderCode.js (main logic)       │
-│  - utilcode.js (utilities)          │
-│  - handlebarHelpers.js (templates)  │
+│  State Management                   │
+│  Pinia Stores (data, gamification)  │
+│  Vue Router (hash mode)             │
 ├─────────────────────────────────────┤
-│  Data Access Layer                  │
-│  - WebSqlAdapter (dbFunctions.js)   │
+│  Business Logic                     │
+│  Search (Fuse.js)                   │
+│  Quiz & Gamification                │
+│  Firebase Analytics                 │
 ├─────────────────────────────────────┤
-│  SQLite Database (cordova-plugin)   │
-│  - QUESTIONS, ANSWERS, CATEGORIES   │
-│  - FOLDERS, LATEST_QUESTIONS        │
+│  Data Layer                         │
+│  Dexie (IndexedDB wrapper)          │
+│  LocalStorage (preferences)         │
+├─────────────────────────────────────┤
+│  Data Source                        │
+│  JSON files (categories, questions) │
 └─────────────────────────────────────┘
 ```
 
-### Key Patterns
+### Key Design Patterns
 
-**Adapter Pattern**: `WebSqlAdapter` in `www/js/dbFunctions.js` (lines 423-651) abstracts all database operations using jQuery Deferred/promises:
+**Adapter Pattern**: `dexieDatabase.js` abstracts all database operations
 ```javascript
-adapter.executeQuery(sql)
-  .done(function(results) { /* success */ })
-  .fail(function(error) { /* error */ });
+import dexieDb from '@/services/dexieDatabase'
+
+// Query by semantic ID
+const category = await dexieDb.getCategory(categoryReference)
+const questions = await dexieDb.getQuestionsByCategory(categoryReference)
+const question = await dexieDb.getQuestion(questionReference)
 ```
 
-**View Navigation**: `ViewNavigator` manages a stack of views with push/pop semantics. Views are objects with properties like `title`, `view` (jQuery element), and `data`.
+**Pinia Stores**: Centralized data access and state management
+```javascript
+import { useDataStore } from '@/stores/data'
 
-**Template Rendering**: Handlebars templates with custom helpers (`handlebarHelpers.js`) for rendering lists, categories, and answers.
+const dataStore = useDataStore()
+const category = await dataStore.getCategory(id)
+```
+
+**Composables**: Reusable logic with Vue 3 Composition API
+```javascript
+import { useTheme } from '@/composables/useTheme'
+
+const { isDark, toggleTheme } = useTheme()
+```
+
+---
 
 ## Directory Structure
 
 ```
-www/                           # Main application source
-├── index.html                 # Entry point
-├── js/
-│   ├── dbFunctions.js         # WebSqlAdapter & DB operations
-│   ├── renderCode.js          # Main rendering & event logic
-│   ├── utilcode.js            # Navigation, storage utilities
-│   ├── handlebarHelpers.js    # Template helpers
-│   ├── categories.js          # Category data
-│   ├── questions[1-4].js      # Q&A data (split for memory)
-│   ├── answers[1-12].js       # Answer content (split)
-│   ├── latest_questions.js    # Featured questions
-│   ├── strings-en.js          # i18n strings
-│   ├── highlighter.js         # Text highlighting
-│   └── [libraries]            # jQuery, Handlebars, iScroll
-├── css/
-│   ├── main.css               # Global styles
-│   ├── appStyle.css           # App-specific
-│   └── android.css            # Platform overrides
-├── viewnavigator/             # Navigation framework
-└── img/, icons/, fonts/       # Assets
+src/
+├── App.vue                    # Root component, import redirect logic
+├── main.js                    # Entry point, Cordova detection
+│
+├── assets/
+│   └── styles/
+│       └── main.css          # Global Tailwind imports
+│
+├── components/               # Reusable Vue components
+│   ├── common/              # Shared UI components
+│   │   ├── Button.vue       # 5 variants + dark mode
+│   │   ├── Card.vue         # Container component
+│   │   ├── Icon.vue         # 30+ SVG icons
+│   │   ├── PageHeader.vue   # Page header
+│   │   └── ThemeToggle.vue  # Dark/light toggle
+│   ├── layout/              # Page layout
+│   │   ├── DesktopSidebar.vue
+│   │   └── MobileBottomNav.vue
+│   └── browse/              # Feature components
+│       ├── CategoryCard.vue
+│       └── QuestionListItem.vue
+│
+├── composables/             # Vue 3 composables
+│   └── useTheme.js         # Dark mode management
+│
+├── router/
+│   └── index.js            # Vue Router config (hash mode)
+│
+├── stores/                 # Pinia state management
+│   ├── data.js            # Main data access store
+│   └── gamification.js    # Points, achievements, streaks
+│
+├── services/              # Business logic services
+│   ├── dexieDatabase.js   # IndexedDB schema & operations
+│   ├── dataLoader.js      # Data import from JSON files
+│   ├── searchService.js   # Fuzzy search (Fuse.js)
+│   ├── quizService.js     # Quiz generation & scoring
+│   ├── leaderboardService.js  # Firebase leaderboard
+│   ├── analytics.js       # Firebase Analytics
+│   └── firebase.js        # Firebase config
+│
+├── utils/
+│   └── sharing.js         # Social sharing utilities
+│
+└── views/                 # Page-level components
+    ├── HomeView.vue       # Dashboard
+    ├── BrowseView.vue     # Root categories
+    ├── CategoryView.vue   # Category detail
+    ├── QuestionView.vue   # Q&A display
+    ├── SearchView.vue     # Fuzzy search
+    ├── QuizView.vue       # Quiz game
+    ├── FoldersView.vue    # Bookmarks
+    ├── LeaderboardView.vue # Rankings
+    ├── ImportView.vue     # Data import
+    └── SettingsView.vue   # Settings
 
-platforms/                     # Platform-specific code
-├── android/                   # Android project
-└── ios/                       # iOS project
+public/data/              # Data files (imported at runtime)
+├── categories.json       # 268 categories
+├── questions.json        # 15,622 questions with embedded answers
+└── metadata.json        # Version info
 
-plugins/                       # Cordova plugins
-├── cordova-sqlite-storage     # SQLite database
-├── cordova-plugin-device      # Device info
-├── cordova-plugin-file        # File system
-├── cordova-plugin-splashscreen
-├── cordova-plugin-statusbar
-└── cordova-plugin-x-socialsharing
-
-res/                           # App icons & splash screens
-└── android/, ios/
+docs/                    # Documentation (organized)
+├── ARCHITECTURE.md      # System design
+├── TESTING.md          # Testing strategy
+├── FIREBASE.md         # Firebase setup
+├── DEPLOYMENT.md       # Deployment guide
+└── ARCHIVED/           # Historical docs
 ```
+
+---
 
 ## Data Model
 
-### Main Tables
-```sql
-CATEGORIES
-  id INTEGER PRIMARY KEY
-  category_links TEXT
-  category_url TEXT
-  element INTEGER
-  parent INTEGER (0 = root category)
-
-QUESTIONS
-  id INTEGER PRIMARY KEY
-  category_id INTEGER
-  question TEXT COLLATE NOCASE
-  question_full TEXT COLLATE NOCASE
-  question_url TEXT
-  question_no INTEGER
-
-ANSWERS
-  id INTEGER
-  question_id INTEGER
-  answers TEXT (HTML content)
-
-FOLDERS (user-created)
-  id INTEGER
-  folder_name TEXT
-
-FOLDER_QUESTIONS
-  id INTEGER
-  question_id INTEGER
-  folder_id INTEGER
-```
-
-### Storage Mechanisms
-- **SQLite Database** - Full offline Q&A data (~50MB)
-- **LocalStorage** - User preferences (upgrade status, loaded data flags)
-- **Virtual Folders** - User-created custom Q&A collections
-
-## Application Flow
-
-### First Launch
-1. User opens app → Cordova initializes plugins
-2. Database adapter loads → checks upgrade status
-3. If first launch: Show import wizard with 3 steps
-   - Import categories & latest questions
-   - Import answers part 1 (answers 1-5)
-   - Import answers part 2 (answers 6-12)
-4. Data written to SQLite → App ready
-5. Main card view loads with categories
-
-### Runtime Navigation
-- **Browse**: Categories → Subcategories → Questions → Answer detail
-- **Search**: Keyword search across question database
-- **Favorites/Folders**: User-organized collections
-- **Latest**: Featured questions
-- **Settings**: App preferences
-
-## Important Implementation Details
-
-### Initialization (www/index.html lines 68-146)
-The `systemReady()` function initializes the app after Cordova plugins load:
-1. Creates WebSqlAdapter instance
-2. Checks upgrade status (first launch detection)
-3. Initializes ViewNavigator for navigation
-4. Loads import wizard or main app view
-
-### Database Adapter Usage
-Always use the global `adapter` object for database operations:
+### Categories (from `categories.json`)
 ```javascript
-// Single query
-adapter.executeQuery(sql)
-  .done(function(results) { ... });
-
-// Batch operations (more efficient)
-adapter.batchExecuteQuery([sql1, sql2, sql3])
-  .done(function(results) { ... });
-```
-
-### View Rendering
-Use Handlebars templates defined in index.html script tags:
-```javascript
-var src = document.getElementById("templateId").innerHTML;
-var template = Handlebars.compile(src);
-var html = template(data);
-rootView.view.html(html);
-```
-
-### Platform Detection
-```javascript
-// Android/iOS detection happens at initialization
-if (platform == 'Android') {
-  var androidVer = getAndroidVersion();  // returns version number
+{
+  reference: 3,              // SEMANTIC ID (use for queries & routes)
+  title: "Basic Tenets of Faith",
+  parent_reference: null,    // null for root, number for children
+  children_references: [21, 4, 20],
+  has_subcategories: true,
+  has_questions: true,
+  question_count: 121,
+  level: 0,                  // depth level
+  ancestors: [],             // parent hierarchy
+  url: "/category/3"
 }
 ```
 
-### Event Handling Notes
-- Older Android versions (4.0.2 and below) use `ontouchend`
-- Newer versions use standard `onclick`
-- View-specific handlers are registered when views are rendered
-- Always clean up event listeners when destroying views
+### Questions (from `questions.json`)
+```javascript
+{
+  reference: 329,            // SEMANTIC ID (use for queries & routes)
+  title: "Is Masturbation Haram in Islam?",
+  question: "<p>Question HTML...</p>",
+  answer: "<div>Answer HTML...</div>",  // EMBEDDED (no separate lookup)
+  categories: [245, 250],    // can belong to multiple
+  primary_category: 245,     // main category
+  tags: ["Bad behaviour"],
+  views: 2980371,
+  date: "1997-04-10T00:00:00.000Z",
+  bookmarked: false,
+  last_read: null
+}
+```
 
-## Key Global Variables
+**Key Point**: All IDs are **semantic references from IslamQA.com**, not sequential database IDs.
 
-- `adapter` - WebSqlAdapter instance (database access)
-- `window.RightViewNavigator` - ViewNavigator for app navigation
-- `rootView` - Current root view object
-- `upgrade` - First-launch detection flag
-- `platform` - 'Android' or 'iOS'
-- `db` - SQLite database reference
-- `favQuestions` - Array of favorited question IDs
-- `foldersWithItems` - User folder structure
+---
 
-## Testing
+## Database Schema (Dexie/IndexedDB)
 
-Currently, no automated testing framework is configured. Manual testing on both Android and iOS devices is the standard approach. Consider implementing tests for:
-- Database operations (WebSqlAdapter)
-- View rendering and navigation
-- Data import process
-- Search functionality
+**File**: `src/services/dexieDatabase.js`
 
-## Plugin Dependencies
+```javascript
+version(1).stores({
+  categories: '++id, reference, parent_reference',
+  questions: '++id, reference, primary_category',
+  folders: '++id, folder_name',
+  folder_questions: '++id, question_id, folder_id',
+  settings: 'key'
+})
+```
 
-| Plugin | Version | Purpose |
-|--------|---------|---------|
-| cordova-sqlite-storage | ^1.4.1 | SQLite database |
-| cordova-plugin-device | ^3.0.0 | Device info |
-| cordova-plugin-file | ^6.0.1 | File system access |
-| cordova-plugin-splashscreen | ^6.0.2 | Splash screen |
-| cordova-plugin-statusbar | ^3.0.0 | Status bar control |
-| cordova-plugin-whitelist | ^1.3.5 | Security whitelist |
-| cordova-plugin-x-socialsharing | ^5.1.1 | Social sharing |
+**Important**: The `++id` is auto-increment (for Dexie), but semantic `reference` is the business ID you use in queries and routes.
+
+---
+
+## Core Services
+
+### dexieDatabase.js - Data Operations
+```javascript
+// Query by semantic reference ID
+await getCategory(reference)           // Single category
+await getCategoriesByParent(parentRef) // Children (null = root)
+await getQuestionsByCategory(categoryRef)
+await getQuestion(reference)           // Single question + embedded answer
+
+// Search
+await searchQuestions(term)            // Simple text search
+
+// Folders (bookmarks)
+await getFolders()
+await createFolder(name)
+await addQuestionToFolder(questionId, folderId)
+```
+
+### dataLoader.js - Data Import
+```javascript
+// Main import function (called from ImportView)
+await dataLoader.loadAndImport(progressCallback)
+
+// Returns on progress: { step: string, progress: 0-100 }
+```
+
+### searchService.js - Fuzzy Search
+```javascript
+import SearchService from '@/services/searchService'
+
+const service = new SearchService(allQuestions)
+const results = service.search(term)  // Typo-tolerant search
+```
+
+### quizService.js - Quiz System
+```javascript
+const quiz = quizService.generateQuiz(options)
+quizService.submitScore(score, accuracy)
+```
+
+### leaderboardService.js - Firebase Rankings
+```javascript
+// Automatic sync on quiz completion
+await leaderboardService.submitScore(userData)
+const rankings = await leaderboardService.getLeaderboard(type)
+```
+
+---
+
+## Navigation Routes
+
+All routes use **semantic reference IDs** (from IslamQA), not database row IDs.
+
+```javascript
+/                    → HomeView (dashboard)
+/import              → ImportView (data setup)
+/browse              → BrowseView (root categories)
+/category/:id        → CategoryView (id = category reference, e.g., /category/3)
+/question/:id        → QuestionView (id = question reference, e.g., /question/329)
+/search              → SearchView (fuzzy search)
+/bookmarks           → FoldersView (user bookmarks)
+/quiz                → QuizView (quiz modes)
+/leaderboard         → LeaderboardView (rankings)
+/settings            → SettingsView (preferences)
+```
+
+---
 
 ## Common Development Workflows
 
 ### Adding a New Feature
-1. Add UI template to index.html (if needed)
-2. Add rendering logic to renderCode.js
-3. Add database queries to dbFunctions.js (if needed)
-4. Register event handlers in renderCode.js
-5. Test on Android device (most critical platform)
-6. Test on iOS device
-7. Test on both old and new Android versions
+
+1. **Create Vue component** in `src/views/` or `src/components/`
+2. **Add route** in `src/router/index.js`
+3. **Use Pinia store** for data access:
+   ```javascript
+   import { useDataStore } from '@/stores/data'
+   const dataStore = useDataStore()
+   ```
+4. **Style with Tailwind** (no custom CSS)
+5. **Add dark mode** support (use `dark:` prefix)
+6. **Test on mobile** (Chrome DevTools + Cordova)
+
+### Accessing Data
+
+```javascript
+// In Vue component
+import { useDataStore } from '@/stores/data'
+
+const dataStore = useDataStore()
+
+// Get root categories
+const roots = await dataStore.getCategoriesByParent(null)
+
+// Navigate to subcategories
+const subCats = await dataStore.getCategoriesByParent(categoryRef)
+
+// Get questions in category
+const questions = await dataStore.getQuestionsByCategory(categoryRef)
+
+// Load question with embedded answer
+const question = await dataStore.getQuestion(questionRef)
+// question.answer is already loaded
+```
 
 ### Modifying Database Schema
-1. Update table creation in `createDB()` function
-2. Update data import logic for affected tables
-3. Increment version check in storage (upgrade detection)
-4. Test first-launch import flow
-5. Test on both fresh and existing database states
 
-### Debugging
-- Use Chrome DevTools remote debugging for Android: `chrome://inspect`
-- Console.log statements are viewable in device logs
-- Test first-launch flow with fresh SQLite (delete and reimport)
-- Check LocalStorage for upgrade flags and load status
+1. Update `dexieDatabase.js` schema version
+2. Update import logic in `dataLoader.js`
+3. Update all query methods
+4. Update views that access data
+5. Clear browser IndexedDB to reset (DevTools → Application → IndexedDB)
+6. Test import flow from scratch
 
-## Version and Release Information
+### Dark Mode
 
-- **Current Play Store Version**: 1.6.1
-- **Config.xml Version**: 2.0.4
-- **Build System**: Cordova 11.x (via npm)
-- **Android Target**: API 29+ (Android 10+)
-- **iOS Target**: 9.0+
+The app uses class-based dark mode with `dark:` prefix in Tailwind:
 
-The version discrepancy between Play Store (1.6.1) and config.xml (2.0.4) suggests a pending release. Always update both when publishing.
+```vue
+<div class="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
+  Content
+</div>
+```
+
+Toggle theme via `useTheme()`:
+```javascript
+import { useTheme } from '@/composables/useTheme'
+
+const { isDark, toggleTheme } = useTheme()
+
+// Dark mode preference persists to localStorage
+```
+
+---
+
+## Important Implementation Details
+
+### Data Import Flow
+
+1. User opens app
+2. App.vue checks if data imported: `await dataStore.isDataImported()`
+3. If not imported, redirect to `/import`
+4. ImportView shows progress wizard
+5. DataLoader loads and imports:
+   - categories.json → Dexie
+   - questions.json → Dexie (answers embedded)
+6. App marks as imported: `await dexieDb.markAsImported()`
+7. User redirected to home/browse
+
+### Query ID Usage
+
+**Always use semantic reference IDs** in URLs, routes, and queries:
+
+```javascript
+// ✅ CORRECT - use reference
+router.push(`/category/${category.reference}`)
+await dataStore.getCategory(categoryReference)
+const questions = await dataStore.getQuestionsByCategory(category.reference)
+
+// ❌ WRONG - don't use database row IDs
+router.push(`/category/${category.id}`)
+await dataStore.getCategory(categoryId)  // This won't work!
+```
+
+### Bookmarks Storage
+
+Bookmarks use semantic question references, stored in localStorage:
+
+```javascript
+// localStorage key: 'bookmarks'
+// Value: array of question references
+["329", "245", "156"]
+```
+
+---
+
+## Key Global State (Pinia Stores)
+
+### useDataStore
+```javascript
+isLoading: boolean          // During import
+isReady: boolean            // Data loaded & ready
+selectedFolderId: number    // Active folder
+```
+
+### useGamificationStore
+```javascript
+points: number              // Total points
+level: number               // User level (1-6)
+streak: number              // Daily quiz streak
+achievements: array         // Unlocked achievements
+stats: {
+  totalPoints: number
+  quizzesCompleted: number
+  questionsRead: number
+  bookmarksCreated: number
+  avgAccuracy: number
+  longestStreak: number
+}
+```
+
+All persist to localStorage automatically.
+
+---
+
+## Theme System
+
+**File**: `src/composables/useTheme.js`
+
+```javascript
+const { isDark, toggleTheme } = useTheme()
+
+// Automatically:
+// - Detects system preference on first load
+// - Persists to localStorage
+// - Applies dark: class to <html>
+// - Updates Tailwind styles
+```
+
+**Color Palette** (in `tailwind.config.js`):
+- **Primary**: Emerald green (#10b981)
+- **Accent**: Teal (#14b8a6)
+- **Neutral**: Gray scale (50-950)
+
+---
+
+## Build & Deployment
+
+### Web Build (GitHub Pages)
+```bash
+yarn build:web
+# Outputs to dist/
+# GitHub Actions auto-deploys on push to main
+# Live at: https://mohamedazher.github.io/islamqa/
+```
+
+### Mobile Build (Cordova)
+```bash
+# Android
+yarn cordova:build:android
+# APK at: platforms/android/app/build/outputs/apk/
+
+# iOS (macOS only)
+yarn cordova:build:ios
+# Xcode project at: platforms/ios/
+```
+
+See **docs/DEPLOYMENT.md** for detailed setup.
+
+---
+
+## Testing
+
+Currently: **Manual testing only** (no automated test framework configured)
+
+**Test checklist before commits:**
+- [ ] Data imports successfully
+- [ ] Browse categories work
+- [ ] Question detail shows content correctly
+- [ ] Bookmarking works
+- [ ] Search finds questions
+- [ ] Dark mode toggles properly
+- [ ] Mobile responsive on actual device
+- [ ] No console errors
+
+See **docs/TESTING.md** for comprehensive testing guide.
+
+---
+
+## Firebase Integration
+
+**Features**:
+- Analytics (auto screen tracking)
+- Leaderboard (Firebase Firestore)
+- Anonymous authentication
+
+**Setup**: See **docs/FIREBASE.md** (requires Firebase project)
+
+**Environment variables** (`.env` file):
+```
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_PROJECT_ID=...
+# etc.
+```
+
+---
+
+## Performance Notes
+
+- **Bundle Size**: ~120KB gzipped
+- **Import Time**: ~30 seconds (15,622 questions)
+- **Build Time**: ~2-3 seconds
+- **First Load**: Fast (optimized with lazy routes)
+
+**Optimizations**:
+- Code splitting by route
+- Tree-shaking unused code
+- Gzip compression
+- Tailwind purging unused styles
+
+---
+
+## Dependencies
+
+Key packages:
+- `vue@3.4` - UI framework
+- `vite@5.1` - Build tool
+- `pinia@2.1` - State management
+- `vue-router@4.3` - Routing
+- `tailwindcss@3.4` - Styling
+- `dexie@4` - IndexedDB wrapper
+- `fuse.js@7.0` - Fuzzy search
+- `firebase@11.0` - Backend services
+
+See `package.json` for complete list and versions.
+
+---
+
+## Troubleshooting
+
+### Data not loading
+1. Check `public/data/categories.json` and `questions.json` exist
+2. Verify files are valid JSON
+3. Clear browser IndexedDB (DevTools → Application → IndexedDB)
+4. Check browser console for errors
+
+### Navigation broken
+1. Verify routes use semantic `reference` IDs
+2. Check URL parameters in route definition
+3. Check for 404 errors in console
+
+### Dark mode not working
+1. Check `dark:` classes in component
+2. Verify `useTheme()` is imported
+3. Check localStorage for theme preference
+
+### Build errors
+1. `yarn install` to ensure all deps installed
+2. `yarn build` for detailed error messages
+3. Check Node.js version: `node --version`
+
+---
+
+## Getting Help
+
+- **Project Issues**: Check `docs/` folder for detailed guides
+- **Claude Code Help**: `/help` command
+- **GitHub Issues**: Report bugs with reproduction steps
+- **Code Questions**: Comment in the relevant file explaining the issue
+
+---
+
+## Version Info
+
+- **Current Version**: 2.0+ (modernization complete)
+- **Last Updated**: November 9, 2025
+- **Status**: Production-ready
+- **Maintenance**: Active development on feature branches
+
+---
+
+## Related Documentation
+
+- **docs/ARCHITECTURE.md** - Detailed system design
+- **docs/TESTING.md** - Testing strategies and guides
+- **docs/FIREBASE.md** - Firebase setup instructions
+- **docs/DEPLOYMENT.md** - Production deployment guide
+- **PROGRESS.md** - Current project status

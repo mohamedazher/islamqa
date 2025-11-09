@@ -275,18 +275,18 @@ yarn cordova:build:ios
 
 ## 📖 Documentation
 
-### General
-- **[CLAUDE.md](CLAUDE.md)** - Project overview & development guidelines
-- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Deployment instructions
-- **[PROGRESS.md](PROGRESS.md)** - What's been accomplished
-- **[MIGRATION.md](MIGRATION.md)** - Migration guide (for moving repos)
-- **[MODERNIZATION_PLAN.md](MODERNIZATION_PLAN.md)** - Original modernization plan
+### Quick Links
+- **[CLAUDE.md](CLAUDE.md)** - Development guide & architecture overview
+- **[PROGRESS.md](PROGRESS.md)** - Current project status & completed work
+- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** - Detailed system design & data model
+- **[docs/TESTING.md](docs/TESTING.md)** - Testing strategies & manual test checklists
+- **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Deployment to GitHub Pages & app stores
+- **[docs/FIREBASE.md](docs/FIREBASE.md)** - Firebase setup (analytics, leaderboard, auth)
 
-### Firebase Setup
-- **[docs/LEADERBOARD_SETUP.md](docs/LEADERBOARD_SETUP.md)** - Complete leaderboard setup guide (Firebase config, security rules)
-- **[docs/FIREBASE_README.md](docs/FIREBASE_README.md)** - Analytics overview, quick start & API reference
-- **[docs/ANALYTICS_QUICK_REFERENCE.md](docs/ANALYTICS_QUICK_REFERENCE.md)** - Developer quick reference
-- **[FIREBASE_ANALYTICS_SETUP.md](FIREBASE_ANALYTICS_SETUP.md)** - Initial setup guide (for reference)
+### Additional Docs
+- **[docs/LEADERBOARD_SETUP.md](docs/LEADERBOARD_SETUP.md)** - Complete leaderboard configuration
+- **[docs/FIREBASE_README.md](docs/FIREBASE_README.md)** - Firebase integration overview
+- **[docs/ARCHIVED/](docs/ARCHIVED/)** - Historical documentation (modernization plan, migrations)
 
 ---
 
