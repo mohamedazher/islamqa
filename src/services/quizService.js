@@ -30,8 +30,13 @@ class QuizService {
       // Use seed to consistently select 5 questions for the day
       const selected = this.selectWithSeed(allQuestions, 5, seed)
 
-      // Transform to quiz format (now async)
-      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
+      // Transform to quiz format (only use enhanced questions)
+      const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
+      const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
+
+      if (quizQuestions.length === 0) {
+        throw new Error('No enhanced questions available for daily quiz. Please generate enhancements via Claude.')
+      }
 
       return {
         id: `daily-${today}`,
@@ -69,8 +74,13 @@ class QuizService {
       // Shuffle and select 20 questions
       const selected = this.shuffleArray([...questions]).slice(0, 20)
 
-      // Transform to quiz format (now async)
-      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
+      // Transform to quiz format (only use enhanced questions)
+      const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
+      const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
+
+      if (quizQuestions.length === 0) {
+        throw new Error('No enhanced questions available for rapid-fire quiz. Please generate enhancements via Claude.')
+      }
 
       return {
         id: `rapid-fire-${Date.now()}`,
@@ -107,8 +117,13 @@ class QuizService {
       // Shuffle and select
       const selected = this.shuffleArray([...questions]).slice(0, Math.min(count, questions.length))
 
-      // Transform to quiz format (now async)
-      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
+      // Transform to quiz format (only use enhanced questions)
+      const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
+      const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
+
+      if (quizQuestions.length === 0) {
+        throw new Error(`No enhanced questions available for this category. Please generate enhancements via Claude.`)
+      }
 
       return {
         id: `category-${categoryReference_num}-${Date.now()}`,
@@ -118,7 +133,7 @@ class QuizService {
         questions: quizQuestions,
         categoryReference: categoryReference_num,
         timeLimit: null,
-        points: count * 10
+        points: quizQuestions.length * 10
       }
     } catch (error) {
       console.error('Error generating category quiz:', error)
@@ -150,18 +165,23 @@ class QuizService {
       // Shuffle and select
       const selected = this.shuffleArray([...questions]).slice(0, Math.min(count, questions.length))
 
-      // Transform to quiz format (now async)
-      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
+      // Transform to quiz format (only use enhanced questions)
+      const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
+      const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
+
+      if (quizQuestions.length === 0) {
+        throw new Error('No enhanced questions available. Please generate enhancements via Claude.')
+      }
 
       return {
         id: `custom-${Date.now()}`,
         name: 'Custom Quiz',
-        description: `${count} questions${categories.length > 0 ? ' from selected categories' : ''}`,
+        description: `${quizQuestions.length} questions${categories.length > 0 ? ' from selected categories' : ''}`,
         mode: 'custom',
         questions: quizQuestions,
         selectedCategories: categories,
         timeLimit: null,
-        points: count * 10
+        points: quizQuestions.length * 10
       }
     } catch (error) {
       console.error('Error generating custom quiz:', error)
@@ -183,17 +203,22 @@ class QuizService {
       // Select 15 random questions for challenge
       const selected = this.shuffleArray([...allQuestions]).slice(0, Math.min(15, allQuestions.length))
 
-      // Transform to quiz format (now async)
-      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
+      // Transform to quiz format (only use enhanced questions)
+      const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
+      const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
+
+      if (quizQuestions.length === 0) {
+        throw new Error('No enhanced questions available for challenge quiz. Please generate enhancements via Claude.')
+      }
 
       return {
         id: `challenge-${Date.now()}`,
         name: 'Challenge Mode',
-        description: 'Test your Islamic knowledge - 15 challenging questions',
+        description: 'Test your Islamic knowledge - challenging questions',
         mode: 'challenge',
         questions: quizQuestions,
         timeLimit: 90,
-        points: 150
+        points: quizQuestions.length * 10
       }
     } catch (error) {
       console.error('Error generating challenge quiz:', error)
@@ -299,83 +324,33 @@ class QuizService {
   }
 
   /**
-   * Transform a database question into a quiz question with multiple choice options
-   * First checks for LLM-generated enhancements in database
-   * Falls back to dynamic generation if enhancement not available
-   *
-   * ENHANCED: Now supports pre-generated professional quiz options from quiz_enhancements table
-   * while falling back to automatic generation for non-enhanced questions
+   * Transform a database question into a quiz question with LLM-generated multiple choice options
+   * ONLY loads from quiz_enhancements table (LLM-generated)
+   * Returns null if enhancement doesn't exist
    */
   async transformToQuizQuestion(question) {
-    // Try to get pre-generated enhancement (high-quality LLM-generated options)
+    // Load LLM-enhanced options from database
     const enhancement = await this.db.getQuizEnhancement(question.reference)
 
-    if (enhancement) {
-      // Use LLM-enhanced options if available
-      console.log(`📚 Using enhanced options for question ${question.reference}`)
-      return {
-        reference: question.reference,
-        questionText: enhancement.questionText || (question.title || question.question.substring(0, 200)),
-        question: question.question,
-        answer: question.answer,
-        explanation: enhancement.explanation || question.answer,
-        primaryCategory: question.primary_category,
-        categories: question.categories,
-        options: enhancement.options || [],
-        correctOptionId: (enhancement.options || []).findIndex(opt => opt.isCorrect),
-        points: enhancement.points || 10,
-        tags: enhancement.tags || question.tags || [],
-        difficulty: enhancement.difficulty || 'medium',
-        isEnhanced: true  // Flag to indicate this uses pre-generated options
-      }
+    if (!enhancement) {
+      console.log(`⚠️  Question ${question.reference} not enhanced (skipping)`)
+      return null  // Question not enhanced, skip it
     }
 
-    // Fallback: Generate options dynamically if no enhancement available
-    console.log(`🔄 Generating dynamic options for question ${question.reference} (not enhanced)`)
-    return this.generateDynamicOptions(question)
-  }
-
-  /**
-   * Generate quiz options dynamically (fallback when no enhancement available)
-   * Simple strategy: use question as affirmative, create true/false style question
-   * This works well for Islamic rulings and knowledge testing
-   */
-  generateDynamicOptions(question) {
-    const questionText = question.title || question.question.substring(0, 200)
-
-    // Extract a true/false answer from the text
-    const answerText = (question.answer || '').toLowerCase()
-    const isTrue = answerText.includes('permissible') ||
-                   answerText.includes('allowed') ||
-                   answerText.includes('recommended') ||
-                   answerText.includes('not forbidden') ||
-                   answerText.includes('is permitted')
-
-    // Create options: True/False or similar alternatives
-    const options = [
-      { text: 'The statement is correct according to Islamic teachings', id: 0, isCorrect: isTrue },
-      { text: 'The statement is incorrect according to Islamic teachings', id: 1, isCorrect: !isTrue }
-    ]
-
-    // Shuffle options to avoid always putting correct answer first
-    if (Math.random() > 0.5) {
-      options.reverse()
-    }
-
+    console.log(`📚 Loading enhanced question ${question.reference}`)
     return {
       reference: question.reference,
-      questionText: questionText,
+      questionText: enhancement.questionText,
       question: question.question,
       answer: question.answer,
-      explanation: question.answer,  // Full answer serves as explanation
+      explanation: enhancement.explanation,
       primaryCategory: question.primary_category,
       categories: question.categories,
-      options: options,
-      correctOptionId: options.findIndex(opt => opt.isCorrect),
-      points: 10,
-      tags: question.tags || [],
-      difficulty: 'medium',
-      isEnhanced: false  // Flag to indicate this uses dynamic generation
+      options: enhancement.options,
+      correctOptionId: enhancement.options.findIndex(opt => opt.isCorrect),
+      points: enhancement.points || 10,
+      tags: enhancement.tags,
+      difficulty: enhancement.difficulty
     }
   }
 

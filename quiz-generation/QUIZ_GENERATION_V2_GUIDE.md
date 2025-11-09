@@ -2,7 +2,9 @@
 
 ## Overview
 
-This is the **modernized quiz enhancement system** for IslamQA that works exclusively with the **new database structure** (semantic reference IDs). It generates high-quality multiple-choice options for quiz questions using Claude.
+This is the **modernized LLM-only quiz system** for IslamQA. It generates high-quality professional multiple-choice options for quiz questions using Claude, exclusively from the **new database structure** (semantic reference IDs).
+
+**Key Principle:** Only LLM-generated questions appear in quizzes. No automatic/dynamic fallback.
 
 ## Key Differences from V1
 
@@ -11,8 +13,8 @@ This is the **modernized quiz enhancement system** for IslamQA that works exclus
 | **Data Source** | `www-old-backup/` (legacy) | Dexie Database (new) |
 | **IDs Used** | Old numeric IDs (8512) | Semantic reference IDs (106245) |
 | **Storage** | Pre-generated JSON file | Database table (quiz_enhancements) |
-| **Architecture** | Complete quiz data | Quiz enhancements (question + dynamic) |
-| **Fallback** | None | Dynamic generation if not enhanced |
+| **Architecture** | Complete quiz data | LLM-enhanced questions only |
+| **Question Generation** | Pre-generated + fallback | LLM-generated only |
 
 ## System Architecture
 
@@ -22,7 +24,7 @@ Dexie Database (8000+ questions with semantic reference IDs)
 [generate-quiz-v2.js --mode=select]
     ↓ (Create batch file with reference IDs)
 [generate-quiz-prompt-v2.md + Claude]
-    ↓ (Generate 4-option multiple choice)
+    ↓ (Generate 4-option professional quiz questions)
 [Batch output JSON]
     ↓ (Validate & merge)
 [generate-quiz-v2.js --mode=merge]
@@ -30,8 +32,10 @@ Dexie Database (8000+ questions with semantic reference IDs)
 [quiz_enhancements table in Dexie]
     ↓ (Load enhancements at runtime)
 [QuizService.transformToQuizQuestion()]
-    ↓ (Use enhanced options or fall back to dynamic)
+    ↓ (ONLY use LLM-enhanced questions)
 [Quiz displayed to user]
+    ↓ (Skip non-enhanced questions or show error)
+[LLM-generated professional quizzes]
 ```
 
 ## Data Flow
@@ -39,11 +43,27 @@ Dexie Database (8000+ questions with semantic reference IDs)
 ```
 When User Starts Quiz:
   1. QuizService loads questions from database
-  2. For each question, check quiz_enhancements table
-  3. If enhanced version exists → Use professional 4-option version
-  4. If not enhanced → Generate simple True/False version
-  5. Display to user with enhanced explanation
+  2. For each selected question, check quiz_enhancements table
+  3. If enhanced version exists → Use professional 4-option quiz
+  4. If NOT enhanced → Skip this question (don't show)
+  5. Compile quiz from ONLY enhanced questions
+  6. If insufficient enhanced questions → Show error message
 ```
+
+**Important:** Quizzes only show questions that have been LLM-enhanced. Non-enhanced questions are not used.
+
+## ⚠️ Critical: LLM-Only System
+
+**Important:** This system ONLY shows LLM-enhanced questions in quizzes.
+
+- No automatic/dynamic question generation
+- No fallback to simple True/False options
+- Non-enhanced questions are **not displayed**
+- If you don't generate enhancements, there will be **no quizzes**
+
+**Action required:** You MUST generate at least 50 LLM-enhanced questions before users can take quizzes.
+
+---
 
 ## Quick Start
 
@@ -253,7 +273,12 @@ QuizService automatically checks `quiz_enhancements` table when generating quizz
 // Check how many questions are enhanced
 const stats = await dexieDb.getEnhancementStats()
 console.log(`${stats.enhanced} of ${stats.total} questions enhanced (${stats.percentage}%)`)
+
+// Only the enhanced questions appear in quizzes
+// Other questions are skipped/not shown
 ```
+
+**Note:** Only enhanced questions count toward quiz availability. If fewer than 5-15 questions are enhanced (depending on quiz mode), users will see an error asking them to generate more enhancements.
 
 ## Generation Strategy
 
@@ -469,40 +494,59 @@ const stats = await dexieDb.getEnhancementStats()
 ### QuizService Methods
 
 ```javascript
-// Check if question is enhanced
-const isEnhanced = quizQuestion.isEnhanced
-
-// Fall back to dynamic if not enhanced
+// Transform question to quiz format (LLM-enhanced only)
 const quizQuestion = await quizService.transformToQuizQuestion(dbQuestion)
-// Returns: { options, explanation, difficulty, ..., isEnhanced: true/false }
+
+// Returns enhanced quiz question if available, or null if not enhanced
+// {
+//   reference: 106245,
+//   questionText: "What is...",
+//   options: [4 professional options],
+//   explanation: "...",
+//   difficulty: "medium",
+//   ...
+// }
+// OR null if question is not LLM-enhanced
+
+// Non-enhanced questions are automatically filtered out
+// Only enhanced questions appear in quizzes
 ```
 
 ## Best Practices
 
-1. **Generate in batches**
+1. **Start with Coverage Goal**
+   - Decide target: 100, 500, 1000+ enhanced questions
+   - This determines how many quizzes users can take
+   - Minimum ~50 per mode for decent rotation
+
+2. **Generate in batches**
    - 50-100 questions per batch is manageable
    - Easier to review and iterate
    - Smaller batches easier to debug
 
-2. **Test early**
+3. **Test early**
    - Generate 50, test with users
-   - Get feedback before scaling
+   - Verify questions appear in quizzes
+   - Get feedback on quality
    - Refine prompt based on feedback
 
-3. **Maintain quality**
+4. **Maintain quality**
    - Review sample questions from each batch
    - Spot-check for clarity and accuracy
    - Don't sacrifice quality for speed
+   - Invalid options will break quizzes
 
-4. **Prioritize coverage**
+5. **Prioritize coverage**
    - Start with popular topics
    - Cover major categories
    - Then fill in gaps
+   - Balanced coverage prevents repetition
 
-5. **Keep metadata**
+6. **Keep metadata**
    - Track which batches are processed
    - Update stats regularly
    - Document any issues or special handling
+   - Know your current coverage percentage
 
 ## Support & Feedback
 
