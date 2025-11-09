@@ -145,7 +145,7 @@ function selectQuestions(count = 50) {
   const batchPath = path.join(PATHS.batchesDir, `${batch.batchId}.json`)
   fs.writeFileSync(batchPath, JSON.stringify(batch, null, 2))
 
-  console.log(`\n✅ Batch created: ${batchPath`)
+  console.log(`\n✅ Batch created: ${batchPath}`)
   console.log(`\n📊 Batch Summary:`)
   console.log(`   - Questions: ${batch.sourceQuestions.length}`)
   console.log(`   - Batch ID: ${batch.batchId}`)
@@ -291,10 +291,17 @@ function parseArgs() {
   for (let i = 0; i < args.length; i++) {
     if (args[i].startsWith('--')) {
       const key = args[i].substring(2)
-      const value = args[i + 1]?.startsWith('--') ? true : args[i + 1]
-      parsed[key] = value === 'true' ? true : value === 'false' ? false : value
-      if (!value || value.startsWith('--')) i--
-      else i++
+      const nextArg = args[i + 1]
+
+      if (!nextArg || nextArg.startsWith('--')) {
+        // Flag with no value
+        parsed[key] = true
+      } else {
+        // Value provided
+        const value = nextArg
+        parsed[key] = value === 'true' ? true : value === 'false' ? false : value
+        i++
+      }
     }
   }
 
