@@ -46,6 +46,20 @@ Track what's been accomplished:
 
 Deep dives into the codebase:
 
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - System architecture documentation
+  - Component structure
+  - Data flow
+  - Technical design decisions
+
+- **[FUTURE_FEATURES.md](FUTURE_FEATURES.md)** ⭐ **NEW!** - Feature expansion roadmap
+  - 20+ feature ideas across 9 categories
+  - Priority recommendations with timelines
+  - Prayer times, Quran, Hadith, Ramadan companion
+  - Gamification enhancements
+  - Community features
+  - **Time to review:** 15-20 minutes
+  - **Status:** Brainstorming & planning phase
+
 - **[MODERNIZATION_PLAN.md](../MODERNIZATION_PLAN.md)** - Original modernization roadmap
   - Vue 3 migration plan
   - Architecture decisions
@@ -65,6 +79,7 @@ Deep dives into the codebase:
 | **Track Firebase events** | [ANALYTICS_QUICK_REFERENCE.md](ANALYTICS_QUICK_REFERENCE.md) |
 | **Understand codebase** | [CLAUDE.md](../CLAUDE.md) |
 | **See what's done** | [PROGRESS.md](../PROGRESS.md) |
+| **Plan future features** | [FUTURE_FEATURES.md](FUTURE_FEATURES.md) ⭐ |
 | **Add new feature** | [CLAUDE.md](../CLAUDE.md) → Development Guidelines |
 
 ## 🎯 By User Type
@@ -83,7 +98,8 @@ Deep dives into the codebase:
 ### For Product Managers
 1. Read [README.md](../README.md) - Feature overview
 2. Check [PROGRESS.md](../PROGRESS.md) - What's complete
-3. Review future enhancements in [LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md)
+3. Review [FUTURE_FEATURES.md](FUTURE_FEATURES.md) - Feature roadmap
+4. Review future enhancements in [LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md)
 
 ### For Contributors
 1. Read [README.md](../README.md) - Contributing guidelines
@@ -115,10 +131,13 @@ Deep dives into the codebase:
 |----------|--------|--------------|---------|
 | README.md | ✅ Current | Nov 8, 2025 | Project overview |
 | PROGRESS.md | ✅ Current | Nov 8, 2025 | Status tracking |
+| FUTURE_FEATURES.md | ✅ Current | Nov 9, 2025 | Feature roadmap |
+| ARCHITECTURE.md | ✅ Current | Nov 9, 2025 | System architecture |
 | LEADERBOARD_SETUP.md | ✅ Current | Nov 8, 2025 | Firebase leaderboard |
 | FIREBASE_README.md | ✅ Current | - | Analytics guide |
 | ANALYTICS_QUICK_REFERENCE.md | ✅ Current | - | Quick reference |
-| CLAUDE.md | ✅ Current | - | Dev guidelines |
+| CLAUDE.md | ✅ Current | Nov 9, 2025 | Dev guidelines |
+| TESTING.md | ✅ Current | - | Testing strategy |
 | DEPLOYMENT.md | ✅ Current | - | Deployment |
 | MODERNIZATION_PLAN.md | 📚 Reference | - | Historical plan |
 | DATA_MIGRATION_PLAN.md | 📚 Reference | - | Historical plan |
@@ -126,6 +145,10 @@ Deep dives into the codebase:
 
 ## 🆕 Recently Added
 
+- **[FUTURE_FEATURES.md](FUTURE_FEATURES.md)** - Comprehensive feature expansion roadmap (Nov 9, 2025)
+  - 23 feature categories from prayer times to AI companion
+  - Priority recommendations with timelines
+  - Implementation considerations
 - **[LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md)** - Complete Firebase leaderboard guide (Nov 8, 2025)
 - **Future Enhancements** - Added 6-tier roadmap to LEADERBOARD_SETUP.md
 
