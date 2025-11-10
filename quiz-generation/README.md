@@ -1,116 +1,281 @@
-# Quiz Generation System
+# Quiz Question Generation
 
-## 📖 Documentation
+Ultra-simple system for generating quiz questions using Claude Code agent.
 
-**See the complete guide**: [QUIZ_GENERATION_GUIDE.md](../QUIZ_GENERATION_GUIDE.md) in the project root.
+## Quick Start (All-in-One)
 
-The main documentation covers:
-- System overview and architecture
-- Quick start and step-by-step workflow
-- All CLI commands and modes
-- Data formats and integration
-- Troubleshooting and scaling path
+Just tell the agent:
+```
+Generate 100 quiz questions
+```
+
+**Agent does everything automatically:**
+1. ✅ Runs `select` to pick 100 unprocessed questions
+2. ✅ Creates batch file
+3. ✅ Generates quiz questions with proper format
+4. ✅ Validates output
+5. ✅ Saves to batch output file
+6. ✅ Runs `build` to consolidate into app data
+7. ✅ Reports completion
+
+Then commit:
+```bash
+git add quiz-generation/ public/data/quiz-questions.json
+git commit -m "Add 100 quiz questions"
+git push
+```
+
+Done! App will auto-import quiz questions on next load.
 
 ---
 
-## Quick Reference
+## Alternative: Manual Step-by-Step
 
-### Process a Batch (6 steps, ~1-2 hours)
+If you prefer to control each step manually:
+
+### 1. Select Questions
 
 ```bash
-cd quiz-generation/scripts
+node generate-quiz-questions.cjs select --count=100
+```
 
-# 1. Select 100 questions
-node generate-quiz.js --mode=select --count=100
+Creates `batches/batch-001-input.json`.
 
-# 2. Generate with Claude (manual - use generate-quiz-prompt.md)
-#    → Takes 30-45 minutes
+### 2. Generate with Agent
 
-# 3. Validate output
-node generate-quiz.js --mode=validate --input=batch-TIMESTAMP-output.json
+Tell agent:
+```
+Generate quiz questions for batch 001
+```
 
-# 4. Merge into metadata
-node generate-quiz.js --mode=merge --input=batch-TIMESTAMP-output.json
+Agent generates and saves output.
 
-# 5. Update app data
-node -e "const fs = require('fs'); const m = JSON.parse(fs.readFileSync('../batches/batch-TIMESTAMP-output-merged.json')); fs.writeFileSync('../../public/data/enhancements.json', JSON.stringify(m.generatedEnhancements, null, 2));"
+### 3. Build
 
-# 6. Commit and push
-cd ../..
-git add public/data/enhancements.json
-git commit -m "Add [N] quiz enhancements from new batch"
+```bash
+node generate-quiz-questions.cjs build
+```
+
+Consolidates all batches.
+
+### 4. Commit
+
+```bash
+git add quiz-generation/ public/data/quiz-questions.json
+git commit -m "Add 100 quiz questions"
 git push
 ```
+
+---
+
+## Commands
+
+### `select --count=N`
+Select N unprocessed questions for a new batch.
+
+```bash
+node generate-quiz-questions.cjs select --count=100
+```
+
+**Output**: `batches/batch-XXX-input.json`
+
+### `status`
+Show current progress and statistics.
+
+```bash
+node generate-quiz-questions.cjs status
+```
+
+**Shows**:
+- Total questions vs generated
+- Coverage percentage
+- Recent batches with status
+
+### `build`
+Build consolidated app data file.
+
+```bash
+node generate-quiz-questions.cjs build
+```
+
+**Output**: `public/data/quiz-questions.json` (ready for app import)
+
+### `reset`
+Clear all metadata (for testing).
+
+```bash
+node generate-quiz-questions.cjs reset
+```
+
+⚠️ **Warning**: Deletes all batch files and metadata. Use only for testing.
+
+---
+
+## File Structure
+
+```
+quiz-generation/
+├── README.md                          # This file
+├── generate-quiz-questions.cjs        # Main script
+├── generate-quiz-prompt.md            # Prompt for agent
+├── quiz-metadata.json                 # Tracking metadata
+└── batches/                           # Generated batches
+    ├── batch-001-input.json           # Selected questions
+    ├── batch-001-output.json          # Generated quiz questions
+    ├── batch-002-input.json
+    └── batch-002-output.json
+
+public/data/
+└── quiz-questions.json                # Consolidated output for app
+```
+
+---
+
+## Data Flow
+
+```
+questions.json (15,615)
+    ↓
+[agent selects] → batch-XXX-input.json
+    ↓
+[agent generates] → batch-XXX-output.json
+    ↓
+[agent builds] → quiz-questions.json
+    ↓
+[app imports automatically]
+```
+
+---
+
+## Agent Instructions
+
+The file `generate-quiz-prompt.md` contains complete instructions for the agent.
+
+When you say **"Generate 100 quiz questions"**, the agent will:
+
+1. **Run select command**
+   ```bash
+   node generate-quiz-questions.cjs select --count=100
+   ```
+
+2. **Read batch file** created in step 1
+
+3. **Generate quiz questions** following the prompt:
+   - 4 multiple-choice options
+   - 1 correct answer
+   - Clear explanation
+   - Appropriate difficulty
+
+4. **Validate output** automatically
+
+5. **Save to batch output file**
+
+6. **Update metadata** with processed references
+
+7. **Run build command**
+   ```bash
+   node generate-quiz-questions.cjs build
+   ```
+
+8. **Report completion** with stats
+
+---
+
+## Parallel Processing
+
+Generate multiple sets in parallel:
+
+**Tell agent:**
+```
+Generate 500 quiz questions in 5 batches
+```
+
+**Agent will:**
+- Create 5 batches of 100 questions each
+- Generate quiz questions for all batches
+- Build consolidated file
+- Report total completion
+
+**You commit once:**
+```bash
+git add quiz-generation/ public/data/quiz-questions.json
+git commit -m "Add 500 quiz questions (5 batches)"
+git push
+```
+
+---
+
+## Troubleshooting
 
 ### Check Progress
 
 ```bash
-cd quiz-generation/scripts
-node generate-quiz.js --mode=stats
+node generate-quiz-questions.cjs status
 ```
 
-### Files in This Directory
+Shows how many questions generated and remaining.
 
-| File | Purpose |
-|------|---------|
-| `README.md` | This file (quick reference) |
-| `generate-quiz-prompt.md` | Claude AI prompt template |
-| `QUIZ_WORKFLOW_V2.md` | Detailed workflow documentation (archived) |
-| `scripts/generate-quiz.js` | Main CLI tool |
-| `scripts/init-metadata.js` | Metadata management utility |
-| `scripts/transform-to-v2.js` | Format conversion utility |
-| `batches/` | Input/output batch files |
-| `enhancement-metadata.json` | Processing tracker |
+### Want to Start Over
 
----
-
-## Current Status
-
+```bash
+node generate-quiz-questions.cjs reset
 ```
-📊 Coverage: 150 / 15,615 questions (1.0%)
-🎯 Last Updated: November 10, 2025
-✅ Status: Production Ready
-📈 Processing Speed: 100 questions per batch
-⚡ Quality: 100% validation pass rate
+
+Clears all metadata and batches.
+
+### Build Not Finding Batches
+
+Agent hasn't generated yet. Tell agent:
+```
+Generate quiz questions for batch 001
 ```
 
 ---
 
-## For Complete Details
+## Progress Tracking
 
-👉 See: **[QUIZ_GENERATION_GUIDE.md](../QUIZ_GENERATION_GUIDE.md)**
+The `quiz-metadata.json` file tracks:
+- Which questions have been processed (avoids duplicates)
+- Batch status (pending/completed)
+- Generation statistics
 
-It includes:
-- Complete architecture overview
-- Step-by-step instructions for all phases
-- All CLI command documentation
-- Data format specifications
-- App integration details
-- Troubleshooting guide
-- Scaling and progress tracking
-
----
-
-## Key Features
-
-✅ **LLM-Only**: Claude AI generates professional quizzes
-✅ **Tracked**: Metadata prevents duplicate processing
-✅ **Validated**: Format and content verification required
-✅ **Scalable**: Process 50-100 questions per batch
-✅ **Integrated**: Automatic app import on first load
-✅ **Tested**: 100% validation pass rate
-
----
-
-## Related Documentation
-
-- **QUIZ_ENHANCEMENTS_INTEGRATION.md** - How enhancements load into the app
-- **generate-quiz-prompt.md** - Template for Claude AI prompts
-- **public/data/enhancements.json** - Generated quiz data (app loads this)
+Example:
+```json
+{
+  "version": "3.0",
+  "processedQuestions": [329, 245, ...],
+  "batches": [
+    {
+      "id": "001",
+      "date": "2025-11-10",
+      "count": 100,
+      "status": "completed"
+    }
+  ],
+  "stats": {
+    "totalQuestions": 15615,
+    "generated": 100,
+    "coverage": 0.6
+  }
+}
+```
 
 ---
 
-## Support
+## Tips
 
-Questions? Check the **Troubleshooting** section in [QUIZ_GENERATION_GUIDE.md](../QUIZ_GENERATION_GUIDE.md).
+- **Start small**: Test with 10-20 questions first
+- **Check status**: Run `status` to see progress
+- **All-in-one is easier**: Just tell agent "Generate N quiz questions"
+- **Commit often**: Commit after each batch or set of batches
+- **Monitor coverage**: Track percentage to see overall progress
 
+---
+
+## Goals
+
+- **Short-term**: 500+ questions (3% coverage)
+- **Medium-term**: 1,000+ questions (6% coverage)
+- **Long-term**: 2,000+ questions (12% coverage)
+
+With the all-in-one workflow, generating 100 questions takes ~2-3 minutes + commit time!

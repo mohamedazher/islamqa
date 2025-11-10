@@ -1,0 +1,1702 @@
+[
+  {
+    "reference": 233663,
+    "questionText": "Do saline solutions administered intravenously break the fast during Ramadan?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, because they contain nutrients and salts that benefit the body",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "No, because they are only for medicinal purposes",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only if they contain glucose",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "No, unless given during daylight hours",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Saline solutions administered intravenously do invalidate the fast because they contain salts and fluids that enter the stomach and benefit the body, coming under the heading of nutrients. However, non-nutritional injections that only relieve pain or lower temperature do not break the fast.",
+    "tags": [
+      "fasting",
+      "Ramadan",
+      "medical-treatment",
+      "haram"
+    ]
+  },
+  {
+    "reference": 110461,
+    "questionText": "What is the Islamic ruling on feeding birds in graveyards as charity on behalf of deceased relatives?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is permissible and counts as charity, but giving to poor Muslims is better",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "It is forbidden (haram) as an innovation",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "It is only permissible on Fridays",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "The reward does not reach the deceased",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Feeding birds and animals is charity for which reward is given, as stated in authentic hadith. However, it is better and more beneficial to give charity to poor and needy Muslims. Singling out Friday for this practice is an innovation (bid'ah).",
+    "tags": [
+      "charity",
+      "deceased",
+      "innovation",
+      "sunnah"
+    ]
+  },
+  {
+    "reference": 20130,
+    "questionText": "According to Islamic teachings, what is the proper approach to dealing with excessive worry and anxiety?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "Focus on present concerns and trust in Allah's decree through prayer and consultation",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Completely stop thinking about any problems",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Worry extensively about the future to be prepared",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Only consult religious scholars, not family members",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Islam encourages thoughtful reflection but advises against excessive worry. The proper approach is to focus on present matters, categorize concerns by importance, use istikhaarah (prayer for guidance), consult trusted people, and trust in Allah's wisdom while avoiding dwelling on the unchangeable past or unknown future.",
+    "tags": [
+      "mental-health",
+      "anxiety",
+      "prayer",
+      "trust-in-Allah"
+    ]
+  },
+  {
+    "reference": 82029,
+    "questionText": "Is purity (wudu) required for standing at Arafah during Hajj?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "No, purity is not a condition for standing at Arafah, though it is recommended",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, wudu is obligatory for standing at Arafah",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only women need wudu for Arafah",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Wudu is only required if you will make dua",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Scholars unanimously agree that purity is not a condition for standing at Arafah. Even menstruating women and those in a state of major impurity can validly perform this essential pillar of Hajj. However, it is recommended (mustahabb) to be in a state of purity when remembering Allah.",
+    "tags": [
+      "Hajj",
+      "pilgrimage",
+      "wudu",
+      "Arafah"
+    ]
+  },
+  {
+    "reference": 27180,
+    "questionText": "What is the primary purpose of jihad in Islam according to Islamic teachings?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "To remove obstacles that prevent people from freely hearing and accepting Islam",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "To force all non-Muslims to convert to Islam",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "To conquer land and expand territory",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "To eliminate all non-believers regardless of their actions",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "The purpose of jihad is to bring people from the worship of created beings to the worship of Allah alone, and to remove political and military powers that prevent people from freely listening to and accepting Islam. Those who do not fight Muslims—such as women, children, monks, and the elderly—are not to be killed according to the majority of scholars.",
+    "tags": [
+      "jihad",
+      "Islamic-law",
+      "da'wah",
+      "warfare"
+    ]
+  },
+  {
+    "reference": 69807,
+    "questionText": "Is it prescribed in Islam to send salaams to the Prophet (peace be upon him) through people traveling to Madinah?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "No, it is an innovation; salaams reach the Prophet through angels wherever you are",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, it is recommended to send salaams with pilgrims",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only if the traveler is a scholar",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Yes, but only from immediate family members",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "This practice is not prescribed in Islam and was not done by the righteous early generations. Allah has appointed angels who convey salaams to the Prophet from anywhere on earth, so sending salaams through travelers is unnecessary and considered an innovation (bid'ah).",
+    "tags": [
+      "Prophet",
+      "sunnah",
+      "innovation",
+      "bid'ah"
+    ]
+  },
+  {
+    "reference": 104805,
+    "questionText": "Is a stepfather considered a mahram for his stepdaughter in Islam?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, if he has consummated the marriage with her mother",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "No, a stepfather is never a mahram",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only if she was under his care before age 7",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Yes, but only after 5 years of marriage",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "If a man marries a woman and consummates the marriage with her, his stepdaughters become permanently forbidden to him in marriage and are considered mahrams. This is based on Quran 4:23 which mentions stepdaughters under guardianship of wives unto whom the husband has gone in.",
+    "tags": [
+      "mahram",
+      "family-law",
+      "marriage",
+      "hijab"
+    ]
+  },
+  {
+    "reference": 37990,
+    "questionText": "What should a person do if they forgot to pay zakat al-fitr before Eid?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "They must make it up immediately, with no sin since they forgot",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "It cannot be made up and is forever missed",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "They are sinful and must make major repentance",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "They should pay double the amount as compensation",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "If someone forgets to pay zakat al-fitr on time, there is no sin upon them due to forgetfulness, but they must still make it up as it remains an obligation. Zakat al-fitr is like prayer—an act of worship that must be performed even if delayed beyond its proper time.",
+    "tags": [
+      "zakat-al-fitr",
+      "Ramadan",
+      "charity",
+      "obligatory"
+    ]
+  },
+  {
+    "reference": 1419,
+    "questionText": "Is it permissible for an imam to read from a Mushaf (physical Quran) while leading prayer?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, there is nothing wrong with it, though reciting from memory is better",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "No, it invalidates the prayer",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only during Taraweeh prayers",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Only if no one in the congregation has memorized Quran",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Al-Bukhari narrated that Aaishah was led in prayer by her slave Dhakwaan while he was holding the Mushaf. If the imam recites from memory, this is better, but reading from the Mushaf is permissible and there is nothing wrong with it.",
+    "tags": [
+      "prayer",
+      "imam",
+      "Quran",
+      "permissible"
+    ]
+  },
+  {
+    "reference": 88130,
+    "questionText": "Is reciting al-Fatihah at the time of engagement or marriage contract part of the Sunnah?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "No, it is an innovation; the Sunnah is to recite Khutbat al-Hajah",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, it is required for the marriage contract to be valid",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Yes, but only at engagement, not the marriage contract",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "It is optional but recommended",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Reciting al-Fatihah at engagement or marriage contract is an innovation (bid'ah) with no basis in Sunnah. The authentic Sunnah is to recite Khutbat al-Hajah (the sermon of need) as taught by the Prophet, which includes specific verses and supplications.",
+    "tags": [
+      "marriage",
+      "engagement",
+      "sunnah",
+      "bid'ah"
+    ]
+  },
+  {
+    "reference": 188050,
+    "questionText": "Which of the following is the most serious sin in Islam?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "Major shirk (associating partners with Allah)",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Major sins like murder",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Minor shirk like showing off",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Innovations in religion",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Major shirk is the most serious of all sins. It renders all good deeds null and void, and Allah does not forgive it unless one repents. When the Prophet was asked what sin is most grievous before Allah, he replied: \"Attributing an equal to Allah when He has created you.\"",
+    "tags": [
+      "shirk",
+      "sins",
+      "tawheed",
+      "creed"
+    ]
+  },
+  {
+    "reference": 119655,
+    "questionText": "If a father lets his married son live in an apartment for free because he needs it, must he give equivalent gifts to his unmarried children?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "No, because meeting a child's specific need is not the same as giving a gift",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, he must give cash equivalent to all other children immediately",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Yes, but only to the male children",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Only if the son lives there more than one year",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "There is a difference between maintenance (meeting needs) and gifts (extras). If a son needs accommodation and the father lets him use an apartment without giving ownership, this is meeting a need, not giving a gift. The father is not required to give equivalent to others. However, if giving ownership as a gift, fairness is required.",
+    "tags": [
+      "family",
+      "gifts",
+      "inheritance",
+      "fairness"
+    ]
+  },
+  {
+    "reference": 178636,
+    "questionText": "What does Islam teach about the use of water during wudu?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "Be moderate and economical, avoiding both extravagance and insufficiency",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Use as much water as possible for maximum cleanliness",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Use minimal water even if not properly cleaned",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Water usage in wudu is unrestricted",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Islam enjoins moderation in all things, including wudu. One should use sufficient water to properly cleanse oneself without being extravagant or wasteful. Going to extremes by using excessive water or washing body parts more than three times is considered innovation and wastefulness.",
+    "tags": [
+      "wudu",
+      "water",
+      "moderation",
+      "environment"
+    ]
+  },
+  {
+    "reference": 69854,
+    "questionText": "What should a woman do if she is having serious disagreements with her fiancé before marriage?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pray istikhaarah, consult righteous family members, and assess his religious commitment",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Immediately break the engagement without consultation",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Proceed with marriage regardless, trusting it will improve",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Wait for fate to decide the outcome",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "The woman should seek Allah's guidance through istikhaarah and consult righteous people who know about the man's character. Most importantly, she should assess his religious commitment and prayer observance. If he is religiously committed, minor differences can be resolved, but if he is careless about religion, separation now is better than later.",
+    "tags": [
+      "marriage",
+      "engagement",
+      "istikhaarah",
+      "guidance"
+    ]
+  },
+  {
+    "reference": 20096,
+    "questionText": "What is recommended for university students to do during summer break from an Islamic perspective?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "Seek Islamic knowledge, maintain family ties, and engage in da'wah",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Focus only on recreation and entertainment",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Travel to non-Muslim countries for cultural exposure",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Spend the entire break in worship and isolation",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Islamic advice for students during breaks includes making up for Islamic knowledge lacking during the year, upholding ties of kinship with family, calling relatives and neighbors to Islam, keeping company with righteous people, and avoiding haram activities like traveling to places of immorality or watching prohibited content.",
+    "tags": [
+      "students",
+      "education",
+      "da'wah",
+      "family-ties"
+    ]
+  },
+  {
+    "reference": 102711,
+    "questionText": "What is the ruling on praying behind an imam who claims to read palms and coffee cups?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is not permissible; such practices constitute major disbelief",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "It is permissible if he prays the prayer correctly",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "It is makruh (disliked) but the prayer is valid",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Only permissible if no other imam is available",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Claiming to read palms or predict the future through coffee cups involves claiming knowledge of the unseen, which contradicts Islamic monotheism and constitutes major kufr (disbelief). The Prophet warned that believing such claims is disbelief in what was revealed to Muhammad. One should not pray behind such a person.",
+    "tags": [
+      "prayer",
+      "imam",
+      "fortune-telling",
+      "kufr"
+    ]
+  },
+  {
+    "reference": 67921,
+    "questionText": "Is the son of a husband's daughter (step-grandson) a mahram for the wife?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "No, he is not a mahram and she must observe hijab before him",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, he is a mahram through marriage",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only if she has raised him since childhood",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "He becomes mahram after living in the house for one year",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "The son of a husband's daughter from a previous marriage is not a mahram for the wife. While the husband's daughter is forbidden to the wife's sons, and the wife's daughter is forbidden to the husband, the descendants of these stepchildren are not mahrams. The wife must observe proper hijab before him.",
+    "tags": [
+      "mahram",
+      "hijab",
+      "family-law",
+      "marriage"
+    ]
+  },
+  {
+    "reference": 12932,
+    "questionText": "What is the Islamic scholarly position on Shaykh Ibn Abd al-Wahhab's reform movement?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "He revived authentic Islamic teachings of Tawheed and opposed innovations",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "He created a new sect separate from mainstream Islam",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "He claimed to be a new prophet",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "He opposed all four schools of Islamic jurisprudence",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Shaykh Muhammad ibn Abd al-Wahhab called people back to pure Islamic monotheism (Tawheed) and opposed innovations, grave worship, and superstitions that had crept into Islamic practice. He did not create a new sect but revived the teachings of the Quran, Sunnah, and early righteous generations. His enemies falsely attributed various claims to him.",
+    "tags": [
+      "Islamic-history",
+      "scholars",
+      "Tawheed",
+      "reform"
+    ]
+  },
+  {
+    "reference": 1101,
+    "questionText": "What is the ruling on eating dog meat in Islam?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is forbidden (haram) to eat dog meat",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "It is permissible if properly slaughtered",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "It is only forbidden for Shafi'i madhab",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "It is makruh (disliked) but not haram",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Dogs are forbidden for consumption in Islam. The Prophet explicitly forbade eating animals with fangs among predatory animals. Dogs fall under this prohibition, along with other carnivorous animals. This ruling is agreed upon by Islamic scholars.",
+    "tags": [
+      "halal",
+      "haram",
+      "food",
+      "dietary-laws"
+    ]
+  },
+  {
+    "reference": 119134,
+    "questionText": "What expiation is required if someone has intercourse during Umrah?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "They must sacrifice an animal, complete the Umrah, and repeat it later",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Only repentance and continuing the Umrah is sufficient",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Fast for three days and the Umrah remains valid",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "The Umrah is invalidated with no way to make it up",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "If someone has intercourse during Umrah, they must complete it, offer a sacrifice (an animal), and perform Umrah again to make it up. This is based on scholarly consensus that intercourse invalidates Umrah just as it invalidates Hajj, though the penalty for Umrah is less severe than for Hajj.",
+    "tags": [
+      "Umrah",
+      "pilgrimage",
+      "expiation",
+      "sacrifice"
+    ]
+  },
+  {
+    "reference": 97268,
+    "questionText": "Is it permissible to accept money in return for acting as guarantor for someone's loan?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "No, it is a form of riba (usury) and is forbidden",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, if it is less than 10% of the loan amount",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Yes, because the guarantor is taking a risk",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Only permissible between family members",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Taking payment for acting as guarantor is not permissible as it constitutes a loan that brings benefit to the lender, which is a form of riba (usury). The Prophet said: \"Every loan that brings benefit is riba.\" The guarantor may take payment for actual services rendered, but not for the guarantee itself.",
+    "tags": [
+      "riba",
+      "loans",
+      "haram",
+      "financial-transactions"
+    ]
+  },
+  {
+    "reference": 101649,
+    "questionText": "What should someone do if they visited a practitioner of witchcraft or sorcery?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "They must repent sincerely to Allah and renew their faith",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "They must perform Hajj immediately",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "There is no specific repentance required",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "They must give charity equal to their wealth",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Visiting practitioners of witchcraft or fortune-telling is a major sin. The Prophet said prayers are not accepted for forty days from one who visits a fortune-teller. If someone believed what the sorcerer said, it may constitute disbelief. Sincere repentance to Allah, renewing one's shahada, and commitment to avoid such practices is required.",
+    "tags": [
+      "witchcraft",
+      "repentance",
+      "sorcery",
+      "kufr"
+    ]
+  },
+  {
+    "reference": 20712,
+    "questionText": "Is it permissible to delay prayer because of work commitments?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "No, prayer must be performed on time; work does not excuse delay",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, if the work is essential to earning a living",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only Fajr prayer cannot be delayed for work",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "It is permissible to combine prayers due to work",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Prayer is one of the pillars of Islam and must be performed at its prescribed time. Work does not constitute a valid excuse to delay prayer beyond its time. Some scholars even consider deliberately delaying prayer until its time has passed to be a form of major kufr. One must organize work around prayer times, not vice versa.",
+    "tags": [
+      "prayer",
+      "salah",
+      "obligatory",
+      "work"
+    ]
+  },
+  {
+    "reference": 239096,
+    "questionText": "How should one purify clothing if one or two drops of urine get on it?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sprinkle water on the affected area until you believe it is purified",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Wash the entire garment seven times",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "The garment cannot be purified and must be discarded",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Leave it to dry in the sun for purification",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "If a small amount of urine gets on clothing, it can be purified by sprinkling water on the affected spot until one believes it is purified. It is not necessary to wash the entire garment or to squeeze out the water. This is based on the hadith where the Prophet instructed sprinkling water on urine spots.",
+    "tags": [
+      "purification",
+      "tahaarah",
+      "urine",
+      "prayer"
+    ]
+  },
+  {
+    "reference": 189336,
+    "questionText": "How should the iddah (waiting period) following a husband's death be calculated?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "Four months and ten days according to the Hijri (lunar) calendar",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Four months and ten days according to the Gregorian calendar",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "One hundred and thirty days exactly",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Three menstrual cycles",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "The iddah for a widow is four months and ten days calculated according to the Hijri (lunar) calendar, not the Gregorian calendar. This is based on the Quranic verse and the practice of the early Muslims who followed the lunar calendar for all Islamic obligations and rituals.",
+    "tags": [
+      "iddah",
+      "marriage",
+      "widowhood",
+      "Islamic-calendar"
+    ]
+  },
+  {
+    "reference": 12301,
+    "questionText": "Is it permissible for a married couple to watch pornographic material together?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "No, it is completely forbidden regardless of who watches it",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, if both spouses agree to it",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "It is makruh (disliked) but not haram",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Permissible only if it improves marital relations",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Watching pornography is completely forbidden in Islam, even between married couples. It involves looking at the awrah (private parts) of others, which is haram. The Prophet commanded us to guard our gaze, and looking at such images is included in what is forbidden, regardless of the viewer's marital status.",
+    "tags": [
+      "haram",
+      "marriage",
+      "modesty",
+      "gaze"
+    ]
+  },
+  {
+    "reference": 14302,
+    "questionText": "What is the Islamic ruling on women wearing tight-fitting clothes in public?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is forbidden because it reveals the shape of the body",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "It is permissible if covered by an abaya",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only forbidden if the woman is young",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Permissible in front of other women only",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "The Prophet warned against women who are clothed yet naked—those who wear clothes that are tight and reveal the shape and contours of the body. Islamic hijab requires that clothing be loose enough not to reveal the body's shape. This applies to public settings and in front of non-mahram men.",
+    "tags": [
+      "hijab",
+      "modesty",
+      "women",
+      "clothing"
+    ]
+  },
+  {
+    "reference": 70403,
+    "questionText": "If a menstruating woman is forced to touch the Mushaf (Quran), what should she do?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "There is no sin on her because she was forced",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "She must perform expiation by fasting",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "She commits a major sin even if forced",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "She must give charity as compensation",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "If someone is forced to do something forbidden, there is no sin upon them. Allah says: \"But whoever is forced [by necessity], neither desiring [it] nor transgressing [its limit] - then indeed, your Lord is Forgiving and Merciful.\" Compulsion removes sin in such matters.",
+    "tags": [
+      "menstruation",
+      "Quran",
+      "compulsion",
+      "fiqh"
+    ]
+  },
+  {
+    "reference": 131830,
+    "questionText": "What is the ruling on watching television shows that contain images of living beings?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "Images on screens are not prohibited drawings; permissibility depends on content",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "All images on television are haram without exception",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only images of humans are forbidden, not animals",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Watching is permissible but recording is forbidden",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "The majority of contemporary scholars distinguish between hand-drawn images (which may be prohibited) and photographs/video (which capture reality). TV images are not considered prohibited drawings. However, what matters is the content—if the program contains haram content like indecency, music, or promotes evil, then watching it is forbidden.",
+    "tags": [
+      "images",
+      "television",
+      "media",
+      "halal"
+    ]
+  },
+  {
+    "reference": 756,
+    "questionText": "Can a non-Muslim fast Ramadan with Muslims?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "The fast is not valid unless they first accept Islam",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, their fast is valid and earns reward",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only if they fast the entire month",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Yes, but they must declare intention to convert",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Acts of worship are not accepted from non-Muslims. Allah says: \"And nothing prevents their expenditures from being accepted except that they disbelieve in Allah.\" To fast Ramadan validly, one must first enter Islam by testifying that there is no god but Allah and Muhammad is His messenger.",
+    "tags": [
+      "fasting",
+      "Ramadan",
+      "non-Muslims",
+      "faith"
+    ]
+  },
+  {
+    "reference": 246044,
+    "questionText": "Is it permissible for a woman to show her henna-decorated hands to non-mahram men?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "No, because henna is adornment and must be covered from non-mahrams",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, hands are not part of the awrah",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only permissible for elderly women",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Permissible if wearing gloves over the henna",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "The Quran instructs women not to display their adornment except to mahrams. Henna on hands is considered adornment (zeenah) and must be concealed from non-mahram men. Many scholars require women to cover their hands when adorned with henna, even if there is difference of opinion about covering plain hands.",
+    "tags": [
+      "hijab",
+      "adornment",
+      "henna",
+      "modesty"
+    ]
+  },
+  {
+    "reference": 106475,
+    "questionText": "When should airplane passengers who are fasting break their fast?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "When the sun sets according to their location in the sky",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "According to the time zone of their departure city",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "According to the time zone of their destination",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "One hour after departure time",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Passengers should break their fast based on actual sunset at their current location in the sky. If they can see the sun has set from where they are, they may break fast. If the sun is still visible (even if it has set at ground level), they must continue fasting until actual sunset from their altitude.",
+    "tags": [
+      "fasting",
+      "travel",
+      "airplane",
+      "sunset"
+    ]
+  },
+  {
+    "reference": 262636,
+    "questionText": "Should aqeeqah (sacrifice for a newborn) be performed for a foundling (abandoned child)?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, the one who takes care of the child should perform aqeeqah",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "No, only biological parents can perform aqeeqah",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only if the child's parents are confirmed deceased",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Aqeeqah is not required for foundlings",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Aqeeqah is a recommended sunnah that brings benefit to the child. The one who takes care of a foundling should perform aqeeqah on the seventh day if possible. This sunnah is not restricted to biological parents only, and the caretaker can perform it on behalf of the child for its spiritual benefit.",
+    "tags": [
+      "aqeeqah",
+      "sunnah",
+      "children",
+      "sacrifice"
+    ]
+  },
+  {
+    "reference": 198784,
+    "questionText": "Is earning money from website advertisements permissible in Islam?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "Permissible if the content and advertisements are halal and moral",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Always haram because it involves images",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only permissible for educational websites",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Haram because visitors are forced to see ads",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Earning from website ads is permissible in principle, as it involves providing a service (content) and allowing ad space. However, both the website content and the advertisements must be halal. One must ensure ads don't promote haram products or immoral content, and the website itself must have permissible content.",
+    "tags": [
+      "halal-income",
+      "business",
+      "internet",
+      "advertising"
+    ]
+  },
+  {
+    "reference": 34695,
+    "questionText": "Is wudu required for performing tawaf around the Kaaba?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes according to the majority view, though some scholars permit it without wudu",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "No, wudu is never required for tawaf",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only required for Hajj tawaf, not Umrah",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Required only for the first three circuits",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "The majority of scholars hold that wudu is required for tawaf to be valid, treating it like prayer. This is the safer position. However, some scholars like Shaykh al-Islam Ibn Taymiyyah held that tawaf is valid without wudu though it is better to have it. Those who lose wudu during tawaf should renew it and continue.",
+    "tags": [
+      "tawaf",
+      "Hajj",
+      "Umrah",
+      "wudu"
+    ]
+  },
+  {
+    "reference": 3463,
+    "questionText": "Are sons obligated to finance their father's Hajj if he cannot afford it?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "No, Hajj is only obligatory for those who are able; children are not required to finance it",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, it is obligatory on sons to finance father's Hajj",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only if the father has no other source of income",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Yes, but only if they are wealthy",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Hajj is only obligatory for those who have the ability and means. Allah says: \"Hajj to the House is a duty to Allah for whoever is able to find a way.\" Children are not obligated to finance their parent's Hajj, though it is an act of kindness and righteousness if they choose to do so voluntarily.",
+    "tags": [
+      "Hajj",
+      "pilgrimage",
+      "family",
+      "obligations"
+    ]
+  },
+  {
+    "reference": 229137,
+    "questionText": "If a traveler wipes over his khuffs (leather socks) then arrives at his destination, what must he do?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "Calculate how much time remains of the non-traveler's wiping period (24 hours total)",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "He must immediately remove khuffs and wash his feet",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "He continues the full 3-day traveler's period",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "He must restart the wiping period from the beginning",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "A traveler may wipe over khuffs for 3 days, while a resident may wipe for 1 day (24 hours). If a traveler arrives at his destination mid-period, he must recalculate the remaining time based on the resident's allowance of 24 hours from when he first wiped, not from when he became a resident.",
+    "tags": [
+      "wudu",
+      "travel",
+      "khuffs",
+      "fiqh"
+    ]
+  },
+  {
+    "reference": 1130,
+    "questionText": "Can Muslims participate in or celebrate non-Muslim religious festivals?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "No, it is forbidden to participate in or imitate non-Muslim religious celebrations",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, if done for cultural reasons not religious",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Permissible only for children",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Allowed if no religious rituals are involved",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Muslims are forbidden from celebrating or participating in non-Muslim religious festivals. The Prophet said: \"Whoever imitates a people is one of them.\" Muslims have their own two festivals (Eid al-Fitr and Eid al-Adha). Celebrating others' religious festivals contradicts Islamic monotheism and can lead to religious compromise.",
+    "tags": [
+      "festivals",
+      "imitation",
+      "non-Muslims",
+      "haram"
+    ]
+  },
+  {
+    "reference": 257583,
+    "questionText": "What does the phrase 'Ta'aala Jadduka' in the opening supplication of prayer mean?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "Exalted is Your Majesty and Greatness",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Elevated is Your Generosity",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Supreme is Your Grandfather",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "High is Your Nobility",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "In this context, 'Jadd' means majesty, greatness, and glory, not 'grandfather' which is its common meaning. The phrase 'Ta'aala Jadduka' means 'Exalted is Your Majesty.' This is part of the du'aa al-istiftaah (opening supplication) recited after the opening takbeer in prayer.",
+    "tags": [
+      "prayer",
+      "dua",
+      "Arabic",
+      "meanings"
+    ]
+  },
+  {
+    "reference": 8529,
+    "questionText": "What is the ruling on saying 'Eat air' (i.e., shut up) as an insult in Islam?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is not permissible as it is mockery and bad speech",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "It is permissible as it is just a common expression",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only forbidden if said to parents or elders",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Permissible if the person deserves criticism",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "This phrase is a form of mockery and insult, which Islam forbids. Allah says: \"O you who believe, let not a people ridicule another people.\" Muslims should maintain good manners in speech and avoid mockery, insults, and offensive language. The Prophet emphasized good character and proper speech.",
+    "tags": [
+      "manners",
+      "speech",
+      "mockery",
+      "ethics"
+    ]
+  },
+  {
+    "reference": 104454,
+    "questionText": "What is the correct way to perform ruqyah (Quranic healing) for a small child?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "Recite Quranic verses and prophetic supplications directly or blow on them gently",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Write verses on paper and place under their pillow",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only qualified scholars can perform ruqyah on children",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Recite only at specific times like midnight",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Legitimate ruqyah involves reciting Quranic verses (especially al-Fatihah, Ayat al-Kursi, and the last three surahs) and authentic prophetic supplications. Parents can perform this for their children by reciting and gently blowing on them or placing hands on them. The Prophet used to perform ruqyah for his grandsons in this manner.",
+    "tags": [
+      "ruqyah",
+      "children",
+      "healing",
+      "Quran"
+    ]
+  },
+  {
+    "reference": 21237,
+    "questionText": "Why do pilgrims wear ihram (simple white garments) during Hajj?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "It symbolizes equality, humility, and focus on worship rather than worldly appearance",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Because it was the clothing of Prophet Ibrahim",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "To keep cool in the desert climate",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "It is the traditional clothing of Makkah",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Ihram clothing serves multiple purposes: it symbolizes equality among all pilgrims regardless of wealth or status, represents humility before Allah, and helps pilgrims focus on worship rather than worldly appearance. The simple garments remind pilgrims of the shroud, encouraging reflection on death and the hereafter.",
+    "tags": [
+      "Hajj",
+      "ihram",
+      "pilgrimage",
+      "equality"
+    ]
+  },
+  {
+    "reference": 89971,
+    "questionText": "If a college keeps old pictures of a Muslim woman from before she wore hijab, must she change them?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, she should request they be replaced with current photos showing proper hijab",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "No, past pictures are not her responsibility",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only if the pictures are publicly displayed",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "She should leave the college rather than change the pictures",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "A Muslim woman who begins wearing hijab should remove or replace old photos showing her without proper Islamic covering, as these images continue to expose her awrah. She should request the institution update her photos to reflect her current commitment to Islamic dress. This is part of sincere repentance and commitment to modesty.",
+    "tags": [
+      "hijab",
+      "modesty",
+      "images",
+      "repentance"
+    ]
+  },
+  {
+    "reference": 105457,
+    "questionText": "Is it permissible to use or benefit from property that is held as collateral for a debt?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "The creditor may not use it; only the debtor may use it with permission",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "The creditor may use it as compensation for the loan",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Both parties may share the use of the collateral",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "No one may use collateral until the debt is paid",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Collateral remains the property of the debtor. The creditor holds it as security but may not use or benefit from it, as that would be a loan that brings benefit (a form of riba). If the collateral is an animal requiring care, the creditor may ride/milk it proportionate to providing its maintenance. The debtor may use the collateral with the creditor's permission.",
+    "tags": [
+      "collateral",
+      "loans",
+      "riba",
+      "fiqh"
+    ]
+  },
+  {
+    "reference": 162824,
+    "questionText": "If police force a man to divorce his wife with a threefold talaq under duress, is the divorce valid?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "No, divorce under compulsion is not valid according to the correct view",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, the divorce is binding and irrevocable",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Valid but counts as only one talaq, not three",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Valid only if he later confirms it willingly",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "According to the stronger scholarly opinion, divorce pronounced under duress and compulsion is not valid. The Prophet said: \"Allah has forgiven my ummah for mistakes, what they forget, and what they are forced to do.\" Since he was compelled against his will with threat of harm, the divorce does not take effect.",
+    "tags": [
+      "divorce",
+      "talaq",
+      "compulsion",
+      "marriage"
+    ]
+  },
+  {
+    "reference": 34518,
+    "questionText": "Should a field worker return to the office if half an hour remains of regular work hours?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, he must fulfill his employment contract and work the full hours",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "No, the time is too short to warrant returning",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only if specifically instructed by his supervisor",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "He may decide based on distance from the office",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "An employee must fulfill the terms of their employment contract with honesty and integrity. If the agreement is to work certain hours, the employee should work the full time. The Prophet emphasized that a worker's wages should be paid in full, which implies the worker must also fulfill their duties fully. Working with integrity is a religious obligation.",
+    "tags": [
+      "work",
+      "employment",
+      "contracts",
+      "honesty"
+    ]
+  },
+  {
+    "reference": 21698,
+    "questionText": "What is the ruling on taking money to perform Hajj on behalf of others as a business?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "Permissible if one has already performed Hajj for oneself and intends worship primarily",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Always forbidden as it commercializes worship",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Permissible even if one has never performed Hajj",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Only scholars may take money for proxy Hajj",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "It is permissible to take money to perform Hajj on behalf of another if: (1) one has already performed the obligatory Hajj for oneself, (2) one is physically capable, and (3) the primary intention is worship, not just earning money. The proxy must intend the Hajj for the person who commissioned it and make proper intention.",
+    "tags": [
+      "Hajj",
+      "proxy",
+      "compensation",
+      "intention"
+    ]
+  },
+  {
+    "reference": 126921,
+    "questionText": "Is it permissible to build a mosque close to a non-Muslim graveyard?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, if there is proper separation and the mosque does not use graveyard land",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "No, it is completely forbidden",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only if the graves are more than 100 years old",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Permissible only if the cemetery is no longer in use",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "It is permissible to build a mosque near a non-Muslim graveyard as long as there is clear separation (like a wall or road) between them and the mosque is not built on the actual graveyard land. The prohibition is against building mosques over graves or incorporating graves into mosques, not merely proximity to a separate cemetery.",
+    "tags": [
+      "mosque",
+      "graves",
+      "construction",
+      "fiqh"
+    ]
+  },
+  {
+    "reference": 13233,
+    "questionText": "What is the punishment for an unmarried person who commits zina (fornication) in Islamic law?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "One hundred lashes and exile for one year",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Death penalty by stoning",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Fifty lashes and no exile",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Public repentance only",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "The hadd punishment for an unmarried person (male or female) who commits zina is one hundred lashes and exile from their city for one year. This is based on the Quranic verse and authentic hadiths. The punishment applies when the crime is proven by confession or valid testimony under strict conditions.",
+    "tags": [
+      "hudud",
+      "zina",
+      "punishment",
+      "Islamic-law"
+    ]
+  },
+  {
+    "reference": 150025,
+    "questionText": "Is it permissible to take commission from websites for promoting their products through affiliate links?",
+    "difficulty": "medium",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, if the products and promotion methods are halal",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "No, it is a form of deception",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only if you disclose the commission to every visitor",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Permissible only for physical products, not digital",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Affiliate marketing is permissible in Islam as it involves legitimate brokerage—connecting sellers with buyers for a commission. The conditions are: (1) products must be halal, (2) no deception in promotion, (3) accurate product representation, and (4) preferably disclosing the commission relationship. This is analogous to traditional brokerage which is permitted.",
+    "tags": [
+      "business",
+      "halal-income",
+      "marketing",
+      "commission"
+    ]
+  }
+]

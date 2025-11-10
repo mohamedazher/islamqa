@@ -69,17 +69,17 @@ class DataLoaderService {
       // Note: Answers are now embedded in questions.answer field
       // No separate import needed!
 
-      // Step 3: Load and import quiz enhancements (LLM-generated quiz options)
-      this.currentStep = 'Loading quiz enhancements...'
+      // Step 3: Load and import quiz questions (LLM-generated)
+      this.currentStep = 'Loading quiz questions...'
       if (onProgress) onProgress({ step: this.currentStep, progress: 85 })
 
-      const enhancementsData = await this.loadEnhancements()
-      if (enhancementsData && enhancementsData.length > 0) {
-        await dexieDb.bulkImportEnhancements(enhancementsData)
+      const quizQuestionsData = await this.loadQuizQuestions()
+      if (quizQuestionsData && quizQuestionsData.length > 0) {
+        await dexieDb.bulkImportQuizQuestions(quizQuestionsData)
         this.progress = 95
-        if (onProgress) onProgress({ step: `Quiz enhancements imported (${enhancementsData.length} total)`, progress: 95 })
+        if (onProgress) onProgress({ step: `Quiz questions imported (${quizQuestionsData.length} total)`, progress: 95 })
       } else {
-        if (onProgress) onProgress({ step: 'No quiz enhancements available yet', progress: 95 })
+        if (onProgress) onProgress({ step: 'No quiz questions available yet', progress: 95 })
       }
 
       // Mark as imported
@@ -145,24 +145,24 @@ class DataLoaderService {
   }
 
   /**
-   * Load quiz enhancements from JSON file
-   * NEW: V2.0 - Loads LLM-generated quiz options for high-quality quizzes
-   * NOTE: Enhancements are optional - quizzes work without them but are enhanced with them
+   * Load quiz questions from JSON file
+   * Loads LLM-generated quiz questions for high-quality quizzes
+   * NOTE: Quiz questions are optional - app works without them but provides better quiz experience with them
    */
-  async loadEnhancements() {
+  async loadQuizQuestions() {
     try {
       const basePath = this.getDataPath()
-      const response = await fetch(`${basePath}/enhancements.json`)
+      const response = await fetch(`${basePath}/quiz-questions.json`)
       if (!response.ok) {
-        // Enhancements are optional, so it's okay if the file doesn't exist
-        console.warn(`⚠️  Enhancements file not found (HTTP ${response.status})`)
+        // Quiz questions are optional, so it's okay if the file doesn't exist
+        console.warn(`⚠️  Quiz questions file not found (HTTP ${response.status})`)
         return []
       }
       const data = await response.json()
-      console.log(`🎯 Loaded ${data.length} quiz enhancements from enhancements.json`)
+      console.log(`🎯 Loaded ${data.length} quiz questions from quiz-questions.json`)
       return data
     } catch (error) {
-      console.warn('⚠️  Failed to load enhancements (optional):', error.message)
+      console.warn('⚠️  Failed to load quiz questions (optional):', error.message)
       return []
     }
   }
