@@ -1,48 +1,72 @@
 # Quiz Question Generation
 
-Simple system for generating quiz questions using Claude Code agent.
+Ultra-simple system for generating quiz questions using Claude Code agent.
 
-## Quick Start
+## Quick Start (All-in-One)
 
-### 1. Select Questions (2 min)
+Just tell the agent:
+```
+Generate 100 quiz questions
+```
+
+**Agent does everything automatically:**
+1. ✅ Runs `select` to pick 100 unprocessed questions
+2. ✅ Creates batch file
+3. ✅ Generates quiz questions with proper format
+4. ✅ Validates output
+5. ✅ Saves to batch output file
+6. ✅ Runs `build` to consolidate into app data
+7. ✅ Reports completion
+
+Then commit:
+```bash
+git add quiz-generation/ public/data/quiz-questions.json
+git commit -m "Add 100 quiz questions"
+git push
+```
+
+Done! App will auto-import quiz questions on next load.
+
+---
+
+## Alternative: Manual Step-by-Step
+
+If you prefer to control each step manually:
+
+### 1. Select Questions
 
 ```bash
 node generate-quiz-questions.cjs select --count=100
 ```
 
-Creates `batches/batch-001-input.json` with 100 unprocessed questions.
+Creates `batches/batch-001-input.json`.
 
-### 2. Generate with Agent (Automatic)
+### 2. Generate with Agent
 
-Tell Claude Code agent:
+Tell agent:
 ```
 Generate quiz questions for batch 001
 ```
 
-Agent will:
-- Read the batch input file
-- Generate quiz questions following the prompt
-- Validate output
-- Save to `batches/batch-001-output.json`
-- Update metadata
+Agent generates and saves output.
 
-### 3. Build App Data (1 min)
+### 3. Build
 
 ```bash
-node generate-quiz-questions.js build
+node generate-quiz-questions.cjs build
 ```
 
-Consolidates all batches into `public/data/quiz-questions.json`.
+Consolidates all batches.
 
-### 4. Commit (2 min)
+### 4. Commit
 
 ```bash
 git add quiz-generation/ public/data/quiz-questions.json
-git commit -m "Add 100 quiz questions (batch 001)"
+git commit -m "Add 100 quiz questions"
 git push
 ```
 
-Done! App will auto-import quiz questions on next load.
+---
 
 ## Commands
 
@@ -50,11 +74,7 @@ Done! App will auto-import quiz questions on next load.
 Select N unprocessed questions for a new batch.
 
 ```bash
-# Select 100 questions
 node generate-quiz-questions.cjs select --count=100
-
-# Select 50 questions
-node generate-quiz-questions.js select --count=50
 ```
 
 **Output**: `batches/batch-XXX-input.json`
@@ -63,7 +83,7 @@ node generate-quiz-questions.js select --count=50
 Show current progress and statistics.
 
 ```bash
-node generate-quiz-questions.js status
+node generate-quiz-questions.cjs status
 ```
 
 **Shows**:
@@ -75,7 +95,7 @@ node generate-quiz-questions.js status
 Build consolidated app data file.
 
 ```bash
-node generate-quiz-questions.js build
+node generate-quiz-questions.cjs build
 ```
 
 **Output**: `public/data/quiz-questions.json` (ready for app import)
@@ -84,10 +104,12 @@ node generate-quiz-questions.js build
 Clear all metadata (for testing).
 
 ```bash
-node generate-quiz-questions.js reset
+node generate-quiz-questions.cjs reset
 ```
 
 ⚠️ **Warning**: Deletes all batch files and metadata. Use only for testing.
+
+---
 
 ## File Structure
 
@@ -107,88 +129,117 @@ public/data/
 └── quiz-questions.json                # Consolidated output for app
 ```
 
+---
+
 ## Data Flow
 
 ```
 questions.json (15,615)
     ↓
-[select] → batch-XXX-input.json
+[agent selects] → batch-XXX-input.json
     ↓
-[agent] → batch-XXX-output.json
+[agent generates] → batch-XXX-output.json
     ↓
-[build] → quiz-questions.json
+[agent builds] → quiz-questions.json
     ↓
 [app imports automatically]
 ```
 
+---
+
 ## Agent Instructions
 
-The file `generate-quiz-prompt.md` contains complete instructions for the agent to generate quiz questions.
+The file `generate-quiz-prompt.md` contains complete instructions for the agent.
 
-When you ask the agent to "Generate quiz questions for batch XXX", it will:
-1. Read `batches/batch-XXX-input.json`
-2. Follow the prompt instructions
-3. Generate quiz questions with:
+When you say **"Generate 100 quiz questions"**, the agent will:
+
+1. **Run select command**
+   ```bash
+   node generate-quiz-questions.cjs select --count=100
+   ```
+
+2. **Read batch file** created in step 1
+
+3. **Generate quiz questions** following the prompt:
    - 4 multiple-choice options
    - 1 correct answer
    - Clear explanation
    - Appropriate difficulty
-4. Validate output
-5. Save to `batches/batch-XXX-output.json`
-6. Update `quiz-metadata.json`
+
+4. **Validate output** automatically
+
+5. **Save to batch output file**
+
+6. **Update metadata** with processed references
+
+7. **Run build command**
+   ```bash
+   node generate-quiz-questions.cjs build
+   ```
+
+8. **Report completion** with stats
+
+---
 
 ## Parallel Processing
 
-Generate multiple batches in parallel:
+Generate multiple sets in parallel:
 
+**Tell agent:**
+```
+Generate 500 quiz questions in 5 batches
+```
+
+**Agent will:**
+- Create 5 batches of 100 questions each
+- Generate quiz questions for all batches
+- Build consolidated file
+- Report total completion
+
+**You commit once:**
 ```bash
-# Create 5 batches
-node generate-quiz-questions.cjs select --count=100  # batch-001
-node generate-quiz-questions.cjs select --count=100  # batch-002
-node generate-quiz-questions.cjs select --count=100  # batch-003
-node generate-quiz-questions.cjs select --count=100  # batch-004
-node generate-quiz-questions.cjs select --count=100  # batch-005
-
-# Tell agent to process all
-"Generate quiz questions for batches 001, 002, 003, 004, and 005"
-
-# Build once
-node generate-quiz-questions.js build
-
-# Commit all
 git add quiz-generation/ public/data/quiz-questions.json
-git commit -m "Add 500 quiz questions (batches 001-005)"
+git commit -m "Add 500 quiz questions (5 batches)"
 git push
 ```
 
+---
+
 ## Troubleshooting
 
-### No questions selected
-All questions already processed. Check status:
+### Check Progress
+
 ```bash
-node generate-quiz-questions.js status
+node generate-quiz-questions.cjs status
 ```
 
-### Build shows no batch files
-Agent hasn't generated quiz questions yet. Ask agent:
+Shows how many questions generated and remaining.
+
+### Want to Start Over
+
+```bash
+node generate-quiz-questions.cjs reset
+```
+
+Clears all metadata and batches.
+
+### Build Not Finding Batches
+
+Agent hasn't generated yet. Tell agent:
 ```
 Generate quiz questions for batch 001
 ```
 
-### Want to start over
-Reset everything:
-```bash
-node generate-quiz-questions.js reset
-```
+---
 
 ## Progress Tracking
 
 The `quiz-metadata.json` file tracks:
-- Which questions have been processed
+- Which questions have been processed (avoids duplicates)
 - Batch status (pending/completed)
 - Generation statistics
 
-Format:
+Example:
 ```json
 {
   "version": "3.0",
@@ -198,8 +249,7 @@ Format:
       "id": "001",
       "date": "2025-11-10",
       "count": 100,
-      "status": "completed",
-      "references": [329, 245, ...]
+      "status": "completed"
     }
   ],
   "stats": {
@@ -210,13 +260,17 @@ Format:
 }
 ```
 
+---
+
 ## Tips
 
-- **Start small**: Test with `--count=10` first
-- **Check status**: Run `status` command frequently
-- **Build often**: Run `build` after each batch to see results
-- **Commit incrementally**: Commit after each batch or set of batches
-- **Monitor progress**: Track coverage percentage to see overall progress
+- **Start small**: Test with 10-20 questions first
+- **Check status**: Run `status` to see progress
+- **All-in-one is easier**: Just tell agent "Generate N quiz questions"
+- **Commit often**: Commit after each batch or set of batches
+- **Monitor coverage**: Track percentage to see overall progress
+
+---
 
 ## Goals
 
@@ -224,4 +278,4 @@ Format:
 - **Medium-term**: 1,000+ questions (6% coverage)
 - **Long-term**: 2,000+ questions (12% coverage)
 
-Each batch of 100 questions takes ~5 minutes total (select + agent + build).
+With the all-in-one workflow, generating 100 questions takes ~2-3 minutes + commit time!

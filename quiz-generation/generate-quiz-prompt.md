@@ -345,7 +345,47 @@ When you receive source questions from a batch file:
 
 ## Agent Instructions
 
-When the user asks you to "generate quiz questions for batch XXX":
+### All-in-One Workflow (Recommended)
+
+When the user asks you to **"Generate N quiz questions"** (e.g., "Generate 100 quiz questions"):
+
+1. **Run select command** to create a batch:
+   ```bash
+   node quiz-generation/generate-quiz-questions.cjs select --count=N
+   ```
+   Note the batch ID from the output (e.g., "batch-001")
+
+2. **Read the batch input file**: `quiz-generation/batches/batch-XXX-input.json`
+
+3. **Generate quiz questions** for ALL questions in the batch following all rules above
+
+4. **Validate your output** (4 options, 1 correct, all required fields)
+
+5. **Save output** to `quiz-generation/batches/batch-XXX-output.json` in the exact format:
+   ```json
+   {
+     "quizQuestions": [ /* array of quiz questions */ ]
+   }
+   ```
+
+6. **Update metadata**: Add processed question references to `quiz-generation/quiz-metadata.json`
+   - Mark batch as "completed"
+   - Add references to processedQuestions array
+
+7. **Run build command** to consolidate:
+   ```bash
+   node quiz-generation/generate-quiz-questions.cjs build
+   ```
+
+8. **Report completion** with:
+   - Number of quiz questions generated
+   - Batch ID
+   - Validation status
+   - Total coverage percentage
+
+### Single Batch Workflow (Alternative)
+
+When the user asks you to **"Generate quiz questions for batch XXX"**:
 
 1. Read the batch input file from `quiz-generation/batches/batch-XXX-input.json`
 2. Follow all generation rules above
