@@ -1,25 +1,35 @@
-# Quiz Question Generation Prompt
+# Quiz Enhancement Generation Prompt - V2.0
 
 ## Context
 
-You are generating high-quality quiz questions for an Islamic Q&A mobile app. The app contains 8000+ questions and answers from IslamQA.com covering all aspects of Islamic knowledge.
+You are generating high-quality quiz enhancements for an Islamic Q&A mobile app. The app now uses a **semantic reference ID database** where:
 
-Your task is to convert long-form Q&A content into short, clear quiz questions with multiple choice options.
+- Each question has a unique `reference` ID (e.g., 106245)
+- Questions contain full text: `question` (main text), `title` (short form), `answer` (explanation)
+- These semantic IDs link the entire system (bookmarks, search, categories, etc.)
+
+Your task is to convert database questions into **professional multiple-choice quiz items** with:
+- 4 well-crafted options (not just True/False)
+- Clear, unambiguous correct answers
+- Concise explanations
+- Appropriate difficulty levels
+- Relevant tags for searchability
 
 ## Input Format
 
-I will provide you with a list of source questions and their answers in JSON format:
+You will receive a batch of questions in this format:
 
 ```json
 {
+  "batchId": "batch-1234567890",
   "sourceQuestions": [
     {
-      "id": 12345,
-      "question": "What is the ruling on listening to music?",
-      "question_full": "I want to know the Islamic ruling on listening to music and songs.",
-      "question_no": 5011,
-      "category_id": 218,
-      "answers": "<p>Praise be to Allah...</p><p>The majority of scholars are of the view that listening to music is haram...</p>"
+      "reference": 106245,
+      "title": "Is it permissible to repurchase a gift they previously gave?",
+      "question": "I want to know the Islamic ruling on whether someone can repurchase a gift they previously gave to another person...",
+      "answer": "<p>The Prophet (peace and blessings of Allah be upon him) forbade taking back a gift, comparing one who does so to a dog returning to its own vomit...</p>",
+      "primary_category": 145,
+      "tags": ["gifts", "transactions", "haram"]
     }
   ]
 }
@@ -27,254 +37,325 @@ I will provide you with a list of source questions and their answers in JSON for
 
 ## Output Format
 
-Generate quiz questions in this exact JSON structure:
+Generate enhancements in this **exact** JSON structure:
 
 ```json
 {
-  "generatedQuizzes": [
+  "generatedEnhancements": [
     {
-      "id": "quiz-001",
-      "sourceQuestionId": 12345,
-      "questionText": "What is the Islamic ruling on listening to music according to the majority of scholars?",
+      "reference": 106245,
+      "questionText": "What is the Islamic ruling on someone repurchasing a gift they previously gave?",
       "type": "multiple-choice",
       "difficulty": "medium",
-      "category": "Halal & Haram",
       "options": [
         {
           "id": "a",
-          "text": "It is haram (forbidden)",
+          "text": "It is forbidden (haram) based on a hadith comparing it to a dog returning to its own vomit",
           "isCorrect": true
         },
         {
           "id": "b",
-          "text": "It is halal (permissible)",
+          "text": "It is permissible if the original owner agrees to sell it back",
           "isCorrect": false
         },
         {
           "id": "c",
-          "text": "It is makruh (disliked)",
+          "text": "It is permissible if purchased at the current market price",
           "isCorrect": false
         },
         {
           "id": "d",
-          "text": "There is no clear ruling",
+          "text": "It is only forbidden if done within the first year",
           "isCorrect": false
         }
       ],
-      "explanation": "According to the majority of classical scholars, listening to music is considered haram based on various hadiths. The minority view permits certain types of Islamic songs without instruments.",
-      "sourceReference": {
-        "questionId": 12345,
-        "questionNo": 5011,
-        "questionTitle": "Ruling on music"
-      },
-      "points": 10,
-      "tags": ["music", "haram", "entertainment", "ruling"]
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) explicitly forbade repurchasing gifts, comparing the one who does so to a dog returning to its own vomit. This ruling applies regardless of circumstances or timeframe.",
+      "tags": ["gifts", "transactions", "haram", "prophet-tradition"],
+      "source": "IslamQA question 106245"
     }
   ],
   "metadata": {
-    "batchId": "batch-001",
+    "batchId": "batch-1234567890",
     "processedCount": 50,
-    "generatedDate": "2025-01-06",
-    "processingNotes": "Any issues or notes about specific questions"
+    "generatedDate": "2025-01-XX",
+    "notes": "Any issues or special handling notes"
   }
 }
 ```
 
 ## Generation Rules
 
-### 1. Question Quality
-- **Clear and Concise**: Question should be 1-2 sentences max
-- **Unambiguous**: Should have one definitively correct answer
-- **Educational**: Should teach something valuable
-- **Based on Answer**: Extract key ruling/concept from the answer text
-- **Strip HTML**: Remove all HTML tags from answer text before processing
+### 1. Reference ID (CRITICAL)
+- **MUST match the input** `reference` field exactly
+- This is how the enhancement links to the database question
+- Example: input `"reference": 106245` → output `"reference": 106245`
 
-### 2. Options (Multiple Choice)
-- Provide exactly **4 options** labeled a, b, c, d
-- **One correct option** marked with `isCorrect: true`
-- **Three plausible wrong options** (not obviously incorrect)
-- Options should be similar length
-- Avoid options like "All of the above" or "None of the above" unless appropriate
+### 2. Question Text
+- Extract from `title` (if clear and concise)
+- Or synthesize from `question` field
+- 1-2 sentences maximum
+- Make it a clear quiz question
+- Examples:
+  - ❌ "Tell me about the Islamic ruling on..."
+  - ✅ "What is the ruling on...?"
+  - ✅ "Is it permissible to...?"
 
-### 3. Difficulty Levels
-Assign based on content complexity:
+### 3. Multiple Choice Options
+- Provide **exactly 4 options** (a, b, c, d)
+- **One correct** marked with `isCorrect: true`
+- **Three plausible wrong answers** (not obviously incorrect)
+- Options should be roughly similar length
+- Avoid "All of the above" or "None of the above" unless necessary
 
-**Easy (40% of questions)**:
+### 4. Option Quality (Important)
+- Correct option should be derivable from the answer text
+- Wrong options should be:
+  - Opposite rulings (if applicable)
+  - Related misconceptions
+  - Common mistakes
+  - Alternative scholarly views (if mentioned)
+- All options must be grammatically correct
+- No typos or formatting issues
+
+### 5. Difficulty Levels
+
+**Easy (35% of questions)**:
 - Basic Islamic knowledge
-- 5 pillars, basic halal/haram
+- Core beliefs, 5 pillars
 - Common worship practices
-- Questions most Muslims would know
+- Well-known rulings
+- Most Muslims should know these
 
-**Medium (40% of questions)**:
+**Medium (45% of questions)**:
 - Common fiqh rulings
-- Detailed worship procedures
-- Social/family Islamic rulings
-- Questions educated Muslims should know
+- Detailed procedures
+- Social/family rulings
+- Everyday Islamic knowledge
+- Educated Muslims should know
 
 **Hard (20% of questions)**:
 - Nuanced scholarly differences
 - Complex fiqh issues
+- Edge cases
 - Advanced theological concepts
-- Edge cases and exceptions
+- Requires deeper study
 
-### 4. Explanation
-- **2-3 sentences max**
-- Summarize the key ruling/concept
-- Mention scholarly consensus when relevant
+### 6. Explanation
+- 2-3 sentences maximum
+- Summarize the key ruling from the source answer
 - Include important nuances if applicable
-- Reference source answer but don't copy verbatim
+- Mention scholarly consensus when relevant
+- Avoid copying answer verbatim - synthesize
+- Format: Clear, concise, authoritative
 
-### 5. Tags
-Add 3-5 relevant tags for searchability:
-- Topic keywords (prayer, fasting, zakat, etc.)
-- Ruling type (halal, haram, fard, sunnah, etc.)
-- Category (worship, transactions, family, etc.)
+### 7. Tags
+Add 4-6 relevant tags from:
+- **Topics**: prayer, fasting, zakat, hajj, marriage, family, business, transactions, etc.
+- **Rulings**: halal, haram, fard (obligatory), sunnah, makruh (disliked), mubah (permissible)
+- **Categories**: worship, creed, family, transactions, social, miscellaneous
+- **Scholarly terms**: ijma (consensus), ijtihad, madhab, hadith, sunnah-tradition
+- **Concepts**: women's rights, children, contracts, charity, etc.
 
-### 6. Categories
-Map to these main categories:
-- Basic Tenets of Faith
-- Islamic Jurisprudence
-- Halal & Haram
-- Prayer
-- Fasting
-- Zakat & Charity
-- Hajj & Umrah
-- Family & Marriage
-- Business & Transactions
-- Social Interactions
-- Other
+### 8. Difficulty Assignment Strategy
+
+**When to mark as Easy:**
+- Clear, straightforward rulings
+- Widely known practices
+- No scholarly disagreement mentioned
+- Practical everyday issues
+
+**When to mark as Medium:**
+- Some complexity in conditions
+- Multiple aspects to consider
+- Requires knowledge of Islamic principles
+- Mix of common and less common rulings
+
+**When to mark as Hard:**
+- Scholarly differences explicitly mentioned
+- Complex conditions and exceptions
+- Requires understanding of Islamic legal theory
+- Philosophical or nuanced interpretation
 
 ## Question Types to Generate
 
-### Type 1: Ruling Questions (Most Common)
+### Type 1: Ruling Questions (60% - Most Common)
 ```
-Q: What is the ruling on [action]?
-Options: Haram, Halal, Makruh, Neutral
+Question: "What is the ruling on [action/thing]?"
+Options:
+  - Haram/Forbidden
+  - Halal/Permissible
+  - Makruh/Disliked
+  - Fard/Obligatory
 ```
 
-### Type 2: Concept Questions
+### Type 2: Concept/Definition Questions (15%)
 ```
-Q: What is the definition of [Islamic term]?
+Question: "What does [Islamic term] mean?"
 Options: 4 different definitions
 ```
 
-### Type 3: Procedure Questions
+### Type 3: Procedure Questions (15%)
 ```
-Q: What is the correct way to perform [act of worship]?
+Question: "What is the correct way to [perform act of worship]?"
 Options: 4 different procedures
 ```
 
-### Type 4: Condition Questions
+### Type 4: Condition Questions (10%)
 ```
-Q: What breaks [act of worship]?
-Options: 4 different things
+Question: "What [action] the validity of [act of worship]?"
+Options: 4 different conditions
 ```
-
-### Type 5: True/False Conversions
-For clear yes/no answers, use true/false format:
-```json
-{
-  "type": "true-false",
-  "questionText": "Is Zakat obligatory on all Muslims?",
-  "options": [
-    {"id": "a", "text": "True", "isCorrect": true},
-    {"id": "b", "text": "False", "isCorrect": false}
-  ]
-}
-```
-
-## Special Handling
-
-### Controversial Topics
-If source answer mentions scholarly disagreement:
-- Note the majority view as correct
-- Mention minority view in explanation
-- Tag as "scholarly-difference"
-- Consider difficulty: hard
-
-### Lengthy Answers
-For answers > 500 words:
-- Extract the main ruling/conclusion
-- Focus on the core concept
-- Don't try to cover everything
-- Multiple questions can be generated from one source
-
-### Technical Terms
-- Keep Arabic terms in parentheses: "obligatory (fard)"
-- Define briefly in explanation if needed
-- Use English for options when possible
 
 ## Processing Checklist
 
 For each source question, verify:
-- ✅ Extracted clear ruling from answer
-- ✅ Question is unambiguous
-- ✅ 4 options provided (or 2 for true/false)
-- ✅ Only one correct option
+
+- ✅ Reference ID matches input exactly
+- ✅ Question is clear and unambiguous
+- ✅ 4 options provided (all labeled a-d)
+- ✅ Exactly one correct option
 - ✅ Wrong options are plausible
-- ✅ Explanation is concise
+- ✅ Explanation is concise (2-3 sentences)
 - ✅ Difficulty assigned appropriately
-- ✅ Category mapped correctly
-- ✅ Tags are relevant
-- ✅ Source reference included
+- ✅ 4-6 relevant tags included
+- ✅ Source field notes the question reference
+- ✅ No HTML tags in output (clean text)
 
-## Skip Criteria
+## Special Handling
 
-Skip generating quiz for source questions that:
-- ❌ Have no clear ruling (purely informational)
-- ❌ Are about specific people/dates (too specific)
-- ❌ Have controversial answers with no clear majority
-- ❌ Are too complex to simplify to multiple choice
-- ❌ Contain inappropriate content for quiz format
+### Controversial Topics
+If the answer mentions scholarly disagreement:
+- Note the **majority view** as correct
+- Mention the **minority view** in explanation
+- Tag with "scholarly-difference"
+- Consider difficulty: hard
 
-If skipping, note in `processingNotes` field.
+### Multiple Rulings in One Answer
+If one answer covers multiple rulings:
+- **Generate one quiz question per major ruling**
+- Focus on the primary/most important ruling
+- Can generate 2-3 questions from complex answers
+
+### Technical Islamic Terms
+- Keep Arabic terms in parentheses: "obligatory (fard)"
+- Define briefly if needed: "haram (forbidden)"
+- Use English in options when possible
+- Explain in tags if very specialized
+
+### HTML in Answers
+- Strip all HTML tags before reading
+- Convert to plain text
+- Preserve meaning and structure
+- Example: `<p>Text</p>` → `Text`
 
 ## Example Workflow
 
-**Input:**
+### Input:
 ```json
 {
-  "id": 5011,
-  "question": "Ruling on music",
-  "answers": "<p>Music is haram according to majority of scholars based on authentic hadiths. However, some scholars permit Islamic nasheeds without instruments.</p>"
+  "reference": 106245,
+  "title": "Ruling on repurchasing a gift",
+  "question": "What is the Islamic ruling on someone repurchasing a gift they previously gave?",
+  "answer": "<p>The Prophet forbade this, comparing it to a dog returning to its own vomit...</p>",
+  "primary_category": 145,
+  "tags": ["gifts", "transactions"]
 }
 ```
 
-**Output:**
+### Output:
 ```json
 {
-  "id": "quiz-5011",
-  "questionText": "What is the ruling on listening to music according to the majority of scholars?",
+  "reference": 106245,
+  "questionText": "What is the Islamic ruling on someone repurchasing a gift they previously gave?",
   "type": "multiple-choice",
   "difficulty": "medium",
   "options": [
-    {"id": "a", "text": "It is haram (forbidden)", "isCorrect": true},
-    {"id": "b", "text": "It is halal without restrictions", "isCorrect": false},
-    {"id": "c", "text": "It is makruh (disliked)", "isCorrect": false},
-    {"id": "d", "text": "It is permissible with conditions", "isCorrect": false}
+    {
+      "id": "a",
+      "text": "It is forbidden based on a hadith from the Prophet",
+      "isCorrect": true
+    },
+    {
+      "id": "b",
+      "text": "It is permissible if both parties agree",
+      "isCorrect": false
+    },
+    {
+      "id": "c",
+      "text": "It is makruh (disliked) but permissible",
+      "isCorrect": false
+    },
+    {
+      "id": "d",
+      "text": "The ruling depends on the value of the gift",
+      "isCorrect": false
+    }
   ],
-  "explanation": "The majority of scholars rule music as haram based on authentic hadiths. A minority permits Islamic nasheeds without musical instruments.",
-  "tags": ["music", "haram", "entertainment", "scholarly-difference"]
+  "explanation": "The Prophet (peace be upon him) explicitly forbade someone from repurchasing a gift they had given, comparing such a person to a dog returning to its own vomit. This hadith establishes the prohibition clearly.",
+  "tags": ["gifts", "transactions", "haram", "hadith"],
+  "source": "IslamQA reference 106245"
 }
 ```
 
-## Batch Processing Instructions
+## Skip Criteria
 
-When I provide you with source questions:
+Skip generating quiz for questions that:
+- ❌ Have no clear ruling (purely informational/background)
+- ❌ Are extremely specific to individuals/dates
+- ❌ Have contradictory information with no resolution
+- ❌ Are too complex to simplify to multiple choice
+- ❌ Contain inappropriate content for quiz format
+- ❌ Are incomplete or unclear
 
-1. **Analyze each question and answer**
-2. **Generate 1 quiz question per source** (unless answer is very long, then 2-3)
+If skipping, note in `metadata.notes` field.
+
+## Important Notes
+
+### For Database Integration:
+- **Reference ID must match exactly** - this is the foreign key to the question
+- Output can be directly imported into `quiz_enhancements` table
+- Each enhancement supplements a question in the database
+- Non-enhanced questions will use dynamic generation as fallback
+
+### Quality Matters:
+- These enhancements will be used by thousands of users
+- Take time to create quality options
+- Test questions mentally - can they be answered from the answer text?
+- Invalid JSON will fail merge
+
+### Generation Tips:
+- Read the full answer before creating options
+- Generate 4 plausible options from the answer content
+- Make options distinct but all reasonable
+- Balance difficulty across the batch
+- Vary question types (not all "What is the ruling on...")
+
+## Batch Processing
+
+When I provide source questions:
+
+1. **Process each question** independently
+2. **Generate 1 enhancement per source** (unless very long answer → 2-3)
 3. **Maintain diversity** in question types
-4. **Balance difficulty** across the batch
-5. **Note any skipped questions** in metadata
-6. **Output valid JSON** ready to merge
+4. **Balance difficulty** (35% easy, 45% medium, 20% hard)
+5. **Note any skipped** questions in metadata
+6. **Output valid JSON** ready for merge
+
+---
 
 ## Ready to Generate
 
-I will now provide you with the source questions. Please generate quiz questions following the format and rules above.
+Please generate enhancements for the source questions below.
+
+Remember:
+- ✅ Match reference IDs exactly
+- ✅ Create 4 professional multiple-choice options
+- ✅ Clear, unambiguous correct answers
+- ✅ 2-3 sentence explanations
+- ✅ Valid JSON output
 
 ---
 
 ## Source Questions to Process:
 
-[PASTE SOURCE QUESTIONS JSON HERE]
+[PASTE SOURCE QUESTIONS BATCH HERE]
