@@ -62,12 +62,25 @@ class DataLoaderService {
       const questionsData = await this.loadQuestions()
       if (questionsData && questionsData.length > 0) {
         await dexieDb.importQuestions(questionsData)
-        this.progress = 90
-        if (onProgress) onProgress({ step: `Questions imported (${questionsData.length} total)`, progress: 90 })
+        this.progress = 80
+        if (onProgress) onProgress({ step: `Questions imported (${questionsData.length} total)`, progress: 80 })
       }
 
       // Note: Answers are now embedded in questions.answer field
       // No separate import needed!
+
+      // Step 3: Load and import quiz enhancements (LLM-generated quiz options)
+      this.currentStep = 'Loading quiz enhancements...'
+      if (onProgress) onProgress({ step: this.currentStep, progress: 85 })
+
+      const enhancementsData = await this.loadEnhancements()
+      if (enhancementsData && enhancementsData.length > 0) {
+        await dexieDb.bulkImportEnhancements(enhancementsData)
+        this.progress = 95
+        if (onProgress) onProgress({ step: `Quiz enhancements imported (${enhancementsData.length} total)`, progress: 95 })
+      } else {
+        if (onProgress) onProgress({ step: 'No quiz enhancements available yet', progress: 95 })
+      }
 
       // Mark as imported
       await dexieDb.markAsImported()
@@ -127,6 +140,29 @@ class DataLoaderService {
       return data
     } catch (error) {
       console.error('Failed to load questions:', error)
+      return []
+    }
+  }
+
+  /**
+   * Load quiz enhancements from JSON file
+   * NEW: V2.0 - Loads LLM-generated quiz options for high-quality quizzes
+   * NOTE: Enhancements are optional - quizzes work without them but are enhanced with them
+   */
+  async loadEnhancements() {
+    try {
+      const basePath = this.getDataPath()
+      const response = await fetch(`${basePath}/enhancements.json`)
+      if (!response.ok) {
+        // Enhancements are optional, so it's okay if the file doesn't exist
+        console.warn(`⚠️  Enhancements file not found (HTTP ${response.status})`)
+        return []
+      }
+      const data = await response.json()
+      console.log(`🎯 Loaded ${data.length} quiz enhancements from enhancements.json`)
+      return data
+    } catch (error) {
+      console.warn('⚠️  Failed to load enhancements (optional):', error.message)
       return []
     }
   }
