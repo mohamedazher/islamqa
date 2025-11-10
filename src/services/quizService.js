@@ -35,7 +35,7 @@ class QuizService {
       const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
 
       if (quizQuestions.length === 0) {
-        throw new Error('No enhanced questions available for daily quiz. Please generate enhancements via Claude.')
+        throw new Error('No quiz questions available for daily quiz. Please generate quiz questions first.')
       }
 
       return {
@@ -79,7 +79,7 @@ class QuizService {
       const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
 
       if (quizQuestions.length === 0) {
-        throw new Error('No enhanced questions available for rapid-fire quiz. Please generate enhancements via Claude.')
+        throw new Error('No quiz questions available for rapid-fire quiz. Please generate quiz questions first.')
       }
 
       return {
@@ -122,7 +122,7 @@ class QuizService {
       const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
 
       if (quizQuestions.length === 0) {
-        throw new Error(`No enhanced questions available for this category. Please generate enhancements via Claude.`)
+        throw new Error(`No quiz questions available for this category. Please generate quiz questions first.`)
       }
 
       return {
@@ -170,7 +170,7 @@ class QuizService {
       const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
 
       if (quizQuestions.length === 0) {
-        throw new Error('No enhanced questions available. Please generate enhancements via Claude.')
+        throw new Error('No quiz questions available. Please generate quiz questions first.')
       }
 
       return {
@@ -208,7 +208,7 @@ class QuizService {
       const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
 
       if (quizQuestions.length === 0) {
-        throw new Error('No enhanced questions available for challenge quiz. Please generate enhancements via Claude.')
+        throw new Error('No quiz questions available for challenge quiz. Please generate quiz questions first.')
       }
 
       return {
@@ -325,32 +325,32 @@ class QuizService {
 
   /**
    * Transform a database question into a quiz question with LLM-generated multiple choice options
-   * ONLY loads from quiz_enhancements table (LLM-generated)
-   * Returns null if enhancement doesn't exist
+   * ONLY loads from quiz_questions table (LLM-generated)
+   * Returns null if quiz question doesn't exist
    */
   async transformToQuizQuestion(question) {
-    // Load LLM-enhanced options from database
-    const enhancement = await this.db.getQuizEnhancement(question.reference)
+    // Load LLM-generated quiz question from database
+    const quizQuestion = await this.db.getQuizQuestion(question.reference)
 
-    if (!enhancement) {
-      console.log(`⚠️  Question ${question.reference} not enhanced (skipping)`)
-      return null  // Question not enhanced, skip it
+    if (!quizQuestion) {
+      console.log(`⚠️  Question ${question.reference} not generated yet (skipping)`)
+      return null  // Quiz question not generated, skip it
     }
 
-    console.log(`📚 Loading enhanced question ${question.reference}`)
+    console.log(`📚 Loading quiz question ${question.reference}`)
     return {
       reference: question.reference,
-      questionText: enhancement.questionText,
+      questionText: quizQuestion.questionText,
       question: question.question,
       answer: question.answer,
-      explanation: enhancement.explanation,
+      explanation: quizQuestion.explanation,
       primaryCategory: question.primary_category,
       categories: question.categories,
-      options: enhancement.options,
-      correctOptionId: enhancement.options.findIndex(opt => opt.isCorrect),
-      points: enhancement.points || 10,
-      tags: enhancement.tags,
-      difficulty: enhancement.difficulty
+      options: quizQuestion.options,
+      correctOptionId: quizQuestion.options.findIndex(opt => opt.isCorrect),
+      points: quizQuestion.points || 10,
+      tags: quizQuestion.tags,
+      difficulty: quizQuestion.difficulty
     }
   }
 
