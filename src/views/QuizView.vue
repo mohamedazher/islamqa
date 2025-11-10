@@ -106,17 +106,17 @@
               <div v-else class="space-y-2">
                 <button
                   v-for="category in availableCategories"
-                  :key="category"
+                  :key="category.reference"
                   @click="toggleCategory(category)"
                   :class="[
                     'w-full px-3 py-2 rounded-lg text-sm text-left transition flex items-center justify-between',
-                    selectedCategories.includes(category)
+                    selectedCategories.some(c => c.reference === category.reference)
                       ? 'bg-primary-50 dark:bg-primary-950/30 border-2 border-primary-600 dark:border-primary-700 text-primary-900 dark:text-primary-100'
                       : 'bg-neutral-50 dark:bg-neutral-800 border-2 border-transparent text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700'
                   ]"
                 >
-                  <span>{{ category }}</span>
-                  <Icon v-if="selectedCategories.includes(category)" name="check" size="xs" class="text-primary-600 dark:text-primary-400" />
+                  <span>{{ category.title }}</span>
+                  <Icon v-if="selectedCategories.some(c => c.reference === category.reference)" name="check" size="xs" class="text-primary-600 dark:text-primary-400" />
                 </button>
               </div>
             </div>
@@ -316,10 +316,10 @@
               {{ currentQuestion.explanation }}
             </p>
 
-            <!-- Link to Full Question (if sourceQuestionId exists) -->
+            <!-- Link to Full Question (using reference ID) -->
             <button
-              v-if="currentQuestion.sourceQuestionId"
-              @click="viewFullQuestion(currentQuestion.sourceQuestionId)"
+              v-if="currentQuestion.reference"
+              @click="viewFullQuestion(currentQuestion.reference)"
               class="mt-3 text-sm font-semibold text-primary-700 dark:text-primary-300 hover:underline flex items-center gap-1"
             >
               <Icon name="book" size="xs" />
@@ -501,9 +501,8 @@ function closeFirstTimeGuide() {
 // Customization modal management
 function openCustomization(mode) {
   console.log('🎨 Opening customization modal:', mode)
-  console.log('  - Available categories:', availableCategories.value)
-  console.log('  - Quiz service loaded:', quizService.value?.loaded)
-  console.log('  - Pre-generated quizzes count:', quizService.value?.preGeneratedQuizzes?.length)
+  console.log('  - Available categories:', availableCategories.value.map(c => `${c.reference}: ${c.title}`))
+  console.log('  - Quiz service ready:', quizService.value !== null)
 
   customizationMode.value = mode
 
@@ -518,8 +517,7 @@ function openCustomization(mode) {
   selectedCategories.value = [...availableCategories.value]
   selectedDifficulty.value = 'all'
 
-  console.log('  - Selected categories after reset:', selectedCategories.value)
-  console.log('  - Modal will show:', showCustomizationModal.value)
+  console.log('  - Selected categories after reset:', selectedCategories.value.map(c => `${c.reference}: ${c.title}`))
 
   showCustomizationModal.value = true
 }
@@ -529,7 +527,7 @@ function closeCustomizationModal() {
 }
 
 function toggleCategory(category) {
-  const index = selectedCategories.value.indexOf(category)
+  const index = selectedCategories.value.findIndex(c => c.reference === category.reference)
   if (index > -1) {
     selectedCategories.value.splice(index, 1)
   } else {
@@ -545,50 +543,68 @@ function toggleAllCategories() {
   }
 }
 
-function startCustomQuiz() {
+async function startCustomQuiz() {
   if (selectedCategories.value.length === 0) {
     return
   }
 
-  if (customizationMode.value === 'rapid-fire') {
-    currentQuiz.value = quizService.value.getRapidFireQuiz({
-      categories: selectedCategories.value,
-      difficulty: selectedDifficulty.value
-    })
-  } else {
-    currentQuiz.value = quizService.value.getCustomQuiz({
-      categories: selectedCategories.value,
-      difficulty: selectedDifficulty.value,
-      count: questionCount.value,
-      mode: 'custom'
-    })
+  try {
+    // Extract category references from selected categories
+    const categoryReferences = selectedCategories.value.map(cat => cat.reference)
+
+    if (customizationMode.value === 'rapid-fire') {
+      currentQuiz.value = await quizService.value.getRapidFireQuiz({
+        categories: categoryReferences,
+        difficulty: selectedDifficulty.value
+      })
+    } else {
+      currentQuiz.value = await quizService.value.getCustomQuiz({
+        categories: categoryReferences,
+        difficulty: selectedDifficulty.value,
+        count: questionCount.value,
+        mode: 'custom'
+      })
+    }
+
+    currentQuestionIndex.value = 0
+    selectedAnswer.value = null
+    answered.value = false
+    userAnswers.value = []
+    quizStartTime.value = Date.now() // Track start time
+    showCustomizationModal.value = false
+  } catch (error) {
+    console.error('Error starting custom quiz:', error)
+    alert('Failed to load custom quiz. Please try again.')
   }
-
-  currentQuestionIndex.value = 0
-  selectedAnswer.value = null
-  answered.value = false
-  userAnswers.value = []
-  quizStartTime.value = Date.now() // Track start time
-  showCustomizationModal.value = false
 }
 
-// Quiz Mode Starters
-function startDailyQuiz() {
-  currentQuiz.value = quizService.value.getDailyQuiz()
-  currentQuestionIndex.value = 0
-  selectedAnswer.value = null
-  answered.value = false
-  userAnswers.value = [] // Reset answers array
-  quizStartTime.value = Date.now() // Track start time
+// Quiz Mode Starters (now async with database)
+async function startDailyQuiz() {
+  try {
+    currentQuiz.value = await quizService.value.getDailyQuiz()
+    currentQuestionIndex.value = 0
+    selectedAnswer.value = null
+    answered.value = false
+    userAnswers.value = [] // Reset answers array
+    quizStartTime.value = Date.now() // Track start time
+  } catch (error) {
+    console.error('Error starting daily quiz:', error)
+    alert('Failed to load daily quiz. Please try again.')
+  }
 }
 
-function startChallengeQuiz() {
-  currentQuiz.value = quizService.value.getChallengeQuiz()
-  currentQuestionIndex.value = 0
-  selectedAnswer.value = null
-  answered.value = false
-  userAnswers.value = [] // Reset answers array
-  quizStartTime.value = Date.now() // Track start time
+async function startChallengeQuiz() {
+  try {
+    currentQuiz.value = await quizService.value.getChallengeQuiz()
+    currentQuestionIndex.value = 0
+    selectedAnswer.value = null
+    answered.value = false
+    userAnswers.value = [] // Reset answers array
+    quizStartTime.value = Date.now() // Track start time
+  } catch (error) {
+    console.error('Error starting challenge quiz:', error)
+    alert('Failed to load challenge quiz. Please try again.')
+  }
 }
 
 function selectAnswer(optionIndex) {
@@ -679,7 +695,7 @@ function viewFullQuestion(questionId) {
 // Initialize
 onMounted(async () => {
   try {
-    console.log('🎯 Initializing Quiz View...')
+    console.log('🎯 Initializing Quiz View (new database-driven system)...')
 
     // Initialize gamification
     gamification.initializeFromStorage()
@@ -693,24 +709,19 @@ onMounted(async () => {
       // Don't block quiz if leaderboard fails
     }
 
-    // Load all questions from database (for reference only)
-    const questions = await dataStore.getAllQuestions()
-    console.log(`  📚 Database has ${questions.length} questions (not used for quizzes)`)
+    // Initialize quiz service (now uses database instead of pre-generated JSON)
+    quizService.value = new QuizService()
+    console.log('  ✅ Quiz service initialized (using database)')
 
-    // Initialize quiz service
-    quizService.value = new QuizService(questions)
-
-    // Load pre-generated high-quality quizzes (REQUIRED - no fallback)
-    console.log('  🔄 Loading pre-generated quizzes...')
-    await quizService.value.loadPreGeneratedQuizzes()
-
-    // Get available categories from loaded quizzes
-    availableCategories.value = quizService.value.getAvailableCategories()
+    // Load available categories from database
+    console.log('  🔄 Loading available categories from database...')
+    const categories = await quizService.value.getAvailableCategories()
+    availableCategories.value = categories || []
     selectedCategories.value = [...availableCategories.value] // Select all by default
 
-    console.log('  ✅ Quiz service ready')
-    console.log('  - Pre-generated quizzes:', quizService.value.preGeneratedQuizzes.length)
-    console.log('  - Available categories:', availableCategories.value)
+    console.log('  ✅ Quiz view ready')
+    console.log(`  - Available categories: ${availableCategories.value.length}`)
+    console.log('  - Categories:', availableCategories.value.map(c => `${c.reference}: ${c.title}`).join(', '))
 
     // Check if first-time user
     checkFirstTimeUser()
@@ -718,7 +729,7 @@ onMounted(async () => {
     console.log('🎯 Quiz view initialized successfully!')
   } catch (error) {
     console.error('❌ FATAL ERROR initializing quiz view:', error)
-    alert(`Failed to load quiz questions: ${error.message}\n\nPlease check the console for details.`)
+    alert(`Failed to initialize quiz: ${error.message}\n\nPlease check the console for details.`)
   }
 })
 </script>
