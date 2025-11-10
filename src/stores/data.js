@@ -20,6 +20,28 @@ export const useDataStore = defineStore('data', () => {
       if (hasData) {
         const stats = await dexieDb.getStats()
         console.log('✅ Data store initialized:', stats)
+
+        // Check if enhancements need to be imported (auto-import on startup)
+        const enhancementStats = await dexieDb.getEnhancementStats()
+        if (enhancementStats.enhanced === 0) {
+          console.log('⚠️  No quiz enhancements found, attempting to import...')
+          try {
+            // Dynamically import dataLoader to avoid circular dependencies
+            const { default: dataLoader } = await import('@/services/dataLoader')
+            const enhancementsData = await dataLoader.loadEnhancements()
+
+            if (enhancementsData && enhancementsData.length > 0) {
+              await dexieDb.bulkImportEnhancements(enhancementsData)
+              console.log(`✅ Auto-imported ${enhancementsData.length} quiz enhancements`)
+            } else {
+              console.log('ℹ️  No enhancements file available yet')
+            }
+          } catch (enhError) {
+            console.warn('⚠️  Could not auto-import enhancements:', enhError.message)
+          }
+        } else {
+          console.log(`✅ Quiz enhancements available: ${enhancementStats.enhanced} questions (${enhancementStats.percentage}%)`)
+        }
       } else {
         console.log('⚠️  Database is empty, need to import data')
       }

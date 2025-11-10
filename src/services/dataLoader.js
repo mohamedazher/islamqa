@@ -37,7 +37,24 @@ class DataLoaderService {
       const isImported = await dexieDb.isImported()
       if (isImported) {
         console.log('✅ Data already imported')
-        if (onProgress) onProgress({ step: 'Data already loaded', progress: 100 })
+
+        // Check if enhancements need to be imported (added in v2.0)
+        const enhancementStats = await dexieDb.getEnhancementStats()
+        if (enhancementStats.enhanced === 0) {
+          console.log('⚠️  No enhancements found, importing...')
+          if (onProgress) onProgress({ step: 'Importing quiz enhancements...', progress: 50 })
+
+          const enhancementsData = await this.loadEnhancements()
+          if (enhancementsData && enhancementsData.length > 0) {
+            await dexieDb.bulkImportEnhancements(enhancementsData)
+            console.log(`✅ Imported ${enhancementsData.length} quiz enhancements`)
+            if (onProgress) onProgress({ step: `Quiz enhancements imported (${enhancementsData.length} total)`, progress: 100 })
+          }
+        } else {
+          console.log(`✅ Enhancements already imported (${enhancementStats.enhanced} questions)`)
+          if (onProgress) onProgress({ step: 'Data already loaded', progress: 100 })
+        }
+
         return true
       }
 
