@@ -1,3526 +1,1702 @@
 [
   {
-    "reference": 22762,
-    "questionText": "Teacher accepting a gift from the students?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": true
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Gifts and Presents",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 22762"
-  },
-  {
-    "reference": 97786,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
+    "reference": 233663,
+    "questionText": "Do saline solutions administered intravenously break the fast during Ramadan?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Calling Muslims to Islam",
-      "Character and Morals",
-      "Rulings on Dress",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 97786"
-  },
-  {
-    "reference": 36760,
-    "questionText": "Ruling on shaking hands with one’s mother’s maternal aunt?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Manners of Greeting with Salam",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 36760"
-  },
-  {
-    "reference": 12687,
-    "questionText": "He suffered a nosebleed whilst fasting?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Yes, because they contain nutrients and salts that benefit the body",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "No, because they are only for medicinal purposes",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only if they contain glucose",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "No, unless given during daylight hours",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Saline solutions administered intravenously do invalidate the fast because they contain salts and fluids that enter the stomach and benefit the body, coming under the heading of nutrients. However, non-nutritional injections that only relieve pain or lower temperature do not break the fast.",
     "tags": [
-      "Things which invalidate the fast",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 12687"
+      "fasting",
+      "Ramadan",
+      "medical-treatment",
+      "haram"
+    ]
   },
   {
-    "reference": 97098,
-    "questionText": "What Happens If You Die in a State of Janabah??",
-    "type": "multiple-choice",
+    "reference": 110461,
+    "questionText": "What is the Islamic ruling on feeding birds in graveyards as charity on behalf of deceased relatives?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "It is permissible and counts as charity, but giving to poor Muslims is better",
         "isCorrect": true
       },
       {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Funerals and rulings on graves",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 97098"
-  },
-  {
-    "reference": 49676,
-    "questionText": "He is asking about selling pictures and statues?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "It is forbidden (haram) as an innovation",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
+        "text": "It is only permissible on Fridays",
+        "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "The reward does not reach the deceased",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Feeding birds and animals is charity for which reward is given, as stated in authentic hadith. However, it is better and more beneficial to give charity to poor and needy Muslims. Singling out Friday for this practice is an innovation (bid'ah).",
     "tags": [
-      "Forbidden Transactions",
-      "Shirk and its different forms",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 49676"
+      "charity",
+      "deceased",
+      "innovation",
+      "sunnah"
+    ]
   },
   {
-    "reference": 26270,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
+    "reference": 20130,
+    "questionText": "According to Islamic teachings, what is the proper approach to dealing with excessive worry and anxiety?",
     "difficulty": "easy",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Focus on present concerns and trust in Allah's decree through prayer and consultation",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Completely stop thinking about any problems",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Worry extensively about the future to be prepared",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Only consult religious scholars, not family members",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Islam encourages thoughtful reflection but advises against excessive worry. The proper approach is to focus on present matters, categorize concerns by importance, use istikhaarah (prayer for guidance), consult trusted people, and trust in Allah's wisdom while avoiding dwelling on the unchangeable past or unknown future.",
     "tags": [
-      "Times of Prayers",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 26270"
+      "mental-health",
+      "anxiety",
+      "prayer",
+      "trust-in-Allah"
+    ]
   },
   {
-    "reference": 129976,
-    "questionText": "Delegating someone to buy something using a credit card?",
-    "type": "multiple-choice",
+    "reference": 82029,
+    "questionText": "Is purity (wudu) required for standing at Arafah during Hajj?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "No, purity is not a condition for standing at Arafah, though it is recommended",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Yes, wudu is obligatory for standing at Arafah",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only women need wudu for Arafah",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Wudu is only required if you will make dua",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Scholars unanimously agree that purity is not a condition for standing at Arafah. Even menstruating women and those in a state of major impurity can validly perform this essential pillar of Hajj. However, it is recommended (mustahabb) to be in a state of purity when remembering Allah.",
+    "tags": [
+      "Hajj",
+      "pilgrimage",
+      "wudu",
+      "Arafah"
+    ]
+  },
+  {
+    "reference": 27180,
+    "questionText": "What is the primary purpose of jihad in Islam according to Islamic teachings?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "To remove obstacles that prevent people from freely hearing and accepting Islam",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "To force all non-Muslims to convert to Islam",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "To conquer land and expand territory",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "To eliminate all non-believers regardless of their actions",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "The purpose of jihad is to bring people from the worship of created beings to the worship of Allah alone, and to remove political and military powers that prevent people from freely listening to and accepting Islam. Those who do not fight Muslims—such as women, children, monks, and the elderly—are not to be killed according to the majority of scholars.",
+    "tags": [
+      "jihad",
+      "Islamic-law",
+      "da'wah",
+      "warfare"
+    ]
+  },
+  {
+    "reference": 69807,
+    "questionText": "Is it prescribed in Islam to send salaams to the Prophet (peace be upon him) through people traveling to Madinah?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "No, it is an innovation; salaams reach the Prophet through angels wherever you are",
         "isCorrect": true
       },
       {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Credit Cards",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 129976"
-  },
-  {
-    "reference": 88184,
-    "questionText": "Ruling on studying philosophy?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Yes, it is recommended to send salaams with pilgrims",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
+        "text": "Only if the traveler is a scholar",
+        "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Yes, but only from immediate family members",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "This practice is not prescribed in Islam and was not done by the righteous early generations. Allah has appointed angels who convey salaams to the Prophet from anywhere on earth, so sending salaams through travelers is unnecessary and considered an innovation (bid'ah).",
     "tags": [
-      "Knowledge",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 88184"
+      "Prophet",
+      "sunnah",
+      "innovation",
+      "bid'ah"
+    ]
   },
   {
-    "reference": 105322,
-    "questionText": "Quoting a verse of Qur’aan as a proverb?",
-    "type": "multiple-choice",
+    "reference": 104805,
+    "questionText": "Is a stepfather considered a mahram for his stepdaughter in Islam?",
     "difficulty": "easy",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Yes, if he has consummated the marriage with her mother",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "No, a stepfather is never a mahram",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only if she was under his care before age 7",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Yes, but only after 5 years of marriage",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "If a man marries a woman and consummates the marriage with her, his stepdaughters become permanently forbidden to him in marriage and are considered mahrams. This is based on Quran 4:23 which mentions stepdaughters under guardianship of wives unto whom the husband has gone in.",
     "tags": [
-      "The Quran and its Sciences",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 105322"
+      "mahram",
+      "family-law",
+      "marriage",
+      "hijab"
+    ]
   },
   {
-    "reference": 41811,
-    "questionText": "Meaning of the hadeeth: “Whoever performs Hajj and does not commit any obscenity …”?",
-    "type": "multiple-choice",
+    "reference": 37990,
+    "questionText": "What should a person do if they forgot to pay zakat al-fitr before Eid?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "They must make it up immediately, with no sin since they forgot",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "It cannot be made up and is forever missed",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "They are sinful and must make major repentance",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "They should pay double the amount as compensation",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "If someone forgets to pay zakat al-fitr on time, there is no sin upon them due to forgetfulness, but they must still make it up as it remains an obligation. Zakat al-fitr is like prayer—an act of worship that must be performed even if delayed beyond its proper time.",
+    "tags": [
+      "zakat-al-fitr",
+      "Ramadan",
+      "charity",
+      "obligatory"
+    ]
+  },
+  {
+    "reference": 1419,
+    "questionText": "Is it permissible for an imam to read from a Mushaf (physical Quran) while leading prayer?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, there is nothing wrong with it, though reciting from memory is better",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "No, it invalidates the prayer",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only during Taraweeh prayers",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Only if no one in the congregation has memorized Quran",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Al-Bukhari narrated that Aaishah was led in prayer by her slave Dhakwaan while he was holding the Mushaf. If the imam recites from memory, this is better, but reading from the Mushaf is permissible and there is nothing wrong with it.",
+    "tags": [
+      "prayer",
+      "imam",
+      "Quran",
+      "permissible"
+    ]
+  },
+  {
+    "reference": 88130,
+    "questionText": "Is reciting al-Fatihah at the time of engagement or marriage contract part of the Sunnah?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "No, it is an innovation; the Sunnah is to recite Khutbat al-Hajah",
         "isCorrect": true
       },
       {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Issues of Pilgrimage",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 41811"
-  },
-  {
-    "reference": 32993,
-    "questionText": "Can Women Pray While Wearing Pants??",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Yes, it is required for the marriage contract to be valid",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
+        "text": "Yes, but only at engagement, not the marriage contract",
+        "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "It is optional but recommended",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Reciting al-Fatihah at engagement or marriage contract is an innovation (bid'ah) with no basis in Sunnah. The authentic Sunnah is to recite Khutbat al-Hajah (the sermon of need) as taught by the Prophet, which includes specific verses and supplications.",
     "tags": [
-      "Conditions for Prayer",
-      "Rulings on Dress",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 32993"
+      "marriage",
+      "engagement",
+      "sunnah",
+      "bid'ah"
+    ]
   },
   {
-    "reference": 103439,
-    "questionText": "Is it permissible for men to listen to the nasheed of women??",
-    "type": "multiple-choice",
+    "reference": 188050,
+    "questionText": "Which of the following is the most serious sin in Islam?",
     "difficulty": "easy",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Major shirk (associating partners with Allah)",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Major sins like murder",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Minor shirk like showing off",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Innovations in religion",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Major shirk is the most serious of all sins. It renders all good deeds null and void, and Allah does not forgive it unless one repents. When the Prophet was asked what sin is most grievous before Allah, he replied: \"Attributing an equal to Allah when He has created you.\"",
     "tags": [
-      "Condemnation of Singing and Musical Instruments",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 103439"
+      "shirk",
+      "sins",
+      "tawheed",
+      "creed"
+    ]
   },
   {
-    "reference": 45152,
-    "questionText": "Is it permissible to sacrifice a hermaphrodite animal??",
-    "type": "multiple-choice",
+    "reference": 119655,
+    "questionText": "If a father lets his married son live in an apartment for free because he needs it, must he give equivalent gifts to his unmarried children?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "No, because meeting a child's specific need is not the same as giving a gift",
         "isCorrect": true
       },
       {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Sacrifices",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 45152"
-  },
-  {
-    "reference": 22404,
-    "questionText": "Ruling on selling magazines in which there are haraam adverts and half-naked pictures?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Yes, he must give cash equivalent to all other children immediately",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
+        "text": "Yes, but only to the male children",
+        "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Only if the son lives there more than one year",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "There is a difference between maintenance (meeting needs) and gifts (extras). If a son needs accommodation and the father lets him use an apartment without giving ownership, this is meeting a need, not giving a gift. The father is not required to give equivalent to others. However, if giving ownership as a gift, fairness is required.",
     "tags": [
-      "Forbidden Transactions",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 22404"
+      "family",
+      "gifts",
+      "inheritance",
+      "fairness"
+    ]
   },
   {
-    "reference": 106436,
-    "questionText": "She has received a proposal from a young man who smokes – should she agree to marry him??",
-    "type": "multiple-choice",
+    "reference": 178636,
+    "questionText": "What does Islam teach about the use of water during wudu?",
     "difficulty": "easy",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Be moderate and economical, avoiding both extravagance and insufficiency",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Use as much water as possible for maximum cleanliness",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Use minimal water even if not properly cleaned",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Water usage in wudu is unrestricted",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Islam enjoins moderation in all things, including wudu. One should use sufficient water to properly cleanse oneself without being extravagant or wasteful. Going to extremes by using excessive water or washing body parts more than three times is considered innovation and wastefulness.",
     "tags": [
-      "Engagment",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 106436"
+      "wudu",
+      "water",
+      "moderation",
+      "environment"
+    ]
   },
   {
-    "reference": 98821,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
+    "reference": 69854,
+    "questionText": "What should a woman do if she is having serious disagreements with her fiancé before marriage?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Pray istikhaarah, consult righteous family members, and assess his religious commitment",
         "isCorrect": true
       },
       {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Da'eef (weak) hadiths",
-      "Supplication",
-      "Supplications prescribed in Shareeah",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 98821"
-  },
-  {
-    "reference": 85098,
-    "questionText": "She has some money and her father does not spend on her; does she have to pay zakaah on it??",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Immediately break the engagement without consultation",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
+        "text": "Proceed with marriage regardless, trusting it will improve",
+        "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Wait for fate to decide the outcome",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "The woman should seek Allah's guidance through istikhaarah and consult righteous people who know about the man's character. Most importantly, she should assess his religious commitment and prayer observance. If he is religiously committed, minor differences can be resolved, but if he is careless about religion, separation now is better than later.",
     "tags": [
-      "Conditions for Zakah Being Obligatory",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 85098"
+      "marriage",
+      "engagement",
+      "istikhaarah",
+      "guidance"
+    ]
   },
   {
-    "reference": 124194,
-    "questionText": "Non-traveller praying behind a imam who is a traveller?",
-    "type": "multiple-choice",
+    "reference": 20096,
+    "questionText": "What is recommended for university students to do during summer break from an Islamic perspective?",
     "difficulty": "easy",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Seek Islamic knowledge, maintain family ties, and engage in da'wah",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Focus only on recreation and entertainment",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Travel to non-Muslim countries for cultural exposure",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Spend the entire break in worship and isolation",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Islamic advice for students during breaks includes making up for Islamic knowledge lacking during the year, upholding ties of kinship with family, calling relatives and neighbors to Islam, keeping company with righteous people, and avoiding haram activities like traveling to places of immorality or watching prohibited content.",
     "tags": [
-      "Congregational Prayer",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 124194"
+      "students",
+      "education",
+      "da'wah",
+      "family-ties"
+    ]
   },
   {
-    "reference": 114030,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
+    "reference": 102711,
+    "questionText": "What is the ruling on praying behind an imam who claims to read palms and coffee cups?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is not permissible; such practices constitute major disbelief",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "It is permissible if he prays the prayer correctly",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "It is makruh (disliked) but the prayer is valid",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Only permissible if no other imam is available",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Claiming to read palms or predict the future through coffee cups involves claiming knowledge of the unseen, which contradicts Islamic monotheism and constitutes major kufr (disbelief). The Prophet warned that believing such claims is disbelief in what was revealed to Muhammad. One should not pray behind such a person.",
+    "tags": [
+      "prayer",
+      "imam",
+      "fortune-telling",
+      "kufr"
+    ]
+  },
+  {
+    "reference": 67921,
+    "questionText": "Is the son of a husband's daughter (step-grandson) a mahram for the wife?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "No, he is not a mahram and she must observe hijab before him",
         "isCorrect": true
       },
       {
+        "id": "b",
+        "text": "Yes, he is a mahram through marriage",
+        "isCorrect": false
+      },
+      {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only if she has raised him since childhood",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "He becomes mahram after living in the house for one year",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "The son of a husband's daughter from a previous marriage is not a mahram for the wife. While the husband's daughter is forbidden to the wife's sons, and the wife's daughter is forbidden to the husband, the descendants of these stepchildren are not mahrams. The wife must observe proper hijab before him.",
     "tags": [
-      "Bad behaviour",
-      "Removing Impurity",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 114030"
+      "mahram",
+      "hijab",
+      "family-law",
+      "marriage"
+    ]
   },
   {
-    "reference": 125543,
-    "questionText": "What Are the Signs of the Evil Eye and Jinn Possession??",
-    "type": "multiple-choice",
+    "reference": 12932,
+    "questionText": "What is the Islamic scholarly position on Shaykh Ibn Abd al-Wahhab's reform movement?",
     "difficulty": "hard",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
+        "text": "He revived authentic Islamic teachings of Tawheed and opposed innovations",
+        "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "He created a new sect separate from mainstream Islam",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
+        "text": "He claimed to be a new prophet",
+        "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "He opposed all four schools of Islamic jurisprudence",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Shaykh Muhammad ibn Abd al-Wahhab called people back to pure Islamic monotheism (Tawheed) and opposed innovations, grave worship, and superstitions that had crept into Islamic practice. He did not create a new sect but revived the teachings of the Quran, Sunnah, and early righteous generations. His enemies falsely attributed various claims to him.",
     "tags": [
-      "Belief in the Jinn, witchcraft and the evil eye",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 125543"
+      "Islamic-history",
+      "scholars",
+      "Tawheed",
+      "reform"
+    ]
   },
   {
-    "reference": 11213,
-    "questionText": "Zakaat on fresh fish?",
-    "type": "multiple-choice",
+    "reference": 1101,
+    "questionText": "What is the ruling on eating dog meat in Islam?",
     "difficulty": "easy",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "It is forbidden (haram) to eat dog meat",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "It is permissible if properly slaughtered",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "It is only forbidden for Shafi'i madhab",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "It is makruh (disliked) but not haram",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Dogs are forbidden for consumption in Islam. The Prophet explicitly forbade eating animals with fangs among predatory animals. Dogs fall under this prohibition, along with other carnivorous animals. This ruling is agreed upon by Islamic scholars.",
     "tags": [
-      "On What is Zakah Due",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 11213"
+      "halal",
+      "haram",
+      "food",
+      "dietary-laws"
+    ]
   },
   {
-    "reference": 39682,
-    "questionText": "What is the best night to pray qiyaam if you can only do that once each month??",
-    "type": "multiple-choice",
+    "reference": 119134,
+    "questionText": "What expiation is required if someone has intercourse during Umrah?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "They must sacrifice an animal, complete the Umrah, and repeat it later",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Only repentance and continuing the Umrah is sufficient",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Fast for three days and the Umrah remains valid",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "The Umrah is invalidated with no way to make it up",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "If someone has intercourse during Umrah, they must complete it, offer a sacrifice (an animal), and perform Umrah again to make it up. This is based on scholarly consensus that intercourse invalidates Umrah just as it invalidates Hajj, though the penalty for Umrah is less severe than for Hajj.",
+    "tags": [
+      "Umrah",
+      "pilgrimage",
+      "expiation",
+      "sacrifice"
+    ]
+  },
+  {
+    "reference": 97268,
+    "questionText": "Is it permissible to accept money in return for acting as guarantor for someone's loan?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Night Prayer",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 39682"
-  },
-  {
-    "reference": 105397,
-    "questionText": "Ruling on putting a zipper on a woman’s dress?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Womens clothing",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 105397"
-  },
-  {
-    "reference": 116594,
-    "questionText": "What is the secret of the number 7 and its multiples in the Holy Qur’aan and Sunnah??",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "No, it is a form of riba (usury) and is forbidden",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Yes, if it is less than 10% of the loan amount",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Yes, because the guarantor is taking a risk",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Only permissible between family members",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Taking payment for acting as guarantor is not permissible as it constitutes a loan that brings benefit to the lender, which is a form of riba (usury). The Prophet said: \"Every loan that brings benefit is riba.\" The guarantor may take payment for actual services rendered, but not for the guarantee itself.",
     "tags": [
-      "The Quran and its Sciences",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 116594"
+      "riba",
+      "loans",
+      "haram",
+      "financial-transactions"
+    ]
   },
   {
-    "reference": 93089,
-    "questionText": "Ruling on the fasting of a person who wrongs others?",
-    "type": "multiple-choice",
+    "reference": 101649,
+    "questionText": "What should someone do if they visited a practitioner of witchcraft or sorcery?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "They must repent sincerely to Allah and renew their faith",
         "isCorrect": true
       },
       {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Issues of fasting",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 93089"
-  },
-  {
-    "reference": 2534,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "They must perform Hajj immediately",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
+        "text": "There is no specific repentance required",
+        "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "They must give charity equal to their wealth",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Visiting practitioners of witchcraft or fortune-telling is a major sin. The Prophet said prayers are not accepted for forty days from one who visits a fortune-teller. If someone believed what the sorcerer said, it may constitute disbelief. Sincere repentance to Allah, renewing one's shahada, and commitment to avoid such practices is required.",
     "tags": [
-      "Commentary on Hadith",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 2534"
+      "witchcraft",
+      "repentance",
+      "sorcery",
+      "kufr"
+    ]
   },
   {
-    "reference": 14284,
-    "questionText": "Using henna with egg yolks on one's hair?",
-    "type": "multiple-choice",
+    "reference": 20712,
+    "questionText": "Is it permissible to delay prayer because of work commitments?",
     "difficulty": "easy",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "No, prayer must be performed on time; work does not excuse delay",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Yes, if the work is essential to earning a living",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only Fajr prayer cannot be delayed for work",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "It is permissible to combine prayers due to work",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Prayer is one of the pillars of Islam and must be performed at its prescribed time. Work does not constitute a valid excuse to delay prayer beyond its time. Some scholars even consider deliberately delaying prayer until its time has passed to be a form of major kufr. One must organize work around prayer times, not vice versa.",
     "tags": [
-      "Adornments",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 14284"
+      "prayer",
+      "salah",
+      "obligatory",
+      "work"
+    ]
   },
   {
-    "reference": 43176,
-    "questionText": "Is seeing Allaah is a dream possible??",
-    "type": "multiple-choice",
+    "reference": 239096,
+    "questionText": "How should one purify clothing if one or two drops of urine get on it?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Belief",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 43176"
-  },
-  {
-    "reference": 65521,
-    "questionText": "It is not prescribed to probe too deeply when checking that there is no urine?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Answering the Call of Nature",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 65521"
-  },
-  {
-    "reference": 112024,
-    "questionText": "Ruling on building tourist resorts and taking part in that?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Sprinkle water on the affected area until you believe it is purified",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Wash the entire garment seven times",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "The garment cannot be purified and must be discarded",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Leave it to dry in the sun for purification",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "If a small amount of urine gets on clothing, it can be purified by sprinkling water on the affected spot until one believes it is purified. It is not necessary to wash the entire garment or to squeeze out the water. This is based on the hadith where the Prophet instructed sprinkling water on urine spots.",
     "tags": [
-      "Ruling on jobs",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 112024"
+      "purification",
+      "tahaarah",
+      "urine",
+      "prayer"
+    ]
   },
   {
-    "reference": 36818,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
+    "reference": 189336,
+    "questionText": "How should the iddah (waiting period) following a husband's death be calculated?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Four months and ten days according to the Hijri (lunar) calendar",
         "isCorrect": true
       },
       {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Kind Treatment of Spouses",
-      "Rights of spouses",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 36818"
-  },
-  {
-    "reference": 49719,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Four months and ten days according to the Gregorian calendar",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
+        "text": "One hundred and thirty days exactly",
+        "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Three menstrual cycles",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "The iddah for a widow is four months and ten days calculated according to the Hijri (lunar) calendar, not the Gregorian calendar. This is based on the Quranic verse and the practice of the early Muslims who followed the lunar calendar for all Islamic obligations and rituals.",
     "tags": [
-      "Divorce",
-      "Honouring Parents",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 49719"
+      "iddah",
+      "marriage",
+      "widowhood",
+      "Islamic-calendar"
+    ]
   },
   {
-    "reference": 21563,
-    "questionText": "Can he pray for his parents when he does not know what religion they were following when they died??",
-    "type": "multiple-choice",
+    "reference": 12301,
+    "questionText": "Is it permissible for a married couple to watch pornographic material together?",
     "difficulty": "easy",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "No, it is completely forbidden regardless of who watches it",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Yes, if both spouses agree to it",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "It is makruh (disliked) but not haram",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Permissible only if it improves marital relations",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Watching pornography is completely forbidden in Islam, even between married couples. It involves looking at the awrah (private parts) of others, which is haram. The Prophet commanded us to guard our gaze, and looking at such images is included in what is forbidden, regardless of the viewer's marital status.",
     "tags": [
-      "Alliance and Amity, Disavowal and Enmity",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 21563"
+      "haram",
+      "marriage",
+      "modesty",
+      "gaze"
+    ]
   },
   {
-    "reference": 109302,
-    "questionText": "Should she do Hajj and give charity on behalf of her mother who did not pray??",
-    "type": "multiple-choice",
+    "reference": 14302,
+    "questionText": "What is the Islamic ruling on women wearing tight-fitting clothes in public?",
+    "difficulty": "easy",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is forbidden because it reveals the shape of the body",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "It is permissible if covered by an abaya",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Only forbidden if the woman is young",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "Permissible in front of other women only",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "The Prophet warned against women who are clothed yet naked—those who wear clothes that are tight and reveal the shape and contours of the body. Islamic hijab requires that clothing be loose enough not to reveal the body's shape. This applies to public settings and in front of non-mahram men.",
+    "tags": [
+      "hijab",
+      "modesty",
+      "women",
+      "clothing"
+    ]
+  },
+  {
+    "reference": 70403,
+    "questionText": "If a menstruating woman is forced to touch the Mushaf (Quran), what should she do?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "There is no sin on her because she was forced",
         "isCorrect": true
       },
       {
+        "id": "b",
+        "text": "She must perform expiation by fasting",
+        "isCorrect": false
+      },
+      {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "She commits a major sin even if forced",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "She must give charity as compensation",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "If someone is forced to do something forbidden, there is no sin upon them. Allah says: \"But whoever is forced [by necessity], neither desiring [it] nor transgressing [its limit] - then indeed, your Lord is Forgiving and Merciful.\" Compulsion removes sin in such matters.",
     "tags": [
-      "Abandoning or Neglecting Salaat",
-      "Issues of Pilgrimage",
-      "islamic-ruling",
+      "menstruation",
+      "Quran",
+      "compulsion",
       "fiqh"
-    ],
-    "source": "IslamQA reference 109302"
+    ]
   },
   {
-    "reference": 125715,
-    "questionText": "He said to his wife “anti qaaliq (which sounds like taaliq = divorced)” as a joke?",
-    "type": "multiple-choice",
+    "reference": 131830,
+    "questionText": "What is the ruling on watching television shows that contain images of living beings?",
     "difficulty": "hard",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Divorce",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 125715"
-  },
-  {
-    "reference": 115825,
-    "questionText": "Is the qiblah of the Muslims when they pray always towards the East??",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Images on screens are not prohibited drawings; permissibility depends on content",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "All images on television are haram without exception",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only images of humans are forbidden, not animals",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Watching is permissible but recording is forbidden",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "The majority of contemporary scholars distinguish between hand-drawn images (which may be prohibited) and photographs/video (which capture reality). TV images are not considered prohibited drawings. However, what matters is the content—if the program contains haram content like indecency, music, or promotes evil, then watching it is forbidden.",
     "tags": [
-      "Conditions for Prayer",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 115825"
+      "images",
+      "television",
+      "media",
+      "halal"
+    ]
   },
   {
-    "reference": 259574,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
+    "reference": 756,
+    "questionText": "Can a non-Muslim fast Ramadan with Muslims?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Supererogatory Fasts",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 259574"
-  },
-  {
-    "reference": 36955,
-    "questionText": "Ruling on buying cooperative shares for insurance?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Insurance",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 36955"
-  },
-  {
-    "reference": 101022,
-    "questionText": "His sister gave up her share of the inheritance then she regretted it?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "The fast is not valid unless they first accept Islam",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Yes, their fast is valid and earns reward",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only if they fast the entire month",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Yes, but they must declare intention to convert",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Acts of worship are not accepted from non-Muslims. Allah says: \"And nothing prevents their expenditures from being accepted except that they disbelieve in Allah.\" To fast Ramadan validly, one must first enter Islam by testifying that there is no god but Allah and Muhammad is His messenger.",
     "tags": [
-      "Praised Manners",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 101022"
+      "fasting",
+      "Ramadan",
+      "non-Muslims",
+      "faith"
+    ]
   },
   {
-    "reference": 41857,
-    "questionText": "Which is better: standing for a long time or doing more rak‘ahs??",
-    "type": "multiple-choice",
+    "reference": 246044,
+    "questionText": "Is it permissible for a woman to show her henna-decorated hands to non-mahram men?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "No, because henna is adornment and must be covered from non-mahrams",
         "isCorrect": true
       },
       {
+        "id": "b",
+        "text": "Yes, hands are not part of the awrah",
+        "isCorrect": false
+      },
+      {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only permissible for elderly women",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Permissible if wearing gloves over the henna",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "The Quran instructs women not to display their adornment except to mahrams. Henna on hands is considered adornment (zeenah) and must be concealed from non-mahram men. Many scholars require women to cover their hands when adorned with henna, even if there is difference of opinion about covering plain hands.",
     "tags": [
-      "Voluntary Prayers",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 41857"
+      "hijab",
+      "adornment",
+      "henna",
+      "modesty"
+    ]
   },
   {
-    "reference": 12578,
-    "questionText": "Witchcraft and Seeking Help From Practitioners of it?",
-    "type": "multiple-choice",
+    "reference": 106475,
+    "questionText": "When should airplane passengers who are fasting break their fast?",
     "difficulty": "hard",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
+        "text": "When the sun sets according to their location in the sky",
+        "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "According to the time zone of their departure city",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
+        "text": "According to the time zone of their destination",
+        "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "One hour after departure time",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Passengers should break their fast based on actual sunset at their current location in the sky. If they can see the sun has set from where they are, they may break fast. If the sun is still visible (even if it has set at ground level), they must continue fasting until actual sunset from their altitude.",
     "tags": [
-      "Belief in the Jinn, witchcraft and the evil eye",
-      "Medicine and medical treatments",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 12578"
+      "fasting",
+      "travel",
+      "airplane",
+      "sunset"
+    ]
   },
   {
-    "reference": 141395,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
+    "reference": 262636,
+    "questionText": "Should aqeeqah (sacrifice for a newborn) be performed for a foundling (abandoned child)?",
+    "difficulty": "hard",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Yes, the one who takes care of the child should perform aqeeqah",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "No, only biological parents can perform aqeeqah",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only if the child's parents are confirmed deceased",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Aqeeqah is not required for foundlings",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Aqeeqah is a recommended sunnah that brings benefit to the child. The one who takes care of a foundling should perform aqeeqah on the seventh day if possible. This sunnah is not restricted to biological parents only, and the caretaker can perform it on behalf of the child for its spiritual benefit.",
     "tags": [
-      "Islamic Endowments",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 141395"
+      "aqeeqah",
+      "sunnah",
+      "children",
+      "sacrifice"
+    ]
   },
   {
-    "reference": 46532,
-    "questionText": "He wants to get married but his parents want him to delay that?",
-    "type": "multiple-choice",
+    "reference": 198784,
+    "questionText": "Is earning money from website advertisements permissible in Islam?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Fiqh of the family",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 46532"
-  },
-  {
-    "reference": 224923,
-    "questionText": "When Does Water Become Impure??",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Removing Impurity",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 224923"
-  },
-  {
-    "reference": 175375,
-    "questionText": "Asking for charity to build a mosque and doing that a great deal?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Permissible if the content and advertisements are halal and moral",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Always haram because it involves images",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only permissible for educational websites",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Haram because visitors are forced to see ads",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Earning from website ads is permissible in principle, as it involves providing a service (content) and allowing ad space. However, both the website content and the advertisements must be halal. One must ensure ads don't promote haram products or immoral content, and the website itself must have permissible content.",
     "tags": [
-      "Charitable donations for the sake of Allah",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 175375"
+      "halal-income",
+      "business",
+      "internet",
+      "advertising"
+    ]
   },
   {
-    "reference": 106466,
-    "questionText": "He has tuberculosis and the doctors have advised him not to fast for five years?",
-    "type": "multiple-choice",
+    "reference": 34695,
+    "questionText": "Is wudu required for performing tawaf around the Kaaba?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Fast of those who are exempted",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 106466"
-  },
-  {
-    "reference": 80208,
-    "questionText": "Do Ear Drops Break Your Fast??",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "What is permitted for the fasting person",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 80208"
-  },
-  {
-    "reference": 34306,
-    "questionText": "I want to be a devoted slave of Allaah … ten pointers?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Yes according to the majority view, though some scholars permit it without wudu",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "No, wudu is never required for tawaf",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only required for Hajj tawaf, not Umrah",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Required only for the first three circuits",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "The majority of scholars hold that wudu is required for tawaf to be valid, treating it like prayer. This is the safer position. However, some scholars like Shaykh al-Islam Ibn Taymiyyah held that tawaf is valid without wudu though it is better to have it. Those who lose wudu during tawaf should renew it and continue.",
     "tags": [
-      "Acts of Worship",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 34306"
+      "tawaf",
+      "Hajj",
+      "Umrah",
+      "wudu"
+    ]
   },
   {
-    "reference": 37055,
-    "questionText": "It is not valid to set conditions some time after entering ihraam?",
-    "type": "multiple-choice",
+    "reference": 3463,
+    "questionText": "Are sons obligated to finance their father's Hajj if he cannot afford it?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "No, Hajj is only obligatory for those who are able; children are not required to finance it",
         "isCorrect": true
       },
       {
+        "id": "b",
+        "text": "Yes, it is obligatory on sons to finance father's Hajj",
+        "isCorrect": false
+      },
+      {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only if the father has no other source of income",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Yes, but only if they are wealthy",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Hajj is only obligatory for those who have the ability and means. Allah says: \"Hajj to the House is a duty to Allah for whoever is able to find a way.\" Children are not obligated to finance their parent's Hajj, though it is an act of kindness and righteousness if they choose to do so voluntarily.",
     "tags": [
-      "Sifat al-Hajj wa’l-‘Umrah (Description of Hajj and ‘Umrah)",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 37055"
+      "Hajj",
+      "pilgrimage",
+      "family",
+      "obligations"
+    ]
   },
   {
-    "reference": 106751,
-    "questionText": "How can a patient who has a catheter do wudu and pray??",
-    "type": "multiple-choice",
+    "reference": 229137,
+    "questionText": "If a traveler wipes over his khuffs (leather socks) then arrives at his destination, what must he do?",
     "difficulty": "hard",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
+        "text": "Calculate how much time remains of the non-traveler's wiping period (24 hours total)",
+        "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "He must immediately remove khuffs and wash his feet",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
+        "text": "He continues the full 3-day traveler's period",
+        "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "He must restart the wiping period from the beginning",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "A traveler may wipe over khuffs for 3 days, while a resident may wipe for 1 day (24 hours). If a traveler arrives at his destination mid-period, he must recalculate the remaining time based on the resident's allowance of 24 hours from when he first wiped, not from when he became a resident.",
     "tags": [
-      "Ablution Before Prayer",
-      "Prayer of the Sick Person",
-      "islamic-ruling",
+      "wudu",
+      "travel",
+      "khuffs",
       "fiqh"
-    ],
-    "source": "IslamQA reference 106751"
+    ]
   },
   {
-    "reference": 87915,
-    "questionText": "Reciting Yaa Seen a certain number of times to fulfil needs and relieve distress?",
-    "type": "multiple-choice",
+    "reference": 1130,
+    "questionText": "Can Muslims participate in or celebrate non-Muslim religious festivals?",
     "difficulty": "easy",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "No, it is forbidden to participate in or imitate non-Muslim religious celebrations",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Yes, if done for cultural reasons not religious",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Permissible only for children",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Allowed if no religious rituals are involved",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Muslims are forbidden from celebrating or participating in non-Muslim religious festivals. The Prophet said: \"Whoever imitates a people is one of them.\" Muslims have their own two festivals (Eid al-Fitr and Eid al-Adha). Celebrating others' religious festivals contradicts Islamic monotheism and can lead to religious compromise.",
     "tags": [
-      "Innovations in Religion and Worship",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 87915"
+      "festivals",
+      "imitation",
+      "non-Muslims",
+      "haram"
+    ]
   },
   {
-    "reference": 65629,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
+    "reference": 257583,
+    "questionText": "What does the phrase 'Ta'aala Jadduka' in the opening supplication of prayer mean?",
+    "difficulty": "hard",
+    "options": [
+      {
+        "id": "a",
+        "text": "Exalted is Your Majesty and Greatness",
+        "isCorrect": true
+      },
+      {
+        "id": "b",
+        "text": "Elevated is Your Generosity",
+        "isCorrect": false
+      },
+      {
+        "id": "c",
+        "text": "Supreme is Your Grandfather",
+        "isCorrect": false
+      },
+      {
+        "id": "d",
+        "text": "High is Your Nobility",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "In this context, 'Jadd' means majesty, greatness, and glory, not 'grandfather' which is its common meaning. The phrase 'Ta'aala Jadduka' means 'Exalted is Your Majesty.' This is part of the du'aa al-istiftaah (opening supplication) recited after the opening takbeer in prayer.",
+    "tags": [
+      "prayer",
+      "dua",
+      "Arabic",
+      "meanings"
+    ]
+  },
+  {
+    "reference": 8529,
+    "questionText": "What is the ruling on saying 'Eat air' (i.e., shut up) as an insult in Islam?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Fasting of the Traveler",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 65629"
-  },
-  {
-    "reference": 214190,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Honouring Parents",
-      "Rights of spouses",
-      "Social Problems",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 214190"
-  },
-  {
-    "reference": 88141,
-    "questionText": "Family of the deceased standing in a row in the graveyard to receive condolences?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "It is not permissible as it is mockery and bad speech",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "It is permissible as it is just a common expression",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only forbidden if said to parents or elders",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Permissible if the person deserves criticism",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "This phrase is a form of mockery and insult, which Islam forbids. Allah says: \"O you who believe, let not a people ridicule another people.\" Muslims should maintain good manners in speech and avoid mockery, insults, and offensive language. The Prophet emphasized good character and proper speech.",
     "tags": [
-      "Funerals and rulings on graves",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 88141"
+      "manners",
+      "speech",
+      "mockery",
+      "ethics"
+    ]
   },
   {
-    "reference": 106533,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
+    "reference": 104454,
+    "questionText": "What is the correct way to perform ruqyah (Quranic healing) for a small child?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Recite Quranic verses and prophetic supplications directly or blow on them gently",
         "isCorrect": true
       },
       {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Expiation",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 106533"
-  },
-  {
-    "reference": 146142,
-    "questionText": "Zakaah on crops cultivated and harvested with machines that need fuel and other expenses?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Write verses on paper and place under their pillow",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
+        "text": "Only qualified scholars can perform ruqyah on children",
+        "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Recite only at specific times like midnight",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Legitimate ruqyah involves reciting Quranic verses (especially al-Fatihah, Ayat al-Kursi, and the last three surahs) and authentic prophetic supplications. Parents can perform this for their children by reciting and gently blowing on them or placing hands on them. The Prophet used to perform ruqyah for his grandsons in this manner.",
     "tags": [
-      "On What is Zakah Due",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 146142"
+      "ruqyah",
+      "children",
+      "healing",
+      "Quran"
+    ]
   },
   {
-    "reference": 34905,
-    "questionText": "Repent before It Is Too Late: A Call to Reflect?",
-    "type": "multiple-choice",
+    "reference": 21237,
+    "questionText": "Why do pilgrims wear ihram (simple white garments) during Hajj?",
     "difficulty": "easy",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "It symbolizes equality, humility, and focus on worship rather than worldly appearance",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Because it was the clothing of Prophet Ibrahim",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "To keep cool in the desert climate",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "It is the traditional clothing of Makkah",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Ihram clothing serves multiple purposes: it symbolizes equality among all pilgrims regardless of wealth or status, represents humility before Allah, and helps pilgrims focus on worship rather than worldly appearance. The simple garments remind pilgrims of the shroud, encouraging reflection on death and the hereafter.",
     "tags": [
-      "Repentance",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 34905"
+      "Hajj",
+      "ihram",
+      "pilgrimage",
+      "equality"
+    ]
   },
   {
-    "reference": 14305,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
+    "reference": 89971,
+    "questionText": "If a college keeps old pictures of a Muslim woman from before she wore hijab, must she change them?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Yes, she should request they be replaced with current photos showing proper hijab",
         "isCorrect": true
       },
       {
+        "id": "b",
+        "text": "No, past pictures are not her responsibility",
+        "isCorrect": false
+      },
+      {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only if the pictures are publicly displayed",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "She should leave the college rather than change the pictures",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "A Muslim woman who begins wearing hijab should remove or replace old photos showing her without proper Islamic covering, as these images continue to expose her awrah. She should request the institution update her photos to reflect her current commitment to Islamic dress. This is part of sincere repentance and commitment to modesty.",
     "tags": [
-      "Enjoining what is good and forbidding what is evil",
-      "Rulings on enjoining what is good and forbidding what is evil",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 14305"
+      "hijab",
+      "modesty",
+      "images",
+      "repentance"
+    ]
   },
   {
-    "reference": 123493,
-    "questionText": "Does Internal Ultrasound Break Fast??",
-    "type": "multiple-choice",
+    "reference": 105457,
+    "questionText": "Is it permissible to use or benefit from property that is held as collateral for a debt?",
     "difficulty": "hard",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
+        "text": "The creditor may not use it; only the debtor may use it with permission",
+        "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "The creditor may use it as compensation for the loan",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
+        "text": "Both parties may share the use of the collateral",
+        "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "No one may use collateral until the debt is paid",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Collateral remains the property of the debtor. The creditor holds it as security but may not use or benefit from it, as that would be a loan that brings benefit (a form of riba). If the collateral is an animal requiring care, the creditor may ride/milk it proportionate to providing its maintenance. The debtor may use the collateral with the creditor's permission.",
     "tags": [
-      "Things which invalidate the fast",
-      "islamic-ruling",
+      "collateral",
+      "loans",
+      "riba",
       "fiqh"
-    ],
-    "source": "IslamQA reference 123493"
+    ]
   },
   {
-    "reference": 222751,
-    "questionText": "How Should Women Pray Tarawih at Home??",
-    "type": "multiple-choice",
-    "difficulty": "easy",
+    "reference": 162824,
+    "questionText": "If police force a man to divorce his wife with a threefold talaq under duress, is the divorce valid?",
+    "difficulty": "hard",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "No, divorce under compulsion is not valid according to the correct view",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Yes, the divorce is binding and irrevocable",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Valid but counts as only one talaq, not three",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Valid only if he later confirms it willingly",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "According to the stronger scholarly opinion, divorce pronounced under duress and compulsion is not valid. The Prophet said: \"Allah has forgiven my ummah for mistakes, what they forget, and what they are forced to do.\" Since he was compelled against his will with threat of harm, the divorce does not take effect.",
     "tags": [
-      "Night Prayer",
-      "Recitation in Prayer",
-      "Taraaweeh prayers and Laylat al-Qadar",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 222751"
+      "divorce",
+      "talaq",
+      "compulsion",
+      "marriage"
+    ]
   },
   {
-    "reference": 21631,
-    "questionText": "Benefits of Calamities?",
-    "type": "multiple-choice",
+    "reference": 34518,
+    "questionText": "Should a field worker return to the office if half an hour remains of regular work hours?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Belief in the Divine Will and Decree",
-      "The Heart Softeners",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 21631"
-  },
-  {
-    "reference": 105440,
-    "questionText": "Can My Daughters Do `Umrah with My Nephews??",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Hajj al-Mar’ah (women’s pilgrimage)",
-      "Mahram to Travel with Women",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 105440"
-  },
-  {
-    "reference": 11427,
-    "questionText": "Is It Permissible to Attend Christian Festivals??",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Yes, he must fulfill his employment contract and work the full hours",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "No, the time is too short to warrant returning",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only if specifically instructed by his supervisor",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "He may decide based on distance from the office",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "An employee must fulfill the terms of their employment contract with honesty and integrity. If the agreement is to work certain hours, the employee should work the full time. The Prophet emphasized that a worker's wages should be paid in full, which implies the worker must also fulfill their duties fully. Working with integrity is a religious obligation.",
     "tags": [
-      "Alliance and Amity, Disavowal and Enmity",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 11427"
+      "work",
+      "employment",
+      "contracts",
+      "honesty"
+    ]
   },
   {
-    "reference": 111223,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
+    "reference": 21698,
+    "questionText": "What is the ruling on taking money to perform Hajj on behalf of others as a business?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Permissible if one has already performed Hajj for oneself and intends worship primarily",
         "isCorrect": true
       },
       {
+        "id": "b",
+        "text": "Always forbidden as it commercializes worship",
+        "isCorrect": false
+      },
+      {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Permissible even if one has never performed Hajj",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Only scholars may take money for proxy Hajj",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "It is permissible to take money to perform Hajj on behalf of another if: (1) one has already performed the obligatory Hajj for oneself, (2) one is physically capable, and (3) the primary intention is worship, not just earning money. The proxy must intend the Hajj for the person who commissioned it and make proper intention.",
     "tags": [
-      "Rulings on prayer",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 111223"
+      "Hajj",
+      "proxy",
+      "compensation",
+      "intention"
+    ]
   },
   {
-    "reference": 196054,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
+    "reference": 126921,
+    "questionText": "Is it permissible to build a mosque close to a non-Muslim graveyard?",
     "difficulty": "hard",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Basic Tenets of Faith",
-      "The Quran and its Sciences",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 196054"
-  },
-  {
-    "reference": 122034,
-    "questionText": "She gets a sticky white discharge before her period and a week afterwards?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Yes, if there is proper separation and the mosque does not use graveyard land",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "No, it is completely forbidden",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only if the graves are more than 100 years old",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Permissible only if the cemetery is no longer in use",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "It is permissible to build a mosque near a non-Muslim graveyard as long as there is clear separation (like a wall or road) between them and the mosque is not built on the actual graveyard land. The prohibition is against building mosques over graves or incorporating graves into mosques, not merely proximity to a separate cemetery.",
     "tags": [
-      "Menstruation and Post-Natal bleeding",
-      "islamic-ruling",
+      "mosque",
+      "graves",
+      "construction",
       "fiqh"
-    ],
-    "source": "IslamQA reference 122034"
+    ]
   },
   {
-    "reference": 21615,
-    "questionText": "Refutation of those who say that women should not pray Eid in the mosque?",
-    "type": "multiple-choice",
+    "reference": 13233,
+    "questionText": "What is the punishment for an unmarried person who commits zina (fornication) in Islamic law?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "'Eid Prayer",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 21615"
-  },
-  {
-    "reference": 13708,
-    "questionText": "Their father tells them to pray and adhere to the teachings of Islam but he does not pray?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Abandoning or Neglecting Salaat",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 13708"
-  },
-  {
-    "reference": 106550,
-    "questionText": "It is mustahabb to put on perfume before entering ihram?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "One hundred lashes and exile for one year",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "Death penalty by stoning",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Fifty lashes and no exile",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Public repentance only",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "The hadd punishment for an unmarried person (male or female) who commits zina is one hundred lashes and exile from their city for one year. This is based on the Quranic verse and authentic hadiths. The punishment applies when the crime is proven by confession or valid testimony under strict conditions.",
     "tags": [
-      "Sifat al-Hajj wa’l-‘Umrah (Description of Hajj and ‘Umrah)",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 106550"
+      "hudud",
+      "zina",
+      "punishment",
+      "Islamic-law"
+    ]
   },
   {
-    "reference": 144991,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
+    "reference": 150025,
+    "questionText": "Is it permissible to take commission from websites for promoting their products through affiliate links?",
     "difficulty": "medium",
     "options": [
       {
         "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Divorce",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 144991"
-  },
-  {
-    "reference": 124095,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "On What is Zakah Due",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 124095"
-  },
-  {
-    "reference": 106591,
-    "questionText": "He entered ihram for Hajj but was prevented from entering Makkah?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
+        "text": "Yes, if the products and promotion methods are halal",
         "isCorrect": true
       },
       {
         "id": "b",
-        "text": "It is forbidden (haram)",
+        "text": "No, it is a form of deception",
         "isCorrect": false
       },
       {
         "id": "c",
-        "text": "It is disliked (makruh) but permissible",
+        "text": "Only if you disclose the commission to every visitor",
         "isCorrect": false
       },
       {
         "id": "d",
-        "text": "It depends on the specific circumstances",
+        "text": "Permissible only for physical products, not digital",
         "isCorrect": false
       }
     ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
+    "explanation": "Affiliate marketing is permissible in Islam as it involves legitimate brokerage—connecting sellers with buyers for a commission. The conditions are: (1) products must be halal, (2) no deception in promotion, (3) accurate product representation, and (4) preferably disclosing the commission relationship. This is analogous to traditional brokerage which is permitted.",
     "tags": [
-      "Ability",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 106591"
-  },
-  {
-    "reference": 109779,
-    "questionText": "Paying one saa’ of two different foodstuffs as zakaat al-fitr?",
-    "type": "multiple-choice",
-    "difficulty": "medium",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Charity at End of Ramadan",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 109779"
-  },
-  {
-    "reference": 106603,
-    "questionText": "Doing surgery on dogs?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Animal Rights",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 106603"
-  },
-  {
-    "reference": 146363,
-    "questionText": "If a poor person is able to do a job that is not befitting for him, can he take zakaah funds??",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": true
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Where Zakah is to Be Spent",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 146363"
-  },
-  {
-    "reference": 85512,
-    "questionText": "She shows her adornments before her husband’s brothers?",
-    "type": "multiple-choice",
-    "difficulty": "medium",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Psychological and Social Problems",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 85512"
-  },
-  {
-    "reference": 175765,
-    "questionText": "The Difference between Khul` and Talaq?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Divorce",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 175765"
-  },
-  {
-    "reference": 47738,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": true
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Bad behaviour",
-      "Vows",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 47738"
-  },
-  {
-    "reference": 165492,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
-    "difficulty": "medium",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Apostasy",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 165492"
-  },
-  {
-    "reference": 198227,
-    "questionText": "His father wants to take back his gift after he was successful in doing business with it?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Gifts and Presents",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 198227"
-  },
-  {
-    "reference": 111871,
-    "questionText": "Should he allocate time to a wife who is menstruating or in nifaas??",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": true
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Plural marriage and fair treatment of co-wives",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 111871"
-  },
-  {
-    "reference": 120670,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
-    "difficulty": "medium",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Leading Prayer",
-      "Prostration when reading Quran and Prostration of thanksgiving",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 120670"
-  },
-  {
-    "reference": 107654,
-    "questionText": "Ruling on drinking Coca Cola?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Food & Nourishment",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 107654"
-  },
-  {
-    "reference": 85190,
-    "questionText": "Can the teacher repeat the exam so that the students will get better grades??",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": true
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Ruling on jobs",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 85190"
-  },
-  {
-    "reference": 146238,
-    "questionText": "Ruling on giving charity after every sin?",
-    "type": "multiple-choice",
-    "difficulty": "medium",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Charitable donations for the sake of Allah",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 146238"
-  },
-  {
-    "reference": 169965,
-    "questionText": "Ruling on using donated money to finish preparing the charity organization office?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Charitable donations for the sake of Allah",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 169965"
-  },
-  {
-    "reference": 126173,
-    "questionText": "For how long should Qunoot during prayers be said at times of calamity??",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": true
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Supplication",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 126173"
-  },
-  {
-    "reference": 82569,
-    "questionText": "The Messiah and Yahya (peace be upon them) were maternal cousins?",
-    "type": "multiple-choice",
-    "difficulty": "medium",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Belief in the Messengers",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 82569"
-  },
-  {
-    "reference": 100268,
-    "questionText": "How to Stop Whispers During Prayer?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Psychological Problems",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 100268"
-  },
-  {
-    "reference": 89882,
-    "questionText": "His father gave him something then he died before the son took it?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": true
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Gifts and Presents",
-      "Inheritance and distribution of the estate",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 89882"
-  },
-  {
-    "reference": 129219,
-    "questionText": "If a Muslim has doubts, will it harm him to ask about the truthfulness of some miracle??",
-    "type": "multiple-choice",
-    "difficulty": "medium",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Belief in Allah",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 129219"
-  },
-  {
-    "reference": 31072,
-    "questionText": "Studying in a society that does not adhere to Islamic sharee’ah?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Seeking knowledge",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 31072"
-  },
-  {
-    "reference": 225012,
-    "questionText": "She wants to cut off all desire and never get married?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": true
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Medicine and medical treatments",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 225012"
-  },
-  {
-    "reference": 297153,
-    "questionText": "Her paternal aunt refuses to speak to her; what should she do??",
-    "type": "multiple-choice",
-    "difficulty": "medium",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Keeping Contact with Kinship",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 297153"
-  },
-  {
-    "reference": 200530,
-    "questionText": "What Happens after Death??",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Belief in the Last Day and the Signs of the Hour",
-      "Torment and Blessing in the Grave",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 200530"
-  },
-  {
-    "reference": 124611,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": true
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Commentary on Hadith",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 124611"
-  },
-  {
-    "reference": 21646,
-    "questionText": "When should women who are menstruating or bleeding following childbirth do tawaaf??",
-    "type": "multiple-choice",
-    "difficulty": "medium",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": true
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Hajj al-Mar’ah (women’s pilgrimage)",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 21646"
-  },
-  {
-    "reference": 36749,
-    "questionText": "What is the Islamic ruling on this matter?",
-    "type": "multiple-choice",
-    "difficulty": "hard",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": false
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": true
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Vows",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 36749"
-  },
-  {
-    "reference": 154750,
-    "questionText": "Should the Dead Be Shrouded in White Cloth??",
-    "type": "multiple-choice",
-    "difficulty": "easy",
-    "options": [
-      {
-        "id": "a",
-        "text": "It is permissible (halal)",
-        "isCorrect": true
-      },
-      {
-        "id": "b",
-        "text": "It is forbidden (haram)",
-        "isCorrect": false
-      },
-      {
-        "id": "c",
-        "text": "It is disliked (makruh) but permissible",
-        "isCorrect": false
-      },
-      {
-        "id": "d",
-        "text": "It depends on the specific circumstances",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "Based on Islamic teachings and scholarly consensus, this ruling has been established in Islamic jurisprudence.",
-    "tags": [
-      "Funerals and rulings on graves",
-      "islamic-ruling",
-      "fiqh"
-    ],
-    "source": "IslamQA reference 154750"
+      "business",
+      "halal-income",
+      "marketing",
+      "commission"
+    ]
   }
 ]
