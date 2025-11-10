@@ -7,8 +7,11 @@
           <Icon name="arrowLeft" size="md" />
         </button>
         <div class="flex-1">
-          <h1 class="text-lg md:text-xl font-bold">Leaderboard</h1>
-          <p class="text-sm text-white/90">Compete with fellow learners</p>
+          <h1 class="text-lg md:text-xl font-bold flex items-center gap-2">
+            <Icon name="qp" size="md" />
+            Leaderboard (QP)
+          </h1>
+          <p class="text-sm text-white/90">Quiz Points - Compete with fellow learners</p>
         </div>
         <Icon name="trophy" size="lg" />
       </div>
@@ -28,6 +31,17 @@
         >
           {{ tab.label }}
         </button>
+      </div>
+    </div>
+
+    <!-- Info Banner -->
+    <div class="bg-gradient-to-r from-amber-50 via-orange-50 to-yellow-50 dark:from-amber-900/20 dark:via-orange-900/20 dark:to-yellow-900/20 border-b border-amber-200 dark:border-amber-800/30 px-4 py-3">
+      <div class="flex items-start gap-2 text-sm">
+        <Icon name="info" size="sm" class="text-amber-700 dark:text-amber-400 mt-0.5 flex-shrink-0" />
+        <div class="text-amber-900 dark:text-amber-100">
+          <strong class="font-semibold">Quiz Points (QP):</strong> Leaderboards rank users by quiz scores only.
+          <span class="text-amber-800 dark:text-amber-200">Reading questions and bookmarks earn XP for personal progress, not QP for rankings.</span>
+        </div>
       </div>
     </div>
 
@@ -52,8 +66,11 @@
             <div class="text-sm text-neutral-600 dark:text-neutral-400">{{ username }}</div>
           </div>
           <div class="text-right">
-            <div class="text-2xl font-bold text-amber-600 dark:text-amber-400">{{ userScore }}</div>
-            <div class="text-xs text-neutral-600 dark:text-neutral-400">points</div>
+            <div class="text-2xl font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1 justify-end">
+              {{ userScore }}
+              <Icon name="qp" size="sm" class="text-amber-500 dark:text-amber-400" />
+            </div>
+            <div class="text-xs text-neutral-600 dark:text-neutral-400">Quiz Points</div>
           </div>
         </div>
       </div>
@@ -91,10 +108,11 @@
 
             <!-- Score -->
             <div class="text-right">
-              <div class="text-xl font-bold text-amber-600 dark:text-amber-400">
+              <div class="text-xl font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1 justify-end">
                 {{ selectedTab === 'daily' ? entry.score : entry.totalScore }}
+                <Icon name="qp" size="xs" class="text-amber-500 dark:text-amber-400" />
               </div>
-              <div class="text-xs text-neutral-600 dark:text-neutral-400">points</div>
+              <div class="text-xs text-neutral-600 dark:text-neutral-400">QP</div>
             </div>
           </div>
         </div>

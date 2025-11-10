@@ -12,7 +12,7 @@
         </div>
         <div class="text-right">
           <div class="text-2xl font-bold">{{ gamification.points }}</div>
-          <div class="text-xs text-primary-100">Points</div>
+          <div class="text-xs text-primary-100">XP</div>
         </div>
       </div>
       <div v-else class="flex items-center justify-between">
@@ -47,8 +47,8 @@
               </ul>
             </div>
             <div>
-              <h3 class="font-semibold text-primary-600 dark:text-primary-400 mb-1">⭐ Earn Points</h3>
-              <p class="text-sm">Complete quizzes to earn points, maintain streaks, and unlock achievements. Track your progress and level up!</p>
+              <h3 class="font-semibold text-primary-600 dark:text-primary-400 mb-1">⭐ Earn XP & QP</h3>
+              <p class="text-sm">Complete quizzes to earn XP (experience points) and QP (quiz points). Maintain streaks, unlock achievements, and climb the leaderboard!</p>
             </div>
           </div>
           <button
@@ -353,9 +353,34 @@
               <div class="text-3xl font-bold text-accent-600 dark:text-accent-400">{{ quizResults.accuracy }}%</div>
               <div class="text-sm text-neutral-600 dark:text-neutral-400">Accuracy</div>
             </div>
-            <div class="bg-primary-50 dark:bg-primary-950/30 rounded-lg p-4">
-              <div class="text-3xl font-bold text-primary-600 dark:text-primary-400">+{{ quizResults.score }}</div>
-              <div class="text-sm text-neutral-600 dark:text-neutral-400">Points</div>
+            <div class="bg-gradient-to-br from-purple-50 to-amber-50 dark:from-purple-950/30 dark:to-amber-950/30 rounded-lg p-4 border border-purple-200 dark:border-purple-800/30">
+              <div class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-1">+{{ quizResults.score }}</div>
+              <div class="flex items-center justify-center gap-2 text-xs">
+                <div class="flex items-center gap-1 text-purple-700 dark:text-purple-400">
+                  <Icon name="xp" size="xs" />
+                  <span class="font-semibold">XP</span>
+                </div>
+                <span class="text-neutral-400">+</span>
+                <div class="flex items-center gap-1 text-amber-700 dark:text-amber-400">
+                  <Icon name="qp" size="xs" />
+                  <span class="font-semibold">QP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Points Explanation -->
+          <div class="mb-4 p-3 bg-gradient-to-r from-purple-50 via-amber-50 to-orange-50 dark:from-purple-900/20 dark:via-amber-900/20 dark:to-orange-900/20 rounded-lg border border-neutral-200 dark:border-neutral-700">
+            <div class="flex items-center justify-center gap-4 text-sm">
+              <div class="flex items-center gap-1.5 text-purple-700 dark:text-purple-300">
+                <Icon name="xp" size="sm" class="text-purple-600 dark:text-purple-400" />
+                <span><strong>+{{ quizResults.score }} XP</strong> added to your progress</span>
+              </div>
+              <span class="text-neutral-400">•</span>
+              <div class="flex items-center gap-1.5 text-amber-700 dark:text-amber-300">
+                <Icon name="qp" size="sm" class="text-amber-600 dark:text-amber-400" />
+                <span><strong>+{{ quizResults.score }} QP</strong> added to leaderboard</span>
+              </div>
             </div>
           </div>
 
@@ -422,8 +447,8 @@
           <!-- Achievement Notification -->
           <div v-if="newAchievements.length > 0" class="bg-accent-50 dark:bg-accent-950/30 border border-accent-200 dark:border-accent-800 rounded-lg p-4 mb-4">
             <p class="font-semibold text-accent-900 dark:text-accent-100 mb-2">🎉 Achievement Unlocked!</p>
-            <div v-for="ach in newAchievements" :key="ach.id" class="text-sm text-accent-800 dark:text-accent-200">
-              {{ ach.icon }} {{ ach.name }}: +{{ ach.points }} points
+            <div v-for="ach in newAchievements" :key="ach.id" class="text-sm text-accent-800 dark:text-accent-200 flex items-center gap-1">
+              {{ ach.icon }} {{ ach.name }}: +{{ ach.points }} XP
             </div>
           </div>
 

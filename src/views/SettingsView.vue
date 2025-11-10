@@ -187,6 +187,87 @@
         </div>
       </section>
 
+      <!-- Points System Explanation Section -->
+      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
+        <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+            <Icon name="star" size="md" class="text-primary-600 dark:text-primary-400" />
+            How Points Work
+          </h2>
+        </div>
+        <div class="p-4 space-y-4">
+          <!-- XP Explanation -->
+          <div class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-900/30 rounded-lg p-4 border border-purple-200 dark:border-purple-800/30">
+            <div class="flex items-start gap-3 mb-2">
+              <Icon name="xp" size="lg" class="text-purple-600 dark:text-purple-400 mt-0.5" />
+              <div>
+                <h3 class="font-semibold text-purple-900 dark:text-purple-100 mb-1">XP (Experience Points)</h3>
+                <p class="text-sm text-purple-800 dark:text-purple-200 mb-2">
+                  Your personal learning progress. XP measures all your activities and determines your level and tier.
+                </p>
+                <div class="text-sm text-purple-700 dark:text-purple-300 space-y-1">
+                  <div class="flex items-center gap-2">
+                    <span class="text-purple-500 dark:text-purple-400">✓</span>
+                    <span>Reading questions: <strong>+5 XP</strong> each</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-purple-500 dark:text-purple-400">✓</span>
+                    <span>Creating bookmarks: <strong>+10 XP</strong> each</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-purple-500 dark:text-purple-400">✓</span>
+                    <span>Completing quizzes: <strong>+Score XP</strong></span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-purple-500 dark:text-purple-400">✓</span>
+                    <span>Daily streaks: <strong>+100 XP</strong></span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-purple-500 dark:text-purple-400">✓</span>
+                    <span>Unlocking achievements: <strong>+50-300 XP</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- QP Explanation -->
+          <div class="bg-gradient-to-br from-amber-50 to-orange-100 dark:from-amber-900/20 dark:to-orange-900/30 rounded-lg p-4 border border-amber-200 dark:border-amber-800/30">
+            <div class="flex items-start gap-3 mb-2">
+              <Icon name="qp" size="lg" class="text-amber-600 dark:text-amber-400 mt-0.5" />
+              <div>
+                <h3 class="font-semibold text-amber-900 dark:text-amber-100 mb-1">QP (Quiz Points)</h3>
+                <p class="text-sm text-amber-800 dark:text-amber-200 mb-2">
+                  Your competitive ranking score. QP measures validated knowledge through quizzes only and determines your leaderboard position.
+                </p>
+                <div class="text-sm text-amber-700 dark:text-amber-300 space-y-1">
+                  <div class="flex items-center gap-2">
+                    <span class="text-amber-500 dark:text-amber-400">✓</span>
+                    <span>Quiz scores ONLY: <strong>+Score QP</strong></span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-amber-500 dark:text-amber-400">✗</span>
+                    <span class="opacity-75">Reading questions: No QP</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-amber-500 dark:text-amber-400">✗</span>
+                    <span class="opacity-75">Bookmarks/streaks: No QP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary -->
+          <div class="bg-neutral-50 dark:bg-neutral-950/50 rounded-lg p-3 border border-neutral-200 dark:border-neutral-800">
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">
+              <strong class="text-neutral-900 dark:text-neutral-100">In Short:</strong>
+              XP rewards all learning activities for personal growth. QP rewards quiz performance for competitive rankings. Both are valuable!
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- Links Section -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">

@@ -12,7 +12,7 @@
             <div class="text-center">
               <div class="text-xs text-white/80 mb-1">Your Level</div>
               <div class="text-3xl font-bold mb-1">{{ gamification.currentLevel }}</div>
-              <div class="text-xs text-white/80">{{ gamification.points }} points</div>
+              <div class="text-xs text-white/80">{{ gamification.points }} XP</div>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@
               </div>
               <div class="flex items-center gap-1 bg-accent-400/90 dark:bg-accent-500/90 backdrop-blur-sm px-3 py-1.5 rounded-full font-semibold">
                 <Icon name="lightning" size="xs" class="text-white" />
-                <span>Earn 10 Points</span>
+                <span>Earn 10 XP</span>
               </div>
             </div>
           </div>
@@ -196,29 +196,54 @@
       <!-- Stats & Progress Section -->
       <div v-if="dataStore.isReady" class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 mb-8">
         <!-- Gamification Progress Card -->
-        <Card padding="lg" class="lg:col-span-2 bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-primary-900/20 dark:via-neutral-900 dark:to-accent-900/20">
+        <Card padding="lg" class="lg:col-span-2 bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-purple-900/20 dark:via-neutral-900 dark:to-purple-900/20">
           <div class="flex items-start justify-between mb-4">
             <div>
-              <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Your Progress</h3>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Keep learning to level up!</p>
+              <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-1 flex items-center gap-2">
+                <Icon name="xp" size="md" class="text-purple-600 dark:text-purple-400" />
+                Your Progress (XP)
+              </h3>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Experience from all activities</p>
             </div>
             <div class="text-right">
-              <div class="text-3xl font-bold text-primary-600 dark:text-primary-400">{{ gamification.currentLevel }}</div>
+              <div class="text-3xl font-bold text-purple-600 dark:text-purple-400">{{ gamification.currentLevel }}</div>
               <div class="text-xs text-neutral-600 dark:text-neutral-400">Level</div>
             </div>
           </div>
 
-          <!-- Progress Bar -->
+          <!-- XP Progress Bar -->
           <div class="mb-4">
             <div class="flex items-center justify-between text-sm mb-2">
-              <span class="font-medium text-neutral-700 dark:text-neutral-300">{{ gamification.points }} points</span>
+              <span class="font-medium text-neutral-700 dark:text-neutral-300 flex items-center gap-1">
+                <Icon name="xp" size="xs" class="text-purple-600 dark:text-purple-400" />
+                {{ gamification.points }} XP
+              </span>
               <span class="text-neutral-600 dark:text-neutral-400">{{ gamification.pointsToNextLevel }} to next level</span>
             </div>
             <div class="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-3 overflow-hidden">
               <div
-                class="bg-gradient-to-r from-primary-500 to-primary-600 dark:from-primary-400 dark:to-primary-500 h-3 rounded-full transition-all duration-700 ease-out"
+                class="bg-gradient-to-r from-purple-500 to-purple-600 dark:from-purple-400 dark:to-purple-500 h-3 rounded-full transition-all duration-700 ease-out"
                 :style="{ width: gamification.levelProgress + '%' }"
               ></div>
+            </div>
+          </div>
+
+          <!-- QP Section -->
+          <div class="mb-4 p-3 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-lg border border-amber-200 dark:border-amber-800/30">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <Icon name="qp" size="md" class="text-amber-600 dark:text-amber-400" />
+                <div>
+                  <div class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Quiz Points (QP)</div>
+                  <div class="text-xs text-neutral-600 dark:text-neutral-400">Your competitive ranking</div>
+                </div>
+              </div>
+              <button
+                @click="navigate('/leaderboard')"
+                class="px-3 py-1.5 bg-gradient-to-r from-amber-500 to-orange-500 dark:from-amber-600 dark:to-orange-600 text-white text-xs font-semibold rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all shadow-sm"
+              >
+                View Rank
+              </button>
             </div>
           </div>
 
