@@ -582,6 +582,41 @@ class DexieDatabase extends Dexie {
   }
 
   /**
+   * Get all enhanced question references
+   * Returns array of question references that have quiz enhancements
+   */
+  async getEnhancedQuestionReferences() {
+    try {
+      const enhancements = await this.quiz_enhancements.toArray()
+      return enhancements.map(e => e.reference)
+    } catch (error) {
+      console.error('Error getting enhanced question references:', error)
+      return []
+    }
+  }
+
+  /**
+   * Get enhanced questions (questions that have quiz enhancements)
+   * Returns full question objects for questions with enhancements
+   */
+  async getEnhancedQuestions() {
+    try {
+      const enhancedRefs = await this.getEnhancedQuestionReferences()
+      if (enhancedRefs.length === 0) {
+        return []
+      }
+
+      // Get all questions with these references
+      const questions = await this.questions.where('reference').anyOf(enhancedRefs).toArray()
+      console.log(`📚 Retrieved ${questions.length} enhanced questions`)
+      return questions
+    } catch (error) {
+      console.error('Error getting enhanced questions:', error)
+      return []
+    }
+  }
+
+  /**
    * Clear all data (for debugging/reset)
    * UPDATED: Removed answers from transaction since table no longer exists
    */

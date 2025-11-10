@@ -21,22 +21,17 @@ class QuizService {
       const today = new Date().toISOString().split('T')[0]
       const seed = today.split('-').reduce((acc, num) => acc + parseInt(num), 0)
 
-      // Get all questions (will be filtered)
-      const allQuestions = await this.db.getAllQuestions()
-      if (allQuestions.length === 0) {
-        throw new Error('No questions in database')
+      // Get ONLY enhanced questions (questions that have quiz enhancements)
+      const enhancedQuestions = await this.db.getEnhancedQuestions()
+      if (enhancedQuestions.length === 0) {
+        throw new Error('No enhanced questions available for daily quiz. Please generate enhancements via Claude.')
       }
 
       // Use seed to consistently select 5 questions for the day
-      const selected = this.selectWithSeed(allQuestions, 5, seed)
+      const selected = this.selectWithSeed(enhancedQuestions, 5, seed)
 
-      // Transform to quiz format (only use enhanced questions)
-      const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
-      const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
-
-      if (quizQuestions.length === 0) {
-        throw new Error('No enhanced questions available for daily quiz. Please generate enhancements via Claude.')
-      }
+      // Transform to quiz format (all selected questions are guaranteed to be enhanced)
+      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
 
       return {
         id: `daily-${today}`,
@@ -61,7 +56,12 @@ class QuizService {
     try {
       const { difficulty = 'all', categories = [] } = options
 
-      let questions = await this.db.getAllQuestions()
+      // Get ONLY enhanced questions
+      let questions = await this.db.getEnhancedQuestions()
+
+      if (questions.length === 0) {
+        throw new Error('No enhanced questions available for rapid-fire quiz. Please generate enhancements via Claude.')
+      }
 
       // Filter by categories if specified
       if (categories && categories.length > 0) {
@@ -71,21 +71,17 @@ class QuizService {
         )
       }
 
-      // Shuffle and select 20 questions
-      const selected = this.shuffleArray([...questions]).slice(0, 20)
+      // Shuffle and select up to 20 questions (or all if less than 20)
+      const count = Math.min(20, questions.length)
+      const selected = this.shuffleArray([...questions]).slice(0, count)
 
-      // Transform to quiz format (only use enhanced questions)
-      const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
-      const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
-
-      if (quizQuestions.length === 0) {
-        throw new Error('No enhanced questions available for rapid-fire quiz. Please generate enhancements via Claude.')
-      }
+      // Transform to quiz format (all selected questions are guaranteed to be enhanced)
+      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
 
       return {
         id: `rapid-fire-${Date.now()}`,
         name: 'Rapid Fire',
-        description: '20 quick questions - answer fast!',
+        description: `${quizQuestions.length} quick questions - answer fast!`,
         mode: 'rapid-fire',
         questions: quizQuestions,
         timeLimit: 60,
@@ -107,23 +103,29 @@ class QuizService {
         ? parseInt(categoryReference, 10)
         : categoryReference
 
-      // Get questions from this category
-      const questions = await this.db.getQuestionsByCategory(categoryReference_num, 1000)
+      // Get ONLY enhanced questions
+      const allEnhancedQuestions = await this.db.getEnhancedQuestions()
+
+      if (allEnhancedQuestions.length === 0) {
+        throw new Error(`No enhanced questions available. Please generate enhancements via Claude.`)
+      }
+
+      // Filter to this category
+      const questions = allEnhancedQuestions.filter(q =>
+        q.primary_category === categoryReference_num ||
+        (q.categories && q.categories.includes(categoryReference_num))
+      )
 
       if (questions.length === 0) {
-        throw new Error(`No questions found for category ${categoryReference_num}`)
+        throw new Error(`No enhanced questions available for this category. Try another category or generate more enhancements.`)
       }
 
       // Shuffle and select
-      const selected = this.shuffleArray([...questions]).slice(0, Math.min(count, questions.length))
+      const actualCount = Math.min(count, questions.length)
+      const selected = this.shuffleArray([...questions]).slice(0, actualCount)
 
-      // Transform to quiz format (only use enhanced questions)
-      const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
-      const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
-
-      if (quizQuestions.length === 0) {
-        throw new Error(`No enhanced questions available for this category. Please generate enhancements via Claude.`)
-      }
+      // Transform to quiz format (all selected questions are guaranteed to be enhanced)
+      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
 
       return {
         id: `category-${categoryReference_num}-${Date.now()}`,
@@ -152,7 +154,12 @@ class QuizService {
         count = 10
       } = options
 
-      let questions = await this.db.getAllQuestions()
+      // Get ONLY enhanced questions
+      let questions = await this.db.getEnhancedQuestions()
+
+      if (questions.length === 0) {
+        throw new Error('No enhanced questions available. Please generate enhancements via Claude.')
+      }
 
       // Filter by categories if specified
       if (categories.length > 0) {
@@ -162,16 +169,16 @@ class QuizService {
         )
       }
 
-      // Shuffle and select
-      const selected = this.shuffleArray([...questions]).slice(0, Math.min(count, questions.length))
-
-      // Transform to quiz format (only use enhanced questions)
-      const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
-      const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
-
-      if (quizQuestions.length === 0) {
-        throw new Error('No enhanced questions available. Please generate enhancements via Claude.')
+      if (questions.length === 0) {
+        throw new Error('No enhanced questions available for selected categories. Try different categories.')
       }
+
+      // Shuffle and select
+      const actualCount = Math.min(count, questions.length)
+      const selected = this.shuffleArray([...questions]).slice(0, actualCount)
+
+      // Transform to quiz format (all selected questions are guaranteed to be enhanced)
+      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
 
       return {
         id: `custom-${Date.now()}`,
@@ -194,27 +201,24 @@ class QuizService {
    */
   async getChallengeQuiz() {
     try {
-      // Get random questions (all have similar difficulty in our data)
-      const allQuestions = await this.db.getAllQuestions()
-      if (allQuestions.length === 0) {
-        throw new Error('No questions in database')
-      }
+      // Get ONLY enhanced questions
+      const enhancedQuestions = await this.db.getEnhancedQuestions()
 
-      // Select 15 random questions for challenge
-      const selected = this.shuffleArray([...allQuestions]).slice(0, Math.min(15, allQuestions.length))
-
-      // Transform to quiz format (only use enhanced questions)
-      const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
-      const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
-
-      if (quizQuestions.length === 0) {
+      if (enhancedQuestions.length === 0) {
         throw new Error('No enhanced questions available for challenge quiz. Please generate enhancements via Claude.')
       }
+
+      // Select up to 15 random questions for challenge (or all if less than 15)
+      const count = Math.min(15, enhancedQuestions.length)
+      const selected = this.shuffleArray([...enhancedQuestions]).slice(0, count)
+
+      // Transform to quiz format (all selected questions are guaranteed to be enhanced)
+      const quizQuestions = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
 
       return {
         id: `challenge-${Date.now()}`,
         name: 'Challenge Mode',
-        description: 'Test your Islamic knowledge - challenging questions',
+        description: `Test your Islamic knowledge - ${quizQuestions.length} challenging questions`,
         mode: 'challenge',
         questions: quizQuestions,
         timeLimit: 90,

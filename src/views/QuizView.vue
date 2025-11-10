@@ -549,6 +549,12 @@ async function startCustomQuiz() {
   }
 
   try {
+    if (!quizService.value) {
+      console.warn('Quiz service not ready yet, please wait...')
+      alert('Quiz is still loading, please wait a moment and try again.')
+      return
+    }
+
     // Extract category references from selected categories
     const categoryReferences = selectedCategories.value.map(cat => cat.reference)
 
@@ -581,6 +587,11 @@ async function startCustomQuiz() {
 // Quiz Mode Starters (now async with database)
 async function startDailyQuiz() {
   try {
+    if (!quizService.value) {
+      console.warn('Quiz service not ready yet, please wait...')
+      alert('Quiz is still loading, please wait a moment and try again.')
+      return
+    }
     currentQuiz.value = await quizService.value.getDailyQuiz()
     currentQuestionIndex.value = 0
     selectedAnswer.value = null
@@ -595,6 +606,11 @@ async function startDailyQuiz() {
 
 async function startChallengeQuiz() {
   try {
+    if (!quizService.value) {
+      console.warn('Quiz service not ready yet, please wait...')
+      alert('Quiz is still loading, please wait a moment and try again.')
+      return
+    }
     currentQuiz.value = await quizService.value.getChallengeQuiz()
     currentQuestionIndex.value = 0
     selectedAnswer.value = null
@@ -627,6 +643,11 @@ function nextQuestion() {
 }
 
 async function completeQuiz() {
+  if (!quizService.value) {
+    console.error('Quiz service not available')
+    return
+  }
+
   // Calculate score using the collected user answers
   quizResults.value = quizService.value.calculateScore(currentQuiz.value, userAnswers.value)
 
