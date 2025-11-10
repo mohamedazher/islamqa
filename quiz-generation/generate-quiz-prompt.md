@@ -1,14 +1,14 @@
-# Quiz Enhancement Generation Prompt - V2.0
+# Quiz Question Generation Prompt
 
 ## Context
 
-You are generating high-quality quiz enhancements for an Islamic Q&A mobile app. The app now uses a **semantic reference ID database** where:
+You are an AI agent generating high-quality quiz questions for an Islamic Q&A mobile app. The app uses a **semantic reference ID database** where:
 
 - Each question has a unique `reference` ID (e.g., 106245)
 - Questions contain full text: `question` (main text), `title` (short form), `answer` (explanation)
 - These semantic IDs link the entire system (bookmarks, search, categories, etc.)
 
-Your task is to convert database questions into **professional multiple-choice quiz items** with:
+Your task is to convert database questions into **professional multiple-choice quiz questions** with:
 - 4 well-crafted options (not just True/False)
 - Clear, unambiguous correct answers
 - Concise explanations
@@ -17,7 +17,7 @@ Your task is to convert database questions into **professional multiple-choice q
 
 ## Input Format
 
-You will receive a batch of questions in this format:
+You will receive a batch file path containing questions in this format:
 
 ```json
 {
@@ -37,11 +37,11 @@ You will receive a batch of questions in this format:
 
 ## Output Format
 
-Generate enhancements in this **exact** JSON structure:
+Generate quiz questions in this **exact** JSON structure:
 
 ```json
 {
-  "generatedEnhancements": [
+  "quizQuestions": [
     {
       "reference": 106245,
       "questionText": "What is the Islamic ruling on someone repurchasing a gift they previously gave?",
@@ -87,7 +87,7 @@ Generate enhancements in this **exact** JSON structure:
 
 ### 1. Reference ID (CRITICAL)
 - **MUST match the input** `reference` field exactly
-- This is how the enhancement links to the database question
+- This is how the quiz question links to the database question
 - Example: input `"reference": 106245` → output `"reference": 106245`
 
 ### 2. Question Text
@@ -313,12 +313,12 @@ If skipping, note in `metadata.notes` field.
 
 ### For Database Integration:
 - **Reference ID must match exactly** - this is the foreign key to the question
-- Output can be directly imported into `quiz_enhancements` table
-- Each enhancement supplements a question in the database
-- Non-enhanced questions will use dynamic generation as fallback
+- Output can be directly imported into `quiz_questions` table
+- Each quiz question supplements a question in the database
+- Non-generated questions won't appear in quizzes
 
 ### Quality Matters:
-- These enhancements will be used by thousands of users
+- These quiz questions will be used by thousands of users
 - Take time to create quality options
 - Test questions mentally - can they be answered from the answer text?
 - Invalid JSON will fail merge
@@ -332,30 +332,34 @@ If skipping, note in `metadata.notes` field.
 
 ## Batch Processing
 
-When I provide source questions:
+When you receive source questions from a batch file:
 
 1. **Process each question** independently
-2. **Generate 1 enhancement per source** (unless very long answer → 2-3)
+2. **Generate 1 quiz question per source** (unless very long answer → 2-3)
 3. **Maintain diversity** in question types
 4. **Balance difficulty** (35% easy, 45% medium, 20% hard)
 5. **Note any skipped** questions in metadata
-6. **Output valid JSON** ready for merge
+6. **Output valid JSON** in the exact format specified above
 
 ---
 
-## Ready to Generate
+## Agent Instructions
 
-Please generate enhancements for the source questions below.
+When the user asks you to "generate quiz questions for batch XXX":
+
+1. Read the batch input file from `quiz-generation/batches/batch-XXX-input.json`
+2. Follow all generation rules above
+3. Generate quiz questions for ALL questions in the batch
+4. Validate your output (4 options, 1 correct, all required fields)
+5. Save output to `quiz-generation/batches/batch-XXX-output.json`
+6. Update `quiz-generation/quiz-metadata.json` with processed references
+7. Report completion with validation results
+
+Please generate quiz questions following the specifications above.
 
 Remember:
 - ✅ Match reference IDs exactly
 - ✅ Create 4 professional multiple-choice options
 - ✅ Clear, unambiguous correct answers
 - ✅ 2-3 sentence explanations
-- ✅ Valid JSON output
-
----
-
-## Source Questions to Process:
-
-[PASTE SOURCE QUESTIONS BATCH HERE]
+- ✅ Valid JSON output in the exact format specified

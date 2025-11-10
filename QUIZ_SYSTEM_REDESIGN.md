@@ -78,13 +78,10 @@ node generate-quiz-questions.js select --count=100
 # 2. Show current progress
 node generate-quiz-questions.js status
 
-# 3. Import LLM output back
-node generate-quiz-questions.js import --batch=001
-
-# 4. Update app data file
+# 3. Build consolidated app data file
 node generate-quiz-questions.js build
 
-# 5. Reset (for testing)
+# 4. Reset (for testing)
 node generate-quiz-questions.js reset
 ```
 
@@ -94,32 +91,27 @@ node generate-quiz-questions.js reset
 - Picks N unprocessed questions from `questions.json`
 - Checks `quiz-metadata.json` for already-processed
 - Creates `batches/batch-XXX-input.json`
-- Formats for LLM consumption
-- **Output**: Ready-to-use file for Claude
+- Formats for agent to process
+- **Output**: Ready-to-use file for agent generation
 
 #### `status`
 - Shows: Total questions, Generated, Remaining, Coverage %
-- Lists recent batches
+- Lists recent batches with status
 - Simple progress bar
 - **No complexity**: Just the facts
 
-#### `import --batch=XXX`
-- Reads `batches/batch-XXX-output.json` (from LLM)
-- Validates format (JSON, 4 options, 1 correct, etc.)
-- Updates `quiz-metadata.json`
-- Prevents duplicates
-- **Output**: Validation report + updated tracking
-
 #### `build`
-- Consolidates ALL processed batches
+- Consolidates ALL processed batches from `batches/*-output.json`
 - Creates/updates `public/data/quiz-questions.json`
-- This file gets auto-imported by app
+- This file gets auto-imported by app on startup
 - **Output**: Single source of truth for app
 
 #### `reset` (dev only)
 - Clears `quiz-metadata.json`
 - Removes all batch files
 - **Use case**: Starting fresh for testing
+
+**Note**: No `import` command needed - the agent handles generation, validation, and metadata updates automatically!
 
 ---
 
@@ -240,28 +232,29 @@ node generate-quiz-questions.js select --count=100
 📊 Questions: 100
 🎯 References: [329, 245, 8512, ...]
 
-Next step: Copy batches/batch-001-input.json and paste to Claude
+Next step: Ask Claude Code agent to generate quiz questions
 ```
 
-### Step 2: Generate with Claude (30 min)
-1. Open `batches/batch-001-input.json`
-2. Copy entire contents
-3. Go to Claude.ai
-4. Paste `generate-quiz-prompt.md` first
-5. Paste batch JSON
-6. Wait for Claude to generate
-7. Copy Claude's output
-8. Save as `batches/batch-001-output.json`
+### Step 2: Agent Generates Quiz Questions (Automatic)
 
-### Step 3: Import & Validate (1 min)
-```bash
-node generate-quiz-questions.js import --batch=001
+**User tells agent:**
+```
+Generate quiz questions for batch 001
 ```
 
-**Output**:
+**Agent does automatically:**
+1. Reads `batches/batch-001-input.json`
+2. Reads `generate-quiz-prompt.md` for instructions
+3. Generates quiz questions with proper format
+4. Validates output (4 options, 1 correct, etc.)
+5. Saves to `batches/batch-001-output.json`
+6. Updates `quiz-metadata.json` with processed references
+
+**Agent output:**
 ```
-✅ Validation PASSED
-📊 Valid questions: 100/100
+✅ Generated 100 quiz questions for batch 001
+✅ Validation PASSED (100/100)
+✅ Saved to batches/batch-001-output.json
 ✅ Updated metadata
 🎯 Total generated: 100
 📈 Coverage: 0.6% (100/15615)
@@ -269,7 +262,7 @@ node generate-quiz-questions.js import --batch=001
 Next step: Build app data file
 ```
 
-### Step 4: Build App Data (1 min)
+### Step 3: Build App Data (1 min)
 ```bash
 node generate-quiz-questions.js build
 ```
@@ -284,7 +277,7 @@ node generate-quiz-questions.js build
 Next step: Commit and push
 ```
 
-### Step 5: Commit (2 min)
+### Step 4: Commit (2 min)
 ```bash
 git add quiz-generation/quiz-metadata.json
 git add quiz-generation/batches/batch-001-*
@@ -302,31 +295,27 @@ git push -u origin claude/simplify-quiz-system-011CUzb7rFUGdTWpEFVvuexE
 ### Scenario: Generate 500 questions in parallel
 
 ```bash
-# Terminal 1
-node generate-quiz-questions.js select --count=100
-# Creates batch-001-input.json
+# Create 5 batches
+node generate-quiz-questions.js select --count=100  # batch-001
+node generate-quiz-questions.js select --count=100  # batch-002
+node generate-quiz-questions.js select --count=100  # batch-003
+node generate-quiz-questions.js select --count=100  # batch-004
+node generate-quiz-questions.js select --count=100  # batch-005
+```
 
-# Terminal 2
-node generate-quiz-questions.js select --count=100
-# Creates batch-002-input.json
+**Then tell agent:**
+```
+Generate quiz questions for batches 001, 002, 003, 004, and 005
+```
 
-# Terminal 3
-node generate-quiz-questions.js select --count=100
-# Creates batch-003-input.json
+**Agent processes all batches automatically:**
+- Processes each batch independently
+- Validates each output
+- Updates metadata after each batch
+- All outputs saved to respective batch files
 
-# ... etc
-
-# Give all 5 batches to Claude in parallel (5 different chats)
-# Or process them sequentially
-
-# When done, import them
-node generate-quiz-questions.js import --batch=001
-node generate-quiz-questions.js import --batch=002
-node generate-quiz-questions.js import --batch=003
-node generate-quiz-questions.js import --batch=004
-node generate-quiz-questions.js import --batch=005
-
-# Build final file
+```bash
+# Build final consolidated file
 node generate-quiz-questions.js build
 
 # Commit all at once
@@ -337,9 +326,9 @@ git push
 
 **Benefits**:
 - Each batch is independent
-- Can process in parallel
+- Agent handles all generation automatically
 - Easy to track which batch is which
-- Simple to resume if interrupted
+- Simple to resume if interrupted (just regenerate failed batches)
 
 ---
 
