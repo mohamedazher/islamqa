@@ -1,0 +1,213 @@
+# Fastfile for BetterIslam Q&A
+# Cordova mobile app CI/CD automation
+
+default_platform(:android)
+
+# ============================================================================
+# ANDROID
+# ============================================================================
+
+platform :android do
+
+  desc "Build and test Android app"
+  lane :build do |options|
+    # Build Vite web app first
+    sh("cd .. && yarn install --frozen-lockfile")
+    sh("cd .. && yarn test:all")
+    sh("cd .. && yarn build")
+
+    # Build Cordova Android app
+    release_type = options[:release] ? "release" : "debug"
+
+    cordova(
+      platform: 'android',
+      release: options[:release] || false,
+      type: release_type
+    )
+
+    UI.success("✅ Android #{release_type} build completed!")
+  end
+
+  desc "Build debug APK for testing"
+  lane :debug do
+    build(release: false)
+  end
+
+  desc "Build release APK and AAB"
+  lane :release do
+    # Increment version
+    sh("cd .. && yarn version:patch")
+
+    build(release: true)
+
+    # Build AAB for Play Store
+    cordova(
+      platform: 'android',
+      release: true,
+      type: 'bundle'
+    )
+
+    UI.success("✅ Android release builds (APK + AAB) completed!")
+  end
+
+  desc "Deploy to Google Play Internal Testing track"
+  lane :beta do
+    # Build release version
+    release
+
+    # Upload to Play Console Internal Testing
+    upload_to_play_store(
+      track: 'internal',
+      package_name: 'com.dkurve.betterislamqa',
+      aab: 'platforms/android/app/build/outputs/bundle/release/app-release.aab',
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      json_key: ENV['PLAY_STORE_JSON_KEY']
+    )
+
+    UI.success("✅ Successfully deployed to Google Play Internal Testing!")
+  end
+
+  desc "Promote from internal to beta track"
+  lane :promote_to_beta do
+    upload_to_play_store(
+      track: 'internal',
+      track_promote_to: 'beta',
+      package_name: 'com.dkurve.betterislamqa',
+      skip_upload_aab: true,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      json_key: ENV['PLAY_STORE_JSON_KEY']
+    )
+
+    UI.success("✅ Promoted to Google Play Beta track!")
+  end
+
+  desc "Deploy to Google Play Production"
+  lane :production do
+    # Build release version
+    release
+
+    # Upload to Play Console Production
+    upload_to_play_store(
+      track: 'production',
+      package_name: 'com.dkurve.betterislamqa',
+      aab: 'platforms/android/app/build/outputs/bundle/release/app-release.aab',
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      json_key: ENV['PLAY_STORE_JSON_KEY']
+    )
+
+    UI.success("✅ Successfully deployed to Google Play Production!")
+  end
+
+end
+
+# ============================================================================
+# iOS
+# ============================================================================
+
+platform :ios do
+
+  desc "Build and test iOS app"
+  lane :build do |options|
+    # Build Vite web app first
+    sh("cd .. && yarn install --frozen-lockfile")
+    sh("cd .. && yarn test:all")
+    sh("cd .. && yarn build")
+
+    # Build Cordova iOS app
+    release_type = options[:release] ? "release" : "debug"
+
+    cordova(
+      platform: 'ios',
+      release: options[:release] || false,
+      type: release_type,
+      device: true
+    )
+
+    UI.success("✅ iOS #{release_type} build completed!")
+  end
+
+  desc "Build debug version for simulator"
+  lane :debug do
+    build(release: false)
+  end
+
+  desc "Build release IPA for App Store"
+  lane :release do
+    # Increment version
+    sh("cd .. && yarn version:patch")
+
+    # Set up code signing (match)
+    match(
+      type: "appstore",
+      readonly: true
+    )
+
+    build(release: true)
+
+    # Create IPA
+    sh("cd ../platforms/ios/build/device && mkdir -p Payload && cp -r *.app Payload/ && zip -r BetterIslamQA.ipa Payload")
+
+    UI.success("✅ iOS release IPA created!")
+  end
+
+  desc "Deploy to TestFlight"
+  lane :beta do
+    # Build release version
+    release
+
+    # Upload to TestFlight
+    upload_to_testflight(
+      ipa: 'platforms/ios/build/device/BetterIslamQA.ipa',
+      skip_waiting_for_build_processing: true,
+      apple_id: ENV['APPLE_ID'],
+      app_identifier: 'com.dkurve.betterislamqa'
+    )
+
+    UI.success("✅ Successfully deployed to TestFlight!")
+  end
+
+  desc "Deploy to App Store"
+  lane :production do
+    # Build release version
+    release
+
+    # Upload to App Store
+    upload_to_app_store(
+      ipa: 'platforms/ios/build/device/BetterIslamQA.ipa',
+      skip_metadata: true,
+      skip_screenshots: true,
+      precheck_include_in_app_purchases: false,
+      force: true
+    )
+
+    UI.success("✅ Successfully deployed to App Store!")
+  end
+
+end
+
+# ============================================================================
+# SHARED LANES
+# ============================================================================
+
+desc "Run tests"
+lane :test do
+  sh("cd .. && yarn test:all")
+  UI.success("✅ All tests passed!")
+end
+
+desc "Increment version (patch)"
+lane :bump_version do
+  sh("cd .. && yarn version:patch")
+  UI.success("✅ Version incremented!")
+end
+
+# Error handling
+error do |lane, exception|
+  UI.error("❌ Error in lane #{lane}: #{exception.message}")
+end

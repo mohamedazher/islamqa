@@ -1,0 +1,163 @@
+name: Android Fastlane CI/CD
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: 'Deployment target'
+        required: true
+        default: 'build'
+        type: choice
+        options:
+          - build        # Build only (no deployment)
+          - beta         # Deploy to Internal Testing
+          - production   # Deploy to Production (use with caution!)
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Install Node dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Setup Cordova
+        run: |
+          npm install -g cordova@latest
+          cordova telemetry off
+
+      - name: Add Android platform
+        run: cordova platform add android
+
+      - name: Decode and setup keystore
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        run: |
+          echo "$ANDROID_KEYSTORE_BASE64" | base64 -d > uploadkey.jks
+          echo "Keystore decoded and saved"
+
+      - name: Create build.json
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          cat > build.json << EOF
+          {
+            "android": {
+              "debug": {
+                "keystore": "uploadkey.jks",
+                "storePassword": "$KEYSTORE_PASSWORD",
+                "alias": "$KEY_ALIAS",
+                "password": "$KEY_PASSWORD",
+                "keystoreType": ""
+              },
+              "release": {
+                "keystore": "uploadkey.jks",
+                "storePassword": "$KEYSTORE_PASSWORD",
+                "alias": "$KEY_ALIAS",
+                "password": "$KEY_PASSWORD",
+                "keystoreType": ""
+              }
+            }
+          }
+          EOF
+
+      - name: Setup Google Play credentials
+        if: github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production'
+        env:
+          PLAY_STORE_JSON_KEY_DATA: ${{ secrets.PLAY_STORE_JSON_KEY_DATA }}
+        run: |
+          echo "$PLAY_STORE_JSON_KEY_DATA" > google-play-api-key.json
+          echo "PLAY_STORE_JSON_KEY=$(pwd)/google-play-api-key.json" >> $GITHUB_ENV
+
+      - name: Build with Fastlane (Debug)
+        if: github.event.inputs.deployment_target == '' || github.event.inputs.deployment_target == 'build'
+        run: bundle exec fastlane android debug
+
+      - name: Build with Fastlane (Release)
+        if: github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production'
+        run: bundle exec fastlane android release
+
+      - name: Deploy to Internal Testing
+        if: github.event.inputs.deployment_target == 'beta'
+        run: bundle exec fastlane android beta
+        env:
+          PLAY_STORE_JSON_KEY: ${{ env.PLAY_STORE_JSON_KEY }}
+
+      - name: Deploy to Production
+        if: github.event.inputs.deployment_target == 'production'
+        run: bundle exec fastlane android production
+        env:
+          PLAY_STORE_JSON_KEY: ${{ env.PLAY_STORE_JSON_KEY }}
+
+      - name: Upload Debug APK
+        if: (github.event.inputs.deployment_target == '' || github.event.inputs.deployment_target == 'build') && success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-debug-apk
+          path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
+
+      - name: Upload Release APK
+        if: (github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production') && success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-release-apk
+          path: platforms/android/app/build/outputs/apk/release/app-release.apk
+          retention-days: 90
+
+      - name: Upload Release AAB
+        if: (github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production') && success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-release-aab
+          path: platforms/android/app/build/outputs/bundle/release/app-release.aab
+          retention-days: 90
+
+      - name: Create GitHub Release
+        if: github.event.inputs.deployment_target == 'production' && github.ref == 'refs/heads/master' && success()
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.run_number }}-android
+          name: Android Release v${{ github.run_number }}
+          draft: false
+          prerelease: false
+          files: |
+            platforms/android/app/build/outputs/apk/release/app-release.apk
+            platforms/android/app/build/outputs/bundle/release/app-release.aab
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cleanup sensitive files
+        if: always()
+        run: rm -f uploadkey.jks build.json google-play-api-key.json

@@ -1,0 +1,13 @@
+# Appfile for BetterIslam Q&A
+
+# App identifier
+app_identifier("com.dkurve.betterislamqa")
+
+# Apple ID for App Store Connect (iOS)
+apple_id(ENV["APPLE_ID"] || "mohamedazher@gmail.com")
+
+# Team ID for iOS (get from Apple Developer portal)
+# itc_team_id("YOUR_TEAM_ID") # App Store Connect Team ID
+# team_id("YOUR_TEAM_ID") # Developer Portal Team ID
+
+# For Android, package name is used in Fastfile lanes

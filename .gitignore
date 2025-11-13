@@ -73,3 +73,13 @@ quiz-generation/scripts/*.cjs
 # Firebase configuration files (contain API keys)
 google-services.json
 GoogleService-Info.plist
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/README.md
+.env.fastlane
+vendor/bundle
+.bundle/
