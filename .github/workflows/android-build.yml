@@ -1,0 +1,146 @@
+name: Android Build and Release
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: 'Release type'
+        required: true
+        default: 'debug'
+        type: choice
+        options:
+          - debug
+          - release
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run tests
+        run: yarn test:all
+
+      - name: Build Vite app
+        run: yarn build
+
+      - name: Setup Cordova
+        run: |
+          npm install -g cordova@latest
+          cordova telemetry off
+
+      - name: Add Android platform
+        run: cordova platform add android@latest
+
+      - name: Decode and setup keystore
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        run: |
+          echo "$ANDROID_KEYSTORE_BASE64" | base64 -d > uploadkey.jks
+          echo "Keystore decoded and saved"
+
+      - name: Create build.json
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          cat > build.json << EOF
+          {
+            "android": {
+              "debug": {
+                "keystore": "uploadkey.jks",
+                "storePassword": "$KEYSTORE_PASSWORD",
+                "alias": "$KEY_ALIAS",
+                "password": "$KEY_PASSWORD",
+                "keystoreType": ""
+              },
+              "release": {
+                "keystore": "uploadkey.jks",
+                "storePassword": "$KEYSTORE_PASSWORD",
+                "alias": "$KEY_ALIAS",
+                "password": "$KEY_PASSWORD",
+                "keystoreType": ""
+              }
+            }
+          }
+          EOF
+
+      - name: Build Android APK (Debug)
+        if: github.event.inputs.release_type == 'debug' || github.event.inputs.release_type == ''
+        run: cordova build android --debug
+
+      - name: Build Android APK (Release)
+        if: github.event.inputs.release_type == 'release'
+        run: cordova build android --release
+
+      - name: Build Android App Bundle (Release)
+        if: github.event.inputs.release_type == 'release'
+        run: cordova build android --release -- --packageType=bundle
+
+      - name: Upload Debug APK
+        if: github.event.inputs.release_type == 'debug' || github.event.inputs.release_type == ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-debug-apk
+          path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
+
+      - name: Upload Release APK
+        if: github.event.inputs.release_type == 'release'
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-release-apk
+          path: platforms/android/app/build/outputs/apk/release/app-release.apk
+          retention-days: 90
+
+      - name: Upload Release AAB
+        if: github.event.inputs.release_type == 'release'
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-release-aab
+          path: platforms/android/app/build/outputs/bundle/release/app-release.aab
+          retention-days: 90
+
+      - name: Create GitHub Release
+        if: github.event.inputs.release_type == 'release' && github.ref == 'refs/heads/master'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.run_number }}-android
+          name: Android Release v${{ github.run_number }}
+          draft: false
+          prerelease: false
+          files: |
+            platforms/android/app/build/outputs/apk/release/app-release.apk
+            platforms/android/app/build/outputs/bundle/release/app-release.aab
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cleanup keystore
+        if: always()
+        run: rm -f uploadkey.jks build.json
