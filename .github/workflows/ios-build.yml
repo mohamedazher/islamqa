@@ -1,0 +1,138 @@
+name: iOS Build and Release
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: 'Release type'
+        required: true
+        default: 'debug'
+        type: choice
+        options:
+          - debug
+          - release
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run tests
+        run: yarn test:all
+
+      - name: Build Vite app
+        run: yarn build
+
+      - name: Setup Cordova
+        run: |
+          npm install -g cordova@latest
+          cordova telemetry off
+
+      - name: Add iOS platform
+        run: cordova platform add ios@latest
+
+      - name: Install CocoaPods dependencies
+        run: |
+          cd platforms/ios
+          pod install || true
+          cd ../..
+
+      # Certificate and Provisioning Profile Setup
+      - name: Import certificates
+        if: github.event.inputs.release_type == 'release'
+        env:
+          IOS_CERTIFICATE_BASE64: ${{ secrets.IOS_CERTIFICATE_BASE64 }}
+          IOS_CERTIFICATE_PASSWORD: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
+        run: |
+          # Create temporary keychain
+          security create-keychain -p "${{ secrets.KEYCHAIN_PASSWORD }}" build.keychain
+          security default-keychain -s build.keychain
+          security unlock-keychain -p "${{ secrets.KEYCHAIN_PASSWORD }}" build.keychain
+          security set-keychain-settings -t 3600 -u build.keychain
+
+          # Import certificate
+          echo "$IOS_CERTIFICATE_BASE64" | base64 -d > certificate.p12
+          security import certificate.p12 -k build.keychain -P "$IOS_CERTIFICATE_PASSWORD" -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple: -s -k "${{ secrets.KEYCHAIN_PASSWORD }}" build.keychain
+
+          # Clean up
+          rm certificate.p12
+
+      - name: Import provisioning profile
+        if: github.event.inputs.release_type == 'release'
+        env:
+          IOS_PROVISIONING_PROFILE_BASE64: ${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}
+        run: |
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          echo "$IOS_PROVISIONING_PROFILE_BASE64" | base64 -d > ~/Library/MobileDevice/Provisioning\ Profiles/profile.mobileprovision
+
+      - name: Build iOS (Debug)
+        if: github.event.inputs.release_type == 'debug' || github.event.inputs.release_type == ''
+        run: cordova build ios --debug --device
+
+      - name: Build iOS (Release)
+        if: github.event.inputs.release_type == 'release'
+        run: |
+          cordova build ios --release --device --buildFlag="-allowProvisioningUpdates"
+
+      - name: Create IPA (Release)
+        if: github.event.inputs.release_type == 'release'
+        run: |
+          cd platforms/ios/build/device
+          mkdir Payload
+          cp -r *.app Payload/
+          zip -r BetterIslamQA.ipa Payload
+          cd ../../../..
+
+      - name: Upload Debug Build
+        if: github.event.inputs.release_type == 'debug' || github.event.inputs.release_type == ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-debug-build
+          path: platforms/ios/build/device/*.app
+          retention-days: 30
+
+      - name: Upload Release IPA
+        if: github.event.inputs.release_type == 'release'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-release-ipa
+          path: platforms/ios/build/device/BetterIslamQA.ipa
+          retention-days: 90
+
+      - name: Create GitHub Release
+        if: github.event.inputs.release_type == 'release' && github.ref == 'refs/heads/master'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.run_number }}-ios
+          name: iOS Release v${{ github.run_number }}
+          draft: false
+          prerelease: false
+          files: platforms/ios/build/device/BetterIslamQA.ipa
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cleanup keychain
+        if: always()
+        run: |
+          security delete-keychain build.keychain || true
