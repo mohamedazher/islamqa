@@ -324,6 +324,29 @@ class QuizService {
   }
 
   /**
+   * Load pre-generated quizzes from JSON file
+   * This method loads the quiz-questions.json file that contains pre-generated quiz questions
+   */
+  async loadPreGeneratedQuizzes() {
+    try {
+      // Try to fetch from the data file
+      const response = await fetch('/data/quiz-questions.json')
+      if (!response.ok) {
+        throw new Error(`Failed to load quiz questions: ${response.statusText}`)
+      }
+      const data = await response.json()
+
+      // Handle both array format and object format with version/totalQuizzes
+      let quizzes = Array.isArray(data) ? data : data.quizzes || []
+      console.log(`✅ Loaded ${quizzes.length} pre-generated quizzes`)
+      return quizzes
+    } catch (error) {
+      console.error('Error loading pre-generated quizzes:', error)
+      throw error
+    }
+  }
+
+  /**
    * Get all available categories for quiz filtering
    */
   async getAvailableCategories() {
