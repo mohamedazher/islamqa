@@ -21,16 +21,27 @@ class QuizService {
       const today = new Date().toISOString().split('T')[0]
       const seed = today.split('-').reduce((acc, num) => acc + parseInt(num), 0)
 
-      // Get all questions (will be filtered)
-      const allQuestions = await this.db.getAllQuestions()
-      if (allQuestions.length === 0) {
-        throw new Error('No questions in database')
+      // Get all available quiz questions (LLM-generated only)
+      const allQuizQuestions = await this.db.getAllQuizQuestions()
+      if (allQuizQuestions.length === 0) {
+        throw new Error('No quiz questions available. Please generate quiz questions first.')
+      }
+
+      // Get the corresponding full questions for these quiz questions
+      const questionRefs = allQuizQuestions.map(q => q.reference)
+      const allQuestions = await Promise.all(
+        questionRefs.map(ref => this.db.getQuestion(ref))
+      )
+      const validQuestions = allQuestions.filter(q => q !== null)
+
+      if (validQuestions.length === 0) {
+        throw new Error('No questions found for available quiz questions.')
       }
 
       // Use seed to consistently select 5 questions for the day
-      const selected = this.selectWithSeed(allQuestions, 5, seed)
+      const selected = this.selectWithSeed(validQuestions, Math.min(5, validQuestions.length), seed)
 
-      // Transform to quiz format (only use enhanced questions)
+      // Transform to quiz format (these are guaranteed to have quiz versions)
       const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
       const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
 
@@ -61,22 +72,54 @@ class QuizService {
     try {
       const { difficulty = 'all', categories = [] } = options
 
-      let questions = await this.db.getAllQuestions()
+      // Get all available quiz questions (LLM-generated only)
+      const allQuizQuestions = await this.db.getAllQuizQuestions()
+      console.log(`🎯 [Rapid Fire] Found ${allQuizQuestions.length} quiz questions in database`)
 
-      // Filter by categories if specified
-      if (categories && categories.length > 0) {
-        questions = questions.filter(q =>
-          q.primary_category && categories.includes(q.primary_category) ||
-          (q.categories && q.categories.some(cat => categories.includes(cat)))
-        )
+      if (allQuizQuestions.length === 0) {
+        throw new Error('No quiz questions available. Please generate quiz questions first.')
       }
 
-      // Shuffle and select 20 questions
-      const selected = this.shuffleArray([...questions]).slice(0, 20)
+      // Get the corresponding full questions for these quiz questions
+      const questionRefs = allQuizQuestions.map(q => q.reference)
+      console.log(`🎯 [Rapid Fire] Question references:`, questionRefs.slice(0, 10))
 
-      // Transform to quiz format (only use enhanced questions)
+      const allQuestions = await Promise.all(
+        questionRefs.map(ref => this.db.getQuestion(ref))
+      )
+      let questions = allQuestions.filter(q => q !== null)
+      console.log(`🎯 [Rapid Fire] Found ${questions.length} full questions (after filtering nulls)`)
+
+      // Filter by categories if specified (expand to include all subcategories)
+      if (categories && categories.length > 0) {
+        // Expand categories to include all descendants
+        const expandedCategories = []
+        for (const categoryRef of categories) {
+          const descendants = await this.db.getAllDescendantCategoryReferences(categoryRef)
+          expandedCategories.push(...descendants)
+        }
+        const uniqueCategories = [...new Set(expandedCategories)]
+        console.log(`🎯 [Rapid Fire] Expanded ${categories.length} categories to ${uniqueCategories.length} (including subcategories)`)
+
+        questions = questions.filter(q =>
+          q.primary_category && uniqueCategories.includes(q.primary_category) ||
+          (q.categories && q.categories.some(cat => uniqueCategories.includes(cat)))
+        )
+        console.log(`🎯 [Rapid Fire] After category filter: ${questions.length} questions`)
+      }
+
+      if (questions.length === 0) {
+        throw new Error('No quiz questions available for the selected criteria.')
+      }
+
+      // Shuffle and select up to 20 questions
+      const selected = this.shuffleArray([...questions]).slice(0, Math.min(20, questions.length))
+      console.log(`🎯 [Rapid Fire] Selected ${selected.length} questions for quiz`)
+
+      // Transform to quiz format (these are guaranteed to have quiz versions)
       const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
       const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
+      console.log(`🎯 [Rapid Fire] After transform: ${quizQuestions.length} quiz questions`)
 
       if (quizQuestions.length === 0) {
         throw new Error('No quiz questions available for rapid-fire quiz. Please generate quiz questions first.')
@@ -85,7 +128,7 @@ class QuizService {
       return {
         id: `rapid-fire-${Date.now()}`,
         name: 'Rapid Fire',
-        description: '20 quick questions - answer fast!',
+        description: `${quizQuestions.length} quick questions - answer fast!`,
         mode: 'rapid-fire',
         questions: quizQuestions,
         timeLimit: 60,
@@ -107,17 +150,37 @@ class QuizService {
         ? parseInt(categoryReference, 10)
         : categoryReference
 
-      // Get questions from this category
-      const questions = await this.db.getQuestionsByCategory(categoryReference_num, 1000)
+      // Get all available quiz questions (LLM-generated only)
+      const allQuizQuestions = await this.db.getAllQuizQuestions()
+      if (allQuizQuestions.length === 0) {
+        throw new Error('No quiz questions available. Please generate quiz questions first.')
+      }
+
+      // Get the corresponding full questions for these quiz questions
+      const questionRefs = allQuizQuestions.map(q => q.reference)
+      const allQuestions = await Promise.all(
+        questionRefs.map(ref => this.db.getQuestion(ref))
+      )
+
+      // Expand category to include all subcategories
+      const expandedCategories = await this.db.getAllDescendantCategoryReferences(categoryReference_num)
+
+      // Filter by category (including subcategories)
+      const questions = allQuestions.filter(q =>
+        q !== null && (
+          q.primary_category && expandedCategories.includes(q.primary_category) ||
+          (q.categories && q.categories.some(cat => expandedCategories.includes(cat)))
+        )
+      )
 
       if (questions.length === 0) {
-        throw new Error(`No questions found for category ${categoryReference_num}`)
+        throw new Error(`No quiz questions available for this category. Please generate quiz questions first.`)
       }
 
       // Shuffle and select
       const selected = this.shuffleArray([...questions]).slice(0, Math.min(count, questions.length))
 
-      // Transform to quiz format (only use enhanced questions)
+      // Transform to quiz format (these are guaranteed to have quiz versions)
       const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
       const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
 
@@ -152,20 +215,43 @@ class QuizService {
         count = 10
       } = options
 
-      let questions = await this.db.getAllQuestions()
+      // Get all available quiz questions (LLM-generated only)
+      const allQuizQuestions = await this.db.getAllQuizQuestions()
+      if (allQuizQuestions.length === 0) {
+        throw new Error('No quiz questions available. Please generate quiz questions first.')
+      }
 
-      // Filter by categories if specified
+      // Get the corresponding full questions for these quiz questions
+      const questionRefs = allQuizQuestions.map(q => q.reference)
+      const allQuestions = await Promise.all(
+        questionRefs.map(ref => this.db.getQuestion(ref))
+      )
+      let questions = allQuestions.filter(q => q !== null)
+
+      // Filter by categories if specified (expand to include all subcategories)
       if (categories.length > 0) {
+        // Expand categories to include all descendants
+        const expandedCategories = []
+        for (const categoryRef of categories) {
+          const descendants = await this.db.getAllDescendantCategoryReferences(categoryRef)
+          expandedCategories.push(...descendants)
+        }
+        const uniqueCategories = [...new Set(expandedCategories)]
+
         questions = questions.filter(q =>
-          q.primary_category && categories.includes(q.primary_category) ||
-          (q.categories && q.categories.some(cat => categories.includes(cat)))
+          q.primary_category && uniqueCategories.includes(q.primary_category) ||
+          (q.categories && q.categories.some(cat => uniqueCategories.includes(cat)))
         )
+      }
+
+      if (questions.length === 0) {
+        throw new Error('No quiz questions available for the selected criteria.')
       }
 
       // Shuffle and select
       const selected = this.shuffleArray([...questions]).slice(0, Math.min(count, questions.length))
 
-      // Transform to quiz format (only use enhanced questions)
+      // Transform to quiz format (these are guaranteed to have quiz versions)
       const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
       const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
 
@@ -194,16 +280,27 @@ class QuizService {
    */
   async getChallengeQuiz() {
     try {
-      // Get random questions (all have similar difficulty in our data)
-      const allQuestions = await this.db.getAllQuestions()
-      if (allQuestions.length === 0) {
-        throw new Error('No questions in database')
+      // Get all available quiz questions (LLM-generated only)
+      const allQuizQuestions = await this.db.getAllQuizQuestions()
+      if (allQuizQuestions.length === 0) {
+        throw new Error('No quiz questions available. Please generate quiz questions first.')
       }
 
-      // Select 15 random questions for challenge
-      const selected = this.shuffleArray([...allQuestions]).slice(0, Math.min(15, allQuestions.length))
+      // Get the corresponding full questions for these quiz questions
+      const questionRefs = allQuizQuestions.map(q => q.reference)
+      const allQuestions = await Promise.all(
+        questionRefs.map(ref => this.db.getQuestion(ref))
+      )
+      const validQuestions = allQuestions.filter(q => q !== null)
 
-      // Transform to quiz format (only use enhanced questions)
+      if (validQuestions.length === 0) {
+        throw new Error('No questions found for available quiz questions.')
+      }
+
+      // Select up to 15 random questions for challenge
+      const selected = this.shuffleArray([...validQuestions]).slice(0, Math.min(15, validQuestions.length))
+
+      // Transform to quiz format (these are guaranteed to have quiz versions)
       const quizQuestionsRaw = await Promise.all(selected.map(q => this.transformToQuizQuestion(q)))
       const quizQuestions = quizQuestionsRaw.filter(q => q !== null)
 
@@ -214,7 +311,7 @@ class QuizService {
       return {
         id: `challenge-${Date.now()}`,
         name: 'Challenge Mode',
-        description: 'Test your Islamic knowledge - challenging questions',
+        description: `Test your Islamic knowledge - ${quizQuestions.length} challenging questions`,
         mode: 'challenge',
         questions: quizQuestions,
         timeLimit: 90,

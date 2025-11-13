@@ -172,6 +172,37 @@ class DexieDatabase extends Dexie {
   }
 
   /**
+   * Get all descendant category references for a given category (recursive)
+   * Used for quiz filtering to include subcategories
+   */
+  async getAllDescendantCategoryReferences(categoryReference) {
+    try {
+      const refNum = typeof categoryReference === 'string' ? parseInt(categoryReference, 10) : categoryReference
+      const category = await this.categories.where('reference').equals(refNum).first()
+
+      if (!category) {
+        return [refNum] // Return just the reference if category not found
+      }
+
+      // Start with the current category
+      const descendants = [refNum]
+
+      // If it has children, recursively get their descendants
+      if (category.children_references && category.children_references.length > 0) {
+        for (const childRef of category.children_references) {
+          const childDescendants = await this.getAllDescendantCategoryReferences(childRef)
+          descendants.push(...childDescendants)
+        }
+      }
+
+      return descendants
+    } catch (error) {
+      console.error('Error getting descendant categories:', error)
+      return [categoryReference]
+    }
+  }
+
+  /**
    * Get category by reference (semantic ID from IslamQA)
    * UPDATED: Now queries by reference field instead of element
    * The route passes reference as the ID since that's the semantic identifier
@@ -562,6 +593,18 @@ class DexieDatabase extends Dexie {
     } catch (error) {
       console.error('Error bulk importing quiz questions:', error)
       throw error
+    }
+  }
+
+  /**
+   * Get all quiz questions (LLM-generated questions only)
+   */
+  async getAllQuizQuestions() {
+    try {
+      return await this.quiz_questions.toArray()
+    } catch (error) {
+      console.error('Error getting all quiz questions:', error)
+      return []
     }
   }
 
