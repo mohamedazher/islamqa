@@ -417,11 +417,11 @@
                       ]"
                     >
                       <span class="font-semibold">Your answer:</span>
-                      <span>{{ currentQuiz.questions[idx].options[result.userAnswerId]?.text || 'No answer' }}</span>
+                      <span>{{ currentQuiz.questions[idx].options[result.userAnswerIndex]?.text || 'No answer' }}</span>
                     </div>
                     <div v-if="!result.isCorrect" class="flex items-center gap-2 text-green-700 dark:text-green-400">
                       <span class="font-semibold">Correct answer:</span>
-                      <span>{{ currentQuiz.questions[idx].options[result.correctOptionId].text }}</span>
+                      <span>{{ currentQuiz.questions[idx].options[result.correctOptionIndex].text }}</span>
                     </div>
                   </div>
 
@@ -588,32 +588,37 @@ async function loadCurrentQuestionCategory() {
   try {
     const categoryRef = currentQuestion.value.primaryCategory
     if (!categoryRef) {
+      console.log('⚠️  Question has no primary category')
       currentQuestionCategory.value = null
       return
     }
 
     const category = await dataStore.getCategory(categoryRef)
-    if (category) {
-      // Build breadcrumb from ancestors
-      const breadcrumb = []
-      if (category.ancestors && category.ancestors.length > 0) {
-        // Load ancestor categories
-        for (const ancestorRef of category.ancestors) {
-          const ancestor = await dataStore.getCategory(ancestorRef)
-          if (ancestor) {
-            breadcrumb.push(ancestor.title)
-          }
+    if (!category) {
+      console.log(`⚠️  Category ${categoryRef} not found in database - skipping breadcrumb`)
+      currentQuestionCategory.value = null
+      return
+    }
+
+    // Build breadcrumb from ancestors
+    const breadcrumb = []
+    if (category.ancestors && category.ancestors.length > 0) {
+      // Load ancestor categories, skip any that don't exist
+      for (const ancestorRef of category.ancestors) {
+        const ancestor = await dataStore.getCategory(ancestorRef)
+        if (ancestor) {
+          breadcrumb.push(ancestor.title)
+        } else {
+          console.log(`⚠️  Ancestor category ${ancestorRef} not found - skipping in breadcrumb`)
         }
       }
-      breadcrumb.push(category.title)
+    }
+    breadcrumb.push(category.title)
 
-      currentQuestionCategory.value = {
-        reference: category.reference,
-        title: category.title,
-        breadcrumb: breadcrumb.join(' > ')
-      }
-    } else {
-      currentQuestionCategory.value = null
+    currentQuestionCategory.value = {
+      reference: category.reference,
+      title: category.title,
+      breadcrumb: breadcrumb.join(' > ')
     }
   } catch (error) {
     console.error('Error loading category for question:', error)

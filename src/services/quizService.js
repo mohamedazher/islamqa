@@ -435,6 +435,16 @@ class QuizService {
     }
 
     console.log(`📚 Loading quiz question ${question.reference}`)
+
+    // Find the correct option before shuffling
+    const correctOptionIndex = quizQuestion.options.findIndex(opt => opt.isCorrect)
+
+    // Shuffle the options to randomize answer positions
+    const shuffledOptions = this.shuffleArray([...quizQuestion.options])
+
+    // Find the new index of the correct option after shuffling
+    const newCorrectOptionId = shuffledOptions.findIndex(opt => opt.isCorrect)
+
     return {
       reference: question.reference,
       questionText: quizQuestion.questionText,
@@ -443,8 +453,8 @@ class QuizService {
       explanation: quizQuestion.explanation,
       primaryCategory: question.primary_category,
       categories: question.categories,
-      options: quizQuestion.options,
-      correctOptionId: quizQuestion.options.findIndex(opt => opt.isCorrect),
+      options: shuffledOptions,
+      correctOptionId: newCorrectOptionId,
       points: quizQuestion.points || 10,
       tags: quizQuestion.tags,
       difficulty: quizQuestion.difficulty
