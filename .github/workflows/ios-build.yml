@@ -49,7 +49,7 @@ jobs:
           cordova telemetry off
 
       - name: Add iOS platform
-        run: cordova platform add ios@latest
+        run: cordova platform add ios
 
       - name: Install CocoaPods dependencies
         run: |
