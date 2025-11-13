@@ -165,13 +165,21 @@
 
       <!-- Quiz Mode Selection -->
       <div v-if="!currentQuiz" class="space-y-4">
-        <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Choose a quiz mode:</h2>
+        <!-- Loading State -->
+        <div v-if="isLoadingCategories" class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-8 text-center">
+          <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-primary-200 dark:border-primary-800 border-t-primary-600 dark:border-t-primary-400 mb-4"></div>
+          <p class="text-neutral-600 dark:text-neutral-400">Loading quiz questions...</p>
+        </div>
 
-        <!-- Daily Quiz Card -->
-        <button
-          @click="startDailyQuiz"
-          class="w-full bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-5 text-left hover:shadow-md dark:hover:shadow-neutral-700/50 hover:bg-primary-50 dark:hover:bg-primary-950/30 transition"
-        >
+        <div v-else>
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Choose a quiz mode:</h2>
+
+          <!-- Daily Quiz Card -->
+          <button
+            @click="startDailyQuiz"
+            :disabled="isLoadingCategories"
+            class="w-full bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-5 text-left hover:shadow-md dark:hover:shadow-neutral-700/50 hover:bg-primary-50 dark:hover:bg-primary-950/30 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          >
           <div class="flex items-center justify-between mb-2">
             <div class="flex items-center gap-2">
               <Icon name="star" size="md" class="text-primary-600 dark:text-primary-400" />
@@ -186,11 +194,12 @@
           </div>
         </button>
 
-        <!-- Rapid Fire Quiz Card -->
-        <button
-          @click="openCustomization('rapid-fire')"
-          class="w-full bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-5 text-left hover:shadow-md dark:hover:shadow-neutral-700/50 hover:bg-primary-50 dark:hover:bg-primary-950/30 transition"
-        >
+          <!-- Rapid Fire Quiz Card -->
+          <button
+            @click="openCustomization('rapid-fire')"
+            :disabled="isLoadingCategories"
+            class="w-full bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-5 text-left hover:shadow-md dark:hover:shadow-neutral-700/50 hover:bg-primary-50 dark:hover:bg-primary-950/30 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          >
           <div class="flex items-center justify-between mb-2">
             <div class="flex items-center gap-2">
               <Icon name="lightning" size="md" class="text-accent-600 dark:text-accent-400" />
@@ -201,11 +210,12 @@
           <p class="text-sm text-neutral-600 dark:text-neutral-400">20 questions · 60 seconds · Customize topics</p>
         </button>
 
-        <!-- Custom Category Quiz Card -->
-        <button
-          @click="openCustomization('custom')"
-          class="w-full bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-5 text-left hover:shadow-md dark:hover:shadow-neutral-700/50 hover:bg-primary-50 dark:hover:bg-primary-950/30 transition"
-        >
+          <!-- Custom Category Quiz Card -->
+          <button
+            @click="openCustomization('custom')"
+            :disabled="isLoadingCategories"
+            class="w-full bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-5 text-left hover:shadow-md dark:hover:shadow-neutral-700/50 hover:bg-primary-50 dark:hover:bg-primary-950/30 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          >
           <div class="flex items-center justify-between mb-2">
             <div class="flex items-center gap-2">
               <Icon name="book" size="md" class="text-primary-600 dark:text-primary-400" />
@@ -216,11 +226,12 @@
           <p class="text-sm text-neutral-600 dark:text-neutral-400">Choose categories & difficulty</p>
         </button>
 
-        <!-- Challenge Mode Card -->
-        <button
-          @click="startChallengeQuiz"
-          class="w-full bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-5 text-left hover:shadow-md dark:hover:shadow-neutral-700/50 hover:bg-primary-50 dark:hover:bg-primary-950/30 transition border-2 border-primary-400 dark:border-primary-600"
-        >
+          <!-- Challenge Mode Card -->
+          <button
+            @click="startChallengeQuiz"
+            :disabled="isLoadingCategories"
+            class="w-full bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-5 text-left hover:shadow-md dark:hover:shadow-neutral-700/50 hover:bg-primary-50 dark:hover:bg-primary-950/30 transition border-2 border-primary-400 dark:border-primary-600 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
           <div class="flex items-center justify-between mb-2">
             <div class="flex items-center gap-2">
               <Icon name="star" size="md" class="text-primary-600 dark:text-primary-400" />
@@ -231,24 +242,25 @@
           <p class="text-sm text-neutral-600 dark:text-neutral-400">15 questions · Tougher questions</p>
         </button>
 
-        <!-- Stats Section -->
-        <div class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-4 mt-6">
-          <div class="flex items-center gap-2 mb-3">
-            <Icon name="document" size="md" class="text-primary-600 dark:text-primary-400" />
-            <h3 class="font-semibold text-neutral-900 dark:text-neutral-100">Your Stats</h3>
-          </div>
-          <div class="grid grid-cols-3 gap-4 text-center">
-            <div>
-              <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">{{ gamification.stats.quizzesCompleted }}</div>
-              <div class="text-xs text-neutral-600 dark:text-neutral-400">Quizzes</div>
+          <!-- Stats Section -->
+          <div class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-4 mt-6">
+            <div class="flex items-center gap-2 mb-3">
+              <Icon name="document" size="md" class="text-primary-600 dark:text-primary-400" />
+              <h3 class="font-semibold text-neutral-900 dark:text-neutral-100">Your Stats</h3>
             </div>
-            <div>
-              <div class="text-2xl font-bold text-accent-600 dark:text-accent-400">{{ gamification.stats.avgAccuracy }}%</div>
-              <div class="text-xs text-neutral-600 dark:text-neutral-400">Accuracy</div>
-            </div>
-            <div>
-              <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">{{ gamification.currentLevel }}</div>
-              <div class="text-xs text-neutral-600 dark:text-neutral-400">Level</div>
+            <div class="grid grid-cols-3 gap-4 text-center">
+              <div>
+                <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">{{ gamification.stats.quizzesCompleted }}</div>
+                <div class="text-xs text-neutral-600 dark:text-neutral-400">Quizzes</div>
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-accent-600 dark:text-accent-400">{{ gamification.stats.avgAccuracy }}%</div>
+                <div class="text-xs text-neutral-600 dark:text-neutral-400">Accuracy</div>
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">{{ gamification.currentLevel }}</div>
+                <div class="text-xs text-neutral-600 dark:text-neutral-400">Level</div>
+              </div>
             </div>
           </div>
         </div>
@@ -272,6 +284,14 @@
 
         <!-- Question Card -->
         <div class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-6">
+          <!-- Category Breadcrumb -->
+          <div v-if="currentQuestionCategory" class="mb-3">
+            <div class="inline-flex items-center gap-1 px-2 py-1 bg-primary-50 dark:bg-primary-950/30 text-primary-700 dark:text-primary-300 rounded text-xs">
+              <Icon name="folder" size="xs" />
+              <span>{{ currentQuestionCategory.breadcrumb }}</span>
+            </div>
+          </div>
+
           <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">
             {{ currentQuestion.questionText }}
           </h3>
@@ -442,6 +462,55 @@
         </div>
       </div>
     </div>
+
+    <!-- Question Detail Modal -->
+    <div v-if="showQuestionModal && modalQuestion" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
+      <div class="bg-white dark:bg-neutral-900 rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto my-8">
+        <div class="sticky top-0 bg-white dark:bg-neutral-900 border-b dark:border-neutral-800 p-4 flex items-center justify-between">
+          <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Full Question</h2>
+          <button
+            @click="closeQuestionModal"
+            class="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition"
+          >
+            <Icon name="close" size="md" />
+          </button>
+        </div>
+
+        <div class="p-6 space-y-6">
+          <!-- Question Title -->
+          <div>
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+              {{ modalQuestion.title }}
+            </h3>
+          </div>
+
+          <!-- Question Content -->
+          <div class="prose dark:prose-invert max-w-none">
+            <div class="bg-primary-50 dark:bg-primary-950/30 border-l-4 border-primary-500 dark:border-primary-600 p-4 rounded">
+              <h4 class="text-sm font-semibold text-primary-900 dark:text-primary-100 mb-2">Question</h4>
+              <div class="text-neutral-800 dark:text-neutral-200" v-html="modalQuestion.question"></div>
+            </div>
+          </div>
+
+          <!-- Answer Content -->
+          <div class="prose dark:prose-invert max-w-none">
+            <div class="bg-accent-50 dark:bg-accent-950/30 border-l-4 border-accent-500 dark:border-accent-600 p-4 rounded">
+              <h4 class="text-sm font-semibold text-accent-900 dark:text-accent-100 mb-2">Answer</h4>
+              <div class="text-neutral-800 dark:text-neutral-200" v-html="modalQuestion.answer"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sticky bottom-0 bg-white dark:bg-neutral-900 border-t dark:border-neutral-800 p-4">
+          <button
+            @click="closeQuestionModal"
+            class="w-full bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-300 dark:hover:bg-neutral-700 transition"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -478,6 +547,16 @@ const selectedDifficulty = ref('all')
 const questionCount = ref(10)
 const customizationMode = ref('custom') // 'custom' or 'rapid-fire'
 
+// Loading state
+const isLoadingCategories = ref(true)
+
+// Question detail modal state
+const showQuestionModal = ref(false)
+const modalQuestion = ref(null)
+
+// Category info for current question
+const currentQuestionCategory = ref(null)
+
 const currentQuestion = computed(() => {
   if (!currentQuiz.value || currentQuestionIndex.value >= currentQuiz.value.questions.length) {
     return null
@@ -489,6 +568,7 @@ const currentQuestion = computed(() => {
 function checkFirstTimeUser() {
   const hasSeenGuide = localStorage.getItem('quiz-guide-seen')
   if (!hasSeenGuide) {
+    // Show immediately, don't wait for async operations
     showFirstTimeGuide.value = true
   }
 }
@@ -496,6 +576,49 @@ function checkFirstTimeUser() {
 function closeFirstTimeGuide() {
   localStorage.setItem('quiz-guide-seen', 'true')
   showFirstTimeGuide.value = false
+}
+
+// Load category info for current question
+async function loadCurrentQuestionCategory() {
+  if (!currentQuestion.value) {
+    currentQuestionCategory.value = null
+    return
+  }
+
+  try {
+    const categoryRef = currentQuestion.value.primaryCategory
+    if (!categoryRef) {
+      currentQuestionCategory.value = null
+      return
+    }
+
+    const category = await dataStore.getCategory(categoryRef)
+    if (category) {
+      // Build breadcrumb from ancestors
+      const breadcrumb = []
+      if (category.ancestors && category.ancestors.length > 0) {
+        // Load ancestor categories
+        for (const ancestorRef of category.ancestors) {
+          const ancestor = await dataStore.getCategory(ancestorRef)
+          if (ancestor) {
+            breadcrumb.push(ancestor.title)
+          }
+        }
+      }
+      breadcrumb.push(category.title)
+
+      currentQuestionCategory.value = {
+        reference: category.reference,
+        title: category.title,
+        breadcrumb: breadcrumb.join(' > ')
+      }
+    } else {
+      currentQuestionCategory.value = null
+    }
+  } catch (error) {
+    console.error('Error loading category for question:', error)
+    currentQuestionCategory.value = null
+  }
 }
 
 // Customization modal management
@@ -572,6 +695,8 @@ async function startCustomQuiz() {
     userAnswers.value = []
     quizStartTime.value = Date.now() // Track start time
     showCustomizationModal.value = false
+    // Load category for first question
+    await loadCurrentQuestionCategory()
   } catch (error) {
     console.error('Error starting custom quiz:', error)
     alert('Failed to load custom quiz. Please try again.')
@@ -587,6 +712,8 @@ async function startDailyQuiz() {
     answered.value = false
     userAnswers.value = [] // Reset answers array
     quizStartTime.value = Date.now() // Track start time
+    // Load category for first question
+    await loadCurrentQuestionCategory()
   } catch (error) {
     console.error('Error starting daily quiz:', error)
     alert('Failed to load daily quiz. Please try again.')
@@ -601,6 +728,8 @@ async function startChallengeQuiz() {
     answered.value = false
     userAnswers.value = [] // Reset answers array
     quizStartTime.value = Date.now() // Track start time
+    // Load category for first question
+    await loadCurrentQuestionCategory()
   } catch (error) {
     console.error('Error starting challenge quiz:', error)
     alert('Failed to load challenge quiz. Please try again.')
@@ -613,7 +742,26 @@ function selectAnswer(optionIndex) {
   answered.value = true
 }
 
-function nextQuestion() {
+// View full question in modal instead of navigating
+async function viewFullQuestion(questionId) {
+  try {
+    const question = await dataStore.getQuestion(questionId)
+    if (question) {
+      modalQuestion.value = question
+      showQuestionModal.value = true
+    }
+  } catch (error) {
+    console.error('Error loading full question:', error)
+    alert('Failed to load question details.')
+  }
+}
+
+function closeQuestionModal() {
+  showQuestionModal.value = false
+  modalQuestion.value = null
+}
+
+async function nextQuestion() {
   // Save the current answer before moving to next question
   userAnswers.value.push(selectedAnswer.value)
 
@@ -621,6 +769,8 @@ function nextQuestion() {
     currentQuestionIndex.value++
     selectedAnswer.value = null
     answered.value = false
+    // Load category for new question
+    await loadCurrentQuestionCategory()
   } else {
     completeQuiz()
   }
@@ -684,18 +834,15 @@ function goBack() {
   }
 }
 
-function viewFullQuestion(questionId) {
-  // Navigate to the full question view
-  router.push({
-    name: 'question',
-    params: { id: questionId }
-  })
-}
+// viewFullQuestion is now defined earlier to show modal instead of navigating
 
 // Initialize
 onMounted(async () => {
   try {
     console.log('🎯 Initializing Quiz View (new database-driven system)...')
+
+    // Show onboarding popup IMMEDIATELY (before async operations)
+    checkFirstTimeUser()
 
     // Initialize gamification
     gamification.initializeFromStorage()
@@ -718,17 +865,16 @@ onMounted(async () => {
     const categories = await quizService.value.getAvailableCategories()
     availableCategories.value = categories || []
     selectedCategories.value = [...availableCategories.value] // Select all by default
+    isLoadingCategories.value = false // Mark loading complete
 
     console.log('  ✅ Quiz view ready')
     console.log(`  - Available categories: ${availableCategories.value.length}`)
     console.log('  - Categories:', availableCategories.value.map(c => `${c.reference}: ${c.title}`).join(', '))
 
-    // Check if first-time user
-    checkFirstTimeUser()
-
     console.log('🎯 Quiz view initialized successfully!')
   } catch (error) {
     console.error('❌ FATAL ERROR initializing quiz view:', error)
+    isLoadingCategories.value = false
     alert(`Failed to initialize quiz: ${error.message}\n\nPlease check the console for details.`)
   }
 })
