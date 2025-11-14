@@ -586,16 +586,31 @@ async function loadCurrentQuestionCategory() {
   }
 
   try {
-    const categoryRef = currentQuestion.value.primaryCategory
-    if (!categoryRef) {
-      console.log('⚠️  Question has no primary category')
-      currentQuestionCategory.value = null
-      return
+    let categoryRef = currentQuestion.value.primaryCategory
+    let category = null
+
+    // Try primary category first
+    if (categoryRef) {
+      category = await dataStore.getCategory(categoryRef)
     }
 
-    const category = await dataStore.getCategory(categoryRef)
+    // If primary category doesn't exist, try to find a valid category from categories array
+    if (!category && currentQuestion.value.categories && currentQuestion.value.categories.length > 0) {
+      console.log(`⚠️  Primary category ${categoryRef} not found - trying fallback categories`)
+
+      for (const fallbackRef of currentQuestion.value.categories) {
+        category = await dataStore.getCategory(fallbackRef)
+        if (category) {
+          categoryRef = fallbackRef
+          console.log(`✅ Using fallback category ${fallbackRef}: ${category.title}`)
+          break
+        }
+      }
+    }
+
+    // If still no valid category found
     if (!category) {
-      console.log(`⚠️  Category ${categoryRef} not found in database - skipping breadcrumb`)
+      console.log(`⚠️  No valid categories found for question - skipping breadcrumb`)
       currentQuestionCategory.value = null
       return
     }
