@@ -50,6 +50,10 @@ jobs:
       - name: Install Node dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Increment version (patch) for beta/production deployments
+        if: github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production'
+        run: yarn version:patch
+
       - name: Setup Cordova
         run: |
           npm install -g cordova@latest
