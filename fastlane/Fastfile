@@ -21,8 +21,7 @@ platform :android do
 
     cordova(
       platform: 'android',
-      release: options[:release] || false,
-      type: release_type
+      release: options[:release] || false
     )
 
     UI.success("✅ Android #{release_type} build completed!")
