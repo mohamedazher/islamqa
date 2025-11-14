@@ -1,4 +1,4 @@
-name: Android Fastlane CI/CD
+name: Android CI/CD with Fastlane
 
 on:
   push:
@@ -18,7 +18,7 @@ on:
         type: choice
         options:
           - build        # Build only (no deployment)
-          - beta         # Deploy to Internal Testing
+          - beta         # Deploy to Open Testing
           - production   # Deploy to Production (use with caution!)
 
 jobs:
@@ -128,7 +128,7 @@ jobs:
           echo "$PLAY_STORE_JSON_KEY_DATA" > google-play-api-key.json
           echo "PLAY_STORE_JSON_KEY=$(pwd)/google-play-api-key.json" >> $GITHUB_ENV
 
-      - name: Deploy to Internal Testing
+      - name: Deploy to Open Testing (Beta)
         if: github.event.inputs.deployment_target == 'beta'
         run: bundle exec fastlane android beta
         env:

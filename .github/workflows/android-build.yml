@@ -1,14 +1,6 @@
-name: Android Build and Release
+name: Android Build and Release (Legacy - Use android-fastlane.yml)
 
 on:
-  push:
-    branches:
-      - master
-      - main
-  pull_request:
-    branches:
-      - master
-      - main
   workflow_dispatch:
     inputs:
       release_type:
