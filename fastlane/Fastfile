@@ -51,10 +51,9 @@ platform :android do
 
   desc "Deploy to Google Play Open Testing track"
   lane :beta do
-    # Build release version
-    release
+    # Note: Assumes cordova build already completed in CI/CD workflow
+    # The AAB is pre-built and signed, just upload it
 
-    # Upload to Play Console Open Testing (Beta)
     upload_to_play_store(
       track: 'beta',
       package_name: 'com.dkurve.betterislamqa',
@@ -86,10 +85,9 @@ platform :android do
 
   desc "Deploy to Google Play Production"
   lane :production do
-    # Build release version
-    release
+    # Note: Assumes cordova build already completed in CI/CD workflow
+    # The AAB is pre-built and signed, just upload it
 
-    # Upload to Play Console Production
     upload_to_play_store(
       track: 'production',
       package_name: 'com.dkurve.betterislamqa',
