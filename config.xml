@@ -70,7 +70,7 @@
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 
     <!-- Fix for cordova-plugin-x-socialsharing Android 12+ exported attribute -->
-    <edit-config file="AndroidManifest.xml" target="/manifest/application/receiver[@android:name='nl.xservices.plugins.ShareChooserPendingIntent']" mode="merge">
+    <edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/receiver[@android:name='nl.xservices.plugins.ShareChooserPendingIntent']" mode="merge">
         <receiver android:exported="false" />
     </edit-config>
 
