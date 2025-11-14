@@ -164,14 +164,6 @@ jobs:
         env:
           PLAY_STORE_JSON_KEY: ${{ env.PLAY_STORE_JSON_KEY }}
 
-      - name: Upload Debug APK
-        if: steps.deploy_target.outputs.target == 'build' && success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: android-debug-apk
-          path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
-          retention-days: 30
-
       - name: Create GitHub Release
         if: steps.deploy_target.outputs.target == 'production' && github.ref == 'refs/heads/master' && success()
         uses: softprops/action-gh-release@v1
