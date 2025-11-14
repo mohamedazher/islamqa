@@ -109,6 +109,152 @@
         </div>
       </section>
 
+      <!-- Prayer Times Section -->
+      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
+        <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+            <Icon name="sun" size="md" class="text-primary-600 dark:text-primary-400" />
+            Prayer Times
+          </h2>
+        </div>
+        <div class="p-4 space-y-4">
+          <!-- Location Section -->
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div>
+                <h3 class="font-medium text-neutral-900 dark:text-neutral-100">Location</h3>
+                <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-0.5">
+                  {{ prayerSettings.locationName }}
+                </p>
+              </div>
+              <button
+                @click="detectLocation"
+                :disabled="detectingLocation"
+                class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm font-medium"
+              >
+                {{ detectingLocation ? 'Detecting...' : 'Detect' }}
+              </button>
+            </div>
+
+            <!-- Manual Location Input -->
+            <div class="space-y-3 bg-neutral-50 dark:bg-neutral-950/50 rounded-lg p-3">
+              <div>
+                <label class="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                  Latitude
+                </label>
+                <input
+                  v-model="manualLocation.latitude"
+                  type="number"
+                  step="any"
+                  placeholder="e.g., 21.4225"
+                  class="w-full px-3 py-2 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-neutral-100 text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                />
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                  Longitude
+                </label>
+                <input
+                  v-model="manualLocation.longitude"
+                  type="number"
+                  step="any"
+                  placeholder="e.g., 39.8262"
+                  class="w-full px-3 py-2 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-neutral-100 text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                />
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                  City Name (Optional)
+                </label>
+                <input
+                  v-model="manualLocation.name"
+                  type="text"
+                  placeholder="e.g., Makkah"
+                  class="w-full px-3 py-2 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-neutral-100 text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                />
+              </div>
+              <button
+                @click="saveManualLocation"
+                :disabled="!isManualLocationValid"
+                class="w-full px-4 py-2 bg-primary-600 dark:bg-primary-500 text-white rounded-lg hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm font-medium"
+              >
+                Save Location
+              </button>
+            </div>
+          </div>
+
+          <!-- Calculation Method -->
+          <div>
+            <label class="block font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+              Calculation Method
+            </label>
+            <select
+              v-model="prayerSettings.calculationMethod"
+              @change="saveCalculationMethod"
+              class="w-full px-3 py-2 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-neutral-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            >
+              <option
+                v-for="method in calculationMethods"
+                :key="method.key"
+                :value="method.key"
+              >
+                {{ method.name }}
+              </option>
+            </select>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
+              {{ selectedCalculationMethod?.description }}
+            </p>
+            <p v-if="selectedCalculationMethod?.regions" class="text-xs text-primary-600 dark:text-primary-400 mt-1">
+              Used in: {{ selectedCalculationMethod.regions.join(', ') }}
+            </p>
+          </div>
+
+          <!-- Madhab (Asr Calculation) -->
+          <div>
+            <label class="block font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+              Madhab (Asr Calculation)
+            </label>
+            <div class="space-y-2">
+              <label
+                v-for="madhabOption in madhabOptions"
+                :key="madhabOption.key"
+                class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-950/50 rounded-lg cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-900/50 transition-colors"
+              >
+                <input
+                  type="radio"
+                  :value="madhabOption.key"
+                  v-model="prayerSettings.madhab"
+                  @change="saveMadhab"
+                  class="w-4 h-4 text-primary-600 focus:ring-primary-500 focus:ring-2"
+                />
+                <div class="flex-1">
+                  <div class="font-medium text-neutral-900 dark:text-neutral-100 text-sm">
+                    {{ madhabOption.name }}
+                  </div>
+                  <div class="text-xs text-neutral-600 dark:text-neutral-400">
+                    {{ madhabOption.description }}
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Qibla Direction -->
+          <div v-if="prayerSettings.location" class="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/30 dark:to-cyan-950/30 rounded-lg p-4 border border-teal-200 dark:border-teal-800/30">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-medium text-neutral-900 dark:text-neutral-100 mb-1">Qibla Direction</h3>
+                <p class="text-xs text-neutral-600 dark:text-neutral-400">From your location</p>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-teal-600 dark:text-teal-400">{{ qiblaDirection }}°</div>
+                <div class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">from North</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- About Section -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
@@ -431,7 +577,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
 import { useDataStore } from '@/stores/data'
@@ -445,6 +591,7 @@ import ClearDataDialog from '@/components/common/ClearDataDialog.vue'
 import leaderboardService from '@/services/leaderboardService'
 import { getFirestore, doc, getDoc } from 'firebase/firestore'
 import { resetOnboarding } from '@/services/onboarding'
+import prayerTimesService, { CALCULATION_METHODS, MADHAB_OPTIONS } from '@/services/prayerTimesService'
 
 const router = useRouter()
 const { isDark, toggleTheme } = useTheme()
@@ -482,6 +629,33 @@ const showUsernameDialog = ref(false)
 const newUsername = ref('')
 const isUpdatingUsername = ref(false)
 
+// Prayer Times settings
+const calculationMethods = Object.values(CALCULATION_METHODS)
+const madhabOptions = Object.values(MADHAB_OPTIONS)
+const prayerSettings = ref({
+  location: null,
+  locationName: 'Not Set',
+  calculationMethod: 'MUSLIM_WORLD_LEAGUE',
+  madhab: 'SHAFI'
+})
+const manualLocation = ref({
+  latitude: '',
+  longitude: '',
+  name: ''
+})
+const detectingLocation = ref(false)
+const qiblaDirection = ref(null)
+
+const selectedCalculationMethod = computed(() => {
+  return calculationMethods.find(m => m.key === prayerSettings.value.calculationMethod)
+})
+
+const isManualLocationValid = computed(() => {
+  const lat = parseFloat(manualLocation.value.latitude)
+  const lon = parseFloat(manualLocation.value.longitude)
+  return !isNaN(lat) && !isNaN(lon) && lat >= -90 && lat <= 90 && lon >= -180 && lon <= 180
+})
+
 onMounted(async () => {
   try {
     if (dataStore.isReady) {
@@ -490,6 +664,9 @@ onMounted(async () => {
 
     // Load user profile
     await loadUserProfile()
+
+    // Load prayer times settings
+    loadPrayerSettings()
   } catch (error) {
     console.error('Error loading stats:', error)
   }
@@ -746,6 +923,105 @@ async function handleUpdateUsername() {
     alert('Failed to update username. Please try again.')
   } finally {
     isUpdatingUsername.value = false
+  }
+}
+
+// Prayer Times functions
+function loadPrayerSettings() {
+  try {
+    const settings = prayerTimesService.getSettings()
+    prayerSettings.value = {
+      location: settings.location,
+      locationName: settings.locationName,
+      calculationMethod: settings.calculationMethod,
+      madhab: settings.madhab
+    }
+
+    // Pre-fill manual location if exists
+    if (settings.location) {
+      manualLocation.value.latitude = settings.location.latitude.toString()
+      manualLocation.value.longitude = settings.location.longitude.toString()
+      manualLocation.value.name = settings.locationName
+
+      // Calculate Qibla direction
+      try {
+        qiblaDirection.value = prayerTimesService.getQiblaDirection()
+      } catch (e) {
+        console.error('Failed to calculate Qibla direction:', e)
+      }
+    }
+  } catch (error) {
+    console.error('Failed to load prayer settings:', error)
+  }
+}
+
+async function detectLocation() {
+  try {
+    detectingLocation.value = true
+
+    const location = await prayerTimesService.detectLocation()
+
+    // Update UI
+    prayerSettings.value.location = {
+      latitude: location.latitude,
+      longitude: location.longitude
+    }
+    prayerSettings.value.locationName = location.locationName
+
+    // Update manual location fields
+    manualLocation.value.latitude = location.latitude.toString()
+    manualLocation.value.longitude = location.longitude.toString()
+    manualLocation.value.name = location.locationName
+
+    // Update Qibla direction
+    qiblaDirection.value = prayerTimesService.getQiblaDirection()
+
+    alert(`Location detected: ${location.locationName}`)
+  } catch (error) {
+    console.error('Failed to detect location:', error)
+    alert(error.message || 'Failed to detect location. Please check your browser permissions.')
+  } finally {
+    detectingLocation.value = false
+  }
+}
+
+function saveManualLocation() {
+  try {
+    const lat = parseFloat(manualLocation.value.latitude)
+    const lon = parseFloat(manualLocation.value.longitude)
+    const name = manualLocation.value.name.trim() || 'Manual Location'
+
+    prayerTimesService.saveLocation(lat, lon, name)
+
+    // Update UI
+    prayerSettings.value.location = { latitude: lat, longitude: lon }
+    prayerSettings.value.locationName = name
+
+    // Update Qibla direction
+    qiblaDirection.value = prayerTimesService.getQiblaDirection()
+
+    alert('Location saved successfully!')
+  } catch (error) {
+    console.error('Failed to save location:', error)
+    alert('Failed to save location. Please try again.')
+  }
+}
+
+function saveCalculationMethod() {
+  try {
+    prayerTimesService.saveCalculationMethod(prayerSettings.value.calculationMethod)
+    console.log('Calculation method saved:', prayerSettings.value.calculationMethod)
+  } catch (error) {
+    console.error('Failed to save calculation method:', error)
+  }
+}
+
+function saveMadhab() {
+  try {
+    prayerTimesService.saveMadhab(prayerSettings.value.madhab)
+    console.log('Madhab saved:', prayerSettings.value.madhab)
+  } catch (error) {
+    console.error('Failed to save madhab:', error)
   }
 }
 </script>

@@ -1,11 +1,8 @@
 {
-  "version": "2.0.0",
-  "method": "parallel-category-based",
-  "generated_at": "2025-11-09 22:33:15",
-  "total_categories": 100,
-  "total_unique_questions": 15615,
-  "categories_processed": 100,
-  "failed_categories": 0,
+  "version": "3.0.0",
+  "method": "dump-file-extraction",
   "language": "en",
-  "workers_used": 2
+  "total_categories": 268,
+  "total_questions": 15626,
+  "generated_at": "2025-11-14T19:45:18.249252Z"
 }

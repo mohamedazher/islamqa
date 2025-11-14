@@ -99,6 +99,12 @@
         </Card>
       </div>
 
+      <!-- Prayer Times Card -->
+      <div v-if="dataStore.isReady" class="mb-8 animate-slide-up">
+        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Prayer Times</h3>
+        <PrayerTimesCard @openSettings="openPrayerSettings" />
+      </div>
+
       <!-- Quick Actions Grid -->
       <div class="mb-8">
         <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Quick Access</h3>
@@ -354,6 +360,7 @@ import { useGamificationStore } from '@/stores/gamification'
 import Card from '@/components/common/Card.vue'
 import Button from '@/components/common/Button.vue'
 import Icon from '@/components/common/Icon.vue'
+import PrayerTimesCard from '@/components/home/PrayerTimesCard.vue'
 
 const router = useRouter()
 const dataStore = useDataStore()
@@ -570,6 +577,10 @@ function viewQuestion(questionId) {
     name: 'question',
     params: { id: questionId }
   })
+}
+
+function openPrayerSettings() {
+  router.push('/settings')
 }
 </script>
 

@@ -977,6 +977,11 @@ acorn@^8.11.0, acorn@^8.15.0:
   resolved "https://registry.npmjs.org/acorn/-/acorn-8.15.0.tgz"
   integrity sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==
 
+adhan@^4.4.3:
+  version "4.4.3"
+  resolved "https://registry.yarnpkg.com/adhan/-/adhan-4.4.3.tgz#a8bccaeadd0669b609657d4069118562dba4763f"
+  integrity sha512-568KkQd8OMLUj7o7+d2FDcm6vZHWQrE7vsm/Evssh8sfUDpPyaboj3PVsScZAr7L7sNRgPrtLMmDZZfM7VeAYw==
+
 android-versions@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/android-versions/-/android-versions-2.1.0.tgz#e6cd4db647ab777e4d3332a2ff733674194a183b"
