@@ -50,14 +50,14 @@ platform :android do
     UI.success("✅ Android release builds (APK + AAB) completed!")
   end
 
-  desc "Deploy to Google Play Internal Testing track"
+  desc "Deploy to Google Play Open Testing track"
   lane :beta do
     # Build release version
     release
 
-    # Upload to Play Console Internal Testing
+    # Upload to Play Console Open Testing (Beta)
     upload_to_play_store(
-      track: 'internal',
+      track: 'beta',
       package_name: 'com.dkurve.betterislamqa',
       aab: 'platforms/android/app/build/outputs/bundle/release/app-release.aab',
       skip_upload_metadata: true,
@@ -66,14 +66,14 @@ platform :android do
       json_key: ENV['PLAY_STORE_JSON_KEY']
     )
 
-    UI.success("✅ Successfully deployed to Google Play Internal Testing!")
+    UI.success("✅ Successfully deployed to Google Play Open Testing!")
   end
 
-  desc "Promote from internal to beta track"
-  lane :promote_to_beta do
+  desc "Promote from beta to production track"
+  lane :promote_to_production do
     upload_to_play_store(
-      track: 'internal',
-      track_promote_to: 'beta',
+      track: 'beta',
+      track_promote_to: 'production',
       package_name: 'com.dkurve.betterislamqa',
       skip_upload_aab: true,
       skip_upload_metadata: true,
@@ -82,7 +82,7 @@ platform :android do
       json_key: ENV['PLAY_STORE_JSON_KEY']
     )
 
-    UI.success("✅ Promoted to Google Play Beta track!")
+    UI.success("✅ Promoted to Google Play Production!")
   end
 
   desc "Deploy to Google Play Production"
