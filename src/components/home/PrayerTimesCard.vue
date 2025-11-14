@@ -40,8 +40,8 @@
     </Card>
 
     <!-- Prayer Times Display -->
-    <Card v-else padding="none" class="relative overflow-hidden">
-      <!-- Header Section with Next Prayer Countdown -->
+    <Card v-else padding="none" class="relative overflow-hidden cursor-pointer hover:shadow-lg transition-all" @click="openDetailedView">
+      <!-- Header Section with Current Prayer Window -->
       <div class="bg-gradient-to-r from-teal-500 to-cyan-500 dark:from-teal-600 dark:to-cyan-600 text-white px-5 py-4">
         <div class="flex items-center justify-between mb-3">
           <div class="flex items-center gap-2">
@@ -49,7 +49,7 @@
             <span class="text-sm font-medium">{{ locationName }}</span>
           </div>
           <button
-            @click="$emit('openSettings')"
+            @click.stop="$emit('openSettings')"
             class="text-white/80 hover:text-white transition-colors"
             title="Prayer Settings"
           >
@@ -57,13 +57,26 @@
           </button>
         </div>
 
-        <!-- Next Prayer Countdown -->
-        <div v-if="nextPrayerInfo" class="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3">
+        <!-- Current Prayer Window or Next Prayer -->
+        <div v-if="currentPrayerWindow" class="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3">
+          <div class="text-xs text-white/80 mb-1">Current Prayer Time</div>
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-2xl font-bold">{{ currentPrayerWindow.prayer }} Time</div>
+              <div class="text-xs text-white/80 mt-1">{{ currentPrayerWindow.startFormatted }} - {{ currentPrayerWindow.endTime }}</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xl font-mono font-bold">{{ currentPrayerCountdown }}</div>
+              <div class="text-xs text-white/80">{{ currentPrayerWindow.minutes > 60 ? 'until end' : 'minutes left' }}</div>
+            </div>
+          </div>
+        </div>
+        <div v-else-if="nextPrayerInfo" class="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3">
           <div class="text-xs text-white/80 mb-1">Next Prayer</div>
           <div class="flex items-center justify-between">
             <div class="text-2xl font-bold">{{ nextPrayerInfo.prayer }}</div>
             <div class="text-right">
-              <div class="text-xl font-mono font-bold">{{ countdownDisplay }}</div>
+              <div class="text-xl font-mono font-bold">{{ nextPrayerCountdown }}</div>
               <div class="text-xs text-white/80">{{ nextPrayerTime }}</div>
             </div>
           </div>
@@ -128,11 +141,13 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
 import Card from '@/components/common/Card.vue'
 import Button from '@/components/common/Button.vue'
 import Icon from '@/components/common/Icon.vue'
 import prayerTimesService from '@/services/prayerTimesService'
 
+const router = useRouter()
 const emit = defineEmits(['openSettings'])
 
 // State
@@ -143,6 +158,7 @@ const prayerTimes = ref(null)
 const locationName = ref('')
 const calculationMethodName = ref('')
 const currentPrayer = ref(null)
+const currentPrayerWindow = ref(null)
 const nextPrayerInfo = ref(null)
 const error = ref(null)
 const currentTime = ref(new Date())
@@ -156,7 +172,7 @@ onMounted(() => {
   // Update time every second for countdown
   intervalId = setInterval(() => {
     currentTime.value = new Date()
-    updateNextPrayerInfo()
+    updatePrayerInfo()
   }, 1000)
 })
 
@@ -181,7 +197,7 @@ const loadPrayerTimes = () => {
 
       prayerTimes.value = prayerTimesService.getFormattedPrayerTimes()
       currentPrayer.value = prayerTimesService.getCurrentPrayerName()
-      updateNextPrayerInfo()
+      updatePrayerInfo()
     }
   } catch (e) {
     console.error('Failed to load prayer times:', e)
@@ -191,12 +207,29 @@ const loadPrayerTimes = () => {
   }
 }
 
-// Update next prayer info
-const updateNextPrayerInfo = () => {
+// Update prayer info (current window and next prayer)
+const updatePrayerInfo = () => {
   try {
+    // Get current prayer window
+    const currentWindow = prayerTimesService.getCurrentPrayerWindow()
+    if (currentWindow) {
+      const timeRemaining = prayerTimesService.getTimeRemainingInCurrentPrayer()
+      currentPrayerWindow.value = {
+        prayer: currentWindow.name,
+        startFormatted: currentWindow.startFormatted,
+        endTime: timeRemaining?.endTime || currentWindow.endFormatted,
+        hours: timeRemaining?.hours || 0,
+        minutes: timeRemaining?.minutes || 0,
+        seconds: timeRemaining?.seconds || 0
+      }
+    } else {
+      currentPrayerWindow.value = null
+    }
+
+    // Get next prayer info
     nextPrayerInfo.value = prayerTimesService.getTimeUntilNextPrayer()
   } catch (e) {
-    console.error('Failed to update next prayer info:', e)
+    console.error('Failed to update prayer info:', e)
   }
 }
 
@@ -240,8 +273,21 @@ const nextPrayerTime = computed(() => {
   return prayer ? prayer.time : ''
 })
 
-// Countdown display
-const countdownDisplay = computed(() => {
+// Current prayer countdown display
+const currentPrayerCountdown = computed(() => {
+  if (!currentPrayerWindow.value) return '--:--'
+
+  const { hours, minutes } = currentPrayerWindow.value
+
+  if (hours > 0) {
+    return `${hours}h ${minutes}m`
+  } else {
+    return `${minutes} min`
+  }
+})
+
+// Next prayer countdown display
+const nextPrayerCountdown = computed(() => {
   if (!nextPrayerInfo.value) return '--:--:--'
 
   const { hours, minutes, seconds } = nextPrayerInfo.value
@@ -294,5 +340,10 @@ const getPrayerIcon = (prayerName) => {
     'Isha': 'moon'
   }
   return icons[prayerName] || 'sun'
+}
+
+// Navigate to detailed prayer times view
+const openDetailedView = () => {
+  router.push('/prayer-times')
 }
 </script>

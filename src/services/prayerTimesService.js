@@ -496,6 +496,194 @@ class PrayerTimesService {
   }
 
   /**
+   * Get all prayer windows (start and end times for each prayer)
+   * Prayer windows:
+   * - Fajr: Fajr time → Sunrise
+   * - Dhuhr: Dhuhr time → Asr time
+   * - Asr: Asr time → Maghrib time
+   * - Maghrib: Maghrib time → Isha time
+   * - Isha: Isha time → Fajr time (next day)
+   */
+  getPrayerWindows(date = new Date()) {
+    if (!this.location) {
+      throw new Error('Location not set. Please set location first.')
+    }
+
+    const times = this.getPrayerTimes(date)
+
+    // Get tomorrow's Fajr for Isha end time
+    const tomorrow = new Date(date)
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    const tomorrowTimes = this.getPrayerTimes(tomorrow)
+
+    return [
+      {
+        name: 'Fajr',
+        prayer: Prayer.Fajr,
+        start: times.fajr,
+        end: times.sunrise,
+        startFormatted: this.formatTime(times.fajr),
+        endFormatted: this.formatTime(times.sunrise)
+      },
+      {
+        name: 'Dhuhr',
+        prayer: Prayer.Dhuhr,
+        start: times.dhuhr,
+        end: times.asr,
+        startFormatted: this.formatTime(times.dhuhr),
+        endFormatted: this.formatTime(times.asr)
+      },
+      {
+        name: 'Asr',
+        prayer: Prayer.Asr,
+        start: times.asr,
+        end: times.maghrib,
+        startFormatted: this.formatTime(times.asr),
+        endFormatted: this.formatTime(times.maghrib)
+      },
+      {
+        name: 'Maghrib',
+        prayer: Prayer.Maghrib,
+        start: times.maghrib,
+        end: times.isha,
+        startFormatted: this.formatTime(times.maghrib),
+        endFormatted: this.formatTime(times.isha)
+      },
+      {
+        name: 'Isha',
+        prayer: Prayer.Isha,
+        start: times.isha,
+        end: tomorrowTimes.fajr,
+        startFormatted: this.formatTime(times.isha),
+        endFormatted: this.formatTime(tomorrowTimes.fajr)
+      }
+    ]
+  }
+
+  /**
+   * Get current prayer window (which prayer time we're in)
+   */
+  getCurrentPrayerWindow() {
+    if (!this.location) return null
+
+    const windows = this.getPrayerWindows()
+    const now = new Date()
+
+    for (const window of windows) {
+      if (now >= window.start && now < window.end) {
+        return window
+      }
+    }
+
+    return null
+  }
+
+  /**
+   * Get time remaining in current prayer window
+   */
+  getTimeRemainingInCurrentPrayer() {
+    const currentWindow = this.getCurrentPrayerWindow()
+    if (!currentWindow) return null
+
+    const now = new Date()
+    const diff = currentWindow.end - now
+
+    if (diff <= 0) return null
+
+    const hours = Math.floor(diff / (1000 * 60 * 60))
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000)
+
+    return {
+      prayer: currentWindow.name,
+      hours,
+      minutes,
+      seconds,
+      totalSeconds: Math.floor(diff / 1000),
+      endTime: this.formatTime(currentWindow.end)
+    }
+  }
+
+  /**
+   * Get time until a specific prayer starts
+   */
+  getTimeUntilPrayerStarts(prayerWindow) {
+    const now = new Date()
+    const diff = prayerWindow.start - now
+
+    if (diff <= 0) return null
+
+    const hours = Math.floor(diff / (1000 * 60 * 60))
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000)
+
+    return {
+      hours,
+      minutes,
+      seconds,
+      totalSeconds: Math.floor(diff / 1000)
+    }
+  }
+
+  /**
+   * Get status for each prayer (upcoming, current, or past)
+   */
+  getPrayerStatuses() {
+    if (!this.location) return []
+
+    const windows = this.getPrayerWindows()
+    const now = new Date()
+
+    return windows.map(window => {
+      const isCurrent = now >= window.start && now < window.end
+      const isPast = now >= window.end
+      const isUpcoming = now < window.start
+
+      let countdown = null
+      let status = 'upcoming'
+
+      if (isCurrent) {
+        status = 'current'
+        const diff = window.end - now
+        const hours = Math.floor(diff / (1000 * 60 * 60))
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000)
+        countdown = {
+          type: 'ends',
+          hours,
+          minutes,
+          seconds,
+          totalSeconds: Math.floor(diff / 1000)
+        }
+      } else if (isUpcoming) {
+        status = 'upcoming'
+        const diff = window.start - now
+        const hours = Math.floor(diff / (1000 * 60 * 60))
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000)
+        countdown = {
+          type: 'starts',
+          hours,
+          minutes,
+          seconds,
+          totalSeconds: Math.floor(diff / 1000)
+        }
+      } else {
+        status = 'past'
+      }
+
+      return {
+        ...window,
+        status,
+        countdown,
+        isCurrent,
+        isPast,
+        isUpcoming
+      }
+    })
+  }
+
+  /**
    * Calculate Qibla direction from current location
    */
   getQiblaDirection() {
