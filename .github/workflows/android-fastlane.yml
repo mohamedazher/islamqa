@@ -89,6 +89,29 @@ jobs:
           }
           EOF
 
+      - name: Add Android platform and prepare
+        run: |
+          cordova platform add android
+          cordova prepare android
+
+      - name: Run tests
+        run: yarn test:all
+
+      - name: Build Vite app
+        run: yarn build
+
+      - name: Build Android APK (Debug)
+        if: github.event.inputs.deployment_target == '' || github.event.inputs.deployment_target == 'build'
+        run: cordova build android --debug
+
+      - name: Build Android APK (Release)
+        if: github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production'
+        run: cordova build android --release
+
+      - name: Build Android App Bundle (Release)
+        if: github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production'
+        run: cordova build android --release -- --packageType=bundle
+
       - name: Setup Google Play credentials
         if: github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production'
         env:
@@ -96,14 +119,6 @@ jobs:
         run: |
           echo "$PLAY_STORE_JSON_KEY_DATA" > google-play-api-key.json
           echo "PLAY_STORE_JSON_KEY=$(pwd)/google-play-api-key.json" >> $GITHUB_ENV
-
-      - name: Build with Fastlane (Debug)
-        if: github.event.inputs.deployment_target == '' || github.event.inputs.deployment_target == 'build'
-        run: bundle exec fastlane android debug
-
-      - name: Build with Fastlane (Release)
-        if: github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production'
-        run: bundle exec fastlane android release
 
       - name: Deploy to Internal Testing
         if: github.event.inputs.deployment_target == 'beta'
