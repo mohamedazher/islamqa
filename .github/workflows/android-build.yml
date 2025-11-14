@@ -105,6 +105,33 @@ jobs:
         if: github.event.inputs.release_type == 'release'
         run: cordova build android --release -- --packageType=bundle
 
+      - name: Setup Ruby for Fastlane
+        if: github.event.inputs.release_type == 'release'
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Setup Google Play credentials
+        if: github.event.inputs.release_type == 'release'
+        env:
+          PLAY_STORE_JSON_KEY_DATA: ${{ secrets.PLAY_STORE_JSON_KEY_DATA }}
+        run: |
+          echo "$PLAY_STORE_JSON_KEY_DATA" > google-play-api-key.json
+          echo "PLAY_STORE_JSON_KEY=$(pwd)/google-play-api-key.json" >> $GITHUB_ENV
+
+      - name: Deploy to Open Testing (Beta)
+        if: github.event.inputs.release_type == 'release'
+        run: |
+          bundle exec fastlane run upload_to_play_store \
+            track:beta \
+            package_name:com.dkurve.betterislamqa \
+            aab:platforms/android/app/build/outputs/bundle/release/app-release.aab \
+            skip_upload_metadata:true \
+            skip_upload_images:true \
+            skip_upload_screenshots:true \
+            json_key:google-play-api-key.json
+
       - name: Upload Debug APK
         if: github.event.inputs.release_type == 'debug' || github.event.inputs.release_type == ''
         uses: actions/upload-artifact@v4
