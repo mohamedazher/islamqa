@@ -960,10 +960,10 @@ abbrev@1:
   resolved "https://registry.npmjs.org/abbrev/-/abbrev-1.1.1.tgz"
   integrity sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
 
-abbrev@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-2.0.0.tgz#cf59829b8b4f03f89dda2771cb7f3653828c89bf"
-  integrity sha512-6/mh1E2u2YgEsCHdY0Yx5oW+61gZU+1vXaoiHHrpKeuRNNgFvS+/jrwHiQhB5apAf5oB7UB7E19ol2R2LKH8hQ==
+abbrev@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-3.0.1.tgz#8ac8b3b5024d31464fe2a5feeea9f4536bf44025"
+  integrity sha512-AO2ac6pjRB3SJmGJo+v5/aK6Omggp6fsLrs6wN9bd35ulu4cCwaAU9+7ZhXjeqHVkaHThLuzH0nZr0YpCDhygg==
 
 acorn-walk@^8.3.2:
   version "8.3.4"
@@ -977,10 +977,10 @@ acorn@^8.11.0, acorn@^8.15.0:
   resolved "https://registry.npmjs.org/acorn/-/acorn-8.15.0.tgz"
   integrity sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==
 
-android-versions@^1.8.1:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/android-versions/-/android-versions-1.9.0.tgz#433d53fc6ed5ba2b8d3c2801cb5da3964013274d"
-  integrity sha512-13O2B6PQMEM4ej9n13ePRQeckrCoKbZrvuzlLvK+9s2QmncpHDbYzZxhgapN32sJNoifN6VAHexLnd/6CYrs7Q==
+android-versions@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/android-versions/-/android-versions-2.1.0.tgz#e6cd4db647ab777e4d3332a2ff733674194a183b"
+  integrity sha512-oCBvVs2uaL8ohQtesGs78/X7QvFDLbKgTosBRiOIBCss1a/yiakQm/ADuoG2k/AUaI0FfrsFeMl/a+GtEtjEeA==
   dependencies:
     semver "^7.5.2"
 
@@ -1246,26 +1246,25 @@ confbox@^0.1.8:
   resolved "https://registry.npmjs.org/confbox/-/confbox-0.1.8.tgz"
   integrity sha512-RMtmw0iFkeR4YV+fUOSucriAQNb9g8zFR52MWCtl+cCZOFRNL6zeB395vPzFhEjjn4fMxXudmELnl/KF/WrK6w==
 
-cordova-android@^12.0.0:
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/cordova-android/-/cordova-android-12.0.1.tgz#600b53fc5aee96f39d6d41e9e5cbea65e5251b8c"
-  integrity sha512-6fXWoYb/X5AJlluhBg5RvOaX6iRxsvNH7yEOiXzUmLIflf5Ho7LtYCSKZaWMHh3f5cJe/sPCBKmFFBS+EWepVg==
+cordova-android@^14.0.0:
+  version "14.0.1"
+  resolved "https://registry.yarnpkg.com/cordova-android/-/cordova-android-14.0.1.tgz#0d51501df5a899bcbe33b1c45165beb12782ec31"
+  integrity sha512-HMBMdGu/JlSQtmBuDEpKWf/pE75SpF3FksxZ+mqYuL3qSIN8lN/QsNurwYaPAP7zWXN2DNpvwlpOJItS5VhdLg==
   dependencies:
-    android-versions "^1.8.1"
-    cordova-common "^5.0.0"
-    dedent "^1.0.1"
+    android-versions "^2.1.0"
+    cordova-common "^5.0.1"
+    dedent "^1.5.3"
     execa "^5.1.1"
-    fast-glob "^3.2.12"
-    fs-extra "^11.1.1"
+    fast-glob "^3.3.3"
     is-path-inside "^3.0.3"
-    nopt "^7.1.0"
-    properties-parser "^0.3.1"
-    semver "^7.3.8"
+    nopt "^8.1.0"
+    properties-parser "^0.6.0"
+    semver "^7.7.1"
     string-argv "^0.3.1"
     untildify "^4.0.0"
-    which "^3.0.0"
+    which "^5.0.0"
 
-cordova-common@^5.0.0:
+cordova-common@^5.0.0, cordova-common@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/cordova-common/-/cordova-common-5.0.1.tgz#50d3d8b83eec8160f6c9e5e73efe49e94091a817"
   integrity sha512-OA2NQ6wvhNz4GytPYwTdlA9xfG7Yf7ufkj4u97m3rUfoL/AECwwj0GVT2CYpk/0Fk6HyuHA3QYCxfDPYsKzI1A==
@@ -1376,7 +1375,7 @@ dedent@^0.7.0:
   resolved "https://registry.npmjs.org/dedent/-/dedent-0.7.0.tgz"
   integrity sha512-Q6fKUPqnAHAyhiUgFU7BUzLiv0kd8saH9al7tnu5Q/okj6dnupxyTgFIBjVzJATdfIAm9NAsvXNzjaKa+bxVyA==
 
-dedent@^1.0.1:
+dedent@^1.5.3:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/dedent/-/dedent-1.7.0.tgz#c1f9445335f0175a96587be245a282ff451446ca"
   integrity sha512-HGFtf8yhuhGhqO07SV79tRp+br4MnbdjeVxotpn1QBl30pcLLCQjX5b2295ll0fv8RKDKsmWYrl05usHM9CewQ==
@@ -1547,7 +1546,7 @@ extsprintf@^1.4.0:
   resolved "https://registry.npmjs.org/extsprintf/-/extsprintf-1.4.1.tgz"
   integrity sha512-Wrk35e8ydCKDj/ArClo1VrPVmN8zph5V4AtHwIuHhvMXsKf73UT3BOD+azBIW+3wOJ4FhEH7zyaJCFvChjYvMA==
 
-fast-glob@^3.2.12, fast-glob@^3.2.9, fast-glob@^3.3.2, fast-glob@^3.3.3:
+fast-glob@^3.2.9, fast-glob@^3.3.2, fast-glob@^3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.3.3.tgz#d06d585ce8dba90a16b0505c543c3ccfb3aeb818"
   integrity sha512-7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==
@@ -2087,12 +2086,12 @@ nopt@1.0.9:
   dependencies:
     abbrev "1"
 
-nopt@^7.1.0:
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/nopt/-/nopt-7.2.1.tgz#1cac0eab9b8e97c9093338446eddd40b2c8ca1e7"
-  integrity sha512-taM24ViiimT/XntxbPyJQzCG+p4EKOpgD3mxFwW38mGjVUrfERQOeY4EDHjdnptttfHuHQXFx+lTP08Q+mLa/w==
+nopt@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/nopt/-/nopt-8.1.0.tgz#b11d38caf0f8643ce885818518064127f602eae3"
+  integrity sha512-ieGu42u/Qsa4TFktmaKEwM6MQH0pOWnaB3htzh0JRtx84+Mebc0cbZYN5bC+6WTZ4+77xrL9Pn5m7CV6VIkV7A==
   dependencies:
-    abbrev "^2.0.0"
+    abbrev "^3.0.0"
 
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
@@ -2362,12 +2361,10 @@ pretty-format@^29.7.0:
     ansi-styles "^5.0.0"
     react-is "^18.0.0"
 
-properties-parser@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/properties-parser/-/properties-parser-0.3.1.tgz#1316e9539ffbfd93845e369b211022abd478771a"
-  integrity sha512-AkSQxQAviJ89x4FIxOyHGfO3uund0gvYo7lfD0E+Gp7gFQKrTNgtoYQklu8EhrfHVZUzTwKGZx2r/KDSfnljcA==
-  dependencies:
-    string.prototype.codepointat "^0.2.0"
+properties-parser@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/properties-parser/-/properties-parser-0.6.0.tgz#0cd36c26e76c9a75222e258e89ee0c663cd3658c"
+  integrity sha512-qvr2cSmoA0dln0MARAKwBzPkkXn7FqwX+RVVNpMdMJc7rt9mqO2cXwluxtux9fHrLhjnPFaQkS8BM0kFrTCnSw==
 
 protobufjs@^7.2.5:
   version "7.5.4"
@@ -2503,7 +2500,7 @@ semver@^6.0.0:
   resolved "https://registry.npmjs.org/semver/-/semver-6.3.1.tgz"
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
-semver@^7.3.8, semver@^7.4.0, semver@^7.5.2:
+semver@^7.4.0, semver@^7.5.2, semver@^7.7.1:
   version "7.7.3"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.3.tgz#4b5f4143d007633a8dc671cd0a6ef9147b8bb946"
   integrity sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q==
@@ -2617,11 +2614,6 @@ string-width@^5.0.1, string-width@^5.1.2:
     eastasianwidth "^0.2.0"
     emoji-regex "^9.2.2"
     strip-ansi "^7.0.1"
-
-string.prototype.codepointat@^0.2.0:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/string.prototype.codepointat/-/string.prototype.codepointat-0.2.1.tgz#004ad44c8afc727527b108cd462b4d971cd469bc"
-  integrity sha512-2cBVCj6I4IOvEnjgO/hWqXjqBGsY+zwPmHl12Srk9IXSZ56Jwwmy+66XO5Iut/oQVR7t5ihYdLB0GMa4alEUcg==
 
 "strip-ansi-cjs@npm:strip-ansi@^6.0.1":
   version "6.0.1"
@@ -2917,17 +2909,17 @@ which@^2.0.1:
   dependencies:
     isexe "^2.0.0"
 
-which@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/which/-/which-3.0.1.tgz#89f1cd0c23f629a8105ffe69b8172791c87b4be1"
-  integrity sha512-XA1b62dzQzLfaEOSQFTCOd5KFf/1VSzZo7/7TUjnya6u0vGGKzU96UQBZTAThCb2j4/xjBAyii1OhRLJEivHvg==
-  dependencies:
-    isexe "^2.0.0"
-
 which@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/which/-/which-4.0.0.tgz#cd60b5e74503a3fbcfbf6cd6b4138a8bae644c1a"
   integrity sha512-GlaYyEb07DPxYCKhKzplCWBJtvxZcZMrL+4UkrTSJHHPyZU4mYYTv3qaOe77H7EODLSSopAUFAc6W8U4yqvscg==
+  dependencies:
+    isexe "^3.1.1"
+
+which@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/which/-/which-5.0.0.tgz#d93f2d93f79834d4363c7d0c23e00d07c466c8d6"
+  integrity sha512-JEdGzHwwkrbWoGOlIHqQ5gtprKGOenpDHpxE9zVR1bWbOtYRyPPHMe9FaP6x61CmNaTThSkb0DAJte5jD+DmzQ==
   dependencies:
     isexe "^3.1.1"
 
