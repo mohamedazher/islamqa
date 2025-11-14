@@ -45,10 +45,34 @@
           <div class="prose prose-sm dark:prose-invert max-w-none text-neutral-700 dark:text-neutral-300" v-html="currentQuestion.answer"></div>
         </div>
 
-        <!-- Related Questions Section (placeholder) -->
-        <div class="bg-primary-50 dark:bg-primary-900/20 rounded-lg p-6">
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Related Questions</h3>
-          <p class="text-neutral-600 dark:text-neutral-400 text-sm">Coming soon...</p>
+        <!-- Related Questions Section -->
+        <div v-if="relatedQuestions.length > 0 || loadingRelated" class="bg-primary-50 dark:bg-primary-900/20 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Related Questions</h3>
+
+          <!-- Loading related questions -->
+          <div v-if="loadingRelated" class="flex items-center justify-center py-4">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 dark:border-primary-400"></div>
+          </div>
+
+          <!-- Related questions list -->
+          <div v-else class="space-y-3">
+            <router-link
+              v-for="related in relatedQuestions"
+              :key="related.reference"
+              :to="`/question/${related.reference}`"
+              class="block p-4 bg-white dark:bg-neutral-800 rounded-lg hover:shadow-md dark:hover:shadow-neutral-900/50 transition-all group"
+            >
+              <div class="flex items-start">
+                <div class="flex-1">
+                  <h4 class="font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2">
+                    {{ related.title }}
+                  </h4>
+                  <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Q#{{ related.reference }}</p>
+                </div>
+                <Icon name="arrowRight" size="sm" class="text-neutral-400 dark:text-neutral-600 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors ml-2 mt-1" />
+              </div>
+            </router-link>
+          </div>
         </div>
       </div>
 
@@ -75,6 +99,7 @@ import { useGamificationStore } from '@/stores/gamification'
 import Icon from '@/components/common/Icon.vue'
 import Button from '@/components/common/Button.vue'
 import { shareQuestion } from '@/utils/sharing'
+import { getRelatedQuestionsData } from '@/utils/relatedQuestions'
 
 const router = useRouter()
 const route = useRoute()
@@ -85,6 +110,8 @@ const currentQuestion = ref(null)
 const currentAnswer = ref(null)
 const loading = ref(false)
 const isBookmarked = ref(false)
+const relatedQuestions = ref([])
+const loadingRelated = ref(false)
 
 onMounted(async () => {
   try {
@@ -111,6 +138,24 @@ onMounted(async () => {
     const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]')
     // UPDATED: Use reference for bookmark tracking
     isBookmarked.value = bookmarks.includes(parseInt(questionId))
+
+    // Load related questions
+    if (question && question.answer) {
+      loadingRelated.value = true
+      try {
+        relatedQuestions.value = await getRelatedQuestionsData(
+          question.answer,
+          dataStore.getQuestion.bind(dataStore),
+          question.reference,
+          5 // Limit to 5 related questions
+        )
+        console.log('Related questions loaded:', relatedQuestions.value.length)
+      } catch (error) {
+        console.error('Error loading related questions:', error)
+      } finally {
+        loadingRelated.value = false
+      }
+    }
   } catch (error) {
     console.error('Error loading question:', error)
   } finally {
