@@ -68,6 +68,12 @@
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+
+    <!-- Fix for cordova-plugin-x-socialsharing Android 12+ exported attribute -->
+    <edit-config file="AndroidManifest.xml" target="/manifest/application/receiver[@android:name='nl.xservices.plugins.ShareChooserPendingIntent']" mode="merge">
+        <receiver android:exported="false" />
+    </edit-config>
+
     <engine name="android" spec="^13.0.0" />
     <engine name="ios" spec="^7.0.0" />
 </widget>
