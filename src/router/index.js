@@ -54,6 +54,12 @@ const router = createRouter({
       meta: { title: 'Quiz' }
     },
     {
+      path: '/prayer-times',
+      name: 'prayer-times',
+      component: () => import('@/views/PrayerTimesView.vue'),
+      meta: { title: 'Prayer Times' }
+    },
+    {
       path: '/leaderboard',
       name: 'leaderboard',
       component: () => import('@/views/LeaderboardView.vue'),
