@@ -68,6 +68,5 @@
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
-    <engine name="android" spec="^14.0.0" />
     <engine name="ios" spec="^7.0.0" />
 </widget>
