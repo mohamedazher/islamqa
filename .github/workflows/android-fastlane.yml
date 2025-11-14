@@ -94,6 +94,13 @@ jobs:
           cordova platform add android || true
           cordova prepare android || true
 
+      - name: Decode and setup google-services.json
+        env:
+          GOOGLE_SERVICES_JSON_BASE64: ${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}
+        run: |
+          echo "$GOOGLE_SERVICES_JSON_BASE64" | base64 -d > google-services.json
+          echo "google-services.json decoded and saved"
+
       - name: Run tests
         run: yarn test:all
 
@@ -172,4 +179,4 @@ jobs:
 
       - name: Cleanup sensitive files
         if: always()
-        run: rm -f uploadkey.jks build.json google-play-api-key.json
+        run: rm -f uploadkey.jks build.json google-play-api-key.json google-services.json
