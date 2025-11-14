@@ -635,8 +635,8 @@ const madhabOptions = Object.values(MADHAB_OPTIONS)
 const prayerSettings = ref({
   location: null,
   locationName: 'Not Set',
-  calculationMethod: 'MUSLIM_WORLD_LEAGUE',
-  madhab: 'SHAFI'
+  calculationMethod: 'UMM_AL_QURA',
+  madhab: 'HANAFI'
 })
 const manualLocation = ref({
   latitude: '',

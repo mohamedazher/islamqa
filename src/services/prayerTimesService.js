@@ -180,7 +180,7 @@ class PrayerTimesService {
    */
   loadCalculationMethod() {
     const stored = localStorage.getItem(STORAGE_KEYS.CALCULATION_METHOD)
-    return stored || 'MUSLIM_WORLD_LEAGUE'
+    return stored || 'UMM_AL_QURA' // Default to Saudi Arabia
   }
 
   /**
@@ -196,7 +196,7 @@ class PrayerTimesService {
    */
   loadMadhab() {
     const stored = localStorage.getItem(STORAGE_KEYS.MADHAB)
-    return stored || 'SHAFI'
+    return stored || 'HANAFI' // Default to Hanafi madhab
   }
 
   /**
