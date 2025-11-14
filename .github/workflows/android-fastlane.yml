@@ -55,9 +55,6 @@ jobs:
           npm install -g cordova@latest
           cordova telemetry off
 
-      - name: Add Android platform
-        run: cordova platform add android
-
       - name: Decode and setup keystore
         env:
           ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
