@@ -177,6 +177,33 @@ class IslamQADumpExtractor:
         category_refs = [t.get('reference') for t in topics if t.get('reference')]
         primary_category_ref = category_refs[0] if category_refs else None
 
+        # Create category records from topics if they don't exist
+        # This ensures all categories referenced by questions exist
+        for topic in topics:
+            topic_ref = topic.get('reference')
+            if topic_ref and topic_ref not in self.categories_by_ref:
+                # Extract ancestor references
+                ancestors = topic.get('ancestors', [])
+                ancestor_refs = [a.get('reference') for a in ancestors if a.get('reference')]
+
+                # Determine parent (last ancestor)
+                parent_ref = ancestor_refs[-1] if ancestor_refs else None
+
+                # Create category from topic data
+                self.categories_by_ref[topic_ref] = {
+                    'reference': topic_ref,
+                    'title': topic.get('title', ''),
+                    'description': topic.get('description', ''),
+                    'parent_reference': parent_ref,
+                    'children_references': [],
+                    'has_subcategories': False,
+                    'has_questions': True,  # We know it has at least this question
+                    'question_count': 0,  # Will be calculated later if needed
+                    'level': len(ancestor_refs),
+                    'ancestors': ancestor_refs,
+                    'url': f'/category/{topic_ref}'
+                }
+
         # Extract taxonomies
         taxonomies = {
             'old_category': [
