@@ -1,4 +1,4 @@
-name: Android CI/CD with Fastlane
+name: Android Build & Deploy
 
 on:
   push:
@@ -29,6 +29,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Determine deployment target from commit message
+        id: deploy_target
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          echo "Commit message: $COMMIT_MSG"
+
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "target=${{ github.event.inputs.deployment_target }}" >> $GITHUB_OUTPUT
+            echo "Using manual dispatch target: ${{ github.event.inputs.deployment_target }}"
+          elif [[ $COMMIT_MSG == *"[release]"* ]] || [[ $COMMIT_MSG == *"[production]"* ]]; then
+            echo "target=production" >> $GITHUB_OUTPUT
+            echo "Detected [release]/[production] tag → Deploying to Production"
+          elif [[ $COMMIT_MSG == *"[beta]"* ]]; then
+            echo "target=beta" >> $GITHUB_OUTPUT
+            echo "Detected [beta] tag → Deploying to Open Testing"
+          else
+            echo "target=build" >> $GITHUB_OUTPUT
+            echo "No deployment tag found → Build only"
+          fi
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -51,7 +71,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Increment version (patch) for beta/production deployments
-        if: github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production'
+        if: steps.deploy_target.outputs.target == 'beta' || steps.deploy_target.outputs.target == 'production'
         run: yarn version:patch
 
       - name: Setup Cordova
@@ -113,19 +133,19 @@ jobs:
         run: yarn build
 
       - name: Build Android APK (Debug)
-        if: github.event.inputs.deployment_target == '' || github.event.inputs.deployment_target == 'build'
+        if: steps.deploy_target.outputs.target == 'build'
         run: cordova build android --debug
 
       - name: Build Android APK (Release)
-        if: github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production'
+        if: steps.deploy_target.outputs.target == 'beta' || steps.deploy_target.outputs.target == 'production'
         run: cordova build android --release
 
       - name: Build Android App Bundle (Release)
-        if: github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production'
+        if: steps.deploy_target.outputs.target == 'beta' || steps.deploy_target.outputs.target == 'production'
         run: cordova build android --release -- --packageType=bundle
 
       - name: Setup Google Play credentials
-        if: github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production'
+        if: steps.deploy_target.outputs.target == 'beta' || steps.deploy_target.outputs.target == 'production'
         env:
           PLAY_STORE_JSON_KEY_DATA: ${{ secrets.PLAY_STORE_JSON_KEY_DATA }}
         run: |
@@ -133,43 +153,27 @@ jobs:
           echo "PLAY_STORE_JSON_KEY=$(pwd)/google-play-api-key.json" >> $GITHUB_ENV
 
       - name: Deploy to Open Testing (Beta)
-        if: github.event.inputs.deployment_target == 'beta'
+        if: steps.deploy_target.outputs.target == 'beta'
         run: bundle exec fastlane android beta
         env:
           PLAY_STORE_JSON_KEY: ${{ env.PLAY_STORE_JSON_KEY }}
 
       - name: Deploy to Production
-        if: github.event.inputs.deployment_target == 'production'
+        if: steps.deploy_target.outputs.target == 'production'
         run: bundle exec fastlane android production
         env:
           PLAY_STORE_JSON_KEY: ${{ env.PLAY_STORE_JSON_KEY }}
 
       - name: Upload Debug APK
-        if: (github.event.inputs.deployment_target == '' || github.event.inputs.deployment_target == 'build') && success()
+        if: steps.deploy_target.outputs.target == 'build' && success()
         uses: actions/upload-artifact@v4
         with:
           name: android-debug-apk
           path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 30
 
-      - name: Upload Release APK
-        if: (github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production') && success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: android-release-apk
-          path: platforms/android/app/build/outputs/apk/release/app-release.apk
-          retention-days: 90
-
-      - name: Upload Release AAB
-        if: (github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production') && success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: android-release-aab
-          path: platforms/android/app/build/outputs/bundle/release/app-release.aab
-          retention-days: 90
-
       - name: Create GitHub Release
-        if: github.event.inputs.deployment_target == 'production' && github.ref == 'refs/heads/master' && success()
+        if: steps.deploy_target.outputs.target == 'production' && github.ref == 'refs/heads/master' && success()
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ github.run_number }}-android
