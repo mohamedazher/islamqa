@@ -7,7 +7,14 @@
       >
         <!-- Onboarding Content -->
         <div class="relative w-full h-full flex flex-col">
-          <!-- Skip button removed - onboarding is now mandatory for first-time setup -->
+          <!-- App Logo -->
+          <div class="pt-6 sm:pt-8 flex justify-center">
+            <img
+              src="/logo.png"
+              alt="BetterIslam Q&A"
+              class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shadow-2xl"
+            />
+          </div>
 
           <!-- Slides Container -->
           <div class="flex-1 flex items-center justify-center p-4 sm:p-6 md:p-12 overflow-y-auto">
