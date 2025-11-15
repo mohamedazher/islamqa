@@ -159,8 +159,28 @@ class DataLoaderService {
         return []
       }
       const data = await response.json()
-      console.log(`🎯 Loaded ${data.length} quiz questions from quiz-questions.json`)
-      return data
+
+      // Extract quizzes array from the JSON structure
+      // File format: { version: "1.0.0", totalQuizzes: N, quizzes: [...] }
+      const quizzes = data.quizzes || []
+
+      // Map the quiz data to match the expected schema
+      // Each quiz needs a 'reference' field (sourceQuestionId) for the primary key
+      const mappedQuizzes = quizzes.map(quiz => ({
+        reference: quiz.sourceQuestionId || quiz.reference,
+        id: quiz.id,
+        questionText: quiz.questionText,
+        options: quiz.options,
+        explanation: quiz.explanation,
+        difficulty: quiz.difficulty,
+        tags: quiz.tags || [],
+        category: quiz.category,
+        source: quiz.source || 'IslamQA',
+        type: quiz.type || 'multiple-choice'
+      }))
+
+      console.log(`🎯 Loaded ${mappedQuizzes.length} quiz questions from quiz-questions.json`)
+      return mappedQuizzes
     } catch (error) {
       console.warn('⚠️  Failed to load quiz questions (optional):', error.message)
       return []
