@@ -42,7 +42,8 @@
         <div class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-900/50 p-6">
           <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Answer</h3>
           <!-- UPDATED: Changed to access answer directly from currentQuestion (no longer separate table) -->
-          <div class="prose prose-sm dark:prose-invert max-w-none text-neutral-700 dark:text-neutral-300" v-html="currentQuestion.answer"></div>
+          <!-- Added ref to handle link clicks programmatically -->
+          <div ref="answerContainer" class="prose prose-sm dark:prose-invert max-w-none text-neutral-700 dark:text-neutral-300" v-html="currentQuestion.answer"></div>
         </div>
 
         <!-- Related Questions Section -->
@@ -93,13 +94,14 @@
 
 <script setup>
 import { useRouter, useRoute } from 'vue-router'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, nextTick, watch } from 'vue'
 import { useDataStore } from '@/stores/data'
 import { useGamificationStore } from '@/stores/gamification'
 import Icon from '@/components/common/Icon.vue'
 import Button from '@/components/common/Button.vue'
 import { shareQuestion } from '@/utils/sharing'
 import { getRelatedQuestionsData } from '@/utils/relatedQuestions'
+import { setupLinkHandlers } from '@/utils/linkHandler'
 
 const router = useRouter()
 const route = useRoute()
@@ -112,8 +114,9 @@ const loading = ref(false)
 const isBookmarked = ref(false)
 const relatedQuestions = ref([])
 const loadingRelated = ref(false)
+const answerContainer = ref(null)
 
-onMounted(async () => {
+async function loadQuestion() {
   try {
     loading.value = true
     const questionId = route.params.id
@@ -156,10 +159,30 @@ onMounted(async () => {
         loadingRelated.value = false
       }
     }
+
+    // Setup link handlers after content is rendered
+    await nextTick()
+    if (answerContainer.value) {
+      setupLinkHandlers(answerContainer.value, router)
+      console.log('Link handlers setup complete')
+    }
   } catch (error) {
     console.error('Error loading question:', error)
   } finally {
     loading.value = false
+  }
+}
+
+onMounted(() => {
+  loadQuestion()
+})
+
+// Watch for route changes to reload question when navigating via internal links
+watch(() => route.params.id, (newId, oldId) => {
+  if (newId && newId !== oldId) {
+    // Scroll to top when navigating to a new question
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    loadQuestion()
   }
 })
 
@@ -228,13 +251,71 @@ async function handleShare() {
   color: #111827;
 }
 
+.dark .prose :deep(strong) {
+  color: #f3f4f6;
+}
+
 .prose :deep(em) {
   font-style: italic;
 }
 
+/* Link styles */
 .prose :deep(a) {
-  color: #2563eb;
+  color: #059669;
   text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.prose :deep(a:hover) {
+  color: #047857;
+}
+
+.dark .prose :deep(a) {
+  color: #34d399;
+}
+
+.dark .prose :deep(a:hover) {
+  color: #10b981;
+}
+
+/* Table of Contents styling */
+.prose :deep(#toc_container) {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.dark .prose :deep(#toc_container) {
+  background-color: #064e3b;
+  border-color: #065f46;
+}
+
+.prose :deep(.toc_title) {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #065f46;
+  margin-bottom: 0.75rem;
+}
+
+.dark .prose :deep(.toc_title) {
+  color: #6ee7b7;
+}
+
+.prose :deep(.toc_list) {
+  list-style: none;
+  padding-left: 0;
+}
+
+.prose :deep(.toc_list li) {
+  margin-bottom: 0.5rem;
+}
+
+/* Section headers with anchors */
+.prose :deep(h3 span[id]) {
+  scroll-margin-top: 80px; /* Account for sticky header */
 }
 
 .prose :deep(ul),

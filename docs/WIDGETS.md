@@ -7,8 +7,9 @@ Complete guide for implementing, building, and deploying native home screen widg
 ## 📱 Overview
 
 The IslamQA app includes native home screen widgets that display:
-- 🕌 Current or next prayer name
-- ⏱️ Live countdown timer
+- 🕌 All 5 daily prayer times (Fajr, Dhuhr, Asr, Maghrib, Isha)
+- ⏱️ Live countdown timer for next/current prayer
+- 🎯 Highlighted current/next prayer row
 - 🎨 Beautiful teal/cyan gradient matching app theme
 - 👆 Tap-to-open functionality
 
@@ -40,8 +41,16 @@ open platforms/ios/*.xcworkspace
 ### JavaScript API
 
 ```javascript
-// Update widget
+// Update widget with all prayer times
 PrayerWidget.updateWidget({
+  // All 5 prayer times
+  fajr: "5:30 AM",
+  dhuhr: "12:15 PM",
+  asr: "3:45 PM",
+  maghrib: "6:45 PM",
+  isha: "8:15 PM",
+
+  // Current/Next prayer info
   nextPrayer: "Maghrib",
   nextPrayerTime: "6:45 PM",
   timeRemaining: "3h 20m",
@@ -81,10 +90,12 @@ cordova build android
 
 ### Features
 
-- ✅ Shows next/current prayer with countdown
+- ✅ Displays all 5 daily prayer times in compact list
+- ✅ Highlights current/next prayer with visual indicator
+- ✅ Live countdown timer for next/current prayer
 - ✅ Updates every minute automatically
 - ✅ Tap to open app to prayer times
-- ✅ Gradient background matching app theme
+- ✅ Teal/cyan gradient background matching app theme
 - ✅ Works offline (reads from app data)
 - ✅ No additional permissions required
 
@@ -162,17 +173,22 @@ open platforms/ios/BetterIslam\ Q\&A.xcworkspace
 1. **Long-press** on home screen
 2. Tap **"+"** button (top-left)
 3. Search **"Prayer Times"**
-4. Select **Small** or **Medium** size
+4. Select widget size:
+   - **Small**: Compact countdown display
+   - **Medium**: All 5 prayer times with countdown
 5. Tap **"Add Widget"**
-6. Widget appears with prayer countdown!
+6. Widget appears with prayer times!
 
 ### Features
 
-- ✅ Native SwiftUI design
-- ✅ Small and Medium widget sizes
+- ✅ Native SwiftUI design with adaptive layouts
+- ✅ **Small widget**: Compact countdown view with next/current prayer
+- ✅ **Medium widget**: All 5 prayer times in elegant list
+- ✅ Highlights current/next prayer with visual indicator
+- ✅ Teal/cyan gradient matching app theme
 - ✅ Automatic updates every minute
 - ✅ App Groups for data sharing
-- ✅ Dark Mode support
+- ✅ Dark Mode support (gradient adapts beautifully)
 - ✅ Tap to open app
 
 ---
