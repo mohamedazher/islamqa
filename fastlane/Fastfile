@@ -28,7 +28,7 @@ platform :android do
   end
 
   desc "Build debug APK for testing"
-  lane :debug do
+  lane :build_debug do
     build(release: false)
   end
 
@@ -130,7 +130,7 @@ platform :ios do
   end
 
   desc "Build debug version for simulator"
-  lane :debug do
+  lane :build_debug do
     build(release: false)
   end
 

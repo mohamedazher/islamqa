@@ -105,7 +105,7 @@ jobs:
 
       - name: Build with Fastlane (Debug)
         if: github.event.inputs.deployment_target == '' || github.event.inputs.deployment_target == 'build'
-        run: bundle exec fastlane ios debug
+        run: bundle exec fastlane ios build_debug
 
       - name: Build with Fastlane (Release)
         if: github.event.inputs.deployment_target == 'beta' || github.event.inputs.deployment_target == 'production'
