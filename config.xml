@@ -24,6 +24,8 @@
         <icon density="xxhdpi" src="res/android/xxhdpi.png" />
         <icon density="xxxhdpi" src="res/android/xxxhdpi.png" />
         <preference name="AndroidXEnabled" value="true" />
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="" />
+        <preference name="AndroidWindowSplashScreenBackground" value="#ffffff" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
