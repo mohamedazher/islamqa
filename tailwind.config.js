@@ -8,33 +8,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Modern emerald green palette (works great in light & dark modes)
+        // Golden yellow palette (inspired by logo)
         primary: {
-          50: '#ecfdf5',
-          100: '#d1fae5',
-          200: '#a7f3d0',
-          300: '#6ee7b7',
-          400: '#34d399',
-          500: '#10b981', // Main brand color
-          600: '#059669',
-          700: '#047857',
-          800: '#065f46',
-          900: '#064e3b',
-          950: '#022c22',
+          50: '#fffef0',
+          100: '#fffbdb',
+          200: '#fff6b8',
+          300: '#ffed8a',
+          400: '#ffdf51',
+          500: '#f4c430', // Main golden brand color
+          600: '#e6a812',
+          700: '#c18510',
+          800: '#9e6814',
+          900: '#825517',
+          950: '#4d2e09',
         },
-        // Accent teal for highlights
+        // Olive/sage green for accents and backgrounds
         accent: {
-          50: '#f0fdfa',
-          100: '#ccfbf1',
-          200: '#99f6e4',
-          300: '#5eead4',
-          400: '#2dd4bf',
-          500: '#14b8a6',
-          600: '#0d9488',
-          700: '#0f766e',
-          800: '#115e59',
-          900: '#134e4a',
-          950: '#042f2e',
+          50: '#f7f8f3',
+          100: '#eef0e4',
+          200: '#dde2ca',
+          300: '#c5cda7',
+          400: '#a9b582',
+          500: '#8b9961', // Main olive color
+          600: '#7a8450',
+          700: '#5f6740',
+          800: '#4e5436',
+          900: '#42462f',
+          950: '#222517',
         },
         // Sophisticated neutrals with proper dark mode support
         neutral: {

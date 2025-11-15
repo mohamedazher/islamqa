@@ -1,7 +1,7 @@
 <template>
   <div class="home-view min-h-screen">
     <!-- Hero Section - Desktop only -->
-    <div class="hidden lg:block bg-gradient-to-br from-emerald-400 via-teal-400 to-cyan-500 dark:from-emerald-500 dark:via-teal-500 dark:to-cyan-600 text-white">
+    <div class="hidden lg:block bg-gradient-to-br from-primary-400 via-primary-500 to-accent-500 dark:from-primary-600 dark:via-accent-600 dark:to-accent-700 text-white">
       <div class="max-w-7xl mx-auto px-6 xl:px-8 py-8">
         <div class="flex items-center justify-between">
           <div>
@@ -58,7 +58,7 @@
           clickable
           padding="lg"
           @click="viewQuestion(questionOfTheDay.reference)"
-          class="relative overflow-hidden bg-gradient-to-br from-emerald-400 via-teal-400 to-cyan-500 dark:from-emerald-500 dark:via-teal-500 dark:to-cyan-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+          class="relative overflow-hidden bg-gradient-to-br from-primary-400 via-primary-500 to-accent-500 dark:from-primary-600 dark:via-accent-600 dark:to-accent-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
         >
           <!-- Decorative background pattern -->
           <div class="absolute inset-0 opacity-10">
@@ -382,8 +382,8 @@ const quickActions = [
     icon: 'book',
     description: 'Explore categories',
     to: '/browse',
-    color: 'bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-800/20',
-    iconBg: 'bg-gradient-to-br from-blue-400 via-cyan-400 to-teal-500 dark:from-blue-500 dark:via-cyan-500 dark:to-teal-600',
+    color: 'bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/20 dark:to-accent-800/20',
+    iconBg: 'bg-gradient-to-br from-primary-400 via-primary-500 to-accent-500 dark:from-primary-600 dark:via-accent-600 dark:to-accent-700',
     iconColor: 'text-white'
   },
   {
@@ -410,8 +410,8 @@ const quickActions = [
     icon: 'bookmark',
     description: 'Saved items',
     to: '/bookmarks',
-    color: 'bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/20 dark:to-teal-800/20',
-    iconBg: 'bg-gradient-to-br from-emerald-400 via-teal-400 to-cyan-500 dark:from-emerald-500 dark:via-teal-500 dark:to-cyan-600',
+    color: 'bg-gradient-to-br from-accent-100 to-accent-200 dark:from-accent-900/20 dark:to-accent-800/20',
+    iconBg: 'bg-gradient-to-br from-accent-400 via-accent-500 to-accent-600 dark:from-accent-600 dark:via-accent-700 dark:to-accent-800',
     iconColor: 'text-white'
   }
 ]

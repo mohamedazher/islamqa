@@ -171,20 +171,20 @@ watch(() => route.params.id, loadCategory)
 // Get gradient color for category card (pastel colors)
 function getCategoryGradient(index) {
   const gradients = [
-    // Emerald to Teal
-    'from-emerald-400 via-teal-400 to-cyan-500 dark:from-emerald-500 dark:via-teal-500 dark:to-cyan-600',
+    // Golden to Olive (primary brand colors)
+    'from-primary-400 via-primary-500 to-accent-500 dark:from-primary-600 dark:via-accent-600 dark:to-accent-700',
     // Yellow to Orange
     'from-yellow-400 via-orange-400 to-red-400 dark:from-yellow-500 dark:via-orange-500 dark:to-red-500',
-    // Lime to Green
-    'from-lime-400 via-green-400 to-emerald-500 dark:from-lime-500 dark:via-green-500 dark:to-emerald-600',
+    // Olive to Green (fresh)
+    'from-accent-400 via-accent-500 to-accent-600 dark:from-accent-600 dark:via-accent-700 dark:to-accent-800',
     // Pink to Purple
     'from-pink-400 via-purple-400 to-indigo-500 dark:from-pink-500 dark:via-purple-500 dark:to-indigo-600',
-    // Blue to Cyan
-    'from-blue-400 via-cyan-400 to-teal-500 dark:from-blue-500 dark:via-cyan-500 dark:to-teal-600',
+    // Amber to Gold (warm gold)
+    'from-amber-400 via-primary-400 to-primary-500 dark:from-amber-600 dark:via-primary-600 dark:to-primary-700',
     // Orange to Pink
     'from-orange-400 via-rose-400 to-pink-500 dark:from-orange-500 dark:via-rose-500 dark:to-pink-600',
-    // Purple to Blue
-    'from-purple-400 via-blue-400 to-cyan-500 dark:from-purple-500 dark:via-blue-500 dark:to-cyan-600',
+    // Purple to Blue (royal)
+    'from-purple-400 via-blue-400 to-indigo-500 dark:from-purple-500 dark:via-blue-500 dark:to-indigo-600',
     // Green to Yellow
     'from-green-400 via-lime-400 to-yellow-400 dark:from-green-500 dark:via-lime-500 dark:to-yellow-500',
   ]

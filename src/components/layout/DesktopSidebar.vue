@@ -3,9 +3,11 @@
     <!-- Logo/Brand -->
     <div class="flex h-16 shrink-0 items-center justify-between px-6 border-b border-neutral-200 dark:border-neutral-800">
       <router-link to="/" class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 dark:from-primary-600 dark:to-primary-800 rounded-xl flex items-center justify-center text-white text-xl font-bold shadow-soft">
-          ☪
-        </div>
+        <img
+          src="/logo.png"
+          alt="BetterIslam Q&A Logo"
+          class="w-10 h-10 rounded-lg shadow-soft"
+        />
         <div>
           <h1 class="text-lg font-bold text-neutral-900 dark:text-neutral-100">IslamQA</h1>
           <p class="text-xs text-neutral-500 dark:text-neutral-400">Islamic Knowledge</p>
