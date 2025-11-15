@@ -28,6 +28,14 @@ class PrayerWidget: CDVPlugin {
 
         // Save data to App Group shared container
         if let userDefaults = UserDefaults(suiteName: appGroupName) {
+            // All 5 prayer times
+            userDefaults.set(prayerData["fajr"] as? String ?? "--:--", forKey: "fajr_time")
+            userDefaults.set(prayerData["dhuhr"] as? String ?? "--:--", forKey: "dhuhr_time")
+            userDefaults.set(prayerData["asr"] as? String ?? "--:--", forKey: "asr_time")
+            userDefaults.set(prayerData["maghrib"] as? String ?? "--:--", forKey: "maghrib_time")
+            userDefaults.set(prayerData["isha"] as? String ?? "--:--", forKey: "isha_time")
+
+            // Current/Next prayer info
             userDefaults.set(prayerData["nextPrayer"] as? String ?? "Fajr", forKey: "next_prayer")
             userDefaults.set(prayerData["nextPrayerTime"] as? String ?? "--:--", forKey: "next_prayer_time")
             userDefaults.set(prayerData["timeRemaining"] as? String ?? "--:--", forKey: "time_remaining")

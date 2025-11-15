@@ -173,17 +173,22 @@ open platforms/ios/BetterIslam\ Q\&A.xcworkspace
 1. **Long-press** on home screen
 2. Tap **"+"** button (top-left)
 3. Search **"Prayer Times"**
-4. Select **Small** or **Medium** size
+4. Select widget size:
+   - **Small**: Compact countdown display
+   - **Medium**: All 5 prayer times with countdown
 5. Tap **"Add Widget"**
-6. Widget appears with prayer countdown!
+6. Widget appears with prayer times!
 
 ### Features
 
-- ✅ Native SwiftUI design
-- ✅ Small and Medium widget sizes
+- ✅ Native SwiftUI design with adaptive layouts
+- ✅ **Small widget**: Compact countdown view with next/current prayer
+- ✅ **Medium widget**: All 5 prayer times in elegant list
+- ✅ Highlights current/next prayer with visual indicator
+- ✅ Teal/cyan gradient matching app theme
 - ✅ Automatic updates every minute
 - ✅ App Groups for data sharing
-- ✅ Dark Mode support
+- ✅ Dark Mode support (gradient adapts beautifully)
 - ✅ Tap to open app
 
 ---
