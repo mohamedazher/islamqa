@@ -4,11 +4,96 @@ This document provides comprehensive testing guidance for the IslamQA applicatio
 
 ## Current State
 
-- **Testing Framework**: None configured (manual testing only)
-- **Automated Tests**: 0 tests
-- **Manual Testing**: Required before commits
-- **CI/CD Testing**: Not yet implemented
-- **Coverage**: Not measured
+- **Testing Framework**: Vitest (configured and active)
+- **Automated Tests**: 56 tests across 3 test suites
+- **Test Files**:
+  - `tests/breakage-detection.test.js` (19 tests)
+  - `tests/quiz-and-bookmarks.test.js` (14 tests)
+  - `tests/data-import.test.js` (23 tests)
+- **Manual Testing**: Recommended for UI/UX verification
+- **CI/CD Testing**: Integrated in build scripts (runs before deploy)
+- **Coverage**: Critical paths covered (data import, quiz system, database operations)
+
+---
+
+## Running Automated Tests
+
+### Quick Start
+
+```bash
+# Run all tests
+yarn test:all
+
+# Run specific test suites
+yarn test:breakage     # Data structure & critical service tests
+yarn test:features     # Quiz & bookmark functionality tests
+
+# Run tests in watch mode (for development)
+yarn test:watch
+
+# Run a specific test file
+yarn test tests/data-import.test.js
+```
+
+### Test Suites Overview
+
+#### 1. Breakage Detection Tests (`tests/breakage-detection.test.js`)
+**Purpose**: Catch critical app failures before deployment
+
+**Coverage**:
+- ✅ Data file structure (categories.json, questions.json)
+- ✅ Service file integrity (dexieDatabase, dataLoader)
+- ✅ Vue component existence
+- ✅ Data relationships and uniqueness
+- ✅ Build configuration validation
+
+**When to run**: Before every commit/deploy
+
+#### 2. Quiz & Bookmarks Tests (`tests/quiz-and-bookmarks.test.js`)
+**Purpose**: Validate quiz and bookmark features
+
+**Coverage**:
+- ✅ Quiz data file structure and integrity
+- ✅ Quiz question validation (options, correct answers, difficulty)
+- ✅ Database schema for folders/bookmarks
+- ✅ Quiz service methods
+- ✅ UI component existence
+
+**When to run**: When changing quiz or bookmark features
+
+#### 3. Data Import Tests (`tests/data-import.test.js`)
+**Purpose**: Test data loading and import pipeline
+
+**Coverage**:
+- ✅ DataLoader.loadQuizQuestions() unit tests
+- ✅ DexieDatabase quiz import operations
+- ✅ Quiz data mapping and validation
+- ✅ Integration tests for full import flow
+- ✅ Regression prevention for quiz import bug
+
+**When to run**: When modifying data import logic
+
+**Key Features**:
+- **Regression Prevention**: Tests specifically designed to catch the quiz import bug that was fixed
+- **Unit Tests**: Individual method testing for loadQuizQuestions(), bulkImportQuizQuestions()
+- **Integration Tests**: End-to-end import flow validation
+- **Schema Validation**: Ensures database schema supports all quiz operations
+
+### What These Tests Would Have Caught
+
+The new `data-import.test.js` suite contains 23 tests that would have caught the quiz import bug:
+
+1. ❌ **Bug**: `loadQuizQuestions()` returned object instead of array
+   - ✅ **Test**: "loadQuizQuestions() must return an array, not an object"
+
+2. ❌ **Bug**: `data.length` was undefined in logs
+   - ✅ **Test**: "REGRESSION: quiz import must not return undefined length"
+
+3. ❌ **Bug**: Quiz questions never imported (empty table)
+   - ✅ **Test**: "bulkImportQuizQuestions() must handle array input correctly"
+
+4. ❌ **Bug**: Quiz feature completely broken
+   - ✅ **Test**: "all quiz modes must require LLM-generated quiz questions"
 
 ---
 
