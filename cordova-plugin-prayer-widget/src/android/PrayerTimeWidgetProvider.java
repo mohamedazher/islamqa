@@ -44,29 +44,38 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
      * Update a single widget instance
      */
     private void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
-        // Read prayer data from SharedPreferences
-        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        try {
+            // Read prayer data from SharedPreferences
+            SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
-        // All prayer times
-        String fajrTime = prefs.getString("fajr_time", "--:--");
-        String dhuhrTime = prefs.getString("dhuhr_time", "--:--");
-        String asrTime = prefs.getString("asr_time", "--:--");
-        String maghribTime = prefs.getString("maghrib_time", "--:--");
-        String ishaTime = prefs.getString("isha_time", "--:--");
+            // All prayer times
+            String fajrTime = prefs.getString("fajr_time", "--:--");
+            String dhuhrTime = prefs.getString("dhuhr_time", "--:--");
+            String asrTime = prefs.getString("asr_time", "--:--");
+            String maghribTime = prefs.getString("maghrib_time", "--:--");
+            String ishaTime = prefs.getString("isha_time", "--:--");
 
-        // Current/Next prayer info
-        String nextPrayer = prefs.getString("next_prayer", "Fajr");
-        String timeRemaining = prefs.getString("time_remaining", "--:--");
-        String currentPrayer = prefs.getString("current_prayer", "");
+            // Current/Next prayer info
+            String nextPrayer = prefs.getString("next_prayer", "Fajr");
+            String timeRemaining = prefs.getString("time_remaining", "--:--");
+            String currentPrayer = prefs.getString("current_prayer", "");
 
-        Log.d(TAG, "Updating widget - Next: " + nextPrayer + ", Current: " + currentPrayer + ", Time: " + timeRemaining);
+            String packageName = context.getPackageName();
+            Log.d(TAG, "Updating widget - Package: " + packageName + ", Next: " + nextPrayer + ", Current: " + currentPrayer + ", Time: " + timeRemaining);
 
-        // Get layout ID
-        int layoutId = context.getResources().getIdentifier(
-            "widget_prayer_time", "layout", context.getPackageName());
+            // Get layout ID
+            int layoutId = context.getResources().getIdentifier(
+                "widget_prayer_time", "layout", packageName);
 
-        // Create RemoteViews
-        RemoteViews views = new RemoteViews(context.getPackageName(), layoutId);
+            if (layoutId == 0) {
+                Log.e(TAG, "Could not find widget_prayer_time layout in package: " + packageName);
+                return;
+            }
+
+            Log.d(TAG, "Using layout ID: " + layoutId);
+
+            // Create RemoteViews
+            RemoteViews views = new RemoteViews(packageName, layoutId);
 
         // Update all prayer times
         views.setTextViewText(
@@ -164,9 +173,12 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
             );
         }
 
-        // Update widget
-        appWidgetManager.updateAppWidget(appWidgetId, views);
-        Log.d(TAG, "Widget " + appWidgetId + " updated successfully");
+            // Update widget
+            appWidgetManager.updateAppWidget(appWidgetId, views);
+            Log.d(TAG, "Widget " + appWidgetId + " updated successfully");
+        } catch (Exception e) {
+            Log.e(TAG, "Error updating widget: " + e.getMessage(), e);
+        }
     }
 
     @Override
