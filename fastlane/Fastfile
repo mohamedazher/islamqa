@@ -54,6 +54,9 @@ platform :android do
     # Note: Assumes cordova build already completed in CI/CD workflow
     # The AAB is pre-built and signed, just upload it
 
+    # Use environment variable if set (CI/CD), otherwise use local file (local testing)
+    json_key = ENV['PLAY_STORE_JSON_KEY'] || File.expand_path('../google-play-api-key.json')
+
     upload_to_play_store(
       track: 'beta',
       package_name: 'com.dkurve.betterislamqa',
@@ -61,7 +64,7 @@ platform :android do
       skip_upload_metadata: true,
       skip_upload_images: true,
       skip_upload_screenshots: true,
-      json_key: ENV['PLAY_STORE_JSON_KEY']
+      json_key: json_key
     )
 
     UI.success("✅ Successfully deployed to Google Play Open Testing!")
@@ -69,6 +72,9 @@ platform :android do
 
   desc "Promote from beta to production track"
   lane :promote_to_production do
+    # Use environment variable if set (CI/CD), otherwise use local file (local testing)
+    json_key = ENV['PLAY_STORE_JSON_KEY'] || File.expand_path('../google-play-api-key.json')
+
     upload_to_play_store(
       track: 'beta',
       track_promote_to: 'production',
@@ -77,7 +83,7 @@ platform :android do
       skip_upload_metadata: true,
       skip_upload_images: true,
       skip_upload_screenshots: true,
-      json_key: ENV['PLAY_STORE_JSON_KEY']
+      json_key: json_key
     )
 
     UI.success("✅ Promoted to Google Play Production!")
@@ -88,6 +94,9 @@ platform :android do
     # Note: Assumes cordova build already completed in CI/CD workflow
     # The AAB is pre-built and signed, just upload it
 
+    # Use environment variable if set (CI/CD), otherwise use local file (local testing)
+    json_key = ENV['PLAY_STORE_JSON_KEY'] || File.expand_path('../google-play-api-key.json')
+
     upload_to_play_store(
       track: 'production',
       package_name: 'com.dkurve.betterislamqa',
@@ -95,7 +104,7 @@ platform :android do
       skip_upload_metadata: true,
       skip_upload_images: true,
       skip_upload_screenshots: true,
-      json_key: ENV['PLAY_STORE_JSON_KEY']
+      json_key: json_key
     )
 
     UI.success("✅ Successfully deployed to Google Play Production!")
