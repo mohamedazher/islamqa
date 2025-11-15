@@ -8,31 +8,31 @@
       >
         <div class="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
           <!-- Header -->
-          <div class="sticky top-0 bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 p-6 pb-4">
+          <div class="sticky top-0 bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 p-3 sm:p-4 pb-2 sm:pb-3">
             <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-red-100 dark:bg-red-950/50 rounded-full flex items-center justify-center">
-                  <Icon name="exclamation" size="md" class="text-red-600 dark:text-red-400" />
+              <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+                <div class="w-8 sm:w-10 h-8 sm:h-10 bg-red-100 dark:bg-red-950/50 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Icon name="exclamation" size="sm" class="text-red-600 dark:text-red-400" />
                 </div>
-                <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Clear Data</h3>
+                <h3 class="text-base sm:text-lg font-bold text-neutral-900 dark:text-neutral-100 truncate">Clear Data</h3>
               </div>
               <button
                 @click="close"
-                class="text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors"
+                class="text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors flex-shrink-0 ml-2"
               >
-                <Icon name="close" size="md" />
+                <Icon name="close" size="sm" />
               </button>
             </div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2">
+            <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-1 sm:mt-2">
               Choose what data you want to clear from your device
             </p>
           </div>
 
           <!-- Options -->
-          <div class="p-6 space-y-4">
+          <div class="p-3 sm:p-4 space-y-3 sm:space-y-4">
             <!-- Database Option -->
             <label
-              class="flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-all"
+              class="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg border-2 cursor-pointer transition-all"
               :class="selections.database
                 ? 'border-red-500 bg-red-50 dark:bg-red-950/30'
                 : 'border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700'"
@@ -56,7 +56,7 @@
 
             <!-- Bookmarks Option -->
             <label
-              class="flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-all"
+              class="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg border-2 cursor-pointer transition-all"
               :class="selections.bookmarks
                 ? 'border-orange-500 bg-orange-50 dark:bg-orange-950/30'
                 : 'border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700'"
@@ -79,7 +79,7 @@
 
             <!-- Quiz Progress Option -->
             <label
-              class="flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-all"
+              class="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg border-2 cursor-pointer transition-all"
               :class="selections.quizProgress
                 ? 'border-amber-500 bg-amber-50 dark:bg-amber-950/30'
                 : 'border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700'"
@@ -102,7 +102,7 @@
 
             <!-- App Settings Option -->
             <label
-              class="flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-all"
+              class="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg border-2 cursor-pointer transition-all"
               :class="selections.settings
                 ? 'border-primary-500 bg-primary-50 dark:bg-primary-950/30'
                 : 'border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700'"
@@ -126,7 +126,7 @@
             <!-- Divider -->
             <div class="border-t border-neutral-200 dark:border-neutral-800 pt-4">
               <label
-                class="flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-all"
+                class="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg border-2 cursor-pointer transition-all"
                 :class="selections.resetEverything
                   ? 'border-red-600 bg-red-100 dark:bg-red-950/50'
                   : 'border-neutral-300 dark:border-neutral-700 hover:border-red-400 dark:hover:border-red-600'"
@@ -151,7 +151,7 @@
             <!-- Summary -->
             <div
               v-if="hasSelections"
-              class="bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 border border-neutral-200 dark:border-neutral-700"
+              class="bg-neutral-100 dark:bg-neutral-800 rounded-lg p-3 sm:p-4 border border-neutral-200 dark:border-neutral-700"
             >
               <div class="flex items-start gap-2 mb-2">
                 <Icon name="info" size="sm" class="text-neutral-600 dark:text-neutral-400 mt-0.5" />
@@ -174,19 +174,19 @@
           </div>
 
           <!-- Actions -->
-          <div class="sticky bottom-0 bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 p-6 pt-4">
-            <div class="flex gap-3">
+          <div class="sticky bottom-0 bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 p-3 sm:p-4 pt-2 sm:pt-3">
+            <div class="flex gap-2 sm:gap-3">
               <button
                 @click="close"
                 :disabled="isClearing"
-                class="flex-1 px-6 py-3 bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded-lg font-medium hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                class="flex-1 px-4 sm:px-6 py-2 sm:py-3 bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded-lg font-medium hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
               >
                 Cancel
               </button>
               <button
                 @click="confirmClear"
                 :disabled="!hasSelections || isClearing"
-                class="flex-1 px-6 py-3 rounded-lg font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                class="flex-1 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base"
                 :class="hasSelections
                   ? 'bg-gradient-to-r from-red-600 to-red-700 dark:from-red-700 dark:to-red-800 text-white hover:from-red-700 hover:to-red-800 dark:hover:from-red-600 dark:hover:to-red-700'
                   : 'bg-neutral-300 dark:bg-neutral-700 text-neutral-500 dark:text-neutral-500 cursor-not-allowed'"
