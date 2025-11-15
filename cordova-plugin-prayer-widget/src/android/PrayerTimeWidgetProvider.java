@@ -65,10 +65,10 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
 
             // Get layout ID
             int layoutId = context.getResources().getIdentifier(
-                "widget_prayer_time_simple", "layout", packageName);
+                "widget_prayer_time_full", "layout", packageName);
 
             if (layoutId == 0) {
-                Log.e(TAG, "Could not find widget_prayer_time_simple layout in package: " + packageName);
+                Log.e(TAG, "Could not find widget_prayer_time_full layout in package: " + packageName);
                 return;
             }
 
@@ -77,18 +77,24 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
             // Create RemoteViews
             RemoteViews views = new RemoteViews(packageName, layoutId);
 
-            // Update countdown timer with next prayer info
-            String displayText = (currentPrayer.isEmpty() ? "Next: " : "Current: ") +
-                                 (currentPrayer.isEmpty() ? nextPrayer : currentPrayer) +
-                                 " in " + timeRemaining;
+            // Safely update prayer times - each in try-catch to prevent single failure from breaking widget
+            safeSetText(views, context, "fajr_time", fajrTime);
+            safeSetText(views, context, "dhuhr_time", dhuhrTime);
+            safeSetText(views, context, "asr_time", asrTime);
+            safeSetText(views, context, "maghrib_time", maghribTime);
+            safeSetText(views, context, "isha_time", ishaTime);
 
-            int timeRemainingId = context.getResources().getIdentifier("time_remaining", "id", packageName);
-            if (timeRemainingId != 0) {
-                views.setTextViewText(timeRemainingId, displayText);
-                Log.d(TAG, "Updated time_remaining with: " + displayText);
-            } else {
-                Log.e(TAG, "Could not find time_remaining TextView");
-            }
+            // Update countdown timer
+            safeSetText(views, context, "time_remaining", timeRemaining);
+
+            // Update footer label
+            String labelText = currentPrayer.isEmpty() ? "Next: " + nextPrayer : "Current: " + currentPrayer;
+            safeSetText(views, context, "next_prayer_label", labelText);
+
+            // Highlight current or next prayer row
+            highlightPrayerRow(views, context, currentPrayer.isEmpty() ? nextPrayer : currentPrayer);
+
+            Log.d(TAG, "Widget updated - Next: " + nextPrayer + ", Current: " + currentPrayer + ", Time: " + timeRemaining);
 
         // Create intent to open app when widget is clicked
         Intent launchIntent = context.getPackageManager()
@@ -140,6 +146,51 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
             if (ids != null && ids.length > 0) {
                 this.onUpdate(context, appWidgetManager, ids);
             }
+        }
+    }
+
+    /**
+     * Safely set text on a TextView - won't crash widget if view not found
+     */
+    private void safeSetText(RemoteViews views, Context context, String viewName, String text) {
+        try {
+            int viewId = context.getResources().getIdentifier(viewName, "id", context.getPackageName());
+            if (viewId != 0) {
+                views.setTextViewText(viewId, text);
+            } else {
+                Log.w(TAG, "View not found: " + viewName);
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error setting text for " + viewName + ": " + e.getMessage());
+        }
+    }
+
+    /**
+     * Highlight the row for current/next prayer
+     */
+    private void highlightPrayerRow(RemoteViews views, Context context, String prayerName) {
+        try {
+            // Reset all row backgrounds to transparent
+            int transparentColor = android.graphics.Color.parseColor("#00FFFFFF");
+            int highlightColor = android.graphics.Color.parseColor("#40FFFFFF"); // White with 25% opacity
+
+            String[] prayers = {"fajr", "dhuhr", "asr", "maghrib", "isha"};
+            for (String prayer : prayers) {
+                String rowName = prayer + "_row";
+                int rowId = context.getResources().getIdentifier(rowName, "id", context.getPackageName());
+                if (rowId != 0) {
+                    views.setInt(rowId, "setBackgroundColor", transparentColor);
+                }
+            }
+
+            // Highlight the active prayer row
+            String activeRowName = prayerName.toLowerCase() + "_row";
+            int activeRowId = context.getResources().getIdentifier(activeRowName, "id", context.getPackageName());
+            if (activeRowId != 0) {
+                views.setInt(activeRowId, "setBackgroundColor", highlightColor);
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error highlighting prayer row: " + e.getMessage());
         }
     }
 }

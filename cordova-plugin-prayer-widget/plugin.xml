@@ -62,6 +62,9 @@
             src="src/android/res/layout/widget_prayer_time_simple.xml"
             target="res/layout/widget_prayer_time_simple.xml" />
         <resource-file
+            src="src/android/res/layout/widget_prayer_time_full.xml"
+            target="res/layout/widget_prayer_time_full.xml" />
+        <resource-file
             src="src/android/res/xml/prayer_time_widget_info.xml"
             target="res/xml/prayer_time_widget_info.xml" />
         <resource-file
