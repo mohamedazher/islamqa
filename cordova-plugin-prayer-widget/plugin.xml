@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-prayer-widget"
+        version="1.0.0">
+
+    <name>PrayerWidget</name>
+    <description>Prayer Time Widget for Android and iOS - Shows next prayer time and countdown on home screen</description>
+    <license>MIT</license>
+    <keywords>prayer,widget,islam,islamic,salah,prayer times</keywords>
+    <author>BetterIslam Q&A</author>
+
+    <engines>
+        <engine name="cordova" version=">=9.0.0" />
+        <engine name="cordova-android" version=">=9.0.0" />
+        <engine name="cordova-ios" version=">=6.0.0" />
+    </engines>
+
+    <!-- JavaScript Interface -->
+    <js-module src="www/PrayerWidget.js" name="PrayerWidget">
+        <clobbers target="PrayerWidget" />
+    </js-module>
+
+    <!-- ==================== ANDROID PLATFORM ==================== -->
+    <platform name="android">
+
+        <!-- Register the plugin with Cordova -->
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="PrayerWidget">
+                <param name="android-package" value="com.dkurve.betterislamqa.prayerwidget.PrayerWidget"/>
+            </feature>
+        </config-file>
+
+        <!-- Add widget receiver to AndroidManifest.xml -->
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <receiver
+                android:name="com.dkurve.betterislamqa.prayerwidget.PrayerTimeWidgetProvider"
+                android:exported="true"
+                android:label="@string/app_name">
+                <intent-filter>
+                    <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                </intent-filter>
+                <meta-data
+                    android:name="android.appwidget.provider"
+                    android:resource="@xml/prayer_time_widget_info" />
+            </receiver>
+        </config-file>
+
+        <!-- Source files -->
+        <source-file
+            src="src/android/PrayerWidget.java"
+            target-dir="src/com/dkurve/betterislamqa/prayerwidget" />
+        <source-file
+            src="src/android/PrayerTimeWidgetProvider.java"
+            target-dir="src/com/dkurve/betterislamqa/prayerwidget" />
+
+        <!-- Resource files -->
+        <resource-file
+            src="src/android/res/layout/widget_prayer_time.xml"
+            target="res/layout/widget_prayer_time.xml" />
+        <resource-file
+            src="src/android/res/xml/prayer_time_widget_info.xml"
+            target="res/xml/prayer_time_widget_info.xml" />
+        <resource-file
+            src="src/android/res/drawable/widget_background.xml"
+            target="res/drawable/widget_background.xml" />
+        <resource-file
+            src="src/android/res/drawable/widget_preview.xml"
+            target="res/drawable/widget_preview.xml" />
+        <resource-file
+            src="src/android/res/values/strings.xml"
+            target="res/values/widget_strings.xml" />
+
+    </platform>
+
+    <!-- ==================== iOS PLATFORM ==================== -->
+    <platform name="ios">
+
+        <!-- Register the plugin with Cordova -->
+        <config-file target="config.xml" parent="/*">
+            <feature name="PrayerWidget">
+                <param name="ios-package" value="PrayerWidget" />
+            </feature>
+        </config-file>
+
+        <!-- Source files -->
+        <source-file src="src/ios/PrayerWidget.swift" />
+
+        <!-- Widget files (note: Widget Extension needs to be added manually in Xcode) -->
+        <!-- PrayerTimeWidget.swift is provided but must be integrated via Xcode -->
+
+        <!-- Framework dependencies -->
+        <framework src="WidgetKit.framework" weak="true" />
+        <framework src="SwiftUI.framework" weak="true" />
+
+        <!-- Podfile configuration for Swift support -->
+        <podspec>
+            <config>
+                <source url="https://cdn.cocoapods.org/"/>
+            </config>
+        </podspec>
+
+    </platform>
+
+</plugin>

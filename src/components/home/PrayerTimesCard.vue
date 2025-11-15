@@ -59,25 +59,48 @@
 
         <!-- Current Prayer Window or Next Prayer -->
         <div v-if="currentPrayerWindow" class="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3">
-          <div class="text-xs text-white/80 mb-1">Current Prayer Time</div>
-          <div class="flex items-center justify-between">
-            <div>
+          <div class="text-xs text-white/80 mb-2">Current Prayer Time</div>
+          <div class="flex items-center justify-between gap-4">
+            <div class="flex-1">
               <div class="text-2xl font-bold">{{ currentPrayerWindow.prayer }} Time</div>
               <div class="text-xs text-white/80 mt-1">{{ currentPrayerWindow.startFormatted }} - {{ currentPrayerWindow.endTime }}</div>
             </div>
-            <div class="text-right">
-              <div class="text-xl font-mono font-bold">{{ currentPrayerCountdown }}</div>
-              <div class="text-xs text-white/80">{{ currentPrayerWindow.minutes > 60 ? 'until end' : 'minutes left' }}</div>
+            <div>
+              <CircularCountdown
+                :hours="currentPrayerWindow.hours"
+                :minutes="currentPrayerWindow.minutes"
+                :seconds="currentPrayerWindow.seconds"
+                :total-seconds="currentPrayerWindow.hours * 3600 + currentPrayerWindow.minutes * 60 + currentPrayerWindow.seconds"
+                :size="80"
+                :stroke-width="6"
+                progress-color="white"
+                bg-color="rgba(255, 255, 255, 0.2)"
+                label="until end"
+                format="auto"
+              />
             </div>
           </div>
         </div>
         <div v-else-if="nextPrayerInfo" class="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3">
-          <div class="text-xs text-white/80 mb-1">Next Prayer</div>
-          <div class="flex items-center justify-between">
-            <div class="text-2xl font-bold">{{ nextPrayerInfo.prayer }}</div>
-            <div class="text-right">
-              <div class="text-xl font-mono font-bold">{{ nextPrayerCountdown }}</div>
-              <div class="text-xs text-white/80">{{ nextPrayerTime }}</div>
+          <div class="text-xs text-white/80 mb-2">Next Prayer</div>
+          <div class="flex items-center justify-between gap-4">
+            <div class="flex-1">
+              <div class="text-2xl font-bold">{{ nextPrayerInfo.prayer }}</div>
+              <div class="text-xs text-white/80 mt-1">{{ nextPrayerTime }}</div>
+            </div>
+            <div>
+              <CircularCountdown
+                :hours="nextPrayerInfo.hours"
+                :minutes="nextPrayerInfo.minutes"
+                :seconds="nextPrayerInfo.seconds"
+                :total-seconds="nextPrayerInfo.totalSeconds"
+                :size="80"
+                :stroke-width="6"
+                progress-color="white"
+                bg-color="rgba(255, 255, 255, 0.2)"
+                label="until start"
+                format="auto"
+              />
             </div>
           </div>
         </div>
@@ -153,6 +176,7 @@ import { useRouter } from 'vue-router'
 import Card from '@/components/common/Card.vue'
 import Button from '@/components/common/Button.vue'
 import Icon from '@/components/common/Icon.vue'
+import CircularCountdown from '@/components/common/CircularCountdown.vue'
 import prayerTimesService from '@/services/prayerTimesService'
 
 const router = useRouter()
@@ -173,6 +197,7 @@ const currentTime = ref(new Date())
 
 // Update current time every second
 let intervalId = null
+let widgetUpdateCounter = 0
 
 onMounted(() => {
   loadPrayerTimes()
@@ -181,7 +206,17 @@ onMounted(() => {
   intervalId = setInterval(() => {
     currentTime.value = new Date()
     updatePrayerInfo()
+
+    // Update widget every 60 seconds
+    widgetUpdateCounter++
+    if (widgetUpdateCounter >= 60) {
+      prayerTimesService.updateWidget()
+      widgetUpdateCounter = 0
+    }
   }, 1000)
+
+  // Initial widget update
+  setTimeout(() => prayerTimesService.updateWidget(), 1000)
 })
 
 onUnmounted(() => {
@@ -291,36 +326,6 @@ const nextPrayerTime = computed(() => {
   const prayer = prayersList.value.find(p => p.name === prayerName)
 
   return prayer ? prayer.time : ''
-})
-
-// Current prayer countdown display
-const currentPrayerCountdown = computed(() => {
-  if (!currentPrayerWindow.value) return '--:--'
-
-  const { hours, minutes } = currentPrayerWindow.value
-
-  if (hours > 0) {
-    return `${hours}h ${minutes}m`
-  } else {
-    return `${minutes} min`
-  }
-})
-
-// Next prayer countdown display
-const nextPrayerCountdown = computed(() => {
-  if (!nextPrayerInfo.value) return '--:--:--'
-
-  const { hours, minutes, seconds } = nextPrayerInfo.value
-
-  const h = hours.toString().padStart(2, '0')
-  const m = minutes.toString().padStart(2, '0')
-  const s = seconds.toString().padStart(2, '0')
-
-  if (hours > 0) {
-    return `${h}:${m}:${s}`
-  } else {
-    return `${m}:${s}`
-  }
 })
 
 // Current date display

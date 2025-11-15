@@ -1,0 +1,45 @@
+{
+  "name": "cordova-plugin-prayer-widget",
+  "version": "1.0.0",
+  "description": "Prayer Time Widget for Android and iOS - Shows next prayer time and countdown on home screen",
+  "cordova": {
+    "id": "cordova-plugin-prayer-widget",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "prayer",
+    "widget",
+    "islam",
+    "islamic",
+    "salah",
+    "prayer-times",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "BetterIslam Q&A",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohamedazher/islamqa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mohamedazher/islamqa/issues"
+  },
+  "engines": {
+    "cordovaDependencies": {
+      ">=9.0.0": {
+        "cordova-android": ">=9.0.0",
+        "cordova-ios": ">=6.0.0"
+      }
+    }
+  },
+  "peerDependencies": {
+    "cordova-plugin-add-swift-support": "^2.0.2"
+  }
+}

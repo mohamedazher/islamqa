@@ -64,8 +64,8 @@
 
       <!-- Current Prayer Highlight -->
       <div v-if="currentPrayerWindow" class="bg-gradient-to-br from-teal-500 to-cyan-500 dark:from-teal-600 dark:to-cyan-600 text-white rounded-lg shadow-lg p-5">
-        <div class="flex items-center justify-between mb-3">
-          <div class="flex items-center gap-3">
+        <div class="flex items-center justify-between gap-4 mb-3">
+          <div class="flex items-center gap-3 flex-1">
             <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
               <Icon :name="getPrayerIcon(currentPrayerWindow.name)" size="lg" />
             </div>
@@ -74,9 +74,19 @@
               <div class="text-2xl font-bold">{{ currentPrayerWindow.name }} Time</div>
             </div>
           </div>
-          <div class="text-right">
-            <div class="text-xs text-white/80 mb-1">Ends in</div>
-            <div class="text-3xl font-mono font-bold">{{ formatCountdown(currentPrayerWindow.countdown) }}</div>
+          <div>
+            <CircularCountdown
+              :hours="currentPrayerWindow.countdown.hours"
+              :minutes="currentPrayerWindow.countdown.minutes"
+              :seconds="currentPrayerWindow.countdown.seconds"
+              :total-seconds="currentPrayerWindow.countdown.totalSeconds"
+              :size="100"
+              :stroke-width="8"
+              progress-color="white"
+              bg-color="rgba(255, 255, 255, 0.2)"
+              label="until end"
+              format="auto"
+            />
           </div>
         </div>
         <div class="flex items-center justify-between text-sm bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2">
@@ -116,28 +126,36 @@
               </div>
 
               <!-- Status Badge & Countdown -->
-              <div class="text-right">
+              <div class="flex flex-col items-end gap-2">
                 <div
                   v-if="prayer.status === 'current'"
-                  class="inline-flex items-center gap-1 px-2 py-1 bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300 text-xs font-semibold rounded-full mb-1"
+                  class="inline-flex items-center gap-1 px-2 py-1 bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300 text-xs font-semibold rounded-full"
                 >
                   <div class="w-2 h-2 bg-teal-600 dark:bg-teal-400 rounded-full animate-pulse"></div>
                   Now
                 </div>
                 <div
                   v-else-if="prayer.status === 'past'"
-                  class="inline-flex items-center gap-1 px-2 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 text-xs font-medium rounded-full mb-1"
+                  class="inline-flex items-center gap-1 px-2 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 text-xs font-medium rounded-full"
                 >
                   <Icon name="check" size="xs" />
                   Passed
                 </div>
 
                 <!-- Countdown -->
-                <div v-if="prayer.countdown" class="font-mono font-bold text-neutral-900 dark:text-neutral-100">
-                  <div class="text-xl">{{ formatCountdown(prayer.countdown) }}</div>
-                  <div class="text-xs text-neutral-600 dark:text-neutral-400 font-normal">
-                    {{ prayer.countdown.type === 'starts' ? 'until start' : 'until end' }}
-                  </div>
+                <div v-if="prayer.countdown">
+                  <CircularCountdown
+                    :hours="prayer.countdown.hours"
+                    :minutes="prayer.countdown.minutes"
+                    :seconds="prayer.countdown.seconds"
+                    :total-seconds="prayer.countdown.totalSeconds"
+                    :size="70"
+                    :stroke-width="6"
+                    :progress-color="prayer.status === 'current' ? '#14b8a6' : '#10b981'"
+                    bg-color="rgba(20, 184, 166, 0.1)"
+                    :label="prayer.countdown.type === 'starts' ? 'until start' : 'until end'"
+                    format="auto"
+                  />
                 </div>
               </div>
             </div>
@@ -190,6 +208,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import Icon from '@/components/common/Icon.vue'
+import CircularCountdown from '@/components/common/CircularCountdown.vue'
 import prayerTimesService from '@/services/prayerTimesService'
 
 const router = useRouter()
@@ -206,6 +225,7 @@ const currentTime = ref(new Date())
 
 // Update current time every second
 let intervalId = null
+let widgetUpdateCounter = 0
 
 onMounted(() => {
   loadPrayerTimes()
@@ -214,7 +234,17 @@ onMounted(() => {
   intervalId = setInterval(() => {
     currentTime.value = new Date()
     updatePrayerStatuses()
+
+    // Update widget every 60 seconds
+    widgetUpdateCounter++
+    if (widgetUpdateCounter >= 60) {
+      prayerTimesService.updateWidget()
+      widgetUpdateCounter = 0
+    }
   }, 1000)
+
+  // Initial widget update
+  setTimeout(() => prayerTimesService.updateWidget(), 1000)
 })
 
 onUnmounted(() => {
@@ -265,21 +295,6 @@ const currentDate = computed(() => {
     year: 'numeric'
   })
 })
-
-// Format countdown
-const formatCountdown = (countdown) => {
-  if (!countdown) return '--:--'
-
-  const { hours, minutes, seconds } = countdown
-
-  if (hours > 0) {
-    return `${hours}h ${minutes}m`
-  } else if (minutes > 0) {
-    return `${minutes}m ${seconds}s`
-  } else {
-    return `${seconds}s`
-  }
-}
 
 // Get prayer card styling
 const getPrayerCardClass = (prayer) => {

@@ -803,6 +803,97 @@ class PrayerTimesService {
   }
 
   /**
+   * Update native widget with current prayer data
+   * Call this whenever prayer data changes (recommended: every minute)
+   */
+  updateWidget() {
+    // Check if widget plugin is available
+    if (!window.PrayerWidget) {
+      console.log('PrayerWidget plugin not available')
+      return
+    }
+
+    if (!this.location) {
+      console.log('Location not set, skipping widget update')
+      return
+    }
+
+    try {
+      const nextPrayer = this.getTimeUntilNextPrayer()
+      const currentWindow = this.getCurrentPrayerWindow()
+      const times = this.getPrayerTimes()
+
+      // Prepare widget data
+      const widgetData = {
+        nextPrayer: nextPrayer?.prayer || 'Fajr',
+        nextPrayerTime: nextPrayer ? this.formatTime(times.timeForPrayer(
+          this.getPrayerEnumFromName(nextPrayer.prayer)
+        )) : '--:--',
+        timeRemaining: this.formatWidgetTime(nextPrayer),
+        currentPrayer: currentWindow?.name || '',
+        currentPrayerEnd: currentWindow ? this.formatTime(currentWindow.end) : ''
+      }
+
+      // Update widget
+      window.PrayerWidget.updateWidget(
+        widgetData,
+        () => console.log('Widget updated successfully:', widgetData),
+        (error) => console.error('Widget update failed:', error)
+      )
+    } catch (error) {
+      console.error('Error updating widget:', error)
+    }
+  }
+
+  /**
+   * Format time for widget display
+   * Returns formatted string like "2h 15m" or "45m" or "30s"
+   */
+  formatWidgetTime(timeData) {
+    if (!timeData) return '--:--'
+
+    const { hours, minutes, seconds } = timeData
+
+    if (hours > 0) {
+      return `${hours}h ${minutes}m`
+    } else if (minutes > 0) {
+      return `${minutes}m`
+    } else {
+      return `${seconds}s`
+    }
+  }
+
+  /**
+   * Get Prayer enum from prayer name string
+   */
+  getPrayerEnumFromName(name) {
+    const map = {
+      'Fajr': Prayer.Fajr,
+      'Sunrise': Prayer.Sunrise,
+      'Dhuhr': Prayer.Dhuhr,
+      'Asr': Prayer.Asr,
+      'Maghrib': Prayer.Maghrib,
+      'Isha': Prayer.Isha
+    }
+    return map[name] || Prayer.Fajr
+  }
+
+  /**
+   * Check if widget is installed
+   */
+  isWidgetInstalled(callback) {
+    if (!window.PrayerWidget) {
+      callback(false)
+      return
+    }
+
+    window.PrayerWidget.isWidgetInstalled(
+      (installed) => callback(installed === 1),
+      () => callback(false)
+    )
+  }
+
+  /**
    * Clear all settings
    */
   clearSettings() {
