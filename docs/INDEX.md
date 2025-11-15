@@ -2,170 +2,272 @@
 
 Complete guide to all documentation in the BetterIslam Q&A project.
 
+---
+
 ## 🚀 Getting Started
 
-Start here if you're new to the project:
+**New to the project?** Start here:
 
-1. **[README.md](../README.md)** - Project overview, features, quick start
-2. **[CLAUDE.md](../CLAUDE.md)** - Development guidelines, architecture overview
-3. **[DEPLOYMENT.md](../DEPLOYMENT.md)** - How to deploy to GitHub Pages
-
-## 🔥 Firebase Setup
-
-Complete Firebase integration guides:
-
-### Leaderboard System (NEW!)
-- **[LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md)** ⭐ **START HERE**
-  - Step-by-step Firebase project creation
-  - Authentication & Firestore setup
-  - Security rules deployment
-  - Environment configuration
-  - Future enhancements roadmap (6 tiers)
-  - **Time:** 5-10 minutes
-  - **Status:** Required for leaderboard functionality
-
-### Analytics
-- **[FIREBASE_README.md](FIREBASE_README.md)** - Analytics overview & quick start
-- **[ANALYTICS_QUICK_REFERENCE.md](ANALYTICS_QUICK_REFERENCE.md)** - Developer quick reference
-
-### Legacy (Historical Reference)
-- **[FIREBASE_ANALYTICS_SETUP.md](../FIREBASE_ANALYTICS_SETUP.md)** - Original setup guide (superseded by docs/)
-
-## 📊 Project Progress
-
-Track what's been accomplished:
-
-- **[PROGRESS.md](../PROGRESS.md)** - Comprehensive project status
-  - Phase completion status
-  - Recent enhancements
-  - Bug fixes log
-  - Current feature list
-  - What's working vs. pending
-
-## 🏗️ Architecture & Planning
-
-Deep dives into the codebase:
-
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** - System architecture documentation
-  - Component structure
-  - Data flow
-  - Technical design decisions
-
-- **[FUTURE_FEATURES.md](FUTURE_FEATURES.md)** ⭐ **NEW!** - Feature expansion roadmap
-  - 20+ feature ideas across 9 categories
-  - Priority recommendations with timelines
-  - Prayer times, Quran, Hadith, Ramadan companion
-  - Gamification enhancements
-  - Community features
-  - **Time to review:** 15-20 minutes
-  - **Status:** Brainstorming & planning phase
-
-- **[MODERNIZATION_PLAN.md](../MODERNIZATION_PLAN.md)** - Original modernization roadmap
-  - Vue 3 migration plan
-  - Architecture decisions
-  - Technology choices
-
-- **[DATA_MIGRATION_PLAN.md](../DATA_MIGRATION_PLAN.md)** - Database migration strategy
-  - SQLite to Dexie migration
-  - Data structure changes
-  - Migration scripts
-
-## 📖 Quick Reference
-
-| Task | Documentation |
-|------|--------------|
-| **Set up leaderboard** | [LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md) |
-| **Deploy to GitHub Pages** | [DEPLOYMENT.md](../DEPLOYMENT.md) |
-| **Track Firebase events** | [ANALYTICS_QUICK_REFERENCE.md](ANALYTICS_QUICK_REFERENCE.md) |
-| **Understand codebase** | [CLAUDE.md](../CLAUDE.md) |
-| **See what's done** | [PROGRESS.md](../PROGRESS.md) |
-| **Plan future features** | [FUTURE_FEATURES.md](FUTURE_FEATURES.md) ⭐ |
-| **Add new feature** | [CLAUDE.md](../CLAUDE.md) → Development Guidelines |
-
-## 🎯 By User Type
-
-### For Developers
-1. Read [CLAUDE.md](../CLAUDE.md) - Architecture & guidelines
-2. Check [PROGRESS.md](../PROGRESS.md) - Current status
-3. Follow [LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md) - Firebase setup
-4. Reference [ANALYTICS_QUICK_REFERENCE.md](ANALYTICS_QUICK_REFERENCE.md) - Tracking
-
-### For DevOps
-1. Read [DEPLOYMENT.md](../DEPLOYMENT.md) - Deployment process
-2. Check [FIREBASE_README.md](FIREBASE_README.md) - Firebase config
-3. Review security rules in [LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md)
-
-### For Product Managers
-1. Read [README.md](../README.md) - Feature overview
-2. Check [PROGRESS.md](../PROGRESS.md) - What's complete
-3. Review [FUTURE_FEATURES.md](FUTURE_FEATURES.md) - Feature roadmap
-4. Review future enhancements in [LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md)
-
-### For Contributors
-1. Read [README.md](../README.md) - Contributing guidelines
-2. Check [CLAUDE.md](../CLAUDE.md) - Development standards
-3. Review [PROGRESS.md](../PROGRESS.md) - What needs work
-
-## 🔍 Find Specific Information
-
-### Features
-- **Quiz System**: [PROGRESS.md](../PROGRESS.md) → Phase 3
-- **Leaderboard**: [LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md)
-- **Gamification**: [PROGRESS.md](../PROGRESS.md) → Gamification section
-- **Dark Mode**: [PROGRESS.md](../PROGRESS.md) → Dark Mode Implementation
-
-### Configuration
-- **Firebase Config**: [LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md) → Step 4
-- **Environment Variables**: `.env.example` + [LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md)
-- **Build Config**: [CLAUDE.md](../CLAUDE.md) → Build Commands
-- **Security Rules**: [LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md) → Step 3
-
-### Troubleshooting
-- **Leaderboard Issues**: [LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md) → Troubleshooting
-- **Build Errors**: [DEPLOYMENT.md](../DEPLOYMENT.md)
-- **Firebase Errors**: [FIREBASE_README.md](FIREBASE_README.md)
-
-## 📋 Documentation Status
-
-| Document | Status | Last Updated | Purpose |
-|----------|--------|--------------|---------|
-| README.md | ✅ Current | Nov 8, 2025 | Project overview |
-| PROGRESS.md | ✅ Current | Nov 8, 2025 | Status tracking |
-| FUTURE_FEATURES.md | ✅ Current | Nov 9, 2025 | Feature roadmap |
-| ARCHITECTURE.md | ✅ Current | Nov 9, 2025 | System architecture |
-| LEADERBOARD_SETUP.md | ✅ Current | Nov 8, 2025 | Firebase leaderboard |
-| FIREBASE_README.md | ✅ Current | - | Analytics guide |
-| ANALYTICS_QUICK_REFERENCE.md | ✅ Current | - | Quick reference |
-| CLAUDE.md | ✅ Current | Nov 9, 2025 | Dev guidelines |
-| TESTING.md | ✅ Current | - | Testing strategy |
-| DEPLOYMENT.md | ✅ Current | - | Deployment |
-| MODERNIZATION_PLAN.md | 📚 Reference | - | Historical plan |
-| DATA_MIGRATION_PLAN.md | 📚 Reference | - | Historical plan |
-| FIREBASE_ANALYTICS_SETUP.md | 📚 Legacy | - | Superseded |
-
-## 🆕 Recently Added
-
-- **[FUTURE_FEATURES.md](FUTURE_FEATURES.md)** - Comprehensive feature expansion roadmap (Nov 9, 2025)
-  - 23 feature categories from prayer times to AI companion
-  - Priority recommendations with timelines
-  - Implementation considerations
-- **[LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md)** - Complete Firebase leaderboard guide (Nov 8, 2025)
-- **Future Enhancements** - Added 6-tier roadmap to LEADERBOARD_SETUP.md
-
-## 🤝 Contributing to Docs
-
-When updating documentation:
-
-1. **Keep it current** - Update last modified date
-2. **Cross-reference** - Link to related docs
-3. **Be concise** - Clear, actionable information
-4. **Add examples** - Code snippets and screenshots
-5. **Update this index** - Add new docs here
+1. **[README.md](../README.md)** - Project overview and quick start
+2. **[CLAUDE.md](../CLAUDE.md)** - Complete development guide for Claude Code
+3. **[ARCHITECTURE.md](ARCHITECTURE.md)** - System architecture and design patterns
+4. **[DATA_STRUCTURE.md](DATA_STRUCTURE.md)** - ⭐ Critical data model guide
 
 ---
 
-**Lost?** Start with [README.md](../README.md) → Choose your path above → Follow the guides
+## 🏗️ Core Documentation
 
-**Still stuck?** Check [PROGRESS.md](../PROGRESS.md) for current project status
+### Architecture & Design
+| Document | Purpose |
+|----------|---------|
+| **[ARCHITECTURE.md](ARCHITECTURE.md)** | Tech stack, design patterns, directory structure |
+| **[DATA_STRUCTURE.md](DATA_STRUCTURE.md)** | Database schema, semantic IDs, query examples |
+| **[TESTING.md](TESTING.md)** | Testing strategy and guidelines |
+| **[CLAUDE.md](../CLAUDE.md)** | Development workflows, patterns, common tasks |
+
+---
+
+## 📱 Mobile Development
+
+### Deployment & CI/CD
+| Document | Purpose |
+|----------|---------|
+| **[DEPLOYMENT.md](DEPLOYMENT.md)** | Production deployment (Web/Android/iOS) |
+| **[CI-CD-SETUP-GUIDE.md](CI-CD-SETUP-GUIDE.md)** | GitHub Actions automation |
+| **[QUICK-START-CI-CD.md](QUICK-START-CI-CD.md)** | 5-minute CI/CD setup |
+| **[FASTLANE-QUICK-START.md](FASTLANE-QUICK-START.md)** | Fastlane commands |
+| **[FASTLANE-MIGRATION-GUIDE.md](FASTLANE-MIGRATION-GUIDE.md)** | Fastlane setup guide |
+
+### Store Configuration
+| Document | Purpose |
+|----------|---------|
+| **[GOOGLE-PLAY-API-SETUP.md](GOOGLE-PLAY-API-SETUP.md)** | Google Play Console API setup |
+| **[APP-STORE-CONNECT-API-SETUP.md](APP-STORE-CONNECT-API-SETUP.md)** | App Store Connect API setup |
+
+---
+
+## 🎯 Features
+
+### Prayer Times & Widgets
+| Document | Purpose |
+|----------|---------|
+| **[WIDGETS.md](WIDGETS.md)** | ⭐ Complete prayer widget guide (Android & iOS) |
+
+**Widget Guide Includes:**
+- Installation and build requirements
+- Android setup (automatic)
+- iOS setup (Xcode configuration)
+- Permissions and security
+- Troubleshooting and debugging
+- Production deployment checklist
+
+### Firebase & Analytics
+| Document | Purpose |
+|----------|---------|
+| **[FIREBASE.md](FIREBASE.md)** | Firebase initial setup guide |
+| **[FIREBASE_README.md](FIREBASE_README.md)** | Firebase usage & API reference |
+| **[ANALYTICS_QUICK_REFERENCE.md](ANALYTICS_QUICK_REFERENCE.md)** | Analytics tracking quick guide |
+| **[LEADERBOARD_SETUP.md](LEADERBOARD_SETUP.md)** | Leaderboard configuration |
+
+---
+
+## 🛠️ Tools & Utilities
+
+### Scripts & Automation
+| Location | Purpose |
+|----------|---------|
+| **[../scripts/VERSION_MANAGEMENT.md](../scripts/VERSION_MANAGEMENT.md)** | Version incrementing guide |
+| **[../scripts/validate-widget-build.sh](../scripts/validate-widget-build.sh)** | Widget build validation |
+
+### Testing
+| Location | Purpose |
+|----------|---------|
+| **[../tests/README.md](../tests/README.md)** | Test suite documentation |
+
+### Data Tools
+| Location | Purpose |
+|----------|---------|
+| **[../tools/data-extraction/README.md](../tools/data-extraction/README.md)** | Data extraction utilities |
+
+### Quiz Generation
+| Location | Purpose |
+|----------|---------|
+| **[../quiz-generation/README.md](../quiz-generation/README.md)** | Quiz system overview |
+| **[../quiz-generation/GENERATION_PROMPT.md](../quiz-generation/GENERATION_PROMPT.md)** | AI quiz generation prompt |
+| **[../quiz-generation/generate-quiz-prompt.md](../quiz-generation/generate-quiz-prompt.md)** | Detailed prompt guide |
+
+---
+
+## 📋 Planning & Roadmap
+
+| Document | Purpose |
+|----------|---------|
+| **[FUTURE_FEATURES.md](FUTURE_FEATURES.md)** | Planned features and enhancements |
+
+### Archived Documentation
+
+Historical documentation moved to `ARCHIVED/`:
+
+- **PROGRESS.md** - Project progress (superseded by current status)
+- **QUIZ_SYSTEM_REDESIGN.md** - Quiz redesign plan (implemented)
+- **ONBOARDING_DATA_IMPORT_FIXES.md** - Import fixes (resolved)
+- **MODERNIZATION_PLAN.md** - Vue 3 migration (completed)
+- **IMPLEMENTATION_SUMMARY.md** - Implementation summary
+- **MIGRATION_COMPLETE.md** - Migration completion report
+- **DATA_MIGRATION_PLAN.md** - Database migration plan
+
+---
+
+## 🗂️ Documentation Structure
+
+```
+docs/
+├── INDEX.md (this file)
+│
+├── Core
+│   ├── ARCHITECTURE.md
+│   ├── DATA_STRUCTURE.md
+│   ├── TESTING.md
+│   └── DEPLOYMENT.md
+│
+├── Features
+│   ├── WIDGETS.md ⭐ NEW
+│   ├── FIREBASE.md
+│   ├── FIREBASE_README.md
+│   ├── ANALYTICS_QUICK_REFERENCE.md
+│   └── LEADERBOARD_SETUP.md
+│
+├── CI/CD
+│   ├── CI-CD-SETUP-GUIDE.md
+│   ├── QUICK-START-CI-CD.md
+│   ├── FASTLANE-QUICK-START.md
+│   └── FASTLANE-MIGRATION-GUIDE.md
+│
+├── Store Setup
+│   ├── GOOGLE-PLAY-API-SETUP.md
+│   └── APP-STORE-CONNECT-API-SETUP.md
+│
+├── FUTURE_FEATURES.md
+│
+└── ARCHIVED/
+    ├── PROGRESS.md
+    ├── QUIZ_SYSTEM_REDESIGN.md
+    ├── ONBOARDING_DATA_IMPORT_FIXES.md
+    ├── MODERNIZATION_PLAN.md
+    ├── IMPLEMENTATION_SUMMARY.md
+    ├── MIGRATION_COMPLETE.md
+    └── DATA_MIGRATION_PLAN.md
+```
+
+---
+
+## 🎯 Quick Links by Task
+
+### I want to...
+
+**...understand the codebase**
+→ [CLAUDE.md](../CLAUDE.md) → [ARCHITECTURE.md](ARCHITECTURE.md) → [DATA_STRUCTURE.md](DATA_STRUCTURE.md)
+
+**...add a new feature**
+→ [ARCHITECTURE.md](ARCHITECTURE.md) (patterns) → [DATA_STRUCTURE.md](DATA_STRUCTURE.md) (data access) → [CLAUDE.md](../CLAUDE.md) (workflows)
+
+**...deploy the app**
+→ [DEPLOYMENT.md](DEPLOYMENT.md) → [CI-CD-SETUP-GUIDE.md](CI-CD-SETUP-GUIDE.md) (automation)
+
+**...add prayer time widgets**
+→ [WIDGETS.md](WIDGETS.md) (complete guide for Android & iOS)
+
+**...integrate Firebase**
+→ [FIREBASE.md](FIREBASE.md) (setup) → [FIREBASE_README.md](FIREBASE_README.md) (usage) → [ANALYTICS_QUICK_REFERENCE.md](ANALYTICS_QUICK_REFERENCE.md) (tracking)
+
+**...set up CI/CD**
+→ [QUICK-START-CI-CD.md](QUICK-START-CI-CD.md) (quick) → [CI-CD-SETUP-GUIDE.md](CI-CD-SETUP-GUIDE.md) (full guide)
+
+**...configure app stores**
+→ [GOOGLE-PLAY-API-SETUP.md](GOOGLE-PLAY-API-SETUP.md) & [APP-STORE-CONNECT-API-SETUP.md](APP-STORE-CONNECT-API-SETUP.md)
+
+**...write tests**
+→ [TESTING.md](TESTING.md) → [../tests/README.md](../tests/README.md)
+
+**...update app version**
+→ [../scripts/VERSION_MANAGEMENT.md](../scripts/VERSION_MANAGEMENT.md) or run `yarn version:patch`
+
+---
+
+## 📊 Documentation Status
+
+| Category | Status | Notes |
+|----------|--------|-------|
+| Core Docs | ✅ Complete | Architecture, data model, testing |
+| Widget Guide | ✅ Complete | New comprehensive guide |
+| Firebase | ✅ Complete | Setup & usage documented |
+| CI/CD | ✅ Complete | GitHub Actions & Fastlane |
+| Store Setup | ✅ Complete | Both platforms covered |
+| Archived | 📚 Reference | Historical docs preserved |
+
+---
+
+## 🆕 Recent Updates
+
+**November 15, 2025:**
+- ✨ **NEW:** [WIDGETS.md](WIDGETS.md) - Complete prayer widget guide
+- 🧹 **Cleanup:** Moved outdated docs to ARCHIVED/
+- 🧹 **Cleanup:** Consolidated widget docs into single file
+- 🧹 **Cleanup:** Moved CI/CD docs to docs/ folder
+- 📝 **Updated:** INDEX.md with new structure
+
+**Previous:**
+- **FUTURE_FEATURES.md** - Feature expansion roadmap
+- **LEADERBOARD_SETUP.md** - Firebase leaderboard guide
+- **DATA_STRUCTURE.md** - Comprehensive data model guide
+
+---
+
+## 📝 Documentation Guidelines
+
+### Creating New Documentation
+
+1. **Choose the right location:**
+   - Core architecture/design → `docs/`
+   - Feature-specific guides → `docs/`
+   - Tool/script documentation → Same directory as tool
+   - Historical/completed → `docs/ARCHIVED/`
+
+2. **Follow the format:**
+   - Clear hierarchical headings
+   - Code examples with syntax highlighting
+   - Troubleshooting sections
+   - Cross-reference related docs
+   - Include "last updated" date
+
+3. **Maintain regularly:**
+   - Update when features change
+   - Archive (don't delete) outdated docs
+   - Update INDEX.md with new files
+   - Keep cross-references current
+
+---
+
+## 🤝 Contributing
+
+When updating documentation:
+
+- ✅ Keep it **current** - Update modification dates
+- ✅ Add **cross-references** - Link to related docs
+- ✅ Be **concise** - Clear, actionable information
+- ✅ Include **examples** - Code snippets and commands
+- ✅ Update **this index** - Keep navigation current
+
+---
+
+**Lost?** Start with [README.md](../README.md) → Choose your task above → Follow the guide
+
+**Still stuck?** Check [CLAUDE.md](../CLAUDE.md) for development guidelines
 
 **Need help?** Open an issue on GitHub
+
+---
+
+**Last Updated:** November 15, 2025
+**App Version:** 2.0.14+
+**Status:** Active Development
