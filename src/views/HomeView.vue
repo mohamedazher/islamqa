@@ -52,7 +52,7 @@
 
       <!-- Question of the Day -->
       <div v-if="dataStore.isReady && questionOfTheDay" class="mb-8 animate-slide-up">
-        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Question of the Day</h3>
+        <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Question of the Day</h3>
         <!-- UPDATED: Changed .id to .reference, .question to .title -->
         <Card
           clickable
@@ -101,13 +101,13 @@
 
       <!-- Prayer Times Card -->
       <div v-if="dataStore.isReady" class="mb-8 animate-slide-up">
-        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Prayer Times</h3>
+        <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Prayer Times</h3>
         <PrayerTimesCard @openSettings="openPrayerSettings" />
       </div>
 
       <!-- Quick Actions Grid -->
       <div class="mb-8">
-        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Quick Access</h3>
+        <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Quick Access</h3>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
           <Card
             v-for="action in quickActions"
@@ -146,7 +146,7 @@
       <!-- Random Questions Carousel -->
       <div v-if="dataStore.isReady && randomQuestions.length > 0" class="mb-8">
         <div class="flex items-center justify-between mb-4 px-1">
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">Explore Questions</h3>
+          <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100">Explore Questions</h3>
           <button
             @click="refreshRandomQuestions"
             class="text-sm text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1"
@@ -205,7 +205,7 @@
         <Card padding="lg" class="lg:col-span-2 bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-primary-900/20 dark:via-neutral-900 dark:to-accent-900/20">
           <div class="flex items-start justify-between mb-4">
             <div>
-              <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Your Progress</h3>
+              <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Your Progress</h3>
               <p class="text-sm text-neutral-600 dark:text-neutral-400">Keep learning to level up!</p>
             </div>
             <div class="text-right">
@@ -239,7 +239,7 @@
         <!-- Tier Card -->
         <Card padding="lg" v-if="gamification.currentTier">
           <div class="flex items-center justify-between mb-3">
-            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">Your Tier</h3>
+            <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100">Your Tier</h3>
             <span class="text-3xl">{{ gamification.currentTier.icon }}</span>
           </div>
           <div class="flex items-center gap-3 mb-4">
@@ -269,7 +269,7 @@
 
         <!-- Stats Card -->
         <Card padding="lg">
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Your Stats</h3>
+          <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Your Stats</h3>
           <div class="space-y-4">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-3">
@@ -312,7 +312,7 @@
 
       <!-- Recent Achievements -->
       <div v-if="dataStore.isReady && recentAchievements.length > 0" class="mb-8">
-        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Recent Achievements</h3>
+        <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Recent Achievements</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <Card
             v-for="achievement in recentAchievements"

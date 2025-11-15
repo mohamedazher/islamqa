@@ -1,13 +1,13 @@
 <template>
   <div class="leaderboard-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-amber-400 via-orange-400 to-red-400 dark:from-amber-500 dark:via-orange-500 dark:to-red-500 text-white p-4 shadow">
+    <header class="bg-gradient-to-r from-amber-400 via-orange-400 to-red-400 dark:from-amber-500 dark:via-orange-500 dark:to-red-500 text-white p-3 sm:p-4 shadow">
       <div class="flex items-center gap-3">
         <button @click="goBack" class="lg:hidden hover:opacity-80 transition-opacity">
           <Icon name="arrowLeft" size="md" />
         </button>
         <div class="flex-1">
-          <h1 class="text-lg md:text-xl font-bold">Leaderboard</h1>
+          <h1 class="text-base sm:text-lg font-bold">Leaderboard</h1>
           <p class="text-sm text-white/90">Compete with fellow learners</p>
         </div>
         <Icon name="trophy" size="lg" />

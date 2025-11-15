@@ -1,14 +1,14 @@
 <template>
   <div class="prayer-times-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-teal-600 to-cyan-600 dark:from-teal-700 dark:to-cyan-700 text-white p-4 shadow flex items-center">
+    <header class="bg-gradient-to-r from-teal-600 to-cyan-600 dark:from-teal-700 dark:to-cyan-700 text-white p-3 sm:p-4 shadow flex items-center">
       <button @click="goBack" class="mr-3 hover:opacity-80 transition-opacity">
         <Icon name="arrowLeft" size="md" />
       </button>
       <div class="flex items-center gap-3 flex-1 min-w-0">
         <Icon name="sun" size="lg" class="flex-shrink-0" />
         <div class="min-w-0">
-          <h1 class="text-lg md:text-xl font-bold truncate">Prayer Times</h1>
+          <h1 class="text-base sm:text-lg font-bold truncate">Prayer Times</h1>
           <p v-if="locationName" class="text-teal-100 dark:text-teal-200 text-xs md:text-sm truncate">{{ locationName }}</p>
         </div>
       </div>
@@ -35,7 +35,7 @@
         <div class="w-20 h-20 bg-teal-100 dark:bg-teal-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
           <Icon name="globe" size="xl" class="text-teal-600 dark:text-teal-400" />
         </div>
-        <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">Location Required</h2>
+        <h2 class="text-base sm:text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-2">Location Required</h2>
         <p class="text-neutral-600 dark:text-neutral-400 mb-6">
           Please set your location to view accurate prayer times for your area.
         </p>
@@ -98,7 +98,7 @@
 
       <!-- All Prayer Times -->
       <div class="space-y-3">
-        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 px-1">Today's Prayer Times</h3>
+        <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 px-1">Today's Prayer Times</h3>
 
         <div
           v-for="prayer in prayerStatuses"

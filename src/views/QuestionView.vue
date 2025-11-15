@@ -1,11 +1,11 @@
 <template>
   <div class="question-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
-    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow flex items-center">
+    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-3 sm:p-4 shadow flex items-center">
       <button @click="goBack" class="mr-3 text-2xl hover:opacity-80 transition-opacity">
         <Icon name="arrowLeft" size="md" />
       </button>
       <div class="flex-1">
-        <h1 class="text-xl font-bold">Question</h1>
+        <h1 class="text-base sm:text-lg font-bold">Question</h1>
         <!-- UPDATED: Changed question_no to reference (semantic ID from IslamQA) -->
         <p class="text-primary-100 dark:text-primary-200 text-sm">Q#{{ currentQuestion?.reference }}</p>
       </div>
@@ -48,7 +48,7 @@
 
         <!-- Related Questions Section -->
         <div v-if="relatedQuestions.length > 0 || loadingRelated" class="bg-primary-50 dark:bg-primary-900/20 rounded-lg p-6">
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Related Questions</h3>
+          <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Related Questions</h3>
 
           <!-- Loading related questions -->
           <div v-if="loadingRelated" class="flex items-center justify-center py-4">
@@ -82,7 +82,7 @@
         <div class="w-20 h-20 bg-neutral-100 dark:bg-neutral-800 rounded-full flex items-center justify-center mx-auto mb-4">
           <Icon name="xCircle" size="xl" class="text-neutral-400 dark:text-neutral-600" />
         </div>
-        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Question Not Found</h3>
+        <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Question Not Found</h3>
         <p class="text-neutral-600 dark:text-neutral-400 mb-6">This question could not be loaded</p>
         <Button variant="primary" size="lg" @click="goBack">
           Go Back

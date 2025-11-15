@@ -1,10 +1,10 @@
 <template>
   <div class="import-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow flex items-center gap-3">
+    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-3 sm:p-4 shadow flex items-center gap-3">
       <Icon name="download" size="md" />
       <div class="flex-1 min-w-0">
-        <h1 class="text-xl font-bold">Database Setup</h1>
+        <h1 class="text-base sm:text-lg font-bold">Database Setup</h1>
         <p class="text-primary-100 dark:text-primary-200 text-xs md:text-sm truncate">Importing Islamic Q&A data</p>
       </div>
     </header>

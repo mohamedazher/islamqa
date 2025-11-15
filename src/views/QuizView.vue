@@ -62,7 +62,7 @@
       <div v-if="showCustomizationModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
         <div class="bg-white dark:bg-neutral-900 rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
           <div class="sticky top-0 bg-white dark:bg-neutral-900 border-b dark:border-neutral-800 p-4">
-            <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Customize Quiz</h2>
+            <h2 class="text-base sm:text-lg font-bold text-neutral-900 dark:text-neutral-100">Customize Quiz</h2>
           </div>
 
           <div class="p-4 space-y-6">
@@ -170,7 +170,7 @@
         </div>
 
         <div v-else>
-          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Choose a quiz mode:</h2>
+          <h2 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Choose a quiz mode:</h2>
 
           <!-- Daily Quiz Card -->
           <button
@@ -379,7 +379,7 @@
 
           <!-- Detailed Answer Summary -->
           <div class="mt-6 space-y-3">
-            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 text-left mb-3">Review Your Answers</h3>
+            <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 text-left mb-3">Review Your Answers</h3>
             <div
               v-for="(result, idx) in quizResults.results"
               :key="idx"
@@ -465,7 +465,7 @@
     <div v-if="showQuestionModal && modalQuestion" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
       <div class="bg-white dark:bg-neutral-900 rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto my-8">
         <div class="sticky top-0 bg-white dark:bg-neutral-900 border-b dark:border-neutral-800 p-4 flex items-center justify-between">
-          <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Full Question</h2>
+          <h2 class="text-base sm:text-lg font-bold text-neutral-900 dark:text-neutral-100">Full Question</h2>
           <button
             @click="closeQuestionModal"
             class="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition"

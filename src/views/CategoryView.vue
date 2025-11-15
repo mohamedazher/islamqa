@@ -1,17 +1,17 @@
 <template>
   <div class="category-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
-    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow flex items-center">
-      <button @click="goBack" class="mr-3 text-2xl hover:opacity-80 transition-opacity flex-shrink-0">
-        <Icon name="arrowLeft" size="md" />
+    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-3 sm:p-4 shadow flex items-center">
+      <button @click="goBack" class="mr-2 sm:mr-3 hover:opacity-80 transition-opacity flex-shrink-0">
+        <Icon name="arrowLeft" size="sm" />
       </button>
       <div class="flex-1 min-w-0">
         <!-- UPDATED: Changed category_links to title (new data structure) -->
-        <h1 class="text-lg md:text-xl font-bold line-clamp-2 break-words">{{ currentCategory?.title || 'Category' }}</h1>
-        <p class="text-primary-100 dark:text-primary-200 text-xs md:text-sm truncate">{{ currentCategorySummary }}</p>
+        <h1 class="text-base sm:text-lg font-bold line-clamp-2 break-words">{{ currentCategory?.title || 'Category' }}</h1>
+        <p class="text-primary-100 dark:text-primary-200 text-xs truncate">{{ currentCategorySummary }}</p>
       </div>
     </header>
 
-    <div class="flex-1 overflow-y-auto p-4">
+    <div class="flex-1 overflow-y-auto p-3 sm:p-4">
       <!-- Loading State -->
       <div v-if="isLoading" class="flex items-center justify-center h-64">
         <div class="text-center">
@@ -24,8 +24,8 @@
       <div v-else class="space-y-6">
         <!-- Subcategories Section -->
         <div v-if="subcategories.length > 0">
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center gap-2">
-            <Icon name="folder" size="md" class="text-primary-600 dark:text-primary-400" />
+          <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3 sm:mb-4 flex items-center gap-2">
+            <Icon name="folder" size="sm" class="text-primary-600 dark:text-primary-400" />
             Subcategories
           </h3>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
@@ -60,7 +60,7 @@
 
         <!-- Questions Section -->
         <div v-if="categoryQuestions.length > 0">
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3 flex items-center gap-2">
+          <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3 flex items-center gap-2">
             <Icon name="document" size="md" />
             Questions
           </h3>
@@ -79,7 +79,7 @@
           <div class="w-20 h-20 bg-neutral-100 dark:bg-neutral-800 rounded-full flex items-center justify-center mx-auto mb-4">
             <Icon name="collection" size="xl" class="text-neutral-400 dark:text-neutral-600" />
           </div>
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">No Content</h3>
+          <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">No Content</h3>
           <p class="text-neutral-600 dark:text-neutral-400">This category has no subcategories or questions yet</p>
         </div>
       </div>

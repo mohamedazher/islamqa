@@ -1,14 +1,14 @@
 <template>
   <div class="privacy-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow flex items-center">
+    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-3 sm:p-4 shadow flex items-center">
       <button @click="goBack" class="mr-3 hover:opacity-80 transition-opacity">
         <Icon name="arrowLeft" size="md" />
       </button>
       <div class="flex items-center gap-3 flex-1 min-w-0">
         <Icon name="shield" size="lg" class="flex-shrink-0" />
         <div class="min-w-0">
-          <h1 class="text-lg md:text-xl font-bold truncate">Privacy Information</h1>
+          <h1 class="text-base sm:text-lg font-bold truncate">Privacy Information</h1>
           <p class="text-primary-100 dark:text-primary-200 text-xs md:text-sm truncate">How we protect your data</p>
         </div>
       </div>
@@ -17,13 +17,13 @@
     <!-- Content -->
     <div class="flex-1 overflow-y-auto p-4 pb-20 lg:pb-4 space-y-4">
       <!-- Overview -->
-      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-6">
+      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-3 sm:p-4">
         <div class="flex items-start gap-4 mb-4">
           <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center flex-shrink-0">
             <Icon name="shield" size="lg" class="text-primary-600 dark:text-primary-400" />
           </div>
           <div>
-            <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">Your Privacy Matters</h2>
+            <h2 class="text-base sm:text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-2">Your Privacy Matters</h2>
             <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
               We believe in transparency and respect for your privacy. This page explains what data we collect,
               why we collect it, and how you control it.
@@ -35,7 +35,7 @@
       <!-- What We Collect (Optional) -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-6 py-4 bg-primary-50 dark:bg-primary-950/30 border-b border-primary-200 dark:border-primary-800">
-          <h2 class="text-lg font-semibold text-primary-900 dark:text-primary-100 flex items-center gap-2">
+          <h2 class="text-base sm:text-lg font-semibold text-primary-900 dark:text-primary-100 flex items-center gap-2">
             <Icon name="document" size="md" class="text-primary-600 dark:text-primary-400" />
             What We Collect (With Your Consent)
           </h2>
@@ -60,7 +60,7 @@
       <!-- Essential Data -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-6 py-4 bg-accent-50 dark:bg-accent-950/30 border-b border-accent-200 dark:border-accent-800">
-          <h2 class="text-lg font-semibold text-accent-900 dark:text-accent-100 flex items-center gap-2">
+          <h2 class="text-base sm:text-lg font-semibold text-accent-900 dark:text-accent-100 flex items-center gap-2">
             <Icon name="cog" size="md" class="text-accent-600 dark:text-accent-400" />
             Essential Data (Required for App)
           </h2>
@@ -85,7 +85,7 @@
       <!-- What We DON'T Collect -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-6 py-4 bg-green-50 dark:bg-green-950/30 border-b border-green-200 dark:border-green-800">
-          <h2 class="text-lg font-semibold text-green-900 dark:text-green-100 flex items-center gap-2">
+          <h2 class="text-base sm:text-lg font-semibold text-green-900 dark:text-green-100 flex items-center gap-2">
             <Icon name="check" size="md" class="text-green-600 dark:text-green-400" />
             What We Never Collect
           </h2>
@@ -103,7 +103,7 @@
       <!-- Third-Party Services -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-6 py-4 border-b border-neutral-200 dark:border-neutral-800">
-          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+          <h2 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
             <Icon name="globe" size="md" class="text-primary-600 dark:text-primary-400" />
             Third-Party Services
           </h2>
@@ -123,7 +123,7 @@
       <!-- Your Rights -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-6 py-4 border-b border-neutral-200 dark:border-neutral-800">
-          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+          <h2 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
             <Icon name="user" size="md" class="text-primary-600 dark:text-primary-400" />
             Your Rights
           </h2>
@@ -142,7 +142,7 @@
 
       <!-- GDPR & Compliance -->
       <section class="bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-950/30 dark:to-accent-950/30 rounded-lg shadow dark:shadow-neutral-800/50 p-6">
-        <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3 flex items-center gap-2">
+        <h2 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3 flex items-center gap-2">
           <Icon name="globe" size="md" class="text-primary-600 dark:text-primary-400" />
           Privacy Compliance
         </h2>
@@ -160,8 +160,8 @@
       </section>
 
       <!-- Actions -->
-      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-6">
-        <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Manage Your Privacy</h2>
+      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-3 sm:p-4">
+        <h2 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Manage Your Privacy</h2>
         <div class="space-y-3">
           <button
             @click="goToSettings"

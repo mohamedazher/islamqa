@@ -1,13 +1,13 @@
 <template>
   <div class="bookmarks-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
-    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow flex items-center">
-      <button @click="goBack" class="mr-3 hover:opacity-80 transition-opacity">
-        <Icon name="arrowLeft" size="md" />
+    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-3 sm:p-4 shadow flex items-center">
+      <button @click="goBack" class="mr-2 sm:mr-3 hover:opacity-80 transition-opacity">
+        <Icon name="arrowLeft" size="sm" />
       </button>
       <div class="flex-1">
         <div class="flex items-center gap-2">
           <Icon name="bookmark" size="md" />
-          <h1 class="text-xl font-bold">My Bookmarks</h1>
+          <h1 class="text-base sm:text-lg font-bold">My Bookmarks</h1>
         </div>
         <p class="text-primary-100 text-sm">{{ bookmarkedQuestions.length }} bookmarks</p>
       </div>
@@ -28,7 +28,7 @@
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
               <Icon name="bookmark" size="md" class="text-primary-600 dark:text-primary-400" />
-              <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">Bookmarked Questions</h2>
+              <h2 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100">Bookmarked Questions</h2>
             </div>
             <button
               @click="clearAll"
@@ -70,7 +70,7 @@
         <div class="flex justify-center mb-4">
           <Icon name="bookmark" size="xl" class="text-neutral-300 dark:text-neutral-700 w-16 h-16" />
         </div>
-        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">No bookmarks yet</h3>
+        <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">No bookmarks yet</h3>
         <p class="text-neutral-600 dark:text-neutral-400 mb-6">Start bookmarking questions to save them for later</p>
         <button
           @click="goToBrowse"

@@ -29,7 +29,7 @@
     <div class="flex-1 overflow-y-auto p-4">
       <!-- Search History (when focused, no input) -->
       <div v-if="showHistory && !searchTerm && searchHistory.length > 0" class="mb-6">
-        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Recent Searches</h3>
+        <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Recent Searches</h3>
         <div class="space-y-2">
           <button
             v-for="(historyItem, idx) in searchHistory"
@@ -75,7 +75,7 @@
         <div class="w-20 h-20 bg-neutral-100 dark:bg-neutral-800 rounded-full flex items-center justify-center mx-auto mb-4">
           <Icon name="search" size="xl" class="text-neutral-400 dark:text-neutral-600" />
         </div>
-        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">No results found</h3>
+        <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">No results found</h3>
         <p class="text-neutral-600 dark:text-neutral-400 mb-4">Try different keywords or check your spelling</p>
         <p class="text-sm text-neutral-500 dark:text-neutral-500">Fuzzy search enabled: "profet" will find "prophet"</p>
       </div>
@@ -85,7 +85,7 @@
         <div class="w-20 h-20 bg-neutral-100 dark:bg-neutral-800 rounded-full flex items-center justify-center mx-auto mb-4">
           <Icon name="search" size="xl" class="text-neutral-400 dark:text-neutral-600" />
         </div>
-        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Start searching</h3>
+        <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Start searching</h3>
         <p class="text-neutral-600 dark:text-neutral-400">Find questions by keyword or topic</p>
       </div>
     </div>
