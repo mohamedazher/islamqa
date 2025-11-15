@@ -66,6 +66,11 @@
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="android-targetSdkVersion" value="35" />
     <preference name="android-compileSdkVersion" value="35" />
+    <!-- Disable Cordova splash screen for faster app launch -->
+    <preference name="SplashScreenDelay" value="0" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="FadeSplashScreenDuration" value="0" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
     <engine name="android" spec="^14.0.0" />
     <engine name="ios" spec="^7.0.0" />
 </widget>
