@@ -17,6 +17,7 @@
     "version:major": "node scripts/increment-version.js major",
     "predeploy": "yarn version:patch && yarn test:all && yarn build:web",
     "deploy": "gh-pages -d dist",
+    "validate:widget": "./scripts/validate-widget-build.sh",
     "cordova:prepare": "cordova prepare",
     "cordova:build:android": "yarn version:patch && yarn test:all && yarn build && cordova build android",
     "cordova:build:ios": "yarn version:patch && yarn test:all && yarn build && cordova build ios",

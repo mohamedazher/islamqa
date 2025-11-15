@@ -83,31 +83,22 @@
             </feature>
         </config-file>
 
-        <!-- Enable Swift support -->
-        <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
-
         <!-- Source files -->
         <source-file src="src/ios/PrayerWidget.swift" />
 
-        <!-- Widget files (note: these need to be added manually to Xcode) -->
-        <source-file src="src/ios/PrayerTimeWidget.swift" />
-
-        <!-- Add App Groups capability (needed for widget data sharing) -->
-        <config-file target="*-Debug.plist" parent="com.apple.security.application-groups">
-            <array>
-                <string>group.com.dkurve.betterislamqa</string>
-            </array>
-        </config-file>
-
-        <config-file target="*-Release.plist" parent="com.apple.security.application-groups">
-            <array>
-                <string>group.com.dkurve.betterislamqa</string>
-            </array>
-        </config-file>
+        <!-- Widget files (note: Widget Extension needs to be added manually in Xcode) -->
+        <!-- PrayerTimeWidget.swift is provided but must be integrated via Xcode -->
 
         <!-- Framework dependencies -->
         <framework src="WidgetKit.framework" weak="true" />
         <framework src="SwiftUI.framework" weak="true" />
+
+        <!-- Podfile configuration for Swift support -->
+        <podspec>
+            <config>
+                <source url="https://cdn.cocoapods.org/"/>
+            </config>
+        </podspec>
 
     </platform>
 
