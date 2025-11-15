@@ -1,3 +1,6 @@
+/* Import Google Fonts - Amiri for Arabic elegance */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,6 +22,34 @@ body {
   -moz-osx-font-smoothing: grayscale;
   @apply bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50;
   transition: background-color 0.2s ease, color 0.2s ease;
+
+  /* Islamic geometric pattern background - very subtle */
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M40 0L0 40l40 40 40-40L40 0zm0 8.284L71.716 40 40 71.716 8.284 40 40 8.284zM20 40l20-20 20 20-20 20-20-20zm20-12.858L27.142 40 40 52.858 52.858 40 40 27.142zM40 20l-8-8h16l-8 8zm-8 40l8 8 8-8H32zm28-28l8-8v16l-8-8zm-40 0l-8-8v16l8-8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+.dark body::before {
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f4c430' fill-opacity='1'%3E%3Cpath d='M40 0L0 40l40 40 40-40L40 0zm0 8.284L71.716 40 40 71.716 8.284 40 40 8.284zM20 40l20-20 20 20-20 20-20-20zm20-12.858L27.142 40 40 52.858 52.858 40 40 27.142zM40 20l-8-8h16l-8 8zm-8 40l8 8 8-8H32zm28-28l8-8v16l-8-8zm-40 0l-8-8v16l8-8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Ensure main content is above background pattern */
+#app {
+  position: relative;
+  z-index: 1;
 }
 
 /* Custom scrollbar - Modern design with dark mode */
@@ -143,4 +174,135 @@ button {
   .no-print {
     display: none !important;
   }
+}
+
+/* ========================================
+   Islamic/Oriental Design Elements
+   ======================================== */
+
+/* Islamic ornamental borders for cards */
+.islamic-border {
+  position: relative;
+  border: 2px solid;
+  @apply border-primary-200 dark:border-primary-900/30;
+}
+
+.islamic-border::before,
+.islamic-border::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid;
+  @apply border-primary-400 dark:border-primary-600;
+}
+
+.islamic-border::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.islamic-border::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Ornamental corner decorations */
+.corner-ornament {
+  position: relative;
+}
+
+.corner-ornament::before,
+.corner-ornament::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0L7 7L0 10L7 13L10 20L13 13L20 10L13 7L10 0Z' fill='%23f4c430' fill-opacity='0.3'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.corner-ornament::before {
+  top: -10px;
+  left: -10px;
+}
+
+.corner-ornament::after {
+  bottom: -10px;
+  right: -10px;
+  transform: rotate(180deg);
+}
+
+.dark .corner-ornament::before,
+.dark .corner-ornament::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0L7 7L0 10L7 13L10 20L13 13L20 10L13 7L10 0Z' fill='%23f4c430' fill-opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* Islamic pattern overlay for hero sections */
+.islamic-hero-pattern {
+  position: relative;
+  overflow: hidden;
+}
+
+.islamic-hero-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='white' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M30 15l-8 8 8 8 8-8-8-8zm0 5.858L32.142 23 30 25.142 27.858 23 30 20.858zM30 0l-5 5h10l-5-5zm0 50l-5 5h10l-5-5zM5 30l-5-5v10l5-5zm50 0l5-5v10l-5-5z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+/* Ornamental divider line */
+.ornamental-divider {
+  position: relative;
+  height: 1px;
+  @apply bg-gradient-to-r from-transparent via-primary-300 dark:via-primary-800 to-transparent;
+  margin: 2rem 0;
+}
+
+.ornamental-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 0L9 9L0 12L9 15L12 24L15 15L24 12L15 9L12 0Z' fill='%23f4c430'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  @apply bg-white dark:bg-neutral-950;
+  padding: 4px;
+}
+
+/* Subtle card elevation with Islamic touch */
+.card-islamic {
+  @apply shadow-soft hover:shadow-medium;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid;
+  @apply border-primary-100 dark:border-primary-950/50;
+}
+
+.card-islamic:hover {
+  @apply border-primary-200 dark:border-primary-900/70;
+  transform: translateY(-2px);
+}
+
+/* Arabic text styling */
+.arabic-text {
+  font-family: 'Amiri', 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 2;
+  font-size: 1.1em;
 }
