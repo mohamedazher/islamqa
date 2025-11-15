@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52ec5402-d293-431f-a00e-2146a096c558" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cordova-plugin-prayer-widget/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova-plugin-prayer-widget/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cordova-plugin-prayer-widget/src/android/PrayerTimeWidgetProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova-plugin-prayer-widget/src/android/PrayerTimeWidgetProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cordova-plugin-prayer-widget/src/android/res/xml/prayer_time_widget_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova-plugin-prayer-widget/src/android/res/xml/prayer_time_widget_info.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

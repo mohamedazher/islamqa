@@ -65,10 +65,10 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
 
             // Get layout ID
             int layoutId = context.getResources().getIdentifier(
-                "widget_prayer_time", "layout", packageName);
+                "widget_prayer_time_simple", "layout", packageName);
 
             if (layoutId == 0) {
-                Log.e(TAG, "Could not find widget_prayer_time layout in package: " + packageName);
+                Log.e(TAG, "Could not find widget_prayer_time_simple layout in package: " + packageName);
                 return;
             }
 
@@ -77,74 +77,18 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
             // Create RemoteViews
             RemoteViews views = new RemoteViews(packageName, layoutId);
 
-        // Update all prayer times
-        views.setTextViewText(
-            context.getResources().getIdentifier("fajr_time", "id", context.getPackageName()),
-            fajrTime
-        );
-        views.setTextViewText(
-            context.getResources().getIdentifier("dhuhr_time", "id", context.getPackageName()),
-            dhuhrTime
-        );
-        views.setTextViewText(
-            context.getResources().getIdentifier("asr_time", "id", context.getPackageName()),
-            asrTime
-        );
-        views.setTextViewText(
-            context.getResources().getIdentifier("maghrib_time", "id", context.getPackageName()),
-            maghribTime
-        );
-        views.setTextViewText(
-            context.getResources().getIdentifier("isha_time", "id", context.getPackageName()),
-            ishaTime
-        );
+            // Update countdown timer with next prayer info
+            String displayText = (currentPrayer.isEmpty() ? "Next: " : "Current: ") +
+                                 (currentPrayer.isEmpty() ? nextPrayer : currentPrayer) +
+                                 " in " + timeRemaining;
 
-        // Update countdown timer
-        views.setTextViewText(
-            context.getResources().getIdentifier("time_remaining", "id", context.getPackageName()),
-            timeRemaining
-        );
-
-        // Reset all row backgrounds
-        int transparentColor = android.graphics.Color.parseColor("#00FFFFFF");
-        int highlightColor = android.graphics.Color.parseColor("#40FFFFFF"); // White with 25% opacity
-
-        views.setInt(
-            context.getResources().getIdentifier("fajr_row", "id", context.getPackageName()),
-            "setBackgroundColor", transparentColor
-        );
-        views.setInt(
-            context.getResources().getIdentifier("dhuhr_row", "id", context.getPackageName()),
-            "setBackgroundColor", transparentColor
-        );
-        views.setInt(
-            context.getResources().getIdentifier("asr_row", "id", context.getPackageName()),
-            "setBackgroundColor", transparentColor
-        );
-        views.setInt(
-            context.getResources().getIdentifier("maghrib_row", "id", context.getPackageName()),
-            "setBackgroundColor", transparentColor
-        );
-        views.setInt(
-            context.getResources().getIdentifier("isha_row", "id", context.getPackageName()),
-            "setBackgroundColor", transparentColor
-        );
-
-        // Highlight current or next prayer row
-        String activePrayer = currentPrayer.isEmpty() ? nextPrayer : currentPrayer;
-        String rowName = activePrayer.toLowerCase() + "_row";
-        int rowId = context.getResources().getIdentifier(rowName, "id", context.getPackageName());
-
-        if (rowId != 0) {
-            views.setInt(rowId, "setBackgroundColor", highlightColor);
-        }
-
-        // Update footer label
-        String labelText = currentPrayer.isEmpty() ? "Next: " + nextPrayer : "Current: " + currentPrayer;
-        views.setTextViewText(
-            context.getResources().getIdentifier("next_prayer_label", "id", context.getPackageName()),
-            labelText
-        );
+            int timeRemainingId = context.getResources().getIdentifier("time_remaining", "id", packageName);
+            if (timeRemainingId != 0) {
+                views.setTextViewText(timeRemainingId, displayText);
+                Log.d(TAG, "Updated time_remaining with: " + displayText);
+            } else {
+                Log.e(TAG, "Could not find time_remaining TextView");
+            }
 
         // Create intent to open app when widget is clicked
         Intent launchIntent = context.getPackageManager()

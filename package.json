@@ -22,11 +22,11 @@
     "cordova:build:android": "yarn version:patch && yarn test:all && yarn build && cordova build android",
     "cordova:build:ios": "yarn version:patch && yarn test:all && yarn build && cordova build ios",
     "cordova:run:android": "yarn build && cordova run android",
-    "cordova:emulate:android": "yarn build && cordova emulate android"
+    "cordova:emulate:android": "yarn build && cordova emulate android",
+    "cordova:rebuild:android": "./scripts/rebuild-android-platform.sh"
   },
   "cordova": {
     "platforms": [
-      "ios",
       "android"
     ],
     "plugins": {
@@ -48,7 +48,6 @@
   },
   "dependencies": {
     "adhan": "^4.4.3",
-    "cordova-ios": "^7.0.0",
     "dexie": "^4.2.1",
     "firebase": "^11.0.2",
     "fuse.js": "^7.0.0",
@@ -59,7 +58,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
     "autoprefixer": "^10.4.18",
-    "cordova-android": "^14.0.0",
+    "cordova-android": "^14.0.1",
     "cordova-plugin-device": "^3.0.0",
     "cordova-plugin-file": "^6.0.1",
     "cordova-plugin-firebase-analytics": "^7.0.0",
