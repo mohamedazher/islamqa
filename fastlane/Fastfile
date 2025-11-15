@@ -118,24 +118,23 @@ end
 
 platform :ios do
 
-  desc "Build and test iOS app"
+  desc "Build and test iOS app (local)"
   lane :build do |options|
     # Build Vite web app first
     sh("cd .. && yarn install --frozen-lockfile")
     sh("cd .. && yarn test:all")
     sh("cd .. && yarn build")
 
-    # Build Cordova iOS app
-    release_type = options[:release] ? "release" : "debug"
+    # Prepare Cordova (copy web assets to iOS)
+    sh("cd .. && cordova prepare ios")
 
-    cordova(
-      platform: 'ios',
-      release: options[:release] || false,
-      type: release_type,
-      device: true
-    )
+    # Build Cordova iOS app with Xcode
+    build_type = options[:release] ? "Release" : "Debug"
+    workspace_path = "BetterIslam Q&A.xcworkspace"
+    scheme_name = "BetterIslam Q&A"
+    sh("cd ../platforms/ios && xcodebuild -workspace \"#{workspace_path}\" -scheme \"#{scheme_name}\" -configuration #{build_type} -derivedDataPath build")
 
-    UI.success("✅ iOS #{release_type} build completed!")
+    UI.success("✅ iOS #{build_type} build completed!")
   end
 
   desc "Build debug version for simulator"
@@ -148,44 +147,55 @@ platform :ios do
     # Increment version
     sh("cd .. && yarn version:patch")
 
-    # Set up code signing (match)
-    match(
-      type: "appstore",
-      readonly: true
-    )
-
+    # Build release version
     build(release: true)
 
-    # Create IPA
-    sh("cd ../platforms/ios/build/device && mkdir -p Payload && cp -r *.app Payload/ && zip -r BetterIslamQA.ipa Payload")
+    # Export IPA using xcodebuild
+    workspace_path = "BetterIslam Q&A.xcworkspace"
+    scheme_name = "BetterIslam Q&A"
+    sh("cd ../platforms/ios && xcodebuild -workspace \"#{workspace_path}\" -scheme \"#{scheme_name}\" -configuration Release -derivedDataPath build -archivePath build/BetterIslamQA.xcarchive archive")
+    sh("cd ../platforms/ios/build && xcodebuild -exportArchive -archivePath BetterIslamQA.xcarchive -exportPath . -exportOptionsPlist ../ExportOptions.plist")
 
     UI.success("✅ iOS release IPA created!")
   end
 
-  desc "Deploy to TestFlight"
+  desc "Deploy to TestFlight (local)"
   lane :beta do
+    UI.important("🔧 Deploying to TestFlight requires:")
+    UI.important("  - APPLE_ID env var set (Apple ID email)")
+    UI.important("  - FASTLANE_PASSWORD env var set (app-specific password)")
+    UI.important("")
+    UI.important("Set variables and run: fastlane ios beta")
+
     # Build release version
     release
 
     # Upload to TestFlight
     upload_to_testflight(
-      ipa: 'platforms/ios/build/device/BetterIslamQA.ipa',
+      ipa: 'platforms/ios/build/BetterIslamQA.ipa',
       skip_waiting_for_build_processing: true,
       apple_id: ENV['APPLE_ID'],
-      app_identifier: 'com.dkurve.betterislamqa'
+      app_identifier: 'com.dkurve.betterislamqa',
+      skip_submission: false
     )
 
     UI.success("✅ Successfully deployed to TestFlight!")
   end
 
-  desc "Deploy to App Store"
+  desc "Deploy to App Store (local)"
   lane :production do
+    UI.important("🔧 Deploying to App Store requires:")
+    UI.important("  - APPLE_ID env var set (Apple ID email)")
+    UI.important("  - FASTLANE_PASSWORD env var set (app-specific password)")
+    UI.important("")
+    UI.important("Set variables and run: fastlane ios production")
+
     # Build release version
     release
 
     # Upload to App Store
     upload_to_app_store(
-      ipa: 'platforms/ios/build/device/BetterIslamQA.ipa',
+      ipa: 'platforms/ios/build/BetterIslamQA.ipa',
       skip_metadata: true,
       skip_screenshots: true,
       precheck_include_in_app_purchases: false,

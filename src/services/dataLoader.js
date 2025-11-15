@@ -16,10 +16,10 @@ class DataLoaderService {
    * Get the correct base path for data files
    */
   getDataPath() {
-    // For Cordova builds, files are in www/js/
+    // For Cordova builds, files are in www/data/
     // For web builds, files are in public/data/ (served as /data/)
     if (window.cordova) {
-      return './js'
+      return './data'
     }
     // Use Vite's base URL for web builds to support GitHub Pages deployment
     const baseUrl = import.meta.env.BASE_URL || '/'
@@ -161,9 +161,9 @@ class DataLoaderService {
       const data = await response.json()
 
       // Extract quizzes array from the JSON structure
-      // File format can be either:
-      // - Direct array: [...]
-      // - Object with quizzes property: { version: "1.0.0", totalQuizzes: N, quizzes: [...] }
+      // File can be either:
+      // 1. Flat array format: [{ id, questionText, ... }, ...]
+      // 2. Nested object format: { version: "1.0.0", totalQuizzes: N, quizzes: [...] }
       const quizzes = Array.isArray(data) ? data : (data.quizzes || [])
 
       // Map the quiz data to match the expected schema
