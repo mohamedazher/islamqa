@@ -3,7 +3,7 @@
     <Transition name="fade">
       <div
         v-if="showOnboarding"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-primary-600 via-primary-700 to-accent-700 dark:from-primary-900 dark:via-primary-950 dark:to-accent-900 islamic-hero-pattern"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-primary-600 via-primary-700 to-accent-700 dark:from-primary-900 dark:via-primary-950 dark:to-accent-900"
       >
         <!-- Onboarding Content -->
         <div class="relative w-full h-full flex flex-col">

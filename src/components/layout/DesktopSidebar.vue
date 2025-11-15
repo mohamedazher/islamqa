@@ -49,7 +49,7 @@
 
     <!-- Stats Footer -->
     <div class="shrink-0 border-t border-neutral-200 dark:border-neutral-800 p-4">
-      <div class="bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 rounded-lg p-4 border border-primary-100 dark:border-primary-800/30 islamic-hero-pattern">
+      <div class="bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 rounded-lg p-4 border border-primary-100 dark:border-primary-800/30">
         <div class="flex items-center justify-between mb-2">
           <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Your Progress</span>
           <span class="text-xs text-neutral-600 dark:text-neutral-400">Level {{ gamificationStore.currentLevel }}</span>

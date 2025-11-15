@@ -1,8 +1,8 @@
 <template>
   <div class="home-view min-h-screen">
     <!-- Hero Section - Desktop only -->
-    <div class="hidden lg:block bg-gradient-to-br from-primary-400 via-primary-500 to-accent-500 dark:from-primary-600 dark:via-accent-600 dark:to-accent-700 text-white islamic-hero-pattern">
-      <div class="max-w-7xl mx-auto px-6 xl:px-8 py-8 relative z-10">
+    <div class="hidden lg:block bg-gradient-to-br from-primary-400 via-primary-500 to-accent-500 dark:from-primary-600 dark:via-accent-600 dark:to-accent-700 text-white">
+      <div class="max-w-7xl mx-auto px-6 xl:px-8 py-8">
         <div class="flex items-center justify-between">
           <div>
             <h1 class="text-3xl xl:text-4xl font-bold mb-2">As-salamu alaykum</h1>
@@ -58,7 +58,7 @@
           clickable
           padding="lg"
           @click="viewQuestion(questionOfTheDay.reference)"
-          class="relative overflow-hidden bg-gradient-to-br from-primary-400 via-primary-500 to-accent-500 dark:from-primary-600 dark:via-accent-600 dark:to-accent-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] islamic-hero-pattern"
+          class="relative overflow-hidden bg-gradient-to-br from-primary-400 via-primary-500 to-accent-500 dark:from-primary-600 dark:via-accent-600 dark:to-accent-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
         >
           <!-- Decorative background pattern -->
           <div class="absolute inset-0 opacity-10">

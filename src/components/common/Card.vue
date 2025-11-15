@@ -5,8 +5,6 @@
     :class="[
       clickable ? 'cursor-pointer card-hover active:scale-[0.98]' : '',
       padding === 'none' ? '' : padding === 'sm' ? 'p-3' : padding === 'md' ? 'p-4' : 'p-6',
-      islamicBorder ? 'islamic-border' : '',
-      islamicStyle ? 'card-islamic' : '',
       className
     ]"
     @click="clickable && $emit('click', $event)"
@@ -25,14 +23,6 @@ defineProps({
     type: String,
     default: 'md', // none, sm, md, lg
     validator: (value) => ['none', 'sm', 'md', 'lg'].includes(value)
-  },
-  islamicBorder: {
-    type: Boolean,
-    default: false
-  },
-  islamicStyle: {
-    type: Boolean,
-    default: false
   },
   className: {
     type: String,

@@ -8,14 +8,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Golden yellow palette (inspired by Islamic architecture & logo)
+        // Golden yellow palette (inspired by logo)
         primary: {
           50: '#fffef0',
           100: '#fffbdb',
           200: '#fff6b8',
           300: '#ffed8a',
           400: '#ffdf51',
-          500: '#f4c430', // Main golden brand color (mosque domes)
+          500: '#f4c430', // Main golden brand color
           600: '#e6a812',
           700: '#c18510',
           800: '#9e6814',
@@ -36,48 +36,6 @@ export default {
           900: '#42462f',
           950: '#222517',
         },
-        // Persian Blue - inspired by Persian tile work & mosaics
-        persian: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb', // Classic Persian blue
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
-        },
-        // Burgundy/Maroon - inspired by Ottoman palaces & Persian carpets
-        burgundy: {
-          50: '#fdf2f4',
-          100: '#fce7eb',
-          200: '#fad1da',
-          300: '#f7a8bc',
-          400: '#f27396',
-          500: '#e74976',
-          600: '#d42960', // Rich burgundy
-          700: '#b01d4e',
-          800: '#941b47',
-          900: '#7f1a42',
-          950: '#4a0920',
-        },
-        // Turquoise - inspired by Moroccan zellige & Turkish ceramics
-        turquoise: {
-          50: '#f0fdfa',
-          100: '#ccfbf1',
-          200: '#99f6e4',
-          300: '#5eead4',
-          400: '#2dd4bf',
-          500: '#14b8a6', // Vibrant turquoise
-          600: '#0d9488',
-          700: '#0f766e',
-          800: '#115e59',
-          900: '#134e4a',
-          950: '#042f2e',
-        },
         // Sophisticated neutrals with proper dark mode support
         neutral: {
           50: '#fafafa',
@@ -96,7 +54,6 @@ export default {
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         display: ['Cal Sans', 'Inter', 'sans-serif'],
-        arabic: ['Amiri', 'Noto Naskh Arabic', 'Traditional Arabic', 'serif'], // Traditional Arabic font
       },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
