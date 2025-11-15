@@ -1,15 +1,15 @@
 <template>
   <div class="settings-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow flex items-center">
-      <button @click="goBack" class="mr-3 hover:opacity-80 transition-opacity lg:hidden">
-        <Icon name="arrowLeft" size="md" />
+    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-3 sm:p-4 shadow flex items-center">
+      <button @click="goBack" class="mr-2 sm:mr-3 hover:opacity-80 transition-opacity lg:hidden">
+        <Icon name="arrowLeft" size="sm" />
       </button>
-      <div class="flex items-center gap-3 flex-1 min-w-0">
-        <Icon name="cog" size="lg" class="flex-shrink-0" />
+      <div class="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
+        <Icon name="cog" size="md" class="flex-shrink-0" />
         <div class="min-w-0">
-          <h1 class="text-lg md:text-xl font-bold truncate">Settings</h1>
-          <p class="text-primary-100 dark:text-primary-200 text-xs md:text-sm truncate">Customize your experience</p>
+          <h1 class="text-base sm:text-lg font-bold truncate">Settings</h1>
+          <p class="text-primary-100 dark:text-primary-200 text-xs truncate">Customize your experience</p>
         </div>
       </div>
     </header>
@@ -17,13 +17,13 @@
     <div class="flex-1 overflow-y-auto p-4 pb-20 lg:pb-4 space-y-4">
       <!-- Appearance Section -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
-        <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
-          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
-            <Icon name="sun" size="md" class="text-primary-600 dark:text-primary-400" />
+        <div class="px-3 sm:px-4 py-2 sm:py-3 border-b border-neutral-200 dark:border-neutral-800">
+          <h2 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+            <Icon name="sun" size="sm" class="text-primary-600 dark:text-primary-400" />
             Appearance
           </h2>
         </div>
-        <div class="p-4">
+        <div class="p-3 sm:p-4">
           <div class="flex items-center justify-between">
             <div>
               <h3 class="font-medium text-neutral-900 dark:text-neutral-100">Theme</h3>
@@ -590,9 +590,6 @@
                   <Icon name="cog" size="sm" />
                   {{ isClearing ? 'Clearing...' : 'Manage Data' }}
                 </button>
-                <p class="text-xs text-red-700 dark:text-red-400 mt-2 italic">
-                  💡 Tip: Click 10 times within 3 seconds for developer reset
-                </p>
               </div>
             </div>
           </div>
@@ -724,8 +721,6 @@ const isClearing = ref(false)
 const analyticsEnabled = ref(isAnalyticsEnabled)
 const showOnboardingDialog = ref(false)
 const showClearDataDialog = ref(false)
-const clearClickCount = ref(0)
-const clearClickTimer = ref(null)
 
 // User profile data
 const userProfile = ref({
@@ -833,24 +828,6 @@ function handleOnboardingClose() {
 }
 
 function openClearDataDialog() {
-  // Track clicks for developer reset feature
-  clearClickCount.value++
-
-  // Reset counter after 3 seconds
-  if (clearClickTimer.value) {
-    clearTimeout(clearClickTimer.value)
-  }
-  clearClickTimer.value = setTimeout(() => {
-    clearClickCount.value = 0
-  }, 3000)
-
-  // Developer reset: 10 clicks within 3 seconds
-  if (clearClickCount.value >= 10) {
-    handleDeveloperReset()
-    return
-  }
-
-  // Normal flow: open dialog
   showClearDataDialog.value = true
 }
 
@@ -926,48 +903,6 @@ async function handleClearData(selections) {
   } catch (error) {
     console.error('❌ Error clearing data:', error)
     alert('Failed to clear data. Please try again.')
-  } finally {
-    isClearing.value = false
-  }
-}
-
-async function handleDeveloperReset() {
-  console.log('🔧 Developer reset triggered!')
-  clearClickCount.value = 0
-
-  const confirmed = confirm(
-    '🔧 DEVELOPER RESET\n\n' +
-    'This will clear EVERYTHING including:\n' +
-    '• All database data\n' +
-    '• All localStorage\n' +
-    '• All settings\n' +
-    '• Onboarding status\n\n' +
-    'This is useful for testing first-launch experience.\n\n' +
-    'Continue?'
-  )
-
-  if (!confirmed) return
-
-  try {
-    isClearing.value = true
-    console.log('🔧 Performing complete developer reset...')
-
-    // Clear database
-    await dexieDb.clearAllData()
-    dataStore.isReady = false
-
-    // Clear ALL localStorage
-    localStorage.clear()
-
-    console.log('✅ Complete reset done')
-
-    alert('🔧 Developer reset complete!\n\nThe page will now reload to show onboarding.')
-
-    // Reload page to start fresh
-    window.location.reload()
-  } catch (error) {
-    console.error('❌ Error in developer reset:', error)
-    alert('Failed to perform developer reset.')
   } finally {
     isClearing.value = false
   }

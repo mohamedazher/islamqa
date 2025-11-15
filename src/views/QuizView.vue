@@ -5,23 +5,21 @@
       <button @click="goBack" class="hover:opacity-80 transition-opacity mb-3">
         <Icon name="arrowLeft" size="md" />
       </button>
-      <div v-if="!currentQuiz" class="flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <Icon name="lightning" size="md" />
-          <h1 class="text-xl font-bold">Quiz Mode</h1>
+      <div v-if="!currentQuiz" class="flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2 min-w-0">
+          <Icon name="lightning" size="sm" class="flex-shrink-0" />
+          <h1 class="text-sm sm:text-lg font-bold truncate">Quiz Mode</h1>
         </div>
-        <div class="text-right">
-          <div class="text-2xl font-bold">{{ gamification.points }}</div>
+        <div class="text-right flex-shrink-0">
+          <div class="text-lg sm:text-2xl font-bold">{{ gamification.points }}</div>
           <div class="text-xs text-primary-100">Points</div>
         </div>
       </div>
-      <div v-else class="flex items-center justify-between">
-        <h1 class="text-xl font-bold">{{ currentQuiz.name }}</h1>
-        <div class="flex items-center gap-4">
-          <div class="text-right">
-            <div class="text-lg font-bold">{{ currentQuestionIndex + 1 }}/{{ currentQuiz.questions.length }}</div>
-            <div class="text-xs text-primary-100">Questions</div>
-          </div>
+      <div v-else class="flex items-center justify-between gap-3">
+        <h1 class="text-sm sm:text-lg font-bold truncate">{{ currentQuiz.name }}</h1>
+        <div class="text-right flex-shrink-0">
+          <div class="text-sm sm:text-base font-bold">{{ currentQuestionIndex + 1 }}/{{ currentQuiz.questions.length }}</div>
+          <div class="text-xs text-primary-100">Questions</div>
         </div>
       </div>
     </header>
@@ -292,7 +290,7 @@
             </div>
           </div>
 
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">
+          <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">
             {{ currentQuestion.questionText }}
           </h3>
 
@@ -304,7 +302,7 @@
               @click="selectAnswer(idx)"
               :disabled="answered"
               :class="[
-                'w-full p-4 rounded-lg border-2 text-left transition font-medium',
+                'w-full p-2 sm:p-3 rounded-lg border-2 text-left transition font-medium text-sm sm:text-base',
                 {
                   'border-primary-600 bg-primary-50 dark:bg-primary-950/30 text-primary-900 dark:text-primary-100': selectedAnswer === idx && !answered,
                   'border-accent-500 bg-accent-50 dark:bg-accent-950/30 text-accent-900 dark:text-accent-100': answered && idx === currentQuestion.correctOptionId,
@@ -314,8 +312,8 @@
                 }
               ]"
             >
-              <div class="flex items-center">
-                <span class="w-8 h-8 rounded-full border-2 flex items-center justify-center mr-3"
+              <div class="flex items-center gap-2 sm:gap-3">
+                <span class="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 flex items-center justify-center flex-shrink-0 text-xs sm:text-sm font-bold"
                   :class="{
                     'border-primary-600 bg-primary-600 text-white': selectedAnswer === idx && !answered,
                     'border-accent-500 bg-accent-500 text-white': answered && idx === currentQuestion.correctOptionId,
@@ -324,7 +322,7 @@
                 >
                   {{ String.fromCharCode(65 + idx) }}
                 </span>
-                {{ option.text }}
+                <span class="flex-1">{{ option.text }}</span>
               </div>
             </button>
           </div>
