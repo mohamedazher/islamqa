@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="108" id="com.dkurve.betterislamqa" version="2.0.13" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<widget android-versionCode="109" id="com.dkurve.betterislamqa" version="2.0.14" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>BetterIslam Q&amp;A</name>
     <description>
         Welcome to Islam Question&amp;Answer
@@ -29,9 +29,9 @@
         <icon density="xxhdpi" src="res/android/xxhdpi.png" />
         <icon density="xxxhdpi" src="res/android/xxxhdpi.png" />
         <preference name="AndroidXEnabled" value="true" />
-        <!-- Android 12+ requires a splash screen, minimal branded design -->
-        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="" />
-        <preference name="AndroidWindowSplashScreenBackground" value="#10b981" />
+        <!-- Android 12+ requires a splash screen, customize with app icon -->
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/android/xxxhdpi.png" />
+        <preference name="AndroidWindowSplashScreenBackground" value="#ffffff" />
         <preference name="AndroidWindowSplashScreenAnimationDuration" value="100" />
     </platform>
     <platform name="ios">
