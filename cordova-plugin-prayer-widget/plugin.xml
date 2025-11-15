@@ -5,10 +5,10 @@
         version="1.0.0">
 
     <name>PrayerWidget</name>
-    <description>Prayer Time Widget for Android and iOS - Shows next prayer time and countdown on home screen</description>
+    <description>Prayer Time Widget for Android and iOS</description>
     <license>MIT</license>
-    <keywords>prayer,widget,islam,islamic,salah,prayer times</keywords>
-    <author>BetterIslam Q&A</author>
+    <keywords>prayer, widget, islam, salah, times</keywords>
+    <author>BetterIslam</author>
 
     <engines>
         <engine name="cordova" version=">=9.0.0" />

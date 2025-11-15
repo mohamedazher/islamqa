@@ -49,39 +49,34 @@ public class PrayerWidget extends CordovaPlugin {
      * Update widget with new prayer time data
      */
     private void updateWidget(JSONObject prayerData, CallbackContext callbackContext) {
-        try {
-            Context context = cordova.getActivity().getApplicationContext();
+        Context context = cordova.getActivity().getApplicationContext();
 
-            // Save data to SharedPreferences so widget can access it
-            SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = prefs.edit();
+        // Save data to SharedPreferences so widget can access it
+        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
 
-            // All prayer times
-            editor.putString("fajr_time", prayerData.optString("fajr", "--:--"));
-            editor.putString("dhuhr_time", prayerData.optString("dhuhr", "--:--"));
-            editor.putString("asr_time", prayerData.optString("asr", "--:--"));
-            editor.putString("maghrib_time", prayerData.optString("maghrib", "--:--"));
-            editor.putString("isha_time", prayerData.optString("isha", "--:--"));
+        // All prayer times
+        editor.putString("fajr_time", prayerData.optString("fajr", "--:--"));
+        editor.putString("dhuhr_time", prayerData.optString("dhuhr", "--:--"));
+        editor.putString("asr_time", prayerData.optString("asr", "--:--"));
+        editor.putString("maghrib_time", prayerData.optString("maghrib", "--:--"));
+        editor.putString("isha_time", prayerData.optString("isha", "--:--"));
 
-            // Current/Next prayer info
-            editor.putString("next_prayer", prayerData.optString("nextPrayer", "Fajr"));
-            editor.putString("next_prayer_time", prayerData.optString("nextPrayerTime", "--:--"));
-            editor.putString("time_remaining", prayerData.optString("timeRemaining", "--:--"));
-            editor.putString("current_prayer", prayerData.optString("currentPrayer", ""));
-            editor.putString("current_prayer_end", prayerData.optString("currentPrayerEnd", ""));
-            editor.putLong("last_updated", System.currentTimeMillis());
-            editor.apply();
+        // Current/Next prayer info
+        editor.putString("next_prayer", prayerData.optString("nextPrayer", "Fajr"));
+        editor.putString("next_prayer_time", prayerData.optString("nextPrayerTime", "--:--"));
+        editor.putString("time_remaining", prayerData.optString("timeRemaining", "--:--"));
+        editor.putString("current_prayer", prayerData.optString("currentPrayer", ""));
+        editor.putString("current_prayer_end", prayerData.optString("currentPrayerEnd", ""));
+        editor.putLong("last_updated", System.currentTimeMillis());
+        editor.apply();
 
-            Log.d(TAG, "Widget data saved: " + prayerData.toString());
+        Log.d(TAG, "Widget data saved: " + prayerData.toString());
 
-            // Trigger widget update
-            this.triggerWidgetUpdate(context);
+        // Trigger widget update
+        this.triggerWidgetUpdate(context);
 
-            callbackContext.success("Widget updated successfully");
-        } catch (JSONException e) {
-            Log.e(TAG, "Error updating widget: " + e.getMessage());
-            callbackContext.error("Failed to update widget: " + e.getMessage());
-        }
+        callbackContext.success("Widget updated successfully");
     }
 
     /**
