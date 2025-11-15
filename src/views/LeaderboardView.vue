@@ -1,7 +1,7 @@
 <template>
   <div class="leaderboard-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-amber-400 via-orange-400 to-red-400 dark:from-amber-500 dark:via-orange-500 dark:to-red-500 text-white p-4 shadow">
+    <header class="bg-gradient-to-r from-amber-400 via-orange-400 to-red-400 dark:from-amber-500 dark:via-orange-500 dark:to-red-500 text-white p-4 shadow islamic-hero-pattern">
       <div class="flex items-center gap-3">
         <button @click="goBack" class="lg:hidden hover:opacity-80 transition-opacity">
           <Icon name="arrowLeft" size="md" />

@@ -1,6 +1,6 @@
 <template>
   <div class="question-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
-    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow flex items-center">
+    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow flex items-center islamic-hero-pattern">
       <button @click="goBack" class="mr-3 text-2xl hover:opacity-80 transition-opacity">
         <Icon name="arrowLeft" size="md" />
       </button>
