@@ -142,7 +142,7 @@
                     <span class="font-bold text-neutral-900 dark:text-neutral-100">Reset Everything</span>
                   </div>
                   <p class="text-sm text-red-700 dark:text-red-400 font-medium">
-                    Complete reset including onboarding. The tutorial will show again on next launch.
+                    Complete reset to first-launch state. You'll see the full onboarding again including privacy consent and data import.
                   </p>
                 </div>
               </label>
@@ -163,9 +163,9 @@
                     <li v-if="selections.database || selections.resetEverything">• Q&A Database</li>
                     <li v-if="selections.bookmarks || selections.resetEverything">• Bookmarks & Folders</li>
                     <li v-if="selections.quizProgress || selections.resetEverything">• Quiz Progress</li>
-                    <li v-if="selections.settings || selections.resetEverything">• App Settings</li>
+                    <li v-if="selections.settings || selections.resetEverything">• App Settings (theme, privacy consent)</li>
                     <li v-if="selections.resetEverything" class="font-semibold text-red-700 dark:text-red-400">
-                      • Onboarding Status (tutorial will show again)
+                      • Onboarding Status (full tutorial + privacy consent will show again)
                     </li>
                   </ul>
                 </div>
@@ -279,11 +279,11 @@ async function confirmClear() {
   if (selections.value.database || selections.value.resetEverything) itemsList.push('Q&A Database')
   if (selections.value.bookmarks || selections.value.resetEverything) itemsList.push('Bookmarks')
   if (selections.value.quizProgress || selections.value.resetEverything) itemsList.push('Quiz Progress')
-  if (selections.value.settings || selections.value.resetEverything) itemsList.push('App Settings')
-  if (selections.value.resetEverything) itemsList.push('Onboarding Status')
+  if (selections.value.settings || selections.value.resetEverything) itemsList.push('App Settings (theme, privacy)')
+  if (selections.value.resetEverything) itemsList.push('Onboarding (will restart with privacy consent)')
 
   const confirmed = confirm(
-    `Are you sure you want to clear the following?\n\n${itemsList.map(item => `• ${item}`).join('\n')}\n\nThis action cannot be undone.`
+    `Are you sure you want to clear the following?\n\n${itemsList.map(item => `• ${item}`).join('\n')}\n\n${selections.value.resetEverything ? 'The app will reload and show the complete onboarding flow.\n\n' : ''}This action cannot be undone.`
   )
 
   if (!confirmed) return

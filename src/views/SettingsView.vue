@@ -789,17 +789,19 @@ async function handleClearData(selections) {
     // Show success message
     let message = 'Selected data has been cleared successfully.'
 
-    // Determine redirect
-    if (selections.database || selections.resetEverything) {
+    // Determine redirect - check resetEverything first!
+    if (selections.resetEverything) {
+      // Complete reset - reload page to trigger full onboarding flow
+      message += '\n\nReloading app to start fresh with onboarding...'
+      alert(message)
+      window.location.reload()
+    } else if (selections.database) {
+      // Just database cleared - redirect to standalone import page
       message += '\n\nRedirecting to import page...'
       alert(message)
       router.push('/import')
-    } else if (selections.resetEverything) {
-      message += '\n\nPlease refresh the app to see onboarding again.'
-      alert(message)
-      // Could reload the page here
-      window.location.reload()
     } else {
+      // Other selections (bookmarks, quiz, settings only)
       alert(message)
     }
   } catch (error) {
