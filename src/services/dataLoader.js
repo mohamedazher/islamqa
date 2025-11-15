@@ -161,8 +161,10 @@ class DataLoaderService {
       const data = await response.json()
 
       // Extract quizzes array from the JSON structure
-      // File format: { version: "1.0.0", totalQuizzes: N, quizzes: [...] }
-      const quizzes = data.quizzes || []
+      // File format can be either:
+      // - Direct array: [...]
+      // - Object with quizzes property: { version: "1.0.0", totalQuizzes: N, quizzes: [...] }
+      const quizzes = Array.isArray(data) ? data : (data.quizzes || [])
 
       // Map the quiz data to match the expected schema
       // Each quiz needs a 'reference' field (sourceQuestionId) for the primary key
