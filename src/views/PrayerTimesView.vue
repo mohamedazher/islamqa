@@ -225,6 +225,7 @@ const currentTime = ref(new Date())
 
 // Update current time every second
 let intervalId = null
+let widgetUpdateCounter = 0
 
 onMounted(() => {
   loadPrayerTimes()
@@ -233,7 +234,17 @@ onMounted(() => {
   intervalId = setInterval(() => {
     currentTime.value = new Date()
     updatePrayerStatuses()
+
+    // Update widget every 60 seconds
+    widgetUpdateCounter++
+    if (widgetUpdateCounter >= 60) {
+      prayerTimesService.updateWidget()
+      widgetUpdateCounter = 0
+    }
   }, 1000)
+
+  // Initial widget update
+  setTimeout(() => prayerTimesService.updateWidget(), 1000)
 })
 
 onUnmounted(() => {
