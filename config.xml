@@ -24,9 +24,9 @@
         <icon density="xxhdpi" src="res/android/xxhdpi.png" />
         <icon density="xxxhdpi" src="res/android/xxxhdpi.png" />
         <preference name="AndroidXEnabled" value="true" />
-        <!-- Android 12+ requires a splash screen, customize with app icon -->
-        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/android/xxxhdpi.png" />
-        <preference name="AndroidWindowSplashScreenBackground" value="#ffffff" />
+        <!-- Android 12+ requires a splash screen, minimal branded design -->
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="" />
+        <preference name="AndroidWindowSplashScreenBackground" value="#10b981" />
         <preference name="AndroidWindowSplashScreenAnimationDuration" value="100" />
     </platform>
     <platform name="ios">
