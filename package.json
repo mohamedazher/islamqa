@@ -36,7 +36,8 @@
         "ANALYTICS_COLLECTION_ENABLED": "true",
         "AUTOMATIC_SCREEN_REPORTING_ENABLED": "true",
         "ANDROID_FIREBASE_BOM_VERSION": "30.3.1"
-      }
+      },
+      "cordova-plugin-geolocation": {}
     }
   },
   "dependencies": {
@@ -56,6 +57,7 @@
     "cordova-plugin-device": "^3.0.0",
     "cordova-plugin-file": "^6.0.1",
     "cordova-plugin-firebase-analytics": "^7.0.0",
+    "cordova-plugin-geolocation": "^5.0.0",
     "cordova-plugin-statusbar": "^3.0.0",
     "cordova-support-android-plugin": "~2.0.4",
     "es6-promise-plugin": "^4.2.2",

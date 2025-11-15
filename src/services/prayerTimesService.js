@@ -224,12 +224,12 @@ class PrayerTimesService {
   }
 
   /**
-   * Get user's location using browser geolocation API
+   * Get user's location using browser/Cordova geolocation API
    */
   async detectLocation() {
     return new Promise((resolve, reject) => {
       if (!navigator.geolocation) {
-        reject(new Error('Geolocation is not supported by your browser'))
+        reject(new Error('Geolocation is not supported by your device'))
         return
       }
 
@@ -250,7 +250,24 @@ class PrayerTimesService {
           resolve({ latitude, longitude, locationName })
         },
         (error) => {
-          reject(new Error(`Location detection failed: ${error.message}`))
+          // Provide more helpful error messages
+          let errorMessage = 'Location detection failed'
+
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              errorMessage = 'Location permission denied. Please enable location access in your device settings.'
+              break
+            case error.POSITION_UNAVAILABLE:
+              errorMessage = 'Location information is unavailable. Please check your device settings.'
+              break
+            case error.TIMEOUT:
+              errorMessage = 'Location request timed out. Please try again.'
+              break
+            default:
+              errorMessage = `Location detection failed: ${error.message}`
+          }
+
+          reject(new Error(errorMessage))
         },
         {
           enableHighAccuracy: true,

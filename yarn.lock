@@ -1107,6 +1107,11 @@ cordova-plugin-firebase-analytics@^7.0.0:
   resolved "https://registry.npmjs.org/cordova-plugin-firebase-analytics/-/cordova-plugin-firebase-analytics-7.0.5.tgz"
   integrity sha512-WyURfNmft4z3mW24uBzgz//WQLXFk4xkD7eJhdjz/RasiVJ2seX6zBrecl9TDGhL1Dfd9lOqCegbG5CNbM6q8Q==
 
+cordova-plugin-geolocation@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/cordova-plugin-geolocation/-/cordova-plugin-geolocation-5.0.0.tgz"
+  integrity sha512-eIk96pF59y3AK+NHeyA0si9eFhZElgOcFoGoTU9LDlnEYpfBN+V4ojRpKq3NMLCGTozew22/i9najFu9Kvb40g==
+
 cordova-plugin-statusbar@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/cordova-plugin-statusbar/-/cordova-plugin-statusbar-3.0.0.tgz"
