@@ -5,6 +5,7 @@
  */
 
 import { Coordinates, CalculationMethod, PrayerTimes, Prayer, Qibla, Madhab, HighLatitudeRule } from 'adhan'
+import locationPermission from './locationPermission'
 
 // Storage keys
 const STORAGE_KEYS = {
@@ -224,12 +225,38 @@ class PrayerTimesService {
   }
 
   /**
-   * Get user's location using browser geolocation API
+   * Get user's location using browser/Cordova geolocation API
+   * @param {boolean} skipPermissionCheck - Skip permission check (for retry after settings)
+   * @returns {Promise<Object>} { latitude, longitude, locationName, permissionDenied }
    */
-  async detectLocation() {
+  async detectLocation(skipPermissionCheck = false) {
+    // Check permission status first (for Cordova apps)
+    if (!skipPermissionCheck && window.cordova) {
+      const permissionCheck = await locationPermission.checkPermissionWithMessage()
+
+      if (!permissionCheck.hasPermission) {
+        // Request permission if we can
+        if (permissionCheck.canRequest) {
+          const granted = await locationPermission.requestPermission()
+          if (!granted) {
+            const error = new Error(permissionCheck.message)
+            error.permissionDenied = true
+            error.shouldShowSettings = false
+            throw error
+          }
+        } else {
+          // Permission permanently denied or location services disabled
+          const error = new Error(permissionCheck.message)
+          error.permissionDenied = true
+          error.shouldShowSettings = permissionCheck.shouldShowSettings
+          throw error
+        }
+      }
+    }
+
     return new Promise((resolve, reject) => {
       if (!navigator.geolocation) {
-        reject(new Error('Geolocation is not supported by your browser'))
+        reject(new Error('Geolocation is not supported by your device'))
         return
       }
 
@@ -247,10 +274,39 @@ class PrayerTimesService {
           }
 
           this.saveLocation(latitude, longitude, locationName)
-          resolve({ latitude, longitude, locationName })
+          resolve({
+            latitude,
+            longitude,
+            locationName,
+            permissionDenied: false
+          })
         },
         (error) => {
-          reject(new Error(`Location detection failed: ${error.message}`))
+          // Provide more helpful error messages
+          let errorMessage = 'Location detection failed'
+          let permissionDenied = false
+          let shouldShowSettings = false
+
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              errorMessage = 'Location permission denied. Please enable location access in your device settings.'
+              permissionDenied = true
+              shouldShowSettings = true
+              break
+            case error.POSITION_UNAVAILABLE:
+              errorMessage = 'Location information is unavailable. Please check your device settings.'
+              break
+            case error.TIMEOUT:
+              errorMessage = 'Location request timed out. Please try again.'
+              break
+            default:
+              errorMessage = `Location detection failed: ${error.message}`
+          }
+
+          const err = new Error(errorMessage)
+          err.permissionDenied = permissionDenied
+          err.shouldShowSettings = shouldShowSettings
+          reject(err)
         },
         {
           enableHighAccuracy: true,
@@ -259,6 +315,29 @@ class PrayerTimesService {
         }
       )
     })
+  }
+
+  /**
+   * Check if location permission is granted
+   * @returns {Promise<boolean>}
+   */
+  async hasLocationPermission() {
+    return await locationPermission.isLocationAuthorized()
+  }
+
+  /**
+   * Get location permission status with details
+   * @returns {Promise<Object>}
+   */
+  async getPermissionStatus() {
+    return await locationPermission.getPermissionStatus()
+  }
+
+  /**
+   * Open device settings to allow user to enable location permission
+   */
+  openLocationSettings() {
+    locationPermission.openDeviceSettings()
   }
 
   /**

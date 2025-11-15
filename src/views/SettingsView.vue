@@ -255,6 +255,117 @@
         </div>
       </section>
 
+      <!-- Permissions Section -->
+      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
+        <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
+          <h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+            <Icon name="shield" size="md" class="text-primary-600 dark:text-primary-400" />
+            Permissions
+          </h2>
+        </div>
+        <div class="p-4 space-y-4">
+          <!-- Location Permission -->
+          <div>
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex-1">
+                <h3 class="font-medium text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+                  Location Access
+                  <span
+                    v-if="locationPermissionStatus"
+                    class="text-xs px-2 py-0.5 rounded"
+                    :class="locationPermissionStatus.isGranted
+                      ? 'bg-green-100 dark:bg-green-950/30 text-green-700 dark:text-green-400'
+                      : 'bg-red-100 dark:bg-red-950/30 text-red-700 dark:text-red-400'"
+                  >
+                    {{ locationPermissionStatus.statusText }}
+                  </span>
+                </h3>
+                <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+                  Required for accurate prayer times based on your current location
+                </p>
+              </div>
+            </div>
+
+            <!-- Permission Status Details -->
+            <div
+              v-if="locationPermissionStatus"
+              class="bg-neutral-50 dark:bg-neutral-950/50 rounded-lg p-3 border border-neutral-200 dark:border-neutral-800 mb-3"
+            >
+              <div class="flex items-start gap-2">
+                <Icon
+                  :name="locationPermissionStatus.isGranted ? 'check' : 'exclamation'"
+                  size="sm"
+                  :class="locationPermissionStatus.isGranted
+                    ? 'text-green-600 dark:text-green-400'
+                    : 'text-orange-600 dark:text-orange-400'"
+                  class="mt-0.5"
+                />
+                <div class="flex-1 text-xs">
+                  <p class="text-neutral-700 dark:text-neutral-300">
+                    <strong>Status:</strong>
+                    <span v-if="locationPermissionStatus.isGranted">
+                      Location permission is granted. The app can access your location for prayer times.
+                    </span>
+                    <span v-else-if="locationPermissionStatus.shouldShowSettings">
+                      Location permission was denied. You need to enable it manually in your device settings.
+                    </span>
+                    <span v-else-if="locationPermissionStatus.canRequest">
+                      Location permission has not been granted yet. Tap "Request Permission" to enable it.
+                    </span>
+                    <span v-else>
+                      Location permission status is unknown. Please try requesting permission or check your device settings.
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex gap-2">
+              <button
+                v-if="locationPermissionStatus?.canRequest || !locationPermissionStatus?.isGranted"
+                @click="requestLocationPermission"
+                :disabled="requestingPermission"
+                class="flex-1 px-4 py-2 bg-primary-600 dark:bg-primary-500 text-white rounded-lg hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm font-medium flex items-center justify-center gap-2"
+              >
+                <Icon name="globe" size="sm" />
+                {{ requestingPermission ? 'Requesting...' : 'Request Permission' }}
+              </button>
+
+              <button
+                v-if="locationPermissionStatus?.shouldShowSettings"
+                @click="openLocationSettings"
+                class="flex-1 px-4 py-2 bg-orange-600 dark:bg-orange-500 text-white rounded-lg hover:bg-orange-700 dark:hover:bg-orange-600 transition-colors text-sm font-medium flex items-center justify-center gap-2"
+              >
+                <Icon name="cog" size="sm" />
+                Open Settings
+              </button>
+
+              <button
+                @click="checkLocationPermission"
+                :disabled="checkingPermission"
+                class="px-4 py-2 bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm font-medium"
+              >
+                {{ checkingPermission ? 'Checking...' : 'Refresh' }}
+              </button>
+            </div>
+
+            <!-- Help Text -->
+            <div class="mt-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg p-3 border border-blue-200 dark:border-blue-800/30">
+              <div class="flex items-start gap-2">
+                <Icon name="info" size="sm" class="text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                <div class="text-xs text-blue-900 dark:text-blue-100">
+                  <p><strong>Why do we need location access?</strong></p>
+                  <p class="mt-1 text-blue-700 dark:text-blue-300">
+                    We use your location to calculate accurate prayer times for your area. Your location data is only used locally and never shared with third parties.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- About Section -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
@@ -646,6 +757,11 @@ const manualLocation = ref({
 const detectingLocation = ref(false)
 const qiblaDirection = ref(null)
 
+// Location permission state
+const locationPermissionStatus = ref(null)
+const requestingPermission = ref(false)
+const checkingPermission = ref(false)
+
 const selectedCalculationMethod = computed(() => {
   return calculationMethods.find(m => m.key === prayerSettings.value.calculationMethod)
 })
@@ -667,6 +783,9 @@ onMounted(async () => {
 
     // Load prayer times settings
     loadPrayerSettings()
+
+    // Check location permission status
+    await checkLocationPermission()
   } catch (error) {
     console.error('Error loading stats:', error)
   }
@@ -1025,5 +1144,65 @@ function saveMadhab() {
   } catch (error) {
     console.error('Failed to save madhab:', error)
   }
+}
+
+// Permission management functions
+async function checkLocationPermission() {
+  try {
+    checkingPermission.value = true
+    locationPermissionStatus.value = await prayerTimesService.getPermissionStatus()
+    console.log('Location permission status:', locationPermissionStatus.value)
+  } catch (error) {
+    console.error('Failed to check location permission:', error)
+  } finally {
+    checkingPermission.value = false
+  }
+}
+
+async function requestLocationPermission() {
+  try {
+    requestingPermission.value = true
+
+    // Try to detect location, which will request permission if needed
+    await detectLocation()
+
+    // Refresh permission status
+    await checkLocationPermission()
+
+    alert('Location permission granted! Your location has been detected.')
+  } catch (error) {
+    console.error('Failed to request permission:', error)
+
+    // Refresh permission status even on error
+    await checkLocationPermission()
+
+    if (error.shouldShowSettings) {
+      const confirmed = confirm(
+        error.message + '\n\nWould you like to open device settings now?'
+      )
+      if (confirmed) {
+        openLocationSettings()
+      }
+    } else {
+      alert(error.message || 'Failed to request location permission.')
+    }
+  } finally {
+    requestingPermission.value = false
+  }
+}
+
+function openLocationSettings() {
+  prayerTimesService.openLocationSettings()
+
+  // Show instructions
+  setTimeout(() => {
+    alert(
+      'Device settings opened.\n\n' +
+      '1. Find this app in the list\n' +
+      '2. Tap on Permissions or Location\n' +
+      '3. Enable location access\n' +
+      '4. Return to the app and tap "Refresh" to check permission status'
+    )
+  }, 500)
 }
 </script>

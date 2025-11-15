@@ -133,6 +133,14 @@
         <Icon name="exclamation" size="md" class="text-red-600 dark:text-red-400 flex-shrink-0" />
         <div class="flex-1">
           <p class="text-sm text-red-900 dark:text-red-100">{{ error }}</p>
+          <button
+            v-if="error.includes('permission') || error.includes('settings')"
+            @click="$emit('openSettings')"
+            class="mt-2 text-sm text-red-700 dark:text-red-300 hover:underline font-medium flex items-center gap-1"
+          >
+            <Icon name="cog" size="sm" />
+            Go to Settings
+          </button>
         </div>
       </div>
     </Card>
@@ -244,6 +252,18 @@ const detectLocation = async () => {
   } catch (e) {
     console.error('Failed to detect location:', e)
     error.value = e.message
+
+    // If permission was denied, show option to go to settings
+    if (e.permissionDenied && e.shouldShowSettings) {
+      setTimeout(() => {
+        const confirmed = confirm(
+          e.message + '\n\nWould you like to go to Settings to enable location access?'
+        )
+        if (confirmed) {
+          router.push('/settings')
+        }
+      }, 100)
+    }
   } finally {
     detectingLocation.value = false
   }

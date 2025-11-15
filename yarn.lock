@@ -1016,6 +1016,11 @@ color-name@~1.1.4:
   resolved "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
+colors@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.npmjs.org/colors/-/colors-1.4.0.tgz"
+  integrity sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==
+
 commander@^13.0.0:
   version "13.1.0"
   resolved "https://registry.npmjs.org/commander/-/commander-13.1.0.tgz"
@@ -1107,6 +1112,11 @@ cordova-plugin-firebase-analytics@^7.0.0:
   resolved "https://registry.npmjs.org/cordova-plugin-firebase-analytics/-/cordova-plugin-firebase-analytics-7.0.5.tgz"
   integrity sha512-WyURfNmft4z3mW24uBzgz//WQLXFk4xkD7eJhdjz/RasiVJ2seX6zBrecl9TDGhL1Dfd9lOqCegbG5CNbM6q8Q==
 
+cordova-plugin-geolocation@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/cordova-plugin-geolocation/-/cordova-plugin-geolocation-5.0.0.tgz"
+  integrity sha512-eIk96pF59y3AK+NHeyA0si9eFhZElgOcFoGoTU9LDlnEYpfBN+V4ojRpKq3NMLCGTozew22/i9najFu9Kvb40g==
+
 cordova-plugin-statusbar@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/cordova-plugin-statusbar/-/cordova-plugin-statusbar-3.0.0.tgz"
@@ -1116,6 +1126,15 @@ cordova-support-android-plugin@~2.0.4:
   version "2.0.4"
   resolved "https://registry.npmjs.org/cordova-support-android-plugin/-/cordova-support-android-plugin-2.0.4.tgz"
   integrity sha512-WIrCc+s9foJLc6XBZFMGLlB75Dt1rAsK9okZlW6NP5KZgxGAqdjMIgwQNiw/mMbSaauDQpacn0EDw5QY32p2HA==
+
+cordova.plugins.diagnostic@^7.2.7:
+  version "7.2.7"
+  resolved "https://registry.npmjs.org/cordova.plugins.diagnostic/-/cordova.plugins.diagnostic-7.2.7.tgz"
+  integrity sha512-kdtbts0gTKilsvg/B1gxrN3BOMTdzDVAqYg5/CidMeYgLd97w9yMujoYEhkaqb2rPlOREsDvYkZmncqPJ3OHoA==
+  dependencies:
+    colors "1.4.0"
+    elementtree "^0.1.6"
+    minimist "1.2.6"
 
 cross-spawn@^7.0.3, cross-spawn@^7.0.6:
   version "7.0.6"
@@ -1197,7 +1216,7 @@ electron-to-chromium@^1.5.238:
   resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.245.tgz"
   integrity sha512-rdmGfW47ZhL/oWEJAY4qxRtdly2B98ooTJ0pdEI4jhVLZ6tNf8fPtov2wS1IRKwFJT92le3x4Knxiwzl7cPPpQ==
 
-elementtree@^0.1.7:
+elementtree@^0.1.6, elementtree@^0.1.7:
   version "0.1.7"
   resolved "https://registry.npmjs.org/elementtree/-/elementtree-0.1.7.tgz"
   integrity sha512-wkgGT6kugeQk/P6VZ/f4T+4HB41BVgNBq5CDIZVbQ02nvTVqAiVTbskxxu3eA/X96lMlfYOwnLQpN2v5E1zDEg==
@@ -1812,6 +1831,11 @@ minimatch@^9.0.4:
   integrity sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==
   dependencies:
     brace-expansion "^2.0.1"
+
+minimist@1.2.6:
+  version "1.2.6"
+  resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.6.tgz"
+  integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
 
 "minipass@^5.0.0 || ^6.0.2 || ^7.0.0", minipass@^7.1.2:
   version "7.1.2"
