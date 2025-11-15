@@ -184,6 +184,15 @@ docs/                    # Documentation (organized)
 
 ## Data Model
 
+> **📚 For complete details, see [docs/DATA_STRUCTURE.md](docs/DATA_STRUCTURE.md)**
+>
+> This comprehensive guide covers:
+> - Reference vs ID (critical concept!)
+> - Complete field mappings
+> - Common queries and examples
+> - Troubleshooting guide
+> - Quiz system integration
+
 ### Categories (from `categories.json`)
 ```javascript
 {
@@ -603,6 +612,7 @@ See `package.json` for complete list and versions.
 
 ## Related Documentation
 
+- **docs/DATA_STRUCTURE.md** - **⭐ CRITICAL**: Comprehensive guide to data model, ID scheme, and field mappings
 - **docs/ARCHITECTURE.md** - Detailed system design
 - **docs/TESTING.md** - Testing strategies and guides
 - **docs/FIREBASE.md** - Firebase setup instructions
