@@ -2,12 +2,12 @@
   <!-- Desktop Card (Google I/O Style) -->
   <div
     @click="$emit('click')"
-    class="hidden md:block cursor-pointer border border-neutral-200 dark:border-neutral-700/50 rounded-3xl overflow-hidden backdrop-blur-md transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] group"
+    class="hidden md:block cursor-pointer border border-neutral-200 dark:border-neutral-700/50 rounded-3xl overflow-hidden backdrop-blur-md transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] group islamic-hero-pattern"
     :class="gradientClass"
   >
     <div class="flex flex-col h-full">
       <!-- Gradient Icon Section -->
-      <div class="flex min-h-[180px] h-[180px] items-center justify-center p-8 relative overflow-hidden">
+      <div class="flex min-h-[180px] h-[180px] items-center justify-center p-8 relative overflow-hidden z-10">
         <!-- Decorative Elements -->
         <div class="absolute inset-0 opacity-20">
           <div class="absolute top-0 right-0 w-32 h-32 bg-white rounded-full -translate-y-16 translate-x-16"></div>
@@ -50,7 +50,7 @@
       <!-- Icon with Gradient -->
       <div class="flex-shrink-0">
         <div
-          class="w-16 h-16 rounded-2xl flex items-center justify-center text-4xl relative overflow-hidden"
+          class="w-16 h-16 rounded-2xl flex items-center justify-center text-4xl relative overflow-hidden islamic-hero-pattern"
           :class="gradientClass"
         >
           <div class="absolute inset-0 opacity-20 bg-white/20"></div>
@@ -149,25 +149,25 @@ const categoryIcon = computed(() => {
   return '📚'
 })
 
-// Beautiful pastel gradient classes (Google I/O inspired)
+// Beautiful pastel gradient classes (Islamic architecture inspired)
 const gradientClass = computed(() => {
   const gradients = [
-    // Golden to Olive (primary brand colors)
+    // Golden to Olive (primary brand colors - mosque domes)
     'bg-gradient-to-br from-primary-400 via-primary-500 to-accent-500 dark:from-primary-600 dark:via-accent-600 dark:to-accent-700',
-    // Yellow to Orange (warm)
-    'bg-gradient-to-br from-yellow-400 via-orange-400 to-red-400 dark:from-yellow-500 dark:via-orange-500 dark:to-red-500',
-    // Olive to Green (fresh)
-    'bg-gradient-to-br from-accent-400 via-accent-500 to-accent-600 dark:from-accent-600 dark:via-accent-700 dark:to-accent-800',
-    // Pink to Purple (vibrant)
-    'bg-gradient-to-br from-pink-400 via-purple-400 to-indigo-500 dark:from-pink-500 dark:via-purple-500 dark:to-indigo-600',
-    // Amber to Gold (warm gold)
+    // Persian Blue (inspired by Persian tiles)
+    'bg-gradient-to-br from-persian-400 via-persian-500 to-persian-600 dark:from-persian-600 dark:via-persian-700 dark:to-persian-800',
+    // Turquoise (Moroccan zellige)
+    'bg-gradient-to-br from-turquoise-400 via-turquoise-500 to-turquoise-600 dark:from-turquoise-600 dark:via-turquoise-700 dark:to-turquoise-800',
+    // Burgundy to Rose (Ottoman palaces)
+    'bg-gradient-to-br from-burgundy-400 via-burgundy-500 to-rose-500 dark:from-burgundy-600 dark:via-burgundy-700 dark:to-rose-700',
+    // Amber to Gold (warm gold - Islamic calligraphy)
     'bg-gradient-to-br from-amber-400 via-primary-400 to-primary-500 dark:from-amber-600 dark:via-primary-600 dark:to-primary-700',
-    // Orange to Pink (sunset)
-    'bg-gradient-to-br from-orange-400 via-rose-400 to-pink-500 dark:from-orange-500 dark:via-rose-500 dark:to-pink-600',
-    // Purple to Blue (royal)
-    'bg-gradient-to-br from-purple-400 via-blue-400 to-indigo-500 dark:from-purple-500 dark:via-blue-500 dark:to-indigo-600',
-    // Green to Yellow (nature)
-    'bg-gradient-to-br from-green-400 via-lime-400 to-yellow-400 dark:from-green-500 dark:via-lime-500 dark:to-yellow-500',
+    // Turquoise to Teal (Turkish ceramics)
+    'bg-gradient-to-br from-turquoise-400 via-teal-400 to-persian-500 dark:from-turquoise-600 dark:via-teal-600 dark:to-persian-700',
+    // Persian Blue to Purple (royal)
+    'bg-gradient-to-br from-persian-400 via-purple-400 to-indigo-500 dark:from-persian-500 dark:via-purple-600 dark:to-indigo-700',
+    // Olive to Emerald (nature - Islamic gardens)
+    'bg-gradient-to-br from-accent-400 via-emerald-400 to-teal-500 dark:from-accent-600 dark:via-emerald-600 dark:to-teal-700',
   ]
 
   // UPDATED: Changed to use reference instead of element

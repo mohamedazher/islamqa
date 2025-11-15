@@ -1,7 +1,7 @@
 <template>
   <div class="quiz-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow">
+    <header class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white p-4 shadow islamic-hero-pattern">
       <button @click="goBack" class="hover:opacity-80 transition-opacity mb-3">
         <Icon name="arrowLeft" size="md" />
       </button>
