@@ -46,12 +46,20 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
     private void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
         // Read prayer data from SharedPreferences
         SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+
+        // All prayer times
+        String fajrTime = prefs.getString("fajr_time", "--:--");
+        String dhuhrTime = prefs.getString("dhuhr_time", "--:--");
+        String asrTime = prefs.getString("asr_time", "--:--");
+        String maghribTime = prefs.getString("maghrib_time", "--:--");
+        String ishaTime = prefs.getString("isha_time", "--:--");
+
+        // Current/Next prayer info
         String nextPrayer = prefs.getString("next_prayer", "Fajr");
-        String nextPrayerTime = prefs.getString("next_prayer_time", "--:--");
         String timeRemaining = prefs.getString("time_remaining", "--:--");
         String currentPrayer = prefs.getString("current_prayer", "");
 
-        Log.d(TAG, "Updating widget with: " + nextPrayer + " at " + nextPrayerTime + " in " + timeRemaining);
+        Log.d(TAG, "Updating widget - Next: " + nextPrayer + ", Current: " + currentPrayer + ", Time: " + timeRemaining);
 
         // Get layout ID
         int layoutId = context.getResources().getIdentifier(
@@ -60,28 +68,72 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
         // Create RemoteViews
         RemoteViews views = new RemoteViews(context.getPackageName(), layoutId);
 
-        // Update widget UI elements
-        String displayPrayer = currentPrayer.isEmpty() ? "Next: " + nextPrayer : currentPrayer;
-
+        // Update all prayer times
         views.setTextViewText(
-            context.getResources().getIdentifier("prayer_name", "id", context.getPackageName()),
-            displayPrayer
+            context.getResources().getIdentifier("fajr_time", "id", context.getPackageName()),
+            fajrTime
+        );
+        views.setTextViewText(
+            context.getResources().getIdentifier("dhuhr_time", "id", context.getPackageName()),
+            dhuhrTime
+        );
+        views.setTextViewText(
+            context.getResources().getIdentifier("asr_time", "id", context.getPackageName()),
+            asrTime
+        );
+        views.setTextViewText(
+            context.getResources().getIdentifier("maghrib_time", "id", context.getPackageName()),
+            maghribTime
+        );
+        views.setTextViewText(
+            context.getResources().getIdentifier("isha_time", "id", context.getPackageName()),
+            ishaTime
         );
 
+        // Update countdown timer
         views.setTextViewText(
             context.getResources().getIdentifier("time_remaining", "id", context.getPackageName()),
             timeRemaining
         );
 
-        views.setTextViewText(
-            context.getResources().getIdentifier("prayer_time", "id", context.getPackageName()),
-            nextPrayerTime
+        // Reset all row backgrounds
+        int transparentColor = android.graphics.Color.parseColor("#00FFFFFF");
+        int highlightColor = android.graphics.Color.parseColor("#40FFFFFF"); // White with 25% opacity
+
+        views.setInt(
+            context.getResources().getIdentifier("fajr_row", "id", context.getPackageName()),
+            "setBackgroundColor", transparentColor
+        );
+        views.setInt(
+            context.getResources().getIdentifier("dhuhr_row", "id", context.getPackageName()),
+            "setBackgroundColor", transparentColor
+        );
+        views.setInt(
+            context.getResources().getIdentifier("asr_row", "id", context.getPackageName()),
+            "setBackgroundColor", transparentColor
+        );
+        views.setInt(
+            context.getResources().getIdentifier("maghrib_row", "id", context.getPackageName()),
+            "setBackgroundColor", transparentColor
+        );
+        views.setInt(
+            context.getResources().getIdentifier("isha_row", "id", context.getPackageName()),
+            "setBackgroundColor", transparentColor
         );
 
-        // Set label text
-        String labelText = currentPrayer.isEmpty() ? "until prayer" : "until end";
+        // Highlight current or next prayer row
+        String activePrayer = currentPrayer.isEmpty() ? nextPrayer : currentPrayer;
+        String rowName = activePrayer.toLowerCase() + "_row";
+        int rowId = context.getResources().getIdentifier(rowName, "id", context.getPackageName());
+
+        if (rowId != 0) {
+            views.setInt(rowId, "setBackgroundColor", highlightColor);
+        }
+
+        // Update footer label
+        String labelText = currentPrayer.isEmpty() ? "Next: " + nextPrayer : "Current: " + currentPrayer;
         views.setTextViewText(
-            context.getResources().getIdentifier("time_label", "id", context.getPackageName()),
+            context.getResources().getIdentifier("next_prayer_label", "id", context.getPackageName()),
             labelText
         );
 

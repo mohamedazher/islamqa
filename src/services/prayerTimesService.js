@@ -822,9 +822,18 @@ class PrayerTimesService {
       const nextPrayer = this.getTimeUntilNextPrayer()
       const currentWindow = this.getCurrentPrayerWindow()
       const times = this.getPrayerTimes()
+      const formattedTimes = this.getFormattedPrayerTimes()
 
-      // Prepare widget data
+      // Prepare widget data with all 5 prayer times
       const widgetData = {
+        // All prayer times (excluding Sunrise as it's not a prayer)
+        fajr: formattedTimes.fajr,
+        dhuhr: formattedTimes.dhuhr,
+        asr: formattedTimes.asr,
+        maghrib: formattedTimes.maghrib,
+        isha: formattedTimes.isha,
+
+        // Current/Next prayer info
         nextPrayer: nextPrayer?.prayer || 'Fajr',
         nextPrayerTime: nextPrayer ? this.formatTime(times.timeForPrayer(
           this.getPrayerEnumFromName(nextPrayer.prayer)
