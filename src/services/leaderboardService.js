@@ -1,4 +1,4 @@
-import { db, ensureAuthenticated } from './firebase'
+import { db, ensureAuthenticated, firebaseInitialized } from './firebase'
 import {
   collection,
   doc,
@@ -19,13 +19,23 @@ class LeaderboardService {
     this.db = db
     this.userId = null
     this.username = null
+    this.isAvailable = firebaseInitialized
   }
 
   /**
    * Initialize user (call on app start)
    */
   async initUser() {
+    if (!this.isAvailable) {
+      console.warn('⚠️ Leaderboard service not available (Firebase not initialized)')
+      return { userId: null, username: null }
+    }
+
     const user = await ensureAuthenticated()
+    if (!user) {
+      console.warn('⚠️ Could not authenticate user for leaderboard')
+      return { userId: null, username: null }
+    }
     this.userId = user.uid
 
     // Get or create username
@@ -94,7 +104,13 @@ class LeaderboardService {
    * Submit quiz score to leaderboard
    */
   async submitScore(quizResult) {
+    if (!this.isAvailable) {
+      console.warn('⚠️ Leaderboard service not available, skipping score submission')
+      return false
+    }
+
     if (!this.userId) await this.initUser()
+    if (!this.userId) return false
 
     const { score, correct, total, quizId, mode, accuracy, timeTaken } = quizResult
 

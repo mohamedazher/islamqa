@@ -14,23 +14,39 @@ const firebaseConfig = {
 }
 
 // Initialize Firebase - check if already initialized to prevent duplicate app error
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp()
-const auth = getAuth(app)
-const db = getFirestore(app)
+let app = null
+let auth = null
+let db = null
+let firebaseInitialized = false
 
-// Enable offline persistence
-enableIndexedDbPersistence(db).catch((err) => {
-  if (err.code === 'failed-precondition') {
-    console.warn('Persistence failed: Multiple tabs open')
-  } else if (err.code === 'unimplemented') {
-    console.warn('Persistence not available in this browser')
-  }
-})
+try {
+  app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp()
+  auth = getAuth(app)
+  db = getFirestore(app)
+  firebaseInitialized = true
+
+  // Enable offline persistence
+  enableIndexedDbPersistence(db).catch((err) => {
+    if (err.code === 'failed-precondition') {
+      console.warn('Persistence failed: Multiple tabs open')
+    } else if (err.code === 'unimplemented') {
+      console.warn('Persistence not available in this browser')
+    }
+  })
+} catch (error) {
+  console.warn('⚠️ Firebase initialization failed (may be expected on native platforms):', error.message)
+  firebaseInitialized = false
+}
 
 // Anonymous authentication on app load
 let currentUser = null
 
 async function ensureAuthenticated() {
+  if (!firebaseInitialized) {
+    console.warn('⚠️ Firebase not available, skipping authentication')
+    return null
+  }
+
   if (currentUser) return currentUser
 
   try {
@@ -40,11 +56,15 @@ async function ensureAuthenticated() {
     return currentUser
   } catch (error) {
     console.error('❌ Authentication failed:', error)
-    throw error
+    return null
   }
 }
 
-// Auto-authenticate on module load
-ensureAuthenticated()
+// Auto-authenticate on module load (non-blocking)
+if (firebaseInitialized) {
+  ensureAuthenticated().catch(err => {
+    console.warn('⚠️ Could not authenticate with Firebase:', err.message)
+  })
+}
 
-export { db, auth, ensureAuthenticated }
+export { db, auth, ensureAuthenticated, firebaseInitialized }

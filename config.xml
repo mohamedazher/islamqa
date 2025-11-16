@@ -35,6 +35,8 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <!-- Firebase configuration plist -->
+        <resource-file src="GoogleService-Info.plist" />
         <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
             <string>We need your location to calculate accurate prayer times for your area.</string>
         </edit-config>
@@ -80,4 +82,5 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="FadeSplashScreenDuration" value="0" />
     <preference name="ShowSplashScreenSpinner" value="false" />
+    <hook type="after_prepare" src="hooks/copy-firebase-config.js" />
 </widget>
