@@ -158,13 +158,13 @@ platform :ios do
 
     # Archive the app
     UI.important("📦 Archiving iOS app...")
-    sh("cd ../platforms/ios && xcodebuild -workspace \"#{workspace_path}\" -scheme \"#{scheme_name}\" -configuration Release -derivedDataPath build -archivePath build/BetterIslamQA.xcarchive archive -allowProvisioningUpdates DEVELOPMENT_TEAM=#{team_id} SWIFT_VERSION=5.0 CODE_SIGN_STYLE=Automatic CODE_SIGN_IDENTITY='' PROVISIONING_PROFILE='' PROVISIONING_PROFILE_SPECIFIER=''")
+    sh("cd ../platforms/ios && xcodebuild -workspace \"#{workspace_path}\" -scheme \"#{scheme_name}\" -sdk iphoneos -configuration Release -derivedDataPath build -archivePath build/BetterIslamQA.xcarchive archive -allowProvisioningUpdates DEVELOPMENT_TEAM=#{team_id} SWIFT_VERSION=5.0 CODE_SIGN_STYLE=Automatic CODE_SIGN_IDENTITY='' PROVISIONING_PROFILE='' PROVISIONING_PROFILE_SPECIFIER=''")
 
     # Export IPA with automatic code signing
     UI.important("📤 Exporting IPA with automatic code signing...")
-    sh("cd ../platforms/ios && xcodebuild -exportArchive -archivePath build/BetterIslamQA.xcarchive -exportPath build -exportOptionsPlist #{export_opts_path} -allowProvisioningUpdates")
+    sh("cd ../platforms/ios && xcodebuild -exportArchive -archivePath build/BetterIslamQA.xcarchive -exportPath build -exportOptionsPlist ExportOptions.plist -allowProvisioningUpdates")
 
-    UI.success("✅ iOS release IPA created at platforms/ios/build/BetterIslamQA.ipa!")
+    UI.success("✅ iOS release IPA created at platforms/ios/build/BetterIslam Q&A.ipa!")
   end
 
   desc "Deploy to TestFlight (local) - requires App Store Connect API Key"
@@ -199,7 +199,7 @@ platform :ios do
     UI.important("📤 Uploading to TestFlight...")
     upload_to_testflight(
       api_key: api_key,
-      ipa: 'platforms/ios/build/BetterIslamQA.ipa',
+      ipa: 'platforms/ios/build/BetterIslam Q&A.ipa',
       skip_waiting_for_build_processing: true,
       skip_submission: false,
       distribute_external: false
