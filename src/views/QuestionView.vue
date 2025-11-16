@@ -120,6 +120,7 @@ const answerContainer = ref(null)
 /**
  * Setup click handlers for TOC (Table of Contents) links
  * Handles smooth scrolling to anchor elements within the page
+ * Uses event capturing to intercept clicks before Vue Router can process them
  * @param {HTMLElement} container - The container with the answer HTML
  */
 function setupTocLinkHandlers(container) {
@@ -130,18 +131,22 @@ function setupTocLinkHandlers(container) {
   console.log(`📍 Found ${tocLinks.length} TOC links`)
 
   tocLinks.forEach(link => {
+    // Use capturing phase (true parameter) to intercept before Vue Router
     link.addEventListener('click', (event) => {
-      const href = link.getAttribute('href')
-      if (!href || !href.startsWith('#')) return
+      // Get the anchor ID from the data attribute (set by processAnswerLinks)
+      const anchorId = link.getAttribute('data-toc-anchor')
+      if (!anchorId) return
 
+      console.log(`🖱️  TOC link clicked for anchor: ${anchorId}`)
+
+      // Must prevent default IMMEDIATELY before any other handlers run
       event.preventDefault()
-      event.stopPropagation()
+      event.stopImmediatePropagation()
 
-      const targetId = href.substring(1)
-      const targetElement = document.getElementById(targetId)
+      const targetElement = document.getElementById(anchorId)
 
       if (targetElement) {
-        console.log('✅ Scrolling to TOC section:', targetId)
+        console.log('✅ Scrolling to TOC section:', anchorId)
         // Calculate offset for sticky header (100px as defined in linkHandler)
         const headerOffset = 100
         const elementPosition = targetElement.getBoundingClientRect().top
@@ -152,9 +157,12 @@ function setupTocLinkHandlers(container) {
           behavior: 'smooth'
         })
       } else {
-        console.warn('❌ TOC target not found:', targetId)
+        console.warn('❌ TOC target not found:', anchorId)
+        // Try to find similar IDs in case of slight variations
+        const allIds = Array.from(document.querySelectorAll('[id]')).map(el => el.id)
+        console.warn('Available IDs:', allIds.filter(id => id.toLowerCase().includes(anchorId.toLowerCase())))
       }
-    })
+    }, true) // Use capturing phase (third parameter = true)
   })
 }
 

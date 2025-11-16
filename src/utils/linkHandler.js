@@ -175,13 +175,25 @@ export function processAnswerLinks(answerHtml) {
     if (!href) return
 
     // Handle hash/anchor links (TOC navigation)
-    // For hash-only links like #section_name, keep them as-is for smooth scrolling
-    // They won't conflict with routing since they're within the same page
+    // For hash-only links like #section_name, we need to prevent Vue Router hash mode from handling them
+    // Solution: Store the anchor ID in a data attribute and make href="javascript:void(0)" to prevent navigation
     if (isHashLink(href)) {
-      // Add a class to identify TOC links for potential styling
+      // Extract the anchor ID from the hash
+      const anchorId = href.substring(1) // Remove the '#'
+
+      // Store the anchor ID in a data attribute for the click handler to use
+      link.setAttribute('data-toc-anchor', anchorId)
+
+      // Change href to prevent browser default hash navigation that Vue Router will intercept
+      // We'll handle navigation entirely via JavaScript click handler
+      link.setAttribute('href', 'javascript:void(0)')
+      link.style.cursor = 'pointer'
+
+      // Add classes to identify TOC links for styling and selection
       link.classList.add('toc-link')
-      // Ensure click handler will scroll to anchor
       link.setAttribute('data-toc-link', 'true')
+
+      console.log(`📌 Converted TOC link: #${anchorId}`)
       return
     }
 
