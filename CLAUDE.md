@@ -496,7 +496,28 @@ yarn cordova:build:ios
 # Xcode project at: platforms/ios/
 ```
 
-See **docs/DEPLOYMENT.md** for detailed setup.
+### Local Deployment with Fastlane
+
+**Android (Google Play):**
+```bash
+source ~/.zshrc
+bundle exec fastlane android beta  # Deploy to Google Play Beta
+```
+
+**iOS (TestFlight):**
+```bash
+source ~/.zshrc
+bundle exec fastlane ios beta      # Deploy to TestFlight
+```
+
+**Prerequisites:**
+- Environment variables configured in `~/.zshrc`:
+  - Android: `PLAY_STORE_JSON_KEY` or `google-play-api-key.json` file
+  - iOS: `FASTLANE_TEAM_ID`, `FASTLANE_API_KEY_ID`, `FASTLANE_API_ISSUER_ID`, `FASTLANE_API_KEY_PATH`
+- API keys set up (Google Play Console / App Store Connect)
+- Code signing configured
+
+See **docs/LOCAL_DEPLOYMENT.md** for complete setup guide.
 
 ---
 
@@ -613,8 +634,9 @@ See `package.json` for complete list and versions.
 ## Related Documentation
 
 - **docs/DATA_STRUCTURE.md** - **⭐ CRITICAL**: Comprehensive guide to data model, ID scheme, and field mappings
+- **docs/LOCAL_DEPLOYMENT.md** - **Local builds**: Fastlane setup for Android & iOS deployment from Mac
 - **docs/ARCHITECTURE.md** - Detailed system design
 - **docs/TESTING.md** - Testing strategies and guides
 - **docs/FIREBASE.md** - Firebase setup instructions
-- **docs/DEPLOYMENT.md** - Production deployment guide
+- **docs/DEPLOYMENT.md** - Production deployment guide (web)
 - **PROGRESS.md** - Current project status

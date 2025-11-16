@@ -209,6 +209,37 @@ platform :ios do
     UI.success("Visit https://appstoreconnect.apple.com to manage TestFlight builds")
   end
 
+  desc "Upload pre-built IPA to TestFlight (utility lane)"
+  lane :upload_ipa do
+    UI.important("📤 Uploading pre-built IPA to TestFlight...")
+
+    # Get API Key from environment or file
+    api_key_path = ENV['FASTLANE_API_KEY_PATH'] || File.expand_path('~/.fastlane/api_key.p8')
+
+    unless File.exist?(api_key_path)
+      UI.error("❌ API Key not found at #{api_key_path}")
+      exit 1
+    end
+
+    api_key = app_store_connect_api_key(
+      key_id: ENV['FASTLANE_API_KEY_ID'],
+      issuer_id: ENV['FASTLANE_API_ISSUER_ID'],
+      key_filepath: api_key_path,
+      duration: 1200
+    )
+
+    upload_to_testflight(
+      api_key: api_key,
+      ipa: 'platforms/ios/build/BetterIslam Q&A.ipa',
+      skip_waiting_for_build_processing: true,
+      skip_submission: false,
+      distribute_external: false
+    )
+
+    UI.success("✅ Successfully uploaded to TestFlight!")
+    UI.success("Visit https://appstoreconnect.apple.com to manage TestFlight builds")
+  end
+
   desc "Deploy to App Store Production (local) - requires App Store Connect API Key"
   lane :production do
     UI.important("🚀 App Store Production Deployment")
