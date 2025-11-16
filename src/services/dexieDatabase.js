@@ -108,11 +108,47 @@ class DexieDatabase extends Dexie {
   }
 
   /**
-   * Import categories in bulk
+   * Import categories in bulk with batching and progress updates
+   * @param {Array} categories - Array of category objects to import
+   * @param {Function} onProgress - Optional callback for progress updates
    */
-  async importCategories(categories) {
+  async importCategories(categories, onProgress = null) {
     try {
-      await this.categories.bulkPut(categories)
+      const BATCH_SIZE = 100 // Import 100 categories at a time
+      const totalItems = categories.length
+      const totalBatches = Math.ceil(totalItems / BATCH_SIZE)
+
+      console.log(`📦 Importing ${totalItems} categories in ${totalBatches} batches of ${BATCH_SIZE}`)
+
+      for (let i = 0; i < totalBatches; i++) {
+        const start = i * BATCH_SIZE
+        const end = Math.min(start + BATCH_SIZE, totalItems)
+        const batch = categories.slice(start, end)
+
+        // Import this batch
+        await this.categories.bulkPut(batch)
+
+        const itemsProcessed = end
+
+        // Report progress
+        if (onProgress) {
+          onProgress({
+            batchIndex: i + 1,
+            totalBatches,
+            itemsProcessed,
+            totalItems,
+            percentage: (itemsProcessed / totalItems) * 100
+          })
+        }
+
+        console.log(`  ✓ Batch ${i + 1}/${totalBatches} (${itemsProcessed}/${totalItems} categories)`)
+
+        // Yield to event loop to allow UI updates (except on last batch)
+        if (i < totalBatches - 1) {
+          await new Promise(resolve => setTimeout(resolve, 0))
+        }
+      }
+
       console.log(`✅ Imported ${categories.length} categories`)
     } catch (error) {
       console.error('Error importing categories:', error)
@@ -121,11 +157,47 @@ class DexieDatabase extends Dexie {
   }
 
   /**
-   * Import questions in bulk
+   * Import questions in bulk with batching and progress updates
+   * @param {Array} questions - Array of question objects to import
+   * @param {Function} onProgress - Optional callback for progress updates (batchIndex, totalBatches, itemsProcessed, totalItems)
    */
-  async importQuestions(questions) {
+  async importQuestions(questions, onProgress = null) {
     try {
-      await this.questions.bulkPut(questions)
+      const BATCH_SIZE = 500 // Import 500 questions at a time
+      const totalItems = questions.length
+      const totalBatches = Math.ceil(totalItems / BATCH_SIZE)
+
+      console.log(`📦 Importing ${totalItems} questions in ${totalBatches} batches of ${BATCH_SIZE}`)
+
+      for (let i = 0; i < totalBatches; i++) {
+        const start = i * BATCH_SIZE
+        const end = Math.min(start + BATCH_SIZE, totalItems)
+        const batch = questions.slice(start, end)
+
+        // Import this batch
+        await this.questions.bulkPut(batch)
+
+        const itemsProcessed = end
+
+        // Report progress
+        if (onProgress) {
+          onProgress({
+            batchIndex: i + 1,
+            totalBatches,
+            itemsProcessed,
+            totalItems,
+            percentage: (itemsProcessed / totalItems) * 100
+          })
+        }
+
+        console.log(`  ✓ Batch ${i + 1}/${totalBatches} (${itemsProcessed}/${totalItems} questions)`)
+
+        // Yield to event loop to allow UI updates (except on last batch)
+        if (i < totalBatches - 1) {
+          await new Promise(resolve => setTimeout(resolve, 0))
+        }
+      }
+
       console.log(`✅ Imported ${questions.length} questions`)
     } catch (error) {
       console.error('Error importing questions:', error)
