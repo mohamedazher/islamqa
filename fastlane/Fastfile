@@ -132,7 +132,8 @@ platform :ios do
     build_type = options[:release] ? "Release" : "Debug"
     workspace_path = "BetterIslam Q&A.xcworkspace"
     scheme_name = "BetterIslam Q&A"
-    sh("cd ../platforms/ios && xcodebuild -workspace \"#{workspace_path}\" -scheme \"#{scheme_name}\" -configuration #{build_type} -derivedDataPath build")
+    team_id = ENV['FASTLANE_TEAM_ID']
+    sh("cd ../platforms/ios && xcodebuild -workspace \"#{workspace_path}\" -scheme \"#{scheme_name}\" -configuration #{build_type} -derivedDataPath build -allowProvisioningUpdates DEVELOPMENT_TEAM=#{team_id} SWIFT_VERSION=5.0")
 
     UI.success("✅ iOS #{build_type} build completed!")
   end
@@ -157,7 +158,7 @@ platform :ios do
 
     # Archive the app
     UI.important("📦 Archiving iOS app...")
-    sh("cd ../platforms/ios && xcodebuild -workspace \"#{workspace_path}\" -scheme \"#{scheme_name}\" -configuration Release -derivedDataPath build -archivePath build/BetterIslamQA.xcarchive archive -allowProvisioningUpdates")
+    sh("cd ../platforms/ios && xcodebuild -workspace \"#{workspace_path}\" -scheme \"#{scheme_name}\" -configuration Release -derivedDataPath build -archivePath build/BetterIslamQA.xcarchive archive -allowProvisioningUpdates DEVELOPMENT_TEAM=#{team_id} SWIFT_VERSION=5.0 CODE_SIGN_STYLE=Automatic")
 
     # Export IPA with automatic code signing
     UI.important("📤 Exporting IPA with automatic code signing...")
