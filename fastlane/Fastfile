@@ -179,7 +179,7 @@ platform :ios do
     build_release
 
     # Get API Key from environment or file
-    api_key_path = ENV['FASTLANE_API_KEY_PATH'] || File.expand_path('../../.fastlane/api_key.json')
+    api_key_path = ENV['FASTLANE_API_KEY_PATH'] || File.expand_path('~/.fastlane/api_key.p8')
 
     unless File.exist?(api_key_path)
       UI.error("❌ API Key not found at #{api_key_path}")
@@ -228,7 +228,7 @@ platform :ios do
     build_release
 
     # Get API Key from environment or file
-    api_key_path = ENV['FASTLANE_API_KEY_PATH'] || File.expand_path('../../.fastlane/api_key.json')
+    api_key_path = ENV['FASTLANE_API_KEY_PATH'] || File.expand_path('~/.fastlane/api_key.p8')
 
     unless File.exist?(api_key_path)
       UI.error("❌ API Key not found at #{api_key_path}")
