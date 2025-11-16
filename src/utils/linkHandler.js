@@ -152,6 +152,11 @@ export function setupLinkHandlers(container, router) {
  * Alternative approach: Process answer HTML to convert links before rendering
  * This can be used if you prefer to modify the HTML before v-html rendering
  *
+ * Handles Vue Router hash mode by:
+ * - Converting cross-answer links to /#/question/ID format
+ * - Keeping TOC hash-only links as anchors for smooth scrolling
+ * - Adding classes for styling purposes
+ *
  * @param {string} answerHtml - The raw answer HTML
  * @returns {string} - Processed HTML with converted links
  */
@@ -169,24 +174,31 @@ export function processAnswerLinks(answerHtml) {
     const href = link.getAttribute('href')
     if (!href) return
 
-    // Keep hash links as-is (TOC navigation)
+    // Handle hash/anchor links (TOC navigation)
+    // For hash-only links like #section_name, keep them as-is for smooth scrolling
+    // They won't conflict with routing since they're within the same page
     if (isHashLink(href)) {
-      // Add a class to identify TOC links
+      // Add a class to identify TOC links for potential styling
       link.classList.add('toc-link')
+      // Ensure click handler will scroll to anchor
+      link.setAttribute('data-toc-link', 'true')
       return
     }
 
-    // Convert internal question links to app format
+    // Convert internal question links to app router format
+    // Pattern matching handles: /en/answers/123, https://islamqa.info/en/answers/123, etc.
     const questionRef = extractQuestionReference(href)
     if (questionRef !== null) {
-      link.setAttribute('href', `/question/${questionRef}`)
+      // Convert to Vue Router hash mode format: /#/question/49023
+      link.setAttribute('href', `/#/question/${questionRef}`)
       link.classList.add('internal-link')
-      // Remove target="_blank" for internal navigation
+      // Remove target="_blank" for internal navigation to work smoothly
       link.removeAttribute('target')
+      console.log(`🔗 Converted link: ${href} → /#/question/${questionRef}`)
       return
     }
 
-    // Mark external links
+    // Mark and configure external links
     link.classList.add('external-link')
     link.setAttribute('target', '_blank')
     link.setAttribute('rel', 'noopener noreferrer')

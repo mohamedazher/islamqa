@@ -41,9 +41,9 @@
         <!-- Answer Section -->
         <div class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-900/50 p-6">
           <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Answer</h3>
-          <!-- UPDATED: Changed to access answer directly from currentQuestion (no longer separate table) -->
-          <!-- Added ref to handle link clicks programmatically -->
-          <div ref="answerContainer" class="prose prose-sm dark:prose-invert max-w-none text-neutral-700 dark:text-neutral-300" v-html="currentQuestion.answer"></div>
+          <!-- UPDATED: Process answer links before rendering to convert cross-answer links and TOC links -->
+          <!-- Added ref to handle any remaining link interactions -->
+          <div ref="answerContainer" class="prose prose-sm dark:prose-invert max-w-none text-neutral-700 dark:text-neutral-300" v-html="processedAnswer"></div>
         </div>
 
         <!-- Related Questions Section -->
@@ -101,7 +101,7 @@ import Icon from '@/components/common/Icon.vue'
 import Button from '@/components/common/Button.vue'
 import { shareQuestion } from '@/utils/sharing'
 import { getRelatedQuestionsData } from '@/utils/relatedQuestions'
-import { setupLinkHandlers } from '@/utils/linkHandler'
+import { setupLinkHandlers, processAnswerLinks } from '@/utils/linkHandler'
 
 const router = useRouter()
 const route = useRoute()
@@ -110,11 +110,53 @@ const gamificationStore = useGamificationStore()
 
 const currentQuestion = ref(null)
 const currentAnswer = ref(null)
+const processedAnswer = ref('')
 const loading = ref(false)
 const isBookmarked = ref(false)
 const relatedQuestions = ref([])
 const loadingRelated = ref(false)
 const answerContainer = ref(null)
+
+/**
+ * Setup click handlers for TOC (Table of Contents) links
+ * Handles smooth scrolling to anchor elements within the page
+ * @param {HTMLElement} container - The container with the answer HTML
+ */
+function setupTocLinkHandlers(container) {
+  if (!container) return
+
+  // Find all TOC links marked by processAnswerLinks
+  const tocLinks = container.querySelectorAll('a[data-toc-link], a.toc-link, a[href^="#"]')
+  console.log(`📍 Found ${tocLinks.length} TOC links`)
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      const href = link.getAttribute('href')
+      if (!href || !href.startsWith('#')) return
+
+      event.preventDefault()
+      event.stopPropagation()
+
+      const targetId = href.substring(1)
+      const targetElement = document.getElementById(targetId)
+
+      if (targetElement) {
+        console.log('✅ Scrolling to TOC section:', targetId)
+        // Calculate offset for sticky header (100px as defined in linkHandler)
+        const headerOffset = 100
+        const elementPosition = targetElement.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+      } else {
+        console.warn('❌ TOC target not found:', targetId)
+      }
+    })
+  })
+}
 
 async function loadQuestion() {
   try {
@@ -129,6 +171,10 @@ async function loadQuestion() {
     console.log('Question loaded:', question)
 
     currentQuestion.value = question
+    // Process answer links to convert cross-answer links and handle TOC anchors
+    if (question && question.answer) {
+      processedAnswer.value = processAnswerLinks(question.answer)
+    }
     // DEPRECATED: No longer need separate answer query - answer is in question.answer
 
     // Track question read for gamification (only unique questions count)
@@ -160,11 +206,12 @@ async function loadQuestion() {
       }
     }
 
-    // Setup link handlers after content is rendered
+    // Setup link handlers for TOC smooth scrolling after content is rendered
     await nextTick()
     if (answerContainer.value) {
-      setupLinkHandlers(answerContainer.value, router)
-      console.log('Link handlers setup complete')
+      // Setup handlers for TOC links to ensure smooth scrolling
+      setupTocLinkHandlers(answerContainer.value)
+      console.log('TOC link handlers setup complete')
     }
   } catch (error) {
     console.error('Error loading question:', error)
