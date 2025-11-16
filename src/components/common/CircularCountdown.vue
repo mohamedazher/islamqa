@@ -99,10 +99,12 @@ const radius = computed(() => (100 - props.strokeWidth) / 2)
 const circumference = computed(() => 2 * Math.PI * radius.value)
 
 // Calculate progress offset
+// Shows remaining time: circle empties as time runs out
 const dashOffset = computed(() => {
   const maxDuration = props.maxDuration || props.totalSeconds
   const progress = props.totalSeconds / maxDuration
-  return circumference.value * (1 - progress)
+  // Use progress directly (not 1-progress) so circle empties as time decreases
+  return circumference.value * progress
 })
 
 // Format time display

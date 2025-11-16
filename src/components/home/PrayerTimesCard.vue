@@ -61,24 +61,43 @@
         </div>
 
         <!-- Current Prayer Window or Next Prayer -->
-        <div v-if="currentPrayerWindow" class="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3">
-          <div class="text-xs text-white/80 mb-2">Current Prayer Time</div>
+        <div
+          v-if="currentPrayerWindow"
+          class="rounded-lg px-4 py-3 transition-all duration-500"
+          :class="currentPrayerWindow.hours === 0 && currentPrayerWindow.minutes < 10
+            ? 'bg-red-500/20 backdrop-blur-sm border-2 border-red-400/50 shadow-lg shadow-red-500/20'
+            : 'bg-white/10 backdrop-blur-sm'"
+        >
+          <div class="flex items-center justify-between mb-2">
+            <div class="text-xs text-white/80">Current Prayer Time</div>
+            <!-- Urgent indicator when <10 min -->
+            <div
+              v-if="currentPrayerWindow.hours === 0 && currentPrayerWindow.minutes < 10"
+              class="flex items-center gap-1 text-xs font-bold text-red-200 animate-pulse"
+            >
+              <Icon name="exclamation" size="xs" />
+              <span>Time running out!</span>
+            </div>
+          </div>
           <div class="flex items-center justify-between gap-4">
             <div class="flex-1">
               <div class="text-2xl font-bold">{{ currentPrayerWindow.prayer }} Time</div>
               <div class="text-xs text-white/80 mt-1">{{ currentPrayerWindow.startFormatted }} - {{ currentPrayerWindow.endTime }}</div>
             </div>
-            <div>
+            <div
+              :class="currentPrayerWindow.hours === 0 && currentPrayerWindow.minutes < 10 ? 'animate-pulse' : ''"
+            >
               <CircularCountdown
                 :hours="currentPrayerWindow.hours"
                 :minutes="currentPrayerWindow.minutes"
                 :seconds="currentPrayerWindow.seconds"
                 :total-seconds="currentPrayerWindow.hours * 3600 + currentPrayerWindow.minutes * 60 + currentPrayerWindow.seconds"
+                :max-duration="currentPrayerWindow.maxDuration"
                 :size="80"
                 :stroke-width="6"
-                progress-color="white"
+                :progress-color="currentPrayerWindow.hours === 0 && currentPrayerWindow.minutes < 10 ? '#ef4444' : 'white'"
                 bg-color="rgba(255, 255, 255, 0.2)"
-                label="until end"
+                label="remaining"
                 format="auto"
               />
             </div>
@@ -317,13 +336,19 @@ const updatePrayerInfo = () => {
     const currentWindow = prayerTimesService.getCurrentPrayerWindow()
     if (currentWindow) {
       const timeRemaining = prayerTimesService.getTimeRemainingInCurrentPrayer()
+
+      // Calculate total window duration (in seconds) for progress calculation
+      const windowDurationMs = currentWindow.end - currentWindow.start
+      const windowDurationSeconds = Math.floor(windowDurationMs / 1000)
+
       currentPrayerWindow.value = {
         prayer: currentWindow.name,
         startFormatted: currentWindow.startFormatted,
         endTime: timeRemaining?.endTime || currentWindow.endFormatted,
         hours: timeRemaining?.hours || 0,
         minutes: timeRemaining?.minutes || 0,
-        seconds: timeRemaining?.seconds || 0
+        seconds: timeRemaining?.seconds || 0,
+        maxDuration: windowDurationSeconds // Total duration for progress circle
       }
     } else {
       currentPrayerWindow.value = null

@@ -10,6 +10,9 @@ export const useDataStore = defineStore('data', () => {
   const isLoading = ref(false)
   const isReady = ref(false)
 
+  // Cache for root categories (frequently accessed in quiz view)
+  const rootCategoriesCache = ref(null)
+
   /**
    * Initialize the store (check if database is ready)
    */
@@ -20,6 +23,10 @@ export const useDataStore = defineStore('data', () => {
       if (hasData) {
         const stats = await dexieDb.getStats()
         console.log('✅ Data store initialized:', stats)
+
+        // Preload root categories for faster quiz view loading
+        rootCategoriesCache.value = await dexieDb.getCategories(null)
+        console.log(`✅ Cached ${rootCategoriesCache.value.length} root categories`)
       } else {
         console.log('⚠️  Database is empty, need to import data')
       }
@@ -32,9 +39,14 @@ export const useDataStore = defineStore('data', () => {
   /**
    * Get categories by parent reference
    * UPDATED: Uses parent_reference (semantic ID) instead of parentElement
+   * OPTIMIZED: Uses cache for root categories (null parent)
    */
   async function getCategoriesByParent(parentReference = null) {
     try {
+      // Use cache for root categories
+      if (parentReference === null && rootCategoriesCache.value !== null) {
+        return rootCategoriesCache.value
+      }
       return await dexieDb.getCategories(parentReference)
     } catch (error) {
       console.error('Error getting categories:', error)
