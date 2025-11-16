@@ -164,20 +164,6 @@ jobs:
         env:
           PLAY_STORE_JSON_KEY: ${{ env.PLAY_STORE_JSON_KEY }}
 
-      - name: Create GitHub Release
-        if: steps.deploy_target.outputs.target == 'production' && github.ref == 'refs/heads/master' && success()
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: v${{ github.run_number }}-android
-          name: Android Release v${{ github.run_number }}
-          draft: false
-          prerelease: false
-          files: |
-            platforms/android/app/build/outputs/apk/release/app-release.apk
-            platforms/android/app/build/outputs/bundle/release/app-release.aab
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Cleanup sensitive files
         if: always()
         run: rm -f uploadkey.jks build.json google-play-api-key.json google-services.json
