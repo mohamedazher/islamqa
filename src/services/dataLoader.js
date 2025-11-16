@@ -50,20 +50,42 @@ class DataLoaderService {
 
       const categoriesData = await this.loadCategories()
       if (categoriesData && categoriesData.length > 0) {
-        await dexieDb.importCategories(categoriesData)
-        this.progress = 40
-        if (onProgress) onProgress({ step: `Categories imported (${categoriesData.length} total)`, progress: 40 })
+        // Import with progress updates (10% to 30%)
+        await dexieDb.importCategories(categoriesData, (batchProgress) => {
+          const batchPercent = batchProgress.percentage / 100
+          const overallProgress = 10 + (batchPercent * 20) // 10% base + up to 20% for categories
+          this.progress = overallProgress
+          if (onProgress) {
+            onProgress({
+              step: `Importing categories (${batchProgress.itemsProcessed}/${batchProgress.totalItems})`,
+              progress: overallProgress
+            })
+          }
+        })
+        this.progress = 30
+        if (onProgress) onProgress({ step: `Categories imported (${categoriesData.length} total)`, progress: 30 })
       }
 
       // Step 2: Load and import questions (single file now)
       this.currentStep = 'Loading questions...'
-      if (onProgress) onProgress({ step: this.currentStep, progress: 50 })
+      if (onProgress) onProgress({ step: this.currentStep, progress: 35 })
 
       const questionsData = await this.loadQuestions()
       if (questionsData && questionsData.length > 0) {
-        await dexieDb.importQuestions(questionsData)
-        this.progress = 80
-        if (onProgress) onProgress({ step: `Questions imported (${questionsData.length} total)`, progress: 80 })
+        // Import with progress updates (40% to 75%)
+        await dexieDb.importQuestions(questionsData, (batchProgress) => {
+          const batchPercent = batchProgress.percentage / 100
+          const overallProgress = 40 + (batchPercent * 35) // 40% base + up to 35% for questions
+          this.progress = overallProgress
+          if (onProgress) {
+            onProgress({
+              step: `Importing questions (${batchProgress.itemsProcessed}/${batchProgress.totalItems})`,
+              progress: overallProgress
+            })
+          }
+        })
+        this.progress = 75
+        if (onProgress) onProgress({ step: `Questions imported (${questionsData.length} total)`, progress: 75 })
       }
 
       // Note: Answers are now embedded in questions.answer field
@@ -71,15 +93,15 @@ class DataLoaderService {
 
       // Step 3: Load and import quiz questions (LLM-generated)
       this.currentStep = 'Loading quiz questions...'
-      if (onProgress) onProgress({ step: this.currentStep, progress: 85 })
+      if (onProgress) onProgress({ step: this.currentStep, progress: 80 })
 
       const quizQuestionsData = await this.loadQuizQuestions()
       if (quizQuestionsData && quizQuestionsData.length > 0) {
         await dexieDb.bulkImportQuizQuestions(quizQuestionsData)
-        this.progress = 95
-        if (onProgress) onProgress({ step: `Quiz questions imported (${quizQuestionsData.length} total)`, progress: 95 })
+        this.progress = 90
+        if (onProgress) onProgress({ step: `Quiz questions imported (${quizQuestionsData.length} total)`, progress: 90 })
       } else {
-        if (onProgress) onProgress({ step: 'No quiz questions available yet', progress: 95 })
+        if (onProgress) onProgress({ step: 'No quiz questions available yet', progress: 90 })
       }
 
       // Mark as imported

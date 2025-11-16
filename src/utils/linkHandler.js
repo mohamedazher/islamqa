@@ -13,24 +13,34 @@
  * - /en/answers/49023
  * - /ar/answers/12345
  * - https://islamqa.info/en/answers/49023
+ * - https://islamqa.com/en/answers/49023
+ * - https://mohamedazher.github.io/en/answers/49023
  * - https://mohamedazher.github.io/islamqa/#/question/329
  *
  * @param {string} href - The link href attribute
  * @returns {number|null} - The question reference number, or null if not found
  */
 function extractQuestionReference(href) {
-  // Pattern 1: /en/answers/NUMBER or /ar/answers/NUMBER
+  if (!href) return null
+
+  // Pattern 1: /en/answers/NUMBER or /ar/answers/NUMBER (most common in answer HTML)
+  // Matches: https://islamqa.info/en/answers/49023, https://mohamedazher.github.io/en/answers/49023, /en/answers/49023
   const answerPattern = /\/(en|ar)\/answers\/(\d+)/
   const answerMatch = href.match(answerPattern)
   if (answerMatch) {
-    return parseInt(answerMatch[2], 10)
+    const ref = parseInt(answerMatch[2], 10)
+    console.log(`📝 Extracted question reference ${ref} from answer URL: ${href}`)
+    return ref
   }
 
   // Pattern 2: /question/NUMBER (already in app format)
+  // Matches: /question/49023, #/question/49023
   const questionPattern = /\/question\/(\d+)/
   const questionMatch = href.match(questionPattern)
   if (questionMatch) {
-    return parseInt(questionMatch[1], 10)
+    const ref = parseInt(questionMatch[1], 10)
+    console.log(`📝 Extracted question reference ${ref} from question URL: ${href}`)
+    return ref
   }
 
   return null
@@ -63,10 +73,22 @@ function scrollToAnchor(hash) {
   const targetElement = document.getElementById(targetId)
 
   if (targetElement) {
-    targetElement.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
+    console.log('✅ Found target element with ID:', targetId)
+
+    // Calculate offset for sticky header (80px as defined in CSS)
+    const headerOffset = 100
+    const elementPosition = targetElement.getBoundingClientRect().top
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
     })
+  } else {
+    console.warn('❌ Target element not found:', targetId)
+    console.log('Available IDs in document:',
+      Array.from(document.querySelectorAll('[id]')).map(el => el.id)
+    )
   }
 }
 
@@ -78,33 +100,50 @@ function scrollToAnchor(hash) {
  * @param {Object} router - Vue Router instance
  */
 export function setupLinkHandlers(container, router) {
-  if (!container) return
+  if (!container) {
+    console.warn('⚠️  setupLinkHandlers: container is null')
+    return
+  }
 
   // Find all links in the answer content
   const links = container.querySelectorAll('a')
+  console.log(`🔗 Found ${links.length} links to process`)
 
   links.forEach(link => {
-    link.addEventListener('click', (event) => {
-      const href = link.getAttribute('href')
+    // Remove any existing click handlers to prevent duplicates
+    const newLink = link.cloneNode(true)
+    link.parentNode.replaceChild(newLink, link)
+
+    newLink.addEventListener('click', (event) => {
+      const href = newLink.getAttribute('href')
       if (!href) return
 
+      console.log('🖱️  Link clicked:', href)
+
       // Handle hash/anchor links (TOC navigation)
+      // These are links like #section_name that should scroll within the page
       if (isHashLink(href)) {
         event.preventDefault()
+        event.stopPropagation()
+        console.log('📍 Scrolling to anchor:', href)
         scrollToAnchor(href)
         return
       }
 
       // Handle internal question links
+      // These are links like /en/answers/49023 or https://islamqa.info/en/answers/49023
       const questionRef = extractQuestionReference(href)
       if (questionRef !== null) {
         event.preventDefault()
+        event.stopPropagation()
+        console.log('➡️  Navigating to question:', questionRef)
         router.push(`/question/${questionRef}`)
         return
       }
 
       // For all other links (external), let them open normally
       // The target="_blank" attribute will handle opening in new tab if specified
+      console.log('🌐 External link, opening normally:', href)
     })
   })
 }
