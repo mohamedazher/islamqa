@@ -452,7 +452,7 @@
             Links
           </h2>
         </div>
-        <div class="divide-y divide-neutral-200 dark:divide-neutral-800">
+        <div>
           <a
             href="https://islamqa.info"
             target="_blank"
@@ -463,39 +463,7 @@
               <Icon name="globe" size="md" class="text-neutral-600 dark:text-neutral-400" />
               <div>
                 <div class="font-medium text-neutral-900 dark:text-neutral-100">IslamQA.info</div>
-                <div class="text-xs text-neutral-600 dark:text-neutral-400">Original source</div>
-              </div>
-            </div>
-            <Icon name="chevronRight" size="sm" class="text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors" />
-          </a>
-
-          <a
-            href="https://github.com/mohamedazher/islamqa"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-between px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors group"
-          >
-            <div class="flex items-center gap-3">
-              <Icon name="code" size="md" class="text-neutral-600 dark:text-neutral-400" />
-              <div>
-                <div class="font-medium text-neutral-900 dark:text-neutral-100">Source Code</div>
-                <div class="text-xs text-neutral-600 dark:text-neutral-400">View on GitHub</div>
-              </div>
-            </div>
-            <Icon name="chevronRight" size="sm" class="text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors" />
-          </a>
-
-          <a
-            href="https://github.com/mohamedazher/islamqa/issues"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-between px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors group"
-          >
-            <div class="flex items-center gap-3">
-              <Icon name="exclamation" size="md" class="text-neutral-600 dark:text-neutral-400" />
-              <div>
-                <div class="font-medium text-neutral-900 dark:text-neutral-100">Report Issue</div>
-                <div class="text-xs text-neutral-600 dark:text-neutral-400">Bug reports & feedback</div>
+                <div class="text-xs text-neutral-600 dark:text-neutral-400">Visit the official website</div>
               </div>
             </div>
             <Icon name="chevronRight" size="sm" class="text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors" />
@@ -596,25 +564,103 @@
         </div>
       </section>
 
-      <!-- Legal Section -->
-      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
-        <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
-          <h2 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
-            <Icon name="shield" size="md" class="text-primary-600 dark:text-primary-400" />
-            Legal
+      <!-- Important Disclaimer Section -->
+      <section class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden border-2 border-blue-200 dark:border-blue-800">
+        <div class="px-4 py-3 bg-blue-100 dark:bg-blue-900/30 border-b-2 border-blue-200 dark:border-blue-800">
+          <h2 class="text-base sm:text-lg font-bold text-blue-900 dark:text-blue-100 flex items-center gap-2">
+            <Icon name="info" size="md" class="text-blue-600 dark:text-blue-400" />
+            Important Notice
           </h2>
         </div>
-        <div class="p-4 space-y-3">
-          <div>
-            <h3 class="font-medium text-neutral-900 dark:text-neutral-100 mb-1">Content Source</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">
-              All Islamic content is sourced from <a href="https://islamqa.info" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">IslamQA.info</a> and is used with respect to their terms of use.
+        <div class="p-4 space-y-4">
+          <!-- Unofficial App Notice -->
+          <div class="bg-white dark:bg-neutral-900/50 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+            <div class="flex items-start gap-3">
+              <Icon name="exclamation" size="md" class="text-orange-600 dark:text-orange-400 mt-0.5 flex-shrink-0" />
+              <div>
+                <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">This is NOT the Official App</h3>
+                <p class="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                  This app is an independent, community-driven project created to make Islamic knowledge more accessible.
+                  It is <strong>not affiliated with or endorsed by IslamQA.info</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Source -->
+          <div class="bg-white dark:bg-neutral-900/50 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+            <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2 flex items-center gap-2">
+              <Icon name="document" size="sm" class="text-primary-600 dark:text-primary-400" />
+              Content Source
+            </h3>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+              All Islamic Q&A content is sourced from
+              <a href="https://islamqa.info" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline font-semibold">IslamQA.info</a>,
+              a trusted resource supervised by Sheikh Muhammad Saalih al-Munajjid. The content is used with respect to their terms of use.
             </p>
           </div>
-          <div>
-            <h3 class="font-medium text-neutral-900 dark:text-neutral-100 mb-1">Disclaimer</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">
-              This is an unofficial app created to provide offline access to Islamic Q&A content. For the most up-to-date content, please visit the official website.
+
+          <!-- Support Original Source -->
+          <div class="bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-950/40 dark:to-accent-950/40 rounded-lg p-4 border-2 border-primary-200 dark:border-primary-800">
+            <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2 flex items-center gap-2">
+              <Icon name="heart" size="sm" class="text-red-500" />
+              Please Support the Original Source
+            </h3>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed mb-3">
+              IslamQA.info provides an invaluable service to the Muslim community. They rely on donations to continue their important work of spreading authentic Islamic knowledge.
+            </p>
+            <a
+              href="https://islamqa.info/en/about/donate"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-primary-600 to-accent-600 dark:from-primary-700 dark:to-accent-700 text-white rounded-lg font-semibold hover:from-primary-700 hover:to-accent-700 dark:hover:from-primary-600 dark:hover:to-accent-600 transition-all shadow-md hover:shadow-lg"
+            >
+              <Icon name="heart" size="sm" />
+              Donate to IslamQA.info
+            </a>
+          </div>
+
+          <!-- Purpose of This App -->
+          <div class="bg-white dark:bg-neutral-900/50 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+            <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2 flex items-center gap-2">
+              <Icon name="lightning" size="sm" class="text-accent-600 dark:text-accent-400" />
+              Purpose of This App
+            </h3>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+              This app was created to reach a larger audience by providing:
+            </p>
+            <ul class="mt-2 space-y-1 text-sm text-neutral-700 dark:text-neutral-300">
+              <li class="flex items-start gap-2">
+                <span class="text-primary-600 dark:text-primary-400 mt-0.5">•</span>
+                <span>Full offline access to Islamic Q&A content</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-600 dark:text-primary-400 mt-0.5">•</span>
+                <span>Enhanced search and browsing capabilities</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-600 dark:text-primary-400 mt-0.5">•</span>
+                <span>Bookmark management and personal organization</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-600 dark:text-primary-400 mt-0.5">•</span>
+                <span>Interactive quizzes for learning and retention</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-600 dark:text-primary-400 mt-0.5">•</span>
+                <span>Prayer times and Qibla direction features</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- For Latest Content -->
+          <div class="bg-amber-50 dark:bg-amber-950/30 rounded-lg p-3 border border-amber-200 dark:border-amber-800">
+            <p class="text-xs text-amber-900 dark:text-amber-100 leading-relaxed flex items-start gap-2">
+              <Icon name="info" size="sm" class="text-amber-600 dark:text-amber-400 mt-0.5 flex-shrink-0" />
+              <span>
+                <strong>For the most up-to-date content and new questions,</strong> always visit
+                <a href="https://islamqa.info" target="_blank" class="underline font-semibold">IslamQA.info</a>
+              </span>
             </p>
           </div>
         </div>
