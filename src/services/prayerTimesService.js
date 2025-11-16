@@ -787,6 +787,18 @@ class PrayerTimesService {
   }
 
   /**
+   * Reload all settings from localStorage
+   * This ensures the service instance has the latest saved values
+   */
+  reloadSettings() {
+    this.location = this.loadLocation()
+    this.locationName = this.loadLocationName()
+    this.calculationMethod = this.loadCalculationMethod()
+    this.madhab = this.loadMadhab()
+    this.highLatitudeRule = this.loadHighLatitudeRule()
+  }
+
+  /**
    * Get current settings
    */
   getSettings() {

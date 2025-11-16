@@ -259,6 +259,9 @@ const loadPrayerTimes = () => {
     isLoading.value = true
     error.value = null
 
+    // Reload settings from localStorage to get latest values
+    prayerTimesService.reloadSettings()
+
     hasLocation.value = prayerTimesService.hasLocation()
 
     if (hasLocation.value) {
