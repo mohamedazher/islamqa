@@ -5,25 +5,26 @@ on:
     branches:
       - master
       - main
-  pull_request:
-    branches:
-      - master
-      - main
   workflow_dispatch:
     inputs:
       deployment_target:
         description: 'Deployment target'
         required: true
-        default: 'build'
+        default: 'beta'
         type: choice
         options:
-          - build        # Build only (no deployment)
           - beta         # Deploy to Open Testing
           - production   # Deploy to Production (use with caution!)
 
 jobs:
   android:
     runs-on: ubuntu-latest
+    # Only run if commit message contains deployment tag OR manual workflow dispatch
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.head_commit.message, '[beta]') ||
+      contains(github.event.head_commit.message, '[release]') ||
+      contains(github.event.head_commit.message, '[production]')
 
     steps:
       - name: Checkout code
@@ -44,9 +45,6 @@ jobs:
           elif [[ $COMMIT_MSG == *"[beta]"* ]]; then
             echo "target=beta" >> $GITHUB_OUTPUT
             echo "Detected [beta] tag → Deploying to Open Testing"
-          else
-            echo "target=build" >> $GITHUB_OUTPUT
-            echo "No deployment tag found → Build only"
           fi
 
       - name: Setup Node.js
@@ -132,10 +130,6 @@ jobs:
       - name: Build Vite app
         run: yarn build
 
-      - name: Build Android APK (Debug)
-        if: steps.deploy_target.outputs.target == 'build'
-        run: cordova build android --debug
-
       - name: Build Android APK (Release)
         if: steps.deploy_target.outputs.target == 'beta' || steps.deploy_target.outputs.target == 'production'
         run: cordova build android --release
@@ -163,20 +157,6 @@ jobs:
         run: bundle exec fastlane android production
         env:
           PLAY_STORE_JSON_KEY: ${{ env.PLAY_STORE_JSON_KEY }}
-
-      - name: Create GitHub Release
-        if: steps.deploy_target.outputs.target == 'production' && github.ref == 'refs/heads/master' && success()
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: v${{ github.run_number }}-android
-          name: Android Release v${{ github.run_number }}
-          draft: false
-          prerelease: false
-          files: |
-            platforms/android/app/build/outputs/apk/release/app-release.apk
-            platforms/android/app/build/outputs/bundle/release/app-release.aab
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Cleanup sensitive files
         if: always()
