@@ -6,8 +6,16 @@ app_identifier("com.dkurve.betterislamqa")
 # Apple ID for App Store Connect (iOS)
 apple_id(ENV["APPLE_ID"] || "mohamedazher@gmail.com")
 
-# Team ID for iOS (get from Apple Developer portal)
-# itc_team_id("YOUR_TEAM_ID") # App Store Connect Team ID
-# team_id("YOUR_TEAM_ID") # Developer Portal Team ID
+# Team IDs for iOS
+# Get these from Apple Developer portal or use: fastlane match noop
+itc_team_id(ENV["FASTLANE_ITC_TEAM_ID"])        # App Store Connect Team ID (numeric)
+team_id(ENV["FASTLANE_TEAM_ID"])                # Developer Portal Team ID (alphanumeric)
+
+# API Key credentials (for Fastlane automation)
+# These are used with app_store_connect_api_key in the Fastfile
+# Set these as environment variables before running fastlane
+# - FASTLANE_API_KEY_ID: The key ID from App Store Connect
+# - FASTLANE_API_ISSUER_ID: The issuer ID from App Store Connect
+# - FASTLANE_API_KEY_PATH: Path to the API Key JSON file
 
 # For Android, package name is used in Fastfile lanes

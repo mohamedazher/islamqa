@@ -142,67 +142,121 @@ platform :ios do
     build(release: false)
   end
 
-  desc "Build release IPA for App Store"
-  lane :release do
-    # Increment version
-    sh("cd .. && yarn version:patch")
-
+  desc "Build release IPA for TestFlight/App Store"
+  lane :build_release do
     # Build release version
     build(release: true)
 
-    # Export IPA using xcodebuild
+    # Export IPA using xcodebuild with automatic code signing
     workspace_path = "BetterIslam Q&A.xcworkspace"
     scheme_name = "BetterIslam Q&A"
-    sh("cd ../platforms/ios && xcodebuild -workspace \"#{workspace_path}\" -scheme \"#{scheme_name}\" -configuration Release -derivedDataPath build -archivePath build/BetterIslamQA.xcarchive archive")
-    sh("cd ../platforms/ios/build && xcodebuild -exportArchive -archivePath BetterIslamQA.xcarchive -exportPath . -exportOptionsPlist ../ExportOptions.plist")
+    team_id = ENV['FASTLANE_TEAM_ID']
 
-    UI.success("✅ iOS release IPA created!")
+    # Create export options plist for automatic signing
+    export_opts_path = "ExportOptions.plist"
+
+    # Archive the app
+    UI.important("📦 Archiving iOS app...")
+    sh("cd ../platforms/ios && xcodebuild -workspace \"#{workspace_path}\" -scheme \"#{scheme_name}\" -configuration Release -derivedDataPath build -archivePath build/BetterIslamQA.xcarchive archive -allowProvisioningUpdates")
+
+    # Export IPA with automatic code signing
+    UI.important("📤 Exporting IPA with automatic code signing...")
+    sh("cd ../platforms/ios && xcodebuild -exportArchive -archivePath build/BetterIslamQA.xcarchive -exportPath build -exportOptionsPlist #{export_opts_path} -allowProvisioningUpdates")
+
+    UI.success("✅ iOS release IPA created at platforms/ios/build/BetterIslamQA.ipa!")
   end
 
-  desc "Deploy to TestFlight (local)"
+  desc "Deploy to TestFlight (local) - requires App Store Connect API Key"
   lane :beta do
-    UI.important("🔧 Deploying to TestFlight requires:")
-    UI.important("  - APPLE_ID env var set (Apple ID email)")
-    UI.important("  - FASTLANE_PASSWORD env var set (app-specific password)")
-    UI.important("")
-    UI.important("Set variables and run: fastlane ios beta")
+    UI.important("🚀 TestFlight Deployment")
+    UI.important("================================================")
 
-    # Build release version
-    release
+    # Increment patch version
+    sh("cd .. && yarn version:patch")
 
-    # Upload to TestFlight
-    upload_to_testflight(
-      ipa: 'platforms/ios/build/BetterIslamQA.ipa',
-      skip_waiting_for_build_processing: true,
-      apple_id: ENV['APPLE_ID'],
-      app_identifier: 'com.dkurve.betterislamqa',
-      skip_submission: false
+    # Build release IPA
+    build_release
+
+    # Get API Key from environment or file
+    api_key_path = ENV['FASTLANE_API_KEY_PATH'] || File.expand_path('../../.fastlane/api_key.json')
+
+    unless File.exist?(api_key_path)
+      UI.error("❌ API Key not found at #{api_key_path}")
+      UI.important("Please set FASTLANE_API_KEY_PATH or place api_key.json in .fastlane/ directory")
+      UI.important("See fastlane/README_IOS_SETUP.md for setup instructions")
+      exit 1
+    end
+
+    api_key = app_store_connect_api_key(
+      key_id: ENV['FASTLANE_API_KEY_ID'],
+      issuer_id: ENV['FASTLANE_API_ISSUER_ID'],
+      key_filepath: api_key_path,
+      duration: 1200 # 20 minutes
     )
 
-    UI.success("✅ Successfully deployed to TestFlight!")
+    # Upload to TestFlight
+    UI.important("📤 Uploading to TestFlight...")
+    upload_to_testflight(
+      api_key: api_key,
+      ipa: 'platforms/ios/build/BetterIslamQA.ipa',
+      skip_waiting_for_build_processing: true,
+      skip_submission: false,
+      distribute_external: false
+    )
+
+    UI.success("✅ Successfully uploaded to TestFlight!")
+    UI.success("Visit https://appstoreconnect.apple.com to manage TestFlight builds")
   end
 
-  desc "Deploy to App Store (local)"
+  desc "Deploy to App Store Production (local) - requires App Store Connect API Key"
   lane :production do
-    UI.important("🔧 Deploying to App Store requires:")
-    UI.important("  - APPLE_ID env var set (Apple ID email)")
-    UI.important("  - FASTLANE_PASSWORD env var set (app-specific password)")
-    UI.important("")
-    UI.important("Set variables and run: fastlane ios production")
+    UI.important("🚀 App Store Production Deployment")
+    UI.important("================================================")
+    UI.warn("⚠️  This will submit to App Store for review!")
 
-    # Build release version
-    release
+    # Prompt user for confirmation
+    unless UI.confirm("Are you sure you want to submit to App Store? (type 'yes'):")
+      UI.error("❌ Cancelled")
+      exit 1
+    end
+
+    # Increment patch version
+    sh("cd .. && yarn version:patch")
+
+    # Build release IPA
+    build_release
+
+    # Get API Key from environment or file
+    api_key_path = ENV['FASTLANE_API_KEY_PATH'] || File.expand_path('../../.fastlane/api_key.json')
+
+    unless File.exist?(api_key_path)
+      UI.error("❌ API Key not found at #{api_key_path}")
+      UI.important("Please set FASTLANE_API_KEY_PATH or place api_key.json in .fastlane/ directory")
+      UI.important("See fastlane/README_IOS_SETUP.md for setup instructions")
+      exit 1
+    end
+
+    api_key = app_store_connect_api_key(
+      key_id: ENV['FASTLANE_API_KEY_ID'],
+      issuer_id: ENV['FASTLANE_API_ISSUER_ID'],
+      key_filepath: api_key_path,
+      duration: 1200 # 20 minutes
+    )
 
     # Upload to App Store
+    UI.important("📤 Uploading to App Store...")
     upload_to_app_store(
+      api_key: api_key,
       ipa: 'platforms/ios/build/BetterIslamQA.ipa',
       skip_metadata: true,
       skip_screenshots: true,
-      precheck_include_in_app_purchases: false,
-      force: true
+      force: false,
+      submit_for_review: true,
+      automatic_release: false # Manually release after review
     )
 
-    UI.success("✅ Successfully deployed to App Store!")
+    UI.success("✅ Successfully submitted to App Store!")
+    UI.success("Visit https://appstoreconnect.apple.com to monitor review status")
   end
 
 end
