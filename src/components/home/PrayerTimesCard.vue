@@ -109,35 +109,66 @@
         </div>
       </div>
 
-      <!-- Prayer Times List -->
-      <div class="px-5 py-4 space-y-2">
+      <!-- 7-Day Prayer Times Carousel -->
+      <div class="border-t border-neutral-200 dark:border-neutral-800">
+        <!-- Date Header - Changes based on scroll position -->
+        <div class="px-5 py-3 bg-neutral-50 dark:bg-neutral-900/30">
+          <div class="text-center">
+            <div class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+              {{ currentCarouselDate }}
+            </div>
+            <div class="text-xs text-neutral-600 dark:text-neutral-400 mt-0.5">
+              {{ currentCarouselDayName }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Scrollable Prayer Times Container -->
         <div
-          v-for="prayer in prayersList"
-          :key="prayer.name"
-          class="flex items-center justify-between py-2.5 px-3 rounded-lg transition-all"
-          :class="getPrayerItemClass(prayer.name)"
+          ref="carouselContainer"
+          class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+          @scroll="handleCarouselScroll"
         >
-          <div class="flex items-center gap-3">
+          <!-- Prayer Times for Each Day (Next 7 Days) -->
+          <div
+            v-for="(dayData, index) in weekPrayerTimes"
+            :key="index"
+            class="flex-shrink-0 w-full snap-center px-5 py-4 space-y-2"
+          >
             <div
-              class="w-10 h-10 rounded-full flex items-center justify-center"
-              :class="getPrayerIconClass(prayer.name)"
+              v-for="prayer in dayData.prayers"
+              :key="prayer.name"
+              class="flex items-center justify-between py-2.5 px-3 rounded-lg transition-all bg-transparent hover:bg-neutral-50 dark:hover:bg-neutral-900/50"
             >
-              <Icon :name="getPrayerIcon(prayer.name)" size="md" />
-            </div>
-            <div>
-              <div class="font-semibold text-neutral-900 dark:text-neutral-100">
-                {{ prayer.name }}
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">
+                  <Icon :name="getPrayerIcon(prayer.name)" size="md" />
+                </div>
+                <div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral-100">
+                    {{ prayer.name }}
+                  </div>
+                </div>
               </div>
-              <div v-if="currentPrayer === prayer.name" class="text-xs text-teal-600 dark:text-teal-400 font-medium">
-                Current Prayer
+              <div class="text-right">
+                <div class="text-lg font-mono font-semibold text-neutral-900 dark:text-neutral-100">
+                  {{ prayer.time }}
+                </div>
               </div>
             </div>
           </div>
-          <div class="text-right">
-            <div class="text-lg font-mono font-semibold text-neutral-900 dark:text-neutral-100">
-              {{ prayer.time }}
-            </div>
-          </div>
+        </div>
+
+        <!-- Carousel Dots Indicator -->
+        <div class="flex items-center justify-center gap-1.5 px-5 py-3 bg-neutral-50 dark:bg-neutral-900/30">
+          <button
+            v-for="(day, index) in weekPrayerTimes"
+            :key="index"
+            @click="scrollToDay(index)"
+            class="transition-all duration-300"
+            :class="currentDayIndex === index ? 'w-6 h-2 bg-teal-600 dark:bg-teal-500 rounded-full' : 'w-2 h-2 bg-neutral-300 dark:bg-neutral-700 rounded-full hover:bg-neutral-400 dark:hover:bg-neutral-600'"
+            :aria-label="`View ${day.shortDate}`"
+          ></button>
         </div>
       </div>
 
@@ -197,6 +228,11 @@ const currentPrayerWindow = ref(null)
 const nextPrayerInfo = ref(null)
 const error = ref(null)
 const currentTime = ref(new Date())
+
+// Carousel state
+const carouselContainer = ref(null)
+const weekPrayerTimes = ref([])
+const currentDayIndex = ref(0)
 
 // Dynamic styling based on time of day
 const timePeriodGradient = ref(null)
@@ -262,6 +298,9 @@ const loadPrayerTimes = () => {
       timePeriodIcon.value = prayerTimesService.getTimePeriodIcon()
 
       updatePrayerInfo()
+
+      // Generate 7 days of prayer times for carousel
+      generateWeekPrayerTimes()
     }
   } catch (e) {
     console.error('Failed to load prayer times:', e)
@@ -359,6 +398,31 @@ const currentDate = computed(() => {
   })
 })
 
+// Current carousel date (based on scroll position)
+const currentCarouselDate = computed(() => {
+  if (weekPrayerTimes.value.length === 0 || currentDayIndex.value >= weekPrayerTimes.value.length) {
+    return ''
+  }
+  return weekPrayerTimes.value[currentDayIndex.value]?.fullDate || ''
+})
+
+// Current carousel day name
+const currentCarouselDayName = computed(() => {
+  if (weekPrayerTimes.value.length === 0 || currentDayIndex.value >= weekPrayerTimes.value.length) {
+    return ''
+  }
+  const dayData = weekPrayerTimes.value[currentDayIndex.value]
+  if (!dayData) return ''
+
+  // Add helpful labels for today/tomorrow
+  if (currentDayIndex.value === 0) {
+    return `${dayData.dayName} (Today)`
+  } else if (currentDayIndex.value === 1) {
+    return `${dayData.dayName} (Tomorrow)`
+  }
+  return dayData.dayName
+})
+
 // Prayer item styling
 const getPrayerItemClass = (prayerName) => {
   if (currentPrayer.value === prayerName) {
@@ -386,6 +450,77 @@ const getPrayerIcon = (prayerName) => {
     'Isha': 'moon'
   }
   return icons[prayerName] || 'sun'
+}
+
+// Generate 7 days of prayer times
+const generateWeekPrayerTimes = () => {
+  if (!hasLocation.value) {
+    weekPrayerTimes.value = []
+    return
+  }
+
+  try {
+    const times = []
+    const today = new Date()
+
+    for (let i = 0; i < 7; i++) {
+      const date = new Date(today)
+      date.setDate(today.getDate() + i)
+
+      // Get prayer times for this date (prayerTimesService.getFormattedPrayerTimes accepts a date parameter)
+      const dayTimes = prayerTimesService.getFormattedPrayerTimes(date)
+
+      times.push({
+        date: date,
+        dayName: date.toLocaleDateString('en-US', { weekday: 'long' }),
+        shortDate: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+        fullDate: date.toLocaleDateString('en-US', { weekday: 'short', month: 'long', day: 'numeric', year: 'numeric' }),
+        prayers: [
+          { name: 'Fajr', time: dayTimes.fajr },
+          { name: 'Sunrise', time: dayTimes.sunrise },
+          { name: 'Dhuhr', time: dayTimes.dhuhr },
+          { name: 'Asr', time: dayTimes.asr },
+          { name: 'Maghrib', time: dayTimes.maghrib },
+          { name: 'Isha', time: dayTimes.isha }
+        ]
+      })
+    }
+
+    weekPrayerTimes.value = times
+  } catch (e) {
+    console.error('Failed to generate week prayer times:', e)
+    weekPrayerTimes.value = []
+  }
+}
+
+// Handle carousel scroll to update current day index
+const handleCarouselScroll = () => {
+  if (!carouselContainer.value || weekPrayerTimes.value.length === 0) return
+
+  const container = carouselContainer.value
+  const scrollLeft = container.scrollLeft
+  const cardWidth = container.offsetWidth
+  const newIndex = Math.round(scrollLeft / cardWidth)
+
+  if (newIndex !== currentDayIndex.value && newIndex >= 0 && newIndex < weekPrayerTimes.value.length) {
+    currentDayIndex.value = newIndex
+  }
+}
+
+// Scroll to specific day (when dot is clicked)
+const scrollToDay = (index) => {
+  if (!carouselContainer.value || index < 0 || index >= weekPrayerTimes.value.length) return
+
+  const container = carouselContainer.value
+  const cardWidth = container.offsetWidth
+  const scrollPosition = index * cardWidth
+
+  container.scrollTo({
+    left: scrollPosition,
+    behavior: 'smooth'
+  })
+
+  currentDayIndex.value = index
 }
 
 // Navigate to detailed prayer times view
