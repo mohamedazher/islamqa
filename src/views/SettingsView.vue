@@ -985,6 +985,9 @@ async function handleUpdateUsername() {
 // Prayer Times functions
 function loadPrayerSettings() {
   try {
+    // Force reload from localStorage to ensure we have the latest values
+    prayerTimesService.reloadSettings()
+
     const settings = prayerTimesService.getSettings()
     prayerSettings.value = {
       location: settings.location,
@@ -1006,6 +1009,8 @@ function loadPrayerSettings() {
         console.error('Failed to calculate Qibla direction:', e)
       }
     }
+
+    console.log('✅ Prayer settings loaded:', prayerSettings.value)
   } catch (error) {
     console.error('Failed to load prayer settings:', error)
   }

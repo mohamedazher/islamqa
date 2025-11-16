@@ -41,11 +41,14 @@
 
     <!-- Prayer Times Display -->
     <Card v-else padding="none" class="relative overflow-hidden cursor-pointer hover:shadow-lg transition-all" @click="openDetailedView">
-      <!-- Header Section with Current Prayer Window -->
-      <div class="bg-gradient-to-r from-teal-500 to-cyan-500 dark:from-teal-600 dark:to-cyan-600 text-white px-5 py-4">
+      <!-- Header Section with Current Prayer Window - Dynamic gradient based on time of day -->
+      <div
+        class="bg-gradient-to-r text-white px-5 py-4 transition-all duration-1000"
+        :class="timePeriodGradient ? `${timePeriodGradient.from} ${timePeriodGradient.via} ${timePeriodGradient.to}` : 'from-teal-500 to-cyan-500 dark:from-teal-600 dark:to-cyan-600'"
+      >
         <div class="flex items-center justify-between mb-3">
           <div class="flex items-center gap-2">
-            <Icon name="globe" size="md" />
+            <Icon :name="timePeriodIcon" size="md" />
             <span class="text-sm font-medium">{{ locationName }}</span>
           </div>
           <button
@@ -195,6 +198,10 @@ const nextPrayerInfo = ref(null)
 const error = ref(null)
 const currentTime = ref(new Date())
 
+// Dynamic styling based on time of day
+const timePeriodGradient = ref(null)
+const timePeriodIcon = ref('sun')
+
 // Update current time every second
 let intervalId = null
 let widgetUpdateCounter = 0
@@ -212,6 +219,12 @@ onMounted(() => {
     if (widgetUpdateCounter >= 60) {
       prayerTimesService.updateWidget()
       widgetUpdateCounter = 0
+
+      // Also refresh gradient every minute in case time period changed
+      if (hasLocation.value) {
+        timePeriodGradient.value = prayerTimesService.getTimePeriodGradient()
+        timePeriodIcon.value = prayerTimesService.getTimePeriodIcon()
+      }
     }
   }, 1000)
 
@@ -231,6 +244,9 @@ const loadPrayerTimes = () => {
     isLoading.value = true
     error.value = null
 
+    // Reload settings from localStorage to get latest values
+    prayerTimesService.reloadSettings()
+
     hasLocation.value = prayerTimesService.hasLocation()
 
     if (hasLocation.value) {
@@ -240,6 +256,11 @@ const loadPrayerTimes = () => {
 
       prayerTimes.value = prayerTimesService.getFormattedPrayerTimes()
       currentPrayer.value = prayerTimesService.getCurrentPrayerName()
+
+      // Load dynamic styling
+      timePeriodGradient.value = prayerTimesService.getTimePeriodGradient()
+      timePeriodIcon.value = prayerTimesService.getTimePeriodIcon()
+
       updatePrayerInfo()
     }
   } catch (e) {

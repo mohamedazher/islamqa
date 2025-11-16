@@ -29,11 +29,11 @@
     </svg>
 
     <!-- Countdown Text -->
-    <div class="absolute inset-0 flex flex-col items-center justify-center">
-      <div class="countdown-time font-mono font-bold leading-none" :style="{ fontSize: timeFontSize }">
+    <div class="absolute inset-0 flex flex-col items-center justify-center px-2">
+      <div class="countdown-time font-mono font-bold leading-tight text-center" :style="{ fontSize: timeFontSize }">
         {{ formattedTime }}
       </div>
-      <div v-if="label" class="countdown-label text-xs mt-1 opacity-80" :style="{ fontSize: labelFontSize }">
+      <div v-if="label" class="countdown-label mt-0.5 opacity-80 text-center" :style="{ fontSize: labelFontSize }">
         {{ label }}
       </div>
     </div>
@@ -130,13 +130,25 @@ const formattedTime = computed(() => {
 
 // Responsive font sizes
 const timeFontSize = computed(() => {
-  const baseSize = props.size / 5
-  return `${baseSize}px`
+  // Adjust font size based on text length to prevent overflow
+  const textLength = formattedTime.value.length
+  let divisor = 5.5 // Base divisor for shorter text
+
+  if (textLength >= 8) {
+    // For "HH:MM:SS" format (8 chars)
+    divisor = 6.5
+  } else if (textLength >= 5) {
+    // For "MM:SS" format (5 chars)
+    divisor = 6
+  }
+
+  const baseSize = props.size / divisor
+  return `${Math.floor(baseSize)}px`
 })
 
 const labelFontSize = computed(() => {
-  const baseSize = props.size / 12
-  return `${baseSize}px`
+  const baseSize = props.size / 14 // Slightly smaller than before
+  return `${Math.floor(baseSize)}px`
 })
 </script>
 
