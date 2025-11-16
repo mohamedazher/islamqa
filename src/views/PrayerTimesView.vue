@@ -1,15 +1,18 @@
 <template>
   <div class="prayer-times-view h-full flex flex-col bg-neutral-50 dark:bg-neutral-950">
-    <!-- Header -->
-    <header class="bg-gradient-to-r from-teal-600 to-cyan-600 dark:from-teal-700 dark:to-cyan-700 text-white p-3 sm:p-4 shadow flex items-center">
+    <!-- Header - Dynamic gradient based on time of day -->
+    <header
+      class="bg-gradient-to-r text-white p-3 sm:p-4 shadow flex items-center transition-all duration-1000"
+      :class="timePeriodGradient ? `${timePeriodGradient.from} ${timePeriodGradient.via} ${timePeriodGradient.to}` : 'from-teal-600 to-cyan-600 dark:from-teal-700 dark:to-cyan-700'"
+    >
       <button @click="goBack" class="mr-3 hover:opacity-80 transition-opacity">
         <Icon name="arrowLeft" size="md" />
       </button>
       <div class="flex items-center gap-3 flex-1 min-w-0">
-        <Icon name="sun" size="lg" class="flex-shrink-0" />
+        <Icon :name="timePeriodIcon" size="lg" class="flex-shrink-0" />
         <div class="min-w-0">
           <h1 class="text-base sm:text-lg font-bold truncate">Prayer Times</h1>
-          <p v-if="locationName" class="text-teal-100 dark:text-teal-200 text-xs md:text-sm truncate">{{ locationName }}</p>
+          <p v-if="locationName" class="text-white/80 text-xs md:text-sm truncate">{{ locationName }}</p>
         </div>
       </div>
       <button
@@ -62,8 +65,12 @@
         </div>
       </div>
 
-      <!-- Current Prayer Highlight -->
-      <div v-if="currentPrayerWindow" class="bg-gradient-to-br from-teal-500 to-cyan-500 dark:from-teal-600 dark:to-cyan-600 text-white rounded-lg shadow-lg p-5">
+      <!-- Current Prayer Highlight - Dynamic gradient -->
+      <div
+        v-if="currentPrayerWindow"
+        class="bg-gradient-to-br text-white rounded-lg shadow-lg p-5 transition-all duration-1000"
+        :class="timePeriodGradient ? `${timePeriodGradient.from} ${timePeriodGradient.to}` : 'from-teal-500 to-cyan-500 dark:from-teal-600 dark:to-cyan-600'"
+      >
         <div class="flex items-center justify-between gap-4 mb-3">
           <div class="flex items-center gap-3 flex-1">
             <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
@@ -223,6 +230,10 @@ const currentPrayerWindow = ref(null)
 const error = ref(null)
 const currentTime = ref(new Date())
 
+// Dynamic styling based on time of day
+const timePeriodGradient = ref(null)
+const timePeriodIcon = ref('sun')
+
 // Update current time every second
 let intervalId = null
 let widgetUpdateCounter = 0
@@ -240,6 +251,12 @@ onMounted(() => {
     if (widgetUpdateCounter >= 60) {
       prayerTimesService.updateWidget()
       widgetUpdateCounter = 0
+
+      // Also refresh gradient every minute in case time period changed
+      if (hasLocation.value) {
+        timePeriodGradient.value = prayerTimesService.getTimePeriodGradient()
+        timePeriodIcon.value = prayerTimesService.getTimePeriodIcon()
+      }
     }
   }, 1000)
 
@@ -268,6 +285,10 @@ const loadPrayerTimes = () => {
       const settings = prayerTimesService.getSettings()
       locationName.value = settings.locationName
       calculationMethodName.value = settings.calculationMethodName
+
+      // Load dynamic styling
+      timePeriodGradient.value = prayerTimesService.getTimePeriodGradient()
+      timePeriodIcon.value = prayerTimesService.getTimePeriodIcon()
 
       updatePrayerStatuses()
     }

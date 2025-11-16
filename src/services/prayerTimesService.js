@@ -787,6 +787,91 @@ class PrayerTimesService {
   }
 
   /**
+   * Get current time period for dynamic styling
+   * @returns {Object} { period: 'fajr'|'day'|'maghrib'|'night', prayer: 'Fajr'|'Dhuhr'|'Asr'|'Maghrib'|'Isha' }
+   */
+  getTimePeriod() {
+    if (!this.location) {
+      return { period: 'day', prayer: null }
+    }
+
+    try {
+      const times = this.getPrayerTimes()
+      const now = new Date()
+
+      // Determine time period based on prayer times
+      if (now >= times.fajr && now < times.sunrise) {
+        return { period: 'fajr', prayer: 'Fajr' }
+      } else if (now >= times.sunrise && now < times.maghrib) {
+        // Daytime (between sunrise and maghrib)
+        return { period: 'day', prayer: now >= times.dhuhr ? (now >= times.asr ? 'Asr' : 'Dhuhr') : 'Sunrise' }
+      } else if (now >= times.maghrib && now < times.isha) {
+        return { period: 'maghrib', prayer: 'Maghrib' }
+      } else {
+        // Night time (after Isha or before Fajr)
+        return { period: 'night', prayer: 'Isha' }
+      }
+    } catch (e) {
+      console.error('Failed to get time period:', e)
+      return { period: 'day', prayer: null }
+    }
+  }
+
+  /**
+   * Get gradient colors for current time period
+   * @returns {Object} { from: string, to: string, via: string }
+   */
+  getTimePeriodGradient() {
+    const { period } = this.getTimePeriod()
+
+    const gradients = {
+      fajr: {
+        // Dawn - purple to orange/pink
+        from: 'from-purple-600 dark:from-purple-700',
+        via: 'via-pink-500 dark:via-pink-600',
+        to: 'to-orange-500 dark:to-orange-600'
+      },
+      day: {
+        // Daytime - blue to cyan
+        from: 'from-sky-500 dark:from-sky-600',
+        via: 'via-cyan-500 dark:via-cyan-600',
+        to: 'to-teal-500 dark:to-teal-600'
+      },
+      maghrib: {
+        // Sunset - orange to red/purple
+        from: 'from-orange-500 dark:from-orange-600',
+        via: 'via-red-500 dark:via-red-600',
+        to: 'to-purple-600 dark:to-purple-700'
+      },
+      night: {
+        // Night - dark blue to purple
+        from: 'from-indigo-800 dark:from-indigo-900',
+        via: 'via-purple-800 dark:via-purple-900',
+        to: 'to-slate-900 dark:to-black'
+      }
+    }
+
+    return gradients[period] || gradients.day
+  }
+
+  /**
+   * Get icon name for current time period
+   * @returns {string}
+   */
+  getTimePeriodIcon() {
+    const { period } = this.getTimePeriod()
+
+    const icons = {
+      fajr: 'sun',      // Dawn/sunrise
+      day: 'sun',       // Bright sun
+      maghrib: 'moon',  // Sunset/dusk
+      night: 'moon'     // Night moon
+    }
+
+    return icons[period] || 'sun'
+  }
+
+  /**
    * Reload all settings from localStorage
    * This ensures the service instance has the latest saved values
    */
