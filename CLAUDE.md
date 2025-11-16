@@ -477,63 +477,216 @@ const { isDark, toggleTheme } = useTheme()
 
 ## Build & Deployment
 
+### Testing
+
+**Run all tests locally (before committing):**
+```bash
+yarn test:all
+# Runs: Vite tests, unit tests, and integration tests
+# Must pass before deployment
+```
+
 ### Web Build (GitHub Pages)
+
+**Manual build:**
 ```bash
 yarn build:web
 # Outputs to dist/
-# GitHub Actions auto-deploys on push to main
+# Deploy: push to `main` branch, GitHub Actions auto-deploys
 # Live at: https://mohamedazher.github.io/islamqa/
 ```
 
-### Mobile Build (Cordova)
-```bash
-# Android
-yarn cordova:build:android
-# APK at: platforms/android/app/build/outputs/apk/
+**GitHub Actions (automatic):**
+- Triggered on push to `main` branch
+- Runs tests → builds web → deploys to GitHub Pages
+- Workflow file: `.github/workflows/deploy-web.yml`
 
-# iOS (macOS only)
+### Mobile Builds
+
+**Android APK (debug/development):**
+```bash
+yarn cordova:build:android
+# APK at: platforms/android/app/build/outputs/apk/release/
+# For testing on device only, not for distribution
+```
+
+**iOS App (macOS only):**
+```bash
 yarn cordova:build:ios
 # Xcode project at: platforms/ios/
+# For local testing and Fastlane distribution
 ```
 
-### Local Deployment with Fastlane
+### Android Deployment
 
-**Android (Google Play):**
+#### Option 1: Local with Fastlane (from Mac)
+
+**Deploy to Google Play Beta track:**
 ```bash
 source ~/.zshrc
-bundle exec fastlane android beta  # Deploy to Google Play Beta
+bundle exec fastlane android beta
 ```
 
-**iOS (TestFlight):**
+**What this does:**
+- Installs dependencies
+- Runs all tests
+- Builds web app
+- Auto-increments version (patch)
+- Builds signed APK and AAB (Android App Bundle)
+- Uploads to Google Play Open Testing (beta) track
+
+**Prerequisites:**
+- Google Play API key: `google-play-api-key.json` in project root OR
+- Environment variable: `export PLAY_STORE_JSON_KEY="path/to/key.json"`
+- `JAVA_HOME` configured in `~/.zshrc`
+
+**Available lanes:**
+```bash
+bundle exec fastlane android build          # Build debug APK only
+bundle exec fastlane android release        # Build signed APK + AAB (no upload)
+bundle exec fastlane android beta           # Full workflow → Google Play Beta
+bundle exec fastlane android promote_to_production  # Move from beta to production
+bundle exec fastlane android production     # Full workflow → Google Play Production
+```
+
+#### Option 2: CI/CD with GitHub Actions (automated)
+
+**Triggered on:**
+- Push to `master` branch
+- Manual trigger via GitHub Actions UI
+
+**What it does:**
+- Checks out code
+- Sets up Android SDK and Fastlane
+- Runs tests
+- Builds and signs APK + AAB
+- Uploads to Google Play (track determined by workflow configuration)
+
+**Workflow file:** `.github/workflows/android-build-deploy.yml`
+
+### iOS Deployment
+
+#### Local with Fastlane (from Mac only)
+
+**Deploy to TestFlight (beta testing):**
 ```bash
 source ~/.zshrc
-bundle exec fastlane ios beta      # Deploy to TestFlight
+bundle exec fastlane ios beta
+```
+
+**What this does:**
+- Installs dependencies
+- Runs all tests
+- Builds web app
+- Auto-increments version (patch)
+- Builds and archives iOS app
+- Exports signed IPA
+- Uploads to TestFlight
+
+**Deploy to App Store (production):**
+```bash
+source ~/.zshrc
+bundle exec fastlane ios production
+```
+
+**What this does:**
+- Same as `beta` but:
+- Submits to App Store for review
+- Requires confirmation prompt before submission
+
+**Upload pre-built IPA (utility lane):**
+```bash
+source ~/.zshrc
+bundle exec fastlane ios upload_ipa
+# Use this if you already have a built IPA and just want to upload to TestFlight
 ```
 
 **Prerequisites:**
-- Environment variables configured in `~/.zshrc`:
-  - Android: `PLAY_STORE_JSON_KEY` or `google-play-api-key.json` file
-  - iOS: `FASTLANE_TEAM_ID`, `FASTLANE_API_KEY_ID`, `FASTLANE_API_ISSUER_ID`, `FASTLANE_API_KEY_PATH`
-- API keys set up (Google Play Console / App Store Connect)
-- Code signing configured
+- App Store Connect API key setup:
+  - Download `.p8` file from App Store Connect
+  - Save to `~/.fastlane/api_key.p8`
+- Environment variables in `~/.zshrc`:
+  ```bash
+  export FASTLANE_TEAM_ID="YOUR_TEAM_ID"
+  export FASTLANE_ITC_TEAM_ID="YOUR_TEAM_ID"
+  export FASTLANE_API_KEY_ID="YOUR_KEY_ID"
+  export FASTLANE_API_ISSUER_ID="YOUR_ISSUER_ID"
+  export FASTLANE_API_KEY_PATH="$HOME/.fastlane/api_key.p8"
+  ```
 
-See **docs/LOCAL_DEPLOYMENT.md** for complete setup guide.
+**Available lanes:**
+```bash
+bundle exec fastlane ios build              # Build debug version for simulator
+bundle exec fastlane ios build_release      # Build release IPA (no upload)
+bundle exec fastlane ios beta               # Full workflow → TestFlight
+bundle exec fastlane ios production         # Full workflow → App Store (with review submission)
+bundle exec fastlane ios upload_ipa         # Upload pre-built IPA to TestFlight
+```
+
+### Deployment Reference Table
+
+| Platform | Method | Command | Destination | Auto-Version |
+|----------|--------|---------|-------------|--------------|
+| Web | GitHub Actions | `git push main` | GitHub Pages | No |
+| Web | Manual | `yarn build:web` + deploy | Any host | No |
+| Android | Local Fastlane | `fastlane android beta` | Google Play Beta | ✅ Yes |
+| Android | Local Fastlane | `fastlane android production` | Google Play Production | ✅ Yes |
+| Android | GitHub Actions | `git push master` | Google Play | ✅ Yes |
+| iOS | Local Fastlane | `fastlane ios beta` | TestFlight | ✅ Yes |
+| iOS | Local Fastlane | `fastlane ios production` | App Store | ✅ Yes |
+| iOS | Local Fastlane | `fastlane ios upload_ipa` | TestFlight | No |
+
+### Version Management
+
+Versions auto-increment with `beta` and `production` lanes:
+
+**Current version tracking:**
+- `package.json` - npm version
+- `config.xml` - Cordova version
+- iOS build number - auto-managed by Fastlane
+
+**Manual version bump:**
+```bash
+yarn version:patch   # Increments patch version (x.x.Y)
+yarn version:minor   # Increments minor version (x.Y.0)
+yarn version:major   # Increments major version (Y.0.0)
+```
+
+### Deployment Checklist
+
+Before any deployment:
+- [ ] All tests pass: `yarn test:all`
+- [ ] No console errors
+- [ ] Version increment verified
+- [ ] Credentials/API keys configured
+- [ ] Working on correct branch (master for Android, local for iOS)
+
+See **docs/LOCAL_DEPLOYMENT.md** for complete setup guide and troubleshooting.
 
 ---
 
 ## Testing
 
-Currently: **Manual testing only** (no automated test framework configured)
+### Automated Tests
 
-**Test checklist before commits:**
+**Run all tests:**
+```bash
+yarn test:all
+# Required before any deployment
+# Run locally before pushing to git
+```
+
+### Manual Testing Checklist
+
+Before commits or deployments, manually verify:
 - [ ] Data imports successfully
 - [ ] Browse categories work
 - [ ] Question detail shows content correctly
 - [ ] Bookmarking works
 - [ ] Search finds questions
 - [ ] Dark mode toggles properly
-- [ ] Mobile responsive on actual device
-- [ ] No console errors
+- [ ] Mobile responsive on actual device (iOS/Android)
+- [ ] No console errors (DevTools)
 
 See **docs/TESTING.md** for comprehensive testing guide.
 
@@ -624,9 +777,9 @@ See `package.json` for complete list and versions.
 
 ## Version Info
 
-- **Current Version**: 2.0+ (modernization complete)
-- **Last Updated**: November 9, 2025
-- **Status**: Production-ready
+- **Current Version**: 2.0.26 (TestFlight ready)
+- **Last Updated**: November 16, 2025
+- **Status**: Production-ready with local iOS/Android deployment
 - **Maintenance**: Active development on feature branches
 
 ---
