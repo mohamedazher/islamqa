@@ -28,18 +28,24 @@ public class PrayerWidget extends CordovaPlugin {
 
         Log.d(TAG, "Execute action: " + action);
 
-        if (action.equals("updateWidget")) {
-            JSONObject prayerData = args.getJSONObject(0);
-            this.updateWidget(prayerData, callbackContext);
-            return true;
-        }
-        else if (action.equals("isWidgetInstalled")) {
-            this.isWidgetInstalled(callbackContext);
-            return true;
-        }
-        else if (action.equals("forceUpdate")) {
-            this.forceUpdate(callbackContext);
-            return true;
+        try {
+            if (action.equals("updateWidget")) {
+                JSONObject prayerData = args.getJSONObject(0);
+                this.updateWidget(prayerData, callbackContext);
+                return true;
+            }
+            else if (action.equals("isWidgetInstalled")) {
+                this.isWidgetInstalled(callbackContext);
+                return true;
+            }
+            else if (action.equals("forceUpdate")) {
+                this.forceUpdate(callbackContext);
+                return true;
+            }
+        } catch (JSONException e) {
+            Log.e(TAG, "Error executing action: " + e.getMessage());
+            callbackContext.error("Failed to execute action: " + e.getMessage());
+            return false;
         }
 
         return false;
