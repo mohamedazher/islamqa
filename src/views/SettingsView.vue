@@ -377,8 +377,8 @@
         <div class="p-4 space-y-4">
           <!-- App Logo/Icon -->
           <div class="flex items-center gap-4">
-            <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-700 dark:from-primary-600 dark:to-primary-800 rounded-2xl flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-              ☪
+            <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-700 dark:from-primary-600 dark:to-primary-800 rounded-2xl flex items-center justify-center shadow-lg p-2">
+              <img src="/logo.png" alt="App Logo" class="w-full h-full object-contain" />
             </div>
             <div>
               <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100">{{ appName }}</h3>
@@ -534,32 +534,6 @@
         </div>
       </section>
 
-      <!-- Links Section -->
-      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
-        <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
-          <h2 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
-            <Icon name="link" size="md" class="text-primary-600 dark:text-primary-400" />
-            Links
-          </h2>
-        </div>
-        <div>
-          <a
-            href="https://islamqa.info"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-between px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors group"
-          >
-            <div class="flex items-center gap-3">
-              <Icon name="globe" size="md" class="text-neutral-600 dark:text-neutral-400" />
-              <div>
-                <div class="font-medium text-neutral-900 dark:text-neutral-100">IslamQA.info</div>
-                <div class="text-xs text-neutral-600 dark:text-neutral-400">Visit the official website</div>
-              </div>
-            </div>
-            <Icon name="chevronRight" size="sm" class="text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors" />
-          </a>
-        </div>
-      </section>
 
       <!-- Privacy Section -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
@@ -656,13 +630,21 @@
 
       <!-- Important Disclaimer Section -->
       <section class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden border-2 border-blue-200 dark:border-blue-800">
-        <div class="px-4 py-3 bg-blue-100 dark:bg-blue-900/30 border-b-2 border-blue-200 dark:border-blue-800">
+        <button
+          @click="showImportantNotice = !showImportantNotice"
+          class="w-full px-4 py-3 bg-blue-100 dark:bg-blue-900/30 border-b-2 border-blue-200 dark:border-blue-800 hover:bg-blue-150 dark:hover:bg-blue-900/50 transition-colors flex items-center justify-between"
+        >
           <h2 class="text-base sm:text-lg font-bold text-blue-900 dark:text-blue-100 flex items-center gap-2">
             <Icon name="info" size="md" class="text-blue-600 dark:text-blue-400" />
             Important Notice
           </h2>
-        </div>
-        <div class="p-4 space-y-4">
+          <Icon
+            :name="showImportantNotice ? 'chevronUp' : 'chevronDown'"
+            size="md"
+            class="text-blue-600 dark:text-blue-400 transition-transform"
+          />
+        </button>
+        <div v-if="showImportantNotice" class="p-4 space-y-4">
           <!-- Unofficial App Notice -->
           <div class="bg-white dark:bg-neutral-900/50 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
             <div class="flex items-start gap-3">
@@ -857,6 +839,7 @@ const isClearing = ref(false)
 const analyticsEnabled = ref(isAnalyticsEnabled)
 const showOnboardingDialog = ref(false)
 const showClearDataDialog = ref(false)
+const showImportantNotice = ref(false)
 
 // User profile data
 const userProfile = ref({

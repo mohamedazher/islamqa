@@ -67,12 +67,28 @@
           :class="entry.isCurrentUser ? 'ring-2 ring-amber-400 dark:ring-amber-600' : ''"
         >
           <div class="flex items-center gap-4">
-            <!-- Rank Badge -->
-            <div
-              class="rounded-full w-10 h-10 flex items-center justify-center font-bold text-sm"
-              :class="getRankBadgeClass(entry.rank)"
-            >
-              {{ entry.rank <= 3 ? getRankEmoji(entry.rank) : `#${entry.rank}` }}
+            <!-- Avatar or Rank Badge -->
+            <div class="relative">
+              <!-- Top 3 ranks: Show medals -->
+              <div
+                v-if="entry.rank <= 3"
+                class="rounded-full w-10 h-10 flex items-center justify-center font-bold text-sm"
+                :class="getRankBadgeClass(entry.rank)"
+              >
+                {{ getRankEmoji(entry.rank) }}
+              </div>
+              <!-- Other ranks: Show avatar with rank badge -->
+              <div v-else class="relative">
+                <img
+                  :src="getAvatarUrl(entry.userId, entry.username)"
+                  :alt="entry.username"
+                  class="w-10 h-10 rounded-full bg-neutral-100 dark:bg-neutral-800"
+                />
+                <!-- Small rank badge overlay -->
+                <div class="absolute -bottom-1 -right-1 bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-white dark:border-neutral-900">
+                  {{ entry.rank }}
+                </div>
+              </div>
             </div>
 
             <!-- User Info -->
@@ -82,10 +98,10 @@
                 <span v-if="entry.isCurrentUser" class="text-xs text-amber-600 dark:text-amber-400 ml-2">(You)</span>
               </div>
               <div v-if="selectedTab === 'allTime'" class="text-xs text-neutral-600 dark:text-neutral-400">
-                {{ entry.quizzesTaken }} quizzes • Level {{ entry.level }}
+                {{ entry.quizzesTaken || 0 }} quizzes • Level {{ entry.level || 1 }}
               </div>
               <div v-else-if="selectedTab === 'weekly'" class="text-xs text-neutral-600 dark:text-neutral-400">
-                {{ entry.quizzesTaken }} quizzes this week
+                {{ entry.quizzesTaken || 0 }} quizzes this week
               </div>
             </div>
 
@@ -116,11 +132,12 @@
 
 <script setup>
 import { ref, onMounted, onActivated, watch } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import Icon from '@/components/common/Icon.vue'
 import leaderboardService from '@/services/leaderboardService'
 
 const router = useRouter()
+const route = useRoute()
 
 const tabs = [
   { id: 'daily', label: 'Today' },
@@ -144,9 +161,26 @@ onActivated(async () => {
   await loadLeaderboard()
 })
 
+// Watch for route changes to reload when clicking "Board" tab
+watch(() => route.path, async (newPath) => {
+  // Reload if we're navigating to the leaderboard page
+  if (newPath === '/leaderboard') {
+    // Reset to Today tab and reload
+    selectedTab.value = 'daily'
+    await loadLeaderboard()
+  }
+}, { flush: 'post' })
+
 watch(selectedTab, () => {
   loadLeaderboard()
 })
+
+// Get avatar URL using DiceBear API (identicon style)
+function getAvatarUrl(userId, username) {
+  // Use username or userId as seed for consistent avatars
+  const seed = username || userId || 'default'
+  return `https://api.dicebear.com/7.x/identicon/svg?seed=${encodeURIComponent(seed)}`
+}
 
 async function initializeLeaderboard() {
   try {

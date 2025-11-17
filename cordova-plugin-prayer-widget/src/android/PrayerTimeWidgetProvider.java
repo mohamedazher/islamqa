@@ -6,9 +6,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.RemoteViews;
 import android.app.PendingIntent;
+import android.app.AlarmManager;
 import android.content.Intent;
 import android.util.Log;
 import android.os.Build;
+import android.os.SystemClock;
 
 /**
  * Prayer Time Widget Provider
@@ -31,13 +33,15 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
     @Override
     public void onEnabled(Context context) {
         super.onEnabled(context);
-        Log.d(TAG, "First widget added");
+        Log.d(TAG, "First widget added - scheduling updates");
+        scheduleWidgetUpdate(context);
     }
 
     @Override
     public void onDisabled(Context context) {
         super.onDisabled(context);
-        Log.d(TAG, "Last widget removed");
+        Log.d(TAG, "Last widget removed - cancelling updates");
+        cancelWidgetUpdate(context);
     }
 
     /**
@@ -170,27 +174,116 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
      */
     private void highlightPrayerRow(RemoteViews views, Context context, String prayerName) {
         try {
-            // Reset all row backgrounds to transparent
-            int transparentColor = android.graphics.Color.parseColor("#00FFFFFF");
-            int highlightColor = android.graphics.Color.parseColor("#40FFFFFF"); // White with 25% opacity
+            // Get drawable resource for highlight
+            int highlightDrawableId = context.getResources().getIdentifier(
+                "prayer_row_highlight", "drawable", context.getPackageName());
 
+            // Reset all row backgrounds to transparent
             String[] prayers = {"fajr", "dhuhr", "asr", "maghrib", "isha"};
             for (String prayer : prayers) {
                 String rowName = prayer + "_row";
                 int rowId = context.getResources().getIdentifier(rowName, "id", context.getPackageName());
                 if (rowId != 0) {
-                    views.setInt(rowId, "setBackgroundColor", transparentColor);
+                    // Set transparent background
+                    views.setInt(rowId, "setBackgroundColor", android.graphics.Color.TRANSPARENT);
                 }
             }
 
-            // Highlight the active prayer row
+            // Highlight the active prayer row with gradient drawable
             String activeRowName = prayerName.toLowerCase() + "_row";
             int activeRowId = context.getResources().getIdentifier(activeRowName, "id", context.getPackageName());
-            if (activeRowId != 0) {
-                views.setInt(activeRowId, "setBackgroundColor", highlightColor);
+            if (activeRowId != 0 && highlightDrawableId != 0) {
+                views.setInt(activeRowId, "setBackgroundResource", highlightDrawableId);
             }
         } catch (Exception e) {
             Log.e(TAG, "Error highlighting prayer row: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Schedule periodic widget updates using AlarmManager
+     * Updates every 1 minute for accurate countdown
+     */
+    private void scheduleWidgetUpdate(Context context) {
+        try {
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            if (alarmManager == null) {
+                Log.e(TAG, "AlarmManager not available");
+                return;
+            }
+
+            Intent intent = new Intent(context, PrayerTimeWidgetProvider.class);
+            intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+
+            int flags = PendingIntent.FLAG_UPDATE_CURRENT;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                flags |= PendingIntent.FLAG_IMMUTABLE;
+            }
+
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                context,
+                0,
+                intent,
+                flags
+            );
+
+            // Schedule update every 1 minute (60000 milliseconds)
+            // Use setRepeating for regular updates (more battery efficient than setExact)
+            long intervalMillis = 60000; // 1 minute
+            long triggerAtMillis = SystemClock.elapsedRealtime() + intervalMillis;
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                // For Android 6.0+, use setExactAndAllowWhileIdle for better reliability
+                alarmManager.setRepeating(
+                    AlarmManager.ELAPSED_REALTIME,
+                    triggerAtMillis,
+                    intervalMillis,
+                    pendingIntent
+                );
+            } else {
+                alarmManager.setRepeating(
+                    AlarmManager.ELAPSED_REALTIME,
+                    triggerAtMillis,
+                    intervalMillis,
+                    pendingIntent
+                );
+            }
+
+            Log.d(TAG, "Widget update scheduled every 1 minute");
+        } catch (Exception e) {
+            Log.e(TAG, "Error scheduling widget update: " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Cancel scheduled widget updates
+     */
+    private void cancelWidgetUpdate(Context context) {
+        try {
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            if (alarmManager == null) {
+                return;
+            }
+
+            Intent intent = new Intent(context, PrayerTimeWidgetProvider.class);
+            intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+
+            int flags = PendingIntent.FLAG_UPDATE_CURRENT;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                flags |= PendingIntent.FLAG_IMMUTABLE;
+            }
+
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                context,
+                0,
+                intent,
+                flags
+            );
+
+            alarmManager.cancel(pendingIntent);
+            Log.d(TAG, "Widget update cancelled");
+        } catch (Exception e) {
+            Log.e(TAG, "Error cancelling widget update: " + e.getMessage());
         }
     }
 }
