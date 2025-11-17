@@ -91,14 +91,18 @@ Generate quiz questions in this **exact** JSON structure:
 - Example: input `"reference": 106245` → output `"reference": 106245`
 
 ### 2. Question Text
-- Extract from `title` (if clear and concise)
-- Or synthesize from `question` field
+- **CRITICAL**: Read the full `answer` first to understand the actual question being addressed
+- Many titles are unclear without answer context (e.g., "Intermarrying among adam and eve's children")
+- **Clarify ambiguous titles** by incorporating key details from the answer
+- Extract from `title` OR synthesize from `question` field + answer context
 - 1-2 sentences maximum
-- Make it a clear quiz question
+- Make it a clear, self-contained quiz question that doesn't require seeing the original title
 - Examples:
   - ❌ "Tell me about the Islamic ruling on..."
-  - ✅ "What is the ruling on...?"
+  - ❌ "What is the ruling on intermarrying among adam and eve's children?" (unclear what the actual question is)
+  - ✅ "What is the ruling on...?" (when title is already clear)
   - ✅ "Is it permissible to...?"
+  - ✅ "Was it permissible for Adam's children to marry each other in early humanity?" (clarified from answer context)
 
 ### 3. Multiple Choice Options
 - Provide **exactly 4 options** (a, b, c, d)
@@ -186,6 +190,9 @@ Options:
   - Halal/Permissible
   - Makruh/Disliked
   - Fard/Obligatory
+
+IMPORTANT: If the title is unclear, read the answer to understand what the
+actual question is about, then clarify in your quiz question.
 ```
 
 ### Type 2: Concept/Definition Questions (15%)
@@ -211,7 +218,9 @@ Options: 4 different conditions
 For each source question, verify:
 
 - ✅ Reference ID matches input exactly
-- ✅ Question is clear and unambiguous
+- ✅ **Answer has been read and understood** before creating question text
+- ✅ Question is clear and unambiguous (clarified with answer context if needed)
+- ✅ Quiz question is self-contained and doesn't require seeing original title
 - ✅ 4 options provided (all labeled a-d)
 - ✅ Exactly one correct option
 - ✅ Wrong options are plausible
@@ -222,6 +231,23 @@ For each source question, verify:
 - ✅ No HTML tags in output (clean text)
 
 ## Special Handling
+
+### Unclear or Ambiguous Titles (IMPORTANT)
+Many IslamQA titles are unclear without reading the answer:
+
+**Example Problem:**
+- Title: "Intermarrying among adam and eve's children"
+- User doesn't know: Is this about whether it was permissible? Whether it happened? What the wisdom was?
+
+**Solution:**
+1. **Read the full answer first** to understand the actual question being addressed
+2. **Identify the main ruling** or question answered
+3. **Rewrite the quiz question** to be clear and self-contained
+4. Example: "Was it permissible for Adam's children to marry their siblings in early humanity?"
+
+**Before creating any quiz question:**
+- Ask yourself: "If I only saw this question, would I understand what's being asked?"
+- If not, clarify using details from the answer
 
 ### Controversial Topics
 If the answer mentions scholarly disagreement:
