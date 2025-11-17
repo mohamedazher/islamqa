@@ -434,7 +434,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <!-- Android Button -->
             <a
-              href="https://play.google.com/store/apps/details?id=com.islamqa.app"
+              href="https://play.google.com/store/apps/details?id=com.dkurve.betterislamqa"
               target="_blank"
               rel="noopener noreferrer"
               class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-neutral-900 rounded-lg border-2 border-neutral-200 dark:border-neutral-800 hover:border-primary-400 dark:hover:border-primary-600 hover:shadow-md transition-all group"
@@ -460,7 +460,7 @@
 
             <!-- iOS Button -->
             <a
-              href="https://apps.apple.com/app/islamqa/id123456789"
+              href="https://apps.apple.com/us/app/better-islamqa/id855423769"
               target="_blank"
               rel="noopener noreferrer"
               class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-neutral-900 rounded-lg border-2 border-neutral-200 dark:border-neutral-800 hover:border-primary-400 dark:hover:border-primary-600 hover:shadow-md transition-all group"
