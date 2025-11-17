@@ -775,11 +775,38 @@ See `package.json` for complete list and versions.
 
 ---
 
+## Cordova Plugins Status
+
+**Removed Plugins (November 17, 2025):**
+Removed all non-essential Cordova plugins to diagnose blank screen issue on iOS simulator:
+- ❌ `@microsoft/cordova-clarity` (Microsoft Analytics) - **Auto-discovered, removed for testing**
+- ❌ `cordova-plugin-device` (Device info) - **Auto-discovered as dependency of Clarity, removed for testing**
+- ❌ `cordova-plugin-file` (File operations)
+- ❌ `cordova-plugin-geolocation` (GPS/location)
+- ❌ `cordova-plugin-statusbar` (Status bar styling)
+- ❌ `cordova-support-android-plugin` (Android support)
+- ❌ `cordova.plugins.diagnostic` (Device diagnostics)
+- ❌ `cordova-plugin-firebase-analytics` (Firebase Analytics)
+
+**Reason:** Testing minimal build to isolate plugin-related issues causing blank screen on iOS simulator
+
+**Important Note:** Some plugins auto-discover and reinstall when running `cordova prepare`. If plugins reappear:
+1. They're referenced in `plugins.xml` or package.json
+2. Remove them again if not needed
+3. Or modify config.xml to prevent auto-discovery
+
+**Next Steps for Adding Plugins Back:**
+Only add back essential plugins after blank screen issue is resolved:
+- `cordova-plugin-statusbar` (recommended for iOS UX)
+- `cordova-plugin-device` (only if needed for app logic)
+
+---
+
 ## Version Info
 
-- **Current Version**: 2.0.26 (TestFlight ready)
-- **Last Updated**: November 16, 2025
-- **Status**: Production-ready with local iOS/Android deployment
+- **Current Version**: 2.0.27 (iOS debugging)
+- **Last Updated**: November 17, 2025
+- **Status**: Troubleshooting iOS blank screen issue
 - **Maintenance**: Active development on feature branches
 
 ---
