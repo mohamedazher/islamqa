@@ -5,36 +5,50 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/widget_background"
-    android:padding="8dp">
+    android:padding="16dp">
 
     <!-- Header with countdown -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingBottom="4dp">
+        android:gravity="center_vertical"
+        android:paddingBottom="12dp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="🕌 Prayer Times"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textColor="#FFFFFF"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.01" />
 
         <TextView
             android:id="@+id/time_remaining"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="--:--"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="#FFFFFF"
-            android:fontFamily="monospace"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
-            android:background="#40FFFFFF" />
+            android:fontFamily="sans-serif-medium"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:background="@drawable/countdown_badge_background"
+            android:minWidth="65dp"
+            android:gravity="center" />
     </LinearLayout>
+
+    <!-- Subtle divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#30FFFFFF"
+        android:layout_marginBottom="10dp" />
 
     <!-- Prayer times list -->
     <LinearLayout
@@ -50,23 +64,29 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp">
+            android:gravity="center_vertical"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:background="@android:color/transparent">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Fajr"
-                android:textSize="11sp"
-                android:textColor="#FFFFFF" />
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:fontFamily="sans-serif-medium" />
             <TextView
                 android:id="@+id/fajr_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="--:--"
-                android:textSize="11sp"
+                android:textSize="13sp"
                 android:textColor="#FFFFFF"
-                android:fontFamily="monospace" />
+                android:fontFamily="sans-serif"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Dhuhr -->
@@ -76,23 +96,29 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp">
+            android:gravity="center_vertical"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:background="@android:color/transparent">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Dhuhr"
-                android:textSize="11sp"
-                android:textColor="#FFFFFF" />
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:fontFamily="sans-serif-medium" />
             <TextView
                 android:id="@+id/dhuhr_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="--:--"
-                android:textSize="11sp"
+                android:textSize="13sp"
                 android:textColor="#FFFFFF"
-                android:fontFamily="monospace" />
+                android:fontFamily="sans-serif"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Asr -->
@@ -102,23 +128,29 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp">
+            android:gravity="center_vertical"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:background="@android:color/transparent">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Asr"
-                android:textSize="11sp"
-                android:textColor="#FFFFFF" />
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:fontFamily="sans-serif-medium" />
             <TextView
                 android:id="@+id/asr_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="--:--"
-                android:textSize="11sp"
+                android:textSize="13sp"
                 android:textColor="#FFFFFF"
-                android:fontFamily="monospace" />
+                android:fontFamily="sans-serif"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Maghrib -->
@@ -128,23 +160,29 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp">
+            android:gravity="center_vertical"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:background="@android:color/transparent">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Maghrib"
-                android:textSize="11sp"
-                android:textColor="#FFFFFF" />
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:fontFamily="sans-serif-medium" />
             <TextView
                 android:id="@+id/maghrib_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="--:--"
-                android:textSize="11sp"
+                android:textSize="13sp"
                 android:textColor="#FFFFFF"
-                android:fontFamily="monospace" />
+                android:fontFamily="sans-serif"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Isha -->
@@ -154,25 +192,36 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp">
+            android:gravity="center_vertical"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:background="@android:color/transparent">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Isha"
-                android:textSize="11sp"
-                android:textColor="#FFFFFF" />
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:fontFamily="sans-serif-medium" />
             <TextView
                 android:id="@+id/isha_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="--:--"
-                android:textSize="11sp"
+                android:textSize="13sp"
                 android:textColor="#FFFFFF"
-                android:fontFamily="monospace" />
+                android:fontFamily="sans-serif"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
+
+    <!-- Spacer -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp" />
 
     <!-- Footer with next prayer label -->
     <TextView
@@ -180,9 +229,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Next: --"
-        android:textSize="10sp"
-        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        android:textColor="#E0FFFFFF"
         android:gravity="center"
-        android:paddingTop="2dp" />
+        android:fontFamily="sans-serif"
+        android:textStyle="italic"
+        android:paddingTop="8dp" />
 
 </LinearLayout>

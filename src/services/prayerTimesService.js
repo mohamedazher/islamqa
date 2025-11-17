@@ -261,25 +261,35 @@ class PrayerTimesService {
       }
 
       navigator.geolocation.getCurrentPosition(
-        async (position) => {
+        (position) => {
           const latitude = position.coords.latitude
           const longitude = position.coords.longitude
 
           // Try to get location name using reverse geocoding
-          let locationName = 'Current Location'
-          try {
-            locationName = await this.reverseGeocode(latitude, longitude)
-          } catch (e) {
-            console.warn('Could not get location name:', e)
-          }
-
-          this.saveLocation(latitude, longitude, locationName)
-          resolve({
-            latitude,
-            longitude,
-            locationName,
-            permissionDenied: false
-          })
+          // Note: We use .then() instead of async/await because iOS Cordova
+          // doesn't accept async functions for geolocation callbacks
+          this.reverseGeocode(latitude, longitude)
+            .then((locationName) => {
+              this.saveLocation(latitude, longitude, locationName)
+              resolve({
+                latitude,
+                longitude,
+                locationName,
+                permissionDenied: false
+              })
+            })
+            .catch((e) => {
+              console.warn('Could not get location name:', e)
+              // Still save location even if reverse geocoding fails
+              const locationName = 'Current Location'
+              this.saveLocation(latitude, longitude, locationName)
+              resolve({
+                latitude,
+                longitude,
+                locationName,
+                permissionDenied: false
+              })
+            })
         },
         (error) => {
           // Provide more helpful error messages
