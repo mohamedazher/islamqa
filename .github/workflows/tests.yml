@@ -1,0 +1,43 @@
+name: Breakage Detection Tests
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+  # Run tests when data files change
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+
+    - name: Run breakage detection tests
+      run: yarn test:breakage
+
+    - name: Report test results
+      if: always()
+      run: |
+        echo "✅ Breakage detection tests completed"
+        echo "These tests verify:"
+        echo "  - Data structure integrity (categories.js, questions.js)"
+        echo "  - Database schema validity"
+        echo "  - Core file existence"
+        echo "  - Data relationships"
+        echo "  - Basic SQL safety checks"

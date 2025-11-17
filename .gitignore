@@ -1,0 +1,85 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+platforms/
+plugins/
+hooks/
+build/
+dist/
+.cordova/
+www/assets/
+www/index.html
+www/data/*.js
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# Claude Code
+.claude/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Build artifacts
+*.apk
+*.ipa
+*.xcarchive
+*.dSYM
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Plugin caches
+plugins/fetch.json
+
+# Build configuration with sensitive info
+build.json
+www/.nojekyll
+
+# Android signing keys (DO NOT COMMIT)
+*.jks
+*.keystore
+uploadkey.jks
+
+# iOS signing files (DO NOT COMMIT)
+*.p12
+*.mobileprovision
+*.cer
+
+# Generated base64 secret files (DO NOT COMMIT)
+*-base64.txt
+android-keystore-base64.txt
+ios-certificate-base64.txt
+ios-provisioning-profile-base64.txt
+
+# Quiz generation intermediate files
+quiz-generation/batches/*.json
+quiz-generation/scripts/*.cjs
+
+# Firebase configuration files (contain API keys)
+google-services.json
+GoogleService-Info.plist
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/README.md
+.env.fastlane
+vendor/bundle
+.bundle/
