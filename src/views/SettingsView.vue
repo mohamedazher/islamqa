@@ -417,6 +417,96 @@
         </div>
       </section>
 
+      <!-- Download Apps Section (Web Only) -->
+      <section v-if="!isCordova" class="bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-950/30 dark:to-accent-950/30 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden border-2 border-primary-200 dark:border-primary-800">
+        <div class="px-4 py-3 bg-primary-100 dark:bg-primary-900/30 border-b-2 border-primary-200 dark:border-primary-800">
+          <h2 class="text-base sm:text-lg font-semibold text-primary-900 dark:text-primary-100 flex items-center gap-2">
+            <Icon name="download" size="md" class="text-primary-600 dark:text-primary-400" />
+            Download Mobile App
+          </h2>
+        </div>
+        <div class="p-4 space-y-4">
+          <p class="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+            Get the best experience with our native mobile app! Enjoy faster performance, better offline access, and seamless integration with your device.
+          </p>
+
+          <!-- Download Buttons -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <!-- Android Button -->
+            <a
+              href="https://play.google.com/store/apps/details?id=com.dkurve.betterislamqa"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-neutral-900 rounded-lg border-2 border-neutral-200 dark:border-neutral-800 hover:border-primary-400 dark:hover:border-primary-600 hover:shadow-md transition-all group"
+            >
+              <div class="w-10 h-10 flex items-center justify-center">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                  <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z" fill="#32DE84"/>
+                  <path d="M13.792 12l10.125-10.125a1 1 0 00-1.187-.165l-11.36 6.467L13.792 12z" fill="#F7D743"/>
+                  <path d="M22.73 12.165l-10.938 10.96 2.576 1.466a1 1 0 001.262-.145L22.73 12.165z" fill="#E94444"/>
+                  <path d="M13.792 12l-2.422 2.177-11.36 6.467a1 1 0 001.262.146l12.52-7.125" fill="#5A6FEC"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  Get it on
+                </div>
+                <div class="text-sm text-neutral-600 dark:text-neutral-400">
+                  Google Play
+                </div>
+              </div>
+              <Icon name="chevronRight" size="sm" class="text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors" />
+            </a>
+
+            <!-- iOS Button -->
+            <a
+              href="https://apps.apple.com/us/app/better-islamqa/id855423769"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-neutral-900 rounded-lg border-2 border-neutral-200 dark:border-neutral-800 hover:border-primary-400 dark:hover:border-primary-600 hover:shadow-md transition-all group"
+            >
+              <div class="w-10 h-10 flex items-center justify-center">
+                <svg class="w-8 h-8 text-neutral-800 dark:text-neutral-200" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  Download on the
+                </div>
+                <div class="text-sm text-neutral-600 dark:text-neutral-400">
+                  App Store
+                </div>
+              </div>
+              <Icon name="chevronRight" size="sm" class="text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors" />
+            </a>
+          </div>
+
+          <!-- Benefits List -->
+          <div class="bg-white dark:bg-neutral-900/50 rounded-lg p-3 border border-primary-200 dark:border-primary-800">
+            <p class="text-xs font-semibold text-primary-900 dark:text-primary-100 mb-2">Mobile App Benefits:</p>
+            <ul class="space-y-1 text-xs text-neutral-700 dark:text-neutral-300">
+              <li class="flex items-start gap-2">
+                <span class="text-primary-600 dark:text-primary-400 mt-0.5">✓</span>
+                <span>Native performance and smooth animations</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-600 dark:text-primary-400 mt-0.5">✓</span>
+                <span>Push notifications for daily quizzes and reminders</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-600 dark:text-primary-400 mt-0.5">✓</span>
+                <span>Better offline support and data caching</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary-600 dark:text-primary-400 mt-0.5">✓</span>
+                <span>Prayer times widget on your home screen</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <!-- Help & Tutorial Section -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
@@ -802,6 +892,11 @@ const qiblaDirection = ref(null)
 const locationPermissionStatus = ref(null)
 const requestingPermission = ref(false)
 const checkingPermission = ref(false)
+
+// Detect if running in Cordova
+const isCordova = computed(() => {
+  return typeof window.cordova !== 'undefined'
+})
 
 const selectedCalculationMethod = computed(() => {
   return calculationMethods.find(m => m.key === prayerSettings.value.calculationMethod)

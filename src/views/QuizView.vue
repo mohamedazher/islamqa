@@ -175,7 +175,7 @@
           <!-- Daily Quiz Card -->
           <button
             @click="startDailyQuiz"
-            :disabled="isLoadingCategories"
+            :disabled="isLoadingCategories || dailyQuizCompleted"
             class="w-full bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-5 text-left hover:shadow-md dark:hover:shadow-neutral-700/50 hover:bg-primary-50 dark:hover:bg-primary-950/30 transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
           <div class="flex items-center justify-between mb-2">
@@ -183,10 +183,12 @@
               <Icon name="star" size="md" class="text-primary-600 dark:text-primary-400" />
               <h3 class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Daily Quiz</h3>
             </div>
-            <span class="text-xs bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 px-3 py-1 rounded-full">+50 pts</span>
+            <span v-if="!dailyQuizCompleted" class="text-xs bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 px-3 py-1 rounded-full">+50 pts</span>
+            <span v-else class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-3 py-1 rounded-full">✓ Completed</span>
           </div>
           <p class="text-sm text-neutral-600 dark:text-neutral-400">5 questions · Same quiz for all users today</p>
-          <div class="flex items-center gap-1 text-xs text-accent-600 dark:text-accent-400 mt-2">
+          <p v-if="dailyQuizCompleted" class="text-xs text-green-600 dark:text-green-400 mt-2 font-medium">Come back tomorrow for a new quiz!</p>
+          <div v-else class="flex items-center gap-1 text-xs text-accent-600 dark:text-accent-400 mt-2">
             <Icon name="fire" size="xs" />
             <span>Streak: {{ gamification.streak }} days</span>
           </div>
@@ -350,9 +352,11 @@
         <button
           v-if="answered"
           @click="nextQuestion"
-          class="w-full bg-primary-600 dark:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 dark:hover:bg-primary-600 transition"
+          :disabled="isCompletingQuiz"
+          class="w-full bg-primary-600 dark:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 dark:hover:bg-primary-600 transition disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
-          {{ currentQuestionIndex < currentQuiz.questions.length - 1 ? 'Next Question' : 'See Results' }}
+          <span v-if="isCompletingQuiz && currentQuestionIndex >= currentQuiz.questions.length - 1" class="inline-block animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></span>
+          <span>{{ currentQuestionIndex < currentQuiz.questions.length - 1 ? 'Next Question' : (isCompletingQuiz ? 'Calculating Results...' : 'See Results') }}</span>
         </button>
       </div>
 
@@ -535,6 +539,7 @@ const quizResults = ref(null)
 const newAchievements = ref([])
 const userAnswers = ref([]) // Track all user answers for scoring
 const quizStartTime = ref(null) // Track quiz start time for leaderboard
+const isCompletingQuiz = ref(false) // Track loading state for "See Results" button
 
 // Customization state
 const showCustomizationModal = ref(false)
@@ -547,6 +552,9 @@ const customizationMode = ref('custom') // 'custom' or 'rapid-fire'
 
 // Loading state
 const isLoadingCategories = ref(true)
+
+// Daily quiz state
+const dailyQuizCompleted = computed(() => gamification.hasTakenDailyQuizToday())
 
 // Question detail modal state
 const showQuestionModal = ref(false)
@@ -790,7 +798,13 @@ async function nextQuestion() {
     // Load category for new question
     await loadCurrentQuestionCategory()
   } else {
-    completeQuiz()
+    // Show loading state while completing quiz
+    isCompletingQuiz.value = true
+    try {
+      await completeQuiz()
+    } finally {
+      isCompletingQuiz.value = false
+    }
   }
 }
 
@@ -798,9 +812,9 @@ async function completeQuiz() {
   // Calculate score using the collected user answers
   quizResults.value = quizService.value.calculateScore(currentQuiz.value, userAnswers.value)
 
-  // Award points and check achievements
+  // Award points and check achievements (pass quiz mode for daily quiz tracking)
   const previousUnlocked = gamification.unlockedAchievements.length
-  gamification.completeQuiz(quizResults.value.score, quizResults.value.accuracy)
+  gamification.completeQuiz(quizResults.value.score, quizResults.value.accuracy, currentQuiz.value.mode)
   const newlyUnlocked = gamification.unlockedAchievements.length - previousUnlocked
   newAchievements.value = gamification.unlockedAchievements.slice(-newlyUnlocked)
 
@@ -839,6 +853,7 @@ function restartQuiz() {
   answered.value = false
   currentQuestionIndex.value = 0
   userAnswers.value = [] // Reset answers array
+  isCompletingQuiz.value = false // Reset loading state
 }
 
 function goBack() {
