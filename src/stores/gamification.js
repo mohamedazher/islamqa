@@ -10,6 +10,7 @@ export const useGamificationStore = defineStore('gamification', () => {
   const level = ref(1)
   const streak = ref(0)
   const lastQuizDate = ref(null)
+  const lastDailyQuizDate = ref(null) // Track daily quiz specifically
   const achievements = ref([])
   const quizzesTaken = ref(0)
   const questionsRead = ref(0)
@@ -165,6 +166,7 @@ export const useGamificationStore = defineStore('gamification', () => {
       points.value = data.points || 0
       streak.value = data.streak || 0
       lastQuizDate.value = data.lastQuizDate || null
+      lastDailyQuizDate.value = data.lastDailyQuizDate || null
       achievements.value = data.achievements || allAchievements.map(a => ({ ...a }))
       stats.value = data.stats || stats.value
       // Restore read question IDs from array
@@ -180,6 +182,7 @@ export const useGamificationStore = defineStore('gamification', () => {
       points: points.value,
       streak: streak.value, // Fixed: was saving points.value instead of streak.value
       lastQuizDate: lastQuizDate.value,
+      lastDailyQuizDate: lastDailyQuizDate.value,
       achievements: achievements.value,
       stats: stats.value,
       readQuestionIds: Array.from(readQuestionIds.value) // Convert Set to array for storage
@@ -193,7 +196,7 @@ export const useGamificationStore = defineStore('gamification', () => {
     saveToStorage()
   }
 
-  function completeQuiz(score, accuracy) {
+  function completeQuiz(score, accuracy, quizMode = null) {
     stats.value.quizzesCompleted++
     stats.value.totalPoints += score
 
@@ -204,8 +207,12 @@ export const useGamificationStore = defineStore('gamification', () => {
     // Award points based on score
     awardPoints(score, 'Quiz completion')
 
-    // Check daily quiz streak
-    updateDailyStreak()
+    // Check daily quiz streak only for daily quiz mode
+    if (quizMode === 'daily') {
+      updateDailyStreak()
+      lastDailyQuizDate.value = new Date().toISOString()
+    }
+
     checkAchievements()
     saveToStorage()
   }
@@ -300,11 +307,21 @@ export const useGamificationStore = defineStore('gamification', () => {
     return achievements.value.find(a => a.id === id)
   }
 
+  function hasTakenDailyQuizToday() {
+    if (!lastDailyQuizDate.value) return false
+
+    const today = new Date().toISOString().split('T')[0]
+    const lastDaily = new Date(lastDailyQuizDate.value).toISOString().split('T')[0]
+
+    return lastDaily === today
+  }
+
   function resetProgress() {
     if (confirm('Are you sure you want to reset all progress? This cannot be undone.')) {
       points.value = 0
       streak.value = 0
       lastQuizDate.value = null
+      lastDailyQuizDate.value = null
       achievements.value = allAchievements.map(a => ({ ...a, unlocked: false }))
       stats.value = {
         totalPoints: 0,
@@ -324,6 +341,7 @@ export const useGamificationStore = defineStore('gamification', () => {
     level,
     streak,
     lastQuizDate,
+    lastDailyQuizDate,
     achievements,
     stats,
     tiers,
@@ -347,6 +365,7 @@ export const useGamificationStore = defineStore('gamification', () => {
     createBookmark,
     checkAchievements,
     getAchievement,
+    hasTakenDailyQuizToday,
     resetProgress
   }
 })
