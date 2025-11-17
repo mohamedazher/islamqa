@@ -104,12 +104,43 @@ Generate quiz questions in this **exact** JSON structure:
   - ✅ "Is it permissible to...?"
   - ✅ "Was it permissible for Adam's children to marry each other in early humanity?" (clarified from answer context)
 
-### 3. Multiple Choice Options
+### 3. Multiple Choice Options (CRITICAL - READ THIS!)
+
+**⚠️ CRITICAL: Options must be CONTENT-SPECIFIC, not generic templates!**
+
+❌ **WRONG - Generic templates** (DON'T DO THIS):
+```
+a) It is permissible (halal) in Islam
+b) It is forbidden (haram) in Islam
+c) It is obligatory (fard) upon all Muslims
+d) It depends on circumstances
+```
+**Problem**: These don't test understanding of the actual ruling!
+
+✅ **CORRECT - Content-specific options** (DO THIS):
+```
+a) He should take back the gold that was purchased
+b) He should take back the original cash amount
+c) He should take back the current market value
+d) He cannot take back anything after engagement
+```
+**Why this works**: These test understanding of the SPECIFIC ruling!
+
+**Requirements**:
 - Provide **exactly 4 options** (a, b, c, d)
 - **One correct** marked with `isCorrect: true`
-- **Three plausible wrong answers** (not obviously incorrect)
+- **Three plausible wrong answers** based on ANSWER CONTENT
+- Extract option details FROM THE ANSWER TEXT, not generic categories
 - Options should be roughly similar length
-- Avoid "All of the above" or "None of the above" unless necessary
+- Test understanding of the SPECIFIC ruling, not just halal/haram
+- Wrong options should be:
+  * Related misconceptions from the answer
+  * Alternative interpretations mentioned in answer
+  * Common mistakes people might make
+  * Specific conditions or exceptions discussed
+
+**Golden Rule for Options**:
+Ask yourself: "Do these options test if the user understood THIS SPECIFIC ruling, or just generic Islamic law categories?"
 
 ### 4. Option Quality (Important)
 - Correct option should be derivable from the answer text
