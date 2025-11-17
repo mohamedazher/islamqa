@@ -69,6 +69,18 @@ Answer: {answer_text[:2000]}...
 Generate a multiple-choice quiz question with:
 
 1. **questionText**: A clear, concise question based on the main ruling/topic
+
+   **CRITICAL - READ THIS FIRST:**
+   - Many IslamQA titles are UNCLEAR without the answer context
+   - Example: "Intermarrying among adam and eve's children" - unclear what's being asked
+   - **ALWAYS read the full answer first** to understand the actual question being addressed
+   - **Clarify ambiguous titles** using details from the answer
+   - Make the quiz question self-contained (user shouldn't need to see the original title to understand)
+   - Ask yourself: "If I only saw this question, would I understand what's being asked?"
+   - Examples:
+     * ❌ "What is the ruling on intermarrying among adam and eve's children?" (unclear)
+     * ✅ "Was it permissible for Adam's children to marry their siblings in early humanity?" (clarified)
+
 2. **options**: Exactly 4 options (a, b, c, d)
    - ONE correct answer (isCorrect: true)
    - THREE plausible but incorrect distractors (isCorrect: false)

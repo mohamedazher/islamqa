@@ -92,9 +92,13 @@ Each quiz question must have:
 
 **Question Text:**
 - Clear and unambiguous
-- Based on actual IslamQA content
+- **CRITICAL**: Read the full answer first to understand what's actually being asked
+- Many titles are unclear (e.g., "Intermarrying among adam and eve's children" - needs clarification)
+- **Clarify ambiguous titles** using details from the answer to make question self-contained
+- Based on actual IslamQA content with answer context
 - Appropriate difficulty level
 - Tests understanding, not just memorization
+- User should understand the question without seeing the original title
 
 **Options:**
 - ONE correct answer (isCorrect: true)
@@ -311,6 +315,35 @@ git push
 ---
 
 ## Common Pitfalls to Avoid
+
+### ❌ Unclear Quiz Questions (NEW - VERY IMPORTANT!)
+
+```json
+// DON'T just copy the title without reading the answer
+{
+  "reference": 12345,
+  "questionText": "What is the ruling on intermarrying among adam and eve's children?"  // ❌ Unclear!
+}
+```
+
+**Problem**: User doesn't understand what's being asked. Is it about:
+- Whether it was permissible?
+- Whether it actually happened?
+- What the wisdom behind it was?
+
+### ✅ Clear Quiz Questions
+
+```json
+// DO read the answer first, then clarify the question
+{
+  "reference": 12345,
+  "questionText": "Was it permissible for Adam's children to marry their siblings in early humanity?"  // ✅ Clear!
+}
+```
+
+**Solution**: After reading the answer, you understand the question is about permissibility, so you clarify it.
+
+**Golden Rule**: If someone only saw your quiz question (without the title or answer), would they understand what's being asked?
 
 ### ❌ Wrong Reference Assignment
 
