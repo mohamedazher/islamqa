@@ -169,9 +169,10 @@ class LeaderboardService {
 
       const leaderboard = []
       snapshot.forEach((doc, index) => {
+        const data = doc.data()
         leaderboard.push({
+          ...data,
           rank: index + 1,
-          ...doc.data(),
           isCurrentUser: doc.id === this.userId
         })
       })
@@ -196,9 +197,10 @@ class LeaderboardService {
 
       const leaderboard = []
       snapshot.forEach((doc, index) => {
+        const data = doc.data()
         leaderboard.push({
+          ...data,
           rank: index + 1,
-          ...doc.data(),
           isCurrentUser: doc.id === this.userId
         })
       })
@@ -223,12 +225,12 @@ class LeaderboardService {
       snapshot.forEach((doc, index) => {
         const data = doc.data()
         leaderboard.push({
-          rank: index + 1,
           userId: doc.id,
           username: data.username,
-          totalScore: data.totalScore,
-          quizzesTaken: data.quizzesTaken,
-          level: data.level,
+          totalScore: data.totalScore || 0,
+          quizzesTaken: data.quizzesTaken || 0,
+          level: data.level || 1,
+          rank: index + 1,
           isCurrentUser: doc.id === this.userId
         })
       })

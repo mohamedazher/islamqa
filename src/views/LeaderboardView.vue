@@ -92,7 +92,7 @@
             <!-- Score -->
             <div class="text-right">
               <div class="text-xl font-bold text-amber-600 dark:text-amber-400">
-                {{ selectedTab === 'daily' ? entry.score : entry.totalScore }}
+                {{ selectedTab === 'daily' ? (entry.score || 0) : (entry.totalScore || 0) }}
               </div>
               <div class="text-xs text-neutral-600 dark:text-neutral-400">points</div>
             </div>
@@ -101,16 +101,21 @@
       </div>
 
       <!-- Empty State -->
-      <div v-if="!loading && leaderboard.length === 0" class="text-center py-12">
+      <div v-if="!loading && leaderboard.length === 0" class="text-center py-12 px-4">
         <Icon name="trophy" size="xl" class="text-neutral-400 dark:text-neutral-600 mx-auto mb-4" />
-        <p class="text-neutral-600 dark:text-neutral-400">No scores yet. Be the first!</p>
+        <p class="text-neutral-600 dark:text-neutral-400 font-medium mb-2">
+          {{ getEmptyStateMessage() }}
+        </p>
+        <p class="text-sm text-neutral-500 dark:text-neutral-500">
+          Complete quizzes to appear on the leaderboard!
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, onActivated, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import Icon from '@/components/common/Icon.vue'
 import leaderboardService from '@/services/leaderboardService'
@@ -131,19 +136,34 @@ const userScore = ref(0)
 const username = ref('')
 
 onMounted(async () => {
-  await leaderboardService.initUser()
-  username.value = leaderboardService.username
-  loadLeaderboard()
+  await initializeLeaderboard()
+})
+
+// Reload when navigating back to the page
+onActivated(async () => {
+  await loadLeaderboard()
 })
 
 watch(selectedTab, () => {
   loadLeaderboard()
 })
 
+async function initializeLeaderboard() {
+  try {
+    await leaderboardService.initUser()
+    username.value = leaderboardService.username
+    await loadLeaderboard()
+  } catch (error) {
+    console.error('Failed to initialize leaderboard:', error)
+  }
+}
+
 async function loadLeaderboard() {
   loading.value = true
 
   try {
+    console.log(`📊 Loading ${selectedTab.value} leaderboard...`)
+
     if (selectedTab.value === 'daily') {
       leaderboard.value = await leaderboardService.getDailyLeaderboard()
     } else if (selectedTab.value === 'weekly') {
@@ -152,17 +172,24 @@ async function loadLeaderboard() {
       leaderboard.value = await leaderboardService.getAllTimeLeaderboard()
     }
 
+    console.log(`✅ Loaded ${leaderboard.value.length} entries`)
+
     // Get user rank
     const userEntry = leaderboard.value.find(entry => entry.isCurrentUser)
     if (userEntry) {
       userRank.value = userEntry.rank
-      userScore.value = selectedTab.value === 'daily' ? userEntry.score : userEntry.totalScore
+      userScore.value = selectedTab.value === 'daily' ? (userEntry.score || 0) : (userEntry.totalScore || 0)
+      console.log(`👤 User rank: ${userRank.value}, score: ${userScore.value}`)
     } else {
       userRank.value = null
       userScore.value = 0
+      console.log('👤 User not found in leaderboard')
     }
   } catch (error) {
-    console.error('Failed to load leaderboard:', error)
+    console.error('❌ Failed to load leaderboard:', error)
+    leaderboard.value = []
+    userRank.value = null
+    userScore.value = 0
   } finally {
     loading.value = false
   }
@@ -180,6 +207,16 @@ function getRankEmoji(rank) {
   if (rank === 2) return '🥈'
   if (rank === 3) return '🥉'
   return `#${rank}`
+}
+
+function getEmptyStateMessage() {
+  if (selectedTab.value === 'daily') {
+    return 'No scores today yet'
+  } else if (selectedTab.value === 'weekly') {
+    return 'No scores this week yet'
+  } else {
+    return 'No scores yet. Be the first!'
+  }
 }
 
 function goBack() {
