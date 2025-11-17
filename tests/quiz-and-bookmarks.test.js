@@ -112,10 +112,9 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
       });
 
       // Validate types
-      expect(typeof quiz.id).toBe('string');
       expect(typeof quiz.questionText).toBe('string');
       expect(Array.isArray(quiz.options)).toBe(true);
-      expect(quiz.questionText.length, `Quiz ${quiz.id} must have non-empty question text`).toBeGreaterThan(0);
+      expect(quiz.questionText.length, `Quiz ${i} must have non-empty question text`).toBeGreaterThan(0);
     }
 
     console.log(`✅ All sampled quizzes have required fields`);
@@ -260,7 +259,7 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
     console.log(`✅ All quizzes have valid question types`);
   });
 
-  test('quizzes must have diverse categories', () => {
+  test('quizzes must have diverse categories or tags', () => {
     let quizPath = path.join(__dirname, '../www/data/quiz-questions.json');
     if (!fs.existsSync(quizPath)) {
       quizPath = path.join(__dirname, '../public/data/quiz-questions.json');
@@ -272,12 +271,23 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
     // Support both formats
     const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
 
-    const categories = new Set(quizzes.map(q => q.category));
+    // New format: extract all unique tags from all quizzes
+    // Old format: use category field
+    const categoriesSet = new Set();
+    quizzes.forEach(q => {
+      if (q.category) {
+        categoriesSet.add(q.category);
+      }
+      if (Array.isArray(q.tags)) {
+        q.tags.forEach(tag => categoriesSet.add(tag));
+      }
+    });
 
-    // Should have at least 5 different categories for variety
-    expect(categories.size, `Should have at least 5 categories, found ${categories.size}`).toBeGreaterThanOrEqual(5);
+    // Should have at least 5 different categories/tags for variety
+    expect(categoriesSet.size, `Should have at least 5 unique categories/tags, found ${categoriesSet.size}`).toBeGreaterThanOrEqual(5);
 
-    console.log(`✅ Found ${categories.size} unique categories: ${Array.from(categories).slice(0, 5).join(', ')}...`);
+    const categoriesList = Array.from(categoriesSet).slice(0, 5).join(', ');
+    console.log(`✅ Found ${categoriesSet.size} unique categories/tags: ${categoriesList}...`);
   });
 });
 
@@ -416,17 +426,28 @@ describe('Quiz and Bookmarks Integration', () => {
     const categoriesPath = path.join(__dirname, '../public/data/categories.json');
 
     const quizContent = fs.readFileSync(quizPath, 'utf-8');
-    const quizData = JSON.parse(quizContent);
+    let quizData = JSON.parse(quizContent);
 
     const catContent = fs.readFileSync(categoriesPath, 'utf-8');
     const categories = JSON.parse(catContent);
 
-    // Extract quiz categories
-    const quizCategories = new Set(quizData.quizzes.map(q => q.category));
+    // Support both formats: extract quizzes array from flat or nested structure
+    const quizzes = Array.isArray(quizData) ? quizData : (quizData.quizzes || []);
 
-    // Note: Quiz categories are semantic labels, not direct matches to category IDs
+    // Extract quiz categories or tags (new format uses tags, old format uses category)
+    const quizCategories = new Set();
+    quizzes.forEach(q => {
+      if (q.category) {
+        quizCategories.add(q.category);
+      }
+      if (Array.isArray(q.tags)) {
+        q.tags.forEach(tag => quizCategories.add(tag));
+      }
+    });
+
+    // Note: Quiz categories/tags are semantic labels, not direct matches to category IDs
     // This test just ensures quizzes have meaningful category labels
-    expect(quizCategories.size, 'Quizzes should have diverse categories').toBeGreaterThan(0);
+    expect(quizCategories.size, 'Quizzes should have diverse categories or tags').toBeGreaterThan(0);
 
     console.log(`✅ Quiz system has ${quizCategories.size} categories, Question system has ${categories.length} categories`);
   });

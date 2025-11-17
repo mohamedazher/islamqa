@@ -78,14 +78,21 @@ describe('DataLoader - loadQuizQuestions() (CRITICAL)', () => {
 
     const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
 
-    // Each quiz must have sourceQuestionId (used as reference)
+    // Each quiz must have reference (primary key) or sourceQuestionId
     const samplesToCheck = Math.min(10, quizzes.length);
     for (let i = 0; i < samplesToCheck; i++) {
       const quiz = quizzes[i];
 
-      // Must have sourceQuestionId (this becomes the reference field)
-      expect(quiz, `Quiz ${i} must have sourceQuestionId`).toHaveProperty('sourceQuestionId');
-      expect(typeof quiz.sourceQuestionId).toBe('number');
+      // New format: must have reference directly
+      // Old format: must have sourceQuestionId
+      const hasReference = quiz.hasOwnProperty('reference') || quiz.hasOwnProperty('sourceQuestionId');
+      expect(hasReference, `Quiz ${i} must have reference or sourceQuestionId`).toBe(true);
+
+      if (quiz.hasOwnProperty('reference')) {
+        expect(typeof quiz.reference).toBe('number');
+      } else if (quiz.hasOwnProperty('sourceQuestionId')) {
+        expect(typeof quiz.sourceQuestionId).toBe('number');
+      }
 
       // Simulate the mapping that should happen
       const mappedQuiz = {
@@ -116,20 +123,29 @@ describe('DataLoader - loadQuizQuestions() (CRITICAL)', () => {
     const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
 
     // Simulate the mapping
-    const mappedQuizzes = quizzes.map(quiz => ({
-      reference: quiz.sourceQuestionId || quiz.reference,
-      id: quiz.id,
-      questionText: quiz.questionText,
-      options: quiz.options,
-      explanation: quiz.explanation,
-      difficulty: quiz.difficulty,
-      tags: quiz.tags || [],
-      category: quiz.category,
-      source: quiz.source || 'IslamQA',
-      type: quiz.type || 'multiple-choice'
-    }));
+    const mappedQuizzes = quizzes.map(quiz => {
+      const mapped = {
+        reference: quiz.sourceQuestionId || quiz.reference,
+        questionText: quiz.questionText,
+        options: quiz.options,
+        explanation: quiz.explanation,
+        difficulty: quiz.difficulty,
+        tags: quiz.tags || [],
+        source: quiz.source || 'IslamQA',
+        type: quiz.type || 'multiple-choice'
+      };
+      // Only include id if it exists (for old format compatibility)
+      if (quiz.id) {
+        mapped.id = quiz.id;
+      }
+      // Only include category if it exists
+      if (quiz.category) {
+        mapped.category = quiz.category;
+      }
+      return mapped;
+    });
 
-    const requiredFields = ['reference', 'id', 'questionText', 'options', 'explanation', 'difficulty'];
+    const requiredFields = ['reference', 'questionText', 'options', 'explanation', 'difficulty'];
 
     const samplesToCheck = Math.min(10, mappedQuizzes.length);
     for (let i = 0; i < samplesToCheck; i++) {
