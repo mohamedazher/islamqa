@@ -26,8 +26,10 @@ if (window.cordova) {
   document.addEventListener('deviceready', () => {
     console.log('📱 Cordova device ready')
 
-    // Initialize Microsoft Clarity
-    if (window.ClarityPlugin) {
+    // Initialize Microsoft Clarity (Android only - not supported on iOS)
+    if (window.device && window.device.platform === 'iOS') {
+      console.log('ℹ️ Skipping Microsoft Clarity (not supported on iOS)')
+    } else if (window.ClarityPlugin) {
       const success = function(message) {
         console.log('✅ Microsoft Clarity initialized:', message)
       }
