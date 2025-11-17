@@ -552,8 +552,24 @@ bundle exec fastlane android production     # Full workflow → Google Play Prod
 #### Option 2: CI/CD with GitHub Actions (automated)
 
 **Triggered on:**
-- Push to `master` branch
+- Push to `master` branch **with commit message containing `[beta]`, `[release]`, or `[production]` tags**
 - Manual trigger via GitHub Actions UI
+
+**Important: Commit Message Tags**
+The workflow only runs automatically if the commit message contains one of these tags:
+- `[beta]` - Deploy to Google Play Open Testing (beta track)
+- `[release]` or `[production]` - Deploy to Production track
+
+Example commit messages:
+```bash
+git commit -m "Add new feature [beta]"
+git commit -m "Bug fix ready for production [release]"
+```
+
+Alternatively, trigger manually:
+```bash
+gh workflow run deploy-android.yml -f deployment_target=beta
+```
 
 **What it does:**
 - Checks out code
