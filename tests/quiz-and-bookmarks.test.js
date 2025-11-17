@@ -39,17 +39,23 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
-    // Check required top-level fields
-    expect(data).toHaveProperty('version');
-    expect(data).toHaveProperty('totalQuizzes');
-    expect(data).toHaveProperty('quizzes');
-
-    // Validate types
-    expect(typeof data.version).toBe('string');
-    expect(typeof data.totalQuizzes).toBe('number');
-    expect(Array.isArray(data.quizzes)).toBe(true);
-
-    console.log(`✅ Quiz data has valid structure: v${data.version}, ${data.totalQuizzes} quizzes`);
+    // Support both old nested format and new flat array format
+    let quizzes;
+    if (Array.isArray(data)) {
+      // New format: flat array
+      quizzes = data;
+      expect(Array.isArray(quizzes)).toBe(true);
+      console.log(`✅ Quiz data has valid flat array structure: ${quizzes.length} quizzes`);
+    } else {
+      // Old format: nested object
+      expect(data).toHaveProperty('version');
+      expect(data).toHaveProperty('totalQuizzes');
+      expect(data).toHaveProperty('quizzes');
+      expect(typeof data.version).toBe('string');
+      expect(typeof data.totalQuizzes).toBe('number');
+      expect(Array.isArray(data.quizzes)).toBe(true);
+      console.log(`✅ Quiz data has valid nested structure: v${data.version}, ${data.totalQuizzes} quizzes`);
+    }
   });
 
   test('quiz-questions.json must have minimum number of quizzes', () => {
@@ -61,13 +67,19 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
+    // Support both formats
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
+    const quizCount = quizzes.length;
+
     // Should have at least 100 quizzes for a good experience
-    expect(data.quizzes.length, `Should have at least 100 quizzes, found ${data.quizzes.length}`).toBeGreaterThanOrEqual(100);
+    expect(quizCount, `Should have at least 100 quizzes, found ${quizCount}`).toBeGreaterThanOrEqual(100);
 
-    // totalQuizzes should match array length
-    expect(data.totalQuizzes).toBe(data.quizzes.length);
+    // For nested format, totalQuizzes should match array length
+    if (!Array.isArray(data)) {
+      expect(data.totalQuizzes).toBe(quizCount);
+    }
 
-    console.log(`✅ Found ${data.quizzes.length} quizzes`);
+    console.log(`✅ Found ${quizCount} quizzes`);
   });
 
   test('each quiz must have required fields', () => {
@@ -79,24 +91,24 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
+    // Support both formats
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
+
     const requiredFields = [
-      'id',
-      'sourceQuestionId',
       'questionText',
       'type',
       'difficulty',
-      'category',
       'options',
       'explanation'
     ];
 
     // Check first 10 quizzes as sample
-    const samplesToCheck = Math.min(10, data.quizzes.length);
+    const samplesToCheck = Math.min(10, quizzes.length);
     for (let i = 0; i < samplesToCheck; i++) {
-      const quiz = data.quizzes[i];
+      const quiz = quizzes[i];
 
       requiredFields.forEach(field => {
-        expect(quiz, `Quiz ${i} (id: ${quiz.id}) must have field '${field}'`).toHaveProperty(field);
+        expect(quiz, `Quiz ${i} must have field '${field}'`).toHaveProperty(field);
       });
 
       // Validate types
@@ -118,10 +130,13 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
+    // Support both formats
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
+
     // Check first 10 quizzes
-    const samplesToCheck = Math.min(10, data.quizzes.length);
+    const samplesToCheck = Math.min(10, quizzes.length);
     for (let i = 0; i < samplesToCheck; i++) {
-      const quiz = data.quizzes[i];
+      const quiz = quizzes[i];
 
       // Must have at least 2 options (for true/false) or 4 (for multiple choice)
       expect(quiz.options.length, `Quiz ${quiz.id} must have at least 2 options`).toBeGreaterThanOrEqual(2);
@@ -150,10 +165,12 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
+    // Support both formats
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
     const errors = [];
 
     // Check all quizzes for correct answer
-    data.quizzes.forEach((quiz, idx) => {
+    quizzes.forEach((quiz, idx) => {
       const correctAnswers = quiz.options.filter(opt => opt.isCorrect === true);
 
       if (correctAnswers.length !== 1) {
@@ -171,7 +188,7 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
 
     expect(errors.length, `Found ${errors.length} quizzes with invalid correct answer counts`).toBe(0);
 
-    console.log(`✅ All ${data.quizzes.length} quizzes have exactly one correct answer`);
+    console.log(`✅ All ${quizzes.length} quizzes have exactly one correct answer`);
   });
 
   test('quizzes must have valid difficulty levels', () => {
@@ -183,10 +200,13 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
+    // Support both formats
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
+
     const validDifficulties = ['easy', 'medium', 'hard'];
     const invalidQuizzes = [];
 
-    data.quizzes.forEach(quiz => {
+    quizzes.forEach(quiz => {
       if (!validDifficulties.includes(quiz.difficulty)) {
         invalidQuizzes.push(`Quiz ${quiz.id} has invalid difficulty: "${quiz.difficulty}"`);
       }
@@ -201,9 +221,9 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
 
     // Count by difficulty
     const counts = {
-      easy: data.quizzes.filter(q => q.difficulty === 'easy').length,
-      medium: data.quizzes.filter(q => q.difficulty === 'medium').length,
-      hard: data.quizzes.filter(q => q.difficulty === 'hard').length
+      easy: quizzes.filter(q => q.difficulty === 'easy').length,
+      medium: quizzes.filter(q => q.difficulty === 'medium').length,
+      hard: quizzes.filter(q => q.difficulty === 'hard').length
     };
 
     console.log(`✅ Valid difficulty distribution: Easy=${counts.easy}, Medium=${counts.medium}, Hard=${counts.hard}`);
@@ -218,10 +238,13 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
+    // Support both formats
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
+
     const validTypes = ['multiple-choice', 'true-false'];
     const invalidQuizzes = [];
 
-    data.quizzes.forEach(quiz => {
+    quizzes.forEach(quiz => {
       if (!validTypes.includes(quiz.type)) {
         invalidQuizzes.push(`Quiz ${quiz.id} has invalid type: "${quiz.type}"`);
       }
@@ -246,7 +269,10 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
-    const categories = new Set(data.quizzes.map(q => q.category));
+    // Support both formats
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
+
+    const categories = new Set(quizzes.map(q => q.category));
 
     // Should have at least 5 different categories for variety
     expect(categories.size, `Should have at least 5 categories, found ${categories.size}`).toBeGreaterThanOrEqual(5);

@@ -32,9 +32,10 @@ describe('DataLoader - loadQuizQuestions() (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
-    // Simulate what loadQuizQuestions() should do
-    // BUG FIX: Must extract data.quizzes, not return data directly
-    const quizzes = data.quizzes || [];
+    // Support both formats: flat array or nested object
+    // New format: [{ id, questionText, ... }, ...]
+    // Old format: { version, totalQuizzes, quizzes: [...] }
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
 
     // CRITICAL: Must be an array
     expect(Array.isArray(quizzes), 'loadQuizQuestions() must return an array').toBe(true);
@@ -51,18 +52,23 @@ describe('DataLoader - loadQuizQuestions() (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
-    // The file has structure: { version, totalQuizzes, quizzes: [...] }
-    expect(data).toHaveProperty('version');
-    expect(data).toHaveProperty('totalQuizzes');
-    expect(data).toHaveProperty('quizzes');
+    // Support both formats
+    let quizzes;
+    if (Array.isArray(data)) {
+      // New format: flat array
+      quizzes = data;
+      expect(Array.isArray(quizzes)).toBe(true);
+    } else {
+      // Old format: nested object
+      expect(data).toHaveProperty('version');
+      expect(data).toHaveProperty('totalQuizzes');
+      expect(data).toHaveProperty('quizzes');
+      quizzes = data.quizzes;
+      expect(Array.isArray(quizzes)).toBe(true);
+      expect(quizzes.length).toBe(data.totalQuizzes);
+    }
 
-    // Extract quizzes array (this is what the bug was missing!)
-    const quizzes = data.quizzes;
-
-    expect(Array.isArray(quizzes)).toBe(true);
-    expect(quizzes.length).toBe(data.totalQuizzes);
-
-    console.log(`✅ Correctly extracts ${quizzes.length} quizzes from nested structure`);
+    console.log(`✅ Correctly extracts ${quizzes.length} quizzes from JSON structure`);
   });
 
   test('loadQuizQuestions() must map quiz data to have reference field', () => {
@@ -70,7 +76,7 @@ describe('DataLoader - loadQuizQuestions() (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
-    const quizzes = data.quizzes || [];
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
 
     // Each quiz must have sourceQuestionId (used as reference)
     const samplesToCheck = Math.min(10, quizzes.length);
@@ -107,7 +113,7 @@ describe('DataLoader - loadQuizQuestions() (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
-    const quizzes = data.quizzes || [];
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
 
     // Simulate the mapping
     const mappedQuizzes = quizzes.map(quiz => ({
@@ -152,7 +158,7 @@ describe('DexieDatabase - bulkImportQuizQuestions() (CRITICAL)', () => {
     const data = JSON.parse(content);
 
     // Extract and map quizzes (simulating fixed dataLoader)
-    const quizzes = data.quizzes || [];
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
     const mappedQuizzes = quizzes.map(quiz => ({
       reference: quiz.sourceQuestionId || quiz.reference,
       id: quiz.id,
@@ -184,7 +190,7 @@ describe('DexieDatabase - bulkImportQuizQuestions() (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
-    const quizzes = data.quizzes || [];
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
     const references = quizzes.map(q => q.sourceQuestionId || q.reference);
 
     const uniqueReferences = new Set(references);
@@ -409,12 +415,16 @@ describe('Quiz Import Bug Regression Prevention (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
-    // BUG: Returning data directly gives undefined length
-    const wrongWay = data;
-    expect(wrongWay.length, 'BUG DETECTED: Returning object gives undefined length').toBeUndefined();
+    // FIX: Must extract quizzes array (different for each format)
+    let correctWay;
+    if (Array.isArray(data)) {
+      // New format: data is already the array
+      correctWay = data;
+    } else {
+      // Old format: must extract data.quizzes
+      correctWay = data.quizzes || [];
+    }
 
-    // FIX: Must extract data.quizzes array
-    const correctWay = data.quizzes || [];
     expect(typeof correctWay.length).toBe('number');
     expect(correctWay.length).toBeGreaterThan(0);
 
@@ -426,7 +436,7 @@ describe('Quiz Import Bug Regression Prevention (CRITICAL)', () => {
     const content = fs.readFileSync(quizPath, 'utf-8');
     const data = JSON.parse(content);
 
-    const quizzes = data.quizzes || [];
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
     const mappedQuizzes = quizzes.map(quiz => ({
       reference: quiz.sourceQuestionId || quiz.reference,
       questionText: quiz.questionText,
