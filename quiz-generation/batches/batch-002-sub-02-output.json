@@ -1,0 +1,144 @@
+{
+  "quizQuestions": [
+    {
+      "questionId": 83799,
+      "question": "What is the Islamic ruling on taking a husband's sperm and his first wife's egg, fertilizing them outside the body, and implanting the embryo in his second wife's womb?",
+      "options": [
+        "It is prohibited because it may lead to confusion of lineages if the second wife conceives naturally at the same time",
+        "It is permitted as long as all three parties (husband and both wives) consent to the procedure",
+        "It was initially prohibited but later permitted by the Islamic Fiqh Council after further research",
+        "It is permitted by analogy with breastfeeding, since the second wife would be nourishing the child"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The Islamic Fiqh Council of the OIC declared this method (the fifth of seven methods) completely haraam. The Muslim World League's Islamic Fiqh Council initially permitted it but later retracted their ruling because the second wife could become pregnant naturally around the time of embryo implantation, leading to twins whose parentage would be unclear and causing confusion of lineages.",
+      "difficulty": "medium",
+      "category": "Medical Issues"
+    },
+    {
+      "questionId": 95515,
+      "question": "A student takes an interest-free loan with a condition that if the currency drops in value (inflation), the borrower must pay back the difference. What is the Islamic ruling on this condition?",
+      "options": [
+        "The condition is not permissible because connecting debt repayment to inflation or currency value changes leads to riba and unknown factors",
+        "The condition is permissible as long as the currency has not been abolished and is still in circulation",
+        "The condition is permissible because it protects the lender from currency depreciation and prevents injustice",
+        "The condition is permissible if both parties agree to it at the time of signing the contract"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The International Islamic Fiqh Council (statement 115) and the majority of classical and modern scholars ruled that debts must be repaid in the same currency form as the original loan, not based on equivalent value. It is prohibited to connect debt repayment to inflation, price indexes, or mathematical formulas because this leads to riba and introduces unknown factors that violate contract clarity requirements.",
+      "difficulty": "medium",
+      "category": "Financial Transactions"
+    },
+    {
+      "questionId": 5645,
+      "question": "A son's parents ask him to hand them the TV remote control so they can play music. What should he do according to Islamic teachings?",
+      "options": [
+        "He should refuse because handing the remote would be cooperating in sin, even though the parents are doing the action",
+        "He should hand the remote because the responsibility lies with the parents who will press the buttons, not with him",
+        "He should hand the remote and obey his parents because there is no obedience to parents only in major sins like shirk",
+        "He should hand the remote but advise them after they use it, to avoid making them angry beforehand"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer clarifies that withholding the remote is obligatory because handing it involves cooperating in sin, as stated in Quran 5:2. The hadith states 'There is no obedience to any created being if it involves disobedience to the Creator.' Even though the remote is merely a tool, the person handing it is doing the action and bears responsibility.",
+      "difficulty": "medium",
+      "category": "Family & Parents"
+    },
+    {
+      "questionId": 182868,
+      "question": "A man divorced his wife three times over six months because someone told him it was obligatory to give the second divorce after 3 months and the third after 6 months. What is the ruling on the second and third divorces?",
+      "options": [
+        "They do not count as valid divorces because he only uttered them based on a false belief that they were obligatory",
+        "They count as valid divorces because divorce is effective once uttered, regardless of the person's intention or belief",
+        "They count as valid only if he did not discover the mistake until after the 'iddah period ended",
+        "They count as valid because he waited the required three-month intervals between each divorce"
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to Shaykh Muhammad ibn Ibraaheem, if a person bases his divorce on a reason and later finds out that reason was invalid, the divorce does not count. Since the man only uttered the second and third divorces because he believed it was obligatory (which was false information), those divorces are invalid according to the correct scholarly opinion.",
+      "difficulty": "hard",
+      "category": "Divorce"
+    },
+    {
+      "questionId": 148390,
+      "question": "A Muslim works in a call centre that provides halal services, but the call centre is a department of a global bank that offers riba-based services. What is the Islamic ruling on his work?",
+      "options": [
+        "It is permissible because the call centre's work is permissible and some Sahaabah worked for Jews who dealt in riba",
+        "It is prohibited because any work for an institution that offers riba services makes the employee a cooperator in sin",
+        "It is permissible only if the employee donates a portion of his salary to charity to purify the income",
+        "It is prohibited unless the employee's work directly helps customers avoid the riba-based services"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer states it is permissible to work at a call centre that does permissible work, even if owned by an individual who deals in riba or belongs to a riba-based institution. This is for two reasons: what matters is that the nature of the work itself is permissible, and some of the Sahaabah worked for Jews who dealt in and consumed riba.",
+      "difficulty": "medium",
+      "category": "Employment"
+    },
+    {
+      "questionId": 267326,
+      "question": "A man sold land and received a down payment, but legal procedures to transfer ownership have been delayed for a year while the money remains in his possession. Is zakah due on the down payment?",
+      "options": [
+        "No zakah is due because his ownership of the money is not complete or certain, as he may need to return it if the sale fails",
+        "Zakah is due because the money has been in his possession for a full year, regardless of whether the sale is finalized",
+        "Zakah is due on half the amount since ownership is partially established through the down payment agreement",
+        "No zakah is due unless the legal transfer of ownership is completed, after which zakah becomes due retroactively"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Shaykh 'Abd ar-Rahman al-Barrak ruled that there is no zakah on a down payment because the seller's ownership of it is not complete and not certain. If the transfer of ownership of the land fails, the seller will have to return the money to the purchaser.",
+      "difficulty": "medium",
+      "category": "Zakah"
+    },
+    {
+      "questionId": 12566,
+      "question": "What is the ruling on saying salam to a person on the phone when you do not know whether he is Muslim or not?",
+      "options": [
+        "There is nothing wrong with it, since the ruling is the same as meeting in person and uncertainty permits greeting",
+        "It is prohibited because you must confirm the person is Muslim before initiating salam in any situation",
+        "It is permissible only if you ask the person's religion first, then give salam if he confirms he is Muslim",
+        "It is prohibited on the phone but permissible in person, since phone conversations have different etiquette rules"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer states that the ruling on greeting someone on the phone is the same as meeting in person. If you know he is a kaafir, do not initiate the greeting. But if you do not know whether he is Muslim or not, there is nothing wrong with giving salam.",
+      "difficulty": "easy",
+      "category": "Etiquette & Manners"
+    },
+    {
+      "questionId": 126956,
+      "question": "The hadith 'A house in which there are no dates, its people will go hungry' is saheeh and narrated by Muslim. How do scholars interpret it?",
+      "options": [
+        "It refers to people whose staple food includes dates, such as the people of Madeenah at the time of the Prophet",
+        "It applies universally to all Muslims regardless of their region or dietary customs as a recommendation to stockpile dates",
+        "It is a metaphorical statement about spiritual hunger rather than physical hunger from lack of dates",
+        "It refers specifically to poor families who cannot afford other foods and must rely on dates for sustenance"
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to scholars, including Ibn Baz, the hadith is to be interpreted as referring to people whose food includes dates, such as the people of Madeenah at the time of the Prophet and others whose staple food is dates. It is not a universal statement for all people regardless of their diet.",
+      "difficulty": "medium",
+      "category": "Hadith Sciences"
+    },
+    {
+      "questionId": 145520,
+      "question": "According to scholars, in which context do the terms 'Hadith' and 'Sunnah' have different meanings?",
+      "options": [
+        "When discussing whether a report is authentic or weak, scholars use 'Hadith' not 'Sunnah' because Sunnah is what is proven in Hadiths",
+        "When referring to whatever is narrated from the Prophet of words, actions, or approval, which can be called either term",
+        "When naming the saved group, which is called both 'Ahl Al-Hadith' and 'Ahl As-Sunnah' interchangeably",
+        "When referring to books that transmit reports from the Prophet, which are called both 'Kutub Al-Hadith' and 'Kutub As-Sunnah'"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer explains that when scholars discuss whether reports are authentic or weak, they only use the word 'Hadith' and not 'Sunnah.' They say 'This is a weak Hadith' but not 'This is a weak Sunnah,' because for them the Sunnah is what is proven in the Hadiths. They may say 'This Hadith is contrary to the Sunnah.'",
+      "difficulty": "hard",
+      "category": "Hadith Sciences"
+    },
+    {
+      "questionId": 115306,
+      "question": "What is the ruling on eating cheese when the source of the rennet used in making it is unknown?",
+      "options": [
+        "There is nothing wrong with eating it, whether the source of the rennet is known or unknown, according to the correct opinion",
+        "It is prohibited unless you verify that the rennet came from an animal slaughtered according to Islamic law",
+        "It is permissible only if the cheese is made by Muslims, as their cheese is presumed to use permissible rennet",
+        "It is permissible to eat the cheese but obligatory to wash it first to remove any impurity from the rennet"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer concludes with the correct opinion that whether you know the source of the rennet (from a properly slaughtered animal or otherwise) or you do not know, there is nothing wrong with eating cheese made with it. This is based on the view of Ibn Taymiyah and others that rennet is taahir even from dead animals, and this issue is subject to valid scholarly difference.",
+      "difficulty": "medium",
+      "category": "Food & Drinks"
+    }
+  ]
+}

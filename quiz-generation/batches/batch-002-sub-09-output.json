@@ -1,0 +1,144 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 11498,
+      "question": "What should you do if you find yourself thinking about zina (fornication/adultery)?",
+      "options": [
+        "Strengthen your faith through reading Quran and voluntary prayers, fast if unmarried, choose righteous friends, and avoid things that provoke desire like haram looking",
+        "Ignore the thoughts completely as they are merely passing thoughts that cross the mind and require no action",
+        "Focus solely on remembering the punishment of zina without taking any practical preventive steps",
+        "Marriage is the only solution and nothing else is required once you get married"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer distinguishes between mere thoughts and established thoughts with resolve. For established thoughts with intention, one must take multiple steps: strive to get married (the shar'i and natural protection), fast if unable to marry, strengthen iman through worship, choose righteous friends, keep away from things that provoke desire (especially haram looking), and remember the punishment for zina.",
+      "category": 268,
+      "difficulty": "medium"
+    },
+    {
+      "reference": 4182,
+      "question": "What is the ruling on a woman who wore niqaab during Hajj because she was unaware it was not allowed?",
+      "options": [
+        "There is no sin on her because she was unaware, and she does not have to offer any fidyah (ransom)",
+        "She committed a sin and must offer fidyah for wearing prohibited clothing during ihram",
+        "She must repeat her entire Hajj because the ihram was invalidated by wearing the niqaab",
+        "She is excused only if she removes it immediately upon learning, but still owes compensation"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer explicitly states that there is no sin on someone who does something not allowed during ihram because they were unaware or forgot, and they do not have to offer any fidyah. This is supported by the hadith about the man who wore a jubbah and used saffron while unaware, and Shaykh Ibn 'Uthaymeen's statement that similar to forgetting are cases where one is unaware.",
+      "category": 131,
+      "difficulty": "medium"
+    },
+    {
+      "reference": 2074,
+      "question": "What is the ruling on a woman who wears her hair in braids when performing ghusl because of janaabah (impurity after intercourse)?",
+      "options": [
+        "She does not have to undo her braids; it is enough to pour water on her head three times and over the rest of her body",
+        "She must undo her braids completely just like when performing ghusl after menstruation or nifaas",
+        "She only needs to wipe the surface of her head with water without ensuring it reaches the roots",
+        "She is required to undo her braids because the difficulty of redoing them is an insufficient excuse"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The hadith of Umm Salamah clearly states that a woman who wears her hair in braids is excused from undoing them when doing ghusl because of janaabah, due to the difficulty involved in doing them up again. The Prophet said it is enough to pour water on the head three times, then over the rest of the body. However, for ghusl after menstruation or nifaas, she must undo her braids.",
+      "category": 63,
+      "difficulty": "medium"
+    },
+    {
+      "reference": 228025,
+      "question": "What is the ruling on the prayer of someone who was uncertain about the number of prostrations, proceeded on the basis of certainty by doing another prostration, but omitted the prostration of forgetfulness due to ignorance of the ruling?",
+      "options": [
+        "His prayer is valid because he was ignorant of the ruling, and he does not have to repeat the prayer",
+        "His prayer is invalid and must be repeated because ignorance is not an excuse for omitting obligatory acts",
+        "He must repeat the prayer unless he performs the prostration of forgetfulness within a short time of finishing",
+        "The prayer is valid only if he performs the missed prostration of forgetfulness before the next prayer time begins"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer explicitly states that the one who is ignorant is like the one who forgot regarding the prostration of forgetfulness. Shaykh Ibn Baz stated that if someone omitted the prostration of forgetfulness because they were ignorant of the ruling or forgot, the prayer is not rendered invalid and is still valid. Only deliberate omission while knowing the ruling invalidates the prayer.",
+      "category": 82,
+      "difficulty": "hard"
+    },
+    {
+      "reference": 245978,
+      "question": "Why is masturbation prohibited in Islam according to the scholars?",
+      "options": [
+        "The prohibition is based on multiple grounds including the Quranic verse about guarding chastity, preventing desires from dominating, moral grounds, and limiting fulfillment to lawful marriage",
+        "It is prohibited solely based on medical findings about physical harm and would change if research proves health benefits",
+        "The prohibition is only on moral grounds as being contrary to noble characteristics and human dignity",
+        "It is prohibited exclusively because of its addictive nature and the harm to one's health confirmed by physicians"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer emphasizes that the prohibition on masturbation is not based on medical findings alone. The shar'i reason is based on the Quranic verse (al-Mu'minoon 23:5-7) about guarding chastity, preventing desires from dominating beyond halal marriage, protecting reasoning and physical energy, and moral grounds. Medicine is just one of the reasons, not the only reason, which is why the ruling would not change with new medical findings.",
+      "category": 245,
+      "difficulty": "hard"
+    },
+    {
+      "reference": 1184,
+      "question": "What is the ruling on a woman shaving her head?",
+      "options": [
+        "It is not permitted except in cases of necessity, such as being unable to care for her hair properly or having a severe lice infestation",
+        "It is always prohibited because the Prophet forbade it without mentioning any exceptions in the hadith",
+        "It is permissible if done for medical reasons, personal preference, or beautification purposes",
+        "It is considered mutilation and forbidden even in cases where she cannot put oil on her hair or care for it"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer states that it is not permitted for a woman to shave her head except in cases of necessity, citing the hadith where the Prophet forbade women from shaving their heads. However, Abu Abdullah ruled that if it is a matter of necessity (such as being unable to care for the hair or having a bad lice infestation), there is nothing wrong with doing so.",
+      "category": 188,
+      "difficulty": "medium"
+    },
+    {
+      "reference": 112708,
+      "question": "What is the ruling on sharing your Internet connection with neighbors who may use it for haram purposes like downloading music, movies, or engaging in immoral chats?",
+      "options": [
+        "It is not permissible if you think they will most likely use it for haram purposes; you should choose religiously committed neighbors or keep the connection to yourself",
+        "It is permissible to share as long as you warn them once about not using it for haram purposes",
+        "You share the burden of sin only if you directly witness them using it for prohibited activities",
+        "The high cost of the subscription makes it permissible to share even with those who might misuse it to reduce your financial burden"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer clearly states that it is not permissible to give an Internet connection to anyone who you think most likely will use it for haram purposes such as downloading images, music, movies, or immoral chats. You should choose neighbors who will never use it for haram purposes, or keep the connection to yourself even if it costs more, to avoid helping anyone in sin.",
+      "category": 170,
+      "difficulty": "medium"
+    },
+    {
+      "reference": 134108,
+      "question": "When should a worshipper stand up when the Iqamah is given for prayer?",
+      "options": [
+        "The matter is broad in scope and he may stand at the beginning, during, or at the end of the Iqamah, but should not stand until he sees the imam if the imam has not yet entered the mosque",
+        "There is a specific Sunnah requiring him to stand exactly when the muezzin says 'hayya 'ala as-salah' (come to prayer)",
+        "He must stand at the exact moment the muezzin completes the entire Iqamah according to the majority scholarly view",
+        "He should stand immediately at the first 'Allahu Akbar' of the Iqamah regardless of whether he can see the imam"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer explains that scholars differed on when to stand, and there is no clear evidence from the Sunnah to support any specific opinion. The matter is broad in scope, so the worshipper may stand whenever he wants during the Iqamah. However, the Prophet said 'do not stand up until you see me,' meaning if the imam has not entered the mosque when the Iqamah is given, worshippers should not stand until they see him.",
+      "category": 80,
+      "difficulty": "hard"
+    },
+    {
+      "reference": 42072,
+      "question": "Is zakah due on photocopying equipment used in a stationery store that also sells products?",
+      "options": [
+        "There is no zakah on the equipment because it is for use in the store, not prepared for sale",
+        "Zakah is due on the equipment based on the original price for which it was purchased",
+        "Zakah must be paid on the equipment because it is part of the store's assets and generates income",
+        "The equipment is subject to zakah if its value meets the nisab threshold regardless of whether it is used or sold"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer clearly states that there is no zakah on photographic (or photocopying) equipment unless it has been prepared for sale. Shaykh Ibn Baz explained that there is no zakah on items that are for use, whether tools or other things. The basic principle is that zakah is due on whatever is prepared for sale, but tools or equipment used in the store are not subject to zakah.",
+      "category": 105,
+      "difficulty": "medium"
+    },
+    {
+      "reference": 101853,
+      "question": "What should a husband do regarding his wife's Fajr prayer when she is very exhausted from breastfeeding her small daughter during the night?",
+      "options": [
+        "He should wake her up and encourage her to pray, though he can delay waking her until it is nearly the end of the time for Fajr prayer",
+        "He should let her sleep because exhaustion from breastfeeding is a valid excuse to miss Fajr prayer entirely",
+        "Exhaustion from nighttime breastfeeding is a legitimate excuse to delay Fajr prayer until after sunrise",
+        "He can let her sleep and she can make up the prayer later since difficult circumstances permit joining Fajr with Dhuhr"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer emphasizes that prayer is very important and must be offered on time, and Fajr cannot be joined with any prayer before or after it. The husband is enjoined to take care of his family and save them from the Fire. He should be keen to wake up his wife and encourage her and help her to pray; he can delay waking her up until it is nearly the end of the time for prayer, but she must pray no matter how tired she is.",
+      "category": 79,
+      "difficulty": "medium"
+    }
+  ]
+}

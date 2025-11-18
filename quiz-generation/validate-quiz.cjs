@@ -8,7 +8,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const BATCH_FILE = path.join(__dirname, 'batches/batch-001-output.json')
+const BATCH_FILE = path.join(__dirname, '../public/data/quiz-questions.json')
 
 // Forbidden phrases that indicate generic templates
 const FORBIDDEN_PHRASES = [

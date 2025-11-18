@@ -1,0 +1,124 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 112012,
+      "question": "What is the ruling on a man who said zihaar and divorced a woman three times before the marriage contract was done with her?",
+      "correct_answer": "He does not need to offer any expiation because the marriage contract had not been done, but if he intended to refrain from intercourse with her, he should offer expiation for breaking an oath if he marries her",
+      "wrong_answers": [
+        "He must offer expiation for zihaar by freeing a slave or fasting for two consecutive months before he can marry her",
+        "The threefold divorce is valid and binding, so he must remarry her with a new marriage contract and two witnesses",
+        "He must wait for a four-month waiting period before he can marry her, as prescribed for those who make zihaar"
+      ],
+      "explanation": "Zihaar and divorce uttered before the marriage contract do not count, because divorce can only happen after marriage (Al-Ahzaab 33:49), and zihaar applies only to wives (Al-Mujaadilah 58:3). However, if he intended by zihaar to refrain from intercourse, he should offer expiation for breaking an oath if he marries and has intercourse with her, to be on the safe side.",
+      "source": "Shaykh Muhammad ibn Uthaymeen"
+    },
+    {
+      "reference": 131252,
+      "question": "What is the best time to hold the wedding feast (Walimah) according to Islamic teachings?",
+      "correct_answer": "It is best after the marriage is consummated following the Prophet's example, but permissible at the time of marriage contract or before consummation, with no set number of guests",
+      "wrong_answers": [
+        "It must be done exactly when the marriage contract is done, and the minimum number of guests is forty men to properly announce the marriage",
+        "It must be held within three days after the marriage contract, and inviting fewer than ten people invalidates the Walimah",
+        "It is only valid if done before the marriage is consummated, and the groom must personally invite each guest to fulfill the Sunnah"
+      ],
+      "explanation": "The best time for Walimah is after consummation, following the Prophet's example with Zaynab bint Jahsh (when day dawned, he was a bridegroom and invited people). However, the matter is flexible and may be done from the time of contract until after consummation, with no set number of guests (depends on one's means).",
+      "source": "Al-Bukhari, Muslim, and various scholars including Ibn Hajar and Shaykh Al-Fawzan"
+    },
+    {
+      "reference": 293605,
+      "question": "If someone misses Tarawih prayer for some nights of Ramadan, can they still attain the virtue mentioned in the Hadith about forgiveness of previous sins?",
+      "correct_answer": "The Hadith refers to standing in prayer for the entire month, but those who miss nights due to illness or travel may still attain the virtue, while missing out of laziness means not achieving it",
+      "wrong_answers": [
+        "You must pray all nights in congregation at the mosque to receive forgiveness; praying at home or missing even one night nullifies the entire reward",
+        "Missing three or more nights for any reason requires making up those prayers before Eid, otherwise the forgiveness is not granted",
+        "The Hadith only applies to those who pray the full twenty Rak`ahs each night; praying eleven or thirteen Rak`ahs does not fulfill the condition"
+      ],
+      "explanation": "The Hadith encompasses the whole month of Ramadan. Those who miss nights due to valid excuses (illness, travel) are hoped to attain the virtue, as deeds are written as if performed during illness/travel. However, missing nights out of laziness means not achieving the mentioned virtue according to the apparent meaning of the Hadith.",
+      "source": "Al-Bukhari, Muslim, As-San`ani, Shaykh Ibn Uthaymin"
+    },
+    {
+      "reference": 44018,
+      "question": "Where is the Prophet Muhammad (peace and blessings be upon him) mentioned in the Bible according to Islamic sources?",
+      "correct_answer": "He is mentioned in Deuteronomy 18:18-19 as a prophet 'from among their brothers' (sons of Ishmael), and in John 16 as the Counselor who will guide into all truth",
+      "wrong_answers": [
+        "His name appears exactly seven times in the original Hebrew Torah, but all instances were removed during the Council of Nicea in 325 CE",
+        "He is mentioned only symbolically through numerical codes in Genesis, which can be decoded using the Hebrew gematria system",
+        "The only reference is in the Book of Revelation where he is described as the rider on a white horse who will come in the seventh century"
+      ],
+      "explanation": "The Prophet is mentioned in Deuteronomy 18:18-19 ('from among their brothers' refers to sons of Ishmael, not Israel) and in John 16:6-8, 12-13 as the Counselor/Paraclete who will guide into all truth and speak what he hears. He is also referenced in Deuteronomy 33:2 where 'Paran' refers to Makkah.",
+      "source": "Quran (Al-Saff 61:6, Al-A'raaf 7:157), Ibn al-Qayyim, various Biblical texts"
+    },
+    {
+      "reference": 45359,
+      "question": "What should a father do if he travels far from his children for long periods and notices their behavior becoming bad?",
+      "correct_answer": "If his travel will cause his children to go astray, he should return to them and focus on their upbringing, because the first responsibility is their religious commitment, not just earning money",
+      "wrong_answers": [
+        "He must continue traveling to provide wealth, as the Prophet said 'the best of you is the one who earns the most for his family', even if it affects the children's behavior",
+        "He can continue traveling as long as he sends money regularly and calls them weekly, because financial provision fulfills his obligation as shepherd of the family",
+        "He should travel for six months per year maximum, as this is the limit set by Islamic scholars for maintaining family bonds while earning income"
+      ],
+      "explanation": "The father's first responsibility is his children's religious commitment and morals, not just earning money. The Prophet said 'It is sufficient sin for a man that he should neglect those who are dependent on him.' Ibn Taymiyah stated that if travel causes harm to the family, the person should not travel.",
+      "source": "Al-Bukhari, Muslim, Ibn Taymiyah"
+    },
+    {
+      "reference": 174707,
+      "question": "What is the ruling on whether a person who performs Umrah on behalf of someone else receives the same reward?",
+      "correct_answer": "There are two scholarly views: one says the proxy receives reward like the deceased, the other says only the deceased receives the Hajj reward while the proxy gets reward for kindness",
+      "wrong_answers": [
+        "The proxy receives exactly half the reward of the person on whose behalf the Umrah is performed, as stated in the Hadith of Ibn Abbas",
+        "The proxy receives no reward at all for Umrah done on behalf of others; all the reward goes exclusively to the deceased person",
+        "The proxy must perform another Umrah for himself within the same year to receive the reward, otherwise only the deceased benefits"
+      ],
+      "explanation": "Scholars differed on this issue. The first view is that the proxy receives reward like the deceased (Allah is generous). The second view is that the Hajj/Umrah reward goes to the deceased, while the proxy gets reward for kindness and separate worship acts. This is a matter of difference where we refer to Allah's knowledge.",
+      "source": "Various scholars including Ibn Hazm, Shaykh Muhammad ibn Ibrahim, Shaykh Ibn Uthaymin, and Fatwa Committee rulings"
+    },
+    {
+      "reference": 106563,
+      "question": "What is the ruling on a pilgrim in Ihram taking a bath for cleanliness and changing Ihram garments?",
+      "correct_answer": "It is permissible to do ghusl for cleanliness and to change Ihram garments for cleaner ones, as the Prophet did ghusl when in Ihram",
+      "wrong_answers": [
+        "Bathing is only permitted once during Ihram, before Tawaf Al-Ifadah, and changing garments breaks the state of Ihram",
+        "Ghusl is prohibited except in case of major impurity, and Ihram garments must remain the same throughout Hajj",
+        "You can bathe but must use unscented water and cannot touch the Ihram garments with wet hands to avoid invalidating the Ihram"
+      ],
+      "explanation": "It is permissible for the pilgrim in Ihram to do ghusl for cleanliness, because it is proven that the Prophet did ghusl when in Ihram. It is also permissible to change Ihram garments for cleaner or newer ones, and to use air conditioning and other means of comfort.",
+      "source": "Shaykh Ibn Uthaymin citing the practice of the Prophet (peace and blessings be upon him)"
+    },
+    {
+      "reference": 21049,
+      "question": "Is it permissible to fast the Days of Tashriq to make up missed Ramadan fasts?",
+      "correct_answer": "Fasting these days to make up missed Ramadan fasts is not valid and must be repeated, as these are days of eating and drinking with exception only for pilgrims without sacrificial animal",
+      "wrong_answers": [
+        "Making up missed fasts on Tashriq days is permissible and valid because obligatory fasts take precedence over the prohibition of voluntary fasting",
+        "You can fast the first two days of Tashriq for making up fasts, but the third day is absolutely prohibited for any type of fasting",
+        "The prohibition only applies to voluntary fasting; making up Ramadan fasts, fulfilling vows, and fasting for expiation are all permitted on Tashriq days"
+      ],
+      "explanation": "The Days of Tashriq (11th, 12th, 13th of Dhul-Hijjah) are days of eating and drinking, and fasting them is prohibited. The only exception is for pilgrims performing Tamattu` or Qiran who don't have a sacrificial animal. The majority of scholars say fasts on these days are invalid, whether optional, making up missed fasts, or vows.",
+      "source": "Muslim, Al-Bukhari, Shaykh Ibn Baz, Shaykh Ibn Uthaymin"
+    },
+    {
+      "reference": 1167,
+      "question": "What should someone do if they have impermeable paint on their hands that prevents water from reaching the skin during wudoo?",
+      "correct_answer": "He must remove anything that prevents water from reaching the skin before every wudoo, and people whose work involves paint should wear protection on their hands",
+      "wrong_answers": [
+        "He can wipe over the paint with wet hands three times, similar to wiping over leather socks, and this is valid for up to three days",
+        "If removing the paint causes hardship, he can perform tayammum instead of wudoo for that prayer, then remove it gradually over time",
+        "He must remove the paint only once a day before Fajr prayer, and the wudoo will remain valid for all five prayers even with paint on his hands"
+      ],
+      "explanation": "The Muslim must make sure that water reaches his skin every time he does wudoo, and must remove anything that prevents this. People whose work involves painting and similar tasks can wear something on their hands to prevent them from getting covered with paint in the first place.",
+      "source": "General Islamic ruling on conditions of valid wudoo"
+    },
+    {
+      "reference": 191975,
+      "question": "Is having an easy pregnancy a sign of special mercy from Allah according to authentic Islamic sources?",
+      "correct_answer": "There is no saheeh Sunnah indicating easy pregnancy is a sign of special mercy; Allah's mercy may be in trials, and difficulty may bring reward and expiation of sins",
+      "wrong_answers": [
+        "The Hadith from Aisha about three signs of mercy including easy pregnancy is authentic, and difficult pregnancy indicates displeasure from Allah",
+        "Easy pregnancy is one of the signs mentioned in Sahih Muslim that a woman will enter Paradise directly without accountability",
+        "According to the scholars, a woman who has difficulty in pregnancy for three consecutive pregnancies should not have more children as this indicates Allah's prohibition"
+      ],
+      "explanation": "There is nothing in the saheeh Sunnah indicating that easy pregnancy is a sign of special mercy. Allah's mercy may be in wellbeing or in trials according to His wisdom. The Hadith states that if a status is decreed, Allah may afflict in body/wealth/children to help attain it, and calamities expiate sins, so difficulty may be a sign of mercy and reward.",
+      "source": "Abu Dawood (classed as saheeh by Al-Albaani), Al-Bukhari, Muslim, and scholarly analysis"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 367667,
+      "question": "What is the ruling on ghabqa (Ramadan supper gatherings) in the Gulf tradition?",
+      "correctAnswer": "They are permissible as customs but must be free of extravagance, wastefulness, boasting, and wasting nights in leisure",
+      "wrongAnswers": [
+        "They are prohibited because they involve entertainment, competitions, and traditional songs during Ramadan",
+        "They are obligatory communal acts of worship that strengthen brotherhood during Ramadan",
+        "They must only be held during the last ten nights of Ramadan to be permissible"
+      ],
+      "explanation": "Ghabqa meals are feasts that fall under customs and traditions, which are in principle permissible according to Shaykh al-Islam Ibn Taymiyah. However, they must be free of haraam elements like extravagance, wastefulness, boasting, or wasting the nights of Ramadan in leisure and entertainment. The basic principle is that customs are overlooked unless Allah has specifically prohibited something."
+    },
+    {
+      "reference": 197463,
+      "question": "What is the Islamic ruling on seeking the help of jinn or angels to fly or meet one's needs?",
+      "correctAnswer": "It is major shirk that puts one beyond the pale of Islam, whether seeking help from jinn or angels",
+      "wrongAnswers": [
+        "It is permissible to seek help from angels but not from jinn, since angels are righteous beings",
+        "It is allowed as long as you believe that only Allah brings ultimate benefit and they are merely means",
+        "It is acceptable if done for physical tangible matters like flying, but not for spiritual matters"
+      ],
+      "explanation": "According to the Standing Committee and Ibn Taymiyah, seeking help from jinn or angels to bring benefits or ward off harm is major shirk that puts one beyond the pale of Islam. The Prophet (ﷺ) said: \"If you seek help, then seek help from Allah.\" Physical help can only be sought from living, present, capable humans for tangible matters they control, not from jinn or angels."
+    },
+    {
+      "reference": 109275,
+      "question": "What must a pilgrim do if he performed tawaaf al-ifaadah by cutting inside the Hijr instead of going around it?",
+      "correctAnswer": "His tawaaf is invalid and he must return to the Sacred Mosque to perform the complete tawaaf again, going outside the Hijr",
+      "wrongAnswers": [
+        "He must offer a sacrifice to be slaughtered in Makkah and given to the poor to compensate for the mistake",
+        "His tawaaf is valid as long as he went outside the Hijr in most of the seven circuits",
+        "He only needs to repeat the specific circuits where he cut inside the Hijr, not the entire tawaaf"
+      ],
+      "explanation": "According to the Standing Committee (Shaykh Ibn Baaz and others), if the invalid tawaaf was tawaaf al-ifaadah (a pillar of Hajj), the Hajj is not valid until the person returns and completes seven proper circuits starting and ending at the Black Stone, with each circuit going outside Hijr Isma'eel. A sacrifice is only required if it was the farewell tawaaf, not tawaaf al-ifaadah."
+    },
+    {
+      "reference": 246964,
+      "question": "What must a husband do if he stayed away from one wife's house for several nights without valid reason due to anger?",
+      "correctAnswer": "He must stay overnight with her for the number of nights he missed, then resume the normal rotation between co-wives",
+      "wrongAnswers": [
+        "He can skip her allocated nights if he genuinely believed she wanted to sleep elsewhere based on what he heard",
+        "Forsaking her house is only prohibited if it exceeds one month, based on the Prophet's example with his wives",
+        "He only needs to give her extra days if she formally requests compensation before an Islamic judge"
+      ],
+      "explanation": "According to Ibn Qudaamah and the Standing Committee, if a husband stays out during his wife's allocated time, he must make up those nights regardless of his reason for being absent. Ibn Taymiyah clarified that forsaking should only be by refraining from intimacy while still spending the night in her house, not by leaving to stay with another wife. The husband must then return to equitable division after making up the missed nights."
+    },
+    {
+      "reference": 96613,
+      "question": "What is the ruling on using credit cards that charge interest if one intends to always pay on time?",
+      "correctAnswer": "It is prohibited because entering a contract that includes riba is impermissible, and circumstances like forgetting or traveling may cause delays",
+      "wrongAnswers": [
+        "It is permissible as long as you maintain a consistent record of paying before the interest deadline",
+        "It becomes permissible when paying the fixed monthly service fee to the bank for using the card",
+        "It is allowed in areas where Islamic banks are unavailable, since necessity permits prohibitions"
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymeen ruled this transaction haraam because entering it involves committing to pay riba if payment is delayed, which is an invalid commitment. Even if someone believes they will pay on time, circumstances may change through forgetting, traveling, or inability to pay. The future is unknown, and approving of or entering a contract that includes riba is not permissible regardless of intentions."
+    },
+    {
+      "reference": 366639,
+      "question": "Can a new Muslim woman break her fast in Ramadan due to anxiety and insomnia from not being accustomed to fasting?",
+      "correctAnswer": "She cannot break the fast unless fasting causes significant real hardship, not just mild discomfort or adjustment difficulties",
+      "wrongAnswers": [
+        "New Muslims are excused from fasting their first Ramadan because the religion is easy and they need gradual adjustment",
+        "Psychological anxiety and sleep problems are valid medical excuses that permit breaking the fast",
+        "Not fasting due to such reasons is only a minor sin that can be compensated through extra charity"
+      ],
+      "explanation": "An-Nawawi stated that mild sickness not causing real hardship does not permit breaking the fast. The severe warnings against not fasting (including being worse than zina according to adh-Dhahabi) apply when there is no valid excuse. Medicine for anxiety and sleep can be taken at night to maintain the fast. Being a new Muslim or having adjustment difficulties does not override this major obligation and pillar of Islam."
+    },
+    {
+      "reference": 112112,
+      "question": "Is a marriage contract valid if one witness only signed documents but did not hear the proposal and acceptance?",
+      "correctAnswer": "The marriage is valid because announcing the marriage publicly is sufficient even without two formal witnesses hearing the contract",
+      "wrongAnswers": [
+        "The marriage is invalid and must be completely redone with two witnesses physically present to hear everything",
+        "Only the written signatures on the official documents matter for validity, not witnessing the spoken words",
+        "The marriage is only valid if both witnesses are Islamic scholars or officially appointed marriage officials"
+      ],
+      "explanation": "According to Shaykh al-Islam Ibn Taymiyah (as quoted by Shaykh Ibn 'Uthaymeen), announcing the marriage is stronger than merely having it witnessed. A marriage that is announced is valid even without two formal witnesses, while a secret witnessed marriage has some scholarly doubt. Furthermore, everyone present during the contract (scribe, official, relatives) counts as witnesses if they are fit for testimony."
+    },
+    {
+      "reference": 254034,
+      "question": "Does eating seven dates for protection against witchcraft only benefit those who believe in the hadith?",
+      "correctAnswer": "It can provide protection even without belief, like ruqyah on a non-believer, but having faith makes the remedy more effective",
+      "wrongAnswers": [
+        "Only Muslims who have complete certainty and strong faith in the hadith's authenticity receive any protective benefit",
+        "The dates provide protection only before witchcraft is cast, not after someone has already been afflicted with sihr",
+        "All types of dates provide equal protection as long as seven are eaten, not just ajwah dates from Madinah"
+      ],
+      "explanation": "Ibn al-Qayyim cited the story of ruqyah with Surat al-Fatihah on a scorpion sting victim who was a disbeliever or from a mean tribe, showing that Islamic remedies can work even on poor candidates. However, he also explained that faith in the remedy makes one more receptive to healing and increases effectiveness. Most scholars specify ajwah dates from 'Aaliyat al-Madinah, though some like Shaykh Ibn Baaz held it applies to all dates."
+    },
+    {
+      "reference": 36737,
+      "question": "If someone wipes over the outer layer of two socks then removes it and breaks wudoo, what should he do?",
+      "correctAnswer": "He may wipe over the lower layer for the remainder of the original wiping period that started when he first wiped",
+      "wrongAnswers": [
+        "He must perform fresh wudoo completely by washing, as removing the outer layer invalidates the previous wiping",
+        "He can start a completely new full wiping period for the lower layer from the time he removed the upper layer",
+        "He must always wipe over the uppermost visible layer, so he cannot wipe the lower one after removing the upper"
+      ],
+      "explanation": "According to Shaykh Ibn 'Uthaymeen citing al-Nawawi and Ibn Surayj, when the outer layer is removed, the layers become like a single khuff with the upper layer visible and lower layer like a lining. Therefore, wiping over the lower layer is permissible for the remainder of the wiping period, calculated from when he first wiped over the upper layer, similar to when the outer surface of a khuff becomes worn or scratched."
+    },
+    {
+      "reference": 6268,
+      "question": "What conditions must be met when seeking medical treatment for impotence in Islam?",
+      "correctAnswer": "Treatment must not lead to greater harm or death, must not use haraam substances, must properly cover the awrah, and should involve consulting trustworthy experienced doctors",
+      "wrongAnswers": [
+        "Treatment is prohibited because it contradicts reliance on Allah's decree and acceptance of His will",
+        "Treatment is only permissible using natural herbal remedies and traditional medicine, not modern medical interventions",
+        "Treatment is obligatory for married men to fulfill marital rights but remains optional for unmarried men"
+      ],
+      "explanation": "Islam permits treating sickness based on the hadith \"Allah does not create any disease but He also creates the cure for it.\" However, four conditions apply: (1) treatment shouldn't cause greater harm like severe sickness or death, (2) it shouldn't use haraam items like wine or impure substances, (3) it shouldn't involve inappropriate uncovering of the awrah, and (4) it should be done after consulting trustworthy and experienced doctors."
+    }
+  ]
+}

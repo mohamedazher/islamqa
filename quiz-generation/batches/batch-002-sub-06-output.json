@@ -1,0 +1,124 @@
+{
+  "quizQuestions": [
+    {
+      "questionReference": 87833,
+      "question": "When may a guardian refuse a marriage proposal on behalf of his daughter?",
+      "options": [
+        "When the suitor is unable to provide accommodation or needs a very long time to afford it, causing harm to the girl by tying her to him",
+        "When the suitor owns only a rented apartment rather than his own property",
+        "When the suitor cannot recite al-Fatihah properly during the engagement ceremony",
+        "When the girl's agreement is based on emotion, regardless of the suitor's ability to provide accommodation and mahr"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A guardian may refuse a proposal if the suitor is unable to provide accommodation or needs a long time to afford it, as this causes harm to the girl by tying her to him and making her wait. The Prophet (peace and blessings of Allah be upon him) advised Fatimah bint Qays to refuse Mu'awiyah's proposal because he was poor and had no wealth. However, if the suitor is acceptable in religious commitment and character and can provide accommodation even after some time, he should not be refused."
+    },
+    {
+      "questionReference": 12215,
+      "question": "What should a Muslim woman do if she is in a relationship with a Christian man who has not accepted Islam after three years?",
+      "options": [
+        "End the relationship, as he is persisting in kufr; if he chooses Islam of his own free will, he must be tested for sincerity and informed about the seriousness of apostasy",
+        "Continue the relationship but only communicate through Islamic discussion groups to gradually convert him",
+        "Marry him conditionally with the requirement that he convert within one year of marriage",
+        "Consult with Christian religious leaders to find common ground between the two faiths before marriage"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The woman should end the relationship with this Christian man who is still persisting in his kufr after three years. If he chooses Islam of his own free will, he must be tested afterward to ensure sincerity, and he must be informed that the punishment for apostasy in Islam is death (in a country ruled by shariah), so he understands the seriousness of the matter. Ways to create interest in Islam include reading the Prophet's biography, learning about his miracles, and understanding the beauties of Islam and its accordance with reason."
+    },
+    {
+      "questionReference": 276983,
+      "question": "What conditions must a woman observe when participating in mixed da'wah groups on social media?",
+      "options": [
+        "Post only useful content, comment only when necessary, avoid soft speech, joking, laughing expressions, emojis, and never give out email addresses for private correspondence",
+        "Use a male pseudonym to avoid gender-based discrimination and participate equally with men",
+        "Limit participation to weekends only when there is less activity and fewer men online",
+        "Post questions through a male relative who will act as an intermediary for all communications"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A woman may participate in beneficial da'wah groups while adhering to strict etiquette: she should post only useful content that doesn't provoke desire, comment only when necessary, avoid soft speech, joking, or laughing expressions like 'hahahaha', avoid smiling emojis, and never give out her email address or correspond privately with any man. The Quran states: 'do not be soft in speech [to men], lest he in whose heart is disease should covet' (al-Ahzab 33:32). Following the group without participating is even safer."
+    },
+    {
+      "questionReference": 21883,
+      "question": "What is the authenticity status of the hadith: 'Of the things of this world, women and perfume have been made dear to me, and my comfort is in prayer'?",
+      "options": [
+        "It is sahih (authentic), narrated by al-Nasa'i from Anas ibn Malik, and classified as sahih by al-Hakim, al-Dhahabi, and al-Hafiz ibn Hajar",
+        "It is hasan (good) but not sahih due to a weak narrator in the chain of al-Nasa'i",
+        "It is da'if (weak) according to al-Hakim but sahih according to al-Dhahabi, creating scholarly disagreement",
+        "It is mawdu' (fabricated) as determined by al-Hafiz ibn Hajar in Fath al-Bari"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The hadith is sahih (authentic). It was narrated by al-Nasa'i (3939) from the hadith of Anas ibn Malik (may Allah be pleased with him). It was classified as sahih by al-Hakim (2/174), and al-Dhahabi agreed with him. It was also classified as sahih by al-Hafiz ibn Hajar in Fath al-Bari (15/3 and 11/345)."
+    },
+    {
+      "questionReference": 82751,
+      "question": "What is the difference between shortening and joining prayers for a traveler?",
+      "options": [
+        "Shortening is a confirmed Sunnah that should not be forsaken (except when praying behind an imam who prays in full), while joining is permissible but not Sunnah unless there is difficulty",
+        "Shortening is obligatory for all travelers while joining is only recommended for journeys longer than three days",
+        "Shortening is permissible only for journeys by land while joining is permissible for all types of travel including by sea and air",
+        "Shortening requires intention before starting the prayer while joining can be decided spontaneously at the time of the second prayer"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Shortening prayers is a confirmed Sunnah for all travelers that should not be forsaken—the Prophet (peace and blessings of Allah be upon him) shortened prayers during all his journeys. However, joining prayers is permissible but not Sunnah; it becomes recommended only if there is difficulty in offering each prayer at its own time. The Prophet joined prayers when traveling but also sometimes did not join them, indicating joining is not recommended for all travelers. A traveler must pray in full if praying behind an imam who offers the prayer in full."
+    },
+    {
+      "questionReference": 221422,
+      "question": "What is the ruling when pus constantly comes out of the penis due to a bladder infection?",
+      "options": [
+        "It comes under the ruling of urinary incontinence: clean yourself, wrap something over it, do wudu at the time of each prayer, and it doesn't matter if it comes out after that",
+        "Wudu must be renewed immediately after each discharge, even if it happens multiple times during a single prayer",
+        "The fast is invalidated each time pus is discharged, requiring makeup days after Ramadan",
+        "Prayer should be delayed until the infection is completely cured and no more pus is discharged"
+      ],
+      "correctAnswer": 0,
+      "explanation": "When pus comes out constantly, it comes under the same ruling as urinary incontinence. In this case, one should clean himself (istinja'), purify anything it got onto, wrap something over it so it won't get onto the garment, then do wudu at the time of each prayer, and it doesn't matter if it comes out after that. Shaykh al-Islam Ibn Taymiyah stated that such a person should pray according to his situation after doing wudu, even if the impurity comes out while praying. The pus does not invalidate the fast."
+    },
+    {
+      "questionReference": 216733,
+      "question": "What is the ruling on a mother looking around while praying to check on her young children?",
+      "options": [
+        "There is nothing wrong with looking around while praying if there is a real need to check on them, as indicated by hadiths showing it's permissible when necessary",
+        "Looking around during prayer invalidates it completely and requires repeating the prayer from the beginning with proper focus",
+        "A mother must choose between praying with full concentration or not praying at all until the children are old enough to be safe alone",
+        "Looking around is only permissible during voluntary prayers, never during obligatory prayers even with young children present"
+      ],
+      "correctAnswer": 0,
+      "explanation": "There is nothing wrong with looking around while praying to check on children if there is a real need to do so. Some hadiths indicate that looking around while praying is permissible if there is a need. However, before starting to pray, a Muslim should deal with anything that may distract from prayer—such as praying when children are sleeping, leaving them with someone to watch them, or distracting them with toys or cartoons. If possible, keep the children in the room with the door closed to eliminate the need for worry."
+    },
+    {
+      "questionReference": 1533,
+      "question": "What is the zakah ruling on money contributed to a family co-operative for emergencies like blood-money payments?",
+      "options": [
+        "There is no zakah due on it, because the money no longer belongs to any individual donor and is spent only for the specific purpose it was donated",
+        "Each contributor must pay zakah annually on his proportional share of the total fund balance",
+        "Zakah is due only when the money is actually distributed to someone in need, calculated at that time",
+        "The fund administrator must pay zakah on behalf of all contributors from the collective pool before any emergency distributions"
+      ],
+      "correctAnswer": 0,
+      "explanation": "If the money does not go back to the person who donated it according to the proportion that he donated, and is now no longer owned by any one of them and is to be spent only for the purpose for which they donated it (such as paying diyah or facing disasters), then there is no zakah due on it. The money has left individual ownership and serves a specific collective purpose."
+    },
+    {
+      "questionReference": 2199,
+      "question": "What must a person do about missed prayers if they neglected prayer until age 40, then repented and began praying regularly?",
+      "options": [
+        "They do not have to make up the missed prayers and fasts, because Islam wipes out what came before and the Sahabah did not require apostates who returned to Islam to make up prayers",
+        "They must make up all missed prayers and fasts from the time prayer became obligatory (puberty) until they started praying regularly",
+        "They must make up only the prayers missed in the final year before repentance, as a symbolic act of remorse",
+        "They must fast an additional month after every Ramadan for the rest of their life to compensate for missed prayers and fasts"
+      ],
+      "correctAnswer": 0,
+      "explanation": "If such a person repents and starts to pray the obligatory prayers and fast in Ramadan regularly, the prayers and fasts deliberately failed to do in the past do not have to be made up. The Prophet (peace and blessings of Allah be upon him) said: 'Islam wipes out what came before and repentance wipes out what came before.' The Sahabah, when they fought the apostates at the time of Abu Bakr al-Siddiq, did not tell those who came back to Islam to make up fasts or prayers, and they are the most knowledgeable of the shariah after the Messengers."
+    },
+    {
+      "questionReference": 254973,
+      "question": "When is a person considered to be doing Hajj tamattu', even if they intended to do ifraad?",
+      "options": [
+        "When they perform umrah during the months of Hajj while intending to also perform Hajj in the same year, regardless of whether they specifically said 'tamattu' in their intention",
+        "Only when they explicitly pronounce 'Labbayka umratan mutamatti'an biha ila al-hajj' at the time of entering ihram for umrah",
+        "When they perform umrah in Ramadan and then decide after Eid al-Fitr to remain in Makkah until Hajj time",
+        "Only when they enter ihram for umrah from their home country's miqaat rather than from the miqaat closest to Makkah"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Whoever does umrah during the months of Hajj and intends (at the time of doing umrah) to also perform Hajj in the same year is doing tamattu', regardless of whether they intended ifraad. Shaykh Ibn Uthaymeen stated: 'So long as you came from your country, intending to do Hajj, and you entered ihram for umrah during the months of Hajj, then you are doing tamattu' regardless of whether or not you intended to do tamattu', because what you have done is tamattu'.' There is no need to say 'joining it to Hajj'—simply intending to do Hajj makes it tamattu', and the person must offer a hadiy (sacrifice)."
+    }
+  ]
+}

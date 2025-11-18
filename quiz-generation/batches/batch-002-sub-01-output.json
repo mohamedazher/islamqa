@@ -1,0 +1,124 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 161234,
+      "question": "What did Ibn Taymiyah say about a husband who repeatedly has intercourse with his wife during her menses?",
+      "options": [
+        "If the husband repeatedly has intercourse during her menses and does not pay heed, they should be separated, just as with a husband who has anal intercourse and does not pay heed",
+        "The wife must seek a formal ruling from three scholars before separation is permitted",
+        "The husband must be given exactly seven warnings over seven months before separation can be considered",
+        "The couple must undergo mandatory counseling for one year before Islamic separation is allowed"
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to Shaykh al-Islam Ibn Taymiyah, if the husband repeatedly has intercourse with his wife during her menses and does not pay heed, they should be separated, as stated in his work al-Ikhtiyaaraat al-Fiqhiyyah. The wife must refuse this haraam act, and this alone is sufficient grounds for separation."
+    },
+    {
+      "reference": 12350,
+      "question": "According to the answer, under what conditions is it permissible to name a child 'Uzayr?",
+      "options": [
+        "It is permissible so long as there is no inclination of the heart towards the Jews and no influence from being their neighbour",
+        "The name can only be used if paired with another clearly Islamic name as a middle name",
+        "It requires prior approval from the local imam confirming the family's religious standing",
+        "The name must be avoided entirely because 'Uzayr appears only in negative contexts in the Quran"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Al-Haafiz ibn Katheer stated that 'Uzayr was one of the Prophets of the Children of Israel. The name is permissible so long as there is no inclination of heart towards the Jews and no influence from being their neighbour, despite the name appearing in Surah al-Tawbah in the context of condemning Jewish beliefs."
+    },
+    {
+      "reference": 1805,
+      "question": "What is the Islamic ruling if a son's heart is attached to a religious and well-mannered girl, but his father objects without legitimate reason?",
+      "options": [
+        "There is no sin on the son if he marries her even if his father objects, especially if he fears his father may object to other marriages too",
+        "The son must obey his father's rejection regardless of whether a legitimate Islamic reason is provided",
+        "The son must obtain written documentation from his father explaining the objection before proceeding",
+        "Permission must be sought from the local Islamic council before the marriage can take place"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer clarifies that if the son's heart is attached to the girl and he cannot bear marrying anyone else, or fears his father might object to other marriages, there is no sin in marrying her even if the father objects. This is based on the principle that parents should not prevent marriage without legitimate Islamic reasons."
+    },
+    {
+      "reference": 12403,
+      "question": "What advice is given to parents and guardians regarding completion of studies and marriage?",
+      "options": [
+        "They should not regard completion of studies as an impediment to marriage, because marriage helps a person focus and makes the mind clear",
+        "They should require that all university education be completed before approving any marriage proposal",
+        "They must provide a minimum of three years financial support to newlyweds before giving approval",
+        "They should mandate a waiting period of two years after graduation before marriage discussions begin"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The answer advises community leaders, parents and guardians not to regard completion of studies as an impediment to marriage. Reality and experience show that marriage helps a person focus and makes the mind clear, and marriage is obedience to the Prophet's command, as stated in Surah al-Noor 24:32."
+    },
+    {
+      "reference": 449483,
+      "question": "What is the ruling on weight loss injections during fasting in Ramadan?",
+      "options": [
+        "Injections in the muscle or vein do not invalidate the fast, but if administered into the stomach, they invalidate the fast even if not for nutrition",
+        "All injections that affect hormone levels and metabolism automatically invalidate the fast regardless of location",
+        "Weight loss injections are permissible only if administered at least two hours before maghrib prayer",
+        "These injections require making up the fast day even if given in the arm because they suppress appetite"
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to Fatawa Al-Lajnah Ad-Da'imah, it is permissible to be treated with injections in the muscle or vein during Ramadan as they are neither food nor drink. However, if the injection is administered into the stomach, it invalidates the fast even if not nutritional, as explained in the referenced fatwa."
+    },
+    {
+      "reference": 105437,
+      "question": "What should a Muslim say if they feel they must wish for death due to severe hardship?",
+      "options": [
+        "They should say: 'O Allah, cause me to live so long as life is good for me, and cause me to die so long as that is good for me'",
+        "Wishing for death is completely forbidden with no exceptions or alternative supplications permitted",
+        "They must fast for three consecutive days as expiation after making such a supplication",
+        "They should first consult a scholar who will determine if their circumstances permit such a wish"
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to the sahih hadith narrated in as-Saheehayn from Anas, the Prophet (peace be upon him) said: 'No one should wish for death because of harm that befalls him. But if he must, let him say: O Allah, cause me to live so long as life is good for me, and cause me to die so long as that is good for me.' This is delegating one's affairs to Allah."
+    },
+    {
+      "reference": 321731,
+      "question": "According to the scholars, when is concealment NOT required for someone who committed an offense?",
+      "options": [
+        "For those known for evildoing who commit sins openly and recklessly, especially if there is fear they will defraud more people",
+        "For all non-Muslims who commit crimes, because Islam does not require protecting their honour",
+        "Only after obtaining written testimony from at least three witnesses who observed the offense",
+        "After waiting 40 days to allow time for repentance before any public disclosure"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An-Nawawi, Ibn Rajab, and Ibn 'Uthaymeen all clarified that concealment is required for those who appear to be good people, but for those known for evildoing who commit sins openly and shamelessly, their situation should not be concealed, especially if there is fear they will harm others. This applies regardless of religion."
+    },
+    {
+      "reference": 292,
+      "question": "What is the Islamic ruling on using interest money for tuition expenses?",
+      "options": [
+        "Interest money cannot be used for one's own family expenditure or personal tuition, but can be given to pay tuition for needy students",
+        "Interest money can be used to pay tuition for one's own children if they are studying Islamic subjects",
+        "All interest money must be destroyed or burned rather than spent on any educational purpose",
+        "Interest can be used for personal educational expenses after donating an equal amount to charity"
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to the fatwa, a Muslim must not derive personal benefit from interest money including spending on family expenditure or educational tuition. However, this money can be spent on needy students' tuition as a form of purification, since it is forbidden to the one who earns it but permissible for those who receive it."
+    },
+    {
+      "reference": 151461,
+      "question": "What is the correct view regarding the conditions for wiping over a woman's head cover?",
+      "options": [
+        "The head cover does not come under the same ruling as khuffs, and there is no soundly-narrated text requiring it to be put on in a state of purity",
+        "The head cover must be put on in purity and can only be wiped for one day when not traveling and three days when traveling",
+        "Women must follow the exact same conditions as khuffs including washing the head cover every 24 hours",
+        "The head cover can only be wiped if it covers at least 75% of the hair and was purchased for wudu purposes"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ibn Hazm and ash-Shawkani clarified that there is no soundly-narrated text stipulating the turban or head cover must be put on in a state of purity or that there is a time limit for wiping. The head cover does not come under the same ruling as khuffs because the original ruling for the head is wiping, unlike the feet which are washed."
+    },
+    {
+      "reference": 9211,
+      "question": "According to the hadith of Abu Lubabah, what is the status of Friday compared to other Islamic holy days?",
+      "options": [
+        "Friday is the master of days and greater before Allah than the day of al-Adha and al-Fitr, and whoever dies on it is protected from the trial of the grave",
+        "Friday is equal in merit to the two Eids, but the day of Arafah holds slightly higher status",
+        "The virtues of Friday only apply to those who attend congregational prayer; dying on Friday offers no special protection",
+        "Friday's superiority is limited to daytime hours; the night of Friday holds no particular merit"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The Prophet (peace be upon him) said in the hadith narrated by Ibn Majah that Friday is the master of days and the greatest before Allah, greater than the day of al-Adha and al-Fitr. Additionally, whoever dies during the day or night of Friday will be protected from the trial of the grave, as stated in the hadith narrated by al-Tirmidhi."
+    }
+  ]
+}

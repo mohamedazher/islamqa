@@ -1,0 +1,144 @@
+{
+  "quizQuestions": [
+    {
+      "question_id": 198745,
+      "question": "According to the hadith about Muslims having ransoms from the Fire, what is the correct understanding?",
+      "options": [
+        "Every Muslim has two abodes (Paradise and Hell), and when they enter Paradise, disbelievers take their place in Hell as their ransom",
+        "The hadith means no Muslim will ever enter Hell under any circumstances",
+        "Only the Jews and Christians who personally opposed the Messenger will serve as ransoms for Muslims",
+        "The ransom concept only applies to Muslims who never committed any sins during their lifetime"
+      ],
+      "correct_answer": 0,
+      "explanation": "An-Nawawi explained that everyone has an abode in Paradise and Hell. When believers enter Paradise, disbelievers take their place in Hell due to their disbelief. This doesn't contradict that some sinful Muslims may enter the Fire for purification before entering Paradise, as explained in the hadith of Abu Hurayrah about inheriting abodes.",
+      "difficulty": "medium",
+      "category": "Hadith"
+    },
+    {
+      "question_id": 108278,
+      "question": "Which is better when staying up at night: praying qiyam or reading Quran outside of prayer?",
+      "options": [
+        "Praying is generally better as the imams stated, but if someone feels more focused and ponders better when reading outside prayer, then that's better for him",
+        "Reading Quran outside prayer is always superior to voluntary prayer regardless of the individual's state",
+        "Both are exactly equal in reward with no difference according to all scholars",
+        "The best choice depends solely on which activity takes more time to complete"
+      ],
+      "correct_answer": 0,
+      "explanation": "The imams stated that praying is better than reading Quran outside of prayer, and the Prophet said the best of deeds is prayer. However, if a person feels more focused, ponders, and understands better when reading Quran outside of prayer, then it is better to do what is more beneficial for him individually.",
+      "difficulty": "medium",
+      "category": "Worship"
+    },
+    {
+      "question_id": 93735,
+      "question": "What should a woman do who prayed for two years without knowing ghusl was obligatory after certain discharges?",
+      "options": [
+        "To be safe, she should make up the prayers and estimate how many, but if they're too many and too hard, she can do many naafil prayers instead",
+        "She must make up every single prayer with exact count or her repentance is completely invalid",
+        "She must also make up all the fasts she observed while in a state of impurity",
+        "She should become Muslim anew as the only valid way to erase these missed prayers"
+      ],
+      "correct_answer": 0,
+      "explanation": "Scholars differ on whether she must make up prayers due to ignorance being an excuse. To be safe, she should make up the prayers and try to estimate how many. If they're too many and too hard, there's hope of no sin if she doesn't, but should offer many naafil prayers. Regarding fasting, she doesn't need to make it up because being pure is not a condition for fasting.",
+      "difficulty": "medium",
+      "category": "Fiqh"
+    },
+    {
+      "question_id": 147629,
+      "question": "What is the ruling on giving the iqaamah for prayer while sitting without an excuse?",
+      "options": [
+        "Scholars unanimously agree it's mustahabb to stand for iqaamah, and makrooh to sit without an excuse",
+        "It's permissible to give iqaamah while walking from one room to the prayer area",
+        "Sitting for iqaamah is equally valid as standing according to all madhahib",
+        "Only the Hanafi school considers standing during iqaamah to be recommended"
+      ],
+      "correct_answer": 0,
+      "explanation": "Al-Mawsoo'ah al-Fiqhiyyah states that the fuqaha are unanimously agreed that it is mustahabb to stand when giving iqaamah, and it is makrooh to sit without excuse. The Sunnah is also not to walk during iqaamah and to give it in the place where one will pray.",
+      "difficulty": "easy",
+      "category": "Prayer"
+    },
+    {
+      "question_id": 12627,
+      "question": "What is the ruling on taking payment for performing ruqyah (Quranic treatment) on a sick person?",
+      "options": [
+        "The Prophet approved when Sahaba agreed on payment of sheep for ruqyah, saying 'You did the right thing'",
+        "Taking payment for ruqyah is only permissible when treating the evil eye, not for other conditions",
+        "Reciting into water or oil is forbidden; one must only recite directly over the sick person",
+        "The Prophet prohibited taking any payment for reciting Quran, even for treatment purposes"
+      ],
+      "correct_answer": 0,
+      "explanation": "It was reported in al-Saheehayn that Sahaba did ruqyah for a tribal chief who was stung, agreeing on sheep as payment. When they told the Prophet about it, he said 'You did the right thing.' There is also nothing wrong with reciting into water or oil, though reciting over the sick person directly is better.",
+      "difficulty": "easy",
+      "category": "Fiqh"
+    },
+    {
+      "question_id": 30901,
+      "question": "What does persistent stress and anxiety in a righteous person likely indicate according to Islamic scholars?",
+      "options": [
+        "Feelings of stress may indicate one's relationship with Allah is not sound, and sins may be preventing achieving happiness",
+        "The young man's abundant good deeds guarantee he cannot be experiencing this as a test from Allah",
+        "He should increase isolation and contemplation to deeply understand the source of his worry",
+        "Missing occasional prayers is a minor issue completely unrelated to his psychological state"
+      ],
+      "correct_answer": 0,
+      "explanation": "The answer explains that feelings of stress indicate the relationship with Allah may not be sound. The more a person turns to Allah and focuses on Him, the more peace they feel. Sins, including missing prayers (which the questioner mentioned), may prevent happiness. One should check their relationship with Allah and repent from sins.",
+      "difficulty": "medium",
+      "category": "Spirituality"
+    },
+    {
+      "question_id": 47760,
+      "question": "When does the year begin for calculating zakah on rental income?",
+      "options": [
+        "The year for zakah starts from when the rental contract is signed, not from when the rent is received",
+        "Zakah is due on the rental property itself based on its current market value",
+        "If rent is spent within two months of receiving it, zakah is still due on the full amount",
+        "The year for zakah only begins when the actual rent payment is physically received in hand"
+      ],
+      "correct_answer": 0,
+      "explanation": "Ibn Qudaamah stated that when someone rents property, the rent is considered to have come into possession at the time of the contract, and zakah must be paid when one year has passed from the contract signing. If the rent was received and spent before the year passed, no zakah is due. No zakah is due on the rental property itself.",
+      "difficulty": "medium",
+      "category": "Zakah"
+    },
+    {
+      "question_id": 34674,
+      "question": "What does the hadith of Umar's silk garment teach about selling items we cannot use?",
+      "options": [
+        "It's permissible to sell things that may be used in halal or haram ways (like gold jewelry or weapons), but the buyer must use them in permissible ways only",
+        "The hadith proves it's permissible to sell cigarettes and revealing swimsuits because they can be resold later",
+        "Things forbidden to use in all circumstances (like pigs and wolves) can still be sold if the buyer intends halal use",
+        "Only the Maliki madhab permits selling items that have both permissible and forbidden uses"
+      ],
+      "correct_answer": 0,
+      "explanation": "The hadith indicates it's permissible to deal in things that may be used in halal or haram ways (like gold jewelry, weapons, grapes), and the buyer must use them permissibly. However, if something is forbidden in all uses (pigs, lions, wolves), it's not permissible to sell. Cigarettes and revealing swimsuits are haram in all circumstances, so the analogy doesn't apply.",
+      "difficulty": "medium",
+      "category": "Fiqh"
+    },
+    {
+      "question_id": 159104,
+      "question": "What did the Prophet say about those involved with alcohol?",
+      "options": [
+        "The Prophet cursed ten people related to alcohol, including the one who carries it and the one who serves it",
+        "If the airline steward disapproves in his heart, it becomes permissible to serve alcohol to passengers",
+        "Since it's the passenger's right according to company policy, serving alcohol is permissible in this case",
+        "The steward only accumulates sin if he serves alcohol more than once per month"
+      ],
+      "correct_answer": 0,
+      "explanation": "The Prophet cursed ten people with regard to alcohol: the one who presses, the one for whom it's pressed, the one who drinks it, the one who carries it, the one to whom it is carried, the one who pours it, the one who sells it, the one who consumes its price, the one who purchases it, and the one for whom it is purchased. Serving it is not permissible regardless of frequency or approval.",
+      "difficulty": "easy",
+      "category": "Fiqh"
+    },
+    {
+      "question_id": 179996,
+      "question": "What is the Islamic ruling on using an electronic rak'ah-counter during prayer?",
+      "options": [
+        "It's permissible for those with compulsive whispers or severe forgetfulness if it helps them focus, but in ordinary cases it may be detrimental to achieving proper humility",
+        "All forms of counting rak'ahs during prayer are forbidden innovations with no precedent in the early generations",
+        "The electronic device is superior to traditional methods because it completely eliminates all possibility of error in prayer",
+        "The device is forbidden because it counts based on prostrations without considering the recitation of al-Fatihah or the first tashahhud"
+      ],
+      "correct_answer": 0,
+      "explanation": "There is precedent for counting in the practice of early generations (using rings, date stones, fingers). The device is permissible and useful for those with compulsive whispers or severe forgetfulness if it helps them focus. However, in ordinary cases without particular need, there is fear it may be detrimental to the original purpose of focusing the heart on Allah and praying with proper humility.",
+      "difficulty": "hard",
+      "category": "Fiqh"
+    }
+  ]
+}

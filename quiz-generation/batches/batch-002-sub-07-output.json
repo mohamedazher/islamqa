@@ -1,0 +1,188 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 175599,
+      "question": "What is the Islamic ruling on playing with Ouija boards?",
+      "options": [
+        "It is forbidden because it involves calling upon jinn and asking them about unseen matters, similar to consulting fortune tellers",
+        "It is allowed as mere entertainment if the player doesn't believe the disc movements are real",
+        "It is permissible if done only occasionally and the player seeks permission before leaving the game",
+        "It becomes prohibited only if the player performs acts of worship to the jinn during the game"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Playing with Ouija boards is haram because it involves calling upon and addressing jinn, asking them about unseen matters, and believing their words. The ruling is the same as going to fortune tellers and soothsayers. The Prophet (peace and blessings of Allah be upon him) warned against this and stated that going to such people, even without believing them, means no prayer will be accepted for forty days.",
+      "category": "Rulings on sport, leisure and entertainment",
+      "difficulty": "medium",
+      "sources": [
+        "Hadith on fortune tellers",
+        "Quranic verses on seeking help from jinn (al-An'aam 6:128, al-Jinn 72:6)"
+      ]
+    },
+    {
+      "reference": 26788,
+      "question": "What is the ruling on a Muslim woman working in a home for the elderly where she must serve alcohol and pork to residents?",
+      "options": [
+        "It is forbidden because it involves serving alcohol and pork, and the Prophet cursed those who carry and serve wine",
+        "It is permissible if she avoids serving alcohol and pork but performs other duties like washing and changing diapers",
+        "It is allowed on grounds of necessity since working is better than depending on social welfare agencies",
+        "It becomes permissible if she wears a headscarf and knee-length shirt, even if not complete hijab"
+      ],
+      "correctAnswer": 0,
+      "explanation": "This work is forbidden because the Prophet (peace and blessings of Allah be upon him) cursed ten types of people with regard to wine, including the one who carries it and the one who pours it. When Allah forbids something, He also forbids its price. Additionally, the work involves not wearing complete shar'i hijab and potentially seeing and touching awrah of residents. Accepting help from social institutions is considered easier to bear than this work which goes against sharee'ah.",
+      "category": "Prohibited Jobs",
+      "difficulty": "medium",
+      "sources": [
+        "Hadith narrated by al-Tirmidhi (1295) and Abu Dawood (3674) about ten cursed regarding wine",
+        "Hadith: 'When Allah forbids people to eat something, He also forbids its price to them'"
+      ]
+    },
+    {
+      "reference": 235,
+      "question": "According to Islamic scholars, what are the requirements for proper Islamic dress for women?",
+      "options": [
+        "It must cover the whole body, be thick and loose, not decorated or perfumed, and not resemble men's or unbelievers' dress",
+        "It must cover the whole body and be loose, but may be decorated if it's traditional cultural attire",
+        "It should be non-transparent and cover the body, but tight clothing is acceptable if not revealing",
+        "It must avoid crosses and animal depictions, but perfume is permissible for married women"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Scholars have specified nine requirements for the Muslim woman's proper dress from the Quran and Sunnah: (1) cover the whole body, (2) be thick/non-transparent, (3) be loose not tight, (4) not be decorated to attract onlookers, (5) not be perfumed, (6) not be libas al-shuhrah (garment of fame), (7) not resemble men's dress, (8) not resemble unbelievers' dress, and (9) not bear crosses or depictions of beings with souls (humans, animals).",
+      "category": "Womens clothing",
+      "difficulty": "easy",
+      "sources": [
+        "Requirements derived from the Glorious Quran and Sunnah",
+        "Scholarly consensus on hijab requirements"
+      ]
+    },
+    {
+      "reference": 12852,
+      "question": "Is it permissible for the husband's brother to take his brother's wife to the doctor if the husband is not available?",
+      "options": [
+        "It is forbidden because traveling alone with the husband's brother is khulwah (prohibited seclusion with a non-mahram)",
+        "It is permissible if the hospital is in the same city and the journey is brief",
+        "It is allowed if the husband cannot be there and it's a medical necessity",
+        "It becomes permissible if they keep the car windows open and avoid conversation during the trip"
+      ],
+      "correctAnswer": 0,
+      "explanation": "It is not permissible for the wife to travel in a car alone with her husband's brother because that is khulwah (being alone with a non-mahram). The Messenger (peace and blessings of Allah be upon him) warned: 'Beware of entering upon women.' When asked about the in-law, he said: 'The in-law is death.' This applies whether in a car or in a house. Additionally, it is haram for a woman to travel without a mahram, based on the hadith of Ibn Abbas.",
+      "category": "Mahram Relatives",
+      "difficulty": "medium",
+      "sources": [
+        "Hadith narrated by al-Bukhari and Muslim about khulwah",
+        "Hadith of Ibn Abbas about women traveling without mahram"
+      ]
+    },
+    {
+      "reference": 149319,
+      "question": "What is the ruling on mentally translating the meaning of Quranic verses into one's own language during prayer?",
+      "options": [
+        "It is permissible to ponder the meaning silently in your own language, but speaking it aloud is forbidden as prayer allows only tasbeeh, takbeer and Quranic recitation",
+        "It is prohibited entirely because translating meanings during prayer, even mentally, interrupts the required focus",
+        "It is permissible to say the translation quietly in naafil prayers, but completely forbidden in obligatory prayers",
+        "It is allowed to recite the translation aloud if doing so helps with understanding and concentration"
+      ],
+      "correctAnswer": 0,
+      "explanation": "There is nothing wrong with reciting a verse during prayer and pondering its meaning in your own language, saying it to yourself. This comes under the heading of pondering and thinking of the meaning. However, you must not utter it out loud, because speaking is forbidden during prayer. The Prophet (peace and blessings of Allah be upon him) said: 'This prayer is not the right place for any of the people's speech, rather it is tasbeeh, takbeer and recitation of Qur'aan.' Additionally, it is not permissible to recite Qur'an in any language other than Arabic.",
+      "category": "Recitation in Prayer",
+      "difficulty": "medium",
+      "sources": [
+        "Hadith narrated by Muslim (537) from Mu'awiyah ibn al-Hakam al-Sulmi",
+        "Ruling on reciting Quran in languages other than Arabic"
+      ]
+    },
+    {
+      "reference": 72221,
+      "question": "What is the status of reciting Al-Fatihah in the funeral prayer according to the scholars mentioned?",
+      "options": [
+        "It is considered obligatory by many scholars based on the hadith 'There is no prayer for the one who does not recite the Opening of the Book'",
+        "It is not recommended under any circumstances, as held by Abu Hanifah and Malik",
+        "It is recommended but not obligatory, and saying Du'a without reciting it is permissible",
+        "It is obligatory only if the funeral prayer is performed in congregation, not when praying individually"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The correct view is that reciting Al-Fatihah is a pillar or essential part of the funeral prayer, based on the general meaning of the Prophet's words (peace and blessings of Allah be upon him): 'There is no prayer for the one who does not recite the Opening of the Book.' The funeral prayer is called a prayer in the Quran. Ibn Abbas used to recite it out loud to demonstrate it should be recited, saying 'So that you will know that it is Sunnah.' Shaykh Ibn Uthaymin and Shaykh Ibn Baz both stated it is obligatory.",
+      "category": "Funerals and rulings on graves",
+      "difficulty": "hard",
+      "sources": [
+        "Hadith narrated by Al-Bukhari (714) and Muslim (595): 'There is no prayer for the one who does not recite the Opening of the Book'",
+        "Ibn Abbas's practice of reciting Al-Fatihah aloud in funeral prayer",
+        "Fatwas of Shaykh Ibn Uthaymin and Shaykh Ibn Baz"
+      ]
+    },
+    {
+      "reference": 4038,
+      "question": "What is the ruling on abortion for a mother who has AIDS?",
+      "options": [
+        "It is not permissible because AIDS is not usually transmitted until later pregnancy stages or during delivery, after the soul has been breathed into the child",
+        "It is permissible in early stages to protect the unborn child from contracting the disease",
+        "The mother should not breastfeed or care for the child because of the definite risk of transmission",
+        "Neither spouse has the right to annul the marriage since AIDS transmission only occurs through blood contact, not ordinary interaction"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Abortion is not permissible for a mother who has AIDS because the disease is not usually transmitted by the mother to the fetus until the later stages of pregnancy – after the soul has been breathed into the child – or during delivery. However, there is no reason from a sharee'ah perspective why the mother should not take care of her child and breastfeed him, so long as there is no medical report stating otherwise, since ordinary mixing poses no definite risk. The wife does have the right to demand separation from a husband with AIDS since it is transmitted primarily through sexual contact.",
+      "category": "Custody",
+      "difficulty": "hard",
+      "sources": [
+        "Medical knowledge on AIDS transmission timing",
+        "Sharee'ah principles on abortion and ensoulment",
+        "Rulings on caring for children and marital rights"
+      ]
+    },
+    {
+      "reference": 152936,
+      "question": "Is the wife obligated to obey her husband when he calls her to play with him (non-sexual intimacy)?",
+      "options": [
+        "She must obey him because it helps perpetuate love and harmony, and is among the valid actions mentioned in hadith alongside shooting arrows and training horses",
+        "She is only required to obey him for intercourse specifically, but playing together is merely recommended",
+        "She must obey only if his request doesn't interfere with her household duties or worship obligations",
+        "Her obedience in this matter is optional since it falls under entertainment, not marital obligations"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The wife must obey her husband when he calls her to play with him, as this helps perpetuate love and harmony between spouses. The Prophet (peace and blessings of Allah be upon him) mentioned playing with one's wife as one of three valid and purposeful actions (along with shooting arrows and training horses), unlike other forms of entertainment which are pointless. This is part of her obligation to obey him in what is right and proper, and is a means of keeping him chaste, fulfilling marriage objectives, and following what the Lawgiver has recommended. Refusal creates resentment and could expose her to Allah's wrath.",
+      "category": "Kind Treatment of Spouses",
+      "difficulty": "medium",
+      "sources": [
+        "Hadith narrated by al-Bukhari (2097) and Muslim (715) from Jabir about marrying and playing",
+        "Hadith narrated by Ahmad (16886) and Abu Dawud (2513) from Uqbah ibn Amir about three valid actions",
+        "Hadith from Abu Dawud (2140) about women's obligation to obey husbands"
+      ]
+    },
+    {
+      "reference": 34519,
+      "question": "Who is responsible for paying zakaat al-fitr for workers employed in a factory or farm?",
+      "options": [
+        "The workers must pay zakaat al-fitr for themselves because the basic principle is that it is obligatory upon each individual",
+        "The factory or farm owner should pay zakaat al-fitr on behalf of workers since they are under his employment",
+        "Zakaat al-fitr should be split equally between the employer and employee",
+        "The employer must pay it if the workers' wages are below a certain threshold"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The workers who are paid wages in return for their work in the factory and on the farm are the ones who should pay zakaat al-fitr for themselves, because the basic principle is that it is obligatory upon them. The employer does not have to pay it on their behalf. This is based on the fundamental ruling that zakaat al-fitr is an individual obligation on each Muslim who has the means.",
+      "category": "Charity at End of Ramadan",
+      "difficulty": "easy",
+      "sources": [
+        "Basic principle that zakaat al-fitr is obligatory on individuals",
+        "Islamic jurisprudence on employer-employee zakaat responsibilities"
+      ]
+    },
+    {
+      "reference": 94311,
+      "question": "If a person wakes up junub shortly before Fajr prayer ends and fears he will miss the prayer time if he does ghusl, what should he do?",
+      "options": [
+        "He must do ghusl even if the prayer time ends, because the time for prayer in his case begins when he wakes up, not when dawn breaks, since he is excused",
+        "He may do tayammum if he fears missing the congregational prayer, as tayammum is valid when time is limited",
+        "He should do wudu only and pray with the congregation, then do ghusl and repeat the prayer at home",
+        "He may delay ghusl until after sunrise if he wakes up within five to ten minutes before Fajr ends"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The person who is junub must do ghusl to pray, and the prayer is not valid with only wudu. He must do ghusl even if he fears the prayer time will end. The majority of scholars hold the correct view that he is obliged to do ghusl because he is excused. The time that counts for him is when he woke up, based on the hadith: 'If any one of you forgets to pray, or sleeps and misses a prayer, then let him pray when he remembers.' For the one who slept, the time for prayer begins when he wakes up, not when the dawn breaks, because he is excused.",
+      "category": "al-Tayammum ('dry' ablution)",
+      "difficulty": "hard",
+      "sources": [
+        "Hadith from Abu Qataadah narrated by al-Tirmidhi (177), al-Nasaa'i (615), Abu Dawood (437) and Ibn Maajah (698)",
+        "Views of the majority of scholars including al-Shafi'i, Abu Thawr, and Ibn al-Mundhir",
+        "Fatawa of Shaykh al-Islam Ibn Taymiyah and Shaykh Ibn Uthaymin"
+      ]
+    }
+  ]
+}
