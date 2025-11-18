@@ -23,28 +23,23 @@ public class PrayerWidget extends CordovaPlugin {
     private static final String PREFS_NAME = "PrayerWidgetPrefs";
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext)
+            throws JSONException {
 
         Log.d(TAG, "Execute action: " + action);
 
-        try {
-            if (action.equals("updateWidget")) {
-                JSONObject prayerData = args.getJSONObject(0);
-                this.updateWidget(prayerData, callbackContext);
-                return true;
-            }
-            else if (action.equals("isWidgetInstalled")) {
-                this.isWidgetInstalled(callbackContext);
-                return true;
-            }
-            else if (action.equals("forceUpdate")) {
-                this.forceUpdate(callbackContext);
-                return true;
-            }
-        } catch (JSONException e) {
-            Log.e(TAG, "Error executing action: " + e.getMessage());
-            callbackContext.error("Failed to execute action: " + e.getMessage());
-            return false;
+        if (action.equals("updateWidget")) {
+            JSONObject prayerData = args.getJSONObject(0);
+            this.updateWidget(prayerData, callbackContext);
+            return true;
+        }
+        else if (action.equals("isWidgetInstalled")) {
+            this.isWidgetInstalled(callbackContext);
+            return true;
+        }
+        else if (action.equals("forceUpdate")) {
+            this.forceUpdate(callbackContext);
+            return true;
         }
 
         return false;
