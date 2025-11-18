@@ -1,0 +1,336 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 277583,
+      "questionText": "What is the Islamic ruling on private chatting between the sexes on social media sites?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is the same as physical khulwah and falls under the same prohibition discussed by the fuqaha",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "It does not come under the heading of khulwah discussed by fuqaha, but is disallowed as a means that leads to fitnah and mischief",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "It is completely permissible since the Shaytaan cannot be the third one present in online conversations",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is only forbidden if the conversation involves exchanging photographs",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "While private chatting on social media does not come under the heading of the khulwah (physical seclusion) forbidden in hadith, it is still disallowed because it is a means that leads to fitnah and mischief. Such contact should be avoided unless for a greater religious purpose (like asking questions of scholars) or legitimate worldly need, in which case conversation should be only as much as needed without unnecessary chitchat.",
+      "tags": ["Gender relations", "Social media", "Fitnah"],
+      "source": "IslamQA reference 277583"
+    },
+    {
+      "reference": 216829,
+      "questionText": "According to the scholars, what is the defining characteristic of the siddeeqoon?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "They are those who memorized the entire Quran and never forgot any verse",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "They are those who reached the highest levels of faith, righteous deeds, beneficial knowledge and true certainty",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "They are the first generation of Muslims who accompanied the Prophet in Makkah",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They are those who gave all their wealth in charity for the sake of Allah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The siddeeqoon are those who reached the highest levels of faith, righteous deeds, beneficial knowledge and true certainty. As-Sa'di stated this definition. The highest level of sincerity is that of the siddeeq, which is perfect submission to the Messenger accompanied by perfect sincerity towards the One Who sent him. The siddeeq confirms with his actions what he says with his tongue.",
+      "tags": ["Virtues of deeds", "Siddeeqoon", "Faith"],
+      "source": "IslamQA reference 216829"
+    },
+    {
+      "reference": 110010,
+      "questionText": "If a wife says to her husband 'You are haraam to me until the Day of Judgement', what is the required expiation?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She must observe the waiting period of zihaar and the marriage is suspended",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Freeing a slave, or feeding or clothing ten poor persons, or fasting three days if unable to do either",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "She must pay a fine equivalent to the mahr and seek her husband's forgiveness",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The marriage is automatically dissolved and they must perform a new marriage contract",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "This statement does not result in zihaar or talaaq (which can only be done by the husband). Rather it comes under the heading of making what is halaal haraam, which is treated as a type of oath. The expiation for breaking this oath is freeing a slave, or feeding or clothing ten poor persons (each receiving half a saa' of food or garments acceptable for praying in), or fasting three days if unable to do either. She only breaks the oath if her husband has intercourse with her when she is willing.",
+      "tags": ["Vows", "Oaths", "Expiation"],
+      "source": "IslamQA reference 110010"
+    },
+    {
+      "reference": 357250,
+      "questionText": "What should a person do with investment certificates in an Islamic bank after discovering the bank invests in riba-based treasury bills?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wait until the certificates expire naturally to avoid financial losses, then not renew them",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Stop investing immediately and cancel the certificates, even if it results in losing money",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Continue investing but donate all profits to charity to purify the earnings",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Transfer the certificates to a current account within the same bank to avoid riba",
+          "isCorrect": false
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Wait until the certificates expire naturally to avoid financial losses, then not renew them",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Stop investing immediately and cancel the certificates, even if it results in losing money",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Continue investing but donate all profits to charity to purify the earnings",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Transfer the certificates to a current account within the same bank to avoid riba",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A person must stop investing in the bank immediately, whether through investment accounts or limited-time certificates, even if that results in losing some money. This is to flee from dealing with riba and in obedience to Allah's command: 'O you who have believed, fear Allah and give up what remains [due to you] of interest, if you should be believers.' The Prophet cursed the one who consumes riba, the one who pays it, the one who writes it down and the two who witness it.",
+      "tags": ["Interest", "Islamic finance", "Investment"],
+      "source": "IslamQA reference 357250"
+    },
+    {
+      "reference": 10608,
+      "questionText": "What is the ruling if a man gives preference to his wife over his mother in spending and necessities?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is sinful and he must always give preference to his mother in all matters",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "There is no sin if his mother's needs are met, but it is better to give preference to his mother and hide any preference given to wife",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "He must divide all spending equally between his mother and wife regardless of their needs",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He should give all his wealth to his mother first, then whatever remains goes to his wife",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "There is no sin involved in giving preference to his wife over his mother, if his mother is one of those whom he is obliged to support and he meets her needs. However, it is better for him to make his mother happy and to give her preference. If he has to give preference to his wife, he should hide that from his mother.",
+      "tags": ["Spending on those under ones responsibility", "Family relations", "Mother's rights"],
+      "source": "IslamQA reference 10608"
+    },
+    {
+      "reference": 174371,
+      "questionText": "What is the ruling on using medicines to permanently change skin color from dark to white?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Temporary whitening using creams is permissible, but permanent change is not permissible as it is changing the creation of Allah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Both temporary and permanent whitening are completely permissible for beautification purposes",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "All forms of skin whitening are forbidden whether temporary or permanent",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Permanent whitening is only permissible if done through surgical procedures, not medicines",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "There is nothing wrong with changing the color of the skin temporarily using creams and cosmetic preparations. But if it is permanently changing the color of the skin, then it is not permissible, whether by surgical procedures or other means, because that is changing the creation of Allah. Shaykh Ibn Uthaymin stated that permanent whitening is prohibited as it is akin to tattooing and filing the teeth. However, using permissible medicines to restore skin to its original color (removing a defect) is not considered changing Allah's creation.",
+      "tags": ["Clothing, adornment and images", "Beautification", "Changing creation"],
+      "source": "IslamQA reference 174371"
+    },
+    {
+      "reference": 145725,
+      "questionText": "When were the five daily prayers made obligatory in their current form?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "At the very beginning of the Prophet's mission in Makkah",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "On the night of Isra' and Mi'raj, one and a half years before the Hijrah, originally fifty prayers reduced to five",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "After the Hijrah to Madinah when the Muslim community was established",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Gradually over several years, with one prayer added each year until reaching five",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The five daily prayers were made obligatory on the night of the Isra' and Mi'raj, one and a half years before the Hijrah. Allah enjoined fifty prayers which were reduced to five (each with a tenfold reward making it fifty). Jibril came down on the morning following that night and taught the Prophet the times of the prayers. When first made obligatory, each prayer was two rak'ahs; after the Hijrah, this was confirmed for travel but became four rak'ahs for residents except Maghrib.",
+      "tags": ["Prayer", "Isra and Miraj", "Islamic history"],
+      "source": "IslamQA reference 145725"
+    },
+    {
+      "reference": 39443,
+      "questionText": "What should a Muslim woman do if she fears failing her medical school exam because of wearing hijab?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She may temporarily remove hijab for exams only, then put it back on afterwards",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "She should adhere to her religion and keep her hijab, even if that means giving up her studies",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "She should wait until she finishes her studies completely, then wear hijab after graduation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She may wear a modified version of hijab that is more acceptable to her examiners",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Muslim woman is obliged to wear hijab in front of non-mahram men based on clear evidence. It is not permissible to take off hijab because of studying, because that is not a necessity that permits doing something Allah has forbidden. She should adhere to her religion and keep her hijab, even if that means giving up her studies. Whoever puts his trust in Allah, Allah will suffice him and protect him. The Prophet said about those who adhere to Islam in difficult times that they will have the reward of fifty martyrs.",
+      "tags": ["Womens clothing", "Hijab", "Education"],
+      "source": "IslamQA reference 39443"
+    },
+    {
+      "reference": 150604,
+      "questionText": "According to Islamic law, what is the basic principle regarding commands and prohibitions for males and females?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Males have more prohibitions than females to account for their greater strength and responsibility",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "There is no differentiation between males and females with regard to commands and prohibitions as a basic principle",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Females have stricter prohibitions than males because they need more protection",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Each gender has completely separate and distinct sets of commands and prohibitions",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The basic principle with regard to the commands and prohibitions is that there is no differentiation between males and females. Both the male thief and female thief have their hands cut off; both fornicators receive the same punishment; both are commanded to lower their gaze and protect their private parts. In fact, some things are forbidden for men but permissible for women (like silk and gold). Allah says whoever does righteous deeds, male or female, and is a believer will enter Paradise without the least injustice.",
+      "tags": ["Gender equality", "Islamic law", "Basic principles"],
+      "source": "IslamQA reference 150604"
+    },
+    {
+      "reference": 13350,
+      "questionText": "What is the fate of disbelievers who hear the message of the Prophet but do not enter Islam?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "They will go to Hell, as stated in the hadith about anyone who hears of the Prophet but dies without believing",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They will enter Paradise if their morals are good and they do not harm anyone",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They will remain in an intermediate state between Paradise and Hell based on their deeds",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They will be given another chance on the Day of Judgment to accept Islam before their final fate is decided",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "All disbelievers who hear the message of the Prophet and do not enter Islam will go to Hell. The Prophet said: 'By the One in Whose hand is my soul, no one of this nation, Jew or Christian, hears of me then dies without having believed in that with which I was sent, but he will be one of the people of the Fire.' The point is not whether their morals are good, but whether they submit to Allah and obey His commands. Those who worship other than Allah or associate partners with Him are being ill-mannered towards Allah.",
+      "tags": ["Basic Tenets of Faith", "Disbelief", "Afterlife"],
+      "source": "IslamQA reference 13350"
+    }
+  ]
+}

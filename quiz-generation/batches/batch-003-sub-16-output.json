@@ -1,0 +1,438 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 13731,
+      "questionText": "According to Shaykh al-Albaani in Da'eef al-Jaami', what is the status of the hadith \"Whoever taunts his brother with a sin will not die until he commits the same sin\"?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Saheeh (authentic)",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Hasan (good)",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Da'eef (weak)",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Mawdoo' (fabricated)",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "Shaykh al-Albaani described this hadith in Da'eef al-Jaami' (5710) as mawdoo' (fabricated). If a hadith is da'eef and mawdoo', it cannot be taken as a basis for rulings or be acted upon.",
+      "tags": ["Commentary on Hadith", "Hadith Classification"],
+      "source": "IslamQA reference 13731"
+    },
+    {
+      "reference": 100270,
+      "questionText": "According to the hadith about the disputed child between Sa'd ibn Abi Waqqaas and 'Abd ibn Zam'ah, what principle did the Prophet (peace be upon him) establish?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The child belongs to whoever has the stronger physical resemblance",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "\"The child is for the (owner of the) bed\" - attributed to the marital bed",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "The child belongs to whoever the mother names as the father",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The child should be named after both claimants equally",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) said: \"He is yours, O 'Abd ibn Zam'ah. The child is for the (owner of the) bed.\" This means the child is attributed to the husband, even if there is clear resemblance to another man, unless the husband engages in li'aan to deny paternity.",
+      "tags": ["Adultery/fornication and Homosexuality", "Lineage", "Shari'ah Rulings"],
+      "source": "IslamQA reference 100270"
+    },
+    {
+      "reference": 102446,
+      "questionText": "What did the Prophet (peace be upon him) say will happen to a man who has two wives and favours one over the other?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "He will be prohibited from Paradise for forty years",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "He will come on the Day of Resurrection with one of his sides leaning",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "He will be required to divorce the less-favoured wife",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He will lose half of his accumulated good deeds",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) said: \"Whoever has two wives and favours one of them over the other, will come on the Day of Resurrection with one of his sides leaning.\" This hadith was narrated by al-Tirmidhi, Abu Dawood, al-Nasaa'i and Ibn Majaah.",
+      "tags": ["Kind Treatment of Spouses", "Plural marriage and fair treatment of co-wives"],
+      "source": "IslamQA reference 102446"
+    },
+    {
+      "reference": 102446,
+      "questionText": "According to the scholars, what must a man do if he wants to travel with one of his wives and not the other(s)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He may choose whichever wife he prefers without restriction",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "He must cast lots (draw lots) between his wives",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "He must take the wife who has been with him the longest",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He must get written permission from all wives before choosing one",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) would cast lots between his wives when he wanted to travel, and the one whose name was drawn would accompany him. Al-Nawawi stated that this casting of lots is obligatory. When he returns, the days of travel should not be counted for the wife who traveled.",
+      "tags": ["Kind Treatment of Spouses", "Plural marriage and fair treatment of co-wives"],
+      "source": "IslamQA reference 102446"
+    },
+    {
+      "reference": 20875,
+      "questionText": "If a sacrifice animal gets injured after being selected for sacrifice but before slaughter (without the owner's negligence), what is the ruling according to Shaykh Ibn 'Uthaymeen?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It must be replaced with a completely sound animal",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "It may still be slaughtered and this will suffice",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "The owner must sacrifice two animals instead of one",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The owner must give the injured animal in charity and buy a new one",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymeen explained that when the animal was selected, it became a trust. Since the injury was not the result of the owner's action or negligence, he is not obliged to offer any guarantee, and slaughtering it will suffice.",
+      "tags": ["Sacrifices", "Udhiyah"],
+      "source": "IslamQA reference 20875"
+    },
+    {
+      "reference": 21364,
+      "questionText": "What are the two main reasons mentioned for the weakness (da'eef status) of the hadith from Salmaan al-Faarisi about the virtues of Ramadan?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "The hadith contradicts the Quran and contains fabricated narrators",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "There is a break in the chain (Sa'eed ibn al-Musayyib did not hear from Salmaan) and its isnaad includes 'Ali ibn Zayd ibn Jad'aan who is weak",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "It was narrated by only one person and contains unknown narrators",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The meaning contradicts other authentic hadiths and the chain includes known liars",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The hadith is da'eef for two reasons: (1) There is a break in the chain of narrators because Sa'eed ibn al-Musayyib did not hear it from Salmaan al-Faarisi, and (2) Its isnaad includes 'Ali ibn Zayd ibn Jad'aan, who was classed as da'eef by Ahmad, Ibn Ma'een, al-Nasaa'i, Ibn Khuzaymah and others.",
+      "tags": ["Da'eef (weak) hadiths", "Obligation and virtues of fasting"],
+      "source": "IslamQA reference 21364"
+    },
+    {
+      "reference": 343382,
+      "questionText": "According to the majority of Hanafi, Shafa'i and Hanbali scholars, what is the ruling if worms come out of the back passage?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It does not invalidate wudu but requires ghusl",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "It invalidates wudu",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "It only invalidates wudu if accompanied by wind",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It requires only istinja' (cleaning) without needing to renew wudu",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The majority of Hanafi, Shafa'i and Hanbali scholars hold that worms coming out of the back passage invalidate wudu, because whatever comes out of the front and back passages - whether ordinary or rare - breaks wudu. This includes rare things like worms, stones, and hair.",
+      "tags": ["Cleaning oneself after defecating or urinating", "Wudu"],
+      "source": "IslamQA reference 343382"
+    },
+    {
+      "reference": 343382,
+      "questionText": "According to the majority of scholars, when is cleaning oneself (istinja') required if worms come out of the back passage?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is always required whenever anything exits the back passage",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "It is required only if the worms contaminate the anus and surrounding area with impurity",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "It is required only if the worms are visible to the naked eye",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is never required for worms, only for ordinary excretions",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The majority of scholars hold that cleaning oneself is not required if worms come out, except when they contaminate the anus and surrounding area with impurity. The purpose of istinja' is to remove impurity from the place. If the worms come out dry without contamination, there is no obligation to clean oneself.",
+      "tags": ["Cleaning oneself after defecating or urinating", "Istinja"],
+      "source": "IslamQA reference 343382"
+    },
+    {
+      "reference": 26724,
+      "questionText": "What are the expiation options for a person who must cover his head while in ihram due to medical necessity (such as severe sensitivity to sunlight)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only sacrificing a camel and distributing it in Makkah",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Sacrificing a sheep for the poor in Makkah, OR feeding six poor persons (half a saa' each), OR fasting three days",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Paying monetary compensation equal to 100 Saudi riyals",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Performing an additional 'Umrah the following year",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A person who must cover his head in ihram due to medical necessity may do so, and must expiate by one of three options: (1) sacrificing a sheep and giving it to the poor in Makkah, OR (2) feeding six poor persons, giving each one half a saa' of dates or other staple food, OR (3) fasting for three days. A separate expiation is required for 'Umrah if entering ihram for it.",
+      "tags": ["Things which are not allowed in Ihraam", "Fidyah", "Hajj"],
+      "source": "IslamQA reference 26724"
+    },
+    {
+      "reference": 145650,
+      "questionText": "If a woman has a miscarriage before eighty-one days of pregnancy, how is the bleeding that follows classified?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is always nifaas (post-partum bleeding) requiring her to stop praying",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "It is istihaadah (non-menstrual bleeding) unless it coincides with her usual period time, in which case it is menstrual bleeding",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "It is neither nifaas nor menses, and she must pray immediately without waiting",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is nifaas for the first seven days only, then becomes istihaadah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If a woman has a miscarriage before eighty-one days of pregnancy, the bleeding is not regarded as nifaas; rather it is istihaadah (non-menstrual vaginal bleeding), unless it coincides with the usual time of her period, in which case it is menstrual bleeding. Istihaadah does not prevent praying, fasting and tawaaf.",
+      "tags": ["Menstruation and Post-Natal bleeding", "Nifaas", "Istihaadah"],
+      "source": "IslamQA reference 145650"
+    },
+    {
+      "reference": 145650,
+      "questionText": "According to the majority of scholars, what is the maximum length of menstruation (menses)?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Seven days",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Ten days",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Fifteen days",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "One month",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the majority of scholars, the maximum length of menses is fifteen days. However, some scholars like Shaykh al-Islam Ibn Taymiyah held that there is no maximum length of menses. If bleeding exceeds the normal period but stays within fifteen days, it is still regarded as menses.",
+      "tags": ["Menstruation and Post-Natal bleeding"],
+      "source": "IslamQA reference 145650"
+    },
+    {
+      "reference": 89575,
+      "questionText": "According to the hadith narrated by Muslim, what is forgiven for the one who does ghusl, comes to Jumu'ah, prays what is decreed, listens attentively until the khutbah ends, and prays with the imam?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "All sins committed in his entire lifetime",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Sins between that Jumu'ah and the next Jumu'ah, and three days more",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Only minor sins from the previous week",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only sins committed on Friday specifically",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) said that such a person \"will be forgiven (his sins) between that and the next Jumu'ah, and three days more.\" This was narrated by Muslim (857), showing the immense virtue of properly attending and listening to the Friday khutbah.",
+      "tags": ["Friday Prayers", "Virtues of deeds"],
+      "source": "IslamQA reference 89575"
+    },
+    {
+      "reference": 89575,
+      "questionText": "According to the hadith from Aws ibn Aws, what reward does a person get for each step taken to the mosque on Friday if he does ghusl, sets out early, is present at the beginning of the khutbah, and listens attentively?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The reward of one accepted Hajj",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "The reward of fasting and praying qiyaam for one year",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "The reward of freeing one slave",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The reward of giving one dinar in charity",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Messenger of Allah (peace be upon him) said: \"for every step he takes he will have the reward of fasting and praying qiyaam for one year.\" This hadith was narrated by al-Tirmidhi (496) and classed as saheeh by al-Bayhaqi and al-Albaani.",
+      "tags": ["Friday Prayers", "Virtues of deeds"],
+      "source": "IslamQA reference 89575"
+    },
+    {
+      "reference": 245591,
+      "questionText": "According to the scholars, when is an agent (wakeel) liable for the loss or destruction of property in his care?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He is always liable regardless of the circumstances",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "He is liable only in the case of deliberate transgression or negligence",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "He is liable only if he was being paid for his services as an agent",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He is never liable as long as he is a trustworthy Muslim",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The guideline, as the scholars stated, is that an honest person (trustee) is not liable unless he transgresses or is negligent. Shaykh Ibn 'Uthaymeen confirmed that no trustee is liable except in the case of deliberate transgression or negligence. If the loss happened without negligence, the agent is not liable.",
+      "tags": ["Compensation", "Wakeel", "Islamic Transactions"],
+      "source": "IslamQA reference 245591"
+    }
+  ]
+}

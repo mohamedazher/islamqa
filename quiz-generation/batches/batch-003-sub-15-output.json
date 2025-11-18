@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 82500,
+      "questionText": "What should you do if your parents insist on including forbidden things like mixing or wanton display in the wedding party?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Advise them and explain the shar'i ruling, and if they persist, keep away from the place of evil and announce your disavowal of it",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Remain silent in the gathering to maintain family harmony, as the Quran says those who sit with wrongdoers share their burden",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Participate in organizing the wedding but refuse to use the duff, as this instrument differentiates halal from haram marriages",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Cancel the waleemah entirely, since the hadith states marriage that begins with sin is unlikely to be blessed",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states: 'If they persist in their view, then keep away from the place of evil and announce your dislike and disavowal of it.' The Quran (4:140) indicates it is obligatory to avoid people who commit sin openly. The Prophet (ﷺ) said: 'Whoever among you sees an evil action, let him change it with his hand; if he cannot, then with his tongue; and if he cannot, then with his heart.'",
+      "tags": ["Rulings on Marriage", "Wedding Celebrations"],
+      "source": "IslamQA reference 82500"
+    },
+    {
+      "reference": 47564,
+      "questionText": "According to the hadith from Asma' bint Yazeed, in which three specific cases are lies not considered inappropriate?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When a man speaks to his wife to please her, telling lies at times of war, and lying to bring about reconciliation between people",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "When giving charity secretly to increase parents' good deeds, when protecting someone's trust, and when concealing a Muslim's faults",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When intermediating between disputing parties, when testifying in court to protect the innocent, and when hiding wealth from oppressors",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "When speaking about buying items for charity, when promising to repay a debt, and when conveying good news to relatives",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The hadith narrated from Asma' bint Yazeed states: 'Lies are not appropriate except in three cases: when a man speaks to his wife to please her, telling lies at times of war, and lying in order to bring about reconciliation between people.' The answer clarifies that telling lies to family about spending is not an excuse.",
+      "tags": ["Bad behaviour", "Truthfulness"],
+      "source": "IslamQA reference 47564"
+    },
+    {
+      "reference": 82073,
+      "questionText": "According to the majority of scholars, what is the ruling if a husband is unable to spend on his wife?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is sufficient grounds for separating them if the wife requests it, but if she accepts it and does not ask for separation, no one has the right to separate them",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The wife's family must take her away by force and stipulate that he become very rich before returning her to him",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Guardianship of the wife automatically passes to her father's family until the husband can provide adequate financial support",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The courts must immediately separate them regardless of the wife's wishes, as spending on the wife is one of the conditions of a valid marriage",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states: 'The majority of scholars are of the view that the husband's inability to spend on his wife is sufficient grounds for separating them, if the wife requests that. But if she accepts it and does not ask for separation, then no one has the right to separate them.' The wife's family taking her away is described as wrongdoing.",
+      "tags": ["Kind Treatment of Spouses", "Marital Rights"],
+      "source": "IslamQA reference 82073"
+    },
+    {
+      "reference": 193690,
+      "questionText": "When does zakah become obligatory on inherited wealth according to the Standing Committee's ruling?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When each heir has taken possession of his share and can dispose of it, if it reaches the nisaab when one full year has passed",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Immediately after the death of the deceased, calculated on all the heirs' shares put together at the rate of one quarter of one tenth",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Two years after the death regardless of whether the estate has been divided, as this is the maximum delay permitted for estate division",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "As soon as the banks decide about division of the estate, even if the heirs live abroad and have not yet appointed court representatives",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states: 'If you do become able to take possession of it or dispose of it, then you must pay zakah on it from the time when you become able to dispose of it, if it reaches the minimum threshold, when one full year has passed.' The Standing Committee ruled that no zakah is due during the period when the estate was not divided because ownership was not established.",
+      "tags": ["Conditions for Zakah Being Obligatory", "Inheritance"],
+      "source": "IslamQA reference 193690"
+    },
+    {
+      "reference": 10521,
+      "questionText": "In the story of Haroon al-Rasheed and the heretic who fabricated hadiths, how did the Caliph respond to the heretic's claim about fabricating thousands of hadiths?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He said: 'What will you do, O enemy of Allah, about Abu Ishaaq al-Fazaari and Abdullah ibn al-Mubaarak? They will go through them and sift them letter by letter'",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He immediately ordered all hadith collections to be reviewed and commanded that the Muslim lands be searched for other fabricators",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He pardoned the heretic on condition that he publicly reveal which hadiths he fabricated so they could be removed from circulation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He expressed concern that these fabrications had already deceived the muhadditheen, as European critics and some Muslims claimed",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer narrates: 'Haroon al-Rasheed said to him: \"What will you do, O enemy of Allah, about Abu Ishaaq al-Fazaari and Abdullah ibn al-Mubaarak? They will go through them and sift them letter by letter.\"' This demonstrates the confidence in the scholars' ability to detect fabrications. Muhammad Asad confirmed that 'fabricated hadiths never deceived the muhadditheen.'",
+      "tags": ["Sources for Islamic Rulings and Shariah", "Hadith Sciences"],
+      "source": "IslamQA reference 10521"
+    },
+    {
+      "reference": 129935,
+      "questionText": "What is the ruling on using cream or ointment for hemorrhoids during Ramadan according to the Standing Committee?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Using cream or ointment for hemorrhoids does not affect the fast, whether applied inside or outside",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It breaks the fast and requires making up the day, as it enters the body through an opening and delivers medication",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "External application is permitted, but internal application breaks the fast and requires both making up the day and expiation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permitted only in cases of extreme necessity when the pain becomes unbearable, and the day must still be made up later",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Standing Committee's fatwa, signed by Shaykh Ibn Baz, Shaykh Aal al-Shaykh, Shaykh Ibn Ghadyaan, Shaykh al-Fawzaan, and Shaykh Bakr Abu Zayd, clearly states: 'Using cream or ointment for haemorrhoids does not affect the fast.' The question mentioned both inside and outside application.",
+      "tags": ["Things which invalidate the fast", "Fasting"],
+      "source": "IslamQA reference 129935"
+    },
+    {
+      "reference": 10679,
+      "questionText": "What did the Prophet (ﷺ) command Ali to do when his father Abu Talib died as a mushrik, and what was forbidden afterward?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The Prophet commanded him to bury his father, but it is not prescribed to wash, shroud, offer funeral prayer over him, or make dua for him after burial",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The Prophet told him to perform the complete funeral rites including washing and shrouding, but to make dua that Allah lighten his punishment in Hell",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The Prophet instructed him to arrange the burial but delegate it to other relatives, then follow the funeral procession to show family compassion",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The Prophet permitted him to wash and shroud the body as the last act of good companionship, but forbade offering the funeral prayer",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states: 'The Prophet (ﷺ) said, \"Go and bury your father\"' but clarifies 'It is not prescribed for him to wash or shroud a kaafir, or to offer the funeral prayer over him, even if he was a relative, because the Prophet (ﷺ) did not tell Ali to do that.' After burial, he cannot make dua or pray for forgiveness (Quran 9:113).",
+      "tags": ["Funerals and rulings on graves", "Dealing with Non-Muslims"],
+      "source": "IslamQA reference 10679"
+    },
+    {
+      "reference": 98244,
+      "questionText": "According to the hadith, when does the ruler (judge) become the wali for a woman who has no wali?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When there is a dispute - specifically when the wali refuses to marry her to a compatible man with whom she is pleased",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Automatically after she completes university studies and becomes financially independent from her family",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When her father is Muslim but has wrong thoughts about Islam regarding issues like hijab and mixing",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Whenever the woman leaves her family home and plans for marriage within two months, even without consulting her guardian",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The hadith states: 'if there is any dispute, then the ruler is the wali of the one who has no wali.' The answer explains that 'if the wali refuses to marry the female relative under his care to a compatible man with whom she is pleased, then he is preventing her from getting married and guardianship passes' - ultimately to the judge if needed.",
+      "tags": ["Marriage Contract", "Rulings on Marriage"],
+      "source": "IslamQA reference 98244"
+    },
+    {
+      "reference": 122729,
+      "questionText": "What is the scholarly consensus regarding swearing oaths by the attributes of Allah such as His glory, knowledge, or power?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is permissible to swear by Allah's attributes, and the ruling is the same as swearing by His names - this is affirmed by scholars of all four madhhabs",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is impermissible according to the stronger view, as the hadith limits permissible oaths to saying 'by Allah' using this specific name only",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permitted only when swearing by the attribute of life or knowledge, but swearing by glory, power, or hearing is discouraged",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The Hanafi and Shafi'i schools permit it with expiation required if broken, while Hanbali and Maliki schools consider it makruh",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states: 'There should be no dispute, because these are oaths like the first kind' and 'This is what has also been stated by the fuqaha' of the four madhhabs.' Ibn Taymiyah said: 'swearing by His attributes is like swearing by Him.' The text provides evidence from Bukhari, Muslim, and all four schools of jurisprudence.",
+      "tags": ["Vows", "Oaths"],
+      "source": "IslamQA reference 122729"
+    },
+    {
+      "reference": 1986,
+      "questionText": "What is the Islamic ruling on having intercourse on the first night of marriage?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not obligatory, not having intercourse is not a sin, and it does not prevent celebrating the waleemah - what happens is the couple's concern alone",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is obligatory according to the majority of scholars, and failure to consummate constitutes a sin that delays the waleemah celebration",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is strongly recommended within the first three nights, and delaying beyond this without valid excuse prevents the marriage from being announced",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is required to differentiate the halal relationship from haram ones, similar to how beating the daff announces the marriage publicly",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer clearly states: 'What you have heard - that it is obligatory to have intercourse on the first night of marriage - is not correct at all. Not having intercourse on that night is not a sin, and does not prevent one from celebrating the waleemah.' It emphasizes that 'whatever happens between the two partners on their wedding night is their concern alone.'",
+      "tags": ["Kind Treatment of Spouses", "Wedding Night"],
+      "source": "IslamQA reference 1986"
+    }
+  ]
+}

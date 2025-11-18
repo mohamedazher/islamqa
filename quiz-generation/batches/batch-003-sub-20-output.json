@@ -1,0 +1,284 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 6622,
+      "questionText": "What are the three essential pillars of enslavement ('Uboodiyyah) to Allah mentioned in the answer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Love, fear, and hope",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Faith, prayer, and charity"
+        },
+        {
+          "id": "c",
+          "text": "Sincerity, patience, and gratitude"
+        },
+        {
+          "id": "d",
+          "text": "Purity of intention, following the Messenger, and avoiding innovation"
+        }
+      ],
+      "explanation": "The answer explicitly states: 'Enslavement to Allaah includes and implies love, fear and hope. The slave loves his Lord, fears His punishment and hopes for His Mercy and reward. These are the three essential pillars of 'Uboodiyyah or enslavement.'",
+      "tags": ["(Unity of) Divinity", "Enslavement to Allah"],
+      "source": "IslamQA reference 6622"
+    },
+    {
+      "reference": 45148,
+      "questionText": "According to the hadith narrated by Abu'd-Darda', what happens when someone curses a person who does not deserve to be cursed?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The curse goes back to the one who uttered it",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The curse remains suspended until the Day of Judgment"
+        },
+        {
+          "id": "c",
+          "text": "The curse is forgiven immediately by Allah"
+        },
+        {
+          "id": "d",
+          "text": "The curse affects both the speaker and the cursed person equally"
+        }
+      ],
+      "explanation": "The hadith states: 'When a person curses something, the curse ascends to heaven, and the gates of heaven are closed to it. Then it comes back down to earth and the gates of earth are closed to it. Then it looks right and left, and if it does not find anywhere to go, it goes to the one who was cursed, and if he deserves it (it befalls him), otherwise it goes back to the one who uttered it.'",
+      "tags": ["Bad behaviour", "Cursing", "Hadith"],
+      "source": "IslamQA reference 45148"
+    },
+    {
+      "reference": 36737,
+      "questionText": "If a person puts on socks, then breaks his wudoo', then puts on another pair of socks BEFORE doing wudoo', which layer should he wipe over when making wudoo'?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "The first layer only, as the ruling applies to it",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The second layer only, as it is the visible one"
+        },
+        {
+          "id": "c",
+          "text": "Either layer is acceptable according to all scholars"
+        },
+        {
+          "id": "d",
+          "text": "Both layers must be wiped simultaneously"
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymeen explained: 'If a person put on socks or khufoof then broke his wudoo', then put on another pair before doing wudoo', the ruling applies to the first layer, i.e., if he wants to wipe over them after that, he has to wipe over the first layer, and it is not permissible for him to wipe over the second layer.'",
+      "tags": ["Pilgrimage", "Wudoo", "Wiping over socks"],
+      "source": "IslamQA reference 36737"
+    },
+    {
+      "reference": 223621,
+      "questionText": "According to the three imams (Malik, Abu Hanifah, and ash-Shafa'i), under what condition is it permissible to build a protruding balcony?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "So long as it will not cause any harm to passers-by or neighbours",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only with written consent from all adjacent neighbors"
+        },
+        {
+          "id": "c",
+          "text": "Only if the balcony does not exceed two meters in length"
+        },
+        {
+          "id": "d",
+          "text": "Never, as any protruding structure is automatically harmful"
+        }
+      ],
+      "explanation": "The answer states: 'The three imams [Malik, Abu Hanifah and ash-Shafa'i] favoured the view that it is permissible to do that, so long as it will not cause any harm to passers-by or neighbours, and this is more appropriate.'",
+      "tags": ["Neighbours Rights", "Transactions", "Building regulations"],
+      "source": "IslamQA reference 223621"
+    },
+    {
+      "reference": 10140,
+      "questionText": "In what situation does the husband have no right to change his mind after agreeing to khula'?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When the marriage has already been annulled and only the handing over of compensation remains",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "When the agreement was witnessed by two just witnesses"
+        },
+        {
+          "id": "c",
+          "text": "When the wife has verbally expressed her desire for khula'"
+        },
+        {
+          "id": "d",
+          "text": "When more than seven days have passed since the agreement"
+        }
+      ],
+      "explanation": "The answer clearly states: 'If he has indeed divorced her by khula', in the sense that the marriage has been annulled and there is nothing left to be done except handing over the compensation (i.e., the mahr), then he has no choice in the matter, even if he has not yet taken back the mahr.'",
+      "tags": ["Khul' (divorce initiated by the woman)", "Divorce", "Marriage"],
+      "source": "IslamQA reference 10140"
+    },
+    {
+      "reference": 259676,
+      "questionText": "According to Ibn Al-Qayyim, gratitude (shukr) is based on how many pillars, and what are they?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Three pillars: acknowledging it inwardly, speaking of it outwardly, and using it to earn the pleasure of the One Who granted it",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Two pillars: acknowledging the blessing and praising Allah for it"
+        },
+        {
+          "id": "c",
+          "text": "Four pillars: heart, tongue, limbs, and soul"
+        },
+        {
+          "id": "d",
+          "text": "Five pillars: remembrance, contentment, patience, trust, and worship"
+        }
+      ],
+      "explanation": "Ibn Al-Qayyim stated regarding gratitude: 'It is based on three pillars: acknowledging it inwardly, speaking of it outwardly, and using it to earn the pleasure of the One Who granted it and bestowed it.'",
+      "tags": ["The Heart Softeners", "Gratitude", "Blessings"],
+      "source": "IslamQA reference 259676"
+    },
+    {
+      "reference": 222330,
+      "questionText": "According to Shaykh al-Islam Ibn Taymiyah, how are the Eids characterized in relation to different religions?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Among the most specific distinguishing features of different religions and among the most obvious of their rituals",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Optional celebrations that may be cancelled during times of hardship"
+        },
+        {
+          "id": "c",
+          "text": "Cultural traditions that are separate from the core of worship"
+        },
+        {
+          "id": "d",
+          "text": "Social occasions primarily for strengthening family bonds"
+        }
+      ],
+      "explanation": "The answer quotes Shaykh al-Islam Ibn Taymiyah: 'The Eids are among the most specific distinguishing features of different religions, and among the most obvious of their rituals.' This emphasizes that Eids are fundamental religious symbols, not merely cultural celebrations.",
+      "tags": ["Brotherhood in Islam", "Customs and traditions", "Eid"],
+      "source": "IslamQA reference 222330"
+    },
+    {
+      "reference": 103066,
+      "questionText": "What is the ruling on consuming fizzy drinks made by a company that also produces alcoholic beverages, assuming the fizzy drinks contain no alcohol?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Permissible, because the drinks are pure (taahir) and may be used",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Forbidden because supporting such companies is helping in sin"
+        },
+        {
+          "id": "c",
+          "text": "Permissible only in cases of necessity when no alternatives exist"
+        },
+        {
+          "id": "d",
+          "text": "Disliked (makrooh) but not explicitly forbidden"
+        }
+      ],
+      "explanation": "The fatwa states: 'If these drinks are not mixed with alcohol – which is what appears to be the case – then there is no reason why one should not buy them and consume them, because in this case they are pure (taahir) and may be used. The fact that the company produces haraam things such as alcohol does not mean that the sale is not valid.'",
+      "tags": ["Business and Financial Transactions", "Halal and Haram"],
+      "source": "IslamQA reference 103066"
+    },
+    {
+      "reference": 2217,
+      "questionText": "According to Ibn Abi Jamrah's explanation cited in the answer, in what types of matters is performing istikharah appropriate?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mubah (allowed) matters, or when choosing between multiple mustahabb (encouraged) matters",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "All matters including deciding whether to perform obligatory acts"
+        },
+        {
+          "id": "c",
+          "text": "Only major life decisions such as marriage, relocation, or career changes"
+        },
+        {
+          "id": "d",
+          "text": "Exclusively in matters of religious worship and acts of devotion"
+        }
+      ],
+      "explanation": "Ibn Abi Jamrah explained: 'It is a general phrase which refers to something specific. With regard to matters that are wajib (obligatory) or mustahabb (liked or encouraged), there is no need for istikharah to decide whether to do them, and with regard to matters that are haram (forbidden) or makrooh (disliked), there is no need for istikharah to decide whether to avoid them. The issue of istikharah is confined to matters that are mubah (allowed), or in mustahabb matters when there is a decision to be made as to which one should be given priority.'",
+      "tags": ["Prayer Asking for Guidance", "Istikharah"],
+      "source": "IslamQA reference 2217"
+    },
+    {
+      "reference": 2915,
+      "questionText": "According to Shaykh Abd al-Azeez ibn Baaz, under what condition is hanging up verses of the Quran permissible?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When the intention is to remind people and teach them something beneficial",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "When believing it provides protection against shayaateen or jinn"
+        },
+        {
+          "id": "c",
+          "text": "When the primary purpose is to beautify the room with divine words"
+        },
+        {
+          "id": "d",
+          "text": "When hoping to gain rewards simply through their presence on the wall"
+        }
+      ],
+      "explanation": "Shaykh Abd al-Azeez ibn Baaz stated: 'If the intention is as described, to remind people and teach them something beneficial, then there is no harm in that. But if they believe that it is a protection against the shayaateen or jinn, then I know of no basis for this.'",
+      "tags": ["The Quran and its Sciences", "Bidah", "Amulets"],
+      "source": "IslamQA reference 2915"
+    }
+  ]
+}

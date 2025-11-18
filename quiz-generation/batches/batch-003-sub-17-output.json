@@ -1,0 +1,345 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 115143,
+      "questionText": "According to the hadith mentioned, which three types of du'aa' will undoubtedly be answered?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The du'aa' of one who has been wronged, the du'aa' of the traveller, and the du'aa' of a father for his child",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The du'aa' of a pregnant woman, the du'aa' of the traveller, and the du'aa' of one who has been wronged",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The du'aa' of a mother during pregnancy, the du'aa' of a father for his child, and the du'aa' after tahajjud",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The du'aa' of parents for their children, the du'aa' of the traveller, and the du'aa' during prostration",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) said: 'There are three du'aa's that will undoubtedly be answered: the du'aa' of one who has been wronged, the du'aa' of the traveller and the du'aa' of a father for his child.' Al-Mannaawi noted that the mother is not mentioned explicitly because it is well known that her du'aa' is even more likely to be answered than the father's, due to her genuine compassion.",
+      "tags": ["Supplication", "Hadith"],
+      "source": "IslamQA reference 115143"
+    },
+    {
+      "reference": 8867,
+      "questionText": "If a woman's husband dies during her 'iddah from a final (third) divorce, what 'iddah must she complete?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She should complete the 'iddah of divorce only, because the marital relationship ended with the final talaaq",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She must observe both the 'iddah of divorce and the 'iddah of one who has been widowed",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She should observe the 'iddah of one who has been widowed only, as death supersedes divorce",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She should observe whichever 'iddah period is longer between divorce and widowhood",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Muhammad ibn Saalih al-'Uthaymeen ruled that she should complete the 'iddah of divorce only. She does not have to observe the 'iddah of one who has been widowed, because the marital relationship ended with the final talaaq (third divorce).",
+      "tags": ["Waiting Period of Widow or Divorcee", "Divorce"],
+      "source": "IslamQA reference 8867"
+    },
+    {
+      "reference": 99507,
+      "questionText": "According to the hadith, what are the characteristics of a woman's maniy?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Thin and yellow in color",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Thick and white in color",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Clear discharge from the uterus",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "White and thin fluid",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) said: 'The water of the man is thick and white, and the water of the woman is thin and yellow.' (Narrated by Muslim, 311). The answer notes it may be white for some women, and it smells like pollen, with pleasure felt when emitted and desire ceasing immediately after.",
+      "tags": ["Full Ablution", "Purity"],
+      "source": "IslamQA reference 99507"
+    },
+    {
+      "reference": 99507,
+      "questionText": "What is the ruling on madhiy regarding purity and wudu?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Madhiy is impure and must be washed from the body, clothes can be purified by sprinkling with water, and it invalidates wudu but ghusl is not required",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Madhiy is pure and need not be washed, but it invalidates wudu and requires ghusl",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Madhiy is impure and requires complete washing of clothes and body, and full ghusl must be performed",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Madhiy is pure but invalidates wudu unless it is continuous, in which case wudu is done for every prayer",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Madhiy is impure and must be washed off if it gets onto the body. As for clothes, it is sufficient to purify them by sprinkling them with water. The emission of madhiy invalidates wudu but it is not essential to do ghusl after it is emitted.",
+      "tags": ["Nullifiers of Wudu", "Removing Impurity"],
+      "source": "IslamQA reference 99507"
+    },
+    {
+      "reference": 230456,
+      "questionText": "According to Hanafi scholars, what must a recently-widowed woman avoid during mourning ('iddah)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Perfume, kohl, skin cream, henna, clothes dyed with safflower and saffron, jewellery, and dyeing hair",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only remarrying during the 'iddah period of four months and ten days",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Going out of the house at any time, day or night, except for extreme emergencies",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Speaking to non-mahram men and wearing any colored clothing including black",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "As-Samarqandi stated that mourning means avoiding everything that women adorn themselves with, such as putting on perfume, wearing clothing dyed with safflower or saffron, putting kohl on eyes, using skin creams, combing hair, wearing jewellery, and dyeing hair. The claim that she only has to refrain from remarrying is incorrect according to all four madhhabs.",
+      "tags": ["Waiting Period of Widow or Divorcee", "Mourning"],
+      "source": "IslamQA reference 230456"
+    },
+    {
+      "reference": 50308,
+      "questionText": "What should a woman do if the nifas (post-partum bleeding) stops after 20 days?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "She should do ghusl and pray and fast, and she is permissible for her husband",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She must wait until 40 days have passed before resuming prayer and fasting",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She can pray and fast but must wait 40 days before her husband can have intercourse with her",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She should do ghusl but wait until completing 40 days of purification before fasting",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Baz stated: 'If she becomes pure after twenty days, she should do ghusl and pray and fast, and she is permissible for her husband.' The majority of scholars agree there is no minimum limit for nifas, and whenever a woman becomes pure she must resume her obligations.",
+      "tags": ["Menstruation and Post-Natal bleeding", "Fasting"],
+      "source": "IslamQA reference 50308"
+    },
+    {
+      "reference": 177296,
+      "questionText": "What did the Prophet (peace be upon him) name his animals?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "He had a she-camel called al-'Adba', a horse called al-Laheef, and a donkey called 'Ufayr",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He had a horse called al-Mandoob, a camel called Damoon, and a sheep called al-Jaraadah",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He had a she-camel called al-Mandoob, a horse called al-'Adba', and a donkey called al-Laheef",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He only named his horse al-'Adba' and did not give names to other animals",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to authentic hadith in Bukhari, the Prophet (peace be upon him) had a she-camel called al-'Adba', a horse called al-Laheef, and a donkey called 'Ufayr. Al-Mandoob was a horse belonging to Abu Talhah, and al-Jaraadah was Abu Qataadah's horse.",
+      "tags": ["Customs and traditions", "Sunnah"],
+      "source": "IslamQA reference 177296"
+    },
+    {
+      "reference": 47791,
+      "questionText": "What should someone do if they took items from work and later repented, but cannot remember which specific office the items came from?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Return the items or equivalent to the department itself, without needing to disclose what was done",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They must confess to the department manager and identify the exact office or their repentance is invalid",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Give double the value in charity to compensate for not knowing the specific office",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The repentance is accepted and no action is needed since they forgot where the items came from",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states: 'You should try to find the office from which you took them; if you cannot do that, then it is sufficient – in sha Allah – for you to return them to the department itself.' It also notes that one does not have to disclose what was done; it's sufficient to return the items or equivalent.",
+      "tags": ["Forbidden Kinds of Wealth", "Rulings on Tawbah"],
+      "source": "IslamQA reference 47791"
+    },
+    {
+      "reference": 95762,
+      "questionText": "At what point in pregnancy do human features first appear on the foetus, determining whether bleeding is nifaas or irregular bleeding?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "The earliest that human features appear is eighty-one days of pregnancy",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Human features appear at sixty days (two months) of pregnancy",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Human features can appear as early as forty days of pregnancy",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Human features appear at one hundred and twenty days when the soul is breathed in",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer clearly states: 'The earliest that the human features appear is eighty-one days (of pregnancy).' Before this point, if a miscarriage occurs, the bleeding is irregular vaginal bleeding, not nifaas. Since the foetus in the question was two months old, the bleeding was irregular bleeding and the woman's fasting was valid.",
+      "tags": ["Menstruation and Post-Natal bleeding", "Fasting"],
+      "source": "IslamQA reference 95762"
+    },
+    {
+      "reference": 156228,
+      "questionText": "What is the ruling on turning over an upside-down shoe according to the scholars?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is no basis in sharee'ah for it, though it may be turned over simply because the sole is usually dirty and it's off-putting to leave it uppermost",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is obligatory to turn it over because leaving the sole facing the sky is disrespectful to Allah",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The angels will not enter a house where shoes are left upside down, so it must be corrected",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Ibn 'Aqeel and Ibn 'Uthaymeen both ruled it is recommended (mustahabb) to turn shoes right-side up",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn 'Uthaymeen stated: 'That is not correct and I do not know of there being anything wrong with a shoe being upside down...there is no basis for it.' The Standing Committee noted that leaving it upside down is 'off-putting and disliked' only because the sole is usually dirty, not for any religious reason.",
+      "tags": ["Innovations in Religion and Worship", "Manners"],
+      "source": "IslamQA reference 156228"
+    },
+    {
+      "reference": 1912,
+      "questionText": "Is a Muslim woman required to wear hijab in front of her mother's non-Muslim husband?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not obligatory because no report to that effect has been narrated, so the principle that all things are permitted except those expressly forbidden applies",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, because he is not a Muslim and therefore cannot be considered a mahram in any way",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She must wear hijab unless her mother and her mother's husband both convert to Islam",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She must wear hijab because they married after she moved out and have no children together",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states: 'It is not obligatory because no report to that effect has been narrated, so we refer to the principle that all things are permitted except those which have been expressly forbidden.' However, for the purpose of being a mahram for travelling, one condition is that he should be a Muslim.",
+      "tags": ["Womens clothing", "Hijab", "Mahram"],
+      "source": "IslamQA reference 1912"
+    }
+  ]
+}

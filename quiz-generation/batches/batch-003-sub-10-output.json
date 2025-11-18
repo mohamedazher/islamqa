@@ -1,0 +1,593 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 239212,
+      "questionText": "At the Battle of Uhud, what was the Prophet's (ﷺ) response when only seven Ansaar and two men from Quraysh remained with him and the enemy surrounded them?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He said: 'Who will repel them from us and Paradise will be his, or he will be my companion in Paradise?'",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He ordered an immediate retreat to avoid further casualties",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He commanded the Ansaar to form a defensive circle around him",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He sent messengers to Madinah requesting reinforcements",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "When surrounded at Uhud with only seven Ansaar and two men from Quraysh, the Prophet (ﷺ) said: 'Who will repel them from us and Paradise will be his, or he will be my companion in Paradise?' The Ansaar went forward one after another until all seven were martyred.",
+      "tags": ["Biography of the Prophet", "Battle of Uhud"],
+      "source": "IslamQA reference 239212"
+    },
+    {
+      "reference": 239212,
+      "questionText": "What injuries did the Prophet (ﷺ) sustain during the Battle of Uhud?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "His incisor was broken, his face was scored, his lip was injured, and two links of chain mail became embedded in his cheek",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He sustained a deep sword wound to his shoulder and his arm was fractured",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He suffered only minor bruises and a small cut on his forehead",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "His leg was broken and he had several arrow wounds",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "During the Battle of Uhud, the Prophet (ﷺ) had his incisor broken, his face scored, his lip injured, and two links of chain mail became embedded in his cheek. He also fell in a hole and his iron helmet was broken on his head.",
+      "tags": ["Biography of the Prophet", "Battle of Uhud"],
+      "source": "IslamQA reference 239212"
+    },
+    {
+      "reference": 42521,
+      "questionText": "According to the answer, what is the ruling on a lawyer who defends falsehood knowingly while regarding it as permissible and relying on man-made laws?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "He is a kaafir if he regards doing that as permissible or is heedless and does not care that he is going against the Quran and Sunnah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He is committing a minor sin but his income remains halal if he gives charity from it",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He is excused because he is working within the legal system of his country",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He is only sinful if he defends someone he knows committed murder",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A lawyer who defends falsehood knowingly and regards it as permissible, or is heedless and does not care that he is going against the Quran and Sunnah while following man-made laws, is considered a kaafir. Whatever he earns for doing that is haram income.",
+      "tags": ["Ruling on jobs"],
+      "source": "IslamQA reference 42521"
+    },
+    {
+      "reference": 42521,
+      "questionText": "What is the ruling on a lawyer who defends his client believing the client is in the right according to Islamic sharee'ah and strives according to Islamic evidence?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He will be rewarded for that, excused for his mistakes, and is entitled to be paid for his defence",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "His work is still haram because he is operating in a non-Islamic legal system",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He is neither rewarded nor punished, but his payment is considered makruh",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He must refuse payment to avoid any doubt about his income",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If a lawyer defends his client believing the client is in the right in shar'i terms and strives according to what he knows from Islamic evidence, he will be rewarded for that, excused for his mistakes, and is entitled to be paid for his defence.",
+      "tags": ["Ruling on jobs"],
+      "source": "IslamQA reference 42521"
+    },
+    {
+      "reference": 489220,
+      "questionText": "What is the basic principle regarding a mother in custody of her children taking from their maintenance money?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She does not have the right to take anything from it in return for taking care of them; she is entrusted with the money to dispose of it according to their best interests",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She can take up to 30% of the maintenance money as compensation for her care",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She has the right to take whatever she needs without restriction since she is their mother",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She can only take from it if the father explicitly gives her permission",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The basic principle is that the mother who has custody of her children does not have the right to take anything from her children's maintenance money in return for taking care of them. She is entrusted with the money and expected to dispose of it according to what is in their best interests.",
+      "tags": ["Fiqh of the family", "Spending on those under ones responsibility"],
+      "source": "IslamQA reference 489220"
+    },
+    {
+      "reference": 489220,
+      "questionText": "Under what condition can a mother take from her children's wealth for her needs?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She may take what will benefit her and meet her needs, so long as it will not be detrimental to the child and what she takes is not needed by him",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She can never take from her children's wealth under any circumstances",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She can take freely from it regardless of the children's needs since the Prophet said 'your children are among your earnings'",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She must get written permission from an Islamic judge before taking anything",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A mother may take from her children's wealth to pay for her needs (like medical treatment) on condition that it will not harm the children - meaning only after ensuring that the children have enough. This is supported by the hadith 'your children are among your earnings.'",
+      "tags": ["Fiqh of the family", "Spending on those under ones responsibility"],
+      "source": "IslamQA reference 489220"
+    },
+    {
+      "reference": 3320,
+      "questionText": "What did Imam Ahmad ibn Hanbal say when asked if a man with a Christian wife could let her go out to join in Christian festivals or go to the church?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "He said no",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He said she could go once per month",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He said it was permissible if she asked permission first",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He said it was makruh but not haram",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "When Imam Ahmad ibn Hanbal was asked about a man who had a Christian wife and whether he could let her go out to join in Christian festivals or go to the church, he said no. The answer explains that if scholars said the husband should stop a Christian wife from going to church, then celebrating festivals in the Muslim husband's house is even worse.",
+      "tags": ["Rights of spouses"],
+      "source": "IslamQA reference 3320"
+    },
+    {
+      "reference": 3320,
+      "questionText": "What does Ibn Qudaamah say in al-Mughni about a Muslim husband's authority over his dhimmiyyah (Christian or Jewish) wife regarding church attendance?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He can prevent her from going to the church, because that is not an act of obedience to Allah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He must allow her to attend church once per week to maintain marital harmony",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He should accompany her to ensure she does not engage in prohibited activities",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He has no authority over her religious practices according to the marriage contract",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Qudaamah states in al-Mughni that if a Muslim man's wife is a dhimmiyyah (a Jew or Christian living under Islamic rule), he can prevent her from going to the church, because that is not an act of obedience to Allah.",
+      "tags": ["Rights of spouses"],
+      "source": "IslamQA reference 3320"
+    },
+    {
+      "reference": 197537,
+      "questionText": "According to the scholars quoted in the answer, what is the correct view regarding whether the words of Allah in the Torah, Gospel, Quran, and Zabur are created?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Nothing of the words of Allah is created; He spoke the Torah, Gospel, Quran and Zabur in a real sense, and not a single letter is created",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only the Quran is uncreated, while the previous scriptures were created by Allah",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The meanings are from Allah but the words and letters were created",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "All divine books are created, but they contain inspired meanings from Allah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The view of the early generations and leading scholars is that nothing of the words of Allah is created. He spoke the Torah, Gospel, Quran and Zabur in a real sense, and not a single letter of any of them is created. They are all the words of Allah and we do not differentiate between the Messengers or the revealed Books.",
+      "tags": ["Belief in Divinely-revealed Books"],
+      "source": "IslamQA reference 197537"
+    },
+    {
+      "reference": 197537,
+      "questionText": "When Allah says in the Quran about the Jews: 'a party of them used to hear the Word of Allah (Torah), then they used to change it,' what does this demonstrate about the Torah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It demonstrates that the Torah is the 'Word of Allah' - what they distorted was itself the words of Allah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It shows that the Torah was only inspired words written by Moses, not the actual words of Allah",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It indicates that the Torah lost its divine status after being changed",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It proves that the Torah was created, unlike the Quran which cannot be changed",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "In the verse from al-Baqarah (2:75), what the Jews used to distort is the Torah, but Allah calls it the 'Word of Allah,' demonstrating that the Torah is genuinely the words of Allah, not created or merely inspired writings.",
+      "tags": ["Belief in Divinely-revealed Books"],
+      "source": "IslamQA reference 197537"
+    },
+    {
+      "reference": 102871,
+      "questionText": "What is the ruling according to Soorat al-Tawbah on someone who mocks Allah, His verses, or His Messengers, whether in earnest or in jest?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is kufr that puts one beyond the pale of Islam, because joking about kufr is also kufr",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is a major sin if done in earnest, but a minor sin if done in jest",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is only kufr if the person intends disrespect; otherwise it requires repentance and expiation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is haram but does not constitute kufr as long as the person still believes in Allah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the verse in Soorat al-Tawbah (9:64-66), mocking Allah, His verses, or His Messengers is kufr whether done in earnest or in jest. Al-Qaadi Abu Bakr ibn al-'Arabi stated that joking about kufr is also kufr, and there is no difference of opinion concerning this among the ummah.",
+      "tags": ["Apostasy", "Basic Tenets of Faith"],
+      "source": "IslamQA reference 102871"
+    },
+    {
+      "reference": 102871,
+      "questionText": "According to the answer, what must someone do who jokingly said 'Hello, Allah' on the phone, showing disrespect to Allah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He must renew his faith and enter Islam again, repent to Allah, and do a lot of good deeds for the rest of his life in the hope that Allah may pardon him",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He should make sincere repentance and offer two extra prayers at night",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He needs to fast for three consecutive days and give charity",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He must seek forgiveness one hundred times daily for forty days",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states that this person has committed blatant kufr and must renew his faith and enter Islam again, repent to Allah from this kufr, and for the rest of his life do a lot of good and righteous deeds in the hope that Allah may pardon him and forgive him for his ignorance and transgression.",
+      "tags": ["Apostasy", "Basic Tenets of Faith"],
+      "source": "IslamQA reference 102871"
+    },
+    {
+      "reference": 38468,
+      "questionText": "Is it permissible for a group located thirty miles away from a large hall where Eid prayers are being held to organize their own Eid prayers in their mosque?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, there is nothing wrong with them praying in their own city if the distance makes it difficult to join together",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "No, they must travel to join the larger gathering regardless of the difficulty",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They can only hold separate prayers if they have more than fifty people",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They need permission from the imam of the main hall before holding separate prayers",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the answer, if joining together will be too difficult, there is nothing wrong with the group that is thirty miles away praying in their own city, as this distance makes it difficult for them to join together. However, if they can join together, that is preferable.",
+      "tags": ["'Eid Prayer"],
+      "source": "IslamQA reference 38468"
+    },
+    {
+      "reference": 4160,
+      "questionText": "What is the ruling on engraving Quranic verses or the Name of Allah on metals or stone according to the answer?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not permissible because this is not the purpose for which these verses were revealed, and there is fear of exposing them to disrespect",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible if the metal or stone will be kept in a clean place",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is makruh but not haram as long as the engravings are accurate",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is recommended as a form of dhikr and beautification",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states it is not permissible to engrave ayaat from the Quran or the Name of Allah on metals or stone, because this is not the purpose for which these ayaat were revealed, and there is the fear that this would expose these ayaat and the Name of Allah to disrespect.",
+      "tags": ["Images and image-making"],
+      "source": "IslamQA reference 4160"
+    },
+    {
+      "reference": 4160,
+      "questionText": "According to the answer, when is it permissible to use items that have images of animate beings on them?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When the item is used in a manner that implies disrespect, such as a tool for cutting, a carpet that will be stepped on, or a pillow that will be slept on",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "When the images are very small and not easily visible",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When the person using them does not believe in or worship the images",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "When the images are covered with a transparent protective layer",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer explains that if the item with an image is to be used in a manner that implies disrespect - such as a tool used for cutting, a carpet that will be stepped on, or a pillow that will be slept on - then this is permissible. This is supported by Aisha's hadith where she made pillows from a curtain with images that the Prophet used to recline upon.",
+      "tags": ["Images and image-making"],
+      "source": "IslamQA reference 4160"
+    },
+    {
+      "reference": 13406,
+      "questionText": "What did Ibn Mas'ud say about those who stayed away from congregational prayer?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "There was a time when no one stayed away from the prayer except a hypocrite who was known for his hypocrisy or one who was sick",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Those who miss congregational prayer three times become hypocrites",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only those with urgent business matters are excused from congregational prayer",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Missing congregational prayer is a minor sin that requires making up the prayer later",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Mas'ud said: 'There was a time when no one stayed away from the prayer except a hypocrite who was known for his hypocrisy or one who was sick.' This hadith is narrated by Muslim (654) and indicates that sick persons are spared the obligation to pray in congregation.",
+      "tags": ["Ruling on prayer in congregation"],
+      "source": "IslamQA reference 13406"
+    },
+    {
+      "reference": 13406,
+      "questionText": "According to the hadith narrated by Muslim, what happens when a believer suffers any affliction, even something as small as being pricked by a thorn?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Allah will record for him one hasanah (good deed) or will remove from him one sin",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Allah will test him with a greater trial to increase his rewards",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Allah will grant him patience equal to the pain he experienced",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Allah will replace the affliction with a blessing within forty days",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (ﷺ) said: 'There is nothing that befalls a believer, not even a thorn that pricks him, but Allah will record for him thereby one hasanah (good deed) or will remove from him one sin.' This hadith is narrated by Muslim (2572) and demonstrates how Allah rewards patience in affliction.",
+      "tags": ["Ruling on prayer in congregation"],
+      "source": "IslamQA reference 13406"
+    },
+    {
+      "reference": 222910,
+      "questionText": "According to the hadith narrated by at-Tirmidhi, what should a person say three times every morning and evening for protection?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bismillah illadhi la yadurru ma'a ismihi shay'un fi'l-ardi wa la fi's-sama' wa huwa as-sami' al-'alim (In the Name of Allah, with whose name nothing on earth or in heaven can cause harm, and He is the All-Hearing, All-Knowing)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "La hawla wa la quwwata illa billah (There is no power and no strength except with Allah)",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Hasbunallahu wa ni'mal wakeel (Allah is sufficient for us and He is the best Disposer of affairs)",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Allahu Akbar wa lillahil hamd (Allah is the Greatest and all praise is for Allah)",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (ﷺ) said: 'There is no one who says every morning and every evening Bismillah illadhi la yadurru ma'a ismihi shay'un fi'l-ardi wa la fi's-sama' wa huwa as-sami' al-'alim (In the Name of Allah, with whose name nothing on earth or in heaven can cause harm, and He is the All-Hearing, All-Knowing) three times, but nothing will harm him.' This is a sahih hadith narrated by at-Tirmidhi.",
+      "tags": ["Psychological Problems"],
+      "source": "IslamQA reference 222910"
+    },
+    {
+      "reference": 222910,
+      "questionText": "What does Surat al-Baqarah do to the Shaytan when it is recited often in one's house?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "The Shaytan flees from the house in which Surat al-Baqarah is recited",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The Shaytan becomes weak and unable to whisper to the inhabitants",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The Shaytan is trapped in the house for forty days",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The Shaytan asks forgiveness from Allah and ceases his schemes",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states that one should recite Surat al-Baqarah often in the house, for the Shaytan flees from the house in which Surat al-Baqarah is recited. This is part of the advice given to overcome fear of the jinn and darkness.",
+      "tags": ["Psychological Problems"],
+      "source": "IslamQA reference 222910"
+    }
+  ]
+}

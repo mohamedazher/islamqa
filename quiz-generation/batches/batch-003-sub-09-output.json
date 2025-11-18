@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 11228,
+      "questionText": "According to scholars, what are the two specific reasons it is better not to name a daughter 'Malaak'?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The meaning 'malak' (angel) contains exaggeration when applied to a person, and it is a name well-known among Christians who pronounce 'malak' as 'Malaak'",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The name is too difficult for non-Arabic speakers to pronounce, and it may cause confusion with other similar-sounding names",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The name was used by pre-Islamic Arabs in idol worship, and it has negative historical associations in Islamic texts",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The name suggests perfection that only prophets possess, and it was specifically prohibited in an authentic hadith",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Scholars advise against the name Malaak for two reasons: (1) Its meaning 'malak' (angel) involves an element of exaggeration when given to a person, and (2) it is a name well-known among Christians, who pronounce the word 'malak' as 'Malaak'. There are many good names without such doubtful elements that should be used instead.",
+      "tags": ["Names and Nicknames"],
+      "source": "IslamQA reference 11228"
+    },
+    {
+      "reference": 33746,
+      "questionText": "What did Anas ibn Maalik report about how the Sahaabah recited during the Farewell Pilgrimage with the Prophet (peace be upon him)?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Among them were some who recited 'Allaahu akbar', some who recited 'Laa ilaaha ill-Allaah', and some who recited the Talbiyah - each person reciting by himself",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They all recited the Talbiyah in perfect unison following the Prophet's lead, creating a harmonious chorus heard throughout Makkah",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The men recited 'Allaahu akbar' while the women recited the Talbiyah, following the Prophet's specific instructions for gender separation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They alternated between reciting Quranic verses and the Talbiyah, with each group taking turns to lead the recitation",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Anas ibn Maalik reported that during the Farewell Pilgrimage, the Companions were with the Prophet and among them were some who recited 'Allaahu akbar', some who recited 'Laa ilaaha ill-Allaah', and some who recited the Talbiyah. This demonstrates that each person should recite the Talbiyah by himself and not pay attention to what others are reciting, rather than reciting in unison.",
+      "tags": ["Mistakes made by pilgrims performing Hajj and 'Umrah"],
+      "source": "IslamQA reference 33746"
+    },
+    {
+      "reference": 12103,
+      "questionText": "What did Ali ibn Abi Talib (may Allah be pleased with him) himself say about those who claimed he was better than Abu Bakr and Umar?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He said 'The best of this ummah after its Prophet is Abu Bakr then Umar' and 'No one is brought to me who prefers me over them, but I will whip him with the hadd punishment for telling lies'",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He remained silent on this matter to avoid causing division among Muslims, though he privately believed he had been wronged by the Sahabah",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He acknowledged that while Abu Bakr was chosen first, the Prophet had secretly appointed him as the true successor through hidden texts",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He accepted Abu Bakr's leadership but maintained that the Prophet had given him special spiritual authority that transcended political succession",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Mutawaatir reports from Ali show that he used to say 'The best of this ummah after its Prophet is Abu Bakr then Umar.' He also said 'No one is brought to me who prefers me over them, but I will whip him with the hadd punishment for telling lies.' Ali never claimed to be the best of the ummah or that the Messenger appointed him as khaleefah, and he never said the Sahabah wronged him.",
+      "tags": ["Biography of the Prophet"],
+      "source": "IslamQA reference 12103"
+    },
+    {
+      "reference": 2272,
+      "questionText": "According to Ibn Abbaas's interpretation reported by Ibn Abi Haatim, what do the three different time spans mentioned in the Quran (a day of 1,000 years in al-Hajj, a day of 1,000 years in al-Sajdah, and a day of 50,000 years in al-Ma'arij) refer to?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Al-Hajj refers to one of the six days Allah created the heavens and earth, al-Sajdah refers to the time for a matter to ascend to Allah, and al-Ma'arij refers to the Day of Resurrection",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "All three verses refer to the Day of Resurrection, with the difference in time span depending on whether a person is a believer or a disbeliever",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Al-Hajj refers to the journey of the soul after death, al-Sajdah refers to the period of the barzakh, and al-Ma'arij refers to the final judgment",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "All three verses use symbolic numbers to indicate that Allah's time is beyond human comprehension and cannot be measured by earthly standards",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Abbaas's interpretation, as reported by Ibn Abi Haatim via Sammaak and Ikrimah, states that: the day of a thousand years in Soorat al-Hajj is one of the six days in which Allah created the heavens and earth; the day of a thousand years in Soorat al-Sajdah is the length of time for a matter to go up to Allah; and the day of fifty thousand years is the Day of Resurrection. This is one of two ways scholars have reconciled these verses.",
+      "tags": ["Belief in the Last Day and the Signs of the Hour"],
+      "source": "IslamQA reference 2272"
+    },
+    {
+      "reference": 129670,
+      "questionText": "What did the scholars advise this woman who fell into lesbianism regarding cutting ties with the other woman and her workplace?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cut off all ties with this girl immediately, move from that job if possible, and if possible move from that city altogether - there is no remedy except keeping away from her completely",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Maintain a professional relationship at work but avoid all personal contact outside of work hours, ensuring proper Islamic boundaries are observed",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Try to guide the other woman to Islam first through gentle advice, and only if she refuses should you consider distancing yourself",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Reduce contact gradually over several months to avoid suspicion from colleagues, while strengthening your faith through additional prayers and fasting",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholar strongly advised to cut off all ties with this girl immediately. If she can move from that job, that is essential, because continuing the relationship means there is no repentance and the sin will continue. The scholar even said: if you can move from that city altogether, then do that and do not hesitate, as there is no remedy for this disease except keeping away from that girl altogether.",
+      "tags": ["Bad behaviour", "Psychological and Social Problems"],
+      "source": "IslamQA reference 129670"
+    },
+    {
+      "reference": 130359,
+      "questionText": "According to the Ministry of Social Affairs system examined by the scholars, who does the monthly allowance and end-of-period lump sum for orphan sponsorship belong to?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The allowance belongs to the family itself, based on the fact that it is paid after the sponsorship period ends, so there is no blame on the family for benefitting from it or from whatever is surplus to the orphan's needs",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The allowance belongs entirely to the orphan and must be saved in a special account until the child reaches the age of majority and can claim it",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The monthly allowance belongs to the family for expenses, but the 20,000 riyal lump sum must be given to the orphan when they turn 18",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The allowance is jointly owned by the orphan and the sponsoring family, requiring the family to account for every expense and return any surplus",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Based on the Ministry statement that assistance is 'granted to the party caring for the child' and paid 'after the sponsorship period ends,' the scholars determined this allowance belongs to the family itself, not to be spent on the orphan. Therefore, there is no blame on the family for benefitting from it or from whatever is surplus to the orphan's needs.",
+      "tags": ["Forbidden Kinds of Wealth", "Virtues of deeds"],
+      "source": "IslamQA reference 130359"
+    },
+    {
+      "reference": 20850,
+      "questionText": "What did the Prophet (peace and blessings of Allah be upon him) say happens when a Muslim does wudu and washes his face, hands, and feet?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Every wrong thing seen with the eyes comes out from the face with the water, wrongs done with the hands come out from the hands, and wrongs walked to with the feet come out from the feet, until he emerges cleansed of sin",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The water becomes a barrier against future sins for the next five daily prayers, protecting the person from falling into major transgressions",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Angels descend to witness the wudu and record it as a major good deed, which will intercede for the person on the Day of Judgment",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The person's intention determines the level of purification achieved, with sincere intention removing all sins and weak intention only removing minor ones",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) said in a hadith narrated by Abu Hurayrah: 'When the Muslim or believing slave does wudu and washes his face, every wrong thing that he looked at with his eyes comes out from his face with the water or with the last drop of water. When he washes his hands, every wrong thing that he did with his hands comes out from his hands with the water. When he washes his feet every wrong thing that he walked to with his feet comes out from his feet with the water, until he emerges cleansed of sin.'",
+      "tags": ["Ablution Before Prayer"],
+      "source": "IslamQA reference 20850"
+    },
+    {
+      "reference": 204341,
+      "questionText": "According to Psalms 84:5-6, 10 in the Old Testament, what characteristics describe the valley of Baca (Bakkah)?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is a valley where those passing through make it a well, the rain fills the pools, and a day in its courts is better than a thousand elsewhere - matching Makkah with Zamzam and the sacred mosque",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is described as a place of weeping and mourning where pilgrims come to repent, located in the hills near Jerusalem according to historical sources",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is a fertile agricultural valley mentioned alongside references to grain harvests and vineyards, clearly referring to a region in ancient Palestine",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is a metaphorical valley representing spiritual journey rather than a physical location, symbolizing the pilgrim's path to righteousness and divine presence",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Psalms 84:5-6, 10 mentions 'the valley of Baca' where those 'passing through make it a well; the rain also filleth the pools' and states 'a day in thy courts is better than a thousand (elsewhere).' There is no valley called Baca that contains a house of worship and spring of water where one prayer is better than a thousand prayers elsewhere, other than Makkah Al-Mukarramah. Baca (Bakkah) is mentioned in the Quran as one of the names of Makkah.",
+      "tags": ["Islamic history and biography", "Religions"],
+      "source": "IslamQA reference 204341"
+    },
+    {
+      "reference": 12499,
+      "questionText": "What did the Prophet (peace and blessings of Allah be upon him) say about sitting at a table where wine is being served?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "He said 'Whoever believes in Allah and the Last Day, let him not sit at a table where wine is being served' - even if he does not drink, it is as if he is approving their evil action",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He permitted sitting at such tables if one maintains distance from the wine, covers one's eyes, and continuously makes dhikr to ward off evil influences",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He allowed it only for Muslims living in non-Muslim lands where avoiding such situations would cause severe hardship or social isolation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He said one may sit at the table but must leave immediately after eating, without engaging in conversation or staying for extended periods",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to a hadith narrated by Jaabir, the Prophet (peace and blessings of Allah be upon him) said: 'Whoever believes in Allah and the Last Day, let him not sit at a table where wine is being served.' The commentator on the hadith explained that even if he does not drink with them, it is as if he is approving of their evil action, making him like a silent shaytaan.",
+      "tags": ["Bad behaviour"],
+      "source": "IslamQA reference 12499"
+    },
+    {
+      "reference": 251197,
+      "questionText": "According to the majority view in the four Madhhabs, what happens to child custody if the mother remarries before the child reaches age seven?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Custody passes to the mother's mother (the child's maternal grandmother), though Ibn Taymiyyah and Ibn Al-Qayyim held that it passes to the father instead",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Custody automatically returns to the biological father regardless of circumstances, as the mother forfeits all custodial rights permanently upon remarriage",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The new husband assumes custody rights if he agrees and is Muslim, otherwise custody transfers to the father's eldest brother as next male guardian",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "A judge must evaluate both households and decide based on the child's best interests, with preference given to whichever home has more financial stability",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the majority in the four Madhhabs, if the mother remarries before the child reaches age seven, custody passes to the next in line, which is the mother's mother (maternal grandmother). However, Shaykh Al-Islam Ibn Taymiyyah and Ibn Al-Qayyim held the view that custody passes to the father instead. The answer also notes that if the father allows the child to remain with the remarried mother and she is suitable, there is no objection.",
+      "tags": ["Custody", "Spending on those under ones responsibility"],
+      "source": "IslamQA reference 251197"
+    }
+  ]
+}

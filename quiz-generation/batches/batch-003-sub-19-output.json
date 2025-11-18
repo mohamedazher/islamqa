@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 20898,
+      "questionText": "What is the minimum period of purity (tuhr) required between two menstrual periods according to Islamic law?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is no set minimum limit for the period of purity between two menstrual periods",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Fifteen days must pass between periods as the minimum purity period",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Seven days must pass between periods as required by Sharia",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Ten days must pass between periods according to scholarly consensus",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "There is no set minimum limit for the period of purity between two menstrual periods. Rather, when a woman sees menstrual blood which is dark red, recognizable and has a distinct odor, she should refrain from fasting and praying, on condition that the total number of days of menstrual bleeding does not exceed half of the cycle (i.e., fifteen days in the month). Yellowish and brownish discharges seen after the period has ended are of no significance.",
+      "tags": ["Menstruation and Post-Natal bleeding", "Fiqh"],
+      "source": "IslamQA reference 20898"
+    },
+    {
+      "reference": 9355,
+      "questionText": "What is the Islamic ruling on the claim that visiting the grave of Ali (may Allah be pleased with him) equals seventy pilgrimages to Mecca?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "This is a lie and is falsely attributed to the Messenger with no basis at all",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "This is authentic but only applies when visiting during Ramadan",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "This is true specifically for visiting during Friday prayers",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "This is valid if done with sincere intention and proper supplications",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "This claim has no basis at all and is a lie made up by liars. Visiting the grave of the Prophet (peace and blessings of Allah be upon him), who is the best of all, is not equivalent to one Hajj, so how about visits to anyone else's grave? The claim that \"whoever visits the members of my household (ahl bayti) after I die will have seventy Hajj recorded for him\" is also false and has no basis whatsoever. These are fabrications falsely attributed to the Messenger.",
+      "tags": ["Innovations in Religion and Worship", "Visiting Graves"],
+      "source": "IslamQA reference 9355"
+    },
+    {
+      "reference": 296930,
+      "questionText": "What is the ruling on 'skin sewing' where a needle with temporary thread is passed through the dead layers of skin and removed within one or two days?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It does not come under the heading of tattooing if the thread is temporary and removed within one or two days",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is the same as permanent tattooing and is therefore forbidden in Islam",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is only allowed for medical purposes under doctor supervision",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is prohibited because it changes the creation of Allah permanently",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If the matter involves inserting the needle into the dead layer of skin and using a thread that is not permanent but is removed within one or two days, then this does not come under the heading of tattooing and there does not seem to be any reason to disallow it, if there is no risk of harm. However, it should not be done in places that must be washed during wudu, because it prevents water from reaching the skin, making it impractical to remove before each prayer.",
+      "tags": ["Adornments", "Fiqh"],
+      "source": "IslamQA reference 296930"
+    },
+    {
+      "reference": 415957,
+      "questionText": "What did the Prophet (peace and blessings of Allah be upon him) say when Fatimah (may Allah be pleased with her) complained that Ali wanted to marry the daughter of Abu Jahl?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "He said that Fatimah is part of him and he fears lest she be put to trial with regard to her religious commitment",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He told her to rub her nose in dust in order to keep Ali happy",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He ordered her to be patient and never complain about her husband",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He said she must accept all of Ali's decisions without objection",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "When Fatimah complained to the Prophet, he addressed the people saying: 'Fatimah is part of me, and I fear lest she be put to trial with regard to her religious commitment.' He also said: 'The daughter of the Messenger of Allah and the daughter of the enemy of Allah will not be joined together as wives of one man.' As a result, Ali abandoned that marriage proposal. The report that the Prophet told Fatimah to rub her nose in dust to keep Ali happy has no authentic basis and was not found in Islamic sources.",
+      "tags": ["Rights of spouses", "Seerah"],
+      "source": "IslamQA reference 415957"
+    },
+    {
+      "reference": 21246,
+      "questionText": "According to Islamic law, which of the following indicates that a woman has reached puberty and is accountable for religious duties?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "When one of four things happens: reaching age of fifteen, pubic hair growth, emitting mani, or menstruation",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only when she menstruates for the first time regardless of age",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When she reaches the age of thirteen years according to the lunar calendar",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only when she has both pubic hair growth and menstruation together",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A woman is deemed to have reached puberty when one of four things happens: (1) When she reaches the age of fifteen, (2) When her pubic hair grows (hair around the private parts), (3) When she emits mani (fluid released at climax), or (4) When she starts to menstruate. If one of these four things happens, then she has reached puberty and is obliged to do acts of worship like adults. She must make up any fasts missed after reaching puberty.",
+      "tags": ["Accountability", "Expiation for Saum"],
+      "source": "IslamQA reference 21246"
+    },
+    {
+      "reference": 1363,
+      "questionText": "What is the ruling on eating dates from palm trees that are irrigated with water from sanitary waste flow?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is permissible to eat them if there is no taste or smell, meaning the impurity has disappeared",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is always forbidden to eat such dates regardless of their condition",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible only after washing the dates seven times with pure water",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It requires waiting three months after the final irrigation before eating",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Yes, it is permissible to eat the dates from trees which are irrigated with water from the sanitary waste flow because if there is no taste or smell, that means that the najaasah (impurity) has disappeared. The absence of taste and smell indicates the impurity is no longer present in the fruit.",
+      "tags": ["Food & Nourishment", "Purity"],
+      "source": "IslamQA reference 1363"
+    },
+    {
+      "reference": 45929,
+      "questionText": "What is the Islamic ruling on buying shares in companies that put their money in riba-based banks?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is haraam and one should avoid it even if a certain percentage of profits is paid in charity",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It becomes permissible if 15% of the profits are given to charity or public interest",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is allowed as long as the investor's intention is pure and sincere",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible for relatives to benefit from such shares as gifts",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Buying shares in companies is permissible only if they are trading in permissible goods and not engaging in haraam transactions. One of the greatest haraam actions is consuming riba. If a company deals in riba, then buying shares is haraam and one should avoid it. The fact that a certain percentage of profits is paid in charity does not make it permissible to buy those shares or make that profit halaal. Riba is one of the worst major sins.",
+      "tags": ["Interest", "Investment"],
+      "source": "IslamQA reference 45929"
+    },
+    {
+      "reference": 185145,
+      "questionText": "What is the husband's Islamic obligation toward his pregnant wife regarding household duties and service?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He should not burden her with what she is unable to bear by combining the burdens of life, working outside the home, and bearing children",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She must fulfill all household duties regardless of pregnancy difficulties or exhaustion",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She is completely exempt from all household duties throughout the entire pregnancy",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She must hire help at her own expense to fulfill her duties to her husband",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Although serving the husband is a duty enjoined by Islam, it is limited to that which the woman is able to do. It is not permissible for the husband to burden his wife with that which she is unable to bear, by combining the burdens of life, working outside the home and bearing children. As pregnancy is a reason for which some duties are waived (such as fasting), it is more appropriate that it should be a reason for the husband to take care of his wife and show compassion toward her. The Quran describes pregnancy as 'weakness and hardship upon weakness and hardship.'",
+      "tags": ["Rights of spouses", "Family"],
+      "source": "IslamQA reference 185145"
+    },
+    {
+      "reference": 26071,
+      "questionText": "According to Islamic teachings, what will happen to the angels and jinn?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "They will die, as indicated by the hadith 'You are the Ever-Living Who does not die, but the jinn and mankind will die'",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They are eternal beings and will never die like Allah the Ever-Living",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only the jinn will die, but the angels are immortal creations",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They die only if they commit major sins against Allah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Allah says in the Quran: 'Whatsoever is on it (the earth) will perish. And the Face of your Lord full of Majesty and Honour will remain forever.' All the inhabitants of the earth and heaven will perish and die, except for whomsoever Allah wills. The Prophet (peace be upon him) used to say in his supplication: 'You are the Ever-Living Who does not die, but the jinn and mankind will die.' Only Allah is the Ever-Living Who will never die.",
+      "tags": ["Belief in the Angels", "Aqeedah"],
+      "source": "IslamQA reference 26071"
+    },
+    {
+      "reference": 85110,
+      "questionText": "What is described as the best way to ensure waking up for Fajr prayer according to Islamic guidance?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sleeping early is the best way to wake up for Fajr prayer",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Setting multiple alarms at intervals throughout the night until Fajr",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Staying awake all night after Isha prayer until Fajr time arrives",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Praying Fajr immediately after Isha to avoid missing it",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The best way to wake up for Fajr is to sleep early. Otherwise the matter will remain difficult in most cases. Additional advice includes using an alarm clock, cooperating with family members on this matter, asking Allah for help and guidance, doing wudu before sleep, reciting dhikr before sleeping, and cleansing the house of images and other things that prevent angels from entering. Many people miss Fajr because they stay up late at night.",
+      "tags": ["Times of Prayers", "Salah"],
+      "source": "IslamQA reference 85110"
+    }
+  ]
+}

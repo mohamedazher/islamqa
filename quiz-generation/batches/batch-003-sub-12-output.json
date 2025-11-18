@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 1172,
+      "questionText": "When is it permissible for a woman to cut her hair with bangs (fringe) across her forehead?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When it is a modern trend among women considered attractive and she appears this way for her husband and close friends",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "When the purpose is to resemble non-Muslim and atheist women",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When she wants to imitate kaafir women's hairstyles",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only after consulting with Islamic scholars about the specific hairstyle",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If the haircut is not for imitating non-Muslims but is simply a modern trend among women considered attractive, a woman can adorn herself this way for her husband and appear like this in front of her close friends. However, if the purpose is to resemble kaafir and atheist women, it is haram because imitation of non-Muslims is forbidden.",
+      "tags": ["Adornments", "Women's rulings"],
+      "source": "IslamQA reference 1172"
+    },
+    {
+      "reference": 88153,
+      "questionText": "According to the hadith 'Each of you is a shepherd', what is emphasized about parents' responsibility in raising children?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Each parent is individually responsible for the flock they shepherd, with both the man and woman being shepherds of the household and children",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only the father is responsible as the wali (guardian) and head of the household",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The mother has primary responsibility since she spends more time with the children",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The responsibility can be delegated to extended family members who have more experience",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The hadith refers to the responsibility of each parent individually, reinforcing that each of them is individually responsible. A man is the shepherd of his household and responsible for his flock, while a woman is the shepherd of her husband's house and children and responsible for her flock. This is a shared responsibility that cannot be restricted to one parent.",
+      "tags": ["Childrens Upbringing", "Family responsibilities"],
+      "source": "IslamQA reference 88153"
+    },
+    {
+      "reference": 304345,
+      "questionText": "Why does Islam permit a Muslim man to marry a Jewish or Christian woman but not a woman who only believes in one God without following a revealed religion?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "The kitaabi woman believes in God, His messages in general terms, and the resurrection, making her close to Islam, and marrying her may call her and her family to Islam",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Jewish and Christian women have special legal status granted by their governments",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The Torah and Gospel contain more truth than other beliefs, making these women more trustworthy",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Historical treaties between Muslims and People of the Book established this permission",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Allah knows that the kitaabi (Jewish or Christian) woman who believes in God, believes in His messages in general terms, and believes in the resurrection is close to Islam as a result. Marrying her will, in most cases, call her and her family to Islam and encourage her to enter Islam, in contrast to a woman who does not believe in God, the Prophets, or the resurrection. This is the wisdom behind this ruling.",
+      "tags": ["Calling non-Muslims to Islam", "Marriage"],
+      "source": "IslamQA reference 304345"
+    },
+    {
+      "reference": 8805,
+      "questionText": "According to Shaykh Muhammad ibn Saalih al-'Uthaymeen, what can a woman stipulate as a condition of her marriage regarding her studies?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "She can stipulate that she be able to continue studying until her studies are complete",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She must abandon her studies immediately upon marriage as it conflicts with household duties",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She can only study religious subjects after marriage, not secular education",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She needs her guardian's renewed permission for each academic year after marriage",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh al-'Uthaymeen advised guardians to let women complete their studies, stating that marriage and study can be combined. A woman may stipulate as a condition of her marriage that she be able to continue studying until her studies are complete. Marriage is important, but it does not mean that a woman cannot study.",
+      "tags": ["Fiqh of the family", "Marriage conditions"],
+      "source": "IslamQA reference 8805"
+    },
+    {
+      "reference": 112128,
+      "questionText": "What is the ruling on bribery given to obtain a job based on a competitive test, according to the answer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is haram for both the one who gives it and the one who takes it, because the person had no particular right that required bribery to attain",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible for the giver since 50 jobs were available and he did not take anyone's specific place",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible since the person was escaping from pressure and managerial difficulties",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible because all other applicants who got jobs were affluent people",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Since the job was based on a test for applicants, bribery is haram in this case because the person was no better than anyone else and had no particular right which required paying a bribe to attain. The Messenger of Allah cursed both the one who offers a bribe and the one who takes it. However, if someone has repented and is qualified for the job, they may remain in the post.",
+      "tags": ["Bribes", "Ruling on jobs"],
+      "source": "IslamQA reference 112128"
+    },
+    {
+      "reference": 22670,
+      "questionText": "What is the ruling on bringing textbooks that contain pictures into the mosque to teach students?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Not permissible unless the faces and all distinguishing features are erased, whether on the cover or inside",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Permissible if the books are for educational purposes and exams are approaching",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Permissible as long as the pictures are not of prophets or religious figures",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Permissible if the teacher and students agree that the pictures are only for illustration",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "It is not permissible to bring books containing pictures into the mosque unless the faces and all distinguishing features are erased, whether the picture is on the cover or inside the book. This is a clear ruling with no exceptions mentioned for educational purposes.",
+      "tags": ["Images and image-making", "Mosque rulings"],
+      "source": "IslamQA reference 22670"
+    },
+    {
+      "reference": 226060,
+      "questionText": "What is the ruling on a few drops of blood that appear after a woman has become completely pure from nifaas (post-partum bleeding)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "They are not regarded as nifaas and do not prevent her from praying, fasting, or intimacy with her husband",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They are considered part of nifaas and she must stop praying and fasting until they cease completely",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They require a new ghusl before each prayer but do not invalidate the fast",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They are considered menstrual blood and follow the rulings of regular menses",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If a woman becomes pure after nifaas (by seeing complete cessation of bleeding or the white discharge), any few drops of blood that appear afterward are not regarded as nifaas. They do not prevent her from praying, fasting, or being intimate with her husband, as stated by the Permanent Committee and Shaykh Ibn 'Uthaymeen.",
+      "tags": ["Menstruation and Post-Natal bleeding", "Fasting"],
+      "source": "IslamQA reference 226060"
+    },
+    {
+      "reference": 110938,
+      "questionText": "According to the Islamic Fiqh Council, what forms of receiving payment are considered equivalent to hand-to-hand exchange in currency transactions?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Receiving a cheque, bank transfer, and depositing money in the seller's account",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Written promissory notes, verbal agreements witnessed by two people, and gold collateral",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Installment payment plans over three months, credit card transactions, and personal guarantees",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Deferred payment receipts, post-dated checks, and future delivery contracts",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Islamic Fiqh Council reached consensus that receipt of a cheque takes the place of receipt of money when conditions are met, and recording in bank records comes under the same ruling as receiving money. The Permanent Committee also stated that receiving a cheque or bank transfer note comes under the same ruling as receiving money on the spot.",
+      "tags": ["Interest", "Currency exchange"],
+      "source": "IslamQA reference 110938"
+    },
+    {
+      "reference": 89888,
+      "questionText": "According to the hadith about invalidating wudu, what is required for wudu to be considered invalidated?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "You must hear a sound or smell an odor - mere doubts or feelings do not invalidate wudu",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Any strong feeling or doubt that something came out requires checking and renewing wudu",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Feeling coolness at the tip of the penis or back passage requires immediate verification",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "You must check after every prayer to ensure nothing has come out during or after wudu",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet said: 'You should not stop (the prayer), unless you hear a sound or smell something (an odor).' This establishes the principle that wudu is not invalidated by mere doubts or feelings. Things remain as they are unless there is certainty they have changed. Even if doubt is strong or one thinks it most likely, wudu remains valid without certainty.",
+      "tags": ["Ablution Before Prayer", "Wudu"],
+      "source": "IslamQA reference 89888"
+    },
+    {
+      "reference": 93935,
+      "questionText": "When is it permissible for a woman to go to the public baths (hammam) according to Islamic rulings?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only in cases of necessity when she cannot bathe at home, such as when sick, bleeding after childbirth, or unable to do ghusl elsewhere, and she must keep herself covered",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "During Ramadan when the home bathroom is small and she is pregnant and fears illness from the cold",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Whenever her husband gives permission and she maintains proper Islamic dress",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "When she needs to perform ghusl after menses and prefers the facilities of public baths",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet said: 'Whoever believes in Allah and the Last Day, his wife should not enter the public baths.' However, scholars granted a concession allowing women to go to public baths in cases of necessity - such as being sick, bleeding after childbirth, or having to do ghusl with no alternative - as long as they lower their gaze, guard their chastity, and cover their awrahs. Simply having a small bathroom at home does not constitute necessity if she can heat water and bathe there.",
+      "tags": ["Adornments", "Women's rulings"],
+      "source": "IslamQA reference 93935"
+    }
+  ]
+}

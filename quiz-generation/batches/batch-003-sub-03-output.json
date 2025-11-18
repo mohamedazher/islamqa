@@ -1,0 +1,624 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 10945,
+      "questionText": "What should a traveler do if they want to determine the qiblah direction on an airplane for obligatory prayers?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ask the stewards about the direction of the qiblah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Wait until landing to pray the missed prayers",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Use a compass they brought from home",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Follow the direction the plane is heading",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The traveler must ask the stewards about the direction of the qiblah if the airplane does not have a sign showing it. If they do not ask, their prayer is not valid.",
+      "tags": ["Conditions for Prayer", "Travel"],
+      "source": "IslamQA reference 10945"
+    },
+    {
+      "reference": 10945,
+      "questionText": "How did the Prophet (peace be upon him) pray naafil prayers while traveling on his camel?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "He prayed no matter which direction the camel was facing",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He always dismounted and faced the qiblah",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He only prayed when the camel was stationary",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He turned the camel to face the qiblah first",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) used to pray naafil prayers whilst riding his camel, no matter which direction it was facing, if he was travelling. However, obligatory prayers require facing the qiblah.",
+      "tags": ["Conditions for Prayer", "Travel"],
+      "source": "IslamQA reference 10945"
+    },
+    {
+      "reference": 366120,
+      "questionText": "According to the Shaafa'is and Hanbalis, what happens if you deliberately swallow saliva after it reaches your lips during fasting?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It invalidates the fast because the saliva has separated from its usual place",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It does not affect the fast as saliva is part of the body",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It only invalidates if the saliva is mixed with food particles",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It requires making up the day but no expiation",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Shaafa'is and Hanbalis view that deliberately swallowing saliva after it reaches the lips invalidates the fast, because the saliva has separated from where it usually is (inside of the mouth), so swallowing it is like swallowing anything else that is separate from the body.",
+      "tags": ["Things which invalidate the fast", "Fasting"],
+      "source": "IslamQA reference 366120"
+    },
+    {
+      "reference": 366120,
+      "questionText": "What is the ruling if saliva dries on the lips and then you close your lips while fasting?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is nothing wrong with it because its traces disappear when it dries",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The fast is broken and must be made up",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It requires both making up the day and expiation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The person must immediately rinse their mouth",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If saliva dries on the lips, its traces disappear when it dries up, and there is nothing left that could cause one to break the fast at all, whether deliberately or by mistake.",
+      "tags": ["Things which invalidate the fast", "Fasting"],
+      "source": "IslamQA reference 366120"
+    },
+    {
+      "reference": 1005,
+      "questionText": "According to the answer, what does the Arabic word 'Quran' come from?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The word 'al-qar' which means gathering and putting things together",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The word 'qara'a' which means to read aloud",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The word 'qirtas' which means paper or parchment",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The word 'qarīn' which means companion",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "In Arabic, the word 'Quran' comes from the word meaning al-qar, which means 'gathering' and 'putting things together.' It is so called because it is a collection of all the suwar (plural of surah).",
+      "tags": ["The Quran and its Sciences"],
+      "source": "IslamQA reference 1005"
+    },
+    {
+      "reference": 1005,
+      "questionText": "In Surah al-Baqarah verse 185, what does Allah say was revealed in the month of Ramadan?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "The Quraan",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The Torah",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The Gospel",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The Psalms",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Allah says in Surah al-Baqarah 2:185: 'The month of Ramadan in which was revealed the Quraan.' This is one of many verses where Allah Himself names His Book as 'Quraan.'",
+      "tags": ["The Quran and its Sciences"],
+      "source": "IslamQA reference 1005"
+    },
+    {
+      "reference": 4039,
+      "questionText": "What did the Prophet (peace be upon him) say happens when people gather in one of the houses of Allah to recite the Book of Allah and study it together?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Tranquillity descends, angels surround them, mercy comes down, and Allah mentions them to those who are with Him",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Their sins are immediately forgiven and their names are written among the righteous",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They receive the reward of performing Hajj and Umrah",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They are granted protection from trials for forty days",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) said: 'No group of people gathers in one of the houses of Allah to recite the Book of Allah and study it together, but tranquillity descends upon them, the angels surround them, mercy comes down upon them, and Allah mentions them to those who are with Him.'",
+      "tags": ["The Quran and its Sciences", "Virtues"],
+      "source": "IslamQA reference 4039"
+    },
+    {
+      "reference": 4039,
+      "questionText": "What is the ruling on reciting the Quran collectively in unison, all pausing and stopping at the same time?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Not prescribed in Islam and at the very least it is makrooh (disliked)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Highly recommended and brings double the reward",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Obligatory for mosque gatherings after Fajr prayer",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Permissible only during Ramadan nights",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Reciting the Quran all together in unison, pausing and stopping at the same time, is not prescribed in Islam and at the very least it is makrooh (disliked), because it is not reported that the Prophet (peace be upon him) or his Companions did any such thing.",
+      "tags": ["The Quran and its Sciences", "Innovations"],
+      "source": "IslamQA reference 4039"
+    },
+    {
+      "reference": 102322,
+      "questionText": "What condition is mentioned regarding distributing tapes as charity during condolence gatherings?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Not believing that giving charity during the mourning period has extra virtue beyond other times",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Getting permission from all the deceased's family members first",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Distributing only on the third day after death",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Ensuring the tapes are recitations of specific Quranic chapters",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "There is nothing wrong with distributing tapes during the condolence gathering, but that is subject to the condition that you do not believe that giving charity during the days of mourning is of extra virtue, as some people think that giving charity during the mourning period is essential to help the deceased.",
+      "tags": ["Funerals and rulings on graves", "Charity"],
+      "source": "IslamQA reference 102322"
+    },
+    {
+      "reference": 102322,
+      "questionText": "What did the Prophet (peace be upon him) say when a man asked if his deceased mother would be rewarded if he gave charity on her behalf?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only if she had made a will requesting it",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only during the first forty days after death",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "No, because each soul bears its own burden",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A man said to the Prophet (peace be upon him): 'My mother died suddenly and I think that if she could have spoken she would have given charity; will she have a reward if I give charity on her behalf?' He said: 'Yes.' This confirms that charity on behalf of the deceased reaches them.",
+      "tags": ["Funerals and rulings on graves", "Charity"],
+      "source": "IslamQA reference 102322"
+    },
+    {
+      "reference": 50745,
+      "questionText": "According to the hadith mentioned, what happens to the person who fasts Ramadan out of faith and in the hope of reward?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "His previous sins will be forgiven",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He will be granted a house in Paradise",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He will be protected from trials for one year",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "His prayers will be accepted for forty days",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) said: 'Whoever fasts Ramadan out of faith and in the hope of reward, his previous sins will be forgiven.'",
+      "tags": ["Calling Muslims to Islam", "Obligation and virtues of fasting"],
+      "source": "IslamQA reference 50745"
+    },
+    {
+      "reference": 50745,
+      "questionText": "In the hadith about the people who broke their fast before its proper time, how are they described in the punishment?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Suspended by their ankles with the corners of their mouths torn and pouring with blood",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Forced to eat burning coals and drink boiling water",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Chained in a dark valley unable to move",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Standing on hot sand under a scorching sun",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Abu Umaamah reported seeing in the Prophet's dream people suspended by their ankles, with the corners of their mouths torn and pouring with blood. When asked who they were, it was said: 'These are the people who broke their fast before it was time to do so.'",
+      "tags": ["Calling Muslims to Islam", "Obligation and virtues of fasting"],
+      "source": "IslamQA reference 50745"
+    },
+    {
+      "reference": 6846,
+      "questionText": "What does seeking the help of jinn or turning to them to fulfill one's desires constitute according to the answer?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Shirk or associating others in worship with Allah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "A minor sin that requires repentance",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "An innovation (bid'ah) that should be avoided",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "A disliked action that reduces one's reward",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Seeking the help of the jinn or turning to them to fulfill one's desires is shirk or associating others in worship with Allah, because it is a kind of mutual benefitting whereby the jinn responds to the human's requests in return for the human's veneration.",
+      "tags": ["Belief in the Jinn, witchcraft and the evil eye", "Shirk"],
+      "source": "IslamQA reference 6846"
+    },
+    {
+      "reference": 6846,
+      "questionText": "What did the Prophet (peace be upon him) say about someone who goes to a fortune-teller and believes what he said?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He has disbelieved in that which was revealed to Muhammad",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "His prayers will not be accepted for seventy days",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He must perform expiation by fasting three days",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He has committed a major sin requiring sincere repentance",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) said: 'Whoever goes to a fortuneteller and believes what he said has disbelieved in that which was revealed to Muhammad.' This shows the severity of believing fortune-tellers.",
+      "tags": ["Belief in the Jinn, witchcraft and the evil eye", "Shirk"],
+      "source": "IslamQA reference 6846"
+    },
+    {
+      "reference": 99693,
+      "questionText": "According to the scholars, what is a major problem with the fabricated hadith about the five prayers?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It was not narrated by scholars of hadith with a saheeh isnad",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It contradicts the number of daily prayers prescribed",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It mentions prayers that were later abrogated",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It attributes the prayers to Moses instead of Muhammad",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "One of the obvious signs that the hadith is fabricated is that it was not narrated by the scholars of hadith with a saheeh isnad. It is a well known principle that any hadith that was not narrated with a saheeh isnad is to be rejected.",
+      "tags": ["Da'eef (weak) hadiths", "Fabricated hadiths"],
+      "source": "IslamQA reference 99693"
+    },
+    {
+      "reference": 99693,
+      "questionText": "What does the authentic hadith say about when the gates of heaven are opened?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "After the sun has passed the meridian (when Zuhr time begins)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "At the time of Fajr when believers pray in congregation",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "During the last third of the night",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Just before Maghrib when people break their fast",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Messenger of Allah (peace be upon him) used to pray four rak'ahs before Zuhr, after the sun had passed the meridian, and he said: 'The gates of heaven are opened and I like to send forth a good deed at this time.' This contradicts the fabricated hadith's claim about Zuhr being when Hell is stoked.",
+      "tags": ["Da'eef (weak) hadiths", "Prayer times"],
+      "source": "IslamQA reference 99693"
+    },
+    {
+      "reference": 26898,
+      "questionText": "According to the answer, whom is the wife obliged to obey?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Her husband",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Her husband's parents",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Both her husband and his parents equally",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Whoever is the head of the household",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "What the wife is obliged to do is to obey her husband; he is the one whom she is obliged to obey. If the husband agrees that she may visit her family, it does not matter if his parents do not approve.",
+      "tags": ["Rights of spouses", "Family relations"],
+      "source": "IslamQA reference 26898"
+    },
+    {
+      "reference": 26898,
+      "questionText": "What does the Quran say in Fussilat 41:34 about repelling evil treatment?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Repel the evil with one which is better, then he who was your enemy will become as though he was a close friend",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Repel evil with justice and Allah will judge between you",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Repel evil by distancing yourself from those who wrong you",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Repel evil by seeking the help of righteous people",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Allah says: 'Repel (the evil) with one which is better (i.e. Allah orders the faithful believers to be patient at the time of anger, and to excuse those who treat them badly) then verily he, between whom and you there was enmity, (will become) as though he was a close friend.'",
+      "tags": ["Rights of spouses", "Quranic guidance"],
+      "source": "IslamQA reference 26898"
+    },
+    {
+      "reference": 41105,
+      "questionText": "What is the ruling on working in a satellite TV company that broadcasts both religious channels and immoral content?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not permissible and is haraam earnings",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible as long as you work only on the religious channels",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is disliked but not forbidden if you need the income",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible if you donate part of your salary to charity",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Working in this company is not permissible, and it is haraam earnings, because this company facilitates channels that promote immorality, deviation and misguidance. This is helping in sin and transgression, which Allah has forbidden.",
+      "tags": ["Prohibited Jobs", "Ruling on jobs"],
+      "source": "IslamQA reference 41105"
+    },
+    {
+      "reference": 41105,
+      "questionText": "What did the Holy Spirit (Jibreel) inspire to the Prophet regarding provision?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "No soul will die until it has been given its provision in full",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Provision comes only to those who strive hard in seeking it",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Allah increases provision for those who give charity",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Lawful provision is scarce, so be grateful for what you receive",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) said: 'The Holy Spirit (i.e. Jibreel) inspired to me that no soul will die until it has been given its provision in full. Fear Allah and be moderate in seeking a living, and do not let the fact that it is slow in coming make you seek it by disobeying Allah.'",
+      "tags": ["Prohibited Jobs", "Provision and sustenance"],
+      "source": "IslamQA reference 41105"
+    }
+  ]
+}

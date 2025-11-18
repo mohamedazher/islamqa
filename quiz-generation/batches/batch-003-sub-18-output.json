@@ -1,0 +1,376 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 326165,
+      "questionText": "Why did the police in Philadelphia first call the day after Thanksgiving 'Black Friday' in 1960?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because of huge traffic jams, crowds and long lines in front of stores on this shopping day",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because it was connected to the financial crisis of 1869 in the United States",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because black ink was used to record profits in American ledgers on that day",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because it marked the beginning of the Christmas shopping season",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The police department in Philadelphia dubbed this day Black Friday in 1960 to describe the crowded chaos and traffic, both pedestrians and cars. While other explanations exist about black ink and profits, the police naming was specifically about the traffic and crowds.",
+      "tags": ["Alliance and Amity, Disavowal and Enmity"],
+      "source": "IslamQA reference 326165"
+    },
+    {
+      "reference": 326165,
+      "questionText": "What is the ruling for Muslim shopkeepers regarding singling out Black Friday for reducing prices?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "They should not single out Black Friday for reducing prices because it involves imitating the disbelievers",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They can reduce prices on Black Friday if they also reduce prices on other days",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They should treat it like any other day and not give it special significance",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They can participate but should call it White Friday instead",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Muslim shop owners should not single out Black Friday for reducing prices because it involves imitating and resembling the disbelievers. The Prophet (peace be upon him) said: 'Whoever imitates a people is one of them.' They should treat this day like any other day. Both options a and c are correct, but a is more specific to the question.",
+      "tags": ["Alliance and Amity, Disavowal and Enmity"],
+      "source": "IslamQA reference 326165"
+    },
+    {
+      "reference": 1925,
+      "questionText": "According to the fatwa, what forms of intimacy are permitted for a husband with his wife?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Any way that Allah has permitted, including masturbation by her hand",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only traditional intercourse is permitted in such situations",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He must seek medical treatment before considering alternative intimacy",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He should fast frequently instead of seeking physical intimacy",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholar stated that a husband is permitted to enjoy his wife in any of the ways which Allah has permitted, and this includes masturbation by her hand.",
+      "tags": ["Kind Treatment of Spouses"],
+      "source": "IslamQA reference 1925"
+    },
+    {
+      "reference": 165968,
+      "questionText": "What must a Muslim do regarding money taken from Australian companies if the country deports him?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Return the money to them, as treachery and betrayal are forbidden whether with Muslims or non-Muslims",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Keep the money as compensation for being rejected after paying fees for four years",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Pay them back only if they allow him to visit the country again in the future",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Donate the money to charity since it came from a non-Muslim country",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fatwa clearly states that treachery and betrayal are forbidden in Islam whether with a Muslim or a kaafir. The Muslim must return the money because the country granted him safety and protection, and he must be honest and not betray them.",
+      "tags": ["Transactions"],
+      "source": "IslamQA reference 165968"
+    },
+    {
+      "reference": 229817,
+      "questionText": "What did the Prophet (peace be upon him) say about the maternal aunt's status?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "The maternal aunt is of the same status as the mother",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The maternal aunt should be honored like one's sister",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The maternal aunt has rights similar to other relatives",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Treating the maternal aunt kindly is recommended but not emphasized",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Abu Dawud (2278) narrated from Ali that the Messenger of Allah said: 'The maternal aunt is of the same status as the mother.' This high status applies to custody, showing kindness, honoring, and upholding ties of kinship with her.",
+      "tags": ["Keeping Contact with Kinship", "Mahram Relatives"],
+      "source": "IslamQA reference 229817"
+    },
+    {
+      "reference": 229817,
+      "questionText": "What did the Prophet tell a man to do when the man had no mother but had a maternal aunt?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Treat her kindly, as this is among virtuous deeds that expiate sins",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Visit her regularly to maintain family ties",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Provide financial support to her household",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Make dua for her and honor her position in the family",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "At-Tirmidhi narrated that when a man who had committed a grave sin asked about repentance and said he had no mother but had a maternal aunt, the Prophet told him: 'Then treat her kindly.' This indicates that honoring one's maternal aunt comes under the heading of virtuous deeds and acts that expiate sins.",
+      "tags": ["Keeping Contact with Kinship", "Mahram Relatives"],
+      "source": "IslamQA reference 229817"
+    },
+    {
+      "reference": 2376,
+      "questionText": "What are the exceptions to the rule that all actions are allowed unless forbidden?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sexual relationships, forms of worship, eating meat, and disposing of another's property - these are forbidden except what is expressly permitted",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Business transactions, food consumption, and public behavior require specific permission",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Matters of inheritance, marriage contracts, and ritual purification must follow explicit texts",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Forms of charity, types of clothing, and travel arrangements need clear evidence of permissibility",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fatwa specifies that in matters of sexual relationships, forms of worship, eating meat, and disposing of another person's property, the rule is that it is forbidden except that which is expressly permitted. It also notes that it is forbidden to dispose of another person's property except with his permission.",
+      "tags": ["Usool al-Fiqh"],
+      "source": "IslamQA reference 2376"
+    },
+    {
+      "reference": 162318,
+      "questionText": "What is the ruling on praying the first two rak'ahs of Tarawih with the intention of praying the Sunnah of Isha?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is valid, just as it is valid to pray Isha behind someone praying Tarawih",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is not valid because Tarawih and Sunnah prayers have different intentions",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is only valid if the imam gives permission beforehand",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is discouraged but acceptable in cases of extreme time constraints",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fatwa states that yes, it is valid to pray two rak'ahs of Tarawih with the intention of the Sunnah of Isha. In fact, it is even valid to pray Isha behind someone who is praying Tarawih. Shaykh Ibn Uthaymin explained that it does not matter if the intentions of the imam and the person praying behind him are different.",
+      "tags": ["Voluntary Prayers"],
+      "source": "IslamQA reference 162318"
+    },
+    {
+      "reference": 138684,
+      "questionText": "When is it permissible to give zakah in the form of goods instead of cash according to some scholars?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "When the poor person is insane, feebleminded, foolish or immature and may mishandle cash, if goods are evaluated correctly",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "When the charity organization requests items instead of money for distribution efficiency",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "During winter months when blankets and warm clothing are more beneficial than money",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "When providing medical aid or food hampers through trustworthy charities",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to Shaykh Ibn Baz, it is permissible to give goods instead of cash if the poor person is insane, feebleminded, foolish or immature, and there is fear that he may mess about with cash. The goods must be evaluated correctly and equal in value to the zakah amount. This is when there is a need for that or an interest to be served.",
+      "tags": ["Poor-due or obligatory charity"],
+      "source": "IslamQA reference 138684"
+    },
+    {
+      "reference": 136367,
+      "questionText": "What type of lying is NOT permitted between spouses according to the scholars?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Lying that leads to undermining rights or evasion of duties",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Exaggerating expressions of love and affection to maintain harmony",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Making promises and raising hopes to keep a good relationship",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Saying nice things that are not entirely accurate to please one's spouse",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars, including An-Nawawi and Ibn Hajar, are unanimously agreed that lying with regard to spouses means lying in matters that do not lead to waiving of duties or acquiring that to which one has no right. Lying that leads to undermining rights or evasion of duties is prohibited.",
+      "tags": ["Bad behaviour", "Kind Treatment of Spouses"],
+      "source": "IslamQA reference 136367"
+    },
+    {
+      "reference": 178479,
+      "questionText": "What is the Sunnah regarding the number of sheep to sacrifice for aqiqah for a male child?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Two sheep is the Sunnah, but one sheep fulfills the basic requirement and is permissible",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "One sheep is sufficient and there is no difference in reward",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Two sheep are obligatory for boys while one is recommended for girls",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The number depends on the family's financial situation, from one to three sheep",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fatwa explains that the Sunnah is to offer two sheep on behalf of a male child, based on the hadith of Umm Karaz. However, if one sheep is slaughtered on behalf of a boy, he has fulfilled the basic requirement of the Sunnah, because the Prophet sacrificed one ram each for Al-Hasan and Al-Husayn.",
+      "tags": ["Aqeeqah and rulings on the new-born"],
+      "source": "IslamQA reference 178479"
+    },
+    {
+      "reference": 14621,
+      "questionText": "What should a child who has reached the age of discernment but not adolescence do for Hajj?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Put on ihram garments and do all rituals himself, with his guardian stoning the Jamarat on his behalf if he cannot",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Wear regular clothes while his father performs all the rituals on his behalf",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Make the intention but his father or guardian does Tawaf and Sa'i carrying him",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Accompany his parents through the rituals without entering ihram since he is not yet obligated",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fatwa states that if a child has reached the age of discernment but not adolescence, he should be told to put on ihram garments and do all the rituals of Hajj for himself, from entering ihram at the meeqat until the end. His father or guardian should stone the Jamarat on his behalf if he cannot do it himself, and he should be told to avoid what is forbidden while in ihram.",
+      "tags": ["Hajj al-Sagheer (Hajj of children)", "Sifat al-Hajj wa'l-'Umrah (Description of Hajj and 'Umrah)"],
+      "source": "IslamQA reference 14621"
+    }
+  ]
+}
