@@ -43,8 +43,8 @@
             android:gravity="center" />
     </LinearLayout>
 
-    <!-- Subtle divider -->
-    <View
+    <!-- Subtle divider (ImageView used instead of View for RemoteViews compatibility) -->
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#30FFFFFF"
@@ -218,8 +218,8 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Spacer -->
-    <View
+    <!-- Spacer (ImageView used instead of View for RemoteViews compatibility) -->
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="4dp" />
 
