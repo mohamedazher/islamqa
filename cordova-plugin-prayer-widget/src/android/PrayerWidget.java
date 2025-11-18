@@ -23,8 +23,7 @@ public class PrayerWidget extends CordovaPlugin {
     private static final String PREFS_NAME = "PrayerWidgetPrefs";
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext)
-            throws JSONException {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
 
         Log.d(TAG, "Execute action: " + action);
 
