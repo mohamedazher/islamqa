@@ -1,0 +1,62 @@
+QUIZ GENERATION - CONTENT-SPECIFIC OPTIONS REQUIRED
+
+Generate 100 quiz questions from batch-XXX-input.json following these requirements:
+
+1. READ BOTH question AND answer fields fully
+2. CLARIFY ambiguous titles using answer context
+3. CREATE CONTENT-SPECIFIC OPTIONS (NOT generic templates!)
+
+CRITICAL - OPTIONS MUST BE CONTENT-SPECIFIC:
+
+❌ WRONG (generic templates - DON'T use):
+  a) It is permissible (halal) in Islam
+  b) It is forbidden (haram) in Islam
+  c) It is obligatory (fard)
+  d) It depends on circumstances
+
+✅ CORRECT (content-specific - extract from answer):
+  a) The gold that was purchased with his money
+  b) The original cash amount he gave
+  c) Nothing, engagement gifts cannot be returned
+  d) The current market value of the gold in cash
+
+HOW TO CREATE OPTIONS:
+1. Read full answer text
+2. Extract SPECIFIC details of the ruling
+3. Create correct option using exact ruling details
+4. Create 3 wrong options using:
+   - Alternative interpretations from answer
+   - Common misconceptions addressed in answer
+   - Related but incorrect scenarios
+   - Conditions that don't apply
+
+VALIDATION - Each question must have:
+✓ Clear, self-contained question text
+✓ 4 content-specific options (NOT generic categories)
+✓ Options that test understanding of THIS SPECIFIC ruling
+✓ 1 correct answer derived from answer text
+✓ 3 plausible wrong options from answer content
+✓ 2-3 sentence explanation citing sources
+
+GOLDEN RULE: Ask yourself "Do these options test if the user understood THIS SPECIFIC ruling, or just generic Islamic law categories?"
+
+OUTPUT: Save to batch-XXX-output.json with format:
+{
+  "quizQuestions": [
+    {
+      "reference": 12345,
+      "questionText": "Clear question with answer context",
+      "type": "multiple-choice",
+      "difficulty": "easy|medium|hard",
+      "options": [
+        {"id": "a", "text": "Content-specific from answer", "isCorrect": true},
+        {"id": "b", "text": "Specific wrong option", "isCorrect": false},
+        {"id": "c", "text": "Specific wrong option", "isCorrect": false},
+        {"id": "d", "text": "Specific wrong option", "isCorrect": false}
+      ],
+      "explanation": "2-3 sentences from answer citing sources",
+      "tags": ["tag1", "tag2", "tag3", "tag4"],
+      "source": "IslamQA reference 12345"
+    }
+  ]
+}
