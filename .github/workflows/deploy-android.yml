@@ -111,9 +111,13 @@ jobs:
           }
           EOF
 
-      - name: Add Android platform and prepare
+      - name: Setup Android platform only (remove iOS if present)
         run: |
+          # Remove iOS platform if it exists from cached dependencies
+          cordova platform remove ios || true
+          # Add Android platform
           cordova platform add android || true
+          # Prepare only Android (not iOS which we don't build in CI)
           cordova prepare android || true
 
       - name: Decode and setup google-services.json
