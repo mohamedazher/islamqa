@@ -88,11 +88,8 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
             safeSetText(views, context, "maghrib_time", maghribTime);
             safeSetText(views, context, "isha_time", ishaTime);
 
-            // Update countdown timer
-            safeSetText(views, context, "time_remaining", timeRemaining);
-
-            // Update footer label
-            String labelText = currentPrayer.isEmpty() ? "Next: " + nextPrayer : "Current: " + currentPrayer;
+            // Update header label
+            String labelText = currentPrayer.isEmpty() ? "Next: " + nextPrayer : "Now: " + currentPrayer;
             safeSetText(views, context, "next_prayer_label", labelText);
 
             // Highlight current or next prayer row
@@ -227,13 +224,13 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
                 flags
             );
 
-            // Schedule update every 1 minute (60000 milliseconds)
-            // Use setRepeating for regular updates (more battery efficient than setExact)
-            long intervalMillis = 60000; // 1 minute
+            // Schedule update every 30 minutes (1800000 milliseconds)
+            // Static widget doesn't need frequent updates - just to refresh current/next prayer indicator
+            long intervalMillis = 1800000; // 30 minutes
             long triggerAtMillis = SystemClock.elapsedRealtime() + intervalMillis;
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                // For Android 6.0+, use setExactAndAllowWhileIdle for better reliability
+                // For Android 6.0+, use setRepeating for regular updates
                 alarmManager.setRepeating(
                     AlarmManager.ELAPSED_REALTIME,
                     triggerAtMillis,
@@ -249,7 +246,7 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
                 );
             }
 
-            Log.d(TAG, "Widget update scheduled every 1 minute");
+            Log.d(TAG, "Widget update scheduled every 30 minutes");
         } catch (Exception e) {
             Log.e(TAG, "Error scheduling widget update: " + e.getMessage(), e);
         }
