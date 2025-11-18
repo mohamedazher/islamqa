@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 87,
+      "questionText": "What should a traveler do if they are uncertain whether the distance is far enough to shorten the prayer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Complete the full prayer, as the default requirement cannot be overridden by doubt or uncertainty",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Shorten the prayer based on their best estimation of the distance",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Wait until reaching the destination to determine the correct prayer length retroactively",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Ask other travelers for their opinion before deciding which prayer to perform",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the Shafi'yah opinion, if one does not know and there is nothing to indicate whether the distance is far enough, a traveler is not allowed to shorten the prayers. The completion of prayers is the default requirement and cannot be abrogated or overridden by doubt or uncertainty.",
+      "tags": ["Prayer of the Traveler"],
+      "source": "IslamQA reference 87"
+    },
+    {
+      "reference": 146363,
+      "questionText": "Under what circumstances can a strong, able-bodied person from a prominent family receive zakaah funds?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "When the only available work undermines his dignity and status, as it is not befitting for someone of his standing",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "When he feels the physical labor is too difficult despite being physically capable",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When he has worked for at least one year without achieving financial stability",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "When he has other family members who are already employed",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the scholars, if a person is from a prominent family and the available work is not befitting for him with regard to his status and dignity (because it undermines his dignity), then he may receive zakaah. However, if the work is befitting and others like him do this kind of work, he should not receive zakaah but should be advised to work.",
+      "tags": ["Where Zakah is to Be Spent"],
+      "source": "IslamQA reference 146363"
+    },
+    {
+      "reference": 219811,
+      "questionText": "According to the unanimous agreement of scholars, for whom is sahoor (the pre-dawn meal) specifically recommended?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Those intending to fast that day, as it strengthens them for the act of worship and differentiates their fast from the People of the Book",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Anyone who is awake at the end of the night, regardless of whether they are fasting",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only those fasting obligatory Ramadan fasts, not those observing voluntary fasts",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Those who previously missed fasts and are currently making them up",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars are unanimously agreed that sahoor is mustahabb for the one who is fasting, but we do not know of anyone among the scholars who said that it is mustahabb for one who is not fasting. The Prophet did not always eat sahoor, which indicates that sahoor is only mustahabb for the one who wants to fast.",
+      "tags": ["Commentary on Hadith", "Issues of fasting"],
+      "source": "IslamQA reference 219811"
+    },
+    {
+      "reference": 175833,
+      "questionText": "What is the ruling according to the majority of scholars on stoning the Jamaraat with pieces of concrete?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Not acceptable because concrete is not rock, unless the piece of concrete contains actual stone within it",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Acceptable as long as the pieces are approximately the size of chickpeas",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only acceptable if the concrete pieces are broken from larger concrete structures at the site",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Acceptable according to all schools of thought since concrete comes from the earth",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The majority of fuqaha' stipulated that the Jamaraat should be stoned with pebbles, which are small stones. Concrete is not rock, so it is not acceptable according to the majority. However, Shaykh Ibn 'Uthaymeen stated that if a piece of concrete contains stone, then there is nothing wrong with it.",
+      "tags": ["Sifat al-Hajj wa'l-'Umrah (Description of Hajj and 'Umrah)"],
+      "source": "IslamQA reference 175833"
+    },
+    {
+      "reference": 70479,
+      "questionText": "According to the scholarly view favored by Shaykh al-Islam Ibn Taymiyah, what is the ruling on saying 'If tomorrow is Ramadan, then I am fasting'?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Valid because the hesitation is about when the month begins, not about the intention to fast itself",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Invalid because intentions for obligatory fasts must be based on absolute certainty, not conditional statements",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Valid only if the conditional statement is repeated at least three times before going to sleep",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Valid for voluntary fasts but not for obligatory Ramadan fasts which require specific intention",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the view favored by Ibn Taymiyah, the conditional intention is valid. The person made his intention conditional because he did not know whether the next day would be Ramadan, so his hesitation was based on uncertainty about the month, but there was no uncertainty about whether he would fast or not.",
+      "tags": ["Seeing the New Moon"],
+      "source": "IslamQA reference 70479"
+    },
+    {
+      "reference": 78607,
+      "questionText": "According to Islamic rulings on zakaah, when is zakaah due on a shop or commercial building?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only if the property was acquired for the purpose of trade (buying and selling the property itself for profit)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "On the rental income collected after one hijri year has passed, not on the building itself",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "On any commercial property regardless of its intended purpose or use",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "On the building's market value if it has increased significantly over time",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A Muslim does not have to pay zakaah on his shop, even if its value is great. Zakaah is only due on property acquired for the purpose of trade (buying and selling the property itself). If acquired to buy and sell IN it, or to rent out, then no zakaah is due on it.",
+      "tags": ["On What is Zakah Due", "Zakah 'urood al-tijaarah (Zakah on trade goods)"],
+      "source": "IslamQA reference 78607"
+    },
+    {
+      "reference": 153633,
+      "questionText": "What does the hadith promise regarding the du'aa said before intercourse ('O Allah, keep the Shaytaan away from us and from what You bestow upon us')?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "That the Shaytaan will never be able to harm the child, but not saying it does not guarantee inevitable harm if forgotten due to an excuse",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "That the child will have absolute immunity from all childhood illnesses and diseases",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "That the child will have the ability to memorize the Quran more easily than others",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "That the child will automatically be counted among the righteous without any effort",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The hadith contains a promise that if this du'aa is said and a child is conceived, the Shaytaan will never be able to harm him. However, not reciting these words does not necessarily mean the Shaytaan will inevitably harm the child. If someone did not say it because of an excuse such as being unaware or forgetting, they will be pardoned, if Allah wills.",
+      "tags": ["Etiquette of Marriage"],
+      "source": "IslamQA reference 153633"
+    },
+    {
+      "reference": 13685,
+      "questionText": "According to Shaykh al-Islam Ibn Taymiyah, what is the key difference between listening to music and merely hearing it?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Listening involves deliberate intention, wanting to hear it and enjoying it, while hearing happens without choice or intention",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Listening occurs in public spaces, while hearing only occurs in private settings",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Listening involves music with instruments, while hearing refers only to vocal music",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Both are equally sinful if the music being played is considered haram",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh al-Islam Ibn Taymiyah explained that the one who listens to music hears it deliberately, wants to hear it and enjoys it, whereas the one who only hears the sound that reaches him without wanting or intending to do so is different. The commands and prohibitions are connected to what a person intends and does, but whatever happens without choosing it has no command or prohibition.",
+      "tags": ["Condemnation of Singing and Musical Instruments"],
+      "source": "IslamQA reference 13685"
+    },
+    {
+      "reference": 103335,
+      "questionText": "According to the Islamic Organization for Medical Sciences symposium, what are permissible uses of human genetic engineering?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Preventing or treating hereditary diseases through gene surgery or inserting genes into patient's cells for therapeutic purposes",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Creating hybrid organisms by crossing genetic barriers between species for scientific research advancement",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Modifying genes to enhance physical appearance and characteristics for aesthetic purposes",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Tampering with genes to influence a person's character traits and behavioral qualities",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The symposium concluded it is permissible to use genetic engineering to prevent, treat or mitigate disease through gene surgery or inserting genes into patient's cells. However, it is not permissible to use it to change genetic structure for eugenics, tamper with character traits, or create hybrid beings for entertainment or curiosity.",
+      "tags": ["Medicine and medical treatments"],
+      "source": "IslamQA reference 103335"
+    },
+    {
+      "reference": 164176,
+      "questionText": "According to Shaykh Ibn 'Uthaymeen, when is it permissible to pray on the sidewalk despite it being generally disliked?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "When the mosque is too small and full, leaving no other available place for Muslims to pray",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "When a person is running late and cannot reach the mosque before the prayer time ends",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When the sidewalk surface is cleaner or more suitable than the mosque's prayer area",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only during Jumu'ah and Eid prayers, but never during the five daily prayers",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymeen stated that if the mosque is full and there is no choice but to pray in the marketplace or open spaces, there is nothing wrong with that. The correct view is that an exception is made whenever there is a need, so if the mosque is full, people may pray in marketplaces or sidewalks.",
+      "tags": ["Conditions for Prayer", "Congregational Prayer"],
+      "source": "IslamQA reference 164176"
+    }
+  ]
+}

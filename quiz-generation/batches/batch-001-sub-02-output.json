@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 174477,
+      "questionText": "According to Islamic law, when should you pay zakah on shares given to you by your company that you cannot sell for 5 years?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pay zakah once when selling them or obtaining full possession after completing the 5-year maturity period",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Pay zakah annually on their market value starting from the first year you receive them",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Pay zakah only on the dividends received from these shares, not on the shares themselves",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Pay zakah on what remains after paying taxes and National Insurance immediately when the shares are granted",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If a person does not have complete ownership of shares or is not allowed to dispose of them (like company-given shares with a maturity period), they should pay zakah once when selling them, taking back their value, or obtaining full possession by completing the required years of work. This is because complete ownership is a condition for the annual obligation of zakah.",
+      "tags": ["Zakah 'urood al-tijaarah (Zakah on trade goods)", "Zakah", "Shares"],
+      "source": "IslamQA reference 174477"
+    },
+    {
+      "reference": 191643,
+      "questionText": "According to the answer about waswaas (intrusive thoughts), what is identified as the root cause of these negative thoughts?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Man produces his own waswaas as an echo of his thoughts, a reflection of his reality, or accumulation of past bad experiences",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "External jinn forces that possess the person and control their mind completely beyond their control",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "A medical hormone deficiency that can only be treated with prescription medication from doctors",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Persuading yourself that you have full control is the most significant part of the problem",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer explains that man himself produces his waswaas and negative thoughts - it is an echo of what he is thinking about, a reflection of the reality he is living, or an accumulation of past bad experiences. However, persuading yourself that you are helpless in the face of these thoughts is identified as the most significant part of the dilemma, not the root cause itself.",
+      "tags": ["Felonies", "Mental Health", "Waswaas"],
+      "source": "IslamQA reference 191643"
+    },
+    {
+      "reference": 215693,
+      "questionText": "If currency devaluation affects a debt and the change in value is major (one-third or more), how should the debt be repaid?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rectify the matter by splitting the difference between both parties",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The debtor must repay the same amount regardless of how much the currency devalued",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The debtor must repay according to the full value on the day the debt was taken",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Work out the value based on the price of gold at the time, then the creditor must accept this without negotiation",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "For regular debts (not theft or misappropriation), if the change in currency value is major and amounts to one-third or more of the value, the matter must be rectified by splitting the difference between both parties. This is different from cases of theft or delayed debt payments, where the transgressor is fully liable for the value on the day it was taken.",
+      "tags": ["Borrowing & Lending", "Currency", "Debt"],
+      "source": "IslamQA reference 215693"
+    },
+    {
+      "reference": 219806,
+      "questionText": "For Muslims living in Sweden where day and night follow one another within 24 hours but the days are very long in summer, what is the ruling on fasting according to Saudi Arabia's timing instead?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Shaykh Ibn Uthaymeen said this is an obvious mistake that goes against the Quran and Sunnah; they must fast Sweden's full day length",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible to avoid hardship, as long as the day in Sweden exceeds 18 hours of fasting",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They should fast according to the nearest city where prayer timings can be distinguished, which may be in Saudi Arabia",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They can break their fast if it becomes unbearably difficult and make it up on shorter days throughout the year",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Uthaymeen explicitly stated that those who issued a fatwa allowing people in cities with very long days to fast according to Saudi Arabia's day length made an obvious mistake and went against the Quran and Sunnah. However, if fasting is unbearably difficult and there is fear of physical harm, it is permissible to break the fast and make it up on shorter days (option d describes a different scenario for extreme hardship, not the general ruling).",
+      "tags": ["Conditions for Prayer", "Issues of fasting", "Prayer times"],
+      "source": "IslamQA reference 219806"
+    },
+    {
+      "reference": 240,
+      "questionText": "According to the answer, what is the specific procedure recommended for treating black magic using lote-tree leaves?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Crush 7 lote-tree leaves, mix with water, recite specific Quranic verses over it, drink some of the water, and bathe with the rest",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Crush 7 lote-tree leaves, burn them as incense, inhale the smoke while reciting Surah Al-Falaq and Al-Nas three times",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Place 7 whole uncrushed lote-tree leaves under the pillow and sleep with them for 7 consecutive nights while fasting",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Boil 7 lote-tree leaves in water at dawn, drink the entire mixture immediately, and fast for the rest of the day",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer specifies that to cure black magic, seven lote-tree leaves should be crushed and mixed with water (enough for bathing). Then specific Quranic verses are recited over the water: Ayat Al-Kursi, Surah Al-Kafirun, Surah Al-Ikhlas, Al-Falaq, Al-Nas, and verses about magic from Al-Baqarah, Al-A'raf, Yunus, and Taha. The possessed person drinks some of the water and uses the rest for bathing.",
+      "tags": ["Belief in the Jinn, witchcraft and the evil eye", "Black Magic", "Treatment"],
+      "source": "IslamQA reference 240"
+    },
+    {
+      "reference": 141381,
+      "questionText": "According to Shaykh Ibn Uthaymeen, what should the imam do if he mistakenly gets up for a third rak'ah during Taraweeh prayer?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sit back down immediately even if he has already recited Al-Fatihah, complete the tashahhud and tasleem, then prostrate twice for forgetfulness",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Continue and complete four rak'ahs with one tashahhud, then do two prostrations of forgetfulness at the end",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Immediately say the tasleem while still standing in the third rak'ah, then restart the entire prayer set from the beginning",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Complete the third rak'ah normally, make tasleem, then pray a single additional rak'ah to make it an even number",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Uthaymeen stated that if the imam gets up for a third rak'ah in Taraweeh by mistake and is reminded of it, he must sit back down even if he has already started reciting Al-Fatihah. He should then recite the tashahhud, say the tasleem, and perform two prostrations of forgetfulness, followed by another tasleem. This is based on the Prophet's statement that \"the night prayers are two by two.\"",
+      "tags": ["Leading Prayer", "Rulings on prayer", "Taraweeh"],
+      "source": "IslamQA reference 141381"
+    },
+    {
+      "reference": 4685,
+      "questionText": "How did the Islamic scholars respond to the Christian minister who accepted his daughter's conversion to Islam and marriage to a Muslim?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "They thanked him for his fair-mindedness and expressed hope that his study of religion might lead him to properly study and embrace Islam",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They advised him to continue teaching his daughter about Christianity to test the strength of her commitment to Islam",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They told him his acceptance was religiously obligatory in Islam and he would face consequences for opposing his daughter's choice",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They suggested he should maintain distance from his daughter and son-in-law until he converts to Islam himself",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars thanked the Christian minister for his kind feelings and noted that his not standing in the way of his daughter and her husband showed fair-mindedness and respect for others' beliefs. They expressed their wish that he could join them in following Islam, noting that while it may appear difficult for someone who represents another religion, perhaps his study of religion could lead to a proper study of Islam and a new conviction.",
+      "tags": ["Calling non-Muslims to Islam", "Interfaith Relations"],
+      "source": "IslamQA reference 4685"
+    },
+    {
+      "reference": 249126,
+      "questionText": "What are the required conditions for earning money from advertisements on your video clips to be permissible in Islam?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The subscription to the company must be free, the financial return must be known, and the ads must not promote prohibited things",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The ads must only be displayed to non-Muslim viewers and must be completely hidden from Muslim audiences in the platform settings",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "You must donate at least 10% of earnings to charity, the ads must not exceed 30 seconds, and must be skippable after 5 seconds",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The advertising company must be based in a Muslim-majority country and have official certification from recognized Islamic scholars",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer specifies three clear conditions: (1) the subscription to the company should be free, (2) the financial return should be known, and (3) the ads should be permissible and not include any promotion of prohibited things. If ads contain prohibited content, it is not permissible to accept and publish them, as this constitutes cooperating in sin and transgression.",
+      "tags": ["Employment for a Salary", "Online Income", "Advertising"],
+      "source": "IslamQA reference 249126"
+    },
+    {
+      "reference": 7030,
+      "questionText": "According to Shaykh Muhammad ibn Uthaymeen, under what specific conditions is using a credit card permissible despite its riba-based terms?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When it is certain that not using it will cause difficulty with no other option, and the person is committed to paying it off without any delay",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "When the credit card company officially waives all interest charges in writing and the person pays the balance within 90 days",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When the person uses the credit card exclusively for business expenses and never for any personal purchases",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "When the person resides in a non-Muslim country where credit cards are the only form of payment accepted by merchants",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Uthaymeen stated that if it is certain that not using a credit card will cause difficulty and there is no other option, and the likelihood of being late in paying is remote (meaning the person is committed to paying without delay), then he hoped there is nothing wrong with using it. Both conditions must be met: genuine necessity with no alternative, and commitment to timely payment to avoid riba.",
+      "tags": ["Interest", "Credit Cards", "Necessity"],
+      "source": "IslamQA reference 7030"
+    },
+    {
+      "reference": 147629,
+      "questionText": "What is the unanimous ruling of the scholars regarding giving the iqaamah for prayer while sitting when one is able to stand?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is unanimously agreed to be makrooh (disliked) and against the Sunnah without excuse, though some Hanbali scholars say it is invalid",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is completely invalid according to all four madhabs and the prayer behind such a person must be repeated",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible and carries no blame as long as the person is praying alone and not leading a congregation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is specifically recommended for elderly people over 60 years old to preserve their energy for the actual prayer itself",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fuqaha are unanimously agreed that it is makrooh (disliked) for the one reciting the iqaamah to do so sitting without an excuse, as it goes against the Sunnah practice from the time of the Prophet. The Sunnah is to give both adhaan and iqaamah standing. However, some Hanbali scholars like Ibn Haamid and Shaykh Taqiy al-Deen went further and said the adhaan or iqaamah given while sitting is invalid and should be repeated.",
+      "tags": ["Call for prayer", "Iqaamah", "Prayer Rulings"],
+      "source": "IslamQA reference 147629"
+    }
+  ]
+}

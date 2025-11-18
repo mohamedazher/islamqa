@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 2121,
+      "questionText": "What is the ruling on a menstruating woman doing ghusl after engaging in sexual contact with her husband (excluding intercourse)?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "She does not need to do ghusl because her impurity lasts as long as the blood is flowing",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She must do ghusl immediately after any form of sexual contact to resume prayers",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She should delay ghusl until three days have passed since the sexual contact",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She must do wudu instead of ghusl and can continue praying during menses",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A menstruating woman does not need to do ghusl after having sexual contact because her state of impurity continues as long as the blood is flowing and only ends when the bleeding stops and she performs ghusl. The Prophet (peace and blessings of Allah be upon him) said regarding menstruating women: 'Do everything except have intercourse' (reported by Muslim, 455).",
+      "tags": ["Menstruation and Post-Natal bleeding"],
+      "source": "IslamQA reference 2121"
+    },
+    {
+      "reference": 21976,
+      "questionText": "What is the ruling on making du'a after obligatory prayers while raising the hands?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is bid'ah because it was not narrated that the Prophet or his Companions did this",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is obligatory for both the imam and the congregation to do this together",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is recommended only for the imam while the congregation makes du'a silently",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is Sunnah when done individually but bid'ah when the imam and congregation do it in unison",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Making du'a after obligatory prayers while raising the hands is bid'ah (innovation), because it was not narrated that the Prophet (peace and blessings of Allah be upon him) or any of his Companions did this. However, making du'a without raising hands is permissible, as there are some ahadith concerning that, according to Fatawa al-Lajnah al-Daimah (7/103).",
+      "tags": ["Congregational Prayer", "Innovations in Religion and Worship", "Sunnah Actions in Prayer"],
+      "source": "IslamQA reference 21976"
+    },
+    {
+      "reference": 118435,
+      "questionText": "What is the status of making an animal face the qiblah during slaughter?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is Sunnah but not obligatory, and the slaughter is valid even if facing another direction",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is obligatory only when slaughtering hadiy (sacrificial animals for Hajj) but not for regular slaughter",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is obligatory in all cases and the slaughter is invalid if the animal does not face the qiblah",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It was recommended by Ibn 'Umar but was not practiced by the Prophet himself",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Sunnah with regard to slaughter is to make the animal face towards the qiblah, but that is not obligatory. If one slaughters it facing any other direction, the slaughter is halaal, but he has omitted a Sunnah, as stated in Fatawa al-Lajnah al-Daa'imah (22/477). The Sunnah applies in all cases whether hadiy, udhiyah, or otherwise.",
+      "tags": ["Food & Nourishment"],
+      "source": "IslamQA reference 118435"
+    },
+    {
+      "reference": 353992,
+      "questionText": "Why is the organized tawarruq model used by some financing platforms considered impermissible?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because the platform buys the product, sells it on credit to the company, then sells it on behalf of the company to obtain cash",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because the company must obtain written permission from the local Islamic council before each transaction",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because the profit margins charged by the platform exceed the maximum allowed by Islamic law",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because the platform charges administrative fees to both the investor and the company",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Organized tawarruq is haraam according to statements from the International Islamic Fiqh Council and the Fiqh Council of the Muslim World League. In this model, the platform buys a product, sells it on credit to the company requesting financing, then sells it on behalf of that company to another trader so the company can obtain cash. The permissible alternative is for the platform to sell items on credit to the company, then the company sells the items themselves.",
+      "tags": ["Investment"],
+      "source": "IslamQA reference 353992"
+    },
+    {
+      "reference": 151261,
+      "questionText": "According to the answer, what is one of the main reasons for criticizing non-Muslim countries that ban the niqab?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "They claim to be secular and separate church from state, yet they fight a religious symbol",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They apply the ban uniformly to all religions and ethnic groups without any exception",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They consulted with Islamic scholars before implementing the ban and ignored their advice",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They provide financial compensation to affected Muslim women for loss of employment",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "One of the key criticisms is that these countries claim to be secular and to have separated church from state, yet they are fighting a religious symbol (the niqab). Additionally, they claim to protect personal freedom but apply it selectively - allowing those who take off most of their clothes but not those who cover up.",
+      "tags": ["Inviting others to Islam"],
+      "source": "IslamQA reference 151261"
+    },
+    {
+      "reference": 106553,
+      "questionText": "Can a Makkan pilgrim perform a voluntary tawaaf and then do the saa'i of Hajj before standing in 'Arafah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, because saa'i is only valid after tawaaf al-qudoom, which Makkans do not perform",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, but only if the voluntary tawaaf consists of at least seven complete circuits",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Yes, provided he performs it in the early morning hours before the Fajr prayer",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "No, because Makkan pilgrims are required to delay all rituals until after returning from 'Arafah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "This is not valid because saa'i is only valid after tawaaf al-qudoom (the tawaaf of arrival), but the Makkan (resident of Makkah) does not have to do tawaaf al-qudoom. Based on that, performing saa'i after a voluntary tawaaf is not valid, and if he has done this, he must repeat the saa'i because it was not done at the right time.",
+      "tags": ["Sifat al-Hajj wa'l-'Umrah (Description of Hajj and 'Umrah)"],
+      "source": "IslamQA reference 106553"
+    },
+    {
+      "reference": 285242,
+      "questionText": "Why must a person refuse the free life insurance offered by a bank when opening a current account?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because a gift in return for a loan is haraam, and a current account is considered a loan to the bank",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because the insurance premiums are calculated using interest-based formulas forbidden in Islam",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because accepting it requires signing the contract during prohibited times of the day",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because life insurance is only permissible when purchased directly from an Islamic company, not as a gift",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A current account is regarded from a shar'i perspective as a loan from the customer to the bank, as stated by the International Islamic Fiqh Council. Therefore, the free life insurance constitutes a gift in return for a loan, which is haraam. As reported in Sahih al-Bukhari from Abdullah ibn Salaam: if someone owes you something and offers you extra (even something small like straw or barley), do not accept it, for it is riba.",
+      "tags": ["Insurance"],
+      "source": "IslamQA reference 285242"
+    },
+    {
+      "reference": 260806,
+      "questionText": "What did Shaykh al-Albaani conclude about the addition of the word 'kareem' in the du'a of Laylat al-Qadr?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It has no basis and appears to be inserted by a scribe or modern typist",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is authentic because it was narrated by an-Nasaa'i via the same isnaad as at-Tirmidhi",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is acceptable to include it because it appears in the Indian edition of at-Tirmidhi",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It should be included but placed in parentheses to indicate ongoing scholarly debate",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh al-Albaani stated in Silsilat al-Ahaadeeth as-Saheehah (13/140) that the additional word 'kareem' has no basis in the earlier sources. He concluded that it appears to be inserted by one of the scribes or modern typists, and noted that an-Nasaa'i narrated it via the same isnaad without this addition.",
+      "tags": ["Da'eef (weak) hadiths", "Supplication"],
+      "source": "IslamQA reference 260806"
+    },
+    {
+      "reference": 286684,
+      "questionText": "What is the ruling on saying Bismillah out loud when taking off one's clothes in the bathroom?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is makruh because it is not obligatory like saying Bismillah before wudu, but one may say it in the heart",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible because the Prophet specifically commanded it to conceal the 'awrah from the jinn",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is obligatory because removing clothes without Bismillah exposes one to the harmful gaze of jinn",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible only if the bathroom has proper ventilation and adequate lighting",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "It is makruh to say Bismillah out loud in the bathroom when taking off clothes because this is not obligatory (unlike saying Bismillah before wudu according to some scholars). However, there is nothing wrong with keeping it in mind without uttering it out loud, as Shaykh Ibn 'Uthaymin indicated regarding praising Allah after sneezing in the bathroom.",
+      "tags": [],
+      "source": "IslamQA reference 286684"
+    },
+    {
+      "reference": 101260,
+      "questionText": "What is the ruling on accepting interest from a bank to compensate for the decreased purchasing power of deposited money?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is haraam because loss in buying power does not make it permissible to stipulate interest, and the loan should be repaid as is",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible up to the exact percentage of inflation as calculated by government authorities",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible only for amounts that exceed 100,000 currency units deposited for more than five years",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is haraam unless the depositor first obtains written permission from three qualified Islamic scholars",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Loss in the buying power of money does not make it permissible to stipulate interest, which is the essence of riba. The loan should be repaid as is even if its value has decreased. The fuqaha are unanimously agreed that if money's value increases or decreases, the borrower must give what he took in terms of amount, as stated by Imam al-Isbejaabi in his explanation.",
+      "tags": ["Interest"],
+      "source": "IslamQA reference 101260"
+    }
+  ]
+}

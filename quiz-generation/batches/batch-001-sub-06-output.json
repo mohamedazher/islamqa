@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 300556,
+      "questionText": "What is the ruling on racing homing pigeons for prizes (such as certificates, cups, or money)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not permissible because prizes in contests are only allowed for archery, horse races, or camel races",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible if only certificates and cups are given, not money",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible if the pigeons are kept for carrying messages or as pets rather than racing",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible if done in private areas where it does not lead to looking into people's houses",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) said: 'There should be no prizes for contests except in archery, horse races or camel races.' Racing pigeons for any type of prize—whether money, cups, or certificates—is not permissible, as it does not fall under the types of competitions for which Islam allows awarding prizes.",
+      "tags": ["Races and games"],
+      "source": "IslamQA reference 300556"
+    },
+    {
+      "reference": 11527,
+      "questionText": "According to the Sunnah, when should you move your forefinger during the Tashahhud in prayer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Point and move the finger every time you make du'aa' during the Tashahhud, such as when saying 'Al-salaamu 'alayka' and 'Allahumma salli 'ala Muhammad'",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only point at the beginning of the Tashahhud, then keep the finger still throughout the rest",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only move the finger when saying 'Allahumma salli 'ala Muhammad,' but keep it still at other times",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Point with the finger throughout the Tashahhud, but do not move it at all",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymeen explained that every time you make du'aa' you should move your finger upwards towards the One upon Whom you are calling. This includes when saying 'Al-salaamu 'alayka ayyuha'l-Nabiyyu,' 'Allahumma salli 'ala Muhammad,' 'A'oodhu Billaaih min 'adhaabi Jahannam,' and all other du'aa' phrases in the Tashahhud.",
+      "tags": ["How Prayer is Done", "Sunnah Actions in Prayer"],
+      "source": "IslamQA reference 11527"
+    },
+    {
+      "reference": 297658,
+      "questionText": "Is the statement 'No one asks Allah for some worldly matter but he will get an equal amount of worries and stress' sound?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The statement is false; it is prescribed to ask Allah for good in both this world and the hereafter, as the Prophet taught in authentic hadiths",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is true only if the person asks for worldly matters more than three times daily",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is true except when specifically asking for pardon and wellbeing",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is false only for prophets and righteous people, but true for ordinary Muslims",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "This statement with such a general meaning is undoubtedly false. The Prophet (peace and blessings of Allah be upon him) taught: 'Ask your Lord for pardon and wellbeing in this world and in the Hereafter.' What is blameworthy is when worldly concerns are ALL that a person cares about with no interest in the hereafter, or seeking worldly gain through haraam means.",
+      "tags": ["The Heart Softeners"],
+      "source": "IslamQA reference 297658"
+    },
+    {
+      "reference": 7859,
+      "questionText": "What is the ruling and reward for fasting six days of Shawwal after Ramadan?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is Sunnah Mustahabbah (recommended, not obligatory) and brings the reward of fasting an entire year",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is obligatory (wajib) for all Muslims who are physically able to fast",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is recommended and the reward is equal to fasting six additional months",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is only recommended if one missed days in Ramadan that need to be made up",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) said: 'Whoever fasts Ramadan and follows it with six days of Shawwal, it will be as if he fasted for a lifetime.' This is because each good deed is multiplied by ten: Ramadan (30 days × 10 = 300 days/10 months) plus six days of Shawwal (6 × 10 = 60 days/2 months) equals 12 months.",
+      "tags": ["Supererogatory Fasts", "Virtues of deeds"],
+      "source": "IslamQA reference 7859"
+    },
+    {
+      "reference": 112061,
+      "questionText": "Under what circumstances is it permissible for a female nurse to wash a male patient and see his 'awrah?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is permissible only when necessary and if there is no man available to do the job",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is always permissible as long as the nurse maintains professional conduct",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible only if the patient is unconscious and unable to object",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible if the patient's family provides written consent",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Based on the verse 'So keep your duty to Allah and fear Him as much as you can' (al-Taghaabun 64:16), it is permissible for a female nurse to see a male patient's 'awrah when necessary, but only if there is no man available to do this job. If a man is available, then it is not permissible for female nurses to do that.",
+      "tags": ["Medicine and medical treatments"],
+      "source": "IslamQA reference 112061"
+    },
+    {
+      "reference": 89705,
+      "questionText": "What is the ruling on offering a sacrifice in gratitude to Allah when buying a new house or car?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is mustahabb (recommended) if done to give thanks to Allah, honour relatives and neighbours, and show hospitality",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is obligatory (wajib) when purchasing a house or car as a sign of gratitude",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It must be slaughtered on the threshold before entering the house to ward off calamities and make the house blessed",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible only if performed within the first three days of ownership",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "It is mustahabb to give thanks to Allah by offering a sacrifice and inviting loved ones after moving into a new home. However, if done to placate jinn, ward off calamities, or slaughtered on the threshold before entering, this would be haraam and constitute shirk. The proper intention is to thank Allah and show hospitality to people.",
+      "tags": ["Acts of Worship"],
+      "source": "IslamQA reference 89705"
+    },
+    {
+      "reference": 5419,
+      "questionText": "According to the consensus of Muslims, what are the two holy places (Haramayn) in Islam?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Makkah and Madeenah only, with no third holy place recognized",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Makkah, Madeenah, and Jerusalem (Bayt al-Maqdis)",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Makkah, Madeenah, and the valley of Dujj in al-Taa'if",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Makkah, Madeenah, and Khaleel (Hebron) in Palestine",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Taymiyah stated that there is no holy place (Haram) on earth apart from Makkah and Madeenah, according to the consensus of Muslims. No other place should be called Haram, not Jerusalem (Bayt al-Maqdis), not Khaleel in Palestine, nor the valley of Dujj in al-Taa'if (which Shaykh Ibn 'Uthaymeen confirmed is not a holy place).",
+      "tags": ["Virtues and Merits"],
+      "source": "IslamQA reference 5419"
+    },
+    {
+      "reference": 360625,
+      "questionText": "For a woman who wears a wig due to complete hair loss from illness, what is the ruling regarding wudu and ghusl?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She may wipe over the wig when doing wudu, but must remove it when doing ghusl because water must reach all skin",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She must remove the wig for both wudu and ghusl",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She may keep the wig on for both wudu and ghusl, wiping over it in both cases",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She may wipe over it for ghusl, but must remove it for wudu",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The concession allows wiping over the wig when doing wudu (based on the principle of making things easier, similar to how the Prophet wiped over his hair after applying talbeed during Hajj). However, the wig must be removed when doing ghusl, because it is obligatory to make water reach all of the skin during ghusl.",
+      "tags": ["Adornments", "Purity"],
+      "source": "IslamQA reference 360625"
+    },
+    {
+      "reference": 220996,
+      "questionText": "What is the ruling on fasting with the dual intention of seeking reward from Allah and losing weight?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is permissible to combine both intentions, though it is preferable to intend the fast purely for seeking reward",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is haraam to combine two intentions in one act of worship",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible only if losing weight is the primary intention",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is valid only if one fasts for at least 15 days consecutively with both intentions",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "As-Suyooti stated that combining the intention of worship with a motive that is not worship does not invalidate it, if that secondary outcome (like losing weight or cooling oneself) will inevitably happen regardless of intention. The person did not plan to undermine sincerity; rather, the secondary benefit is an inevitable outcome of the prescribed act of worship.",
+      "tags": ["Sincerity", "What is permitted for the fasting person"],
+      "source": "IslamQA reference 220996"
+    },
+    {
+      "reference": 128846,
+      "questionText": "What is the ruling for a Sunni woman whose Shi'ah family refuses to let her marry a righteous Sunni man?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "The family's guardianship is waived due to the difference in religion and their preventing her from marrying a compatible suitor; she may marry via a shar'i judge or man of authority",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She must wait until she reaches 40 years of age to marry without their consent",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She can marry with only her mother's approval, even if other family members object",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She must first make three formal attempts to convert her family to Sunni Islam before she can marry without their consent",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If the family hold beliefs that constitute kufr (such as believing the Qur'an is distorted or that the Sahaabah are disbelievers), their guardianship is waived because of the difference in religion. Additionally, their preventing her from marrying a compatible suitor is another reason that waives their guardianship. She should refer her case to a shar'i judge, or if unavailable, to a man of good character with authority over Muslims.",
+      "tags": ["Conditions of Marriage"],
+      "source": "IslamQA reference 128846"
+    }
+  ]
+}

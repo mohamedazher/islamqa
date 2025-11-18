@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 153572,
+      "questionText": "According to Islamic scholars, when is it permissible to pray in the bathroom?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only in extreme necessity when no other place is available and combining prayers is not possible",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Whenever you need to pray secretly and your family forbids you from praying elsewhere",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is never permissible even in cases of extreme hardship or danger",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Whenever you combine Dhuhr and Asr or Maghrib and Isha prayers to avoid difficulty",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The hadith states that 'all the earth is a place of prayer except graveyards and bathrooms.' However, Shaykh Ibn Baz ruled that in extreme necessity when a person cannot find any other place and faces serious harm (such as persecution for their religion), it is permitted to pray in the bathroom rather than omit the prayer entirely. The person should first try combining prayers at easier times.",
+      "tags": ["Conditions for Prayer", "Prayer"],
+      "source": "IslamQA reference 153572"
+    },
+    {
+      "reference": 10271,
+      "questionText": "What should a person do if they frequently experience doubts about how many rak'ahs they have prayed?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Not pay attention to those doubts and not do sujood al-sahw for them",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Always perform sujood al-sahw after every prayer where doubt occurs",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Act on what seems most likely and perform sujood al-sahw in every case",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Stop the prayer immediately and restart from the beginning",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Muhammad ibn Saalih al-'Uthaymeen stated that a person who frequently experiences doubts during prayer should not pay attention to those doubts and should not do sujood al-sahw for them, because too many doubts lead to waswaas (insinuating whispers from Shaytaan). This prevents the person from falling into excessive doubt and obsession.",
+      "tags": ["Forgetfulness During Prayer", "Prayer"],
+      "source": "IslamQA reference 10271"
+    },
+    {
+      "reference": 40299,
+      "questionText": "What must a traveler do if he has reached his destination city and hears the call to prayer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Attend congregation in the mosque and pray the full prayer behind the resident imam",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Pray shortened two-rak'ah prayers alone in his accommodation",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Pray shortened prayers in the mosque while the imam prays full prayers",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Choose freely between praying in congregation or praying alone based on what is easier",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to Shaykh Ibn Baz and Shaykh Ibn 'Uthaymeen, when a traveler reaches his destination and hears the adhaan, he must attend prayers in congregation in the mosque. If the imam is a resident, the traveler must pray the full prayer with him, not shortened. Ibn 'Abbas said this is the Sunnah when asked why a traveler prays two rak'ahs alone but four behind a resident imam.",
+      "tags": ["Congregational Prayer", "Prayer of the Traveler"],
+      "source": "IslamQA reference 40299"
+    },
+    {
+      "reference": 10053,
+      "questionText": "According to authentic hadith, what strength will a believer be given in Paradise for eating, drinking, desire, and sexual intercourse?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "The strength of one hundred men",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The strength of ten men",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The strength of fifty men",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Unlimited divine strength beyond any earthly measure",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) said: 'The believer in Paradise will be given such and such strength for sexual intercourse.' When asked if this was really possible, he said: 'He will be given the strength of one hundred (men).' This was narrated by At-Tirmidhi (2459) who classified it as authentic. Another hadith specifies this applies to eating, drinking, desire, and sexual intercourse.",
+      "tags": ["Paradise and Hell", "Afterlife"],
+      "source": "IslamQA reference 10053"
+    },
+    {
+      "reference": 327313,
+      "questionText": "Under what condition is it permissible to use the National Debt Assistance Center to pay off remaining mortgage debt after the bank sells your house?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only if they do not charge any extra amount over what they will pay to the bank",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only if you arrange to pay them back within exactly five years",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only if the remaining debt after the sale is more than 100,000 pounds",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only if you have already paid the bank for at least three to four years",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars state that it is permissible to approach the National Debt Assistance Center to take on the debt and pay them in installments, provided that they do not take any extra amount over what they will pay to the bank. If they charge extra, this is prohibited usury, and you must then keep the house and pay the bank directly to avoid entering into a new usurious transaction.",
+      "tags": ["Borrowing & Lending", "Interest"],
+      "source": "IslamQA reference 327313"
+    },
+    {
+      "reference": 126602,
+      "questionText": "What did the Prophet (peace and blessings of Allah be upon him) say about those who imitate other peoples?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Whoever imitates a people is one of them",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Imitation is permissible in outward appearance as long as the heart remains pure",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Muslims may imitate non-Muslims in trade, commerce, and worldly matters",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Imitation is allowed if it does not involve directly religious symbols like the cross",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) said: 'Whoever imitates a people is one of them,' as narrated by Imam Ahmad with a sound chain. He also said: 'He is not one of us who imitates others; do not imitate the Jews or the Christians.' This was narrated by At-Tirmidhi as a hasan hadith. These authentic statements establish the prohibition on imitating disbelievers in their distinctive practices.",
+      "tags": ["Alliance and Amity, Disavowal and Enmity"],
+      "source": "IslamQA reference 126602"
+    },
+    {
+      "reference": 67578,
+      "questionText": "According to the Standing Committee of Scholars, when is it permissible to delay paying zakaah after the year has been completed?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only with a legitimate excuse such as no poor people available or the money being inaccessible",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It can be delayed for three to four years to invest in Islamic banks for da'wah projects",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It can be delayed until Ramadan regardless of when the year is completed",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It can be delayed indefinitely if the zakaah funds are used to establish charitable centers",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Standing Committee stated that it is not permissible to delay paying zakaah after one year has been completed unless there is a legitimate shar'i excuse, such as there being no poor people around, not being able to get it to them, or the money not being accessible. The only exception for delaying to Ramadan is if the year ends in the second half of Sha'ban, making it only a short delay.",
+      "tags": ["Where Zakah is to Be Spent", "Zakah"],
+      "source": "IslamQA reference 67578"
+    },
+    {
+      "reference": 4236,
+      "questionText": "In the hadith of the seven whom Allah will shade on the Day of Judgment, which aspects are specific to men only?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Being a righteous leader and performing congregational prayers in the mosque",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Growing up in the worship of Allah and remembering Allah in solitude",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Giving charity so secretly that the left hand does not know what the right hand gave",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Refusing temptation to illegal relations by saying 'I fear Allah'",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars explain that the righteous leader is specific for men, and performing prayers in congregation in the mosque is also specific for men, as the prayer of a woman in her house is more virtuous according to authentic hadith. All other merits mentioned (growing up worshipping Allah, mutual love for Allah's sake, refusing temptation, secret charity, and remembering Allah alone) apply equally to both men and women.",
+      "tags": ["Commentary on Hadith", "Virtues of deeds"],
+      "source": "IslamQA reference 4236"
+    },
+    {
+      "reference": 21794,
+      "questionText": "What does the phrase 'for Allah's cause' refer to in the Quranic verse about the recipients of zakaah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The mujaahideen who strive physically for the sake of Allah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Islamic educational courses and study programs in Europe",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Any trustworthy Islamic institution engaged in da'wah work",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Teachers and students of Islamic knowledge in areas of great need",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars clarified that 'for Allah's cause' in the verse about zakaah recipients refers specifically to the mujaahideen who strive for the sake of Allah. Study courses and Islamic education programs are not included under this category. However, if individual teachers or students are poor, they may receive zakaah because of their poverty, as the verse mentions 'the poor' as a separate category.",
+      "tags": ["Poor-due or obligatory charity", "Where Zakah is to Be Spent"],
+      "source": "IslamQA reference 21794"
+    },
+    {
+      "reference": 239755,
+      "questionText": "What is the authentic ruling on the hadith about making supplication when looking in the mirror ('O Allah, You have made my physical appearance good, so make my manners good')?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is mawdu' (fabricated) with no authentic chains of narration",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is sahih (authentic) and recommended to recite regularly",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is hasan (good) and acceptable to act upon for those who wish",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is da'if (weak) but can be used for virtuous deeds and general supplications",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The hadith was narrated through multiple chains, but all are either fabricated or extremely weak. Ibn Abi's-Sariy, one narrator, was classified as a liar. 'Abd ar-Rahman ibn Ishaq is matruk (rejected). Other chains contain narrators described as liars, fabricators, or unknown. The scholars concluded this hadith is mawdu' (fabricated) and has no sahih chains, despite being found in several books.",
+      "tags": ["Manners", "Science of hadith"],
+      "source": "IslamQA reference 239755"
+    }
+  ]
+}

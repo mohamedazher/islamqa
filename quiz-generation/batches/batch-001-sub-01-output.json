@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 21392,
+      "questionText": "What is the ruling on kissing the cover of the Ka'bah or the Mus-haf (Quran)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Kissing them is considered bid'ah (innovation) because only the Black Stone may be kissed",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They may be kissed if following the example of Umar ibn al-Khattab who kissed the Black Stone",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only the Yemeni Corner may be kissed, not the Ka'bah cover or Mus-haf",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They may be kissed with the intention of seeking blessings from them",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Kissing any place on earth is bid'ah except the Black Stone. The only reason the Black Stone may be kissed is because the Prophet practiced this. Umar said he would not kiss it except that the Prophet did so. It is not permissible to kiss the Ka'bah's covers, stones, the Yemeni Corner, or the Mus-haf.",
+      "tags": ["Mistakes made by pilgrims performing Hajj and 'Umrah"],
+      "source": "IslamQA reference 21392"
+    },
+    {
+      "reference": 12046,
+      "questionText": "If a person offered a financial guarantee and died before completing payment, who is responsible for the remaining amount?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The heirs must pay the remaining amount because it is a guaranteed debt",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The debt is forgiven and no one needs to pay since the guarantor died",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only the original debtor is responsible and the heirs are exempted from payment",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The creditor must wait until the heirs can voluntarily afford to pay",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "When someone offers a financial guarantee and dies, the heirs must pay the remainder because this is a guarantee. The creditor has the right to ask for payment from either the person originally guaranteed or from the guarantor's heirs, according to Shaykh Muhammad ibn Saalih al-'Uthaymeen.",
+      "tags": ["Compensation"],
+      "source": "IslamQA reference 12046"
+    },
+    {
+      "reference": 32762,
+      "questionText": "What happened to the Jewish woman who poisoned the Prophet's food at Khaybar?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She was executed as qisaas punishment after Bishr ibn al-Bara' died from the poison",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She was immediately killed by the Companions when they discovered the poisoning plot",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The Prophet forgave her and she was released without any punishment",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She was banished from Khaybar to another region but not executed",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Jewish woman Zaynab bint al-Haarith poisoned mutton and gave it to the Prophet. Initially he did not kill her, but when Bishr ibn al-Bara' died as a result of eating the poisoned food, the Prophet executed her as qisaas (retribution). The poison continued to affect the Prophet until his death four years later.",
+      "tags": ["Biography of the Prophet"],
+      "source": "IslamQA reference 32762"
+    },
+    {
+      "reference": 22885,
+      "questionText": "According to the hadith, why does giving charity when healthy bring greater reward than giving through a will when dying?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because when healthy and miserly, a person fears poverty, making the intention more sincere and the reward greater",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because charity given after death cannot be accepted by Allah under any circumstances",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because when dying, a person is too weak to make proper intentions for charity",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because the Shaytaan prevents dying people from giving charity to their families",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet said giving charity when healthy and miserly is best, because miserliness is more likely when one is in good health and hopes to live long. When healthy, Shaytaan makes one fear poverty, so giving despite this brings greater reward. In contrast, when dying, one realizes others will take the wealth anyway, so the charity is less meaningful.",
+      "tags": ["Charitable donations for the sake of Allah"],
+      "source": "IslamQA reference 22885"
+    },
+    {
+      "reference": 17,
+      "questionText": "What should a person do if the prayer has already started while they are on their way to the masjid?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Walk with calmness and respect, pray what they catch, and complete what they missed",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Run quickly to catch the first rak'ah because it has special virtue",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Stop outside the masjid and wait to pray with the next congregation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Enter the masjid quickly but delay joining until the imam finishes the first rak'ah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet said: 'If salaat is started, do not approach it running, but approach it walking, with calmness. Whatever you catch up with, pray, and what you miss, complete it.' This shows one should maintain dignified calmness rather than rushing to prayer.",
+      "tags": ["Things Which Invalidate the Prayer"],
+      "source": "IslamQA reference 17"
+    },
+    {
+      "reference": 13810,
+      "questionText": "What is the prescribed Islamic alternative for those who want to venerate the day the Prophet Muhammad was born?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fast on Mondays, as the Prophet said that is the day he was born and received Revelation",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Gather for special prayers on the 12th of Rabi' al-Awwal each year",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Recite the Quran collectively in the mosque on the night of his birth",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Give extra charity specifically on the anniversary date of his birth",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet and his Companions never celebrated Mawlid, so it is not permissible. The Islamic alternative is to fast on Mondays. When asked about fasting on Mondays, the Prophet said: 'On that day I was born and on that day the Revelation came to me.' This is the evidence-based way to venerate his birth.",
+      "tags": ["Calling non-Muslims to Islam", "Innovations in Religion and Worship"],
+      "source": "IslamQA reference 13810"
+    },
+    {
+      "reference": 6030,
+      "questionText": "According to the ruling, what makes the person described (who sells wine and does not pray) a kafir?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He does not pray, as the hadith states that abandoning prayer is what stands between a person and kufr",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He sells wine in his shop, which is one of the major sins that directly leads to kufr",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He inappropriately associates with Muslim women who are not his mahram",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He forces customers to drink wine from his shop against their will",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The ruling states: 'The one who does not pray is not a Muslim, because of the hadith: All that stands between a man and kufr is his giving up prayer.' While selling wine is haram, it is specifically the abandonment of prayer that makes this person a kafir according to this hadith.",
+      "tags": ["Abandoning or Neglecting Salaat", "Food & Nourishment"],
+      "source": "IslamQA reference 6030"
+    },
+    {
+      "reference": 21511,
+      "questionText": "What are the acceptable methods for disposing of papers that contain Allah's name when they are no longer needed?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bury them in a clean place, burn them, or store them in a protected place like a cupboard",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Recycle them with other papers at a standard recycling center",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Tear them into small pieces and dispose of them in regular trash",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Wash them in water until the names are no longer visible, then discard",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Papers containing Allah's name should be kept and protected from disrespect. When no longer needed, they should be buried in a clean place, burnt, or kept in a protected place such as a cupboard or on shelves where they will not be treated with disrespect.",
+      "tags": ["Jurisprudence and Islamic Rulings"],
+      "source": "IslamQA reference 21511"
+    },
+    {
+      "reference": 34655,
+      "questionText": "What should a person do if someone gives them a gift but they cannot afford to give something back?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Make du'aa for the giver and keep doing so until they think they have done enough",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Borrow money to purchase an equivalent gift to avoid embarrassment in the community",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Explain their financial situation and promise to reciprocate when they become wealthy",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Return the original gift to avoid creating an obligation they cannot fulfill",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet said: 'Whoever does you a favour, then respond in kind, and if you cannot find anything to give him, then make du'aa' for him (and keep doing so) until you think that you have done enough.' While reciprocating with a gift is mustahabb (preferable), it is not obligatory, and sincere du'aa is the alternative when one cannot afford to give back.",
+      "tags": ["Gifts and Presents"],
+      "source": "IslamQA reference 34655"
+    },
+    {
+      "reference": 208,
+      "questionText": "What is the ruling on witr prayer according to the majority of scholars?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is a confirmed sunnah that the Prophet practiced consistently, but not obligatory",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is one of the five obligatory prayers mentioned in the hadith of the Bedouin",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is obligatory when at home but becomes voluntary when traveling",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is obligatory only for those who regularly perform qiyam al-layl at night",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The majority of scholars assert that witr prayer is a confirmed sunnah that the Prophet practiced consistently, not obligatory. This is based on the hadith where the Prophet told the Bedouin about the five obligatory prayers and said 'Unless you volunteer of your own.' The Prophet never neglected witr whether traveling or at home.",
+      "tags": ["Night Prayer"],
+      "source": "IslamQA reference 208"
+    }
+  ]
+}

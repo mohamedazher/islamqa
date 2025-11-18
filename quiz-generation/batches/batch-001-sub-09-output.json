@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 311760,
+      "questionText": "What did Shaykh al-Albani conclude about the hadith 'There is no charity that brings a greater reward than water'?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is very weak (da'if) on its own but becomes hasan (authentic) due to corroborating evidence from similar hadiths",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is sahih (authentic) because it was narrated by Ibn 'Adiyy in Al-Kamil with a strong chain",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It remains very weak (da'if jiddan) even with supporting narrations and should not be cited",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is rejected (munkar) because all its narrators are unknown and unreliable",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh al-Albani initially determined the hadith to be very weak (da'if) because all narrators in its chain are weak. However, he later concluded it is hasan due to corroborating evidence from similar hadiths with weak chains that, when combined, strengthen the overall text. The scholar noted this in his works As-Silsilah ad-Da'ifah and Sahih at-Targhib wa't-Tarhib.",
+      "tags": ["Da'eef (weak) hadiths", "Charity", "Hadith Sciences"],
+      "source": "IslamQA reference 311760"
+    },
+    {
+      "reference": 68828,
+      "questionText": "What is the majority view among scholars regarding sighting the new moon of Ramadan on the first night of the month?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is a communal obligation (fard kifaya), and if all people fail to do it then they are sinning",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is an individual obligation (fard 'ayn) upon every adult Muslim with good eyesight",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is only the responsibility of the ruler and government authorities to organize",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is merely recommended (mustahabb) for extra reward but not obligatory",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The majority of scholars view moon sighting as a communal obligation (fard kifaya) - if no one does it, the entire community is sinning. This is also the Hanafi position. The Hanbalis considered it recommended (mustahabb), while the obligation is connected to two pillars of Islam: fasting and Hajj, making it particularly important on the 29th of Sha'ban, Ramadan, and Dhul-Qi'dah.",
+      "tags": ["Seeing the New Moon", "Ramadan", "Fiqh of Fasting"],
+      "source": "IslamQA reference 68828"
+    },
+    {
+      "reference": 104119,
+      "questionText": "According to the answer, when will Allah's help and victory be granted to the Muslims?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Every time the Muslims achieve a high level of faith and righteous deeds, Allah's promise will inevitably be fulfilled",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only after Muslims have endured severe trials for a minimum of 40 years",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When Muslims possess superior military technology and outnumber their enemies",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "After establishing complete political control over all historically Islamic lands",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "As Shaykh as-Sa'di explained, Allah's promise of help has been fulfilled throughout history and will continue: every time Muslims achieve a high level of faith and righteous deeds, the promise is fulfilled. The disbelievers and hypocrites are only given power over Muslims because of shortcomings in faith and righteous deeds. The first generation attained this through their superior faith, which led to conquests in the east and west.",
+      "tags": ["Striving and migrating for the sake of Allaah", "Divine Help", "Jihad"],
+      "source": "IslamQA reference 104119"
+    },
+    {
+      "reference": 38145,
+      "questionText": "What does it mean when the hadith states that a person's prayers will not be accepted for forty days after drinking alcohol?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The person will not be rewarded for their prayers, but the prayers remain valid and must still be performed",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The prayers are completely invalid and must be repeated after the forty-day period ends",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The person should stop praying for forty days as a form of repentance and purification",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only the Friday congregational prayer is affected, while daily prayers remain accepted",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "As Abu 'Abd-Allah ibn Mandah and al-Nawawi explained, the phrase 'his prayers will not be accepted' means he will not be rewarded for his prayers for forty days as a punishment. The prayers remain valid and he does not have to repeat them. The person must continue offering prayers on time and fasting in Ramadan, as omitting these would be an even greater sin than drinking alcohol.",
+      "tags": ["Drinks", "Alcohol", "Prayer", "Major Sins"],
+      "source": "IslamQA reference 38145"
+    },
+    {
+      "reference": 266848,
+      "questionText": "What factors do scholars consider when determining visitation times for a father to see his child who is in the mother's custody?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "The best interests of the child and ensuring visits are on a reasonable basis so the custodial parent is not harmed",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only the financial capability of the father to provide gifts and entertainment during visits",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The stated preference of the child regardless of their age or level of understanding",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The distance between the parents' homes as the sole determining factor for frequency",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah, scholars consider two main factors: the best interests of the child in question, and that visits should be on a reasonable basis so the custodial parent will not be harmed. Each case should be worked out on its own merits, considering the circumstances of both parents and the child's welfare.",
+      "tags": ["Custody", "Family Law", "Children's Rights"],
+      "source": "IslamQA reference 266848"
+    },
+    {
+      "reference": 170589,
+      "questionText": "What is the ruling on taking a Mushaf from the mosque to read at home and then returning it later?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not permissible because Mushafs in mosques are awqaf (endowments) donated for public benefit in the mosque",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible as long as the Mushaf is returned within seven days",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is allowed if the person replaces it with a Mushaf of equal or better quality",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible if the person donates money equal to the Mushaf's value to the mosque",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "As Shaykh Ibn 'Uthaymeen stated, it is not permissible to take a Mushaf from the mosque even temporarily, because Mushafs in mosques are awqaf (religious endowments) for public benefit. Taking them means keeping them for oneself and depriving others, which is haraam. This remains impermissible even if replaced with another Mushaf, as the original should remain available for worshippers in the mosque.",
+      "tags": ["Islamic Endowments", "Quran", "Mosque Rulings"],
+      "source": "IslamQA reference 170589"
+    },
+    {
+      "reference": 26806,
+      "questionText": "What should a person do if it regularly takes 5-10 minutes for urine to stop completely after urination?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Get up 10 minutes before prayer time to allow time to urinate, wait for it to stop, then perform wudu",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Pray immediately after urinating using wadding or cotton to absorb any remaining drops",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Perform tayammum (dry ablution) instead of wudu to avoid contact with urine droplets",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Wait exactly 15 minutes after every urination regardless of circumstances before making wudu",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "As Shaykh Ibn 'Uthaymeen advised, if you know the urine stops after 5-10 minutes, get up 10 minutes before prayer time to urinate and wait for it to stop, then do wudu. If you cannot manage that timing and need to urinate urgently, you should wait even if you miss the prayer in congregation, as the Prophet (peace be upon him) said: 'There is no prayer when a person needs to relieve himself.'",
+      "tags": ["Purity", "Wudu", "Prayer Times"],
+      "source": "IslamQA reference 26806"
+    },
+    {
+      "reference": 26273,
+      "questionText": "What did Abu Mihjan (may Allah be pleased with him) do after he was released by the wife of Sa'd ibn Abi Waqqas to fight in the battle of al-Qaadisiyyah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He fought bravely on Sa'd's horse al-Balqa', scattered enemy groups, then voluntarily returned and put his feet back in the chains",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He fled the battlefield after being wounded and was captured by enemy forces",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He was killed in the battle and achieved martyrdom, which freed him from his punishment",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He refused to return to the chains and Sa'd had to send soldiers to capture and detain him again",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Abu Mihjan promised to return to his chains if he survived the battle. He fought heroically on Sa'd's horse al-Balqa', and did not attack any group of enemy soldiers without scattering them. After the battle ended, he kept his promise and returned to voluntarily put his feet back in the chains. This act of integrity impressed Sa'd, who then released him permanently and said he would never flog him for drinking wine again.",
+      "tags": ["The Companions of the Prophet", "Islamic History", "Jihad"],
+      "source": "IslamQA reference 26273"
+    },
+    {
+      "reference": 65784,
+      "questionText": "What should a woman with irregular bleeding do if she can distinguish between menstrual blood and non-menstrual bleeding (istihaadah)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She should stop praying and fasting during days when the blood is dark, thick, and has an unpleasant odor, as this is menstrual blood",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She should always continue fasting and praying regardless of the color, consistency, or smell of the blood",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She should stop praying only when the bleeding exceeds 100 milliliters per day measured accurately",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She should follow a fixed 7-day menstrual cycle starting from the first day of each lunar month",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the scholars, a woman with continuous bleeding should learn to distinguish between types of blood. Menstrual blood is dark and thick, has an unpleasant odor, and is usually accompanied by cramps. The bleeding of istihaadah is lighter in color and thin. Menses consists of the days when blood is dark and thick, while the other type of bleeding is istihaadah during which prayer and fasting continue.",
+      "tags": ["Menstruation and Post-Natal bleeding", "Istihaadah", "Women's Fiqh"],
+      "source": "IslamQA reference 65784"
+    },
+    {
+      "reference": 268821,
+      "questionText": "Under what condition is it permissible for a wife to take money from her husband without his knowledge?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only if the husband falls short in obligatory spending for her and the children, and she takes on a reasonable basis",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "If she intends to save the money for the children's education and future needs",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "If the husband is spending his money on haraam things like gambling or befriending other women",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "If she needs money to help her parents or relatives who are in financial difficulty",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the hadith of Hind bint 'Utbah, it is only permissible to take from the husband's wealth without his knowledge if he is falling short in obligatory spending. The Prophet (peace be upon him) told her: 'Take what is sufficient for you and your child on a reasonable basis.' If he is not falling short in obligatory spending, it is not permissible to take anything without his consent, as taking wealth without the owner's permission is haraam.",
+      "tags": ["Forbidden Kinds of Wealth", "Kind Treatment of Spouses", "Marriage Rights"],
+      "source": "IslamQA reference 268821"
+    }
+  ]
+}

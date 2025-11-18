@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 9414,
+      "questionText": "What is the prescribed Islamic response when experiencing whispers from Shaytaan about who created Allah?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Say 'A'oodhu Billaahi min al-Shaytaan ir-rajeem' and stop the thought by ignoring it completely",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Try to answer the question logically and debate with the whisper until satisfied",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Continue thinking about it deeply until you find a satisfactory philosophical answer",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Immediately seek consultation with a scholar before taking any other action",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) instructed that when Shaytaan whispers such questions, one should seek refuge with Allah by saying 'A'oodhu Billaahi min al-Shaytaan ir-rajeem' and completely stop and ignore the thought. By Allah's leave, it will then go away.",
+      "tags": ["Belief", "Shaytaan", "Whispers"],
+      "source": "IslamQA reference 9414"
+    },
+    {
+      "reference": 71170,
+      "questionText": "According to Shaykh Ibn Uthaymin, what is the ruling on human-like cartoons that appear on TV?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is most likely that they do not come under the same ruling as realistic human images",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They are completely forbidden just like sculpting and drawing realistic humans",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They are only permissible for children under the age of seven years old",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They are permissible only if they teach Islamic values and moral lessons",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Uthaymin stated that cartoons in human form most likely do not come under the same ruling as realistic human images. For non-human cartoons, there is nothing wrong with watching them so long as they are not accompanied by anything prohibited like music and do not distract from obligatory duties.",
+      "tags": ["Childrens Upbringing", "Images", "Media"],
+      "source": "IslamQA reference 71170"
+    },
+    {
+      "reference": 23349,
+      "questionText": "According to the scholars, why is an illicit relationship particularly worse when committed by a married woman compared to a married man?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It results in mixing of lineages and makes the husband doubt whether his children are really his",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Women are held to higher standards of religious accountability than men in all matters",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Married women face harsher legal penalties under Islamic law than married men",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Women's illicit relationships are statistically more likely to involve physical intimacy",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "For a Muslim woman to form an illicit relationship with a man who is not her mahram is considered worse than a man doing so because it results in mixing of lineages and makes the husband doubt whether his children are really his or not, which leads to a great deal of mischief.",
+      "tags": ["Love and the steps that lead to immoral actions", "Marriage", "Zina"],
+      "source": "IslamQA reference 23349"
+    },
+    {
+      "reference": 1401,
+      "questionText": "What is the ruling on working for a company that automatically provides life insurance to all employees without your request or agreement?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is no sin as long as you did not set up or agree to the insurance and the work itself is permissible",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "You must request the company to cancel the policy or your work becomes haram",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "You are sinful because accepting the job means accepting all benefits packages",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "You must donate the full insurance value to charity to purify your earnings",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "So long as it is not you who has set up and agreed to the insurance, there is no sin on you working there, as long as the work itself is permissible. The company's automatic provision of insurance does not make your employment haram.",
+      "tags": ["Insurance", "Employment", "Halal Income"],
+      "source": "IslamQA reference 1401"
+    },
+    {
+      "reference": 49018,
+      "questionText": "Does looking at one's own `awrah or someone else's `awrah invalidate wudu?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, because there is no evidence that looking at `awrah invalidates wudu",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, looking at any `awrah including your own requires repeating wudu",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only looking at a non-mahram person's `awrah invalidates wudu",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It invalidates wudu only if you look intentionally, not accidentally",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Standing Committee confirmed that wudu is not invalidated by looking at naked men and women, or by looking at one's own `awrah, because there is no evidence to that effect. Looking at the `awrah is not one of the things that invalidate wudu.",
+      "tags": ["Nullifiers of Wudu", "Awrah", "Purity"],
+      "source": "IslamQA reference 49018"
+    },
+    {
+      "reference": 83799,
+      "questionText": "Why did the Islamic Fiqh Council retract its initial permission for implanting a fertilized embryo from one wife into the womb of the husband's second wife?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "The second wife could become pregnant from relations with the husband around the same time, causing confusion about which child came from which source and mixing lineages",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The medical procedure was found to have excessively high risks for the wife carrying the embryo",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It violates the fundamental rights of the biological mother to carry her own child to term",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Research showed that this method always results in miscarriage or birth defects",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Islamic Fiqh Council retracted their permissibility ruling because the second wife may become pregnant with a second child from relations with her husband around the time of embryo implantation. This could result in twins where it may not be known which child resulted from the implanted embryo and which from relations with the husband, leading to confusion about who the real mother is and mixing of lineages.",
+      "tags": ["Psychological and Social Problems", "IVF", "Medical Issues"],
+      "source": "IslamQA reference 83799"
+    },
+    {
+      "reference": 79241,
+      "questionText": "What is the area of the body considered `awrah that cannot be massaged except in cases of medical necessity?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Between the navel and knees for men; between the lower chest and knees for women",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The entire body except hands, feet, and face for both genders",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Between the shoulders and ankles for men; the entire body except hands for women",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Any area that would normally be covered by modest clothing for both genders",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "It is not permissible to massage the area that is regarded as `awrah, which is the area between the navel and the knees in the case of men and the area between the lower chest and the knees in the case of women, unless this area needs medical treatment by means of massage, in which case it is permitted as a necessity.",
+      "tags": ["Medicine and medical treatments", "Awrah", "Fasting"],
+      "source": "IslamQA reference 79241"
+    },
+    {
+      "reference": 5188,
+      "questionText": "What is the Islamic principle regarding obeying a husband's request to remove hijab?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is no obedience to any created being if it involves disobedience to the Creator",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "A wife must obey her husband in all matters including religious dress requirements",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She should gradually reduce her hijab coverage to maintain marital harmony",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She can remove it at home with him but must wear it outside the house",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fundamental principle is that there is no obedience to any created being if it involves disobedience to the Creator. Therefore, a woman must persevere in obeying Allah's command and not remove her hijab even if her husband requests it, while advising him kindly and gently.",
+      "tags": ["Womens clothing", "Hijab", "Marriage"],
+      "source": "IslamQA reference 5188"
+    },
+    {
+      "reference": 10805,
+      "questionText": "According to Shaykh Ibn Baz, what are the two main reasons why life insurance is prohibited in Islam?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because it involves gharar (uncertainty in transactions) and riba (usury/interest)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because it shows lack of trust and reliance in Allah's provision for one's family",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because it is a form of gambling on the timing of one's own death",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because it primarily benefits non-Muslim insurance companies and their shareholders",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Baz stated that insurance of one's life or possessions is haram because it involves gharar (buying/selling something where it is not known whether what is being bought/sold will be achieved/delivered) and riba (usury/interest). Allah has forbidden all transactions based on riba and involving deceit.",
+      "tags": ["Insurance", "Riba", "Gharar"],
+      "source": "IslamQA reference 10805"
+    },
+    {
+      "reference": 144805,
+      "questionText": "What did Shaykh Ibn Baaz say about women wearing hijab in study circles due to the presence of angels?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is no basis for this; women may recite Qur'an bare-headed if no non-mahram men are present, and it does not prevent angels from entering",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Angels will not attend gatherings where women are not wearing proper hijab coverage",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Women should wear hijab out of respect and modesty before the angels who witness their actions",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "This practice is recommended as a sign of piety though not strictly obligatory",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Baaz said: 'I do not know of any basis for that. They may recite Qur'an and remember Allah, even if they are bare-headed, so long as there is no non-mahram man present. That does not prevent the angels from entering.' There is no evidence to support wearing hijab on the grounds that angels can see women.",
+      "tags": ["Womens clothing", "Study circles", "Angels"],
+      "source": "IslamQA reference 144805"
+    }
+  ]
+}
