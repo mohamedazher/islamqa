@@ -74,6 +74,12 @@
             src="src/android/res/drawable/widget_preview.xml"
             target="res/drawable/widget_preview.xml" />
         <resource-file
+            src="src/android/res/drawable/prayer_row_highlight.xml"
+            target="res/drawable/prayer_row_highlight.xml" />
+        <resource-file
+            src="src/android/res/drawable/countdown_badge_background.xml"
+            target="res/drawable/countdown_badge_background.xml" />
+        <resource-file
             src="src/android/res/values/strings.xml"
             target="res/values/widget_strings.xml" />
 
