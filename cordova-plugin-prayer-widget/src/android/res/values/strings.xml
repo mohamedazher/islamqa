@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="widget_description">Shows next prayer time and countdown</string>
+    <string name="widget_description">Shows all 5 daily prayer times</string>
+    <string name="widget_description_compact">Compact view of next 3 prayers</string>
+    <string name="widget_description_quiz">Daily Islamic quiz question</string>
 </resources>
