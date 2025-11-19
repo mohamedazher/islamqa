@@ -1,0 +1,124 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 128173,
+      "question": "What is the status of the hadith: 'When Adam committed his sin, he asked Allah by virtue of Muhammad to forgive him, and Allah said: Were it not for Muhammad, I would not have created you'?",
+      "options": [
+        "The hadith's chain includes 'Abd al-Rahman ibn Zayd ibn Aslam, who is da'eef (weak) by consensus and makes many mistakes, and al-Albani ruled it fabricated",
+        "The hadith was authenticated by al-Bayhaqi in Dalail al-Nubuwwah and has a sound chain of transmission",
+        "Ibn Taymiyah confirmed the hadith's authenticity in al-Tawassul and recommended using it in religious exhortation",
+        "The hadith has multiple reliable chains through different Companions including 'Umar ibn al-Khattab with strong narrators"
+      ],
+      "correctAnswer": 0,
+      "explanation": "This hadith is fabricated according to Shaykh al-Islam Ibn Taymiyah, al-Bayhaqi, and al-Albani. Its chain includes 'Abd al-Rahman ibn Zayd ibn Aslam, who is weak by consensus and makes many mistakes. Al-Albani ruled it fabricated in al-Silsilah al-Da'eefah (25)."
+    },
+    {
+      "reference": 113460,
+      "question": "For a woman who has a problem which means her wudoo' is broken constantly, when does her wudoo' remain valid for the following obligatory prayer?",
+      "options": [
+        "If nothing comes out between prayers, the first wudoo' remains valid and she may pray the following obligatory prayer",
+        "The wudoo' automatically becomes invalid at the end of each prayer time regardless of whether anything comes out",
+        "She must perform wudoo' before every single act of worship including saa'i because purity is essential for all Hajj rituals",
+        "According to all scholars without exception, tawaaf performed without wudoo' is completely invalid and must be repeated"
+      ],
+      "correctAnswer": 0,
+      "explanation": "According to the majority of fuqaha', if nothing comes out, the wudoo' remains valid and the person may offer the following obligatory prayer. Al-Bahooti and Shaykh Ibn 'Uthaymeen both stated that wudoo' is only required if something has come out."
+    },
+    {
+      "reference": 143020,
+      "question": "What is the status of the report that Moosa (peace be upon him) said 'O Lord, protect me from people's tongues,' and Allah replied: 'O Moosa, I did not grant that to Myself so how could I grant it to you'?",
+      "options": [
+        "This report could not be found with any reliable isnad and appears only in books of raqaiq and exhortation without mentioning any chain of transmission",
+        "This report has a sahih chain narrated by both al-Bukhari and Muslim in their authentic collections",
+        "Ibn Muflih al-Maqdisi authenticated this report with a strong isnad in al-Adab al-Shar'iyyah",
+        "The report was narrated with multiple reliable chains by the major hadith scholars and is widely accepted"
+      ],
+      "correctAnswer": 0,
+      "explanation": "We could not find this report with any reliable isnad, and it was not found in the books of Sunnah and reports. Rather, it was seen in some books of raqaiq and exhortation without mentioning any isnad or reliable source."
+    },
+    {
+      "reference": 49021,
+      "question": "What was Imam Ahmad's position on initiating Eid greetings such as 'Taqabbal Allahu minna wa minkum'?",
+      "options": [
+        "He said: 'I do not initiate this greeting with anyone, but if someone greets me in this manner I return his greeting,' because returning a greeting is obligatory",
+        "He ruled that offering Eid greetings is a forbidden innovation that has no basis in the Sunnah",
+        "He stated that only the specific phrase 'Taqabbal Allahu minna wa minkum' is permissible and all other greetings are forbidden",
+        "He considered it obligatory to initiate Eid greetings because the Companions always did so on the day of Eid"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Imam Ahmad said: 'I do not initiate this greeting with anyone. But if someone greets me in this manner I return his greeting.' Ibn Taymiyah explained that returning a greeting is obligatory, but initiating this greeting is not a Sunnah that is enjoined, but neither is it forbidden."
+    },
+    {
+      "reference": 67942,
+      "question": "What is the position of the majority of the four madhhabs regarding the number of khutbahs on Eid?",
+      "options": [
+        "Two khutbahs should be given with the imam sitting briefly between them, by analogy with the Jumu'ah khutbah",
+        "Only one khutbah should be given based on unanimous agreement of all four madhhabs from the authentic ahadith",
+        "The Eid khutbah must be delivered before the prayer, unlike the Jumu'ah khutbah which comes after",
+        "Three khutbahs should be given: one for men, one for women, and one general khutbah"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The majority of scholars of the four madhhabs hold that two khutbahs should be given on Eid, with the imam sitting briefly between them, following the pattern of Jumu'ah. This is supported by analogy with Jumu'ah and the report of 'Ubayd-Allah ibn 'Abd-Allah ibn 'Utbah."
+    },
+    {
+      "reference": 192960,
+      "question": "What did Shaykh Ibn Baaz say about the hadith 'Women have no share of the funeral'?",
+      "options": [
+        "He said: 'We do not know of any basis for it, and we do not know any of the scholars who narrated it'",
+        "He authenticated this hadith and used it as evidence that women are prohibited from all funeral-related activities",
+        "He confirmed that this hadith permits women to follow the funeral procession to the graveyard and visit graves",
+        "He stated that this hadith applies equally to prohibit women from attending funeral prayers in mosques, homes, and prayer places"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Shaykh Ibn Baaz said regarding the hadith 'Women have no share of the funeral': 'We do not know of any basis for it, and we do not know any of the scholars who narrated it.' He explained that women are permitted to offer the funeral prayer in the mosque and attended such prayers with the Prophet."
+    },
+    {
+      "reference": 155153,
+      "question": "According to Shaykh Salih Al-Fawzan, what is the ruling on using breath spray while fasting?",
+      "options": [
+        "If the spray is used and none of it reaches the throat, there is nothing wrong with it, but one should spit out or rinse whatever remains in the mouth",
+        "The smell from the mouth of a fasting person should be removed immediately as it is disliked in Islam",
+        "All types of mouth sprays invalidate the fast regardless of whether they reach the throat or not",
+        "The Prophet forbade using any fragrance for the mouth during fasting because it removes the blessed smell of fasting"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Shaykh Al-Fawzan stated: 'If the spray is used and none of it reaches the throat, there is nothing wrong with it.' He also noted that the smell from the mouth of the fasting person is beloved by Allah and the hadith says it is 'better before Allah than the fragrance of musk.'"
+    },
+    {
+      "reference": 109768,
+      "question": "What did Shaykh al-Fawzan say about dividing the night prayers into Taraweeh and qiyaam during the last ten days of Ramadan?",
+      "options": [
+        "All of it may be called Taraweeh or qiyaam - the distinction is merely a variation in naming, not in the nature of the prayer itself",
+        "Salat al-ta'qeeb refers to any voluntary prayer offered in congregation before Witr during Ramadan",
+        "Taraweeh must be prayed immediately after 'Isha' according to scholarly consensus and cannot be delayed to the end of the night",
+        "The practice of dividing prayers in the last ten days contradicts the Sunnah because the Prophet only prayed at the beginning of the night"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Shaykh al-Fawzan stated: 'This is a variation in naming only. In fact all of it may be called Taraweeh or it may be called qiyaam.' He explained that breaking up the prayers during the last ten days combines different scholarly opinions and is permissible."
+    },
+    {
+      "reference": 273295,
+      "question": "A man dies leaving behind nieces (daughters of his deceased brother), nephews and nieces (children of his deceased sisters), and a paternal cousin. How is his estate divided?",
+      "options": [
+        "The entire estate goes to the paternal cousin because he is the closest male relative (asib) and the only one entitled to inherit",
+        "The daughters of the deceased's brother inherit equal shares with the paternal cousin according to the rules of kalalah",
+        "The sons and daughters of the deceased's sisters receive the allocated shares while the paternal cousin receives only the remainder",
+        "The dhawi'l-arham (distant relatives) inherit in this case because there are no heirs entitled to allocated shares in the estate"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The entire estate goes to the paternal cousin as he is the only 'asib (male relative on the father's side). The Prophet said: 'Give the allocated shares to those entitled, and whatever is left over goes to the closest male relative.' The nieces and nephews are dhawi'l-arham who do not inherit when there is a male relative on the father's side."
+    },
+    {
+      "reference": 381582,
+      "question": "What is the ruling on keeping a riba-based certificate while paying off your father's riba-based loan, if the certificate was taken in pledge for the loan?",
+      "options": [
+        "If you are unable to cancel the certificate because it was taken in pledge for the loan, there is no blame on you and you can continue paying your father's debt",
+        "You must cancel the certificate immediately even if it is in pledge for the loan, because paying your father's debt is obligatory according to Islamic teachings",
+        "Keeping a riba-based certificate is permissible as long as you only take the original amount mentioned in it and not the interest",
+        "The investment certificates issued by banks in your country are halal and permissible because they are regulated by Islamic banking principles"
+      ],
+      "correctAnswer": 0,
+      "explanation": "If you are not able to cancel the riba-based certificate because it was taken in pledge for the loan, there is no blame on you and you can carry on paying your father's debt. However, if you are able to cancel it, you must do so even if it means not paying your father's debt, as you are not obliged to pay it according to Islamic teachings."
+    }
+  ]
+}

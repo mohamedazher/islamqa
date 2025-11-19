@@ -1,0 +1,593 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 104202,
+      "questionText": "According to the Quran (Al-A'raaf 7:188), what did Allah instruct the Prophet to say about knowledge of the unseen (Ghayb)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "If he had knowledge of the unseen, he would have secured for himself an abundance of wealth, and no evil should have touched him",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "If he had knowledge of the unseen, he would have avoided all trials and could have guided people perfectly",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "If he had knowledge of the unseen, he would have known the exact time of the Last Day",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "If he had knowledge of the unseen, he would have known which companions would remain faithful",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The verse Al-A'raaf 7:188 states that the Prophet should say: 'If I had the knowledge of the Ghayb (Unseen), I should have secured for myself an abundance of wealth, and no evil should have touched me.' This demonstrates that even the Prophet had no knowledge of the unseen, which belongs only to Allah.",
+      "tags": ["Belief in the Divine Will and Decree", "Quranic verses"],
+      "source": "IslamQA reference 104202"
+    },
+    {
+      "reference": 104202,
+      "questionText": "What did Ibn Jareer say about the meaning of 'I would have secured for myself an abundance of wealth' in the context of knowledge of the unseen?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "He would have prepared for the year of drought from the year of plenty, and known when prices were about to go up or down, saving from times of low prices for times of high prices",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He would have invested in profitable business ventures and avoided unprofitable ones",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He would have known which crops to plant each season to maximize harvest",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He would have traded goods in foreign markets at the most advantageous times",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Jareer explained that having knowledge of the unseen would mean being able to prepare for drought years during years of plenty, and knowing price fluctuations to save during low prices for times of high prices. This illustrates practical applications of unseen knowledge.",
+      "tags": ["Belief in the Divine Will and Decree", "Tafsir"],
+      "source": "IslamQA reference 104202"
+    },
+    {
+      "reference": 202306,
+      "questionText": "Is it required to mention the name of the child over the aqeeqah animal when slaughtering it?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, mentioning the name is not stipulated; what matters is the intention that it be an aqeeqah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, the child's name must be mentioned three times during slaughter",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Yes, but only if the father is the one slaughtering the animal",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is recommended but not required for the aqeeqah to be valid",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "In order for the aqeeqah to be valid, it is not stipulated that the name of the child be mentioned over it. What matters is that the one who offers it intends that it be an aqeeqah. The slaughterman or butcher does not even need to be aware that it is an aqeeqah.",
+      "tags": ["Aqeeqah and rulings on the new-born"],
+      "source": "IslamQA reference 202306"
+    },
+    {
+      "reference": 202306,
+      "questionText": "What are the acceptable minimum ages for animals used in aqeeqah according to Islamic rulings?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Five years for camel, two years for cow, one year for goat, and six months for sheep",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Three years for camel, one year for cow, six months for goat, and four months for sheep",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Four years for camel, eighteen months for cow, nine months for goat, and five months for sheep",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Six years for camel, three years for cow, two years for goat, and one year for sheep",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The acceptable age for an aqeeqah is five years for camel, two years for cow, one year for goat (in its second year), and six months for sheep. These are the same age requirements as for udhiyah (sacrifice).",
+      "tags": ["Aqeeqah and rulings on the new-born"],
+      "source": "IslamQA reference 202306"
+    },
+    {
+      "reference": 150305,
+      "questionText": "What is the ruling on a woman completing her diploma studies after stopping work at the university that nominated her while employed?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is nothing wrong if her name appeared on the updated list, as the university appears aware and has agreed, though checking with the department is safer",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She must stop immediately as continuing without employment is considered deception",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She can continue only if she pays the tuition fees for the current year",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She must wait until she resumes employment before continuing her studies",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If she was nominated while working and her name still appears on the updated list despite stopping work, there is nothing wrong with completing the studies, as the university appears aware and has agreed. However, checking with the relevant department would be better and safer.",
+      "tags": ["Ruling on jobs"],
+      "source": "IslamQA reference 150305"
+    },
+    {
+      "reference": 107885,
+      "questionText": "What is one of the conditions for being accountable (mukallaf) in Islam according to the hadith mentioned?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Being of sound mind, as the Pen has been lifted from the insane person until he comes to his senses",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Being physically strong enough to perform all acts of worship",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Having completed memorization of at least part of the Quran",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Being free from all chronic illnesses and disabilities",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The hadith states 'The Pen has been lifted from three: from the sleeping person until he wakes up, from the minor until he grows up, and from the insane person until he comes to his senses.' Being of sound mind is a fundamental condition for accountability.",
+      "tags": ["Fasting of the Sick Person", "Conditions of accountability"],
+      "source": "IslamQA reference 107885"
+    },
+    {
+      "reference": 107885,
+      "questionText": "According to Shaykh Ibn Uthaymeen, what is the ruling on fasting and fidyah for someone who has lost his mind completely due to old age or accident with no hope of recovery?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He does not have to fast and does not have to offer fidyah either",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He does not have to fast but his family must offer fidyah on his behalf",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He must attempt to fast even if he cannot complete it, then offer fidyah",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "His wealth should be used to feed the poor for every day of Ramadan",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Uthaymeen stated that if someone has lost his mind completely with no hope of recovery, he does not have to fast and there is no need to offer fidyah either, because he has lost his mind and is not accountable.",
+      "tags": ["Fasting of the Sick Person"],
+      "source": "IslamQA reference 107885"
+    },
+    {
+      "reference": 12085,
+      "questionText": "What was the response to the girl who was being taught by a man who claimed to be teaching and reforming through chat and messenger?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "She should cut off all contact with this man immediately and make use of books and educational websites instead",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She should continue learning but only through email with formal language",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She should involve a third party mahram to monitor the conversations",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She should report the matter to Islamic authorities for investigation",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The clear instruction was to cut off all contact with this man immediately, and make use of books and educational websites. She was also reminded to ensure not to become a means of misguiding someone who appears religious.",
+      "tags": ["Manners of Speaking with Women"],
+      "source": "IslamQA reference 12085"
+    },
+    {
+      "reference": 2407,
+      "questionText": "What is the ruling on a husband being absent from his wife for more than six months when he is a student abroad?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "If the wife accepts the husband being away for this length of time, then there is nothing wrong with it",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is absolutely forbidden regardless of the wife's consent or circumstances",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He must obtain written permission from the local Islamic court before traveling",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He can stay away but must send a representative to visit the wife monthly",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fatwa clearly states that if the wife accepts the husband being away for this length of time, then there is nothing wrong with it. The wife's consent is the key factor in this situation.",
+      "tags": ["Rights of spouses"],
+      "source": "IslamQA reference 2407"
+    },
+    {
+      "reference": 84903,
+      "questionText": "What did Shaykh Ibn Uthaymeen say about using food items like eggs, honey and milk for treating skin conditions?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is nothing wrong if a person needs them for remedy, as Allah created all things on earth for beneficial uses, though other materials are better for beautification",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is absolutely forbidden as food should only be used for nourishment",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible only for medical treatment but completely forbidden for beautification purposes",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is allowed only if one has excess food beyond their family's needs",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Uthaymeen explained that these foods were created by Allah to nourish the body, but if a person needs to use them for remedy, there is nothing wrong as Allah says 'He created for you all that is on earth.' However, for beautification, it is better to use other materials.",
+      "tags": ["Adornments", "Medical treatments"],
+      "source": "IslamQA reference 84903"
+    },
+    {
+      "reference": 84903,
+      "questionText": "According to the fatwa, what should be remembered when advising women about beautification prescriptions?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "A woman should only show her adornment in her house before her husband and mahrams",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Beauty treatments should only be applied during daylight hours",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Natural ingredients are always superior to chemical products",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Women should seek permission from their guardians before using any treatments",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fatwa emphasizes that one should always remember that a woman should only show her adornment in her house before her husband and mahrams. This is an important principle to keep in mind when discussing beautification.",
+      "tags": ["Adornments"],
+      "source": "IslamQA reference 84903"
+    },
+    {
+      "reference": 1047,
+      "questionText": "What is the ruling on buying and wearing T-shirts with the word \"Allah\" written on them?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not permissible because they involve disrespect towards Allah's name when thrown in bathrooms or other inappropriate places",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible as long as the shirt is washed separately from other clothes",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible if the wearer removes the shirt before entering the bathroom",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is recommended as a form of public declaration of faith",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fatwa states it is not permissible to buy or wear these T-shirts because they involve disrespect towards the name of Allah, which is bound to be mistreated when shirts are thrown in bathrooms or other inappropriate places, especially when they get dirty and need washing.",
+      "tags": ["Rulings on Dress", "Respect for Allah's name"],
+      "source": "IslamQA reference 1047"
+    },
+    {
+      "reference": 1047,
+      "questionText": "What effect will Muslims refraining from buying Allah-printed T-shirts have according to the fatwa?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It will narrow the market for them and force producers to stop printing them if their aim is commercial",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It will encourage producers to create more respectful Islamic clothing designs",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It will make these shirts more valuable as collectors' items",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It will lead to government regulation of religious merchandise",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fatwa explains that if Muslims refrain from buying these shirts, this will narrow the market for them, which will force the producers—if their aim is merely commercial—to stop printing them.",
+      "tags": ["Rulings on Dress"],
+      "source": "IslamQA reference 1047"
+    },
+    {
+      "reference": 197164,
+      "questionText": "According to Ibn as-Salaah, what is the status of hadiths narrated by al-Bukhari and Muslim that were accepted by the ummah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "They are definitively sound and we should be certain about them, because the ummah is protected from error in its consensus",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They are probably sound but cannot reach the level of certainty like mutawatir hadiths",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They require individual verification through additional chains of narration",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They are sound only if both al-Bukhari and Muslim narrated them, not if only one did",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn as-Salaah held that the hadiths of as-Saheehayn are definitively sound and we should be certain about them, because the ummah is unanimously agreed on their soundness, and the ummah is protected from error in its consensus (apart from a few critiqued hadiths).",
+      "tags": ["Science of hadith"],
+      "source": "IslamQA reference 197164"
+    },
+    {
+      "reference": 197164,
+      "questionText": "What are the four types of definitively proven hadiths according to the scholars?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mutawatir hadiths, those in as-Saheehayn accepted by the ummah, those unanimously accepted even if not in as-Saheehayn, and widely circulated reports through many sound isnaads",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Mutawatir hadiths, hadiths narrated by the four rightly-guided caliphs, hadiths with ten or more narrators, and hadiths cited in legal rulings",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Hadiths in al-Bukhari only, hadiths in Muslim only, hadiths in both books, and hadiths narrated by all four imams",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Mutawatir hadiths, hadiths memorized by the companions, hadiths written during the Prophet's lifetime, and hadiths acted upon by all scholars",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The four types are: (1) mutawatir hadiths, (2) those narrated by al-Bukhari and Muslim and accepted by the ummah, (3) those unanimously accepted by the ummah even if not in as-Saheehayn, and (4) widely circulated reports narrated through many isnaads with no problems.",
+      "tags": ["Science of hadith"],
+      "source": "IslamQA reference 197164"
+    },
+    {
+      "reference": 197164,
+      "questionText": "Why is there nothing wrong with saying \"al-maseeh ad-dajjaal\" according to Ibn Hajar?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When 'al-maseeh' is used alone it refers to Eesa ibn Maryam, but when using 'al-maseeh ad-dajjaal' it is known to refer to someone else",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The word 'maseeh' has different meanings in Arabic depending on the context",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The Dajjaal will claim to be the Messiah so it is appropriate to use this term",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Both Eesa and the Dajjaal will appear at the end of times so the term applies to both",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Hajar explained that the word 'al-maseeh' refers both to the Dajjaal and to Eesa ibn Maryam, but when used alone it refers to Eesa. When specifying 'al-maseeh ad-dajjaal,' it is known to refer to someone else (the Dajjaal).",
+      "tags": ["The Signs of the Hour", "Islamic terminology"],
+      "source": "IslamQA reference 197164"
+    },
+    {
+      "reference": 191140,
+      "questionText": "Who was Dhu'th-Thudayyah and what was his role?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He was Hurqoos ibn Zuhayr al-Bajali, one of the Khawaarij who rebelled against Ali and was the last of them, serving as their sign",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He was a companion of the Prophet who fought alongside Ali at the battle of Badr",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He was the leader of the Khawaarij who first confronted the Prophet about fairness",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He was a scholar from Basra who documented the history of the Khawaarij movement",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Dhu'th-Thudayyah's full name was Hurqoos ibn Zuhayr al-Bajali. He was one of the Khawaarij who rebelled against Ali. The first of the Khawaarij was Dhu'l-Khuwaysirah at-Tameemi, and Dhu'th-Thudayyah was the last of them, serving as the prophesied sign of these people.",
+      "tags": ["Islamic history and biography", "Khawaarij"],
+      "source": "IslamQA reference 191140"
+    },
+    {
+      "reference": 191140,
+      "questionText": "What physical description did the Prophet give of the sign among the Khawaarij?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "A very dark black man with a deformed arm having only an upper arm with no forearm, and at the end something like a nipple with white hairs",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "A tall man with red hair and a missing eye who would carry a distinctive black banner",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "A man with seven fingers on each hand and a mark on his forehead shaped like a crescent",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "A lame man who could not walk properly and had a large scar across his face",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet described him as a very dark black man with a foul odor and a deformed arm. He had only an upper arm with no forearm, and at the end of his upper arm there was something like a nipple on which there were some white hairs. This exact description was found when Ali's forces searched among the slain.",
+      "tags": ["Islamic history and biography", "Prophetic descriptions"],
+      "source": "IslamQA reference 191140"
+    },
+    {
+      "reference": 191140,
+      "questionText": "What did Ali (may Allah be pleased with him) do when Dhu'th-Thudayyah was found among the slain Khawaarij?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "He said takbeer and said 'Allah spoke the truth and His Messenger conveyed it,' then prostrated to Allah in gratitude",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He ordered the body to be buried immediately away from the other slain",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He wept and asked Allah for forgiveness for having to kill him",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He gathered all the companions to witness and document the fulfillment of the prophecy",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "When the body was found and identified, Ali said takbeer (Allahu Akbar) and said 'Allah spoke the truth and His Messenger conveyed it,' then he prostrated to Allah in gratitude. He and those with him rejoiced greatly at finding this sign that confirmed the Prophet's prophecy.",
+      "tags": ["Islamic history and biography"],
+      "source": "IslamQA reference 191140"
+    }
+  ]
+}

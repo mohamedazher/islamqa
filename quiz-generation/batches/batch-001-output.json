@@ -1,0 +1,3412 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 21392,
+      "questionText": "What is the ruling on kissing the cover of the Ka'bah or the Mus-haf (Quran)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Kissing them is considered bid'ah (innovation) because only the Black Stone may be kissed",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They may be kissed if following the example of Umar ibn al-Khattab who kissed the Black Stone",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only the Yemeni Corner may be kissed, not the Ka'bah cover or Mus-haf",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They may be kissed with the intention of seeking blessings from them",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Kissing any place on earth is bid'ah except the Black Stone. The only reason the Black Stone may be kissed is because the Prophet practiced this. Umar said he would not kiss it except that the Prophet did so. It is not permissible to kiss the Ka'bah's covers, stones, the Yemeni Corner, or the Mus-haf.",
+      "tags": [
+        "Mistakes made by pilgrims performing Hajj and 'Umrah"
+      ],
+      "source": "IslamQA reference 21392"
+    },
+    {
+      "reference": 12046,
+      "questionText": "If a person offered a financial guarantee and died before completing payment, who is responsible for the remaining amount?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The heirs must pay the remaining amount because it is a guaranteed debt",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The debt is forgiven and no one needs to pay since the guarantor died",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only the original debtor is responsible and the heirs are exempted from payment",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The creditor must wait until the heirs can voluntarily afford to pay",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "When someone offers a financial guarantee and dies, the heirs must pay the remainder because this is a guarantee. The creditor has the right to ask for payment from either the person originally guaranteed or from the guarantor's heirs, according to Shaykh Muhammad ibn Saalih al-'Uthaymeen.",
+      "tags": [
+        "Compensation"
+      ],
+      "source": "IslamQA reference 12046"
+    },
+    {
+      "reference": 32762,
+      "questionText": "What happened to the Jewish woman who poisoned the Prophet's food at Khaybar?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She was executed as qisaas punishment after Bishr ibn al-Bara' died from the poison",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She was immediately killed by the Companions when they discovered the poisoning plot",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The Prophet forgave her and she was released without any punishment",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She was banished from Khaybar to another region but not executed",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Jewish woman Zaynab bint al-Haarith poisoned mutton and gave it to the Prophet. Initially he did not kill her, but when Bishr ibn al-Bara' died as a result of eating the poisoned food, the Prophet executed her as qisaas (retribution). The poison continued to affect the Prophet until his death four years later.",
+      "tags": [
+        "Biography of the Prophet"
+      ],
+      "source": "IslamQA reference 32762"
+    },
+    {
+      "reference": 22885,
+      "questionText": "According to the hadith, why does giving charity when healthy bring greater reward than giving through a will when dying?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because when healthy and miserly, a person fears poverty, making the intention more sincere and the reward greater",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because charity given after death cannot be accepted by Allah under any circumstances",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because when dying, a person is too weak to make proper intentions for charity",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because the Shaytaan prevents dying people from giving charity to their families",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet said giving charity when healthy and miserly is best, because miserliness is more likely when one is in good health and hopes to live long. When healthy, Shaytaan makes one fear poverty, so giving despite this brings greater reward. In contrast, when dying, one realizes others will take the wealth anyway, so the charity is less meaningful.",
+      "tags": [
+        "Charitable donations for the sake of Allah"
+      ],
+      "source": "IslamQA reference 22885"
+    },
+    {
+      "reference": 17,
+      "questionText": "What should a person do if the prayer has already started while they are on their way to the masjid?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Walk with calmness and respect, pray what they catch, and complete what they missed",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Run quickly to catch the first rak'ah because it has special virtue",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Stop outside the masjid and wait to pray with the next congregation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Enter the masjid quickly but delay joining until the imam finishes the first rak'ah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet said: 'If salaat is started, do not approach it running, but approach it walking, with calmness. Whatever you catch up with, pray, and what you miss, complete it.' This shows one should maintain dignified calmness rather than rushing to prayer.",
+      "tags": [
+        "Things Which Invalidate the Prayer"
+      ],
+      "source": "IslamQA reference 17"
+    },
+    {
+      "reference": 13810,
+      "questionText": "What is the prescribed Islamic alternative for those who want to venerate the day the Prophet Muhammad was born?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fast on Mondays, as the Prophet said that is the day he was born and received Revelation",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Gather for special prayers on the 12th of Rabi' al-Awwal each year",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Recite the Quran collectively in the mosque on the night of his birth",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Give extra charity specifically on the anniversary date of his birth",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet and his Companions never celebrated Mawlid, so it is not permissible. The Islamic alternative is to fast on Mondays. When asked about fasting on Mondays, the Prophet said: 'On that day I was born and on that day the Revelation came to me.' This is the evidence-based way to venerate his birth.",
+      "tags": [
+        "Calling non-Muslims to Islam",
+        "Innovations in Religion and Worship"
+      ],
+      "source": "IslamQA reference 13810"
+    },
+    {
+      "reference": 6030,
+      "questionText": "According to the ruling, what makes the person described (who sells wine and does not pray) a kafir?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He does not pray, as the hadith states that abandoning prayer is what stands between a person and kufr",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He sells wine in his shop, which is one of the major sins that directly leads to kufr",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He inappropriately associates with Muslim women who are not his mahram",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He forces customers to drink wine from his shop against their will",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The ruling states: 'The one who does not pray is not a Muslim, because of the hadith: All that stands between a man and kufr is his giving up prayer.' While selling wine is haram, it is specifically the abandonment of prayer that makes this person a kafir according to this hadith.",
+      "tags": [
+        "Abandoning or Neglecting Salaat",
+        "Food & Nourishment"
+      ],
+      "source": "IslamQA reference 6030"
+    },
+    {
+      "reference": 21511,
+      "questionText": "What are the acceptable methods for disposing of papers that contain Allah's name when they are no longer needed?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bury them in a clean place, burn them, or store them in a protected place like a cupboard",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Recycle them with other papers at a standard recycling center",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Tear them into small pieces and dispose of them in regular trash",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Wash them in water until the names are no longer visible, then discard",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Papers containing Allah's name should be kept and protected from disrespect. When no longer needed, they should be buried in a clean place, burnt, or kept in a protected place such as a cupboard or on shelves where they will not be treated with disrespect.",
+      "tags": [
+        "Jurisprudence and Islamic Rulings"
+      ],
+      "source": "IslamQA reference 21511"
+    },
+    {
+      "reference": 34655,
+      "questionText": "What should a person do if someone gives them a gift but they cannot afford to give something back?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Make du'aa for the giver and keep doing so until they think they have done enough",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Borrow money to purchase an equivalent gift to avoid embarrassment in the community",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Explain their financial situation and promise to reciprocate when they become wealthy",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Return the original gift to avoid creating an obligation they cannot fulfill",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet said: 'Whoever does you a favour, then respond in kind, and if you cannot find anything to give him, then make du'aa' for him (and keep doing so) until you think that you have done enough.' While reciprocating with a gift is mustahabb (preferable), it is not obligatory, and sincere du'aa is the alternative when one cannot afford to give back.",
+      "tags": [
+        "Gifts and Presents"
+      ],
+      "source": "IslamQA reference 34655"
+    },
+    {
+      "reference": 208,
+      "questionText": "What is the ruling on witr prayer according to the majority of scholars?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is a confirmed sunnah that the Prophet practiced consistently, but not obligatory",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is one of the five obligatory prayers mentioned in the hadith of the Bedouin",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is obligatory when at home but becomes voluntary when traveling",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is obligatory only for those who regularly perform qiyam al-layl at night",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The majority of scholars assert that witr prayer is a confirmed sunnah that the Prophet practiced consistently, not obligatory. This is based on the hadith where the Prophet told the Bedouin about the five obligatory prayers and said 'Unless you volunteer of your own.' The Prophet never neglected witr whether traveling or at home.",
+      "tags": [
+        "Night Prayer"
+      ],
+      "source": "IslamQA reference 208"
+    },
+    {
+      "reference": 174477,
+      "questionText": "According to Islamic law, when should you pay zakah on shares given to you by your company that you cannot sell for 5 years?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pay zakah once when selling them or obtaining full possession after completing the 5-year maturity period",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Pay zakah annually on their market value starting from the first year you receive them",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Pay zakah only on the dividends received from these shares, not on the shares themselves",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Pay zakah on what remains after paying taxes and National Insurance immediately when the shares are granted",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If a person does not have complete ownership of shares or is not allowed to dispose of them (like company-given shares with a maturity period), they should pay zakah once when selling them, taking back their value, or obtaining full possession by completing the required years of work. This is because complete ownership is a condition for the annual obligation of zakah.",
+      "tags": [
+        "Zakah 'urood al-tijaarah (Zakah on trade goods)",
+        "Zakah",
+        "Shares"
+      ],
+      "source": "IslamQA reference 174477"
+    },
+    {
+      "reference": 191643,
+      "questionText": "According to the answer about waswaas (intrusive thoughts), what is identified as the root cause of these negative thoughts?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Man produces his own waswaas as an echo of his thoughts, a reflection of his reality, or accumulation of past bad experiences",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "External jinn forces that possess the person and control their mind completely beyond their control",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "A medical hormone deficiency that can only be treated with prescription medication from doctors",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Persuading yourself that you have full control is the most significant part of the problem",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer explains that man himself produces his waswaas and negative thoughts - it is an echo of what he is thinking about, a reflection of the reality he is living, or an accumulation of past bad experiences. However, persuading yourself that you are helpless in the face of these thoughts is identified as the most significant part of the dilemma, not the root cause itself.",
+      "tags": [
+        "Felonies",
+        "Mental Health",
+        "Waswaas"
+      ],
+      "source": "IslamQA reference 191643"
+    },
+    {
+      "reference": 215693,
+      "questionText": "If currency devaluation affects a debt and the change in value is major (one-third or more), how should the debt be repaid?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rectify the matter by splitting the difference between both parties",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The debtor must repay the same amount regardless of how much the currency devalued",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The debtor must repay according to the full value on the day the debt was taken",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Work out the value based on the price of gold at the time, then the creditor must accept this without negotiation",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "For regular debts (not theft or misappropriation), if the change in currency value is major and amounts to one-third or more of the value, the matter must be rectified by splitting the difference between both parties. This is different from cases of theft or delayed debt payments, where the transgressor is fully liable for the value on the day it was taken.",
+      "tags": [
+        "Borrowing & Lending",
+        "Currency",
+        "Debt"
+      ],
+      "source": "IslamQA reference 215693"
+    },
+    {
+      "reference": 219806,
+      "questionText": "For Muslims living in Sweden where day and night follow one another within 24 hours but the days are very long in summer, what is the ruling on fasting according to Saudi Arabia's timing instead?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Shaykh Ibn Uthaymeen said this is an obvious mistake that goes against the Quran and Sunnah; they must fast Sweden's full day length",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible to avoid hardship, as long as the day in Sweden exceeds 18 hours of fasting",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They should fast according to the nearest city where prayer timings can be distinguished, which may be in Saudi Arabia",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They can break their fast if it becomes unbearably difficult and make it up on shorter days throughout the year",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Uthaymeen explicitly stated that those who issued a fatwa allowing people in cities with very long days to fast according to Saudi Arabia's day length made an obvious mistake and went against the Quran and Sunnah. However, if fasting is unbearably difficult and there is fear of physical harm, it is permissible to break the fast and make it up on shorter days (option d describes a different scenario for extreme hardship, not the general ruling).",
+      "tags": [
+        "Conditions for Prayer",
+        "Issues of fasting",
+        "Prayer times"
+      ],
+      "source": "IslamQA reference 219806"
+    },
+    {
+      "reference": 240,
+      "questionText": "According to the answer, what is the specific procedure recommended for treating black magic using lote-tree leaves?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Crush 7 lote-tree leaves, mix with water, recite specific Quranic verses over it, drink some of the water, and bathe with the rest",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Crush 7 lote-tree leaves, burn them as incense, inhale the smoke while reciting Surah Al-Falaq and Al-Nas three times",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Place 7 whole uncrushed lote-tree leaves under the pillow and sleep with them for 7 consecutive nights while fasting",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Boil 7 lote-tree leaves in water at dawn, drink the entire mixture immediately, and fast for the rest of the day",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer specifies that to cure black magic, seven lote-tree leaves should be crushed and mixed with water (enough for bathing). Then specific Quranic verses are recited over the water: Ayat Al-Kursi, Surah Al-Kafirun, Surah Al-Ikhlas, Al-Falaq, Al-Nas, and verses about magic from Al-Baqarah, Al-A'raf, Yunus, and Taha. The possessed person drinks some of the water and uses the rest for bathing.",
+      "tags": [
+        "Belief in the Jinn, witchcraft and the evil eye",
+        "Black Magic",
+        "Treatment"
+      ],
+      "source": "IslamQA reference 240"
+    },
+    {
+      "reference": 141381,
+      "questionText": "According to Shaykh Ibn Uthaymeen, what should the imam do if he mistakenly gets up for a third rak'ah during Taraweeh prayer?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sit back down immediately even if he has already recited Al-Fatihah, complete the tashahhud and tasleem, then prostrate twice for forgetfulness",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Continue and complete four rak'ahs with one tashahhud, then do two prostrations of forgetfulness at the end",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Immediately say the tasleem while still standing in the third rak'ah, then restart the entire prayer set from the beginning",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Complete the third rak'ah normally, make tasleem, then pray a single additional rak'ah to make it an even number",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Uthaymeen stated that if the imam gets up for a third rak'ah in Taraweeh by mistake and is reminded of it, he must sit back down even if he has already started reciting Al-Fatihah. He should then recite the tashahhud, say the tasleem, and perform two prostrations of forgetfulness, followed by another tasleem. This is based on the Prophet's statement that \"the night prayers are two by two.\"",
+      "tags": [
+        "Leading Prayer",
+        "Rulings on prayer",
+        "Taraweeh"
+      ],
+      "source": "IslamQA reference 141381"
+    },
+    {
+      "reference": 4685,
+      "questionText": "How did the Islamic scholars respond to the Christian minister who accepted his daughter's conversion to Islam and marriage to a Muslim?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "They thanked him for his fair-mindedness and expressed hope that his study of religion might lead him to properly study and embrace Islam",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They advised him to continue teaching his daughter about Christianity to test the strength of her commitment to Islam",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They told him his acceptance was religiously obligatory in Islam and he would face consequences for opposing his daughter's choice",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They suggested he should maintain distance from his daughter and son-in-law until he converts to Islam himself",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars thanked the Christian minister for his kind feelings and noted that his not standing in the way of his daughter and her husband showed fair-mindedness and respect for others' beliefs. They expressed their wish that he could join them in following Islam, noting that while it may appear difficult for someone who represents another religion, perhaps his study of religion could lead to a proper study of Islam and a new conviction.",
+      "tags": [
+        "Calling non-Muslims to Islam",
+        "Interfaith Relations"
+      ],
+      "source": "IslamQA reference 4685"
+    },
+    {
+      "reference": 249126,
+      "questionText": "What are the required conditions for earning money from advertisements on your video clips to be permissible in Islam?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The subscription to the company must be free, the financial return must be known, and the ads must not promote prohibited things",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The ads must only be displayed to non-Muslim viewers and must be completely hidden from Muslim audiences in the platform settings",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "You must donate at least 10% of earnings to charity, the ads must not exceed 30 seconds, and must be skippable after 5 seconds",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The advertising company must be based in a Muslim-majority country and have official certification from recognized Islamic scholars",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer specifies three clear conditions: (1) the subscription to the company should be free, (2) the financial return should be known, and (3) the ads should be permissible and not include any promotion of prohibited things. If ads contain prohibited content, it is not permissible to accept and publish them, as this constitutes cooperating in sin and transgression.",
+      "tags": [
+        "Employment for a Salary",
+        "Online Income",
+        "Advertising"
+      ],
+      "source": "IslamQA reference 249126"
+    },
+    {
+      "reference": 7030,
+      "questionText": "According to Shaykh Muhammad ibn Uthaymeen, under what specific conditions is using a credit card permissible despite its riba-based terms?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When it is certain that not using it will cause difficulty with no other option, and the person is committed to paying it off without any delay",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "When the credit card company officially waives all interest charges in writing and the person pays the balance within 90 days",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When the person uses the credit card exclusively for business expenses and never for any personal purchases",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "When the person resides in a non-Muslim country where credit cards are the only form of payment accepted by merchants",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Uthaymeen stated that if it is certain that not using a credit card will cause difficulty and there is no other option, and the likelihood of being late in paying is remote (meaning the person is committed to paying without delay), then he hoped there is nothing wrong with using it. Both conditions must be met: genuine necessity with no alternative, and commitment to timely payment to avoid riba.",
+      "tags": [
+        "Interest",
+        "Credit Cards",
+        "Necessity"
+      ],
+      "source": "IslamQA reference 7030"
+    },
+    {
+      "reference": 147629,
+      "questionText": "What is the unanimous ruling of the scholars regarding giving the iqaamah for prayer while sitting when one is able to stand?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is unanimously agreed to be makrooh (disliked) and against the Sunnah without excuse, though some Hanbali scholars say it is invalid",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is completely invalid according to all four madhabs and the prayer behind such a person must be repeated",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible and carries no blame as long as the person is praying alone and not leading a congregation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is specifically recommended for elderly people over 60 years old to preserve their energy for the actual prayer itself",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fuqaha are unanimously agreed that it is makrooh (disliked) for the one reciting the iqaamah to do so sitting without an excuse, as it goes against the Sunnah practice from the time of the Prophet. The Sunnah is to give both adhaan and iqaamah standing. However, some Hanbali scholars like Ibn Haamid and Shaykh Taqiy al-Deen went further and said the adhaan or iqaamah given while sitting is invalid and should be repeated.",
+      "tags": [
+        "Call for prayer",
+        "Iqaamah",
+        "Prayer Rulings"
+      ],
+      "source": "IslamQA reference 147629"
+    },
+    {
+      "reference": 101859,
+      "questionText": "According to the ruling on engagement gifts, if a woman refuses to marry a man who gave her gifts to marry him, what is her obligation?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She must return existing gifts and replace or pay the value of items that have been used up or damaged",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She only needs to return the gold jewelry, not other gifts like money for going out",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She can keep gifts she did not specifically ask for from him",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She must return items she consumed, but not items the man consumed with her during engagement",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh al-Islam Ibn Taymiyah and other scholars ruled that if a man gives gifts on the basis of marriage and the woman refuses, he may take them back. Whatever gifts are still present should be returned, and whatever has been used up or damaged should be replaced or its value given. However, what the man himself consumed he has no right to ask for.",
+      "tags": [
+        "Gifts and Presents",
+        "Engagement",
+        "Marriage"
+      ],
+      "source": "IslamQA reference 101859"
+    },
+    {
+      "reference": 11938,
+      "questionText": "According to Ibn Mas'ud's response to people using pebbles to count takbeer, tahleel, and tasbeeh 100 times each in circles, what was his verdict?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He said they were starting a way of misguidance, even though they intended good",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He praised them for their devotion and asked them to teach others this method",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He said it was acceptable since the words themselves were legitimate dhikr from the Sunnah",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He allowed it only if they also counted their bad deeds alongside their good deeds",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Mas'ud said to them: 'Either you are following a way that is more guided than the way of Muhammad, or you are starting a way that is the way of misguidance.' When they said they only intended good, he responded: 'How many of those who intend good never attain it.' This demonstrates that good intentions alone do not make an act of worship acceptable if it contradicts the Sunnah.",
+      "tags": [
+        "Innovations in Religion and Worship",
+        "Bid'ah",
+        "Sunnah"
+      ],
+      "source": "IslamQA reference 11938"
+    },
+    {
+      "reference": 242000,
+      "questionText": "Why is it not appropriate to ask Allah to let you live until the descent of 'Eesa ibn Maryam (peace be upon him)?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because his descent will occur during the time of the Dajjaal, the greatest tribulation, which Muslims should seek to avoid",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because only the Sahabah who were alive during the Prophet's time can make such requests",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because it shows ingratitude for the current time Allah has chosen for you",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because human lifespan has natural limits that cannot extend to the end of time",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) said: 'Between the creation of Adam and the onset of the Hour there is no matter of greater impact than the Dajjaal.' The Muslim should seek to avoid tribulations, not ask to witness them. Abu Dawood narrated that the Prophet said: 'Whoever hears of the Dajjaal, let him go far away from him,' warning that even believers may be misled by his tribulation.",
+      "tags": [
+        "Belief in the Last Day and the Signs of the Hour",
+        "Supplication",
+        "Dajjaal"
+      ],
+      "source": "IslamQA reference 242000"
+    },
+    {
+      "reference": 5660,
+      "questionText": "According to the hadith about the shepherd at the top of a mountain pass who calls the Adhan and prays alone, what did Allah say?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Look at this slave of Mine, I have forgiven him and will admit him to Paradise",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "This slave has fulfilled his obligation completely and perfectly",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "This slave will receive the reward of praying in congregation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "This slave has set a good example for other shepherds to follow",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) narrated that Allah says: 'Look at this slave of Mine, saying the Adhan and the Iqamah for prayer and fearing Me. I ask you to bear witness that I have forgiven My slave and will admit him to Paradise.' This hadith demonstrates the virtue of saying Adhan and Iqamah even when praying alone.",
+      "tags": [
+        "Call for prayer",
+        "Adhan",
+        "Iqamah"
+      ],
+      "source": "IslamQA reference 5660"
+    },
+    {
+      "reference": 143089,
+      "questionText": "If a woman has a miscarriage during early pregnancy (before 80 days), what is the ruling on the bleeding regarding her ability to perform tawaaf?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "The bleeding is istihaadah (non-menstrual bleeding), which does not prevent her from praying or doing tawaaf if she does wudoo' for each prayer",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The bleeding is nifaas, so she must wait up to 40 days until she becomes pure before doing tawaaf",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She must take medicine to stop the bleeding completely before she can perform tawaaf",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She should change from tamattu' to qiran to avoid doing tawaaf until she becomes pure",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Human features do not appear in the foetus before 80 days of pregnancy. If a miscarriage occurs before this time, the bleeding is regarded as istihaadah (non-menstrual bleeding), not nifaas. Istihaadah does not prevent a woman from praying or doing tawaaf, but she must do wudoo' for each prayer.",
+      "tags": [
+        "Hajj al-Mar'ah (women's pilgrimage)",
+        "Nifaas",
+        "Istihaadah",
+        "Tawaaf"
+      ],
+      "source": "IslamQA reference 143089"
+    },
+    {
+      "reference": 106575,
+      "questionText": "According to Shaykh Ibn 'Uthaymin, in what two ways is Hajj Qiran easier than Hajj Tamattu' for elderly women?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The pilgrim only has to do one tawaaf and one sa'i, and can delay them until after completing Hajj when it is easier",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The Quran waives the requirement of sa'i entirely for those doing Qiran",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It allows combining tawaaf al-ifaadah and farewell tawaaf into a single combined tawaaf",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It eliminates the need to offer a sacrifice unlike Tamattu' which requires one",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymin explained that Qiran is easier in two ways: First, the pilgrim only does one tawaaf and one sa'i for both Hajj and 'Umrah combined. Second, they can delay the tawaaf and sa'i until after completing Hajj (even after the 13th, 14th, or 15th of Dhul-Hijjah), rather than having to do them immediately upon arrival like in Tamattu'.",
+      "tags": [
+        "Sifat al-Hajj wa'l-'Umrah (Description of Hajj and 'Umrah)",
+        "Hajj Qiran",
+        "Hajj Tamattu'"
+      ],
+      "source": "IslamQA reference 106575"
+    },
+    {
+      "reference": 4246,
+      "questionText": "What happens the moment someone says and believes the shahada (testimony of faith)?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "They automatically become Muslim and must start carrying on with the duties of Islam",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They must wait for formal acceptance and registration at an Islamic center",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They begin a probationary period to learn Islamic practices before becoming fully Muslim",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They need permission from an Islamic scholar to officially enter Islam",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Any human being can embrace Islam without anyone's permission. The moment you say and believe that there is no God except Allah and that Muhammad is His Messenger, you automatically become Muslim. From there, you start carrying on with the duties of Islam. Embracing Islam at an Islamic center is only a formality.",
+      "tags": [
+        "Calling non-Muslims to Islam",
+        "Shahada",
+        "Conversion"
+      ],
+      "source": "IslamQA reference 4246"
+    },
+    {
+      "reference": 122224,
+      "questionText": "What is Shaykh Ibn 'Uthaymin's view regarding whether janaazah (funeral) prayer in al-Masjid al-Haraam receives the multiplied reward?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The apparent meaning of the hadith indicates the multiple reward includes janaazah prayer and all prayers generally",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The multiple reward applies only to the five daily obligatory prayers, not janaazah prayer",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Janaazah prayer receives exactly 100,000 times reward just like the five daily prayers",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "There is unanimous scholarly consensus that janaazah prayer does not receive the multiple reward",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymin stated: 'What appears to be the case from the apparent meaning of the hadith is that it includes all prayers, and the janaazah prayer is included in this general meaning of the reward for prayers in al-Masjid al-Haraam being multiplied.' This view was also held by al-Nawawi and others, though some scholars like al-Tahhaawi held it applies only to obligatory prayers.",
+      "tags": [
+        "Rulings on Mosques",
+        "Janaazah",
+        "Al-Masjid al-Haraam"
+      ],
+      "source": "IslamQA reference 122224"
+    },
+    {
+      "reference": 2993,
+      "questionText": "What is the ruling on a woman going to the mosque or learning gatherings without her father's permission before marriage?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not permissible because she is under her father's guardianship and must have his permission to leave the house",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible if the purpose is seeking religious knowledge or worship even without permission",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is allowed if she goes in secret to avoid confrontation with her father",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is obligatory to go even without permission because faith wears out and needs renewal through gatherings",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Before marriage, a woman is under the guardianship of her father, so it is not permissible for her to go out of the house except with his permission, whether to the mosque or elsewhere. Obedience to one's father is obligatory so long as it does not involve disobedience towards Allah.",
+      "tags": [
+        "Rights of spouses",
+        "Father's guardianship",
+        "Women's rights"
+      ],
+      "source": "IslamQA reference 2993"
+    },
+    {
+      "reference": 106550,
+      "questionText": "What is the evidence that putting on perfume before entering ihram is Sunnah?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "'Aa'ishah reported putting perfume on the Prophet before ihram and seeing the glistening of musk in his hair parting when he was in ihram",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The Prophet explicitly commanded all pilgrims to wear perfume before entering ihram",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Perfume is required as part of the purification process before entering the sacred state of ihram",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The companions reached unanimous consensus (ijma') that it was obligatory for ihram",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "'Aa'ishah (may Allah be pleased with her) said: 'I put perfume on the Messenger of Allah (peace be upon him) for his ihram before he entered ihram. And the glistening of the musk could be seen in the parting of his hair when he was in ihram.' This hadith establishes that putting on perfume after doing ghusl when entering ihram is Sunnah because the Prophet did it.",
+      "tags": [
+        "Sifat al-Hajj wa'l-'Umrah (Description of Hajj and 'Umrah)",
+        "Ihram",
+        "Perfume"
+      ],
+      "source": "IslamQA reference 106550"
+    },
+    {
+      "reference": 153572,
+      "questionText": "According to Islamic scholars, when is it permissible to pray in the bathroom?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only in extreme necessity when no other place is available and combining prayers is not possible",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Whenever you need to pray secretly and your family forbids you from praying elsewhere",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is never permissible even in cases of extreme hardship or danger",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Whenever you combine Dhuhr and Asr or Maghrib and Isha prayers to avoid difficulty",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The hadith states that 'all the earth is a place of prayer except graveyards and bathrooms.' However, Shaykh Ibn Baz ruled that in extreme necessity when a person cannot find any other place and faces serious harm (such as persecution for their religion), it is permitted to pray in the bathroom rather than omit the prayer entirely. The person should first try combining prayers at easier times.",
+      "tags": [
+        "Conditions for Prayer",
+        "Prayer"
+      ],
+      "source": "IslamQA reference 153572"
+    },
+    {
+      "reference": 10271,
+      "questionText": "What should a person do if they frequently experience doubts about how many rak'ahs they have prayed?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Not pay attention to those doubts and not do sujood al-sahw for them",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Always perform sujood al-sahw after every prayer where doubt occurs",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Act on what seems most likely and perform sujood al-sahw in every case",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Stop the prayer immediately and restart from the beginning",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Muhammad ibn Saalih al-'Uthaymeen stated that a person who frequently experiences doubts during prayer should not pay attention to those doubts and should not do sujood al-sahw for them, because too many doubts lead to waswaas (insinuating whispers from Shaytaan). This prevents the person from falling into excessive doubt and obsession.",
+      "tags": [
+        "Forgetfulness During Prayer",
+        "Prayer"
+      ],
+      "source": "IslamQA reference 10271"
+    },
+    {
+      "reference": 40299,
+      "questionText": "What must a traveler do if he has reached his destination city and hears the call to prayer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Attend congregation in the mosque and pray the full prayer behind the resident imam",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Pray shortened two-rak'ah prayers alone in his accommodation",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Pray shortened prayers in the mosque while the imam prays full prayers",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Choose freely between praying in congregation or praying alone based on what is easier",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to Shaykh Ibn Baz and Shaykh Ibn 'Uthaymeen, when a traveler reaches his destination and hears the adhaan, he must attend prayers in congregation in the mosque. If the imam is a resident, the traveler must pray the full prayer with him, not shortened. Ibn 'Abbas said this is the Sunnah when asked why a traveler prays two rak'ahs alone but four behind a resident imam.",
+      "tags": [
+        "Congregational Prayer",
+        "Prayer of the Traveler"
+      ],
+      "source": "IslamQA reference 40299"
+    },
+    {
+      "reference": 10053,
+      "questionText": "According to authentic hadith, what strength will a believer be given in Paradise for eating, drinking, desire, and sexual intercourse?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "The strength of one hundred men",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The strength of ten men",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The strength of fifty men",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Unlimited divine strength beyond any earthly measure",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) said: 'The believer in Paradise will be given such and such strength for sexual intercourse.' When asked if this was really possible, he said: 'He will be given the strength of one hundred (men).' This was narrated by At-Tirmidhi (2459) who classified it as authentic. Another hadith specifies this applies to eating, drinking, desire, and sexual intercourse.",
+      "tags": [
+        "Paradise and Hell",
+        "Afterlife"
+      ],
+      "source": "IslamQA reference 10053"
+    },
+    {
+      "reference": 327313,
+      "questionText": "Under what condition is it permissible to use the National Debt Assistance Center to pay off remaining mortgage debt after the bank sells your house?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only if they do not charge any extra amount over what they will pay to the bank",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only if you arrange to pay them back within exactly five years",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only if the remaining debt after the sale is more than 100,000 pounds",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only if you have already paid the bank for at least three to four years",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars state that it is permissible to approach the National Debt Assistance Center to take on the debt and pay them in installments, provided that they do not take any extra amount over what they will pay to the bank. If they charge extra, this is prohibited usury, and you must then keep the house and pay the bank directly to avoid entering into a new usurious transaction.",
+      "tags": [
+        "Borrowing & Lending",
+        "Interest"
+      ],
+      "source": "IslamQA reference 327313"
+    },
+    {
+      "reference": 126602,
+      "questionText": "What did the Prophet (peace and blessings of Allah be upon him) say about those who imitate other peoples?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Whoever imitates a people is one of them",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Imitation is permissible in outward appearance as long as the heart remains pure",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Muslims may imitate non-Muslims in trade, commerce, and worldly matters",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Imitation is allowed if it does not involve directly religious symbols like the cross",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) said: 'Whoever imitates a people is one of them,' as narrated by Imam Ahmad with a sound chain. He also said: 'He is not one of us who imitates others; do not imitate the Jews or the Christians.' This was narrated by At-Tirmidhi as a hasan hadith. These authentic statements establish the prohibition on imitating disbelievers in their distinctive practices.",
+      "tags": [
+        "Alliance and Amity, Disavowal and Enmity"
+      ],
+      "source": "IslamQA reference 126602"
+    },
+    {
+      "reference": 67578,
+      "questionText": "According to the Standing Committee of Scholars, when is it permissible to delay paying zakaah after the year has been completed?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only with a legitimate excuse such as no poor people available or the money being inaccessible",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It can be delayed for three to four years to invest in Islamic banks for da'wah projects",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It can be delayed until Ramadan regardless of when the year is completed",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It can be delayed indefinitely if the zakaah funds are used to establish charitable centers",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Standing Committee stated that it is not permissible to delay paying zakaah after one year has been completed unless there is a legitimate shar'i excuse, such as there being no poor people around, not being able to get it to them, or the money not being accessible. The only exception for delaying to Ramadan is if the year ends in the second half of Sha'ban, making it only a short delay.",
+      "tags": [
+        "Where Zakah is to Be Spent",
+        "Zakah"
+      ],
+      "source": "IslamQA reference 67578"
+    },
+    {
+      "reference": 4236,
+      "questionText": "In the hadith of the seven whom Allah will shade on the Day of Judgment, which aspects are specific to men only?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Being a righteous leader and performing congregational prayers in the mosque",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Growing up in the worship of Allah and remembering Allah in solitude",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Giving charity so secretly that the left hand does not know what the right hand gave",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Refusing temptation to illegal relations by saying 'I fear Allah'",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars explain that the righteous leader is specific for men, and performing prayers in congregation in the mosque is also specific for men, as the prayer of a woman in her house is more virtuous according to authentic hadith. All other merits mentioned (growing up worshipping Allah, mutual love for Allah's sake, refusing temptation, secret charity, and remembering Allah alone) apply equally to both men and women.",
+      "tags": [
+        "Commentary on Hadith",
+        "Virtues of deeds"
+      ],
+      "source": "IslamQA reference 4236"
+    },
+    {
+      "reference": 21794,
+      "questionText": "What does the phrase 'for Allah's cause' refer to in the Quranic verse about the recipients of zakaah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The mujaahideen who strive physically for the sake of Allah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Islamic educational courses and study programs in Europe",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Any trustworthy Islamic institution engaged in da'wah work",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Teachers and students of Islamic knowledge in areas of great need",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars clarified that 'for Allah's cause' in the verse about zakaah recipients refers specifically to the mujaahideen who strive for the sake of Allah. Study courses and Islamic education programs are not included under this category. However, if individual teachers or students are poor, they may receive zakaah because of their poverty, as the verse mentions 'the poor' as a separate category.",
+      "tags": [
+        "Poor-due or obligatory charity",
+        "Where Zakah is to Be Spent"
+      ],
+      "source": "IslamQA reference 21794"
+    },
+    {
+      "reference": 239755,
+      "questionText": "What is the authentic ruling on the hadith about making supplication when looking in the mirror ('O Allah, You have made my physical appearance good, so make my manners good')?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is mawdu' (fabricated) with no authentic chains of narration",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is sahih (authentic) and recommended to recite regularly",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is hasan (good) and acceptable to act upon for those who wish",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is da'if (weak) but can be used for virtuous deeds and general supplications",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The hadith was narrated through multiple chains, but all are either fabricated or extremely weak. Ibn Abi's-Sariy, one narrator, was classified as a liar. 'Abd ar-Rahman ibn Ishaq is matruk (rejected). Other chains contain narrators described as liars, fabricators, or unknown. The scholars concluded this hadith is mawdu' (fabricated) and has no sahih chains, despite being found in several books.",
+      "tags": [
+        "Manners",
+        "Science of hadith"
+      ],
+      "source": "IslamQA reference 239755"
+    },
+    {
+      "reference": 9414,
+      "questionText": "What is the prescribed Islamic response when experiencing whispers from Shaytaan about who created Allah?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Say 'A'oodhu Billaahi min al-Shaytaan ir-rajeem' and stop the thought by ignoring it completely",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Try to answer the question logically and debate with the whisper until satisfied",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Continue thinking about it deeply until you find a satisfactory philosophical answer",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Immediately seek consultation with a scholar before taking any other action",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) instructed that when Shaytaan whispers such questions, one should seek refuge with Allah by saying 'A'oodhu Billaahi min al-Shaytaan ir-rajeem' and completely stop and ignore the thought. By Allah's leave, it will then go away.",
+      "tags": [
+        "Belief",
+        "Shaytaan",
+        "Whispers"
+      ],
+      "source": "IslamQA reference 9414"
+    },
+    {
+      "reference": 71170,
+      "questionText": "According to Shaykh Ibn Uthaymin, what is the ruling on human-like cartoons that appear on TV?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is most likely that they do not come under the same ruling as realistic human images",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They are completely forbidden just like sculpting and drawing realistic humans",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They are only permissible for children under the age of seven years old",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They are permissible only if they teach Islamic values and moral lessons",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Uthaymin stated that cartoons in human form most likely do not come under the same ruling as realistic human images. For non-human cartoons, there is nothing wrong with watching them so long as they are not accompanied by anything prohibited like music and do not distract from obligatory duties.",
+      "tags": [
+        "Childrens Upbringing",
+        "Images",
+        "Media"
+      ],
+      "source": "IslamQA reference 71170"
+    },
+    {
+      "reference": 23349,
+      "questionText": "According to the scholars, why is an illicit relationship particularly worse when committed by a married woman compared to a married man?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It results in mixing of lineages and makes the husband doubt whether his children are really his",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Women are held to higher standards of religious accountability than men in all matters",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Married women face harsher legal penalties under Islamic law than married men",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Women's illicit relationships are statistically more likely to involve physical intimacy",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "For a Muslim woman to form an illicit relationship with a man who is not her mahram is considered worse than a man doing so because it results in mixing of lineages and makes the husband doubt whether his children are really his or not, which leads to a great deal of mischief.",
+      "tags": [
+        "Love and the steps that lead to immoral actions",
+        "Marriage",
+        "Zina"
+      ],
+      "source": "IslamQA reference 23349"
+    },
+    {
+      "reference": 1401,
+      "questionText": "What is the ruling on working for a company that automatically provides life insurance to all employees without your request or agreement?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is no sin as long as you did not set up or agree to the insurance and the work itself is permissible",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "You must request the company to cancel the policy or your work becomes haram",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "You are sinful because accepting the job means accepting all benefits packages",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "You must donate the full insurance value to charity to purify your earnings",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "So long as it is not you who has set up and agreed to the insurance, there is no sin on you working there, as long as the work itself is permissible. The company's automatic provision of insurance does not make your employment haram.",
+      "tags": [
+        "Insurance",
+        "Employment",
+        "Halal Income"
+      ],
+      "source": "IslamQA reference 1401"
+    },
+    {
+      "reference": 49018,
+      "questionText": "Does looking at one's own `awrah or someone else's `awrah invalidate wudu?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, because there is no evidence that looking at `awrah invalidates wudu",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, looking at any `awrah including your own requires repeating wudu",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only looking at a non-mahram person's `awrah invalidates wudu",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It invalidates wudu only if you look intentionally, not accidentally",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Standing Committee confirmed that wudu is not invalidated by looking at naked men and women, or by looking at one's own `awrah, because there is no evidence to that effect. Looking at the `awrah is not one of the things that invalidate wudu.",
+      "tags": [
+        "Nullifiers of Wudu",
+        "Awrah",
+        "Purity"
+      ],
+      "source": "IslamQA reference 49018"
+    },
+    {
+      "reference": 83799,
+      "questionText": "Why did the Islamic Fiqh Council retract its initial permission for implanting a fertilized embryo from one wife into the womb of the husband's second wife?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "The second wife could become pregnant from relations with the husband around the same time, causing confusion about which child came from which source and mixing lineages",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The medical procedure was found to have excessively high risks for the wife carrying the embryo",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It violates the fundamental rights of the biological mother to carry her own child to term",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Research showed that this method always results in miscarriage or birth defects",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Islamic Fiqh Council retracted their permissibility ruling because the second wife may become pregnant with a second child from relations with her husband around the time of embryo implantation. This could result in twins where it may not be known which child resulted from the implanted embryo and which from relations with the husband, leading to confusion about who the real mother is and mixing of lineages.",
+      "tags": [
+        "Psychological and Social Problems",
+        "IVF",
+        "Medical Issues"
+      ],
+      "source": "IslamQA reference 83799"
+    },
+    {
+      "reference": 79241,
+      "questionText": "What is the area of the body considered `awrah that cannot be massaged except in cases of medical necessity?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Between the navel and knees for men; between the lower chest and knees for women",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The entire body except hands, feet, and face for both genders",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Between the shoulders and ankles for men; the entire body except hands for women",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Any area that would normally be covered by modest clothing for both genders",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "It is not permissible to massage the area that is regarded as `awrah, which is the area between the navel and the knees in the case of men and the area between the lower chest and the knees in the case of women, unless this area needs medical treatment by means of massage, in which case it is permitted as a necessity.",
+      "tags": [
+        "Medicine and medical treatments",
+        "Awrah",
+        "Fasting"
+      ],
+      "source": "IslamQA reference 79241"
+    },
+    {
+      "reference": 5188,
+      "questionText": "What is the Islamic principle regarding obeying a husband's request to remove hijab?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is no obedience to any created being if it involves disobedience to the Creator",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "A wife must obey her husband in all matters including religious dress requirements",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She should gradually reduce her hijab coverage to maintain marital harmony",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She can remove it at home with him but must wear it outside the house",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fundamental principle is that there is no obedience to any created being if it involves disobedience to the Creator. Therefore, a woman must persevere in obeying Allah's command and not remove her hijab even if her husband requests it, while advising him kindly and gently.",
+      "tags": [
+        "Womens clothing",
+        "Hijab",
+        "Marriage"
+      ],
+      "source": "IslamQA reference 5188"
+    },
+    {
+      "reference": 10805,
+      "questionText": "According to Shaykh Ibn Baz, what are the two main reasons why life insurance is prohibited in Islam?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because it involves gharar (uncertainty in transactions) and riba (usury/interest)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because it shows lack of trust and reliance in Allah's provision for one's family",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because it is a form of gambling on the timing of one's own death",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because it primarily benefits non-Muslim insurance companies and their shareholders",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Baz stated that insurance of one's life or possessions is haram because it involves gharar (buying/selling something where it is not known whether what is being bought/sold will be achieved/delivered) and riba (usury/interest). Allah has forbidden all transactions based on riba and involving deceit.",
+      "tags": [
+        "Insurance",
+        "Riba",
+        "Gharar"
+      ],
+      "source": "IslamQA reference 10805"
+    },
+    {
+      "reference": 144805,
+      "questionText": "What did Shaykh Ibn Baaz say about women wearing hijab in study circles due to the presence of angels?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is no basis for this; women may recite Qur'an bare-headed if no non-mahram men are present, and it does not prevent angels from entering",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Angels will not attend gatherings where women are not wearing proper hijab coverage",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Women should wear hijab out of respect and modesty before the angels who witness their actions",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "This practice is recommended as a sign of piety though not strictly obligatory",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Baaz said: 'I do not know of any basis for that. They may recite Qur'an and remember Allah, even if they are bare-headed, so long as there is no non-mahram man present. That does not prevent the angels from entering.' There is no evidence to support wearing hijab on the grounds that angels can see women.",
+      "tags": [
+        "Womens clothing",
+        "Study circles",
+        "Angels"
+      ],
+      "source": "IslamQA reference 144805"
+    },
+    {
+      "reference": 300556,
+      "questionText": "What is the ruling on racing homing pigeons for prizes (such as certificates, cups, or money)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not permissible because prizes in contests are only allowed for archery, horse races, or camel races",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible if only certificates and cups are given, not money",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible if the pigeons are kept for carrying messages or as pets rather than racing",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible if done in private areas where it does not lead to looking into people's houses",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) said: 'There should be no prizes for contests except in archery, horse races or camel races.' Racing pigeons for any type of prize—whether money, cups, or certificates—is not permissible, as it does not fall under the types of competitions for which Islam allows awarding prizes.",
+      "tags": [
+        "Races and games"
+      ],
+      "source": "IslamQA reference 300556"
+    },
+    {
+      "reference": 11527,
+      "questionText": "According to the Sunnah, when should you move your forefinger during the Tashahhud in prayer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Point and move the finger every time you make du'aa' during the Tashahhud, such as when saying 'Al-salaamu 'alayka' and 'Allahumma salli 'ala Muhammad'",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only point at the beginning of the Tashahhud, then keep the finger still throughout the rest",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only move the finger when saying 'Allahumma salli 'ala Muhammad,' but keep it still at other times",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Point with the finger throughout the Tashahhud, but do not move it at all",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymeen explained that every time you make du'aa' you should move your finger upwards towards the One upon Whom you are calling. This includes when saying 'Al-salaamu 'alayka ayyuha'l-Nabiyyu,' 'Allahumma salli 'ala Muhammad,' 'A'oodhu Billaaih min 'adhaabi Jahannam,' and all other du'aa' phrases in the Tashahhud.",
+      "tags": [
+        "How Prayer is Done",
+        "Sunnah Actions in Prayer"
+      ],
+      "source": "IslamQA reference 11527"
+    },
+    {
+      "reference": 297658,
+      "questionText": "Is the statement 'No one asks Allah for some worldly matter but he will get an equal amount of worries and stress' sound?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The statement is false; it is prescribed to ask Allah for good in both this world and the hereafter, as the Prophet taught in authentic hadiths",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is true only if the person asks for worldly matters more than three times daily",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is true except when specifically asking for pardon and wellbeing",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is false only for prophets and righteous people, but true for ordinary Muslims",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "This statement with such a general meaning is undoubtedly false. The Prophet (peace and blessings of Allah be upon him) taught: 'Ask your Lord for pardon and wellbeing in this world and in the Hereafter.' What is blameworthy is when worldly concerns are ALL that a person cares about with no interest in the hereafter, or seeking worldly gain through haraam means.",
+      "tags": [
+        "The Heart Softeners"
+      ],
+      "source": "IslamQA reference 297658"
+    },
+    {
+      "reference": 7859,
+      "questionText": "What is the ruling and reward for fasting six days of Shawwal after Ramadan?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is Sunnah Mustahabbah (recommended, not obligatory) and brings the reward of fasting an entire year",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is obligatory (wajib) for all Muslims who are physically able to fast",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is recommended and the reward is equal to fasting six additional months",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is only recommended if one missed days in Ramadan that need to be made up",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) said: 'Whoever fasts Ramadan and follows it with six days of Shawwal, it will be as if he fasted for a lifetime.' This is because each good deed is multiplied by ten: Ramadan (30 days × 10 = 300 days/10 months) plus six days of Shawwal (6 × 10 = 60 days/2 months) equals 12 months.",
+      "tags": [
+        "Supererogatory Fasts",
+        "Virtues of deeds"
+      ],
+      "source": "IslamQA reference 7859"
+    },
+    {
+      "reference": 112061,
+      "questionText": "Under what circumstances is it permissible for a female nurse to wash a male patient and see his 'awrah?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is permissible only when necessary and if there is no man available to do the job",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is always permissible as long as the nurse maintains professional conduct",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible only if the patient is unconscious and unable to object",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible if the patient's family provides written consent",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Based on the verse 'So keep your duty to Allah and fear Him as much as you can' (al-Taghaabun 64:16), it is permissible for a female nurse to see a male patient's 'awrah when necessary, but only if there is no man available to do this job. If a man is available, then it is not permissible for female nurses to do that.",
+      "tags": [
+        "Medicine and medical treatments"
+      ],
+      "source": "IslamQA reference 112061"
+    },
+    {
+      "reference": 89705,
+      "questionText": "What is the ruling on offering a sacrifice in gratitude to Allah when buying a new house or car?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is mustahabb (recommended) if done to give thanks to Allah, honour relatives and neighbours, and show hospitality",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is obligatory (wajib) when purchasing a house or car as a sign of gratitude",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It must be slaughtered on the threshold before entering the house to ward off calamities and make the house blessed",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible only if performed within the first three days of ownership",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "It is mustahabb to give thanks to Allah by offering a sacrifice and inviting loved ones after moving into a new home. However, if done to placate jinn, ward off calamities, or slaughtered on the threshold before entering, this would be haraam and constitute shirk. The proper intention is to thank Allah and show hospitality to people.",
+      "tags": [
+        "Acts of Worship"
+      ],
+      "source": "IslamQA reference 89705"
+    },
+    {
+      "reference": 5419,
+      "questionText": "According to the consensus of Muslims, what are the two holy places (Haramayn) in Islam?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Makkah and Madeenah only, with no third holy place recognized",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Makkah, Madeenah, and Jerusalem (Bayt al-Maqdis)",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Makkah, Madeenah, and the valley of Dujj in al-Taa'if",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Makkah, Madeenah, and Khaleel (Hebron) in Palestine",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Taymiyah stated that there is no holy place (Haram) on earth apart from Makkah and Madeenah, according to the consensus of Muslims. No other place should be called Haram, not Jerusalem (Bayt al-Maqdis), not Khaleel in Palestine, nor the valley of Dujj in al-Taa'if (which Shaykh Ibn 'Uthaymeen confirmed is not a holy place).",
+      "tags": [
+        "Virtues and Merits"
+      ],
+      "source": "IslamQA reference 5419"
+    },
+    {
+      "reference": 360625,
+      "questionText": "For a woman who wears a wig due to complete hair loss from illness, what is the ruling regarding wudu and ghusl?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She may wipe over the wig when doing wudu, but must remove it when doing ghusl because water must reach all skin",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She must remove the wig for both wudu and ghusl",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She may keep the wig on for both wudu and ghusl, wiping over it in both cases",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She may wipe over it for ghusl, but must remove it for wudu",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The concession allows wiping over the wig when doing wudu (based on the principle of making things easier, similar to how the Prophet wiped over his hair after applying talbeed during Hajj). However, the wig must be removed when doing ghusl, because it is obligatory to make water reach all of the skin during ghusl.",
+      "tags": [
+        "Adornments",
+        "Purity"
+      ],
+      "source": "IslamQA reference 360625"
+    },
+    {
+      "reference": 220996,
+      "questionText": "What is the ruling on fasting with the dual intention of seeking reward from Allah and losing weight?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is permissible to combine both intentions, though it is preferable to intend the fast purely for seeking reward",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is haraam to combine two intentions in one act of worship",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible only if losing weight is the primary intention",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is valid only if one fasts for at least 15 days consecutively with both intentions",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "As-Suyooti stated that combining the intention of worship with a motive that is not worship does not invalidate it, if that secondary outcome (like losing weight or cooling oneself) will inevitably happen regardless of intention. The person did not plan to undermine sincerity; rather, the secondary benefit is an inevitable outcome of the prescribed act of worship.",
+      "tags": [
+        "Sincerity",
+        "What is permitted for the fasting person"
+      ],
+      "source": "IslamQA reference 220996"
+    },
+    {
+      "reference": 128846,
+      "questionText": "What is the ruling for a Sunni woman whose Shi'ah family refuses to let her marry a righteous Sunni man?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "The family's guardianship is waived due to the difference in religion and their preventing her from marrying a compatible suitor; she may marry via a shar'i judge or man of authority",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She must wait until she reaches 40 years of age to marry without their consent",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She can marry with only her mother's approval, even if other family members object",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She must first make three formal attempts to convert her family to Sunni Islam before she can marry without their consent",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If the family hold beliefs that constitute kufr (such as believing the Qur'an is distorted or that the Sahaabah are disbelievers), their guardianship is waived because of the difference in religion. Additionally, their preventing her from marrying a compatible suitor is another reason that waives their guardianship. She should refer her case to a shar'i judge, or if unavailable, to a man of good character with authority over Muslims.",
+      "tags": [
+        "Conditions of Marriage"
+      ],
+      "source": "IslamQA reference 128846"
+    },
+    {
+      "reference": 9310,
+      "questionText": "According to Al-Nawawi, what is required for a person's following of the imam to be valid?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The person following must know when the imaam moves, whether praying in the mosque or elsewhere",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "There must be no barrier of any kind between the imam and the congregation members",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The rows must be completely continuous without any interruptions according to all scholars",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Both the imam and followers must be inside the mosque building at all times",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Al-Nawawi stated that for following the imam to be valid, the person must know when the imam moves, whether they are praying in the mosque or elsewhere, or one of them is in the mosque and the other is outside - this is according to scholarly consensus. The presence of a barrier does not invalidate the prayer as long as this condition is met.",
+      "tags": [
+        "Leading Prayer"
+      ],
+      "source": "IslamQA reference 9310"
+    },
+    {
+      "reference": 110,
+      "questionText": "According to the answer, why is spending money on cigarettes considered problematic in Islam?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is extravagance because it's spending on something harmful and prohibited, and is a waste of resources",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It should only be avoided if the smoking causes immediate and severe health problems",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is only wasteful if cigarette spending exceeds a certain percentage of one's income",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The money would be better used for charity, but smoking itself is not prohibited",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer explains that money spent on cigarettes is used on buying a harmful thing and is therefore extravagance, as extravagance in Islam means spending on something prohibited. It also constitutes a waste of resources, which the Prophet (peace and blessings be upon him) warned against when he said a person will be asked on the Day of Judgment about how he spent what he owned.",
+      "tags": [
+        "Bad behaviour"
+      ],
+      "source": "IslamQA reference 110"
+    },
+    {
+      "reference": 132417,
+      "questionText": "According to the scholars cited in the answer, what was the Prophet's practice when Muslims faced crises such as the killing of the seventy reciters or the battle of Mu'tah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He offered supplication (du'a) and strove hard in doing so, without organizing group fasting or prayers for that specific purpose",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He called on all companions to fast together on a specific day with specific supplications",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He organized congregational qiyam prayers at a specific time for all Muslims to participate",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He instructed the companions to gather and recite specific adhkar in unison at a designated hour",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh 'Abd al-Rahman al-Suhaym explained that when seventy reciters were killed and on the day of Mu'tah, there is no report that the Prophet (peace and blessings be upon him) fasted or prayed salah for their sake. Rather, his practice was to offer supplication (du'a) and strive hard in doing so, as narrated in al-Sahihayn.",
+      "tags": [
+        "Innovations in Religion and Worship",
+        "Supererogatory Fasts",
+        "Supplication"
+      ],
+      "source": "IslamQA reference 132417"
+    },
+    {
+      "reference": 250902,
+      "questionText": "According to Shaykh 'Abd ar-Rahman al-Barrak, when is it permissible to have elective surgery done in Ramadan even if it causes one to break the fast?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When delaying it would exacerbate the sickness, delay recovery, result in hardship, or cause missing out on a skilled doctor",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is always permissible as long as the surgery is scheduled by a qualified medical professional",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is never permissible to have elective surgery in Ramadan unless it becomes a life-threatening emergency",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible whenever rescheduling would be inconvenient for the patient's work circumstances",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh al-Barrak stated that if delaying the surgery will exacerbate the sickness, delay recovery, result in hardship and trouble, or cause problems such as missing out on a skilled doctor, then there is nothing wrong with doing it in Ramadan even if it causes the patient to break the fast. However, if it can be delayed without hardship, it's not permissible to break the fast because the fast of Ramadan is obligatory and cannot be omitted for something that can be delayed.",
+      "tags": [
+        "What is permitted for the fasting person"
+      ],
+      "source": "IslamQA reference 250902"
+    },
+    {
+      "reference": 73007,
+      "questionText": "According to the hadith mentioned in the answer, what did the Prophet (peace and blessings be upon him) say when he came to Madinah and found they had two days of celebration?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "\"Allah has given you instead of them two days that are better than them: the day of al-Adha and the day of al-Fitr\"",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "\"You may continue celebrating those two days alongside the Islamic festivals\"",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "\"Those days will now become part of Islamic tradition for this community\"",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "\"Celebrate only one of those days each year, and abandon the other completely\"",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the hadith narrated by Abu Dawud from Anas (may Allah be pleased with him), when the Messenger of Allah (peace and blessings be upon him) came to Madinah and they had two days when they would play, he asked what these days were. They said they used to play on these days during the Jahiliyyah. The Prophet said: \"Allah has given you instead of them two days that are better than them: the day of al-Adha and the day of al-Fitr.\" This indicates that festivals are characteristics by which nations are distinguished.",
+      "tags": [
+        "Alliance and Amity, Disavowal and Enmity"
+      ],
+      "source": "IslamQA reference 73007"
+    },
+    {
+      "reference": 45518,
+      "questionText": "According to the scholars' explanation, why is the adhaan that comes after the time for Fajr prayer begins called the \"first\" adhaan?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because it is first in relation to the iqaamah, which is considered the second call to prayer in sharee'ah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because it is the first adhaan call made during the morning hours each day",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because it comes before the adhaan that is given at the end of the night",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because Fajr is the first of the five daily obligatory prayers in chronological order",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Standing Committee explained that the adhaan is called 'first' in relation to the iqaamah, which is itself an adhaan according to sharee'ah, as stated in the hadith \"Between each two calls (adhaanayn) there should be a prayer.\" In Sahih Muslim, the adhaan which comes after the time for prayer begins is called the first adhaan, distinguishing it from the call given at night before dawn, which is prescribed to wake those who are asleep.",
+      "tags": [
+        "Call for prayer",
+        "Commentary on Hadith"
+      ],
+      "source": "IslamQA reference 45518"
+    },
+    {
+      "reference": 185545,
+      "questionText": "According to the hadith mentioned in the answer, what did the Prophet (peace and blessings be upon him) say about his intercession on the Day of Resurrection?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "\"My intercession will be for those among my ummah who committed major sins\"",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "\"My intercession will only be granted to those who never committed any sins\"",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "\"My intercession will not be available for those who plucked their eyebrows\"",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "\"My intercession will be exclusively for the scholars and the most righteous believers\"",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings be upon him) said: \"My intercession will be for those among my ummah who committed major sins,\" as narrated by Abu Dawood and authenticated by al-Albaani. This demonstrates that intercession is not limited to those who never sinned, and the answer explains that we cannot definitively say that specific sins will rule out intercession, especially since it will be granted not only by the Prophet but also by other Prophets, martyrs, scholars, the righteous, and angels.",
+      "tags": [
+        "intercession"
+      ],
+      "source": "IslamQA reference 185545"
+    },
+    {
+      "reference": 2492,
+      "questionText": "According to Ibn Katheer's explanation of the Quranic verse, what should a person do with riba (interest) they received before learning that it was prohibited?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "They can keep it and are not required to return it, as Allah has forgiven what is past",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They must estimate the total amount received and give it all to charity immediately",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They must attempt to return all the interest money to those from whom they received it",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They can keep it but must only use it for basic necessities, not for any luxuries",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Katheer explained that the phrase \"So whosoever receives an admonition from his Lord and stops eating riba shall not be punished for his past\" means whoever hears that Allah has forbidden riba should stop immediately, but can keep whatever was received before, because Allah says \"Allah has forgiven what is past.\" Similarly, on the day of the Conquest of Makkah, the Prophet (peace and blessings be upon him) abolished riba but did not command people to return the extra money they had received during the time of Jaahiliyyah.",
+      "tags": [
+        "Interest"
+      ],
+      "source": "IslamQA reference 2492"
+    },
+    {
+      "reference": 1211,
+      "questionText": "According to the answer, what is the fundamental problem with saying \"I have done my best and the rest is up to Allah\"?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It implies putting trust in oneself first rather than relying on Allah from the beginning",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It suggests that Allah only intervenes to help after all human efforts have been completely exhausted",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It implies that some matters in life are outside of Allah's control and power",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It indicates an excessive lack of confidence in one's own abilities and efforts",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states that this phrase is not correct because it means that the one who says it is putting his trust in himself first. The correct phrase should be \"I have done my best and I ask Allah for help,\" which demonstrates reliance on Allah from the start. While the person might intend to mean that what they could do they have done and what they cannot do is up to Allah, the phrase itself is fundamentally incorrect in its formulation.",
+      "tags": [
+        "Sins of the Tongue"
+      ],
+      "source": "IslamQA reference 1211"
+    },
+    {
+      "reference": 300994,
+      "questionText": "According to the scholars' explanation in the answer, why are the angels mentioned before the Books in the sequence of articles of faith?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because Allah sent revelation to the Prophets only through the angels, who serve as intermediaries between Allah and humanity",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because the angels were created by Allah before the Books were revealed to mankind",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because belief in the angels is considered more important and fundamental than belief in the Books",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because the angels are assigned the duty of guarding the Books from any corruption or alteration",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer explains that Allah only sent revelation to the Prophets through the angels, as stated in the Quran: \"He sends down the angels, with the inspiration of His command\" and \"The Trustworthy Spirit [Jibreel] has brought it down upon your heart.\" Since the revelation of Allah only reached humanity through the angels, they are the intermediaries between Allah and humanity. The Books (revelation) are mentioned third because they are what the angel brought from Allah and delivered to humanity, and the Messengers are fourth as those who received this revelation from the angels.",
+      "tags": [
+        "Belief in the Angels"
+      ],
+      "source": "IslamQA reference 300994"
+    },
+    {
+      "reference": 2121,
+      "questionText": "What is the ruling on a menstruating woman doing ghusl after engaging in sexual contact with her husband (excluding intercourse)?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "She does not need to do ghusl because her impurity lasts as long as the blood is flowing",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She must do ghusl immediately after any form of sexual contact to resume prayers",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She should delay ghusl until three days have passed since the sexual contact",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She must do wudu instead of ghusl and can continue praying during menses",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A menstruating woman does not need to do ghusl after having sexual contact because her state of impurity continues as long as the blood is flowing and only ends when the bleeding stops and she performs ghusl. The Prophet (peace and blessings of Allah be upon him) said regarding menstruating women: 'Do everything except have intercourse' (reported by Muslim, 455).",
+      "tags": [
+        "Menstruation and Post-Natal bleeding"
+      ],
+      "source": "IslamQA reference 2121"
+    },
+    {
+      "reference": 21976,
+      "questionText": "What is the ruling on making du'a after obligatory prayers while raising the hands?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is bid'ah because it was not narrated that the Prophet or his Companions did this",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is obligatory for both the imam and the congregation to do this together",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is recommended only for the imam while the congregation makes du'a silently",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is Sunnah when done individually but bid'ah when the imam and congregation do it in unison",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Making du'a after obligatory prayers while raising the hands is bid'ah (innovation), because it was not narrated that the Prophet (peace and blessings of Allah be upon him) or any of his Companions did this. However, making du'a without raising hands is permissible, as there are some ahadith concerning that, according to Fatawa al-Lajnah al-Daimah (7/103).",
+      "tags": [
+        "Congregational Prayer",
+        "Innovations in Religion and Worship",
+        "Sunnah Actions in Prayer"
+      ],
+      "source": "IslamQA reference 21976"
+    },
+    {
+      "reference": 118435,
+      "questionText": "What is the status of making an animal face the qiblah during slaughter?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is Sunnah but not obligatory, and the slaughter is valid even if facing another direction",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is obligatory only when slaughtering hadiy (sacrificial animals for Hajj) but not for regular slaughter",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is obligatory in all cases and the slaughter is invalid if the animal does not face the qiblah",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It was recommended by Ibn 'Umar but was not practiced by the Prophet himself",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Sunnah with regard to slaughter is to make the animal face towards the qiblah, but that is not obligatory. If one slaughters it facing any other direction, the slaughter is halaal, but he has omitted a Sunnah, as stated in Fatawa al-Lajnah al-Daa'imah (22/477). The Sunnah applies in all cases whether hadiy, udhiyah, or otherwise.",
+      "tags": [
+        "Food & Nourishment"
+      ],
+      "source": "IslamQA reference 118435"
+    },
+    {
+      "reference": 353992,
+      "questionText": "Why is the organized tawarruq model used by some financing platforms considered impermissible?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because the platform buys the product, sells it on credit to the company, then sells it on behalf of the company to obtain cash",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because the company must obtain written permission from the local Islamic council before each transaction",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because the profit margins charged by the platform exceed the maximum allowed by Islamic law",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because the platform charges administrative fees to both the investor and the company",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Organized tawarruq is haraam according to statements from the International Islamic Fiqh Council and the Fiqh Council of the Muslim World League. In this model, the platform buys a product, sells it on credit to the company requesting financing, then sells it on behalf of that company to another trader so the company can obtain cash. The permissible alternative is for the platform to sell items on credit to the company, then the company sells the items themselves.",
+      "tags": [
+        "Investment"
+      ],
+      "source": "IslamQA reference 353992"
+    },
+    {
+      "reference": 151261,
+      "questionText": "According to the answer, what is one of the main reasons for criticizing non-Muslim countries that ban the niqab?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "They claim to be secular and separate church from state, yet they fight a religious symbol",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They apply the ban uniformly to all religions and ethnic groups without any exception",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They consulted with Islamic scholars before implementing the ban and ignored their advice",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They provide financial compensation to affected Muslim women for loss of employment",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "One of the key criticisms is that these countries claim to be secular and to have separated church from state, yet they are fighting a religious symbol (the niqab). Additionally, they claim to protect personal freedom but apply it selectively - allowing those who take off most of their clothes but not those who cover up.",
+      "tags": [
+        "Inviting others to Islam"
+      ],
+      "source": "IslamQA reference 151261"
+    },
+    {
+      "reference": 106553,
+      "questionText": "Can a Makkan pilgrim perform a voluntary tawaaf and then do the saa'i of Hajj before standing in 'Arafah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, because saa'i is only valid after tawaaf al-qudoom, which Makkans do not perform",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Yes, but only if the voluntary tawaaf consists of at least seven complete circuits",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Yes, provided he performs it in the early morning hours before the Fajr prayer",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "No, because Makkan pilgrims are required to delay all rituals until after returning from 'Arafah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "This is not valid because saa'i is only valid after tawaaf al-qudoom (the tawaaf of arrival), but the Makkan (resident of Makkah) does not have to do tawaaf al-qudoom. Based on that, performing saa'i after a voluntary tawaaf is not valid, and if he has done this, he must repeat the saa'i because it was not done at the right time.",
+      "tags": [
+        "Sifat al-Hajj wa'l-'Umrah (Description of Hajj and 'Umrah)"
+      ],
+      "source": "IslamQA reference 106553"
+    },
+    {
+      "reference": 285242,
+      "questionText": "Why must a person refuse the free life insurance offered by a bank when opening a current account?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because a gift in return for a loan is haraam, and a current account is considered a loan to the bank",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because the insurance premiums are calculated using interest-based formulas forbidden in Islam",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because accepting it requires signing the contract during prohibited times of the day",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because life insurance is only permissible when purchased directly from an Islamic company, not as a gift",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A current account is regarded from a shar'i perspective as a loan from the customer to the bank, as stated by the International Islamic Fiqh Council. Therefore, the free life insurance constitutes a gift in return for a loan, which is haraam. As reported in Sahih al-Bukhari from Abdullah ibn Salaam: if someone owes you something and offers you extra (even something small like straw or barley), do not accept it, for it is riba.",
+      "tags": [
+        "Insurance"
+      ],
+      "source": "IslamQA reference 285242"
+    },
+    {
+      "reference": 260806,
+      "questionText": "What did Shaykh al-Albaani conclude about the addition of the word 'kareem' in the du'a of Laylat al-Qadr?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It has no basis and appears to be inserted by a scribe or modern typist",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is authentic because it was narrated by an-Nasaa'i via the same isnaad as at-Tirmidhi",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is acceptable to include it because it appears in the Indian edition of at-Tirmidhi",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It should be included but placed in parentheses to indicate ongoing scholarly debate",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh al-Albaani stated in Silsilat al-Ahaadeeth as-Saheehah (13/140) that the additional word 'kareem' has no basis in the earlier sources. He concluded that it appears to be inserted by one of the scribes or modern typists, and noted that an-Nasaa'i narrated it via the same isnaad without this addition.",
+      "tags": [
+        "Da'eef (weak) hadiths",
+        "Supplication"
+      ],
+      "source": "IslamQA reference 260806"
+    },
+    {
+      "reference": 286684,
+      "questionText": "What is the ruling on saying Bismillah out loud when taking off one's clothes in the bathroom?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is makruh because it is not obligatory like saying Bismillah before wudu, but one may say it in the heart",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible because the Prophet specifically commanded it to conceal the 'awrah from the jinn",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is obligatory because removing clothes without Bismillah exposes one to the harmful gaze of jinn",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible only if the bathroom has proper ventilation and adequate lighting",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "It is makruh to say Bismillah out loud in the bathroom when taking off clothes because this is not obligatory (unlike saying Bismillah before wudu according to some scholars). However, there is nothing wrong with keeping it in mind without uttering it out loud, as Shaykh Ibn 'Uthaymin indicated regarding praising Allah after sneezing in the bathroom.",
+      "tags": [
+        "bathroom-etiquette",
+        "dhikr",
+        "manners",
+        "rulings"
+      ],
+      "source": "IslamQA reference 286684"
+    },
+    {
+      "reference": 101260,
+      "questionText": "What is the ruling on accepting interest from a bank to compensate for the decreased purchasing power of deposited money?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is haraam because loss in buying power does not make it permissible to stipulate interest, and the loan should be repaid as is",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible up to the exact percentage of inflation as calculated by government authorities",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible only for amounts that exceed 100,000 currency units deposited for more than five years",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is haraam unless the depositor first obtains written permission from three qualified Islamic scholars",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Loss in the buying power of money does not make it permissible to stipulate interest, which is the essence of riba. The loan should be repaid as is even if its value has decreased. The fuqaha are unanimously agreed that if money's value increases or decreases, the borrower must give what he took in terms of amount, as stated by Imam al-Isbejaabi in his explanation.",
+      "tags": [
+        "Interest"
+      ],
+      "source": "IslamQA reference 101260"
+    },
+    {
+      "reference": 311760,
+      "questionText": "What did Shaykh al-Albani conclude about the hadith 'There is no charity that brings a greater reward than water'?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is very weak (da'if) on its own but becomes hasan (authentic) due to corroborating evidence from similar hadiths",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is sahih (authentic) because it was narrated by Ibn 'Adiyy in Al-Kamil with a strong chain",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It remains very weak (da'if jiddan) even with supporting narrations and should not be cited",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is rejected (munkar) because all its narrators are unknown and unreliable",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh al-Albani initially determined the hadith to be very weak (da'if) because all narrators in its chain are weak. However, he later concluded it is hasan due to corroborating evidence from similar hadiths with weak chains that, when combined, strengthen the overall text. The scholar noted this in his works As-Silsilah ad-Da'ifah and Sahih at-Targhib wa't-Tarhib.",
+      "tags": [
+        "Da'eef (weak) hadiths",
+        "Charity",
+        "Hadith Sciences"
+      ],
+      "source": "IslamQA reference 311760"
+    },
+    {
+      "reference": 68828,
+      "questionText": "What is the majority view among scholars regarding sighting the new moon of Ramadan on the first night of the month?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is a communal obligation (fard kifaya), and if all people fail to do it then they are sinning",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is an individual obligation (fard 'ayn) upon every adult Muslim with good eyesight",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is only the responsibility of the ruler and government authorities to organize",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is merely recommended (mustahabb) for extra reward but not obligatory",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The majority of scholars view moon sighting as a communal obligation (fard kifaya) - if no one does it, the entire community is sinning. This is also the Hanafi position. The Hanbalis considered it recommended (mustahabb), while the obligation is connected to two pillars of Islam: fasting and Hajj, making it particularly important on the 29th of Sha'ban, Ramadan, and Dhul-Qi'dah.",
+      "tags": [
+        "Seeing the New Moon",
+        "Ramadan",
+        "Fiqh of Fasting"
+      ],
+      "source": "IslamQA reference 68828"
+    },
+    {
+      "reference": 104119,
+      "questionText": "According to the answer, when will Allah's help and victory be granted to the Muslims?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Every time the Muslims achieve a high level of faith and righteous deeds, Allah's promise will inevitably be fulfilled",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only after Muslims have endured severe trials for a minimum of 40 years",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When Muslims possess superior military technology and outnumber their enemies",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "After establishing complete political control over all historically Islamic lands",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "As Shaykh as-Sa'di explained, Allah's promise of help has been fulfilled throughout history and will continue: every time Muslims achieve a high level of faith and righteous deeds, the promise is fulfilled. The disbelievers and hypocrites are only given power over Muslims because of shortcomings in faith and righteous deeds. The first generation attained this through their superior faith, which led to conquests in the east and west.",
+      "tags": [
+        "Striving and migrating for the sake of Allaah",
+        "Divine Help",
+        "Jihad"
+      ],
+      "source": "IslamQA reference 104119"
+    },
+    {
+      "reference": 38145,
+      "questionText": "What does it mean when the hadith states that a person's prayers will not be accepted for forty days after drinking alcohol?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The person will not be rewarded for their prayers, but the prayers remain valid and must still be performed",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The prayers are completely invalid and must be repeated after the forty-day period ends",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The person should stop praying for forty days as a form of repentance and purification",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only the Friday congregational prayer is affected, while daily prayers remain accepted",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "As Abu 'Abd-Allah ibn Mandah and al-Nawawi explained, the phrase 'his prayers will not be accepted' means he will not be rewarded for his prayers for forty days as a punishment. The prayers remain valid and he does not have to repeat them. The person must continue offering prayers on time and fasting in Ramadan, as omitting these would be an even greater sin than drinking alcohol.",
+      "tags": [
+        "Drinks",
+        "Alcohol",
+        "Prayer",
+        "Major Sins"
+      ],
+      "source": "IslamQA reference 38145"
+    },
+    {
+      "reference": 266848,
+      "questionText": "What factors do scholars consider when determining visitation times for a father to see his child who is in the mother's custody?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "The best interests of the child and ensuring visits are on a reasonable basis so the custodial parent is not harmed",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only the financial capability of the father to provide gifts and entertainment during visits",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The stated preference of the child regardless of their age or level of understanding",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The distance between the parents' homes as the sole determining factor for frequency",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to al-Mawsu'ah al-Fiqhiyyah al-Kuwaitiyyah, scholars consider two main factors: the best interests of the child in question, and that visits should be on a reasonable basis so the custodial parent will not be harmed. Each case should be worked out on its own merits, considering the circumstances of both parents and the child's welfare.",
+      "tags": [
+        "Custody",
+        "Family Law",
+        "Children's Rights"
+      ],
+      "source": "IslamQA reference 266848"
+    },
+    {
+      "reference": 170589,
+      "questionText": "What is the ruling on taking a Mushaf from the mosque to read at home and then returning it later?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not permissible because Mushafs in mosques are awqaf (endowments) donated for public benefit in the mosque",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible as long as the Mushaf is returned within seven days",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is allowed if the person replaces it with a Mushaf of equal or better quality",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible if the person donates money equal to the Mushaf's value to the mosque",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "As Shaykh Ibn 'Uthaymeen stated, it is not permissible to take a Mushaf from the mosque even temporarily, because Mushafs in mosques are awqaf (religious endowments) for public benefit. Taking them means keeping them for oneself and depriving others, which is haraam. This remains impermissible even if replaced with another Mushaf, as the original should remain available for worshippers in the mosque.",
+      "tags": [
+        "Islamic Endowments",
+        "Quran",
+        "Mosque Rulings"
+      ],
+      "source": "IslamQA reference 170589"
+    },
+    {
+      "reference": 26806,
+      "questionText": "What should a person do if it regularly takes 5-10 minutes for urine to stop completely after urination?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Get up 10 minutes before prayer time to allow time to urinate, wait for it to stop, then perform wudu",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Pray immediately after urinating using wadding or cotton to absorb any remaining drops",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Perform tayammum (dry ablution) instead of wudu to avoid contact with urine droplets",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Wait exactly 15 minutes after every urination regardless of circumstances before making wudu",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "As Shaykh Ibn 'Uthaymeen advised, if you know the urine stops after 5-10 minutes, get up 10 minutes before prayer time to urinate and wait for it to stop, then do wudu. If you cannot manage that timing and need to urinate urgently, you should wait even if you miss the prayer in congregation, as the Prophet (peace be upon him) said: 'There is no prayer when a person needs to relieve himself.'",
+      "tags": [
+        "Purity",
+        "Wudu",
+        "Prayer Times"
+      ],
+      "source": "IslamQA reference 26806"
+    },
+    {
+      "reference": 26273,
+      "questionText": "What did Abu Mihjan (may Allah be pleased with him) do after he was released by the wife of Sa'd ibn Abi Waqqas to fight in the battle of al-Qaadisiyyah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He fought bravely on Sa'd's horse al-Balqa', scattered enemy groups, then voluntarily returned and put his feet back in the chains",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He fled the battlefield after being wounded and was captured by enemy forces",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He was killed in the battle and achieved martyrdom, which freed him from his punishment",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He refused to return to the chains and Sa'd had to send soldiers to capture and detain him again",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Abu Mihjan promised to return to his chains if he survived the battle. He fought heroically on Sa'd's horse al-Balqa', and did not attack any group of enemy soldiers without scattering them. After the battle ended, he kept his promise and returned to voluntarily put his feet back in the chains. This act of integrity impressed Sa'd, who then released him permanently and said he would never flog him for drinking wine again.",
+      "tags": [
+        "The Companions of the Prophet",
+        "Islamic History",
+        "Jihad"
+      ],
+      "source": "IslamQA reference 26273"
+    },
+    {
+      "reference": 65784,
+      "questionText": "What should a woman with irregular bleeding do if she can distinguish between menstrual blood and non-menstrual bleeding (istihaadah)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She should stop praying and fasting during days when the blood is dark, thick, and has an unpleasant odor, as this is menstrual blood",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She should always continue fasting and praying regardless of the color, consistency, or smell of the blood",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She should stop praying only when the bleeding exceeds 100 milliliters per day measured accurately",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She should follow a fixed 7-day menstrual cycle starting from the first day of each lunar month",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the scholars, a woman with continuous bleeding should learn to distinguish between types of blood. Menstrual blood is dark and thick, has an unpleasant odor, and is usually accompanied by cramps. The bleeding of istihaadah is lighter in color and thin. Menses consists of the days when blood is dark and thick, while the other type of bleeding is istihaadah during which prayer and fasting continue.",
+      "tags": [
+        "Menstruation and Post-Natal bleeding",
+        "Istihaadah",
+        "Women's Fiqh"
+      ],
+      "source": "IslamQA reference 65784"
+    },
+    {
+      "reference": 268821,
+      "questionText": "Under what condition is it permissible for a wife to take money from her husband without his knowledge?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only if the husband falls short in obligatory spending for her and the children, and she takes on a reasonable basis",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "If she intends to save the money for the children's education and future needs",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "If the husband is spending his money on haraam things like gambling or befriending other women",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "If she needs money to help her parents or relatives who are in financial difficulty",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the hadith of Hind bint 'Utbah, it is only permissible to take from the husband's wealth without his knowledge if he is falling short in obligatory spending. The Prophet (peace be upon him) told her: 'Take what is sufficient for you and your child on a reasonable basis.' If he is not falling short in obligatory spending, it is not permissible to take anything without his consent, as taking wealth without the owner's permission is haraam.",
+      "tags": [
+        "Forbidden Kinds of Wealth",
+        "Kind Treatment of Spouses",
+        "Marriage Rights"
+      ],
+      "source": "IslamQA reference 268821"
+    },
+    {
+      "reference": 87,
+      "questionText": "What should a traveler do if they are uncertain whether the distance is far enough to shorten the prayer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Complete the full prayer, as the default requirement cannot be overridden by doubt or uncertainty",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Shorten the prayer based on their best estimation of the distance",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Wait until reaching the destination to determine the correct prayer length retroactively",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Ask other travelers for their opinion before deciding which prayer to perform",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the Shafi'yah opinion, if one does not know and there is nothing to indicate whether the distance is far enough, a traveler is not allowed to shorten the prayers. The completion of prayers is the default requirement and cannot be abrogated or overridden by doubt or uncertainty.",
+      "tags": [
+        "Prayer of the Traveler"
+      ],
+      "source": "IslamQA reference 87"
+    },
+    {
+      "reference": 146363,
+      "questionText": "Under what circumstances can a strong, able-bodied person from a prominent family receive zakaah funds?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "When the only available work undermines his dignity and status, as it is not befitting for someone of his standing",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "When he feels the physical labor is too difficult despite being physically capable",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When he has worked for at least one year without achieving financial stability",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "When he has other family members who are already employed",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the scholars, if a person is from a prominent family and the available work is not befitting for him with regard to his status and dignity (because it undermines his dignity), then he may receive zakaah. However, if the work is befitting and others like him do this kind of work, he should not receive zakaah but should be advised to work.",
+      "tags": [
+        "Where Zakah is to Be Spent"
+      ],
+      "source": "IslamQA reference 146363"
+    },
+    {
+      "reference": 219811,
+      "questionText": "According to the unanimous agreement of scholars, for whom is sahoor (the pre-dawn meal) specifically recommended?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Those intending to fast that day, as it strengthens them for the act of worship and differentiates their fast from the People of the Book",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Anyone who is awake at the end of the night, regardless of whether they are fasting",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only those fasting obligatory Ramadan fasts, not those observing voluntary fasts",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Those who previously missed fasts and are currently making them up",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars are unanimously agreed that sahoor is mustahabb for the one who is fasting, but we do not know of anyone among the scholars who said that it is mustahabb for one who is not fasting. The Prophet did not always eat sahoor, which indicates that sahoor is only mustahabb for the one who wants to fast.",
+      "tags": [
+        "Commentary on Hadith",
+        "Issues of fasting"
+      ],
+      "source": "IslamQA reference 219811"
+    },
+    {
+      "reference": 175833,
+      "questionText": "What is the ruling according to the majority of scholars on stoning the Jamaraat with pieces of concrete?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Not acceptable because concrete is not rock, unless the piece of concrete contains actual stone within it",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Acceptable as long as the pieces are approximately the size of chickpeas",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only acceptable if the concrete pieces are broken from larger concrete structures at the site",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Acceptable according to all schools of thought since concrete comes from the earth",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The majority of fuqaha' stipulated that the Jamaraat should be stoned with pebbles, which are small stones. Concrete is not rock, so it is not acceptable according to the majority. However, Shaykh Ibn 'Uthaymeen stated that if a piece of concrete contains stone, then there is nothing wrong with it.",
+      "tags": [
+        "Sifat al-Hajj wa'l-'Umrah (Description of Hajj and 'Umrah)"
+      ],
+      "source": "IslamQA reference 175833"
+    },
+    {
+      "reference": 70479,
+      "questionText": "According to the scholarly view favored by Shaykh al-Islam Ibn Taymiyah, what is the ruling on saying 'If tomorrow is Ramadan, then I am fasting'?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Valid because the hesitation is about when the month begins, not about the intention to fast itself",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Invalid because intentions for obligatory fasts must be based on absolute certainty, not conditional statements",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Valid only if the conditional statement is repeated at least three times before going to sleep",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Valid for voluntary fasts but not for obligatory Ramadan fasts which require specific intention",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the view favored by Ibn Taymiyah, the conditional intention is valid. The person made his intention conditional because he did not know whether the next day would be Ramadan, so his hesitation was based on uncertainty about the month, but there was no uncertainty about whether he would fast or not.",
+      "tags": [
+        "Seeing the New Moon"
+      ],
+      "source": "IslamQA reference 70479"
+    },
+    {
+      "reference": 78607,
+      "questionText": "According to Islamic rulings on zakaah, when is zakaah due on a shop or commercial building?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only if the property was acquired for the purpose of trade (buying and selling the property itself for profit)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "On the rental income collected after one hijri year has passed, not on the building itself",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "On any commercial property regardless of its intended purpose or use",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "On the building's market value if it has increased significantly over time",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A Muslim does not have to pay zakaah on his shop, even if its value is great. Zakaah is only due on property acquired for the purpose of trade (buying and selling the property itself). If acquired to buy and sell IN it, or to rent out, then no zakaah is due on it.",
+      "tags": [
+        "On What is Zakah Due",
+        "Zakah 'urood al-tijaarah (Zakah on trade goods)"
+      ],
+      "source": "IslamQA reference 78607"
+    },
+    {
+      "reference": 153633,
+      "questionText": "What does the hadith promise regarding the du'aa said before intercourse ('O Allah, keep the Shaytaan away from us and from what You bestow upon us')?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "That the Shaytaan will never be able to harm the child, but not saying it does not guarantee inevitable harm if forgotten due to an excuse",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "That the child will have absolute immunity from all childhood illnesses and diseases",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "That the child will have the ability to memorize the Quran more easily than others",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "That the child will automatically be counted among the righteous without any effort",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The hadith contains a promise that if this du'aa is said and a child is conceived, the Shaytaan will never be able to harm him. However, not reciting these words does not necessarily mean the Shaytaan will inevitably harm the child. If someone did not say it because of an excuse such as being unaware or forgetting, they will be pardoned, if Allah wills.",
+      "tags": [
+        "Etiquette of Marriage"
+      ],
+      "source": "IslamQA reference 153633"
+    },
+    {
+      "reference": 13685,
+      "questionText": "According to Shaykh al-Islam Ibn Taymiyah, what is the key difference between listening to music and merely hearing it?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Listening involves deliberate intention, wanting to hear it and enjoying it, while hearing happens without choice or intention",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Listening occurs in public spaces, while hearing only occurs in private settings",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Listening involves music with instruments, while hearing refers only to vocal music",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Both are equally sinful if the music being played is considered haram",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh al-Islam Ibn Taymiyah explained that the one who listens to music hears it deliberately, wants to hear it and enjoys it, whereas the one who only hears the sound that reaches him without wanting or intending to do so is different. The commands and prohibitions are connected to what a person intends and does, but whatever happens without choosing it has no command or prohibition.",
+      "tags": [
+        "Condemnation of Singing and Musical Instruments"
+      ],
+      "source": "IslamQA reference 13685"
+    },
+    {
+      "reference": 103335,
+      "questionText": "According to the Islamic Organization for Medical Sciences symposium, what are permissible uses of human genetic engineering?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Preventing or treating hereditary diseases through gene surgery or inserting genes into patient's cells for therapeutic purposes",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Creating hybrid organisms by crossing genetic barriers between species for scientific research advancement",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Modifying genes to enhance physical appearance and characteristics for aesthetic purposes",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Tampering with genes to influence a person's character traits and behavioral qualities",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The symposium concluded it is permissible to use genetic engineering to prevent, treat or mitigate disease through gene surgery or inserting genes into patient's cells. However, it is not permissible to use it to change genetic structure for eugenics, tamper with character traits, or create hybrid beings for entertainment or curiosity.",
+      "tags": [
+        "Medicine and medical treatments"
+      ],
+      "source": "IslamQA reference 103335"
+    },
+    {
+      "reference": 164176,
+      "questionText": "According to Shaykh Ibn 'Uthaymeen, when is it permissible to pray on the sidewalk despite it being generally disliked?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "When the mosque is too small and full, leaving no other available place for Muslims to pray",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "When a person is running late and cannot reach the mosque before the prayer time ends",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When the sidewalk surface is cleaner or more suitable than the mosque's prayer area",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only during Jumu'ah and Eid prayers, but never during the five daily prayers",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymeen stated that if the mosque is full and there is no choice but to pray in the marketplace or open spaces, there is nothing wrong with that. The correct view is that an exception is made whenever there is a need, so if the mosque is full, people may pray in marketplaces or sidewalks.",
+      "tags": [
+        "Conditions for Prayer",
+        "Congregational Prayer"
+      ],
+      "source": "IslamQA reference 164176"
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "quizQuestions": [
+    {
+      "question_id": 34571,
+      "question": "What is the Islamic ruling regarding divorce when a wife mistreats her husband and abuses his mother?",
+      "options": [
+        "The wife should help her husband honour his mother because the mother's rights over a man come before his wife's rights",
+        "The husband must remain married even if the wife is abusing and torturing the mother-in-law",
+        "Divorce is always prohibited (haram) even when the wife causes excessive harm to the family",
+        "The wife's rights over her husband take precedence over the rights of his mother"
+      ],
+      "correct_answer": 0,
+      "explanation": "According to Islamic scholars, divorce is makrooh (disliked) but becomes permissible in cases of necessity, such as when the wife has a bad attitude and causes harm by not fulfilling her duties. The wife should respect the husband's family, especially his mother, as the mother's rights come before the wife's rights. Scholars cite Al-Mughni (10/324) stating divorce is permissible when the wife causes too much harm and does not do what she is supposed to do.",
+      "difficulty": "medium",
+      "tags": ["Divorce", "Family Rights"]
+    },
+    {
+      "question_id": 204341,
+      "question": "What does Islam teach about the relationship between the Quran and the current versions of the Torah and Gospel?",
+      "options": [
+        "The Quran confirms the original Torah and Gospel, but the current copies have fallen prey to distortion, alteration, additions and omissions",
+        "The Quran contradicts all previous scriptures including the original Torah and Gospel",
+        "Genesis and Psalms contain no references whatsoever to Ibrahim's journey to any southern region or valley",
+        "The absence of explicit mention in the Bible proves definitively that Ibrahim never traveled to Makkah"
+      ],
+      "correct_answer": 0,
+      "explanation": "Muslims believe the Quran confirms the original Torah and Gospel as they all came from Allah, so there cannot be contradiction between them. However, the current copies of these scriptures have been distorted and altered over time. The Quran describes itself as 'confirming what came before it' (Quran 3:3-4). Biblical references to Ibrahim's journey to Makkah exist in Genesis and Psalms, though some interpretations differ. The principle states that absence of mention does not mean an event did not occur.",
+      "difficulty": "medium",
+      "tags": ["Islamic history and biography", "Religions"]
+    },
+    {
+      "question_id": 143737,
+      "question": "What is the Islamic ruling on a restaurant worker accepting tips when the owner knows about and encourages this practice?",
+      "options": [
+        "Tips are permissible if the restaurant owner and tour company know about them, as the customer has the right to pay more than the agreed price",
+        "All tips are haram regardless of whether the employer knows about them or not",
+        "Tips are only permissible if the worker does not receive a regular salary",
+        "The worker can accept tips but does not need to fulfill customer rights properly if no tip is given"
+      ],
+      "correct_answer": 0,
+      "explanation": "According to Shaykh Ibn Jibreen, there is nothing wrong with accepting tips when the owner of the establishment is aware of it and the customer gives it willingly. The customer has the right to pay more than the agreed price, and if the owner agrees to leave this additional money for the worker, it is permissible. However, the worker must do his job properly and give customers their full rights whether they receive a tip or not, as the purpose is to encourage good service.",
+      "difficulty": "easy",
+      "tags": ["Bribes", "Ruling on jobs"]
+    },
+    {
+      "question_id": 217928,
+      "question": "What should a person do if they are uncertain about whether they are attributed to their father?",
+      "options": [
+        "She should refrain from asking about this matter because she is definitely attributed to her father as she was born to his wife, following the hadith 'The child is for the owner of the bed'",
+        "She must investigate thoroughly and ask her parents directly to find out the truth about her attribution",
+        "A child born less than 6 months after marriage cannot be attributed to the father",
+        "Attribution to the father requires DNA testing to be considered valid in Islamic law"
+      ],
+      "correct_answer": 0,
+      "explanation": "Allah instructs believers not to enquire too deeply into matters that may cause them trouble (Quran 5:101). The person is definitely attributed to their father because they were born to his wife, following the Prophet's hadith: 'The child is for the (owner of the) bed' (Bukhari 2053, Muslim 1457). One Companion asked this question and Quran was revealed criticizing such inquiries. The advice is to refrain from mentioning or asking about this matter entirely.",
+      "difficulty": "medium",
+      "tags": ["Adultery/fornication and Homosexuality"]
+    },
+    {
+      "question_id": 198091,
+      "question": "What is the ruling when a husband divorces his wife three times during menstruation in return for her giving up the mahr?",
+      "options": [
+        "This is khula' which is an annulment of the marriage, not a talaaq, so the husband cannot take back the wife during 'iddah even though she was menstruating",
+        "The threefold pronouncement of divorce during menstruation is completely invalid and has no effect",
+        "The wife can reclaim her mahr because she was forced by the husband's behavior to give it up",
+        "The husband's written denial of the child means the child cannot be attributed to him in Islamic law"
+      ],
+      "correct_answer": 0,
+      "explanation": "According to the more correct scholarly view, divorce in return for compensation (khula') is an annulment of marriage, not a talaaq. The husband has no right to take the wife back during 'iddah. There is nothing wrong with khula' during menses or after intercourse because it aims to remove harm from the wife. The wife cannot reclaim the mahr as she gave it up by choice. The husband's denial of the child is false, as any child born 6+ months after marriage when intercourse is possible is attributed to the husband following the hadith 'The child is for the owner of the bed'.",
+      "difficulty": "hard",
+      "tags": ["Khul' (divorce initiated by the woman)"]
+    },
+    {
+      "question_id": 83776,
+      "question": "What is the Islamic ruling on a wife masturbating herself when her husband is not fulfilling her sexual desires?",
+      "options": [
+        "Masturbation using the hand is haram, but there is nothing wrong with spouses masturbating each other by hand while avoiding menstruation and the back passage",
+        "Masturbation is permissible for women if their husbands are not fulfilling their desires",
+        "A wife must never discuss intimate matters or unfulfilled desires with her husband",
+        "The habit of masturbation has no effect on a woman's desire for her husband"
+      ],
+      "correct_answer": 0,
+      "explanation": "Masturbation using the hand is haram for both men and women. However, both spouses have the right to enjoy one another however they wish as long as they avoid menstruation and the back passage, so there is nothing wrong with spouses masturbating each other by hand. The solution is to speak frankly with the husband about desires not being fulfilled, as many husbands neglect this due to ignorance about women's nature. One harmful effect of the masturbation habit is that it may make a woman lose interest in her husband.",
+      "difficulty": "medium",
+      "tags": ["Kind Treatment of Spouses", "Rights of spouses"]
+    },
+    {
+      "question_id": 177327,
+      "question": "Is it permissible for a man to put a house in his ex-wife's name after divorcing her irrevocably?",
+      "options": [
+        "It is permissible to put the house in the ex-wife's name because she is no longer his wife, so he is not obliged to treat wives equally",
+        "A man must always treat all his wives equally even after divorcing one of them",
+        "If the house was built by well-wishers on his land, the father has full ownership rights over both land and structure",
+        "Children are not obliged to show kindness to a father who is an evildoer or wrongdoer"
+      ],
+      "correct_answer": 0,
+      "explanation": "It is permissible for the father to put the house in his ex-wife's name as a pure gift or in return for her mahr, because she is no longer regarded as his wife, so there is no obligation to treat wives equally. If putting it in children's names and he has other children, he must treat them fairly. If the house was built by well-wishers, the structure belongs to the children, though if the land was his, he can give it. Note: It's not permissible to accuse the father of zina without four witnesses, and the father has the right to kindness even if he is a wrongdoer.",
+      "difficulty": "medium",
+      "tags": ["Gifts and Presents"]
+    },
+    {
+      "question_id": 103149,
+      "question": "What are the two main categories of haram transactions according to Ibn Taymiyah?",
+      "options": [
+        "Haram transactions include 'Eenah transaction (selling something for later payment then buying it back for lower immediate payment) and sales of unknown items",
+        "All business transactions involving deferred payment are prohibited in Islam",
+        "Gambling is permissible in transactions as long as both parties consent to the risk",
+        "The prohibition on usury only applies to loans, not to any form of buying and selling"
+      ],
+      "correct_answer": 0,
+      "explanation": "According to Shaykh al-Islam Ibn Taymiyah, the two main categories of haram transactions are usury (riba) and gambling. Examples of riba-based transactions include 'Eenah transaction (selling for deferred payment then buying back for lower immediate payment), selling debts, and combining a sale with a loan. Examples of gambling-based transactions include sales of unknown items and sales of things one cannot deliver. The basic principle is that Allah has forbidden eating up one another's property unjustly (Quran 2:188).",
+      "difficulty": "medium",
+      "tags": ["Interest"]
+    },
+    {
+      "question_id": 41957,
+      "question": "What are the five conditions that must be met for Hajj to become obligatory on a person?",
+      "options": [
+        "Hajj is obligatory when five conditions are met: being Muslim, sound mind, adult, free, and able both physically and financially with surplus funds after debts and basic needs",
+        "A woman can travel for obligatory Hajj with her sister's husband or maternal aunt's husband as mahram",
+        "A person in debt should go to Hajj first before paying off the debt if they get permission from the lender",
+        "A husband can forbid his wife from performing the obligatory Hajj if he does not give permission"
+      ],
+      "correct_answer": 0,
+      "explanation": "The five conditions for Hajj being obligatory are: being Muslim, being of sound mind, being an adult, being free, and being able to do it (physically and financially). Financial ability means having surplus funds after paying debts, shari'ah obligations, and basic needs. A person with debt should pay it first before Hajj. Women require a mahram (not sister's husband or aunt's husband). The husband's permission is not a condition for obligatory Hajj, though he can forbid nafl Hajj. This is based on Quran 3:97 and various hadiths.",
+      "difficulty": "medium",
+      "tags": ["Shuroot wujoob al-Hajj (conditions of Hajj being obligatory)"]
+    },
+    {
+      "question_id": 84975,
+      "question": "What should a Muslim do if there is music playing in the gym where they exercise and the management refuses to stop it?",
+      "options": [
+        "One must denounce the evil and advise the gym owners, then if they do not respond, leave and find another gym because blocking the sound with earphones is not sufficient",
+        "Using earphones to block out the music is sufficient Islamic action and one can continue exercising there",
+        "It is permissible to listen to music in the gym as long as it is not during prayer times",
+        "Denouncing evil in one's heart is sufficient even while remaining in the place where evil is occurring"
+      ],
+      "correct_answer": 0,
+      "explanation": "It is not permissible to listen to music anywhere. The music in the gym is an evil that must be denounced. Simply using earphones is not sufficient. According to the hadith, one must change evil with the hand (action), tongue (speech), or heart - and denouncing with the heart requires leaving the place where evil is happening. Allah says in Quran 4:140 that sitting with those committing sin makes one like them. Shaykh Ibn Baaz stated that denouncing in one's heart means hating the evil and leaving the people if unable to change it.",
+      "difficulty": "medium",
+      "tags": ["Condemnation of Singing and Musical Instruments", "Rulings on sport, leisure and entertainment"]
+    }
+  ]
+}

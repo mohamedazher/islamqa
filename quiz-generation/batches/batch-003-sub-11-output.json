@@ -1,0 +1,624 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 170391,
+      "questionText": "What did Jareer ibn 'Abdullah say about gathering with the family of the deceased and making food after burial?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "We used to regard it as coming under the same heading as wailing",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "We used to regard it as a recommended act of charity for the deceased",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "We used to regard it as permissible if done within three days",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "We used to regard it as obligatory for close relatives only",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Jareer ibn 'Abdullah said: 'We used to regard gathering with the family of the deceased and making food after the burial as coming under the same heading as wailing.' This shows the Companions viewed this practice negatively and considered it similar to the prohibited act of wailing.",
+      "tags": ["Innovations in Religion and Worship", "Rulings on enjoining what is good and forbidding what is evil"],
+      "source": "IslamQA reference 170391"
+    },
+    {
+      "reference": 170391,
+      "questionText": "What are the three levels of changing evil mentioned in the hadith about objecting to wrongdoing?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "With the hand (by taking action), with the tongue (by speaking out), and with the heart (which is the weakest of faith)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "With physical force, with written complaint, and with silent prayer",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "With immediate action, with delayed objection, and with complete avoidance",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "With public announcement, with private counsel, and with scholarly consultation",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) said: 'Whoever among you sees an evil action, then let him change it with his hand [by taking action]; if he cannot, then with his tongue [by speaking out]; and if he cannot, then with his heart – and that is the weakest of faith.'",
+      "tags": ["Innovations in Religion and Worship", "Rulings on enjoining what is good and forbidding what is evil"],
+      "source": "IslamQA reference 170391"
+    },
+    {
+      "reference": 283811,
+      "questionText": "What two choices does the purchaser have when he discovers he was cheated in an unfair deal according to Islamic rulings?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Returning the goods or keeping them (with compensation according to some scholars)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Filing a lawsuit or accepting the transaction permanently",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Demanding triple compensation or forgiving the seller completely",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Keeping the goods with partial refund or selling to another party",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to Islamic jurisprudence, the one who discovers unfair dealing has the choice between canceling the deal entirely (returning goods and getting back the payment) or, according to some scholars like Ibn Rajab, going ahead with the deal but receiving compensation for the price difference.",
+      "tags": ["Business and Financial Transactions"],
+      "source": "IslamQA reference 283811"
+    },
+    {
+      "reference": 283811,
+      "questionText": "According to Shaykh Ibn 'Uthaymeen, if someone buys an item worth 1500 riyals for 2500 riyals unknowingly, what is the seller's situation?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "The seller is sinning if he knew the real price and exploited the buyer's ignorance, but the buyer still has the right to annul regardless of the seller's knowledge",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The seller must refund triple the difference as penalty for deception",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The seller bears no sin if the buyer agreed to the price verbally",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The seller is only sinning if the price difference exceeds 50% of market value",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymeen explained that if the seller knew the real price but exploited the buyer's ignorance (such as being a stranger unfamiliar with prices), the seller is sinning. However, even if the seller was unaware (such as not knowing prices had fallen), the buyer still has the right to annul the unfair deal.",
+      "tags": ["Business and Financial Transactions"],
+      "source": "IslamQA reference 283811"
+    },
+    {
+      "reference": 21734,
+      "questionText": "What is the supplication mentioned in the hadith that should be said during marital relations?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bismillaah, Allaahumma jannibni al-Shaytaana wa jannib al-Shaytaana ma razaqtana (In the name of Allah, O Allah, keep the Shaytaan away from me and keep the Shaytaan away from that which You bestow upon us)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Allaahumma baarik lana wa baarik 'alayna (O Allah, bless us and grant us Your blessings)",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Subhaanaka Allaahumma wa bihamdika (Glory be to You, O Allah, and praise be to You)",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Rabbana atina fi al-dunya hasanah (Our Lord, give us good in this world)",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) said: 'If one of you says, when he has intercourse with his wife: Bismillaah, Allaahumma jannibni al-Shaytaana wa jannib al-Shaytaana ma razaqtana, if it is decreed that they should have a child, the Shaytaan will never harm him.'",
+      "tags": ["Etiquette of Marriage"],
+      "source": "IslamQA reference 21734"
+    },
+    {
+      "reference": 21734,
+      "questionText": "According to Ibn Hajar, which scholarly opinion about the meaning of 'the Shaytaan will never harm him' is perhaps most correct?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "The child will not be harmed by the Shaytaan's participation in the father's intercourse with the mother",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The child will never commit any major sins throughout life",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The child will be completely immune to physical harm from jinn",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The child will automatically be granted strong faith without any test",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Hajar indicated that the most correct opinion is that the child will not be harmed by the Shaytaan's participation during intercourse, as Mujahid narrated that the one who has intercourse without saying Bismillah, the Shaytaan wraps himself around his penis and has intercourse along with him. However, Ibn Hajar also noted the first opinion (no authority over the child) may be correct.",
+      "tags": ["Etiquette of Marriage"],
+      "source": "IslamQA reference 21734"
+    },
+    {
+      "reference": 141015,
+      "questionText": "What are the two faults At-Tirmidhi identified in the hadith about reciting Surah Ad-Dukhan on the night before Friday?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Abu Al-Miqdam Hisham is unanimously regarded as weak, and there is a break in the chain between Al-Hasan and Abu Hurayrah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The hadith contradicts the Quran, and the narrator was known to fabricate hadiths intentionally",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The text is unclear in meaning, and the chain includes an unknown narrator from Yemen",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The hadith was narrated by children, and it conflicts with authentic hadiths from Bukhari",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "At-Tirmidhi identified two specific faults: (1) Abu Al-Miqdam Hisham ibn Ziyad is regarded as da'eef (weak) by scholars unanimously, with Ibn Hibban stating he narrates fabricated reports; and (2) there is a break in the chain of narrators between Al-Hasan and Abu Hurayrah, as confirmed by Ayyub, Yunus ibn 'Ubayd and 'Ali ibn Zayd.",
+      "tags": ["Da'eef (weak) hadiths"],
+      "source": "IslamQA reference 141015"
+    },
+    {
+      "reference": 141015,
+      "questionText": "What did Ibn Hibban say about the narrator Hisham ibn Ziyad (Abu Al-Miqdam)?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "He narrates fabricated reports from trustworthy narrators, and it is not permissible to quote him as evidence",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He is the most reliable narrator of his generation and all his hadiths are authentic",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He occasionally makes minor mistakes but is generally trustworthy for most narrations",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He is acceptable as a supporting narrator but not as a primary source",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Hibban was clear in his assessment: 'He narrates fabricated reports from trustworthy narrators, and it is not permissible to quote him as evidence.' This is a severe criticism indicating the narrator cannot be relied upon for hadith transmission.",
+      "tags": ["Da'eef (weak) hadiths"],
+      "source": "IslamQA reference 141015"
+    },
+    {
+      "reference": 95374,
+      "questionText": "According to Shaykh Ibn 'Uthaymeen, where should a pilgrim stay if he cannot find room in Mina?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "He should stay where the tents end, even if it is in Muzdalifah, because Allah does not burden a soul beyond its scope",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He must drive around Mina all night searching for a spot among the vehicles",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He should return to his hotel in Makkah and come back early morning",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He must offer a sacrifice of a sheep to compensate for not staying in Mina",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymeen stated clearly: 'If a person cannot find any room in Mina, he should stay where the tents end. But if he can find room (in Mina) then he must stay there overnight.' He also said not to spend the night driving around or looking for spots on the roadside as that may put pilgrims in danger.",
+      "tags": ["Mawaaqeet (points from which pilgrims enter ihraam)"],
+      "source": "IslamQA reference 95374"
+    },
+    {
+      "reference": 95374,
+      "questionText": "What is the guideline for the minimum time a pilgrim must spend in Mina during the night?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He should be in Mina for most of the night",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He must stay the entire night from sunset to dawn without leaving",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He needs to stay at least two hours after midnight",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He should arrive before midnight and can leave anytime after",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymeen explained: 'The guidelines about staying overnight are that he should be in Mina for most of the night.' He added that if someone leaves Mina to do tawaf al-ifaadah at the beginning of the night and cannot return before dawn due to crowds, there is no sin on him.",
+      "tags": ["Mawaaqeet (points from which pilgrims enter ihraam)"],
+      "source": "IslamQA reference 95374"
+    },
+    {
+      "reference": 104059,
+      "questionText": "What did 'Umar (may Allah be pleased with him) say about vows?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Four things are binding in every case: manumission, divorce, marriage, and vows",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Vows can be retracted within three days if circumstances change",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only vows made in the mosque are binding and must be fulfilled",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Vows are recommended but not obligatory to fulfill in all situations",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "'Umar (may Allah be pleased with him) stated clearly: 'Four things are binding in every case: manumission, divorce, marriage, and vows.' This emphasizes that vows, once made, cannot be retracted and must be fulfilled, placing them at the same level of seriousness as divorce and marriage.",
+      "tags": ["Vows"],
+      "source": "IslamQA reference 104059"
+    },
+    {
+      "reference": 104059,
+      "questionText": "What must a person do if he vowed to fast on a specific day but that day has passed without him fasting?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Make up the day by fasting another day and offer expiation for breaking an oath (kafaarat yameen)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only make up the day without any additional expiation",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Fast for three consecutive days as full compensation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The vow is cancelled since the specific day has passed",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to Al-Mardaawi: 'If he vowed to fast a certain month and he did not fast it with no excuse, then he has to make it up and also offer expiation for breaking an oath – and there is no difference of scholarly opinion on this point.' This applies to any specified day that was missed.",
+      "tags": ["Vows"],
+      "source": "IslamQA reference 104059"
+    },
+    {
+      "reference": 1765,
+      "questionText": "At how many points in the prayer is it proven in the Sunnah to raise the hands?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Four points: when pronouncing takbeerat al-ihram, when doing rukoo', when standing up from rukoo', and after standing up from the first tashahhud",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Two points: only at the beginning of prayer and when going into rukoo'",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Six points: at every takbeer throughout all the rak'ahs",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Three points: at the opening takbeer, before rukoo', and in the final sitting",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer clearly states: 'So what is proven in the Sunnah with regard to raising the hands in prayer is that they should be raised at four points in the prayer: when pronouncing takbeerat al-ihram, when doing rukoo', when standing up from rukoo', and after standing up from the first tashahhud.'",
+      "tags": ["Sunnah Actions in Prayer"],
+      "source": "IslamQA reference 1765"
+    },
+    {
+      "reference": 1765,
+      "questionText": "What did Al-Hasan and Humayd ibn Hilaal say about the Companions' practice of raising hands in prayer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The Companions of the Messenger of Allah all used to raise their hands, without exception",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only the senior Companions raised their hands while others did not",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The Companions had differing practices with some raising hands and others not",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The Companions only raised their hands during the first rak'ah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Imam al-Bukhari narrated that Al-Hasan and Humayd ibn Hilaal said: 'The Companions of the Messenger of Allah (peace and blessings of Allah be upon him) all used to raise their hands, without exception.' This indicates unanimous practice among the Companions.",
+      "tags": ["Sunnah Actions in Prayer"],
+      "source": "IslamQA reference 1765"
+    },
+    {
+      "reference": 304229,
+      "questionText": "What are the two types of haraam wealth mentioned in the answer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wealth that is haraam in and of itself (taken without consent like theft), and wealth that is haraam because of the manner it was acquired (taken with consent for haraam actions)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Wealth from gambling and wealth from interest-based loans only",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Wealth obtained through deception and wealth obtained through force",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Wealth from forbidden business and wealth from prohibited employment",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer clearly distinguishes two types: (1) Wealth haraam in and of itself - taken without consent such as stolen, seized by force, or plundered wealth. This must be returned to the owner. (2) Wealth haraam because of the manner acquired - taken with consent for haraam actions like singing fees, riba transactions, bribes, etc. This is only haraam for the one who acquired it.",
+      "tags": ["Forbidden Kinds of Wealth"],
+      "source": "IslamQA reference 304229"
+    },
+    {
+      "reference": 304229,
+      "questionText": "According to the ruling, when is it permissible to accept haraam wealth that was acquired through haraam means (like riba or bribes) to pay off a debt?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "If the debtor has repented and does not currently own this haraam wealth, it is not permissible for him to commit new sin to acquire it; if he already possesses it after repentance, he may use it for debts",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is never permissible under any circumstances to use haraam wealth for debt repayment",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is always permissible as long as the creditor agrees to accept it",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible only if the debt is more than ten years old",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer clarifies: 'If the one who acquired this wealth has repented, and is in need, it is permissible for him to take from it as much as he needs, and it is permissible for him to pay off his debt with it.' However, it also states that if the debtor doesn't currently possess this wealth and wants to commit new sin to acquire it, this is not permissible.",
+      "tags": ["Forbidden Kinds of Wealth"],
+      "source": "IslamQA reference 304229"
+    },
+    {
+      "reference": 21831,
+      "questionText": "According to Shaykh Ibn 'Uthaymeen, what is the father's obligation regarding his son's marriage?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Just as the father is obliged to spend on his son's food, drink, clothing and accommodation, he must also arrange his marriage if the son needs to get married",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The father is only responsible for finding a suitable match but not for any financial support",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The father must wait until the son can earn his own money before arranging marriage",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The father's responsibility is limited to giving advice about marriage partners",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymeen stated: 'As Allah has enjoined upon your father to spend on your food, drink, clothing and accommodation, he must also arrange your marriage if you need to get married, as the scholars have said.' He emphasized that whoever is obliged to spend on a person is also obliged to keep him chaste and arrange his marriage.",
+      "tags": ["Honouring Parents"],
+      "source": "IslamQA reference 21831"
+    },
+    {
+      "reference": 21831,
+      "questionText": "What remedy did the Prophet (peace and blessings of Allah be upon him) recommend for young men who cannot afford to get married?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fasting, for it will be a shield for him",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Engaging in excessive voluntary prayers throughout the night",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Performing additional charity work in the community",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Memorizing the entire Quran to strengthen willpower",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings of Allah be upon him) said: 'O young men, whoever among you can afford to get married, let him do so, and whoever cannot, then let him fast, for it will be a shield for him.' This hadith was narrated by al-Bukhari and Muslim from Ibn Mas'ud.",
+      "tags": ["Honouring Parents"],
+      "source": "IslamQA reference 21831"
+    },
+    {
+      "reference": 106594,
+      "questionText": "What are the three actions on the Day of Sacrifice for a pilgrim doing Ifraad?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stoning Jamrat al-'Aqabah, shaving the head or cutting the hair, and tawaf al-ifaadah (plus Sa'i if not done after tawaf of arrival)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Offering sacrifice, spending night in Muzdalifah, and performing tawaf al-wida'",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Stoning all three jamarat, performing two rak'ahs, and making du'aa at Mount Arafat",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Drinking Zamzam water, circling the Ka'bah seven times, and shaving the entire head only",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states: 'The actions of the Day of Sacrifice are three for the pilgrim who is doing Ifraad. They are: stoning Jamrat al-'Aqabah, shaving the head or cutting the hair, and tawaf al-ifaadah, plus Sa'i if he did not do it after the tawaf of arrival.'",
+      "tags": ["Sifat al-Hajj wa'l-'Umrah (Description of Hajj and 'Umrah)"],
+      "source": "IslamQA reference 106594"
+    },
+    {
+      "reference": 106594,
+      "questionText": "After completing how many of the Day of Sacrifice actions (apart from sacrifice) does the pilgrim complete the first stage of exiting ihram?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "After doing two of them, all things forbidden become permissible except intercourse",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "After completing all three actions, then everything including intercourse becomes permissible",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "After the first action only, basic restrictions are lifted but major prohibitions remain",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "There is no partial exit from ihram; all actions must be completed together",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer explains: 'Whoever does two of them apart from offering the sacrifice has thus completed the first stage of exiting ihram, hence it becomes permissible for him to do all the things that were forbidden to him whilst in ihram, apart from intercourse. When he has done all three, then everything that was forbidden to him become permissible, including intercourse.'",
+      "tags": ["Sifat al-Hajj wa'l-'Umrah (Description of Hajj and 'Umrah)"],
+      "source": "IslamQA reference 106594"
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 9310,
+      "questionText": "According to Al-Nawawi, what is required for a person's following of the imam to be valid?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The person following must know when the imaam moves, whether praying in the mosque or elsewhere",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "There must be no barrier of any kind between the imam and the congregation members",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The rows must be completely continuous without any interruptions according to all scholars",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Both the imam and followers must be inside the mosque building at all times",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Al-Nawawi stated that for following the imam to be valid, the person must know when the imam moves, whether they are praying in the mosque or elsewhere, or one of them is in the mosque and the other is outside - this is according to scholarly consensus. The presence of a barrier does not invalidate the prayer as long as this condition is met.",
+      "tags": ["Leading Prayer"],
+      "source": "IslamQA reference 9310"
+    },
+    {
+      "reference": 110,
+      "questionText": "According to the answer, why is spending money on cigarettes considered problematic in Islam?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is extravagance because it's spending on something harmful and prohibited, and is a waste of resources",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It should only be avoided if the smoking causes immediate and severe health problems",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is only wasteful if cigarette spending exceeds a certain percentage of one's income",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The money would be better used for charity, but smoking itself is not prohibited",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer explains that money spent on cigarettes is used on buying a harmful thing and is therefore extravagance, as extravagance in Islam means spending on something prohibited. It also constitutes a waste of resources, which the Prophet (peace and blessings be upon him) warned against when he said a person will be asked on the Day of Judgment about how he spent what he owned.",
+      "tags": ["Bad behaviour"],
+      "source": "IslamQA reference 110"
+    },
+    {
+      "reference": 132417,
+      "questionText": "According to the scholars cited in the answer, what was the Prophet's practice when Muslims faced crises such as the killing of the seventy reciters or the battle of Mu'tah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He offered supplication (du'a) and strove hard in doing so, without organizing group fasting or prayers for that specific purpose",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He called on all companions to fast together on a specific day with specific supplications",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He organized congregational qiyam prayers at a specific time for all Muslims to participate",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He instructed the companions to gather and recite specific adhkar in unison at a designated hour",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh 'Abd al-Rahman al-Suhaym explained that when seventy reciters were killed and on the day of Mu'tah, there is no report that the Prophet (peace and blessings be upon him) fasted or prayed salah for their sake. Rather, his practice was to offer supplication (du'a) and strive hard in doing so, as narrated in al-Sahihayn.",
+      "tags": ["Innovations in Religion and Worship", "Supererogatory Fasts", "Supplication"],
+      "source": "IslamQA reference 132417"
+    },
+    {
+      "reference": 250902,
+      "questionText": "According to Shaykh 'Abd ar-Rahman al-Barrak, when is it permissible to have elective surgery done in Ramadan even if it causes one to break the fast?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When delaying it would exacerbate the sickness, delay recovery, result in hardship, or cause missing out on a skilled doctor",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is always permissible as long as the surgery is scheduled by a qualified medical professional",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is never permissible to have elective surgery in Ramadan unless it becomes a life-threatening emergency",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible whenever rescheduling would be inconvenient for the patient's work circumstances",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh al-Barrak stated that if delaying the surgery will exacerbate the sickness, delay recovery, result in hardship and trouble, or cause problems such as missing out on a skilled doctor, then there is nothing wrong with doing it in Ramadan even if it causes the patient to break the fast. However, if it can be delayed without hardship, it's not permissible to break the fast because the fast of Ramadan is obligatory and cannot be omitted for something that can be delayed.",
+      "tags": ["What is permitted for the fasting person"],
+      "source": "IslamQA reference 250902"
+    },
+    {
+      "reference": 73007,
+      "questionText": "According to the hadith mentioned in the answer, what did the Prophet (peace and blessings be upon him) say when he came to Madinah and found they had two days of celebration?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "\"Allah has given you instead of them two days that are better than them: the day of al-Adha and the day of al-Fitr\"",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "\"You may continue celebrating those two days alongside the Islamic festivals\"",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "\"Those days will now become part of Islamic tradition for this community\"",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "\"Celebrate only one of those days each year, and abandon the other completely\"",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the hadith narrated by Abu Dawud from Anas (may Allah be pleased with him), when the Messenger of Allah (peace and blessings be upon him) came to Madinah and they had two days when they would play, he asked what these days were. They said they used to play on these days during the Jahiliyyah. The Prophet said: \"Allah has given you instead of them two days that are better than them: the day of al-Adha and the day of al-Fitr.\" This indicates that festivals are characteristics by which nations are distinguished.",
+      "tags": ["Alliance and Amity, Disavowal and Enmity"],
+      "source": "IslamQA reference 73007"
+    },
+    {
+      "reference": 45518,
+      "questionText": "According to the scholars' explanation, why is the adhaan that comes after the time for Fajr prayer begins called the \"first\" adhaan?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because it is first in relation to the iqaamah, which is considered the second call to prayer in sharee'ah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because it is the first adhaan call made during the morning hours each day",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because it comes before the adhaan that is given at the end of the night",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because Fajr is the first of the five daily obligatory prayers in chronological order",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Standing Committee explained that the adhaan is called 'first' in relation to the iqaamah, which is itself an adhaan according to sharee'ah, as stated in the hadith \"Between each two calls (adhaanayn) there should be a prayer.\" In Sahih Muslim, the adhaan which comes after the time for prayer begins is called the first adhaan, distinguishing it from the call given at night before dawn, which is prescribed to wake those who are asleep.",
+      "tags": ["Call for prayer", "Commentary on Hadith"],
+      "source": "IslamQA reference 45518"
+    },
+    {
+      "reference": 185545,
+      "questionText": "According to the hadith mentioned in the answer, what did the Prophet (peace and blessings be upon him) say about his intercession on the Day of Resurrection?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "\"My intercession will be for those among my ummah who committed major sins\"",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "\"My intercession will only be granted to those who never committed any sins\"",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "\"My intercession will not be available for those who plucked their eyebrows\"",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "\"My intercession will be exclusively for the scholars and the most righteous believers\"",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace and blessings be upon him) said: \"My intercession will be for those among my ummah who committed major sins,\" as narrated by Abu Dawood and authenticated by al-Albaani. This demonstrates that intercession is not limited to those who never sinned, and the answer explains that we cannot definitively say that specific sins will rule out intercession, especially since it will be granted not only by the Prophet but also by other Prophets, martyrs, scholars, the righteous, and angels.",
+      "tags": ["intercession"],
+      "source": "IslamQA reference 185545"
+    },
+    {
+      "reference": 2492,
+      "questionText": "According to Ibn Katheer's explanation of the Quranic verse, what should a person do with riba (interest) they received before learning that it was prohibited?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "They can keep it and are not required to return it, as Allah has forgiven what is past",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They must estimate the total amount received and give it all to charity immediately",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They must attempt to return all the interest money to those from whom they received it",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They can keep it but must only use it for basic necessities, not for any luxuries",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Katheer explained that the phrase \"So whosoever receives an admonition from his Lord and stops eating riba shall not be punished for his past\" means whoever hears that Allah has forbidden riba should stop immediately, but can keep whatever was received before, because Allah says \"Allah has forgiven what is past.\" Similarly, on the day of the Conquest of Makkah, the Prophet (peace and blessings be upon him) abolished riba but did not command people to return the extra money they had received during the time of Jaahiliyyah.",
+      "tags": ["Interest"],
+      "source": "IslamQA reference 2492"
+    },
+    {
+      "reference": 1211,
+      "questionText": "According to the answer, what is the fundamental problem with saying \"I have done my best and the rest is up to Allah\"?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It implies putting trust in oneself first rather than relying on Allah from the beginning",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It suggests that Allah only intervenes to help after all human efforts have been completely exhausted",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It implies that some matters in life are outside of Allah's control and power",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It indicates an excessive lack of confidence in one's own abilities and efforts",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states that this phrase is not correct because it means that the one who says it is putting his trust in himself first. The correct phrase should be \"I have done my best and I ask Allah for help,\" which demonstrates reliance on Allah from the start. While the person might intend to mean that what they could do they have done and what they cannot do is up to Allah, the phrase itself is fundamentally incorrect in its formulation.",
+      "tags": ["Sins of the Tongue"],
+      "source": "IslamQA reference 1211"
+    },
+    {
+      "reference": 300994,
+      "questionText": "According to the scholars' explanation in the answer, why are the angels mentioned before the Books in the sequence of articles of faith?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because Allah sent revelation to the Prophets only through the angels, who serve as intermediaries between Allah and humanity",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because the angels were created by Allah before the Books were revealed to mankind",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because belief in the angels is considered more important and fundamental than belief in the Books",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because the angels are assigned the duty of guarding the Books from any corruption or alteration",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer explains that Allah only sent revelation to the Prophets through the angels, as stated in the Quran: \"He sends down the angels, with the inspiration of His command\" and \"The Trustworthy Spirit [Jibreel] has brought it down upon your heart.\" Since the revelation of Allah only reached humanity through the angels, they are the intermediaries between Allah and humanity. The Books (revelation) are mentioned third because they are what the angel brought from Allah and delivered to humanity, and the Messengers are fourth as those who received this revelation from the angels.",
+      "tags": ["Belief in the Angels"],
+      "source": "IslamQA reference 300994"
+    }
+  ]
+}

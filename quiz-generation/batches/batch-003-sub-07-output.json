@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 22878,
+      "questionText": "According to Islamic teachings about dealing with internet rumors, what is the proper methodology for accepting news?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Accept news that coincides with our hopes and wishes",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Verify news from authentic sources and be cautious about anonymous sources",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Believe news if it comes with pictures from the battlefield",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Accept news from unknown sources if our intention is good",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer emphasizes that we must be certain about news we accept and not accept it simply because it coincides with our hopes. We must verify matters from authentic sources and be cautious about anonymous sources. An old proverb says, 'Whoever pursues weird news will be disbelieved.'",
+      "tags": ["Character and Morals", "Media", "Truthfulness"],
+      "source": "IslamQA reference 22878"
+    },
+    {
+      "reference": 36749,
+      "questionText": "When someone swears multiple oaths about the same matter and then breaks them, how many expiations (kaffarah) are required?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "One expiation regardless of how many times the oath was repeated",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "An expiation for each time the oath was sworn",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "No expiation needed if the oaths were said on the same day",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Two expiations to be on the safe side",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If all oaths had to do with the same thing, then expiation only needs to be offered once. For example, if you said 'By Allah, I will not speak to So and so' many times, then you spoke to him, you only have to offer expiation once. But if you swore oaths regarding several different things, then for each oath you have to offer expiation.",
+      "tags": ["Vows", "Expiation", "Oaths"],
+      "source": "IslamQA reference 36749"
+    },
+    {
+      "reference": 117724,
+      "questionText": "What are the two types of terrorism (irhaab) distinguished in Islamic teaching?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Praiseworthy terrorism that scares enemies to prevent attack, and blameworthy terrorism that scares innocent people",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Physical terrorism and psychological terrorism",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Individual terrorism and collective terrorism",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Defensive terrorism and offensive terrorism",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Praiseworthy terrorism refers to scaring an enemy lest he attack the Muslims and occupy their land, involving being fully prepared and armed. Blameworthy terrorism refers to scaring those who do not deserve to be scared: Muslims or others whose lives are protected by Islamic law, such as those who have a covenant with Muslims.",
+      "tags": ["Islamic politics", "Definitions", "Jihad"],
+      "source": "IslamQA reference 117724"
+    },
+    {
+      "reference": 142247,
+      "questionText": "According to the majority of scholars, when is it recommended (Sunnah) to renew wudu?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When you have already prayed with your previous wudu",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Anytime you want, regardless of whether you prayed with it",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only before obligatory prayers, not voluntary ones",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only when your wudu has been invalidated",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The most correct view is that renewing wudu is Sunnah if the person prayed with the wudu he did previously. For example, if someone did wudu for Zuhr and prayed Zuhr, then the time for Asr came and he was still in a state of purity, it is Sunnah for him to do a new wudu. If he did not pray with the first wudu, then renewing it is not prescribed.",
+      "tags": ["Ablution Before Prayer", "Wudu", "Sunnah"],
+      "source": "IslamQA reference 142247"
+    },
+    {
+      "reference": 8674,
+      "questionText": "What is one of the main concerns scholars have expressed about Jama'at al-Tabligh?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "They do not have proper understanding of the issues of correct Islamic creed (aqidah)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They encourage Muslims to abandon all voluntary prayers",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They forbid Muslims from seeking any Islamic knowledge",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They only focus on fasting and ignore other pillars of Islam",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Baz stated that Jama'at al-Tabligh do not have proper understanding of the issues of aqidah, so it is not permissible to go out with them except for one who has knowledge and understanding of the correct aqidah of Ahl al-Sunnah wa'l-Jama'ah, so that he can guide them and advise them. Among their mistakes listed: not adopting the aqidah of Ahl al-Sunnah and not paying attention to shari knowledge.",
+      "tags": ["Qualities of one who calls people to Islam", "Da'wah", "Groups"],
+      "source": "IslamQA reference 8674"
+    },
+    {
+      "reference": 227097,
+      "questionText": "What do the scholars say about a woman in ihram keeping her face covering away from touching her face?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not required; the covering may touch her face without blame",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She must use a stick or her hand to keep distance between the covering and face",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The covering must be at least one hand's width away from her face",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She should keep it away only when performing tawaf",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Baz said: It is permissible for the woman in ihram to let her head cover down over her face if she needs to do so, without using anything to lift it off her face. If the head cover touches her face, there is no blame on her. Using a stick under the head cover to lift it off the face has no basis in sharee'ah. Aisha reported that women would let down their jilbabs over their faces when riders passed, and it inevitably touches the face.",
+      "tags": ["Things which are not allowed in Ihraam", "Hijab", "Hajj"],
+      "source": "IslamQA reference 227097"
+    },
+    {
+      "reference": 191930,
+      "questionText": "Who is meant by 'the companion of the Quran' in the hadith about reading and ascending in Paradise?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The one who consistently recites the Quran and acts upon it",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Anyone who has read the Quran at least once in their life",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only those who have memorized the entire Quran by heart",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Those who read the Quran frequently but do not act upon it",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars explained that 'the companion of the Quran' means the one who consistently recites it and acts upon it, not the one who reads it and does not act upon it. The greater reward will not be attained except by one who memorized the Quran, learned how to recite it properly, AND acts upon it. Most of the Companions memorized the Quran in the sense of acting upon it.",
+      "tags": ["Commentary on Hadith", "Quran", "Paradise"],
+      "source": "IslamQA reference 191930"
+    },
+    {
+      "reference": 26890,
+      "questionText": "What is the ruling on a girl corresponding with a young man who is not a mahram through pen pal corners?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Not permissible because it leads to fitnah (temptation) and corruption",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Permissible if they discuss only Islamic knowledge and religious topics",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Permissible as long as the girl's parents are informed and approve",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Discouraged but not explicitly forbidden in Islam",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "It is not permissible to correspond with a young man who is not a mahram through what is known as the 'Pen pal corner', because that is something that leads to fitnah (temptation) and to evil and corruption. The ruling is clear and unambiguous.",
+      "tags": ["Relationships between the two genders", "Fitnah", "Correspondence"],
+      "source": "IslamQA reference 26890"
+    },
+    {
+      "reference": 265015,
+      "questionText": "If someone puts on socks after doing wudu, then does tayammum due to illness, then the illness ends and they do wudu for the next prayer, what is the ruling on wiping over the socks?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Permissible to wipe over them as there is no evidence that tayammum invalidates this concession",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The socks must be removed and put on again after the new wudu",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Tayammum invalidates the permission to wipe over the socks during that period",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They must wash the feet thoroughly even while the socks remain on",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If someone put socks on when in a state of purity, then did tayammum after that, then the excuse that made tayammum permissible was no longer applicable, so he did wudu and wiped over his socks, there is nothing wrong with that. There is no report from the Prophet to suggest that doing tayammum during the period in which wiping over the socks is permissible invalidates the concession. The basic principle is that things remain as they are and cannot be changed except on the basis of evidence.",
+      "tags": ["Wiping over the socks", "Tayammum", "Wudu"],
+      "source": "IslamQA reference 265015"
+    },
+    {
+      "reference": 45456,
+      "questionText": "What is the ruling on performing sujud as-sahw (prostration of forgetfulness) in voluntary (nafl) prayers?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is prescribed just as in obligatory prayers according to the majority of scholars",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is not allowed in voluntary prayers according to scholarly consensus",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is only required in Witr prayer, not in other nafl prayers",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is optional and has no basis in the Sunnah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "It is prescribed to do sujud as-sahw in nafl (supererogatory) prayers just as it is prescribed to do it in the obligatory prayers when there is a reason for doing it. This is the view of the majority of scholars because of the general meaning of the Prophet's words: 'If any one of you forgets, let him do two prostrations.' Ibn Abbas did two prostrations after Witr, and Witr is not obligatory, which indicates that sujud as-sahw should be done in both obligatory and nafl prayers.",
+      "tags": ["Forgetfulness During Prayer", "Sujud as-Sahw", "Nafl prayers"],
+      "source": "IslamQA reference 45456"
+    }
+  ]
+}

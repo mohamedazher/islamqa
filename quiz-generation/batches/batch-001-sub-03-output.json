@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 101859,
+      "questionText": "According to the ruling on engagement gifts, if a woman refuses to marry a man who gave her gifts to marry him, what is her obligation?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She must return existing gifts and replace or pay the value of items that have been used up or damaged",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She only needs to return the gold jewelry, not other gifts like money for going out",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She can keep gifts she did not specifically ask for from him",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She must return items she consumed, but not items the man consumed with her during engagement",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh al-Islam Ibn Taymiyah and other scholars ruled that if a man gives gifts on the basis of marriage and the woman refuses, he may take them back. Whatever gifts are still present should be returned, and whatever has been used up or damaged should be replaced or its value given. However, what the man himself consumed he has no right to ask for.",
+      "tags": ["Gifts and Presents", "Engagement", "Marriage"],
+      "source": "IslamQA reference 101859"
+    },
+    {
+      "reference": 11938,
+      "questionText": "According to Ibn Mas'ud's response to people using pebbles to count takbeer, tahleel, and tasbeeh 100 times each in circles, what was his verdict?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He said they were starting a way of misguidance, even though they intended good",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He praised them for their devotion and asked them to teach others this method",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He said it was acceptable since the words themselves were legitimate dhikr from the Sunnah",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He allowed it only if they also counted their bad deeds alongside their good deeds",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Mas'ud said to them: 'Either you are following a way that is more guided than the way of Muhammad, or you are starting a way that is the way of misguidance.' When they said they only intended good, he responded: 'How many of those who intend good never attain it.' This demonstrates that good intentions alone do not make an act of worship acceptable if it contradicts the Sunnah.",
+      "tags": ["Innovations in Religion and Worship", "Bid'ah", "Sunnah"],
+      "source": "IslamQA reference 11938"
+    },
+    {
+      "reference": 242000,
+      "questionText": "Why is it not appropriate to ask Allah to let you live until the descent of 'Eesa ibn Maryam (peace be upon him)?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because his descent will occur during the time of the Dajjaal, the greatest tribulation, which Muslims should seek to avoid",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because only the Sahabah who were alive during the Prophet's time can make such requests",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because it shows ingratitude for the current time Allah has chosen for you",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because human lifespan has natural limits that cannot extend to the end of time",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) said: 'Between the creation of Adam and the onset of the Hour there is no matter of greater impact than the Dajjaal.' The Muslim should seek to avoid tribulations, not ask to witness them. Abu Dawood narrated that the Prophet said: 'Whoever hears of the Dajjaal, let him go far away from him,' warning that even believers may be misled by his tribulation.",
+      "tags": ["Belief in the Last Day and the Signs of the Hour", "Supplication", "Dajjaal"],
+      "source": "IslamQA reference 242000"
+    },
+    {
+      "reference": 5660,
+      "questionText": "According to the hadith about the shepherd at the top of a mountain pass who calls the Adhan and prays alone, what did Allah say?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Look at this slave of Mine, I have forgiven him and will admit him to Paradise",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "This slave has fulfilled his obligation completely and perfectly",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "This slave will receive the reward of praying in congregation",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "This slave has set a good example for other shepherds to follow",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) narrated that Allah says: 'Look at this slave of Mine, saying the Adhan and the Iqamah for prayer and fearing Me. I ask you to bear witness that I have forgiven My slave and will admit him to Paradise.' This hadith demonstrates the virtue of saying Adhan and Iqamah even when praying alone.",
+      "tags": ["Call for prayer", "Adhan", "Iqamah"],
+      "source": "IslamQA reference 5660"
+    },
+    {
+      "reference": 143089,
+      "questionText": "If a woman has a miscarriage during early pregnancy (before 80 days), what is the ruling on the bleeding regarding her ability to perform tawaaf?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "The bleeding is istihaadah (non-menstrual bleeding), which does not prevent her from praying or doing tawaaf if she does wudoo' for each prayer",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The bleeding is nifaas, so she must wait up to 40 days until she becomes pure before doing tawaaf",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She must take medicine to stop the bleeding completely before she can perform tawaaf",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She should change from tamattu' to qiran to avoid doing tawaaf until she becomes pure",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Human features do not appear in the foetus before 80 days of pregnancy. If a miscarriage occurs before this time, the bleeding is regarded as istihaadah (non-menstrual bleeding), not nifaas. Istihaadah does not prevent a woman from praying or doing tawaaf, but she must do wudoo' for each prayer.",
+      "tags": ["Hajj al-Mar'ah (women's pilgrimage)", "Nifaas", "Istihaadah", "Tawaaf"],
+      "source": "IslamQA reference 143089"
+    },
+    {
+      "reference": 106575,
+      "questionText": "According to Shaykh Ibn 'Uthaymin, in what two ways is Hajj Qiran easier than Hajj Tamattu' for elderly women?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The pilgrim only has to do one tawaaf and one sa'i, and can delay them until after completing Hajj when it is easier",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The Quran waives the requirement of sa'i entirely for those doing Qiran",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It allows combining tawaaf al-ifaadah and farewell tawaaf into a single combined tawaaf",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It eliminates the need to offer a sacrifice unlike Tamattu' which requires one",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymin explained that Qiran is easier in two ways: First, the pilgrim only does one tawaaf and one sa'i for both Hajj and 'Umrah combined. Second, they can delay the tawaaf and sa'i until after completing Hajj (even after the 13th, 14th, or 15th of Dhul-Hijjah), rather than having to do them immediately upon arrival like in Tamattu'.",
+      "tags": ["Sifat al-Hajj wa'l-'Umrah (Description of Hajj and 'Umrah)", "Hajj Qiran", "Hajj Tamattu'"],
+      "source": "IslamQA reference 106575"
+    },
+    {
+      "reference": 4246,
+      "questionText": "What happens the moment someone says and believes the shahada (testimony of faith)?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "They automatically become Muslim and must start carrying on with the duties of Islam",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They must wait for formal acceptance and registration at an Islamic center",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They begin a probationary period to learn Islamic practices before becoming fully Muslim",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They need permission from an Islamic scholar to officially enter Islam",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Any human being can embrace Islam without anyone's permission. The moment you say and believe that there is no God except Allah and that Muhammad is His Messenger, you automatically become Muslim. From there, you start carrying on with the duties of Islam. Embracing Islam at an Islamic center is only a formality.",
+      "tags": ["Calling non-Muslims to Islam", "Shahada", "Conversion"],
+      "source": "IslamQA reference 4246"
+    },
+    {
+      "reference": 122224,
+      "questionText": "What is Shaykh Ibn 'Uthaymin's view regarding whether janaazah (funeral) prayer in al-Masjid al-Haraam receives the multiplied reward?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The apparent meaning of the hadith indicates the multiple reward includes janaazah prayer and all prayers generally",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The multiple reward applies only to the five daily obligatory prayers, not janaazah prayer",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Janaazah prayer receives exactly 100,000 times reward just like the five daily prayers",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "There is unanimous scholarly consensus that janaazah prayer does not receive the multiple reward",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymin stated: 'What appears to be the case from the apparent meaning of the hadith is that it includes all prayers, and the janaazah prayer is included in this general meaning of the reward for prayers in al-Masjid al-Haraam being multiplied.' This view was also held by al-Nawawi and others, though some scholars like al-Tahhaawi held it applies only to obligatory prayers.",
+      "tags": ["Rulings on Mosques", "Janaazah", "Al-Masjid al-Haraam"],
+      "source": "IslamQA reference 122224"
+    },
+    {
+      "reference": 2993,
+      "questionText": "What is the ruling on a woman going to the mosque or learning gatherings without her father's permission before marriage?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not permissible because she is under her father's guardianship and must have his permission to leave the house",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible if the purpose is seeking religious knowledge or worship even without permission",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is allowed if she goes in secret to avoid confrontation with her father",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is obligatory to go even without permission because faith wears out and needs renewal through gatherings",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Before marriage, a woman is under the guardianship of her father, so it is not permissible for her to go out of the house except with his permission, whether to the mosque or elsewhere. Obedience to one's father is obligatory so long as it does not involve disobedience towards Allah.",
+      "tags": ["Rights of spouses", "Father's guardianship", "Women's rights"],
+      "source": "IslamQA reference 2993"
+    },
+    {
+      "reference": 106550,
+      "questionText": "What is the evidence that putting on perfume before entering ihram is Sunnah?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "'Aa'ishah reported putting perfume on the Prophet before ihram and seeing the glistening of musk in his hair parting when he was in ihram",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The Prophet explicitly commanded all pilgrims to wear perfume before entering ihram",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Perfume is required as part of the purification process before entering the sacred state of ihram",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The companions reached unanimous consensus (ijma') that it was obligatory for ihram",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "'Aa'ishah (may Allah be pleased with her) said: 'I put perfume on the Messenger of Allah (peace be upon him) for his ihram before he entered ihram. And the glistening of the musk could be seen in the parting of his hair when he was in ihram.' This hadith establishes that putting on perfume after doing ghusl when entering ihram is Sunnah because the Prophet did it.",
+      "tags": ["Sifat al-Hajj wa'l-'Umrah (Description of Hajj and 'Umrah)", "Ihram", "Perfume"],
+      "source": "IslamQA reference 106550"
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 92650,
+      "questionText": "What are the three conditions that must be met when a person is forced to refer to man-made law courts to get back his rights?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He cannot get his rights except by this way, he should do it reluctantly and hate this way, and he should not take more than his due even if the law gives it to him",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He must consult three scholars first, pay fidyah of feeding ten poor people afterwards, and avoid giving testimony in any future cases",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The case must involve only commercial disputes not family matters, he must have written documentation of the Islamic ruling, and he needs two Muslim witnesses present",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He should wait until after Ramadan to file the case, obtain written permission from the local imam, and limit his monetary claims to half the actual amount owed",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars of the Standing Committee stated three conditions for necessity cases: (1) He cannot get his rights except by this way, (2) He should do it reluctantly and hate this way of referring for judgement, and (3) He should not take more than his due, even if the law gives it to him.",
+      "tags": ["Shirk and its different forms", "Courts", "Man-made law"],
+      "source": "IslamQA reference 92650"
+    },
+    {
+      "reference": 3277,
+      "questionText": "According to Umar ibn al-Khattab (may Allah be pleased with him), how are the deeds of young children recorded by the angels?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "The young child's good deeds will be recorded but his bad deeds will not be recorded",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Both good and bad deeds are recorded equally in their books until they reach the age of puberty",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Neither good deeds nor bad deeds are recorded before the child reaches seven years old",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only their obligatory acts like Friday prayers and Ramadan fasts are recorded in their book of deeds",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Umar ibn al-Khattab said: 'The young child's good deeds will be recorded but his bad deeds will not be recorded.' This is also supported by the hadith where the Prophet (peace and blessings of Allah be upon him) told the woman who asked about her child's Hajj: 'Yes, and you will be rewarded.'",
+      "tags": ["Childrens Upbringing", "Rewards", "Good deeds"],
+      "source": "IslamQA reference 3277"
+    },
+    {
+      "reference": 21589,
+      "questionText": "According to some scholars, what must a pregnant woman do if she fears for her baby only (not for herself) and breaks her Ramadan fast?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She must make up the fast later on and also pay the fidyah by feeding one poor person for each day not fasted",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She only needs to make up the missed fasts after delivery, without any additional fidyah compensation required",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She must pay double fidyah by feeding two poor people per day but is completely exempt from making up the missed days",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She must fast two consecutive months after delivery as kaffarah expiation for breaking the fast",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Some scholars say that if the woman fears for her baby only, she must make up the fast later on AND pay the fidyah (feeding one poor person for each day), based on the report from Ibn Abbas about pregnant and nursing women. However, if she fears for herself, she only makes up the fast without fidyah.",
+      "tags": ["Fast of those who are exempted", "Pregnancy", "Fidyah"],
+      "source": "IslamQA reference 21589"
+    },
+    {
+      "reference": 274811,
+      "questionText": "According to Islamic law, who should make the determination that a missing person has died?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The qaadi (shari judge), or if there is no qaadi available, trustworthy scholars in the area who are qualified to issue fatwas should act in his stead",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The family members after reaching unanimous agreement and presenting testimony from three reliable witnesses",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Any registered Islamic center after verifying the absence for a minimum period of two complete years",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The local imam after the Friday prayer congregation publicly confirms knowledge of the absence",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Uthaymeen stated it is essential to consult the qaadi to avoid chaos. If there is no qaadi or it is not possible to contact him, then scholars in the area should act in the stead of the qaadi as a matter of necessity, and one of the trustworthy scholars qualified to issue fatwas may rule, making his ruling binding like that of a judge.",
+      "tags": ["Pilgrimage", "Missing person", "Umrah", "Qaadi"],
+      "source": "IslamQA reference 274811"
+    },
+    {
+      "reference": 93051,
+      "questionText": "According to al-Shafi'i and Malik (in one report), when specifically should Qunut be recited during Ramadan?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Qunut should not be recited in Ramadan except in the second half of the month, as practiced by Ibn Umar and Muadh al-Qaari",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Throughout the entire month of Ramadan from the first night to the last night with equal emphasis",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only on the odd-numbered nights when the imam is leading the congregation in Witr prayer",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "During the first ten days only, to match the timing of the best and most blessed days of Ramadan",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Al-Shafi'i said: 'Qunut should not be recited in Ramadan except in the second half (of the month). This is what Ibn Umar and Muadh al-Qaari used to do.' The answer also mentions that al-Hasan reported that Umar united the people behind Ubayy ibn Ka'b, who led them for twenty nights during which he only recited Qunut in the second half.",
+      "tags": ["Night Prayer", "Qunut", "Witr", "Ramadan"],
+      "source": "IslamQA reference 93051"
+    },
+    {
+      "reference": 1656,
+      "questionText": "According to the answer, why might Muslim parents find it difficult to accept their son marrying a Western woman?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "They may have heard about the widespread promiscuity in the West and the freedom with which Western women enter into relationships",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Western women are categorically prohibited from learning the Arabic language and studying Islamic texts in depth",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "International immigration laws prevent Western spouses from visiting or traveling to Muslim-majority countries",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "All Western marriages by law require civil ceremonies which are explicitly forbidden in Islamic jurisprudence",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states: 'The idea of their son marrying a western woman may be very strange for them and difficult to accept, especially if they have heard about the widespread promiscuity in the West and the freedom with which Western women enter into relationships.' Parents may also fear their son staying overseas and worry about raising children in a non-Islamic environment.",
+      "tags": ["Calling non-Muslims to Islam", "Marriage", "Cultural differences"],
+      "source": "IslamQA reference 1656"
+    },
+    {
+      "reference": 115985,
+      "questionText": "According to those scholars who say that the one who does not pray is a kaafir (such as Imam Ahmad), what is the ruling on inheritance involving such a person?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "He cannot inherit from others and others cannot inherit from him, just like other rulings that apply to apostates",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He can inherit from Muslim relatives but is restricted to receiving only up to one-third of the total estate",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He inherits his full share but must donate an equivalent portion to charity as expiation for abandoning prayer",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "His inheritance rights are suspended and held in trust until he begins praying the five daily prayers regularly",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer clearly states: 'For those who say that the one who does not pray is a kaafir...all the rulings on apostates apply to him. So he cannot inherit or be inherited from, he cannot be washed (after he dies), he cannot be buried in the Muslim graveyard, the funeral prayer cannot be offered for him, meat slaughtered by him is not halaal and his marriage contract becomes invalid.'",
+      "tags": ["Abandoning or Neglecting Salaat", "Apostasy", "Inheritance"],
+      "source": "IslamQA reference 115985"
+    },
+    {
+      "reference": 163276,
+      "questionText": "In the hadith where the Prophet (peace and blessings of Allah be upon him) wept when visiting Sa'd ibn 'Ubaadah, what did he say Allah does NOT punish for?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "The tears of the eye and the grief of the heart",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Momentary feelings of sadness that last less than three days following the death",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Silent meditation and private reflection performed in the privacy of one's own home",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Attending the funeral prayer and burial ceremony without speaking or making any sounds at all",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The hadith states: 'The Prophet (peace and blessings of Allah be upon him) wept, and when the people saw the Prophet weeping, they also wept. He said: \"Listen, Allah does not punish for the tears of the eye or the grief of the heart, rather He punishes for this\" – and he pointed to his tongue – \"or shows mercy (because of it).\" This shows that simple crying is not forbidden, but wailing with the tongue is what is prohibited.",
+      "tags": ["Manners", "Crying", "Wailing", "Deceased", "Funerals"],
+      "source": "IslamQA reference 163276"
+    },
+    {
+      "reference": 78597,
+      "questionText": "According to Ibn Abbas (may Allah be pleased with him), what is the principle regarding haram deeds and their effect on marriage prohibitions?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "A haram deed does not make something permissible haram",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Seven full years must pass before any marriages related to the haram deed become valid again",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Haram deeds create temporary marriage prohibitions that last until sincere repentance is accepted by Allah",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "All blood relatives within three degrees of kinship become forbidden for marriage after committing zina",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Abd al-Barr reported that Ibn Abbas said concerning this matter: 'A haram deed does not make something permissible haram.' This principle supports the view that zina with a woman does not make it haram to marry her mother or daughter, though scholars differed on this issue. The more correct view is that such marriages are permissible.",
+      "tags": ["Adultery/fornication and Homosexuality", "Rulings on Marriage", "Mahram"],
+      "source": "IslamQA reference 78597"
+    },
+    {
+      "reference": 8531,
+      "questionText": "Why is a man's wife's sister considered a non-mahram (stranger) to him in Islamic law?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because if he were to divorce his wife, it would be permissible for him to marry her sister, proving she is not a mahram",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She must continue wearing full hijab in his presence until the wife gives explicit written permission for interaction",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Islamic law requires a minimum of five complete years of marriage before the sister can be considered mahram",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The sister only becomes a mahram relative after the birth of the first child to the married couple",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fatwa clearly states: 'Your wife's sister is a stranger (i.e. non-mahram) to you, because if you were to divorce your wife, it would be permissible for you to marry her (her sister). So she is not one of your mahrams.' This is why it is haram to be alone with her, and touching her with desire would break wudu.",
+      "tags": ["Manners of Greeting with Salam", "Nullifiers of Wudu", "Mahram", "Sister-in-law"],
+      "source": "IslamQA reference 8531"
+    }
+  ]
+}

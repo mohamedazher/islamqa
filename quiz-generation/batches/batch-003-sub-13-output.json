@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 127362,
+      "questionText": "What is the minimum number of wipes required when performing istijmaar (cleaning with stones or tissue)?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "No less than three wipes",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "No less than five wipes to make it an odd number",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "No less than seven wipes as prescribed",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Twenty-one times as mentioned in the hadith",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) forbade cleaning ourselves with less than three stones, as narrated by Muslim. Both purification and completing three are stipulated together according to scholars like al-Shafi'i. If purity is not achieved after three, more wipes are needed, and it's best to make it an odd number.",
+      "tags": ["Cleaning oneself after defecating or urinating", "Istijmaar", "Taharah"],
+      "source": "IslamQA reference 127362"
+    },
+    {
+      "reference": 46315,
+      "questionText": "What is the correct view regarding zakat on honey according to the majority of scholars?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "No zakat is due on honey itself, but zakat is due on its value if prepared for sale and one year has passed",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "One-tenth of honey must be paid as zakat according to authentic hadiths",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Zakat on honey is obligatory as practiced by Umar ibn al-Khattab",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "One-quarter of one-tenth is due on honey directly from the hives",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the Standing Committee and the majority of scholars including Malik and al-Shafi'i, no zakat is due on honey itself. The hadiths about zakat on honey are considered weak. However, zakat is due on its value if it is prepared for sale and one year has passed, at a rate of one-quarter of one-tenth. The one-tenth that Umar took was interpreted as payment for protection, not zakat.",
+      "tags": ["On What is Zakah Due", "Zakat", "Honey"],
+      "source": "IslamQA reference 46315"
+    },
+    {
+      "reference": 102537,
+      "questionText": "What is the ruling on working in a factory that manufactures pet food containing pork?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not permissible because it involves helping in sin by manufacturing pork products for sale",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible since the pork is being used to feed animals, not humans",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible as long as one does not directly handle the pork",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible if the worker needs the income and has no other job options",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "While it is permissible to feed dead meat including pork to animals like dogs and cats, it is not permissible to sell pork or work in such a factory. The Prophet (peace be upon him) said that Allah and His Messenger have forbidden the sale of pork. Working in this factory is helping in sin and haraam things, as the product is manufactured with the aim of selling it. Allah says: 'Help you one another in virtue and righteousness, but do not help one another in sin and transgression.'",
+      "tags": ["Forbidden Transactions", "Ruling on jobs", "Pork"],
+      "source": "IslamQA reference 102537"
+    },
+    {
+      "reference": 65877,
+      "questionText": "According to the scholars, why is Quran recited out loud in the nighttime prayers but silently in daytime prayers?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Night is a time when voices are stilled and hearts are more focused, making the heart, tongue, and ears all involved in recitation",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The day is when people gather in mosques, so silent recitation prevents disturbance to others",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Loud recitation at night helps wake people up for prayer, while day prayers need no such reminder",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The Prophet (peace be upon him) had a stronger voice at night than during the day",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars explained that night is a time when people are quiet and alone, with hearts more focused and renewed energy. Allah says the rising by night is 'most suitable for understanding the Word of Allah.' The heart, sight, hearing, and tongue work together in harmony when reciting Quran at night because voices and movements are stilled. In contrast, the day is a time of distractions and mixing with people, when the mind cannot focus fully on conversing with Allah.",
+      "tags": ["Sunnah Actions in Prayer", "Recitation", "Night Prayer"],
+      "source": "IslamQA reference 65877"
+    },
+    {
+      "reference": 96604,
+      "questionText": "A man told his menstruating wife 'Consider yourself divorced after your period ends' but did not actually divorce her when her period ended. What is the ruling?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "The divorce does not count because his intention was to do it in the future, then he did not do it",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The divorce counts automatically once her period ended, even though he did not pronounce it again",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The divorce is suspended and becomes valid if he does not take her back within three days",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The divorce counts from the moment he made the statement, regardless of when the period ended",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to Shaykh Dr. Khalid al-Mushayqih, the divorce does not count in this case because the man's intention was to do it in the future, then he did not do it. The statement was conditional on a future action that he never performed, so the divorce is not effective.",
+      "tags": ["Divorce", "Conditional Divorce", "Talaq"],
+      "source": "IslamQA reference 96604"
+    },
+    {
+      "reference": 3177,
+      "questionText": "What is the 'best prayer for seeking forgiveness' (Sayyid al-Istighfar) according to the Prophet (peace be upon him)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Allahumma anta rabbi la ilaha illa anta, Khalaqtani wa ana abduka - O Allah, You are my Lord, none has the right to be worshipped but You, You created me and I am Your slave",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Rabbighfir warham wa anta khayrur-rahimin - My Lord! Forgive and show mercy, for You are the Best of those who show mercy",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Rabighfir li wa tubb alayya innaka antat-tawwab ul-ghafur - My Lord, forgive me and accept my repentance",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Rabbana ighfir lana dhunubana wa israfana fi amrina - Our Lord! Forgive us our sins and transgressions",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaddad ibn Aws reported that the Prophet (peace be upon him) said the best prayer for seeking forgiveness is the full du'a beginning with 'Allahumma anta rabbi la ilaha illa anta, Khalaqtani wa ana abduka...' which acknowledges Allah as Lord, seeks refuge from evil done, acknowledges blessings, confesses sins, and asks forgiveness. The Prophet said whoever says this during the day with faith and dies before evening will be among the people of Paradise. Narrated by Al-Bukhari.",
+      "tags": ["Repentance", "Dua", "Forgiveness", "Sayyid al-Istighfar"],
+      "source": "IslamQA reference 3177"
+    },
+    {
+      "reference": 67921,
+      "questionText": "What is the ruling on a woman uncovering in front of the son of her husband's daughter?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "He is regarded as a mahram for her because she is the wife of his grandfather, so she may uncover in front of him",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He is not a mahram unless her husband (his grandfather) is still alive",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He becomes a mahram only when he reaches adulthood at age eighteen",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He is not a mahram because the relationship is through her husband's daughter, not direct lineage",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The son is regarded as a mahram for this woman, so she may shake hands with him and uncover in front of him as she uncovers in front of her mahrams. It makes no difference that his grandfather is deceased. He is her mahram because she is the wife of his grandfather on his mother's side. Permanently forbidden in marriage for a man are his father's and his grandfather's wife, no matter how far the line of ascent reaches. There is no dispute concerning this among the scholars.",
+      "tags": ["Mahram Relatives", "Hijab", "Family Relations"],
+      "source": "IslamQA reference 67921"
+    },
+    {
+      "reference": 242973,
+      "questionText": "What is the ruling on using a credit card that charges a fixed penalty fee for late payment?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is not permissible to use because stipulating a penalty for late payment is riba, whether it is a percentage or fixed amount",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is permissible if the user is determined to pay on time before the deadline",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is permissible because a fixed fee is different from a percentage-based interest charge",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible as long as the penalty is reasonable, such as 150 riyals per statement",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the Islamic Fiqh Council, it is not permissible to issue or use an 'unloaded' credit card if it is stipulated that interest be paid, even if the one requesting the card is determined to pay it off within the grace period. It makes no difference whether the penalty is a percentage or a fixed amount - anything stipulated in addition to the debt is riba.",
+      "tags": ["Credit Cards", "Riba", "Interest"],
+      "source": "IslamQA reference 242973"
+    },
+    {
+      "reference": 171285,
+      "questionText": "What did the Prophet (peace be upon him) say when he saw Sa'd being extravagant with water during wudoo?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "What is this extravagance? There can be extravagance in wudoo even if you are on the bank of a flowing river",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Use water moderately, for water is a blessing from Allah that should not be wasted",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Do not use more than one container of water for wudoo, even near a river",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Make your wudoo with only three handfuls of water, following the Sunnah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Imam Ahmad and Ibn Maajah narrated from Abdullah ibn Amr ibn al-'Aas that the Prophet (peace be upon him) passed by Sa'd when he was doing wudoo and said, 'What is this extravagance, O Sa'd?' When Sa'd asked if there could be extravagance in wudoo, the Prophet confirmed, 'Yes, even if you are on the bank of a flowing river.' This shows that wasting water is forbidden even when water is abundant.",
+      "tags": ["Manners", "Wudoo", "Water", "Extravagance"],
+      "source": "IslamQA reference 171285"
+    },
+    {
+      "reference": 832,
+      "questionText": "What is the ruling on Muslim women shaving or removing hair from their legs?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is permitted, and a woman may remove all her body hair such as on arms or legs if it will increase her beauty",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is forbidden because legs are not mentioned in the hadith about things consistent with fitrah",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is forbidden as an imitation of the unbelievers who introduced this practice",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible only if done to please her husband, otherwise it is makrooh",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to Islamic schools of thought mentioned in Al-Mawsu'ah al-Fiqhiyyah, a woman may remove all her body hair such as that on the arms or legs if removing it will increase her beauty. However, she must leave whatever makes her beautiful, so she is forbidden to shave the hair on her head or pluck her eyebrows.",
+      "tags": ["Natural character and instinct of the human creation", "Body Hair", "Fitrah", "Women"],
+      "source": "IslamQA reference 832"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 71400,
+      "question": "What is the ruling on the hadith about the Angel of Death asking the Prophet (peace and blessings of Allah be upon him) for permission to take his soul?",
+      "options": [
+        "The hadith is fabricated (mawdoo') and its isnaad includes 'Abd-Allah ibn Maymoon al-Qaddaah whose reports are worthless",
+        "The hadith is sahih and was narrated by al-Bukhari and Muslim with sound chains of transmission",
+        "The hadith is hasan and acceptable for use in narrating stories about the Prophet's death",
+        "The hadith is da'eef (weak) but can be used for virtuous deeds and understanding the circumstances of the Prophet's passing"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The hadith is fabricated (mawdoo'). Al-Haythami stated that its isnaad includes 'Abd-Allah ibn Maymoon al-Qaddaah, whose reports are worthless, and al-Albaani classified it as fabricated. Shaykh Ibn 'Uthaymeen confirmed that the Angel of Death did not come to the Prophet to ask permission, contrary to what this fabricated report claims."
+    },
+    {
+      "reference": 189336,
+      "question": "How should a widow calculate her 'iddah if her husband died during the middle of a lunar month?",
+      "options": [
+        "She observes the remainder of that month plus three full lunar months plus ten days plus what she missed of the first month",
+        "She can observe the 'iddah using either the solar or lunar calendar, whichever is more convenient for her circumstances",
+        "She must count exactly 130 days from the date of death regardless of the lunar months and their varying lengths",
+        "She observes exactly four calendar months of 30 days each plus 10 days, totaling 130 days from the date of death"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The 'iddah must be observed following the lunar calendar. If the husband died during a month, she observes the remainder of that first month, then three complete lunar months with their new moons (whether 29 or 30 days), plus ten days, then adds whatever she missed of the first month. This is based on Allah's command to observe 'iddah by months as stated in the Quran."
+    },
+    {
+      "reference": 40370,
+      "question": "A woman was divorced because her husband believed she had leprosy, but doctors confirmed it is not a disease, is not contagious, and can be removed by laser. What is her right regarding the dowry?",
+      "options": [
+        "She has the right to the second part of her dowry because what she has is not a deformity and can be removed by laser",
+        "She forfeits her right to the second part of the dowry because the husband divorced her due to a medical condition",
+        "She only has the right to half of the second part of the dowry because there was initially a medical concern raised",
+        "She has no right to any part of the dowry because the divorce was based on the husband's belief that she had a contagious disease"
+      ],
+      "correctAnswer": 0,
+      "explanation": "So long as it is not a deformity, she has the right to ask for the second part of her dowry. Since doctors confirmed that what she has is not a disease, is not contagious, and can be removed by laser, it is not considered a deformity that would affect her right to the dowry."
+    },
+    {
+      "reference": 5384,
+      "question": "A Muslim woman's mother wants her to attend a university where boys and girls mix freely, people walk around half naked, drink alcohol, and swear. What is the Islamic ruling?",
+      "options": [
+        "It is not permissible for her to study at the university because there is no obedience to any created being if it involves disobedience to the Creator, even if it means disobeying her mother",
+        "She should study at the university to obey her mother, then make extra prayers and supplications to protect herself from the corrupt environment",
+        "She can attend the university if she wears proper hijab and avoids unnecessary interactions with male students to minimize harm",
+        "She should attend the university only for exams and required classes, skipping optional social events to minimize exposure to the corruption"
+      ],
+      "correctAnswer": 0,
+      "explanation": "If the situation in the university is as described, it is not permissible for her to study there or go there. One of the well-known basic principles of Shari'ah is that there is no obedience to any created being if it involves disobedience to the Creator. She should not obey her mother in this instance, as stated in the Quran: \"But if they strive with you to make you join in worship with Me others of which you have no knowledge, then obey them not\" [Luqman 31:15]."
+    },
+    {
+      "reference": 82267,
+      "question": "What is the ruling for a sales agent who does not know whether a shopkeeper has already decided to purchase from another company?",
+      "options": [
+        "If the sales agent does not know whether the shopkeeper has decided to buy from another company, there is nothing wrong with him offering his products for whatever price he wants",
+        "A sales agent is always forbidden from offering lower prices than competitors, as this constitutes underselling one's brother in all circumstances",
+        "Sales agents can only offer their products after waiting at least one week from when the shopkeeper made a purchase from a competitor",
+        "It is permissible for sales agents to undersell competitors only during public auctions, but not in private business negotiations with shopkeepers"
+      ],
+      "correctAnswer": 0,
+      "explanation": "If the sales agent does not know anything about whether the shopkeeper has decided to buy from another company – as is usually the case for most sales agents – then there is nothing wrong with him offering his products for whatever price he wants, and there is no sin in that. However, if he knows that the shopkeeper has decided to buy from another company, then it is not permissible for him to offer his goods to him in that case."
+    },
+    {
+      "reference": 134757,
+      "question": "What evidence indicates that the Prophet's instruction to bring writing materials during his illness was not revelation he was obligated to convey?",
+      "options": [
+        "The incident occurred on Thursday and the Prophet died on Monday four days later, and he could have asked others to write the document but did not, indicating it was not obligatory revelation",
+        "The Prophet wanted to write instructions appointing 'Ali as caliph, but 'Umar prevented this to ensure Abu Bakr would become the successor instead",
+        "'Umar disobeyed a direct command from the Prophet by refusing to bring writing materials, which the Prophet rebuked him for severely afterwards",
+        "The document would have contained new Islamic rulings that the ummah needed, but were lost forever due to the companions' refusal to bring materials"
+      ],
+      "correctAnswer": 0,
+      "explanation": "This incident happened on a Thursday, and the Prophet (peace and blessings of Allah be upon him) died on the following Monday, four days later. He could have asked others to write that document, but because he did not do that, we know that it was not revelation that he could have concealed. If it had been obligatory revelation, the Prophet would not have failed to convey what Allah instructed him to do, as confirmed by Shaykh al-Islam Ibn Taymiyah."
+    },
+    {
+      "reference": 262339,
+      "question": "What was the view of Shaykh al-Islam Ibn Taymiyah regarding cheese made by Magians (Zoroastrians) with rennet from animals that died of natural causes?",
+      "options": [
+        "The cheese of the Magians is halal and the rennet and milk of an animal that died of natural causes are taahir (pure), based on the practice of the Sahaabah who ate such cheese when they conquered Iraq",
+        "All scholars unanimously agree that cheese made with rennet from animals that died of natural causes is najis (impure) and completely forbidden to eat",
+        "The cheese of Magians is only permissible if the Muslims can verify that the animal was slaughtered according to Islamic guidelines before using its rennet",
+        "Eating cheese from Magians is permissible only in cases of extreme necessity when no other halal food sources are available to Muslims"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Shaykh al-Islam Ibn Taymiyah said in his Fatawa that what is more likely to be the case is that the cheese of the Magians is halal and that the rennet and milk of an animal that died of natural causes are taahir (pure). This is because when the Sahaabah conquered Iraq, they ate the cheese of the Magians, and this was the prevalent practice among them."
+    },
+    {
+      "reference": 161227,
+      "question": "What is the ruling on the father seeing his son's fiancée before and after the marriage contract?",
+      "options": [
+        "It is not permissible for the father to see his son's fiancée before the marriage contract because she is a non-mahram to him, but after the marriage contract she becomes a mahram to him even if the marriage has not been consummated",
+        "The father may see the fiancée together with his son present, as long as he maintains modest behavior and does not look directly at her face",
+        "The father can see the fiancée only after the marriage has been consummated and she has moved into the family home with the family",
+        "It is permissible for the father to briefly meet the fiancée during the engagement ceremony to confirm his approval, but not to look at her closely"
+      ],
+      "correctAnswer": 0,
+      "explanation": "It is not permissible for the father to see his son's fiancée because she is a non-mahram to him, and no exception has been narrated with regard to the man's father. However, when his son does the marriage contract with his fiancée, she becomes his wife (even if he has not consummated the marriage with her), and she becomes a mahram to the father, as Allah says: \"Forbidden to you (for marriage) are... the wives of your sons who (spring) from your own loins\" [an-Nisa' 4:23]."
+    },
+    {
+      "reference": 50430,
+      "question": "How should brownish discharge be regarded in relation to a woman's menstrual period and purity?",
+      "options": [
+        "If the brownish discharge comes before the woman sees the white discharge that indicates purity, it is part of the period, but if it comes after she sees the white discharge, it does not affect her praying or fasting",
+        "Any brownish discharge is always considered part of the menstrual period regardless of when it occurs, and the woman must refrain from prayer and fasting until it stops completely",
+        "Brownish discharge after the sixth day of menstruation is never considered part of the period and the woman should resume prayers immediately upon seeing it",
+        "The woman should wait three full days after any brownish discharge stops before resuming prayers and fasting to ensure she is completely pure"
+      ],
+      "correctAnswer": 0,
+      "explanation": "If the brownish discharge comes before the woman sees that she is pure (the white discharge), then it is part of the period. If it comes after she sees that she is pure, then it is not part of the period and does not affect her praying and fasting. This is based on the statement of Umm 'Atiyyah: \"We used not to regard the brownish or yellowish discharge that comes after a woman becomes pure as being anything that mattered,\" and 'Aa'ishah would tell women: \"Do not hasten until you see the white discharge.\""
+    },
+    {
+      "reference": 132727,
+      "question": "What is the ruling on Muslims taking help from churches and what conditions apply?",
+      "options": [
+        "There is nothing wrong with taking help from churches so long as it does not lead to compromising religion or children being influenced, but refraining from it is preferable because the upper hand that gives is better than the lower hand that takes",
+        "It is completely forbidden to take any help from churches under all circumstances because they are non-Muslim organizations with ulterior motives toward Muslims",
+        "Muslims can freely take help from churches and state organizations without any conditions, as this is considered their right as residents of the country",
+        "Taking help from churches is only permissible during Ramadan or other Islamic occasions when the need for food and resources is greater than usual"
+      ],
+      "correctAnswer": 0,
+      "explanation": "There is nothing wrong with taking help from the state or from organizations based on donations, even if they are churches, so long as that does not lead to compromising on any issue of religion or approving anything wrong or the children being influenced. However, refraining from that and doing without it is preferable, because the upper hand (the one that gives) is better than the lower (the one that takes), as stated by the Prophet, especially with regard to taking from the church which usually has ulterior motives in what it gives to the Muslims."
+    }
+  ]
+}

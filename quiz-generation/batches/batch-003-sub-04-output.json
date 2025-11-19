@@ -1,0 +1,314 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 105431,
+      "questionText": "What is the ruling on where the aqeeqah (sacrifice for a newborn) should be slaughtered?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "No specific place is required; it can be slaughtered in any city as it is an act of worship for which no place is specified",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It must be slaughtered in the city where the child was born",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It must be slaughtered where there are poor people to receive the meat",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It should be slaughtered at the nearest mosque to the family home",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "There is no specific place for slaughtering the aqeeqah; it is permissible to slaughter it in the city where the child was born or elsewhere, because it is an act of worship for which no place is specified. The aqeeqah has the same ruling as udhiyah - it is mustahabb to eat from it, give some in charity, and give some as gifts to neighbors and friends.",
+      "tags": ["Aqeeqah", "Rulings on newborn", "Islamic rituals"],
+      "source": "IslamQA reference 105431"
+    },
+    {
+      "reference": 154850,
+      "questionText": "According to the scholars, when did the congregational prayer on Laylat al-Nisf (mid-Sha'ban) first occur historically?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "In Bayt al-Maqdis (Jerusalem) in 448 AH",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "In Makkah during the lifetime of the Prophet (peace be upon him)",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "In Madinah during the era of the rightly-guided Caliphs",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "In Damascus in 300 AH during the Umayyad period",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Al-Fatni stated that the first time the congregational prayer on mid-Sha'ban occurred was in Bayt al-Maqdis (Jerusalem) in 448 AH. The scholars of the Hijaz, including Ata, Ibn Abi Mulaykah, and the fuqaha of Madinah, denounced this practice. There is no report that the Prophet or his Companions spent that night praying in congregation, making it an innovation (bid'ah).",
+      "tags": ["Innovations", "Bid'ah", "Sha'ban", "Islamic celebrations"],
+      "source": "IslamQA reference 154850"
+    },
+    {
+      "reference": 46997,
+      "questionText": "What is the ruling on reciting a verse from the Quran that contains a du'a while in prostration?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Permissible if the intention is to make du'a, not to recite Quran, following the principle that actions are judged by intentions",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Completely forbidden in all cases because reciting Quran while prostrating is makrooh",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only allowed in voluntary prayers, not in obligatory prayers",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Permissible only during the last third of the night in qiyam prayer",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If a person recites a du'a that is mentioned in the Quran when prostrating (such as 'Our Lord! Give us in this world that which is good...'), there is nothing wrong with that if the intention is to say du'a and not to recite Quran. The Prophet (peace be upon him) said: 'Actions are but by intentions.' The Standing Committee confirmed there is nothing wrong with this if done as du'a, not as Quran recitation.",
+      "tags": ["Prayer", "Prostration", "Du'a", "Quran recitation"],
+      "source": "IslamQA reference 46997"
+    },
+    {
+      "reference": 3928,
+      "questionText": "Under what circumstances is it permissible for a man to trim his eyebrows?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "When the eyebrows fall over the eyes and prevent proper vision, they may be trimmed as much as needed to remove the problem",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "To make them look tidy and presentable for special occasions",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When they become unusually thick and bushy",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "If one eyebrow is noticeably longer than the other",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "It is not permissible for men to trim their eyebrows, just as it is not permissible for women. Trimming could affect every hair, which is worse than plucking. However, if the eyebrows are causing harm, such as falling over the eyes and preventing one from seeing properly, they may be trimmed as much as needed to remove the problem.",
+      "tags": ["Adornments", "Grooming", "Men's issues", "Eyebrows"],
+      "source": "IslamQA reference 3928"
+    },
+    {
+      "reference": 142713,
+      "questionText": "Why are travelers not explicitly mentioned in the hadith 'Jumu'ah prayer is an obligatory duty for every Muslim except four'?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mentioning a number does not necessarily mean it is limited to that number; travelers are mentioned in other authentic hadiths on the same subject",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Travelers are actually required to attend Jumu'ah wherever they are",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The hadith has an incomplete chain and the mention of travelers was lost",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Travelers are included under the category of 'sick people' in the hadith",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shari rulings should be derived from all hadiths on a subject, not just one. The Prophet mentioned a number to make the hadith easier to remember. Similar to the 'seven whom Allah will shade' hadith, which actually includes more than 20 categories when all hadiths are compiled. By examining all hadiths about Jumu'ah, scholars identified six categories exempt from it: children, slaves, women, sick people, travelers, and people of the wilderness.",
+      "tags": ["Friday prayer", "Jumu'ah", "Travelers", "Hadith methodology"],
+      "source": "IslamQA reference 142713"
+    },
+    {
+      "reference": 9410,
+      "questionText": "What is meant by the Prophet's instruction 'if the stars are mentioned, then keep quiet' in the context of speech to refrain from?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Seeking guidance by the stars concerning unseen matters through astrology, as the people of jahiliyyah did by using movements of heavenly bodies to predict earthly events",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Discussing any astronomical observations or scientific studies of celestial bodies",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Talking about constellations used for navigation on land or sea",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Mentioning stars in poetry or literary descriptions of the night sky",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The prohibition refers to seeking guidance by the stars concerning matters that are unseen, as people of jahiliyyah used to do through astrology - using movements of heavenly bodies to indicate when earthly events would occur (wind, rainfall, price changes). They would claim that whoever got married or traveled under a particular star would have certain outcomes. This is distinct from using stars for permissible navigation purposes.",
+      "tags": ["Speech", "Tongue", "Astrology", "Prohibited actions", "Jahiliyyah"],
+      "source": "IslamQA reference 9410"
+    },
+    {
+      "reference": 150841,
+      "questionText": "Why is it impermissible to buy gold jewelry with paper money when payment is delayed?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because paper money comes under the same ruling as gold and silver, and the hadith requires 'hand to hand' exchange on the spot",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because the delay causes uncertainty in the exact value of the gold at payment time",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because gold dealers may charge excessive markup for delayed payment arrangements",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because the buyer may change their mind and want to return the gold before full payment",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (peace be upon him) said: 'Gold for gold, silver for silver... like for like, same for same, hand to hand. But if these commodities differ, then sell as you like, as long as it is hand to hand.' Paper money comes under the same ruling as gold and silver. Delayed payment constitutes riba an-nasi'ah. However, if gold is purchased in return for other goods (fabric, food, etc.), then delay in payment is permissible.",
+      "tags": ["Riba", "Interest", "Gold transactions", "Exchange", "Forbidden transactions"],
+      "source": "IslamQA reference 150841"
+    },
+    {
+      "reference": 1940,
+      "questionText": "Why did the Prophet (peace be upon him) say 'the brother-in-law is death' when discussing women and non-mahram relatives?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Being alone with a brother-in-law may lead to disaster if a sin is committed, or may spell divorce if the husband cannot contain his jealousy",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Brothers-in-law historically caused the most family disputes and conflicts in Arab society",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The brother-in-law becomes a mahram after the first year of marriage",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Physical proximity between in-laws always leads to impermissible relationships",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Al-Nawawi explained that 'the brother-in-law is death' has several meanings: being alone may lead to disaster if sin is committed, or may spell divorce if the husband cannot contain jealousy. It also means: beware of being alone with a non-mahram woman - fear this as you fear death. This refers to all the husband's male relatives apart from his father and sons. People often take the matter of being alone with a brother-in-law lightly, hence the strong warning.",
+      "tags": ["Mahram", "Women's issues", "Family relations", "Marriage", "Khalwah"],
+      "source": "IslamQA reference 1940"
+    },
+    {
+      "reference": 7030,
+      "questionText": "According to Shaykh Muhammad ibn Uthaymeen, under what conditions are credit cards permissible to use despite being based on riba conditions?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When it is certain that not using it causes difficulty with no other option, and the likelihood of being late in payment is remote",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only for business transactions exceeding a minimum threshold amount",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "When traveling internationally for hajj, umrah, or Islamic conferences",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "If the annual interest rate is below the market average rate",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Uthaymeen stated that if it is certain that not using the card will cause difficulty and there is no other option, and the likelihood of being late in payment is remote, then there is hope that there is nothing wrong with using it. Two conditions must be met: 1) Not using it causes difficulty with no alternative, and 2) The person is committed to paying it off without any delay to avoid interest charges.",
+      "tags": ["Riba", "Interest", "Credit cards", "Modern transactions", "Necessity"],
+      "source": "IslamQA reference 7030"
+    },
+    {
+      "reference": 11063,
+      "questionText": "Why is it forbidden for a sick person to visualize who gave them the evil eye through the help of a qareen (jinn companion)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is seeking the help of shayateen, which creates enmity among people and causes fear and terror to be spread",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The visualization produced by the jinn is always medically inaccurate and unreliable",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only qualified Islamic scholars with ijazah are permitted to perform this procedure",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "This method should only be used after three consecutive days of severe illness",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "This is a devilish action that is not permitted because it involves seeking the help of shayateen. The jinn is the one who makes the sick person visualize the person who afflicted them with the evil eye. This is haraam because it creates enmity among people and causes fear and terror. It falls under the verse: 'And verily, there were men among mankind who took shelter with the males among the jinn, but they (jinn) increased them (mankind) in sin and transgression' [al-Jinn 72:6].",
+      "tags": ["Evil eye", "Jinn", "Ruqyah", "Forbidden practices", "Seeking help from shayateen"],
+      "source": "IslamQA reference 11063"
+    }
+  ]
+}

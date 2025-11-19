@@ -1,0 +1,624 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 243151,
+      "questionText": "According to Islamic commercial law, when does liability for shipped goods transfer from the seller to the purchaser?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When the purchaser or his agent receives the goods and moves them from the seller's warehouse, even if still on a ship or plane",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Only when the goods physically arrive at the purchaser's home or business location",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "As soon as the sale contract is signed, regardless of whether goods have been moved",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "When the shipping company takes possession, since they are professional carriers",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The goods become the liability of the purchaser when he himself, or his agent, receives them and takes possession, moving them from the seller's warehouses. This is true even if they are still on board a ship or plane, because by receiving and moving them, they become his liability. The Prophet (ﷺ) said 'Profit is connected to liability.'",
+      "tags": ["Transactions", "Commercial Law"],
+      "source": "IslamQA reference 243151"
+    },
+    {
+      "reference": 243151,
+      "questionText": "A merchant purchases rice from a supplier. The supplier ships the goods himself by sea. The ship sinks before delivery. Who is liable for the loss?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The seller/supplier, because he was the one who shipped the goods and they were destroyed before the purchaser received them",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The purchaser, because ownership transferred at the time of sale",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The shipping company, because they had physical possession of the goods",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Both parties split the loss equally since the sale was already completed",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "If the seller/supplier is the one who shipped the goods himself, or his agent did that, then the goods were destroyed before they were received by the purchaser, the seller is liable for them. The goods remain the liability of the seller until the purchaser receives them.",
+      "tags": ["Transactions", "Commercial Law"],
+      "source": "IslamQA reference 243151"
+    },
+    {
+      "reference": 130686,
+      "questionText": "What is the technical definition of a mursal hadeeth according to hadith scholars?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "A hadeeth narrated by a Taabi'i (successor) directly from the Prophet, skipping the Sahaabi (companion)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "A hadeeth with a complete chain of narration back to the Prophet",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "A hadeeth narrated only by Sahaabah without any Taabi'een in the chain",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "A hadeeth that has been authenticated by all four major imams",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Imam al-Haakim stated there is no difference of opinion among hadith scholars that the mursal hadeeth is one which the muhaddith narrated with a complete isnaad back to the Taabi'i, and the Taabi'i says, 'The Messenger of Allah (ﷺ) said,' skipping mention of the Sahaabi.",
+      "tags": ["Science of hadith", "Hadith terminology"],
+      "source": "IslamQA reference 130686"
+    },
+    {
+      "reference": 130686,
+      "questionText": "Examples of senior Taabi'een whose reports are called mursal include Sa'eed ibn al-Musayyab, Saalim ibn 'Abdullah, and which other scholar?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Al-Qaasim ibn Muhammad",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Abu Bakr as-Siddeeq",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Imam al-Bukhari",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Umar ibn al-Khattab",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn 'Abd al-Barr mentioned that mursal reports come from senior Taabi'een such as Sa'eed ibn al-Musayyab, Saalim ibn 'Abd-Allah, Abu Salamah ibn 'Abd al-Rahmaan, al-Qaasim ibn Muhammad, and others like them.",
+      "tags": ["Science of hadith", "Narrators"],
+      "source": "IslamQA reference 130686"
+    },
+    {
+      "reference": 5092,
+      "questionText": "For someone who committed major sins but did not leave Islam, what is required according to Shaykh Ibn Baaz?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sincere repentance according to the conditions is sufficient, without needing to renew the Shahaadatayn",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They must pronounce the Shahaadatayn again regardless of the sin",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They must perform Hajj to have their sins forgiven",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They must fast for forty consecutive days as expiation",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "As clarified in the answer, if what you have done is a major sin which does not take you out of Islam, then it is sufficient to repent according to the conditions. Only if you have done something that takes you out of Islam altogether must you pronounce the Shahaadatayn and re-enter Islam.",
+      "tags": ["Repentance", "Creed"],
+      "source": "IslamQA reference 5092"
+    },
+    {
+      "reference": 5092,
+      "questionText": "What are the conditions of sincere repentance mentioned in the answer based on Surah al-Tahreem?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Giving up and avoiding sins, regretting the past, and sincerely resolving not to return to them out of reverence for Allah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Praying two rak'ahs, giving charity, and informing one's family about the repentance",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Performing 'umrah, seeking forgiveness from the imam, and reading Quran daily",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Isolating oneself for forty days, continuous fasting, and night prayer",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer explains that sincere repentance includes giving up and avoiding sins, regretting the sins of the past, and sincerely resolving not to go back to them, out of reverence for Allah, hoping for His reward and fearing His punishment. An additional condition is restoring rights to those wronged.",
+      "tags": ["Repentance", "Conditions"],
+      "source": "IslamQA reference 5092"
+    },
+    {
+      "reference": 243142,
+      "questionText": "According to Ibn Katheer's interpretation, what does the Quranic phrase 'Allah is the third of the three' most likely refer to?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Christians making the Messiah and his mother Maryam into two gods with Allah, making Him the third of three",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Christians believing in three separate creator gods from different religions",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The concept of three angels who control the universe",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "A reference to three stages of human spiritual development",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Katheer favored the interpretation that this verse was revealed concerning Christians making the Messiah and his mother into two gods with Allah, thus making Allah the third of three according to this concept. This is supported by the verse 'Did you say unto men: Worship me and my mother as two gods besides Allah?'",
+      "tags": ["Calling non-Muslims to Islam", "Religions", "Tafseer"],
+      "source": "IslamQA reference 243142"
+    },
+    {
+      "reference": 243142,
+      "questionText": "How does the Quran prove that Maryam (Mary) is not divine, according to Surah al-Maa'idah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She was a Siddeeqah (strong and true in faith, a status of servitude) and she used to eat food (description of created being with needs)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She lived in a temple and was visited by priests regularly",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She married Zakariyya and had normal human relationships",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She wrote books of wisdom that were later lost",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The verse confirms Maryam is not divine on two counts: (i) Her status is that of siddeeqiyyah, which is a status of servitude to Allah, and (ii) She used to eat food, which is the description of a created being who has needs, not the description of God Who is independent of means.",
+      "tags": ["Calling non-Muslims to Islam", "Religions"],
+      "source": "IslamQA reference 243142"
+    },
+    {
+      "reference": 9126,
+      "questionText": "Why did the Prophet (ﷺ) approve of Jaabir's decision to marry a previously-married woman instead of a virgin?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because Jaabir had young sisters and needed a woman who could take care of them, discipline them, and comb their hair",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Because virgins were not available for marriage in that time period",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Because Jaabir was too old to marry a young virgin",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Because the Prophet preferred all companions to marry widows exclusively",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Jaabir's father had died, leaving him with young sisters. He married a previously-married woman who could gather them together, comb their hair, take care of them, and discipline them. The Prophet approved this decision because of the specific circumstances and need.",
+      "tags": ["Fiqh of the family", "Marriage"],
+      "source": "IslamQA reference 9126"
+    },
+    {
+      "reference": 9126,
+      "questionText": "What did Shaykh Mustafa al-Ruhaybaani say is the Sunnah regarding marriage to virgins?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is Sunnah to marry a virgin, unless there is a reason for which marrying a previously-married woman is better to serve that interest",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is obligatory to marry a virgin and marrying a widow is only permitted in extreme necessity",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "There is no preference between virgins and widows in any circumstances",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is better to marry widows because they have more life experience",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Mustafa al-Ruhaybaani stated: 'It is Sunnah for the one who wants to get married to marry a virgin, because the Prophet (ﷺ) said to Jaabir, \"Why not a virgin...\" – unless there is a reason for which marrying a previously-married woman is better, in which case he should choose such a woman over a virgin, in order to serve that interest.'",
+      "tags": ["Fiqh of the family", "Marriage"],
+      "source": "IslamQA reference 9126"
+    },
+    {
+      "reference": 13704,
+      "questionText": "According to Shaykh Abdullah ibn Jibrin, when is it acceptable for a man to speak to his fiancée?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only with the woman's guardian's agreement, no objection to the marriage, talk limited to essential matters, and in a manner that doesn't provoke desire",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Whenever they want as long as they avoid physical contact",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only in the presence of both sets of parents in the same room",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is never acceptable under any circumstances until after the marriage contract",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Jibrin specified that speaking must be done with the agreement of the woman's guardian with no objection to the marriage, the talk should not involve anything that may provoke desire, there should be no other way of communication, and it should not go beyond what is essential.",
+      "tags": ["Engagement", "Fiqh of the family"],
+      "source": "IslamQA reference 13704"
+    },
+    {
+      "reference": 13704,
+      "questionText": "What is the Islamic status of a fiancée before the marriage contract is completed?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "She is still a non-mahram woman, and speaking to her is speaking to a non-mahram woman",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She becomes a mahram as soon as the engagement is announced",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She has a special intermediate status between mahram and non-mahram",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The rules of hijab no longer apply after engagement",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn Jibrin clearly stated: 'The fiancée is still a non-mahram woman and speaking to her is still speaking to a non-mahram woman, so it must be done properly and only as much as is necessary.'",
+      "tags": ["Engagement", "Fiqh of the family"],
+      "source": "IslamQA reference 13704"
+    },
+    {
+      "reference": 325573,
+      "questionText": "Under what conditions is it permissible to give zakaah funds to a poor person for essential house repairs?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The house actually needs repairs (like fear of wall collapse or roof leaks), and repairs are appropriate to the poor person's situation without extravagance",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Any type of home improvement including landscaping and decorative upgrades",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only if the entire house is being demolished and rebuilt from scratch",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only for repairs that cost less than 100 dirhams total",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer specifies two conditions: (1) The house actually needs those repairs, such as if there is fear of a wall collapsing or water leaking through the roof, and it is not solely for cosmetic purposes, and (2) The repairs should be appropriate to the situation of this poor person, without spending extravagantly.",
+      "tags": ["Where Zakah is to Be Spent", "Zakaah"],
+      "source": "IslamQA reference 325573"
+    },
+    {
+      "reference": 325573,
+      "questionText": "What did Imam Abu 'Ubayd al-Qaasim ibn Sallaam say about using zakaah to buy a house for a poor family?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "He considered it permissible when done with pure intention for a household of righteous Muslims who have no shelter, following the views of the companions",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He absolutely forbade it and said zakaah can never be used for housing",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He said it is only allowed once every ten years in a community",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He permitted it only for converting non-Muslims to Islam",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Abu 'Ubayd gave examples of permissible large zakaah expenditures, including using zakaah to buy a house for a household of righteous poor Muslims who have no shelter to protect them from cold and heat. He said such a person 'would have fulfilled his duty and his zakaah would be valid. Indeed it would, and he is a doer of good.'",
+      "tags": ["Where Zakah is to Be Spent", "Zakaah"],
+      "source": "IslamQA reference 325573"
+    },
+    {
+      "reference": 45696,
+      "questionText": "According to al-Haafiz ibn Hajar and other scholars, what was one of the unique characteristics of the Prophet (ﷺ)?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "It was permissible for him to be alone with a non-mahram woman and to look at her, because he was protected by his infallibility",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He was required to marry every woman he spoke to privately",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He could never look at any woman other than his wives under any circumstances",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He appointed male relatives to supervise all interactions with women",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Al-Haafiz ibn Hajar stated: 'What is clear to us on the basis of strong evidence is that one of the unique characteristics of the Prophet (ﷺ) is that it was permissible for him to be alone with a non-mahram woman and to look at her.' This explains the story of Umm Haraam. Al-Bujayrami added this was 'because he was protected by his infallibility.'",
+      "tags": ["Biography of the Prophet", "Unique characteristics"],
+      "source": "IslamQA reference 45696"
+    },
+    {
+      "reference": 45696,
+      "questionText": "In the hadeeth of Asma' bint Abi Bakr, why did she refuse to ride behind the Prophet (ﷺ) on his camel?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She felt too shy to travel with the men, and she remembered al-Zubayr's protective jealousy (gheerah), as he was the most jealous of people",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The Prophet forbade her from riding because it would violate Islamic law",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She was afraid the camel would not be able to carry both of them",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Her father Abu Bakr had explicitly ordered her never to ride with anyone",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Asma' narrated: 'I felt too shy to travel with the men, and I remembered al-Zubayr and his protective jealousy (gheerah), for he was the most jealous of people. The Messenger of Allah realized that I felt too shy so he went on his way.' When she told al-Zubayr, he said carrying date-stones was harder for him to bear than her riding with the Prophet.",
+      "tags": ["Biography of the Prophet", "Seerah"],
+      "source": "IslamQA reference 45696"
+    },
+    {
+      "reference": 200862,
+      "questionText": "What is the Islamic ruling on calling upon the Prophet (ﷺ) after his death to meet one's needs or relieve distress?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is major shirk that puts one beyond the pale of Islam",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is a minor sin that requires repentance but doesn't affect one's Islam",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is a recommended practice that brings one closer to Allah",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is permissible only on Fridays and during Ramadan",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The scholars of the Standing Committee stated clearly: 'Calling upon the Prophet (ﷺ) and seeking his help after his death to meet one's needs or relieve one of distress is major Shirk that puts one beyond the pale of Islam.' This is because the Prophet himself did not possess any power to bring benefit or cause harm, except by the will of Allah.",
+      "tags": ["Unity of Divinity", "Shirk and its different forms"],
+      "source": "IslamQA reference 200862"
+    },
+    {
+      "reference": 200862,
+      "questionText": "According to the hadeeth qudsi narrated in Sahih Muslim, what did Allah say about His slaves asking for guidance and forgiveness?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "All are astray except those Allah guides, so ask Allah for guidance; all err night and day, but Allah forgives all sins, so ask Allah for forgiveness",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Ask the righteous people and prophets to intercede, and they will guide you to Allah's path",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Guidance comes automatically to those who regularly visit the graves of saints",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only those who perform Hajj three times will receive guidance and forgiveness",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (ﷺ) narrated from Allah: 'O My slaves, all of you are astray except those whom I guide, so ask Me for guidance, and I will guide you... O My slaves, you err night and day, but I forgive all sins, so ask Me for forgiveness and I will forgive you.' This shows these matters are to be sought from Allah alone.",
+      "tags": ["Unity of Divinity", "Supplication"],
+      "source": "IslamQA reference 200862"
+    },
+    {
+      "reference": 10324,
+      "questionText": "What are the conditions of sincere intention that a seeker of knowledge must maintain according to the answer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Seeking the Face of Allah and the Home of the Hereafter, while avoiding showing off and competing with scholars",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Seeking fame and recognition so that people will follow your guidance",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Learning to prove oneself superior to the ignorant and earn a high salary",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Studying only to please one's parents and meet family expectations",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer emphasizes: 'Let your aim be to seek the Face of Allah and the Home of the Hereafter. Beware of showing off and the love of making oneself appear to be superior to one's peers.' The Prophet (ﷺ) warned: 'Whoever seeks knowledge in order to compete with the scholars or to prove himself superior to the ignorant... Allah will cause him to enter Hell.'",
+      "tags": ["Manners of Seeking Knowledge", "Etiquette"],
+      "source": "IslamQA reference 10324"
+    },
+    {
+      "reference": 10324,
+      "questionText": "According to the etiquette of seeking knowledge, what is the likeness of those who know but do not act upon their knowledge?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Like the Jews, whom Allah likened to a donkey which carries huge burdens of books but understands nothing from them",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Like a farmer who plants seeds but never waters them",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Like a merchant who counts money but never spends it",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Like a traveler who has a map but refuses to look at it",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states: 'Whoever knows but does not act upon his knowledge is like the Jews whom Allah likened to the ugliest things in His Book,' then quotes the verse: 'The likeness of those who were entrusted with the Tawraat but who subsequently failed in those obligations, is as the likeness of a donkey which carries huge burdens of books (but understands nothing from them).'",
+      "tags": ["Manners of Seeking Knowledge"],
+      "source": "IslamQA reference 10324"
+    }
+  ]
+}

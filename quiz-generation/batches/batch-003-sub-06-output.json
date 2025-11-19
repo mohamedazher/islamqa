@@ -1,0 +1,376 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 71178,
+      "questionText": "What did 'Umar ibn al-Khattab say about who should sell in the marketplace?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "No one should sell in our marketplace except those who have knowledge of Islam",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "No one should sell in our marketplace except those who have wealth",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "No one should sell in our marketplace except those who have a license",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "No one should sell in our marketplace except those who have experience",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "'Umar ibn al-Khattab (may Allah be pleased with him) said: 'No one should sell in our marketplace except those who have knowledge of Islam.' This was narrated by al-Tirmidhi (487) and classed as hasan by al-Albani. This emphasizes that merchants must learn the rulings on trade before engaging in commerce.",
+      "tags": ["Seeking knowledge", "Business and Financial Transactions"],
+      "source": "IslamQA reference 71178"
+    },
+    {
+      "reference": 71178,
+      "questionText": "According to 'Ali ibn Abi Talib, what happens to one who engages in trade before learning its rulings?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "He will fall into riba, then fall into riba",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He will lose his wealth",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He will be banned from the marketplace",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He will face legal penalties",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "'Ali ibn Abi Talib (may Allah be pleased with him) said: 'Whoever engages in trade before learning will fall into riba, then fall into riba.' This emphasizes the importance of learning the fiqh of transactions before engaging in commerce to avoid falling into usury.",
+      "tags": ["Seeking knowledge", "Business and Financial Transactions"],
+      "source": "IslamQA reference 71178"
+    },
+    {
+      "reference": 149071,
+      "questionText": "What did the Prophet (peace and blessings of Allah be upon him) say about a woman who gets married without the permission of her guardian?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Her marriage is invalid, her marriage is invalid, her marriage is invalid",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Her marriage is valid but makrooh",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Her marriage requires renewal of vows",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Her marriage is suspended until the guardian approves",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (blessings and peace of Allah be upon him) said: 'Any woman who gets married without the permission of her guardian, her marriage is invalid, her marriage is invalid, her marriage is invalid.' This hadith was narrated by Ahmad (24417), Abu Dawood (2083) and al-Tirmidhi (1102), and classed as saheeh by al-Albaani.",
+      "tags": ["Divorce", "Marriage"],
+      "source": "IslamQA reference 149071"
+    },
+    {
+      "reference": 3005,
+      "questionText": "How many pests did the Prophet (peace and blessings of Allah be upon him) mention that may be killed whether one is in Ihram or not?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Five pests: rats, scorpions, crows, kites, and mad dogs, with another report adding snakes as a sixth",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Three pests: rats, scorpions, and snakes",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Seven pests including ants and cockroaches",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Four pests: rats, scorpions, crows, and snakes",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Messenger (peace and blessings of Allah be upon him) said: 'There are five pests that may be killed whether one is in Ihram or not: rats, scorpions, crows, kites [a hawk-like bird], and mad dogs.' Another report adds a sixth, which is snakes. This was reported by Muslim (2071).",
+      "tags": ["Animal Rights", "Hajj and Umrah"],
+      "source": "IslamQA reference 3005"
+    },
+    {
+      "reference": 110350,
+      "questionText": "According to the Prophet's hadith, what should be done if the new moon is not sighted due to clouds?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reckon the month as thirty days",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Wait until it is sighted the next night",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Rely on astronomical calculations",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Follow the sighting from the nearest country",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The Prophet (blessings and peace of Allah be upon him) said: 'Fast when you see it (the new moon) and break the fast when you see it, and if it is cloudy then reckon the month as thirty.' This hadith was narrated by al-Bukhari (1909) and Muslim (1081). This means if Sha'ban's moon cannot be sighted, complete it as 30 days then start Ramadan.",
+      "tags": ["Seeing the New Moon", "Fasting"],
+      "source": "IslamQA reference 110350"
+    },
+    {
+      "reference": 21711,
+      "questionText": "Who was al-Namrood according to the Quran and Islamic sources?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "The kaafir king of Babylon who disputed with Ibrahim about his Lord",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The king who threw the believing boy into the fire",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The king who had a court sorcerer and monk",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The king who ordered ditches to be dug for believers",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Al-Namrood was the king of Babylon, and he was a kaafir king. Allah describes what happened between him and Ibrahim in al-Baqarah 2:258, where Ibrahim said 'My Lord is He Who gives life and causes death' and al-Namrood claimed 'I give life and cause death.' The story of the boy and the ditches is about the people of the ditch, not al-Namrood.",
+      "tags": ["Commentary on Hadith", "Stories of the Prophets"],
+      "source": "IslamQA reference 21711"
+    },
+    {
+      "reference": 190016,
+      "questionText": "What happened when people were praying Fajr in Quba' and someone told them that revelation came commanding them to face the Ka'bah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "They were facing towards Syria, so they turned to face the Ka'bah during the prayer",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "They completed the prayer facing Syria then repeated it facing the Ka'bah",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "They stopped the prayer and started a new one facing the Ka'bah",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They waited until after the prayer to change direction",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the hadith narrated by al-Bukhaari (403) and Muslim (526) from Abdullah ibn Umar: whilst the people were praying Fajr in Quba', someone came and told them revelation came commanding them to face the Ka'bah. They were facing towards Syria, so they turned to face the Ka'bah during the prayer. This shows permissibility of movement during prayer if it's in the interests of the prayer.",
+      "tags": ["Rulings on prayer", "Direction of Prayer"],
+      "source": "IslamQA reference 190016"
+    },
+    {
+      "reference": 40283,
+      "questionText": "What did 'Umar ibn al-Khattab say to a young man about his lower garment?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Lift up your lower garment for it will make your garment last longer and is more obedient to your Lord",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Lift up your lower garment or you will be prevented from entering the mosque",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Lift up your lower garment to avoid tripping on it",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Lift up your lower garment to show respect to elders",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "'Umar (may Allah be pleased with him) said to the young man whom he saw allowing his garment to hang below his ankles during his final sickness: 'O young man, lift up your lower garment for it will make your garment last longer and is more obedient to your Lord.' This shows both the practical benefit and the religious obligation of avoiding isbaal.",
+      "tags": ["Honouring Parents", "Rulings on Dress"],
+      "source": "IslamQA reference 40283"
+    },
+    {
+      "reference": 14055,
+      "questionText": "According to the answer, what are the five matters that complete a person's knowledge?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "Knowing Allah, knowing His names and attributes, knowing the way to reach Him, knowing the obstacles, and knowing yourself",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Knowing the Quran, knowing hadith, knowing fiqh, knowing aqeedah, and knowing Arabic",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Knowing prayer, knowing fasting, knowing zakah, knowing hajj, and knowing jihad",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Knowing history, knowing science, knowing philosophy, knowing ethics, and knowing religion",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Full knowledge can only be attained by knowing the following five matters: 1) Knowing Allah, the Creator and Provider, 2) Knowing the names and attributes of Allah and their effect, 3) Knowing the way to reach Him, 4) Knowing the obstacles that prevent man from knowing this way, and 5) Knowing yourself in a true sense, what your soul needs, what is good and bad for it.",
+      "tags": ["Religions", "Basic Tenets of Faith"],
+      "source": "IslamQA reference 14055"
+    },
+    {
+      "reference": 157662,
+      "questionText": "What is the ruling on charging fees for a covered (prepaid) credit card versus a non-covered credit card?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "For covered cards, the company may charge higher than actual costs, but for non-covered cards, only actual costs are allowed",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Both types can charge fees higher than actual costs",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Both types should only charge actual costs",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "For non-covered cards fees can be higher, but for covered cards only actual costs",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "There is nothing wrong with the company charging a fee higher than actual cost for a covered/prepaid credit card, as this is a fee for offering a service. However, for a non-covered credit card, charging more than actual costs is not allowed because the bank is giving a loan to the customer, and it's not permissible to charge interest or profit on a loan.",
+      "tags": ["Credit Cards", "Business and Financial Transactions"],
+      "source": "IslamQA reference 157662"
+    },
+    {
+      "reference": 227776,
+      "questionText": "What did the Prophet (peace and blessings of Allah be upon him) say about punishing with fire?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "No one punishes with fire except Allah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Punishing with fire is permissible for severe crimes",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Punishing with fire is allowed for apostates only",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Punishing with fire is permissible in cases of qisaas",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to the hadith narrated by al-Bukhaari (3016), the Messenger of Allah (blessings and peace of Allah be upon him) said: 'I had commanded you to burn So and so, and So and so. But verily no one punishes with fire except Allah. So if you find them, execute them.' This establishes the prohibition on punishment by burning.",
+      "tags": ["Commentary on Hadith", "Punishment and Judicial Sentences"],
+      "source": "IslamQA reference 227776"
+    },
+    {
+      "reference": 227776,
+      "questionText": "What are the three categories of excuses for why a leading scholar might hold a view contrary to a saheeh hadith, according to Ibn Taymiyah?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "He did not believe the Prophet said it, he did not believe it referred to that issue, or he believed it was abrogated",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He forgot the hadith, he misunderstood it, or he preferred another hadith",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He had a different interpretation, he followed another companion, or he made ijtihad",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He thought it was weak, he found a contradiction, or he followed his teacher",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh al-Islam Ibn Taymiyah explained that all excuses fall into three categories: 1) He did not believe that the Prophet said that, 2) He did not believe that he was referring to that issue when he said it, or 3) He believed that that ruling had been abrogated. These three categories are main categories and there may be sub-categories.",
+      "tags": ["Commentary on Hadith", "Methodology of Fiqh"],
+      "source": "IslamQA reference 227776"
+    }
+  ]
+}

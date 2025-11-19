@@ -1,0 +1,438 @@
+{
+  "quizQuestions": [
+    {
+      "reference": 21519,
+      "questionText": "How many conditions must an act of worship meet to be in accordance with Shari'ah?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Six conditions: reason, type, amount, manner, time, and place",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Four conditions: reason, type, amount, and manner",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Five conditions: type, amount, manner, time, and place",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Three conditions: reason, manner, and time",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to Shaykh Muhammad ibn Salih ibn 'Uthaymin, an act of worship must be in accordance with Shari'ah in six aspects: (1) reason, (2) type or nature, (3) amount, (4) manner of doing it, (5) timing, and (6) place where it is done.",
+      "tags": ["Basic Tenets of Faith", "worship", "conditions"],
+      "source": "IslamQA reference 21519"
+    },
+    {
+      "reference": 21519,
+      "questionText": "What example does the scholar give of worship that violates Shari'ah in terms of the type or nature of the action?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sacrificing a horse instead of an animal from the an'am class (camel, cow, or sheep)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Praying Zuhr as six rak'ahs instead of four",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Doing wudu by washing feet before wiping the head",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Fasting Ramadan in Sha'ban or Shawwal",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer specifically states that sacrificing a horse would be contrary to Shari'ah in the nature of the action, because a sacrifice can only involve an animal of the an'am class, namely a camel, a cow or a sheep.",
+      "tags": ["Basic Tenets of Faith", "worship", "sacrifice"],
+      "source": "IslamQA reference 21519"
+    },
+    {
+      "reference": 150108,
+      "questionText": "What is the ruling on clenching fingers to count rak'ahs during prayer according to Shaykh Ibn Baaz?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is nothing wrong with it; it is a small movement in the interests of the prayer",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is makrooh because it involves unnecessary movement during prayer",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It invalidates the prayer because it is too much movement",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is only allowed in voluntary prayers, not obligatory ones",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh 'Abd al-'Azeez ibn Baaz stated that there is nothing wrong with clenching one or two fingers so as not to forget. He explained it is a small movement that is in the interests of the prayer, so it is excused.",
+      "tags": ["Rulings on prayer", "prayer movements"],
+      "source": "IslamQA reference 150108"
+    },
+    {
+      "reference": 77065,
+      "questionText": "What evidence do scholars cite for the permissibility of appointing someone to take over as imam during prayer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "When 'Umar was stabbed while praying, he took 'Abd al-Rahman ibn 'Awf's hand and made him lead the remainder of the prayer",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The Prophet (peace be upon him) appointed Abu Bakr to take over when he was ill",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "'Ali ibn Abi Talib appointed his son to complete the prayer when he became sick",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Ibn 'Abbas narrated that the Prophet allowed changing imams mid-prayer",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer specifically mentions that when 'Umar ibn al-Khattab was stabbed as he was praying, he took the hand of 'Abd al-Rahman ibn 'Awf and made him move forward to lead the people in the remainder of the prayer. This was done in the presence of the Sahabah with no objection, establishing consensus.",
+      "tags": ["Leading Prayer", "imam", "Sahabah"],
+      "source": "IslamQA reference 77065"
+    },
+    {
+      "reference": 77065,
+      "questionText": "When an imam is overcome with weeping during prayer, what should he do if he has already finished reciting al-Fatihah?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "He may stop reciting and bow, as reciting after al-Fatihah is not obligatory",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "He must appoint someone else to complete the prayer with the congregation",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "He should continue reciting even with difficulty to avoid breaking the prayer",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "He should invalidate the prayer and restart after regaining composure",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states that if the imam has finished reciting al-Fatihah and is then overcome with weeping while reciting Qur'an after al-Fatihah, he may stop reciting and bow, and does not have to do anything else. This is because reciting something else in addition to al-Fatihah is not obligatory.",
+      "tags": ["Leading Prayer", "prayer rulings", "recitation"],
+      "source": "IslamQA reference 77065"
+    },
+    {
+      "reference": 27036,
+      "questionText": "What does Shaykh al-Islam Ibn Taymiyah say about the prostration of all created beings?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Everything prostrates according to its nature, not by putting foreheads on the ground",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "All creatures prostrate exactly like humans do, on seven parts of the body",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Prostration of non-human creatures is metaphorical, not real prostration",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Only living creatures prostrate; inanimate objects do not truly prostrate",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ibn Taymiyah stated: 'It is known that everything prostrates according to its nature, and the prostration of these created entities does not mean that they put their foreheads on the ground.' He explained that prostration is a form of humility, and each creature prostrates in a manner appropriate to it.",
+      "tags": ["Acts of Worship", "prostration", "creation"],
+      "source": "IslamQA reference 27036"
+    },
+    {
+      "reference": 70275,
+      "questionText": "If a man and woman hold hands and kiss after the marriage contract but before consummation, what is the ruling?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is no sin, because by the marriage contract the woman becomes the wife of the man",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is haram and they must repent and offer expiation",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It is makrooh but not sinful since they are engaged",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It is only permissible if they have parental permission",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer clearly states: 'If this is what is referred to in the question, then there is no sin on you for what happened between you, because simply by doing the marriage contract, the woman becomes the wife of the man and there is no sin on either of them for enjoying the other.'",
+      "tags": ["Engagement", "marriage contract", "Bad behaviour"],
+      "source": "IslamQA reference 70275"
+    },
+    {
+      "reference": 109187,
+      "questionText": "What did the Prophet (peace be upon him) prescribe to do after the burial of the deceased is finished?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stand at the graveside and say: 'Pray for forgiveness for your brother and ask for him to be made steadfast, for now he is being questioned'",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Recite 'Laa ilaaha ill-Allah, al-daayim wajh-Allah' audibly",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Say 'Yaa Rahmaan, yaa Rahmaan' at the time of burial",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Remain silent and ponder one's own fate without speaking",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "According to Shaykh Ibn 'Uthaymeen, when the burial of the deceased was finished, the Prophet would stand at the graveside and say: 'Pray for forgiveness for your brother and ask for him to be made steadfast, for now he is being questioned.' This is what is prescribed in Islam.",
+      "tags": ["Funerals and rulings on graves", "burial", "Sunnah"],
+      "source": "IslamQA reference 109187"
+    },
+    {
+      "reference": 109424,
+      "questionText": "What conditions do scholars require for using poison or venom for medicinal purposes?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        {
+          "id": "a",
+          "text": "It must be prescribed by a skilled doctor, proven to be beneficial, used safely, and have no alternative treatment available",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "It is only allowed in life-threatening emergencies with no other options",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It requires approval from three doctors and must be diluted to 10% concentration",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "It can be used freely as long as the patient gives informed consent",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Al-Mawsu'ah al-Fiqhiyyah states it is permissible 'provided that it can be used in a safe way and there is the hope that it will be beneficial, by way of choosing the less harmful of two options and warding off the greater harm, on condition that you seek the advice of a Muslim doctor of good character, or you have good knowledge of what can be used for medicinal purposes, and there is no alternative that could treat the problem.'",
+      "tags": ["Medicine and medical treatments", "vaccines", "poison"],
+      "source": "IslamQA reference 109424"
+    },
+    {
+      "reference": 109424,
+      "questionText": "What historical evidence does the answer provide about the origin of vaccination?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Inoculation was known to Muslims before others and brought to Europe from Turkey by the wife of the English ambassador in 1724 CE",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Edward Jenner learned vaccination techniques from Islamic scholars in Egypt",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The Prophet (peace be upon him) practiced a form of vaccination using natural herbs",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Muslim doctors in Andalusia developed the first vaccines in the 12th century",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer cites Paul Vallely's article stating: 'The technique of inoculation was not invented by Jenner and Pasteur but was devised in the Muslim world and brought to Europe from Turkey by the wife of the English ambassador to Istanbul in 1724 CE.'",
+      "tags": ["Medicine and medical treatments", "Islamic history", "vaccination"],
+      "source": "IslamQA reference 109424"
+    },
+    {
+      "reference": 236735,
+      "questionText": "For whom is ghusl on the day of 'Arafah prescribed according to the scholars?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only for pilgrims performing Hajj, as it is bathing for gathering with people in 'Arafah",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "For all Muslims worldwide, whether performing Hajj or not",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only for those in Makkah and the surrounding areas",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "For pilgrims and Muslims who fast on the day of 'Arafah",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer clarifies: 'It should be understood that doing ghusl for the day of 'Arafah is not for every Muslim; rather it is only for the pilgrim, because this is what is narrated from the Sahabah (may Allah be pleased with them), and because it is bathing for the purpose of gathering with people, and the gathering only takes place in 'Arafah.'",
+      "tags": ["Full Ablution", "Issues of Pilgrimage", "Hajj"],
+      "source": "IslamQA reference 236735"
+    },
+    {
+      "reference": 236735,
+      "questionText": "Which Sahabah are specifically mentioned as having done ghusl on the day of 'Arafah?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ibn Mas'ood, Ibn 'Umar, and 'Ali (may Allah be pleased with them)",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Abu Bakr, 'Umar, and 'Uthman (may Allah be pleased with them)",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Abu Hurayrah, Ibn 'Abbas, and Mu'adh (may Allah be pleased with them)",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Bilal, Salman, and Abu Dharr (may Allah be pleased with them)",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer states: 'It is proven from more than one of the Sahaabah that they did ghusl for the day of 'Arafah – such as Ibn Mas'ood, Ibn 'Umar and 'Ali (may Allah be pleased with them).'",
+      "tags": ["Full Ablution", "Issues of Pilgrimage", "Sahabah"],
+      "source": "IslamQA reference 236735"
+    },
+    {
+      "reference": 97507,
+      "questionText": "What examples does the answer give of cooperating in sin and transgression?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "Renting stores to riba-based banks, helping manufacture haraam products, or enabling followers of bid'ah to speak to Muslims",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Teaching English to someone with incorrect beliefs, working for non-Muslim employers, or selling permissible goods",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Lending money without interest, selling food to non-Muslims, or teaching general knowledge",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Working in technology, teaching languages, or providing professional services",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The answer specifically states: 'Examples of cooperating in sin and transgression include: renting out stores to riba-based banks or stores that sell haraam things, joining a businessman in manufacturing, selling or buying haraam things, or helping followers of bid'ah (innovation) financially or by enabling them to speak to the Muslims, and so on.'",
+      "tags": ["Seeking knowledge", "cooperation", "sin"],
+      "source": "IslamQA reference 97507"
+    },
+    {
+      "reference": 246044,
+      "questionText": "What did Shaykh Ibn 'Uthaymin say about a woman who has applied henna to her hands or feet?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        {
+          "id": "a",
+          "text": "She must cover them whether she has applied henna or not when non-mahram men are around",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "She may show her hands but must cover her feet at all times",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "She only needs to cover henna if it is brightly colored or decorative",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "She may show henna to elderly non-mahram men but not young ones",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Shaykh Ibn 'Uthaymin stated: 'she must cover her hands, although covering the hands is what is prescribed for a woman if there are non-mahram men around her, whether she has applies henna to them or not.' This emphasizes that covering is required regardless of henna.",
+      "tags": ["Adornments", "hijab", "henna"],
+      "source": "IslamQA reference 246044"
+    }
+  ]
+}
