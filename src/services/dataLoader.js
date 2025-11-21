@@ -186,7 +186,8 @@ class DataLoaderService {
       // File can be either:
       // 1. Flat array format: [{ id, questionText, ... }, ...]
       // 2. Nested object format: { version: "1.0.0", totalQuizzes: N, quizzes: [...] }
-      const quizzes = Array.isArray(data) ? data : (data.quizzes || [])
+      // 3. Nested object format: { quizQuestions: [...] }
+      const quizzes = Array.isArray(data) ? data : (data.quizzes || data.quizQuestions || [])
 
       // Map the quiz data to match the expected schema
       // Each quiz needs a 'reference' field (sourceQuestionId) for the primary key
