@@ -191,18 +191,25 @@ class DataLoaderService {
 
       // Map the quiz data to match the expected schema
       // Each quiz needs a 'reference' field (sourceQuestionId) for the primary key
-      const mappedQuizzes = quizzes.map(quiz => ({
-        reference: quiz.sourceQuestionId || quiz.reference,
-        id: quiz.id,
-        questionText: quiz.questionText,
-        options: quiz.options,
-        explanation: quiz.explanation,
-        difficulty: quiz.difficulty,
-        tags: quiz.tags || [],
-        category: quiz.category,
-        source: quiz.source || 'IslamQA',
-        type: quiz.type || 'multiple-choice'
-      }))
+      const mappedQuizzes = quizzes
+        .map(quiz => ({
+          reference: quiz.sourceQuestionId || quiz.reference,
+          id: quiz.id,
+          questionText: quiz.questionText,
+          options: quiz.options,
+          explanation: quiz.explanation,
+          difficulty: quiz.difficulty,
+          tags: quiz.tags || [],
+          category: quiz.category,
+          source: quiz.source || 'IslamQA',
+          type: quiz.type || 'multiple-choice'
+        }))
+        .filter(quiz => quiz.reference != null) // Filter out quizzes without valid reference
+
+      const skipped = quizzes.length - mappedQuizzes.length
+      if (skipped > 0) {
+        console.warn(`⚠️  Skipped ${skipped} quiz(zes) without valid reference field`)
+      }
 
       console.log(`🎯 Loaded ${mappedQuizzes.length} quiz questions from quiz-questions.json`)
       return mappedQuizzes
