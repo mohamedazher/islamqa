@@ -183,12 +183,14 @@ function getAvatarUrl(userId, username) {
 }
 
 async function initializeLeaderboard() {
+  loading.value = true // Show loading immediately
   try {
     await leaderboardService.initUser()
     username.value = leaderboardService.username
     await loadLeaderboard()
   } catch (error) {
     console.error('Failed to initialize leaderboard:', error)
+    loading.value = false
   }
 }
 

@@ -468,6 +468,8 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('keydown', handleKeydown)
   window.removeEventListener('beforeunload', handleBeforeUnload)
+  // Ensure import flag is reset
+  isImporting.value = false
 })
 </script>
 

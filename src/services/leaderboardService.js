@@ -184,13 +184,15 @@ class LeaderboardService {
       const snapshot = await getDocs(q)
 
       const leaderboard = []
-      snapshot.forEach((doc, index) => {
+      let rank = 1
+      snapshot.forEach((doc) => {
         const data = doc.data()
         leaderboard.push({
           ...data,
-          rank: index + 1,
+          rank: rank,
           isCurrentUser: doc.id === this.userId
         })
+        rank++
       })
 
       return leaderboard
@@ -212,13 +214,15 @@ class LeaderboardService {
       const snapshot = await getDocs(q)
 
       const leaderboard = []
-      snapshot.forEach((doc, index) => {
+      let rank = 1
+      snapshot.forEach((doc) => {
         const data = doc.data()
         leaderboard.push({
           ...data,
-          rank: index + 1,
+          rank: rank,
           isCurrentUser: doc.id === this.userId
         })
+        rank++
       })
 
       return leaderboard
@@ -238,7 +242,8 @@ class LeaderboardService {
       const snapshot = await getDocs(q)
 
       const leaderboard = []
-      snapshot.forEach((doc, index) => {
+      let rank = 1
+      snapshot.forEach((doc) => {
         const data = doc.data()
         leaderboard.push({
           userId: doc.id,
@@ -246,9 +251,10 @@ class LeaderboardService {
           totalScore: data.totalScore || 0,
           quizzesTaken: data.quizzesTaken || 0,
           level: data.level || 1,
-          rank: index + 1,
+          rank: rank,
           isCurrentUser: doc.id === this.userId
         })
+        rank++
       })
 
       return leaderboard
