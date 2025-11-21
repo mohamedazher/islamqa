@@ -281,7 +281,8 @@ class PrayerTimesService {
             .catch((e) => {
               console.warn('Could not get location name:', e)
               // Still save location even if reverse geocoding fails
-              const locationName = 'Current Location'
+              // Use formatted coordinates as fallback instead of generic text
+              const locationName = `${latitude.toFixed(4)}°, ${longitude.toFixed(4)}°`
               this.saveLocation(latitude, longitude, locationName)
               resolve({
                 latitude,
