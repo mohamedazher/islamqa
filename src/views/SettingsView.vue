@@ -841,10 +841,10 @@ const showOnboardingDialog = ref(false)
 const showClearDataDialog = ref(false)
 const showImportantNotice = ref(false)
 
-// User profile data
+// User profile data - Initialize with cached username for instant display
 const userProfile = ref({
   userId: null,
-  username: 'Loading...',
+  username: localStorage.getItem('username') || 'Loading...',
   totalScore: 0,
   quizzesTaken: 0,
   level: 1,
@@ -893,20 +893,28 @@ const isManualLocationValid = computed(() => {
 
 onMounted(async () => {
   try {
-    if (dataStore.isReady) {
-      stats.value = await dataStore.getStats()
-    }
-
-    // Load user profile
-    await loadUserProfile()
-
-    // Load prayer times settings
+    // Load prayer times settings immediately (synchronous, reads from localStorage)
     loadPrayerSettings()
 
-    // Check location permission status
-    await checkLocationPermission()
+    // Load stats and check permissions in parallel (non-blocking)
+    const loadPromises = []
+
+    if (dataStore.isReady) {
+      loadPromises.push(dataStore.getStats().then(s => { stats.value = s }))
+    }
+
+    loadPromises.push(checkLocationPermission())
+
+    // Run all non-critical loads in parallel
+    await Promise.all(loadPromises)
+
+    // Load user profile in background (don't block UI)
+    loadUserProfile().catch(error => {
+      console.error('Error loading user profile:', error)
+      userProfile.value.username = 'Error loading profile'
+    })
   } catch (error) {
-    console.error('Error loading stats:', error)
+    console.error('Error loading settings:', error)
   }
 })
 
