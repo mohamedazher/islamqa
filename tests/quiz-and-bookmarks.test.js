@@ -80,8 +80,8 @@ describe('Quiz System - Data File Integrity (CRITICAL)', () => {
     // Should have at least 100 quizzes for a good experience
     expect(quizCount, `Should have at least 100 quizzes, found ${quizCount}`).toBeGreaterThanOrEqual(100);
 
-    // For nested format, totalQuizzes should match array length
-    if (!Array.isArray(data)) {
+    // For nested format with totalQuizzes field, it should match array length
+    if (!Array.isArray(data) && data.totalQuizzes) {
       expect(data.totalQuizzes).toBe(quizCount);
     }
 

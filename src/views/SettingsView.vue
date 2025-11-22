@@ -1178,11 +1178,23 @@ async function detectLocation() {
   }
 }
 
-function saveManualLocation() {
+async function saveManualLocation() {
   try {
     const lat = parseFloat(manualLocation.value.latitude)
     const lon = parseFloat(manualLocation.value.longitude)
-    const name = manualLocation.value.name.trim() || 'Manual Location'
+    let name = manualLocation.value.name.trim()
+
+    // If no city name provided, fetch it from coordinates
+    if (!name) {
+      try {
+        name = await prayerTimesService.getCityName(lat, lon)
+      } catch (error) {
+        console.warn('Could not fetch city name, using default:', error)
+        name = 'Manual Location'
+      }
+      // Update the form field to show the fetched city name
+      manualLocation.value.name = name
+    }
 
     prayerTimesService.saveLocation(lat, lon, name)
 

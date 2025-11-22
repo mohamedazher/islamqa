@@ -197,7 +197,7 @@ class PrayerTimesService {
    */
   loadMadhab() {
     const stored = localStorage.getItem(STORAGE_KEYS.MADHAB)
-    return stored || 'HANAFI' // Default to Hanafi madhab
+    return stored || 'SHAFI' // Default to Shafi (Maliki, Hanbali)
   }
 
   /**
@@ -387,6 +387,19 @@ class PrayerTimesService {
     } catch (e) {
       console.error('Reverse geocoding error:', e)
       throw e
+    }
+  }
+
+  /**
+   * Get city name from latitude and longitude
+   * Public method for getting city name from coordinates
+   */
+  async getCityName(latitude, longitude) {
+    try {
+      return await this.reverseGeocode(latitude, longitude)
+    } catch (e) {
+      console.error('Failed to get city name:', e)
+      return 'Unknown Location'
     }
   }
 
