@@ -358,7 +358,7 @@ class PrayerTimesService {
   async reverseGeocode(latitude, longitude) {
     try {
       const response = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10`,
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=1`,
         {
           headers: {
             'User-Agent': 'IslamQA App'
@@ -367,22 +367,29 @@ class PrayerTimesService {
       )
 
       if (!response.ok) {
-        throw new Error('Geocoding failed')
+        console.warn(`Geocoding API returned status ${response.status}`)
+        throw new Error(`Geocoding failed with status ${response.status}`)
       }
 
       const data = await response.json()
+      console.debug('Nominatim response:', data)
 
-      // Extract city/town/village name
+      // Extract city/town/village name with multiple fallbacks
       const address = data.address || {}
       const locationName =
         address.city ||
         address.town ||
         address.village ||
+        address.suburb ||
         address.county ||
+        address.district ||
+        address.municipality ||
         address.state ||
+        address.region ||
         address.country ||
         'Unknown Location'
 
+      console.debug(`✅ Geocoded location: ${locationName} (lat: ${latitude}, lon: ${longitude})`)
       return locationName
     } catch (e) {
       console.error('Reverse geocoding error:', e)
@@ -396,10 +403,15 @@ class PrayerTimesService {
    */
   async getCityName(latitude, longitude) {
     try {
-      return await this.reverseGeocode(latitude, longitude)
+      const cityName = await this.reverseGeocode(latitude, longitude)
+      if (cityName === 'Unknown Location') {
+        console.warn(`⚠️ Geocoding returned unknown location for ${latitude}, ${longitude}`)
+      }
+      return cityName
     } catch (e) {
       console.error('Failed to get city name:', e)
-      return 'Unknown Location'
+      // Return coordinates as fallback if geocoding completely fails
+      return `${latitude.toFixed(4)}°, ${longitude.toFixed(4)}°`
     }
   }
 

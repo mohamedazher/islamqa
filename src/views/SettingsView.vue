@@ -1187,7 +1187,9 @@ async function saveManualLocation() {
     // If no city name provided, fetch it from coordinates
     if (!name) {
       try {
+        console.log(`🌍 Fetching city name for coordinates: ${lat}, ${lon}`)
         name = await prayerTimesService.getCityName(lat, lon)
+        console.log(`✅ Fetched city name: ${name}`)
       } catch (error) {
         console.warn('Could not fetch city name, using default:', error)
         name = 'Manual Location'
@@ -1205,6 +1207,7 @@ async function saveManualLocation() {
     // Update Qibla direction
     qiblaDirection.value = prayerTimesService.getQiblaDirection()
 
+    console.log(`📍 Prayer location saved: ${name} (${lat}, ${lon})`)
     alert('Location saved successfully!')
   } catch (error) {
     console.error('Failed to save location:', error)
