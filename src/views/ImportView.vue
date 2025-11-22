@@ -39,7 +39,7 @@
         </p>
 
         <p v-else class="text-center text-neutral-600 dark:text-neutral-400 mb-6">
-          This will import 8000+ Islamic Q&A items into your device. This takes a few minutes.
+          This will import 15000+ Islamic Q&A items into your device. This takes a few minutes.
         </p>
 
         <!-- Progress Bar -->
@@ -57,7 +57,7 @@
         <div v-if="!isImporting" class="bg-primary-50 dark:bg-primary-950/30 rounded-lg p-4 mb-6 text-sm text-neutral-700 dark:text-neutral-300">
           <div class="flex items-center gap-2 mb-2">
             <Icon name="book" size="sm" class="text-primary-600 dark:text-primary-400" />
-            <p><strong>8000+</strong> Islamic Q&A items</p>
+            <p><strong>15000+</strong> Islamic Q&A items</p>
           </div>
           <div class="flex items-center gap-2 mb-2">
             <Icon name="collection" size="sm" class="text-primary-600 dark:text-primary-400" />

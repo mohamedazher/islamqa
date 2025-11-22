@@ -161,7 +161,7 @@
                         <div class="bg-white/10 rounded-lg p-3 sm:p-4 text-xs sm:text-sm space-y-1.5 sm:space-y-2">
                           <div class="flex items-center gap-2">
                             <Icon name="book" size="sm" class="text-white/80 flex-shrink-0" />
-                            <span><strong>8000+</strong> Islamic Q&A items</span>
+                            <span><strong>15000+</strong> Islamic Q&A items</span>
                           </div>
                           <div class="flex items-center gap-2">
                             <Icon name="collection" size="sm" class="text-white/80 flex-shrink-0" />

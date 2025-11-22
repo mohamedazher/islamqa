@@ -169,7 +169,7 @@ export function getOnboardingSlides() {
       id: 'import',
       icon: 'download',
       title: 'Setup Your Database',
-      description: 'Let\'s import 8000+ Islamic Q&A items to your device. This takes a few minutes and enables full offline access.',
+      description: 'Let\'s import 15000+ Islamic Q&A items to your device. This takes a few minutes and enables full offline access.',
       image: null,
       color: 'accent',
       type: 'import'

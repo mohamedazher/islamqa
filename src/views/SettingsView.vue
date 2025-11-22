@@ -387,13 +387,13 @@
           </div>
 
           <p class="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
-            Access authentic Islamic Q&A content offline. Browse 8000+ questions and answers across 269 categories, all sourced from IslamQA.info.
+            Access authentic Islamic Q&A content offline. Browse 15000+ questions and answers across 269 categories, all sourced from IslamQA.info.
           </p>
 
           <!-- Stats Grid -->
           <div class="grid grid-cols-3 gap-3 pt-2">
             <div class="bg-primary-50 dark:bg-primary-950/30 rounded-lg p-3 text-center">
-              <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">{{ stats.questions > 0 ? stats.questions : '8000+' }}</div>
+              <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">{{ stats.questions > 0 ? stats.questions : '15000+' }}</div>
               <div class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">Questions</div>
             </div>
             <div class="bg-accent-50 dark:bg-accent-950/30 rounded-lg p-3 text-center">
