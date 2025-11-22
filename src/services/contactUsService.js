@@ -176,7 +176,7 @@ export async function sendFeedback(email, message, requestType = 'general') {
 
     // Send to webhook
     const response = await fetch(
-      'https://integrations_v2.halerp.com/webhook/send_biqa_email',
+      'https://integrationsv2.halerp.com/webhook/send_biqa_email',
       {
         method: 'POST',
         headers: {
