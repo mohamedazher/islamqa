@@ -76,6 +76,12 @@ const router = createRouter({
       name: 'privacy',
       component: () => import('@/views/PrivacyView.vue'),
       meta: { title: 'Privacy Information' }
+    },
+    {
+      path: '/contact-us',
+      name: 'contact-us',
+      component: () => import('@/views/ContactUsView.vue'),
+      meta: { title: 'Contact Us' }
     }
   ]
 })

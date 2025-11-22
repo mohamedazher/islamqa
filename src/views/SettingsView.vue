@@ -584,6 +584,21 @@
             <Icon name="chevronRight" size="sm" class="text-primary-600 dark:text-primary-400 group-hover:translate-x-1 transition-transform" />
           </button>
 
+          <!-- Contact Us Link -->
+          <button
+            @click="showContactUs"
+            class="w-full flex items-center justify-between px-4 py-3 bg-primary-50 dark:bg-primary-950/30 rounded-lg hover:bg-primary-100 dark:hover:bg-primary-950/50 transition-colors group"
+          >
+            <div class="flex items-center gap-3 text-left">
+              <Icon name="mail" size="md" class="text-primary-600 dark:text-primary-400" />
+              <div>
+                <div class="font-medium text-primary-900 dark:text-primary-100">Contact Us</div>
+                <div class="text-xs text-primary-700 dark:text-primary-300">Send us feedback or questions</div>
+              </div>
+            </div>
+            <Icon name="chevronRight" size="sm" class="text-primary-600 dark:text-primary-400 group-hover:translate-x-1 transition-transform" />
+          </button>
+
           <!-- Current Status -->
           <div class="bg-neutral-50 dark:bg-neutral-950/50 rounded-lg p-3 border border-neutral-200 dark:border-neutral-800">
             <p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
@@ -947,6 +962,10 @@ function toggleAnalytics() {
 
 function showPrivacyInfo() {
   router.push('/privacy')
+}
+
+function showContactUs() {
+  router.push('/contact-us')
 }
 
 function showTutorial() {
