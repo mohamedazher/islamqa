@@ -188,9 +188,18 @@ import Icon from '@/components/common/Icon.vue'
 import Card from '@/components/common/Card.vue'
 import contactUsService from '@/services/contactUsService'
 
+// Type definitions
+type RequestType = 'feature_request' | 'improvement' | 'bug_report' | 'suggestion' | 'question' | 'general'
+
+interface FormData {
+  requestType: RequestType | ''
+  email: string
+  message: string
+}
+
 const MIN_MESSAGE_LENGTH = 10
 
-const form = ref({
+const form = ref<FormData>({
   requestType: '',
   email: '',
   message: ''
@@ -200,7 +209,7 @@ const isLoading = ref(false)
 const successMessage = ref('')
 const errorMessage = ref('')
 
-const typeDescriptions = {
+const typeDescriptions: Record<RequestType, string> = {
   feature_request: '✨ Great! Feature requests help us understand what would make the app better for you.',
   improvement: '🎯 We appreciate suggestions to improve existing features!',
   bug_report: '🐛 Thank you for reporting! Bug reports help us fix issues quickly.',
@@ -210,7 +219,9 @@ const typeDescriptions = {
 }
 
 const typeDescriptionClass = computed(() => {
-  const type = form.value.requestType
+  const type = form.value.requestType as RequestType
+  if (!type) return ''
+
   if (type === 'feature_request' || type === 'improvement') {
     return 'bg-accent-50 dark:bg-accent-950/30 border border-accent-200 dark:border-accent-800/30 text-accent-900 dark:text-accent-100'
   } else if (type === 'bug_report') {
