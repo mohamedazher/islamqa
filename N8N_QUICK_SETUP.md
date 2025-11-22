@@ -8,12 +8,8 @@ n8n → Workflows → Import from File
 Select: n8n_workflow_updated.json
 ```
 
-### Step 2: Verify Secret Key
-In "Verify Signature & Format Email" node, line 3:
-```javascript
-const SECRET_KEY = 'biqa_app_feedback_secret_key_2024';
-```
-✅ Must match: `src/services/contactUsService.js`
+### Step 2: No Configuration Needed
+The workflow automatically formats emails based on request type. No crypto or signature verification needed - the webhook URL itself is the security!
 
 ### Step 3: Configure Email
 In "Send Formatted Email" node:
@@ -45,20 +41,9 @@ Status should be: "Waiting for webhook"
 
 ---
 
-## 🔒 Security - Signature Verification
+## 🔒 Security Model
 
-### How It Works:
-```javascript
-// App calculates:
-signature = SHA-256(email + ":" + message + ":secret_key")
-
-// n8n verifies:
-if (signature === expected_signature) {
-  // Valid - process request
-} else {
-  // Invalid - reject
-}
-```
+**Simple & Secure**: The webhook URL is not publicly known, making it the primary security mechanism. The `app_token` provides optional timestamp-based validation.
 
 ### Payload Format:
 ```json
@@ -66,8 +51,69 @@ if (signature === expected_signature) {
   "from_email": "user@example.com",
   "message": "User feedback...",
   "request_type": "feature_request",
-  "app_signature": "1a2b3c4d5e6f...",
-  "timestamp": "2024-01-15T10:30:00Z"
+  "request_type_label": "Feature Request",
+  "app_token": "YmlxYV9hcHBfdjJfMjAyNDoyOTM5NzA5MA==",
+  "timestamp": "2025-11-22T15:30:00Z",
+  "user_agent": "Mozilla/5.0...",
+  "device": {
+    "platform": "iOS Safari",
+    "screen": { "width": 1170, "height": 2532, "pixelRatio": 3, "colorDepth": 24 },
+    "capabilities": { "touchSupported": true, "language": "en-US", "onLine": true },
+    "system": { "cores": 6, "memory": "4GB" },
+    "appVersion": "2.0.8",
+    "cordova": { "platform": "iOS", "osVersion": "16.0", "model": "iPhone14" }
+  },
+  "source": "biqa_app"
+}
+```
+
+---
+
+## 📱 Platform Detection
+
+The app detects and reports which platform the feedback came from:
+
+### Web Browser
+```json
+{
+  "platform": "iOS Safari | Android Chrome | Windows | macOS | Linux",
+  "screen": { "width": 1920, "height": 1080, "pixelRatio": 1 },
+  "capabilities": { "touchSupported": false, "language": "en-US" },
+  "system": { "cores": 8, "memory": "unknown" },
+  "appVersion": "2.0.8"
+}
+```
+
+### iOS App (Cordova)
+```json
+{
+  "platform": "Cordova/iOS",
+  "screen": { "width": 1170, "height": 2532, "pixelRatio": 3 },
+  "capabilities": { "touchSupported": true, "language": "en-US" },
+  "system": { "cores": 6, "memory": "4GB" },
+  "cordova": {
+    "platform": "iOS",
+    "osVersion": "17.1",
+    "model": "iPhone15Pro",
+    "cordovaVersion": "12.0.0"
+  }
+}
+```
+
+### Android App (Cordova)
+```json
+{
+  "platform": "Cordova/Android",
+  "screen": { "width": 1440, "height": 3200, "pixelRatio": 2.75 },
+  "capabilities": { "touchSupported": true, "language": "en-US" },
+  "system": { "cores": 8, "memory": "12GB" },
+  "cordova": {
+    "platform": "Android",
+    "osVersion": "14",
+    "model": "Pixel8Pro",
+    "manufacturer": "Google",
+    "cordovaVersion": "12.0.0"
+  }
 }
 ```
 
@@ -77,13 +123,36 @@ if (signature === expected_signature) {
 
 - [ ] Webhook node is active ("Waiting for webhook")
 - [ ] AWS SES credentials are set
-- [ ] Secret key matches in app
 - [ ] Email recipients are correct
 - [ ] Test from app: Settings → Share Your Feedback
 - [ ] Email received in inbox
 - [ ] Email is color-coded by type
 - [ ] Subject line matches request type
 - [ ] User email appears in "Reply-To"
+- [ ] Device info shows in email footer (platform, screen size, app version)
+- [ ] Web, iOS, and Android all show correct platform detection
+
+---
+
+## 📊 Device Information Fields
+
+| Field | Description | Example |
+|-------|-------------|---------|
+| **platform** | Detected platform from User Agent or Cordova | `Cordova/iOS`, `Android Chrome`, `macOS` |
+| **screen.width** | Viewport width in CSS pixels | `1170` |
+| **screen.height** | Viewport height in CSS pixels | `2532` |
+| **screen.pixelRatio** | Device pixel ratio (DPI scaling) | `3` (retina displays) |
+| **screen.colorDepth** | Color depth in bits | `24` |
+| **capabilities.touchSupported** | Whether device supports touch | `true` |
+| **capabilities.language** | User's primary language | `en-US`, `ar` |
+| **capabilities.onLine** | Current network status | `true` |
+| **system.cores** | CPU core count | `8` |
+| **system.memory** | Available RAM in GB | `4GB`, `12GB` |
+| **appVersion** | Installed app version | `2.0.8` |
+| **cordova.platform** | Mobile OS (iOS/Android) | `iOS`, `Android` |
+| **cordova.osVersion** | Mobile OS version | `17.1`, `14` |
+| **cordova.model** | Device model name | `iPhone15Pro`, `Pixel8Pro` |
+| **cordova.manufacturer** | Device manufacturer (Android) | `Google`, `Samsung` |
 
 ---
 
