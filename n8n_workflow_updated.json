@@ -4,52 +4,50 @@
       "parameters": {
         "httpMethod": "POST",
         "path": "send_biqa_email",
+        "responseMode": "responseNode",
         "options": {}
       },
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -300,
-        0
+        -320,
+        112
       ],
-      "id": "webhook_node",
+      "id": "d4142e86-713a-490f-980f-0a9714805df0",
       "name": "Webhook - Receive Feedback",
       "webhookId": "174782cc-60da-422c-b77a-9c6ae430921d"
     },
     {
       "parameters": {
-        "jsCode": "// Format feedback and prepare email with device info\nconst payload = $input.first();\nconst { from_email, message, request_type, request_type_label, timestamp, device, source } = payload.body;\n\n// Map request types to emoji and priority\nconst typeMap = {\n  'feature_request': { emoji: '✨', priority: 'HIGH', color: '#14b8a6' },\n  'improvement': { emoji: '🎯', priority: 'HIGH', color: '#14b8a6' },\n  'bug_report': { emoji: '🐛', priority: 'URGENT', color: '#ef4444' },\n  'suggestion': { emoji: '💡', priority: 'MEDIUM', color: '#3b82f6' },\n  'question': { emoji: '❓', priority: 'LOW', color: '#8b5cf6' },\n  'general': { emoji: '💬', priority: 'LOW', color: '#6366f1' }\n};\n\nconst typeInfo = typeMap[String(request_type)] || typeMap['general'];\n\n// Format email subject\nconst subjectMap = {\n  'feature_request': '✨ New Feature Request from BIQA App',\n  'improvement': '🎯 Improvement Suggestion from BIQA App',\n  'bug_report': '🐛 BUG REPORT from BIQA App',\n  'suggestion': '💡 User Suggestion from BIQA App',\n  'question': '❓ User Question from BIQA App',\n  'general': '💬 User Feedback from BIQA App'\n};\n\nconst subject = subjectMap[String(request_type)] || 'BIQA Feedback';\n\n// Format device info for display\nfunction formatDeviceInfo(deviceData) {\n  if (!deviceData) return 'Unknown';\n  \n  let info = `Platform: ${deviceData.platform || 'Unknown'}`;\n  \n  if (deviceData.cordova) {\n    info += `<br>OS Version: ${deviceData.cordova.osVersion || 'Unknown'}`;\n    info += `<br>Device Model: ${deviceData.cordova.model || 'Unknown'}`;\n    if (deviceData.cordova.manufacturer) {\n      info += `<br>Manufacturer: ${deviceData.cordova.manufacturer}`;\n    }\n  }\n  \n  if (deviceData.screen) {\n    info += `<br>Screen: ${deviceData.screen.width}x${deviceData.screen.height} (${deviceData.screen.pixelRatio}x)`;\n  }\n  \n  if (deviceData.system) {\n    info += `<br>CPU Cores: ${deviceData.system.cores || 'Unknown'}`;\n    if (deviceData.system.memory && deviceData.system.memory !== 'unknown') {\n      info += ` | RAM: ${deviceData.system.memory}`;\n    }\n  }\n  \n  if (deviceData.appVersion) {\n    info += `<br>App Version: ${deviceData.appVersion}`;\n  }\n  \n  if (deviceData.capabilities) {\n    info += `<br>Touch: ${deviceData.capabilities.touchSupported ? 'Yes' : 'No'} | Language: ${deviceData.capabilities.language || 'Unknown'}`;\n  }\n  \n  return info;\n}\n\n// Format HTML email body\nconst htmlBody = `<!DOCTYPE html>\n<html>\n<head>\n  <style>\n    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }\n    .container { max-width: 600px; margin: 0 auto; padding: 20px; }\n    .header { background-color: ${typeInfo.color}; color: white; padding: 20px; border-radius: 8px 8px 0 0; }\n    .content { background-color: #f9fafb; padding: 20px; border: 1px solid #e5e7eb; }\n    .footer { background-color: #f3f4f6; padding: 15px; border-radius: 0 0 8px 8px; font-size: 12px; color: #666; }\n    .section { margin: 15px 0; }\n    .label { font-weight: bold; color: ${typeInfo.color}; }\n    .meta { background-color: #fff; padding: 10px; border-left: 4px solid ${typeInfo.color}; margin: 10px 0; border-radius: 4px; }\n    .message-box { background-color: #ffffff; padding: 15px; border: 1px solid #e5e7eb; border-radius: 6px; margin: 15px 0; }\n    .device-info { background-color: #f0f9ff; padding: 10px; border-left: 4px solid #0ea5e9; margin: 10px 0; border-radius: 4px; font-size: 12px; line-height: 1.5; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <h2 style=\"margin: 0;\">${typeInfo.emoji} ${request_type_label}</h2>\n      <p style=\"margin: 5px 0 0 0; opacity: 0.9;\">Priority: ${typeInfo.priority}</p>\n    </div>\n    <div class=\"content\">\n      <div class=\"section\">\n        <p><span class=\"label\">From:</span> ${from_email}</p>\n      </div>\n      <div class=\"meta\">\n        <div><span class=\"label\">Type:</span> ${request_type_label}</div>\n        <div><span class=\"label\">Received:</span> ${new Date(timestamp).toLocaleString()}</div>\n        <div><span class=\"label\">Source:</span> BetterIslam Q&A App</div>\n      </div>\n      <div class=\"section\">\n        <h3 style=\"color: ${typeInfo.color}; margin-top: 0;\">Message:</h3>\n        <div class=\"message-box\">\n          ${message.replace(/\\n/g, '<br>')}\n        </div>\n      </div>\n      <div class=\"section\">\n        <h4 style=\"color: #0ea5e9; margin: 15px 0 8px 0;\">📱 Device Information</h4>\n        <div class=\"device-info\">\n          ${formatDeviceInfo(device)}\n        </div>\n      </div>\n    </div>\n    <div class=\"footer\">\n      <p style=\"margin: 0;\">\n        <strong>Email Metadata:</strong><br>\n        Feedback received via secure webhook<br>\n        Timestamp: ${timestamp}\n      </p>\n    </div>\n  </div>\n</body>\n</html>`;\n\nconst plainBody = `${typeInfo.emoji} ${request_type_label}\nPriority: ${typeInfo.priority}\n\nFrom: ${from_email}\nType: ${request_type_label}\nReceived: ${new Date(timestamp).toLocaleString()}\nSource: BetterIslam Q&A App\n\n---MESSAGE---\n${message}\n\n---DEVICE INFORMATION---\nPlatform: ${device?.platform || 'Unknown'}\n${device?.cordova ? `OS Version: ${device.cordova.osVersion || 'Unknown'}\\nDevice: ${device.cordova.model || 'Unknown'}\\n` : ''}\nScreen: ${device?.screen ? device.screen.width + 'x' + device.screen.height : 'Unknown'}\nApp Version: ${device?.appVersion || 'Unknown'}\nTimestamp: ${timestamp}`;\n\nreturn {\n  subject,\n  htmlBody,\n  plainBody,\n  from_email,\n  request_type,\n  request_type_label,\n  priority: typeInfo.priority,\n  timestamp\n};"
+        "jsCode": "// Format feedback and prepare email with device info\nconst payload = $input.first().json;\nconst { from_email, message, request_type, request_type_label, timestamp, device, source } = payload.body;\n\n// Map request types to emoji and priority\nconst typeMap = {\n  'feature_request': { emoji: '✨', priority: 'HIGH', color: '#14b8a6' },\n  'improvement': { emoji: '🎯', priority: 'HIGH', color: '#14b8a6' },\n  'bug_report': { emoji: '🐛', priority: 'URGENT', color: '#ef4444' },\n  'suggestion': { emoji: '💡', priority: 'MEDIUM', color: '#3b82f6' },\n  'question': { emoji: '❓', priority: 'LOW', color: '#8b5cf6' },\n  'general': { emoji: '💬', priority: 'LOW', color: '#6366f1' }\n};\n\nconst typeInfo = typeMap[String(request_type)] || typeMap['general'];\n\n// Format email subject\nconst subjectMap = {\n  'feature_request': '✨ New Feature Request from BIQA App',\n  'improvement': '🎯 Improvement Suggestion from BIQA App',\n  'bug_report': '🐛 BUG REPORT from BIQA App',\n  'suggestion': '💡 User Suggestion from BIQA App',\n  'question': '❓ User Question from BIQA App',\n  'general': '💬 User Feedback from BIQA App'\n};\n\nconst subject = subjectMap[String(request_type)] || 'BIQA Feedback';\n\n// Format device info for display\nfunction formatDeviceInfo(dev) {\n  if (!dev) return '';\n  let info = `Platform: ${dev.platform || 'Unknown'}`;\n  if (dev.cordova) {\n    info += `<br>OS: ${dev.cordova.osVersion || 'Unknown'}`;\n    info += `<br>Device: ${dev.cordova.model || 'Unknown'}`;\n    if (dev.cordova.manufacturer) info += ` (${dev.cordova.manufacturer})`;\n  }\n  if (dev.screen) info += `<br>Screen: ${dev.screen.width}x${dev.screen.height}`;\n  if (dev.system) info += `<br>CPU: ${dev.system.cores || '?'} cores | RAM: ${dev.system.memory || '?'}`;\n  if (dev.appVersion) info += `<br>App: ${dev.appVersion}`;\n  return info;\n}\n\nconst deviceHtml = device ? `<div class=\"section\"><h4 style=\"color: #0ea5e9; margin: 10px 0 5px 0;\">📱 Device</h4><div style=\"background-color: #f0f9ff; padding: 8px; border-left: 3px solid #0ea5e9; border-radius: 3px; font-size: 12px;\">${formatDeviceInfo(device)}</div></div>` : '';\n\n// Format HTML email body\nconst htmlBody = `<!DOCTYPE html>\n<html>\n<head>\n  <style>\n    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }\n    .container { max-width: 600px; margin: 0 auto; padding: 20px; }\n    .header { background-color: ${typeInfo.color}; color: white; padding: 20px; border-radius: 8px 8px 0 0; }\n    .content { background-color: #f9fafb; padding: 20px; border: 1px solid #e5e7eb; }\n    .footer { background-color: #f3f4f6; padding: 15px; border-radius: 0 0 8px 8px; font-size: 12px; color: #666; }\n    .section { margin: 15px 0; }\n    .label { font-weight: bold; color: ${typeInfo.color}; }\n    .meta { background-color: #fff; padding: 10px; border-left: 4px solid ${typeInfo.color}; margin: 10px 0; border-radius: 4px; }\n    .message-box { background-color: #ffffff; padding: 15px; border: 1px solid #e5e7eb; border-radius: 6px; margin: 15px 0; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <h2 style=\"margin: 0;\">${typeInfo.emoji} ${request_type_label}</h2>\n      <p style=\"margin: 5px 0 0 0; opacity: 0.9;\">Priority: ${typeInfo.priority}</p>\n    </div>\n    <div class=\"content\">\n      <div class=\"section\">\n        <p><span class=\"label\">From:</span> ${from_email}</p>\n      </div>\n      <div class=\"meta\">\n        <div><span class=\"label\">Type:</span> ${request_type_label}</div>\n        <div><span class=\"label\">Received:</span> ${new Date(timestamp).toLocaleString()}</div>\n        <div><span class=\"label\">Source:</span> BetterIslam Q&A App</div>\n      </div>\n      <div class=\"section\">\n        <h3 style=\"color: ${typeInfo.color}; margin-top: 0;\">Message:</h3>\n        <div class=\"message-box\">\n          ${message.replace(/\\n/g, '<br>')}\n        </div>\n      </div>\n      ${deviceHtml}\n    </div>\n    <div class=\"footer\">\n      <p style=\"margin: 0;\">\n        <strong>Metadata:</strong><br>\n        Secure webhook • ${timestamp}\n      </p>\n    </div>\n  </div>\n</body>\n</html>`;\n\nconst devicePlain = device ? `\\n---DEVICE---\\nPlatform: ${device.platform || 'Unknown'}\\n${device.cordova ? `OS: ${device.cordova.osVersion}\\nModel: ${device.cordova.model}\\n` : ''}${device.screen ? `Screen: ${device.screen.width}x${device.screen.height}\\n` : ''}${device.appVersion ? `App: ${device.appVersion}` : ''}` : '';\n\nconst plainBody = `${typeInfo.emoji} ${request_type_label}\nPriority: ${typeInfo.priority}\n\nFrom: ${from_email}\nType: ${request_type_label}\nReceived: ${new Date(timestamp).toLocaleString()}\nSource: BetterIslam Q&A App\n\n---MESSAGE---\n${message}${devicePlain}\n\n---INFO---\nTimestamp: ${timestamp}`;\n\nreturn {\n  subject,\n  htmlBody,\n  plainBody,\n  from_email,\n  request_type,\n  request_type_label,\n  priority: typeInfo.priority,\n  timestamp\n};"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        0,
-        0
+        -16,
+        112
       ],
-      "id": "verify_and_format",
-      "name": "Format Email with Device Info",
-      "credentials": {}
+      "id": "afad86c4-e42d-4d96-af0b-6f50de6ad096",
+      "name": "Format Email"
     },
     {
       "parameters": {
-        "subject": "={{ $node[\"Format Email with Device Info\"].output.json.subject }}",
-        "body": "={{ $node[\"Format Email with Device Info\"].output.json.plainBody }}",
-        "htmlBody": "={{ $node[\"Format Email with Device Info\"].output.json.htmlBody }}",
+        "isBodyHtml": true,
+        "subject": "={{ $('Format Email').item.json.subject }}",
+        "body": "={{ $('Format Email').item.json.htmlBody }}",
         "fromEmail": "BIQA@halerp.com",
         "toAddresses": [
           "mohamedazher@gmail.com"
         ],
-        "additionalFields": {
-          "replyTo": "={{ $node[\"Format Email with Device Info\"].output.json.from_email }}"
-        }
+        "additionalFields": {}
       },
       "type": "n8n-nodes-base.awsSes",
       "typeVersion": 1,
       "position": [
-        300,
-        0
+        288,
+        112
       ],
-      "id": "send_email",
+      "id": "a9d41a8c-9c22-4b56-83e5-44a74925ba48",
       "name": "Send Formatted Email",
       "credentials": {
         "aws": {
@@ -60,16 +58,15 @@
     },
     {
       "parameters": {
-        "responseCode": 200,
-        "responseBody": "={\"success\": true, \"message\": \"Thank you for your feedback! We appreciate your input.\", \"request_type\": $node[\"Format Email with Device Info\"].output.json.request_type_label, \"timestamp\": $node[\"Format Email with Device Info\"].output.json.timestamp}"
+        "options": {}
       },
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        600,
-        0
+        544,
+        96
       ],
-      "id": "respond_to_app",
+      "id": "08997272-d188-4e92-904e-77fd355f702c",
       "name": "Respond to App"
     }
   ],
@@ -78,21 +75,27 @@
       "main": [
         [
           {
-            "node": "Format Email with Device Info",
+            "node": "Format Email",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Format Email with Device Info": {
+    "Format Email": {
       "main": [
         [
           {
             "node": "Send Formatted Email",
             "type": "main",
             "index": 0
-          },
+          }
+        ]
+      ]
+    },
+    "Send Formatted Email": {
+      "main": [
+        [
           {
             "node": "Respond to App",
             "type": "main",
@@ -103,9 +106,6 @@
     }
   },
   "pinData": {},
-  "settings": {
-    "timezone": "UTC"
-  },
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "1dcf3aca8689e419bdcbfc603ab223935028615e97b170b86346b98d03a63baf"
