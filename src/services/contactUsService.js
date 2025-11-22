@@ -3,33 +3,17 @@
  * Handles sending feedback and contact messages via webhook
  */
 
-// Secret key for generating app signature (verify authenticity)
-// This should match what the backend expects
-const APP_SECRET = 'biqa_app_feedback_secret_key_2024'
+// Simple authentication token (the webhook URL itself is the main security)
+const APP_TOKEN = 'biqa_app_v2_2024'
 
 /**
- * Generate HMAC-SHA256 hash of a message
- * Uses a shared secret to verify the request came from the app
+ * Generate simple base64 token for basic authentication
+ * Lightweight approach - webhook URL is the main security mechanism
  */
-async function generateAppSignature(email, message) {
-  try {
-    // Combine email and message for hashing
-    const payload = `${email}:${message}:${APP_SECRET}`
-
-    // Use Web Crypto API to generate SHA-256 hash
-    const encoder = new TextEncoder()
-    const data = encoder.encode(payload)
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data)
-
-    // Convert to hex string
-    const hashArray = Array.from(new Uint8Array(hashBuffer))
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('')
-
-    return hashHex
-  } catch (error) {
-    console.error('Failed to generate app signature:', error)
-    throw new Error('Could not generate security signature')
-  }
+function generateAppToken() {
+  const timestamp = Math.floor(Date.now() / 60000) // Current minute
+  const token = `${APP_TOKEN}:${timestamp}`
+  return btoa(token) // Base64 encode
 }
 
 /**
@@ -54,8 +38,8 @@ export async function sendFeedback(email, message, requestType = 'general') {
       throw new Error('Please enter a valid email address')
     }
 
-    // Generate app signature for security
-    const appSignature = await generateAppSignature(email, message)
+    // Generate simple auth token
+    const appToken = generateAppToken()
 
     // Map request type for better readability
     const requestTypeLabels = {
@@ -73,7 +57,7 @@ export async function sendFeedback(email, message, requestType = 'general') {
       message: message.trim(),
       request_type: requestType,
       request_type_label: requestTypeLabels[requestType] || requestType,
-      app_signature: appSignature,
+      app_token: appToken,
       timestamp: new Date().toISOString(),
       user_agent: navigator.userAgent,
       source: 'biqa_app'
@@ -113,6 +97,5 @@ export async function sendFeedback(email, message, requestType = 'general') {
 }
 
 export default {
-  sendFeedback,
-  generateAppSignature
+  sendFeedback
 }
