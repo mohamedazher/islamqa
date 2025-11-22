@@ -17,6 +17,111 @@ function generateAppToken() {
 }
 
 /**
+ * Collect comprehensive device and platform information
+ * Helps understand user demographics and device types
+ */
+function collectDeviceInfo() {
+  const info = {
+    // Platform detection
+    platform: getPlatform(),
+
+    // Screen & Display
+    screen: {
+      width: window.screen.width,
+      height: window.screen.height,
+      pixelRatio: window.devicePixelRatio || 1,
+      colorDepth: window.screen.colorDepth
+    },
+
+    // Browser/Device capabilities
+    capabilities: {
+      touchSupported: navigator.maxTouchPoints > 0 || 'ontouchstart' in window,
+      language: navigator.language,
+      languages: navigator.languages ? navigator.languages.join(',') : navigator.language,
+      cookieEnabled: navigator.cookieEnabled,
+      onLine: navigator.onLine
+    },
+
+    // System info
+    system: {
+      cores: navigator.hardwareConcurrency || 'unknown',
+      memory: navigator.deviceMemory ? `${navigator.deviceMemory}GB` : 'unknown'
+    },
+
+    // App version (from package.json or config.xml)
+    appVersion: getAppVersion()
+  }
+
+  // Add Cordova/mobile info if available
+  if (isCordovaApp()) {
+    info.cordova = getCordovaDeviceInfo()
+  }
+
+  return info
+}
+
+/**
+ * Detect platform from user agent and context
+ */
+function getPlatform() {
+  if (isCordovaApp()) {
+    // Cordova app - check device platform
+    if (window.device?.platform) {
+      return `Cordova/${window.device.platform}`
+    }
+  }
+
+  // Web browser detection
+  const ua = navigator.userAgent
+  if (/iPad|iPhone|iPod/.test(ua)) return 'iOS Safari'
+  if (/Android/.test(ua)) return 'Android Chrome'
+  if (/Windows/.test(ua)) return 'Windows'
+  if (/Mac/.test(ua)) return 'macOS'
+  if (/Linux/.test(ua)) return 'Linux'
+  if (/X11/.test(ua)) return 'Unix'
+
+  return 'Unknown'
+}
+
+/**
+ * Check if running as Cordova app
+ */
+function isCordovaApp() {
+  return typeof window.cordova !== 'undefined'
+}
+
+/**
+ * Get Cordova device information
+ */
+function getCordovaDeviceInfo() {
+  if (!window.device) return null
+
+  return {
+    platform: window.device.platform,
+    osVersion: window.device.version,
+    model: window.device.model,
+    manufacturer: window.device.manufacturer,
+    uuid: 'hidden', // Don't expose UUID for privacy
+    cordovaVersion: window.device.cordova
+  }
+}
+
+/**
+ * Get app version
+ */
+function getAppVersion() {
+  // Try to get from package.json (build-time injection)
+  try {
+    const meta = document.querySelector('meta[name="app-version"]')
+    if (meta) return meta.getAttribute('content')
+  } catch (e) {
+    // Fallback
+  }
+
+  return 'unknown'
+}
+
+/**
  * Send feedback to webhook
  */
 export async function sendFeedback(email, message, requestType = 'general') {
@@ -41,6 +146,9 @@ export async function sendFeedback(email, message, requestType = 'general') {
     // Generate simple auth token
     const appToken = generateAppToken()
 
+    // Collect device information
+    const deviceInfo = collectDeviceInfo()
+
     // Map request type for better readability
     const requestTypeLabels = {
       feature_request: 'Feature Request',
@@ -60,6 +168,7 @@ export async function sendFeedback(email, message, requestType = 'general') {
       app_token: appToken,
       timestamp: new Date().toISOString(),
       user_agent: navigator.userAgent,
+      device: deviceInfo,
       source: 'biqa_app'
     }
 
