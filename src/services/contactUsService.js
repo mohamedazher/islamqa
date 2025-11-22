@@ -35,7 +35,7 @@ async function generateAppSignature(email, message) {
 /**
  * Send feedback to webhook
  */
-export async function sendFeedback(email, message) {
+export async function sendFeedback(email, message, requestType = 'general') {
   try {
     // Validate inputs
     if (!email || !email.trim()) {
@@ -43,6 +43,9 @@ export async function sendFeedback(email, message) {
     }
     if (!message || !message.trim()) {
       throw new Error('Message is required')
+    }
+    if (!requestType) {
+      throw new Error('Request type is required')
     }
 
     // Validate email format
@@ -54,17 +57,29 @@ export async function sendFeedback(email, message) {
     // Generate app signature for security
     const appSignature = await generateAppSignature(email, message)
 
+    // Map request type for better readability
+    const requestTypeLabels = {
+      feature_request: 'Feature Request',
+      improvement: 'Improvement Suggestion',
+      bug_report: 'Bug Report',
+      suggestion: 'Suggestion',
+      question: 'Question',
+      general: 'General Feedback'
+    }
+
     // Prepare payload
     const payload = {
       from_email: email.trim(),
       message: message.trim(),
+      request_type: requestType,
+      request_type_label: requestTypeLabels[requestType] || requestType,
       app_signature: appSignature,
       timestamp: new Date().toISOString(),
       user_agent: navigator.userAgent,
       source: 'biqa_app'
     }
 
-    console.log('📧 Sending feedback via webhook...', { email, timestamp: payload.timestamp })
+    console.log('📧 Sending feedback via webhook...', { email, requestType, timestamp: payload.timestamp })
 
     // Send to webhook
     const response = await fetch(

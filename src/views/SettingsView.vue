@@ -584,19 +584,19 @@
             <Icon name="chevronRight" size="sm" class="text-primary-600 dark:text-primary-400 group-hover:translate-x-1 transition-transform" />
           </button>
 
-          <!-- Contact Us Link -->
+          <!-- Share Feedback Link -->
           <button
             @click="showContactUs"
-            class="w-full flex items-center justify-between px-4 py-3 bg-primary-50 dark:bg-primary-950/30 rounded-lg hover:bg-primary-100 dark:hover:bg-primary-950/50 transition-colors group"
+            class="w-full flex items-center justify-between px-4 py-3 bg-accent-50 dark:bg-accent-950/30 rounded-lg hover:bg-accent-100 dark:hover:bg-accent-950/50 transition-colors group border border-accent-200 dark:border-accent-800/30"
           >
             <div class="flex items-center gap-3 text-left">
-              <Icon name="mail" size="md" class="text-primary-600 dark:text-primary-400" />
+              <Icon name="chat" size="md" class="text-accent-600 dark:text-accent-400" />
               <div>
-                <div class="font-medium text-primary-900 dark:text-primary-100">Contact Us</div>
-                <div class="text-xs text-primary-700 dark:text-primary-300">Send us feedback or questions</div>
+                <div class="font-medium text-accent-900 dark:text-accent-100">Share Your Feedback</div>
+                <div class="text-xs text-accent-700 dark:text-accent-300">✨ Feature ideas • 💡 Suggestions • 🐛 Bug reports</div>
               </div>
             </div>
-            <Icon name="chevronRight" size="sm" class="text-primary-600 dark:text-primary-400 group-hover:translate-x-1 transition-transform" />
+            <Icon name="chevronRight" size="sm" class="text-accent-600 dark:text-accent-400 group-hover:translate-x-1 transition-transform" />
           </button>
 
           <!-- Current Status -->

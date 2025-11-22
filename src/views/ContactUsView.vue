@@ -4,12 +4,25 @@
       <!-- Header -->
       <div class="mb-8">
         <div class="flex items-center gap-3 mb-3">
-          <Icon name="mail" size="lg" class="text-primary-600 dark:text-primary-400" />
-          <h1 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">Contact Us</h1>
+          <Icon name="chat" size="lg" class="text-primary-600 dark:text-primary-400" />
+          <h1 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">Share Your Feedback</h1>
         </div>
         <p class="text-neutral-600 dark:text-neutral-400">
-          Have feedback, questions, or suggestions? We'd love to hear from you!
+          Help us improve! Share feature requests, suggestions, report bugs, or ask questions.
         </p>
+      </div>
+
+      <!-- Encouragement Banner -->
+      <div class="mb-6 p-4 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-950/30 dark:to-accent-950/30 border border-primary-200 dark:border-primary-800/30 rounded-lg">
+        <div class="flex gap-3">
+          <Icon name="lightbulb" size="md" class="text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5" />
+          <div>
+            <h3 class="font-semibold text-primary-900 dark:text-primary-100 mb-1">We Love Ideas!</h3>
+            <p class="text-sm text-primary-800 dark:text-primary-200">
+              Have a feature idea? Want to suggest an improvement? Please share it! Your feedback directly helps us build a better app.
+            </p>
+          </div>
+        </div>
       </div>
 
       <!-- Contact Form -->
@@ -48,6 +61,35 @@
 
         <!-- Form Fields -->
         <form @submit.prevent="submitForm" class="space-y-4">
+          <!-- Request Type Dropdown -->
+          <div>
+            <label class="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+              What type of feedback? <span class="text-red-500">*</span>
+            </label>
+            <select
+              v-model="form.requestType"
+              class="w-full px-4 py-2 bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-neutral-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
+              :disabled="isLoading"
+              required
+            >
+              <option value="">-- Select a type --</option>
+              <option value="feature_request">✨ Feature Request (Suggest a new feature)</option>
+              <option value="improvement">🎯 Improvement (Make something better)</option>
+              <option value="bug_report">🐛 Bug Report (Something isn't working)</option>
+              <option value="suggestion">💡 Suggestion (Any ideas)</option>
+              <option value="question">❓ Question (Ask something)</option>
+              <option value="general">💬 General Feedback</option>
+            </select>
+            <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
+              Help us understand what you'd like to share
+            </p>
+          </div>
+
+          <!-- Type Description -->
+          <div v-if="form.requestType" class="p-3 rounded-lg" :class="typeDescriptionClass">
+            <p class="text-sm">{{ typeDescriptions[form.requestType] }}</p>
+          </div>
+
           <!-- Email Input -->
           <div>
             <label class="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-2">
@@ -106,20 +148,36 @@
       </Card>
 
       <!-- Info Box -->
-      <Card padding="lg" class="bg-primary-50 dark:bg-primary-950/30 border border-primary-200 dark:border-primary-800/30">
-        <div class="flex gap-4">
-          <Icon name="info" size="md" class="text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5" />
-          <div>
-            <h3 class="font-semibold text-primary-900 dark:text-primary-100 mb-2">We Value Your Feedback</h3>
-            <ul class="text-sm text-primary-800 dark:text-primary-200 space-y-1">
-              <li>✓ Feature requests and suggestions</li>
-              <li>✓ Bug reports and issues</li>
-              <li>✓ Content improvements</li>
-              <li>✓ General questions and comments</li>
-            </ul>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- What to Share -->
+        <Card padding="lg" class="bg-primary-50 dark:bg-primary-950/30 border border-primary-200 dark:border-primary-800/30">
+          <div class="flex gap-4">
+            <Icon name="check-circle" size="md" class="text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5" />
+            <div>
+              <h3 class="font-semibold text-primary-900 dark:text-primary-100 mb-2">What to Share</h3>
+              <ul class="text-sm text-primary-800 dark:text-primary-200 space-y-1">
+                <li>✓ Feature ideas & improvements</li>
+                <li>✓ Bug reports & issues</li>
+                <li>✓ UI/UX suggestions</li>
+                <li>✓ Questions & feedback</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </Card>
+        </Card>
+
+        <!-- Why It Matters -->
+        <Card padding="lg" class="bg-accent-50 dark:bg-accent-950/30 border border-accent-200 dark:border-accent-800/30">
+          <div class="flex gap-4">
+            <Icon name="star" size="md" class="text-accent-600 dark:text-accent-400 flex-shrink-0 mt-0.5" />
+            <div>
+              <h3 class="font-semibold text-accent-900 dark:text-accent-100 mb-2">Why It Matters</h3>
+              <p class="text-sm text-accent-800 dark:text-accent-200 leading-relaxed">
+                Your feedback directly shapes the app's future. We read and consider every suggestion to make BetterIslam Q&A better for everyone.
+              </p>
+            </div>
+          </div>
+        </Card>
+      </div>
     </div>
   </div>
 </template>
@@ -133,6 +191,7 @@ import contactUsService from '@/services/contactUsService'
 const MIN_MESSAGE_LENGTH = 10
 
 const form = ref({
+  requestType: '',
   email: '',
   message: ''
 })
@@ -141,8 +200,29 @@ const isLoading = ref(false)
 const successMessage = ref('')
 const errorMessage = ref('')
 
+const typeDescriptions = {
+  feature_request: '✨ Great! Feature requests help us understand what would make the app better for you.',
+  improvement: '🎯 We appreciate suggestions to improve existing features!',
+  bug_report: '🐛 Thank you for reporting! Bug reports help us fix issues quickly.',
+  suggestion: '💡 We love hearing your ideas and suggestions!',
+  question: '❓ We\'ll do our best to help answer your question.',
+  general: '💬 Thanks for your feedback!'
+}
+
+const typeDescriptionClass = computed(() => {
+  const type = form.value.requestType
+  if (type === 'feature_request' || type === 'improvement') {
+    return 'bg-accent-50 dark:bg-accent-950/30 border border-accent-200 dark:border-accent-800/30 text-accent-900 dark:text-accent-100'
+  } else if (type === 'bug_report') {
+    return 'bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800/30 text-red-900 dark:text-red-100'
+  } else {
+    return 'bg-primary-50 dark:bg-primary-950/30 border border-primary-200 dark:border-primary-800/30 text-primary-900 dark:text-primary-100'
+  }
+})
+
 const isFormValid = computed(() => {
   return (
+    form.value.requestType &&
     form.value.email.trim() &&
     form.value.message.trim() &&
     form.value.message.length >= MIN_MESSAGE_LENGTH &&
@@ -160,12 +240,14 @@ async function submitForm() {
   try {
     const result = await contactUsService.sendFeedback(
       form.value.email,
-      form.value.message
+      form.value.message,
+      form.value.requestType
     )
 
     successMessage.value = result.message
     form.value.email = ''
     form.value.message = ''
+    form.value.requestType = ''
 
     // Clear success message after 5 seconds
     setTimeout(() => {
