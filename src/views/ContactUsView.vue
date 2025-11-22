@@ -182,7 +182,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import Icon from '@/components/common/Icon.vue'
 import Card from '@/components/common/Card.vue'
