@@ -93,7 +93,7 @@ class QiblaService {
    */
   calculateQiblaDirection(latitude, longitude) {
     const coordinates = new Coordinates(latitude, longitude)
-    return Qibla.qibla(coordinates)
+    return Qibla(coordinates)
   }
 
   /**
