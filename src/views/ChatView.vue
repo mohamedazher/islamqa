@@ -6,15 +6,47 @@
         <button @click="goBack" class="hover:opacity-80 transition-opacity flex-shrink-0">
           <Icon name="arrowLeft" size="md" />
         </button>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 flex-1">
           <Icon name="sparkles" size="md" />
           <h1 class="text-lg font-bold">Ask Islam</h1>
         </div>
-        <div v-if="searchMode" class="ml-auto text-xs bg-white/20 px-2 py-1 rounded">
-          {{ searchMode }}
+        <div class="flex items-center gap-2">
+          <div v-if="searchMode" class="text-xs bg-white/20 px-2 py-1 rounded">
+            {{ searchMode }}
+          </div>
+          <button
+            v-if="messages.length > 0"
+            @click="showClearConfirm = true"
+            class="p-2 hover:bg-white/20 rounded-lg transition"
+            title="Clear conversation"
+          >
+            <Icon name="trash" size="sm" />
+          </button>
         </div>
       </div>
     </header>
+
+    <!-- Clear Confirmation Modal -->
+    <div v-if="showClearConfirm" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+      <div class="bg-white dark:bg-neutral-900 rounded-lg shadow-xl max-w-sm w-full p-6">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-2">Clear Conversation?</h3>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">This will delete all messages. This action cannot be undone.</p>
+        <div class="flex gap-2">
+          <button
+            @click="clearConversation"
+            class="flex-1 bg-red-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-700 transition"
+          >
+            Clear
+          </button>
+          <button
+            @click="showClearConfirm = false"
+            class="flex-1 bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 px-4 py-2 rounded-lg font-medium hover:bg-neutral-300 dark:hover:bg-neutral-700 transition"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Chat Messages -->
     <div
@@ -208,7 +240,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted, nextTick, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDataStore } from '@/stores/data'
 import dexieDb from '@/services/dexieDatabase'
@@ -231,6 +263,50 @@ const searchMode = ref('') // 'semantic' or 'keyword'
 // Modal state
 const showQuestionModal = ref(false)
 const modalQuestion = ref(null)
+const showClearConfirm = ref(false)
+
+// LocalStorage key for persistence
+const STORAGE_KEY = 'islamqa_chat_messages'
+
+// Save messages to localStorage
+const saveMessages = () => {
+  try {
+    // Only save user and assistant messages (not loading)
+    const toSave = messages.value.filter(m => m.type !== 'loading')
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave))
+  } catch (error) {
+    console.warn('Failed to save messages:', error)
+  }
+}
+
+// Load messages from localStorage
+const loadSavedMessages = () => {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      const parsed = JSON.parse(saved)
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        messages.value = parsed
+        return true
+      }
+    }
+  } catch (error) {
+    console.warn('Failed to load saved messages:', error)
+  }
+  return false
+}
+
+// Clear conversation
+const clearConversation = () => {
+  messages.value = []
+  localStorage.removeItem(STORAGE_KEY)
+  showClearConfirm.value = false
+}
+
+// Watch for message changes and persist
+watch(messages, () => {
+  saveMessages()
+}, { deep: true })
 
 // Scroll to bottom of messages
 const scrollToBottom = async () => {
@@ -450,6 +526,12 @@ const loadEmbeddings = async () => {
 // Initialize
 onMounted(async () => {
   try {
+    // Load saved conversation from localStorage
+    const hasSavedMessages = loadSavedMessages()
+    if (hasSavedMessages) {
+      await scrollToBottom()
+    }
+
     // Load questions
     const questions = await dataStore.getAllQuestions()
 
