@@ -1,5 +1,4 @@
 {
-  "name": "IslamQA Embedding Proxy",
   "nodes": [
     {
       "parameters": {
@@ -8,21 +7,21 @@
         "responseMode": "responseNode",
         "options": {}
       },
-      "id": "webhook-trigger",
+      "id": "webhook",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
-      "position": [250, 300]
+      "position": [100, 300]
     },
     {
       "parameters": {
-        "jsCode": "// Validate request timestamp (simple validation)\nconst MAX_AGE_MS = 5 * 60 * 1000; // 5 minutes\n\nconst body = $input.first().json.body;\nconst { query, timestamp } = body;\n\n// Check required fields\nif (!query || !timestamp) {\n  throw new Error('Missing required fields: query, timestamp');\n}\n\n// Check timestamp is recent\nconst now = Date.now();\nconst age = Math.abs(now - timestamp);\nif (age > MAX_AGE_MS) {\n  throw new Error(`Request expired (age: ${age}ms, max: ${MAX_AGE_MS}ms)`);\n}\n\nreturn [{ json: { valid: true, query } }];"
+        "jsCode": "// Validate request timestamp only (no crypto needed)\nconst MAX_AGE_MS = 5 * 60 * 1000; // 5 minutes\n\nconst body = $input.first().json.body;\nconst { query, timestamp } = body;\n\n// Check required fields\nif (!query || !timestamp) {\n  throw new Error('Missing required fields: query, timestamp');\n}\n\n// Check timestamp is recent\nconst now = Date.now();\nconst age = Math.abs(now - timestamp);\nif (age > MAX_AGE_MS) {\n  throw new Error(`Request expired (age: ${age}ms, max: ${MAX_AGE_MS}ms)`);\n}\n\nreturn [{ json: { query } }];"
       },
-      "id": "validate-request",
+      "id": "validate",
       "name": "Validate Request",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [450, 300]
+      "position": [300, 300]
     },
     {
       "parameters": {
@@ -42,11 +41,11 @@
         "jsonBody": "={{ JSON.stringify({ content: { parts: [{ text: $json.query }] } }) }}",
         "options": {}
       },
-      "id": "gemini-api",
+      "id": "gemini",
       "name": "Call Gemini API",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [850, 200]
+      "position": [500, 300]
     },
     {
       "parameters": {
@@ -54,12 +53,12 @@
         "responseBody": "={{ JSON.stringify({ embedding: $json.embedding.values }) }}",
         "options": {}
       },
-      "id": "respond-success",
+      "id": "respond",
       "name": "Respond Success",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
-      "position": [1050, 200]
-    },
+      "position": [700, 300]
+    }
   ],
   "connections": {
     "Webhook": {
@@ -96,7 +95,8 @@
       ]
     }
   },
-  "settings": {
-    "executionOrder": "v1"
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true
   }
 }
