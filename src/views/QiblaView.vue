@@ -181,6 +181,7 @@ const router = useRouter()
 
 // State
 const isLoading = ref(true)
+const hasLocation = ref(false)
 const qiblaInfo = ref({
   hasLocation: false,
   qiblaDirection: 0,
@@ -220,12 +221,36 @@ onMounted(async () => {
     // Reload settings from localStorage to ensure we have the latest values
     prayerTimesService.reloadSettings()
 
-    // Load Qibla info
-    qiblaInfo.value = qiblaService.getQiblaInfo()
+    // Check location directly like PrayerTimesView does
+    hasLocation.value = prayerTimesService.hasLocation()
 
-    if (!qiblaInfo.value.hasLocation) {
+    if (!hasLocation.value) {
+      qiblaInfo.value.hasLocation = false
       isLoading.value = false
       return
+    }
+
+    // Get location from prayerTimesService directly
+    const settings = prayerTimesService.getSettings()
+    const latitude = settings.location.latitude
+    const longitude = settings.location.longitude
+    const locationName = settings.locationName
+
+    // Calculate Qibla direction
+    const qiblaDirection = qiblaService.calculateQiblaDirection(latitude, longitude)
+    const distanceToKaaba = qiblaService.calculateDistanceToKaaba(latitude, longitude)
+    const cardinalDirection = qiblaService.getCardinalDirection(qiblaDirection)
+    const isAtKaaba = distanceToKaaba < 1
+
+    qiblaInfo.value = {
+      hasLocation: true,
+      qiblaDirection: Math.round(qiblaDirection * 10) / 10,
+      distanceToKaaba,
+      cardinalDirection,
+      locationName,
+      isAtKaaba,
+      latitude,
+      longitude
     }
 
     if (qiblaInfo.value.isAtKaaba) {
