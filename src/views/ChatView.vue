@@ -144,6 +144,65 @@
           <Icon name="send" size="md" />
         </button>
       </form>
+      <!-- AI Disclaimer -->
+      <p class="text-xs text-neutral-500 dark:text-neutral-500 text-center mt-2">
+        AI can make mistakes. Always verify answers from the original sources.
+      </p>
+    </div>
+
+    <!-- Question Detail Modal -->
+    <div v-if="showQuestionModal && modalQuestion" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
+      <div class="bg-white dark:bg-neutral-900 rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto my-8">
+        <div class="sticky top-0 bg-white dark:bg-neutral-900 border-b dark:border-neutral-800 p-4 flex items-center justify-between">
+          <h2 class="text-base sm:text-lg font-bold text-neutral-900 dark:text-neutral-100">Source Question</h2>
+          <button
+            @click="closeQuestionModal"
+            class="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition"
+          >
+            <Icon name="close" size="md" />
+          </button>
+        </div>
+
+        <div class="p-6 space-y-6">
+          <!-- Question Title -->
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+              {{ modalQuestion.title }}
+            </h3>
+          </div>
+
+          <!-- Question Content -->
+          <div class="prose dark:prose-invert max-w-none">
+            <div class="bg-primary-50 dark:bg-primary-950/30 border-l-4 border-primary-500 dark:border-primary-600 p-4 rounded">
+              <h4 class="text-sm font-semibold text-primary-900 dark:text-primary-100 mb-2">Question</h4>
+              <div class="text-neutral-800 dark:text-neutral-200 text-sm" v-html="modalQuestion.question"></div>
+            </div>
+          </div>
+
+          <!-- Answer Content -->
+          <div class="prose dark:prose-invert max-w-none">
+            <div class="bg-accent-50 dark:bg-accent-950/30 border-l-4 border-accent-500 dark:border-accent-600 p-4 rounded">
+              <h4 class="text-sm font-semibold text-accent-900 dark:text-accent-100 mb-2">Answer</h4>
+              <div class="text-neutral-800 dark:text-neutral-200 text-sm" v-html="modalQuestion.answer"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sticky bottom-0 bg-white dark:bg-neutral-900 border-t dark:border-neutral-800 p-4 flex gap-2">
+          <button
+            @click="viewFullQuestion(modalQuestion.reference)"
+            class="flex-1 bg-primary-600 dark:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 dark:hover:bg-primary-600 transition"
+          >
+            View Full Page
+          </button>
+          <button
+            @click="closeQuestionModal"
+            class="flex-1 bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-300 dark:hover:bg-neutral-700 transition"
+          >
+            Close
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -168,6 +227,10 @@ const isLoading = ref(false)
 const messagesContainer = ref(null)
 const suggestedQuestions = ref([])
 const searchMode = ref('') // 'semantic' or 'keyword'
+
+// Modal state
+const showQuestionModal = ref(false)
+const modalQuestion = ref(null)
 
 // Scroll to bottom of messages
 const scrollToBottom = async () => {
@@ -298,8 +361,28 @@ const askQuestion = async (question) => {
   await scrollToBottom()
 }
 
-// Open question detail
-const openQuestion = (reference) => {
+// Open question detail in modal
+const openQuestion = async (reference) => {
+  try {
+    const question = await dataStore.getQuestion(reference)
+    if (question) {
+      modalQuestion.value = question
+      showQuestionModal.value = true
+    }
+  } catch (error) {
+    console.error('Error loading question:', error)
+  }
+}
+
+// Close question modal
+const closeQuestionModal = () => {
+  showQuestionModal.value = false
+  modalQuestion.value = null
+}
+
+// Navigate to full question page
+const viewFullQuestion = (reference) => {
+  closeQuestionModal()
   router.push(`/question/${reference}`)
 }
 
