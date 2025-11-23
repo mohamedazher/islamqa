@@ -37,7 +37,15 @@ class DataLoaderService {
       const isImported = await dexieDb.isImported()
       if (isImported) {
         console.log('✅ Data already imported')
-        if (onProgress) onProgress({ step: 'Data already loaded', progress: 100 })
+
+        // Check if AI data needs to be imported (for existing users)
+        const hasAiData = await dexieDb.hasAiData()
+        if (!hasAiData) {
+          console.log('📦 Main data exists but AI data missing - importing AI data...')
+          await this.importAiDataOnly(onProgress)
+        } else {
+          if (onProgress) onProgress({ step: 'Data already loaded', progress: 100 })
+        }
         return true
       }
 
@@ -272,6 +280,68 @@ class DataLoaderService {
   async loadAnswers(part) {
     console.warn('⚠️  loadAnswers() is deprecated. Answers are now embedded in questions.answer')
     return []
+  }
+
+  /**
+   * Import only AI data (summaries and embeddings) for existing users
+   * Called when main data is already imported but AI data is missing
+   */
+  async importAiDataOnly(onProgress) {
+    try {
+      this.isLoading = true
+
+      // Step 1: Load and import AI summaries
+      this.currentStep = 'Loading AI summaries...'
+      if (onProgress) onProgress({ step: this.currentStep, progress: 10 })
+
+      const summariesData = await this.loadAiSummaries()
+      if (summariesData && Object.keys(summariesData).length > 0) {
+        await dexieDb.importSummaries(summariesData, (batchProgress) => {
+          const batchPercent = batchProgress.percentage / 100
+          const overallProgress = 10 + (batchPercent * 30)
+          if (onProgress) {
+            onProgress({
+              step: `Importing AI summaries (${batchProgress.itemsProcessed}/${batchProgress.totalItems})`,
+              progress: overallProgress
+            })
+          }
+        })
+        if (onProgress) onProgress({ step: `AI summaries imported (${Object.keys(summariesData).length} total)`, progress: 40 })
+      } else {
+        if (onProgress) onProgress({ step: 'No AI summaries available', progress: 40 })
+      }
+
+      // Step 2: Load and import AI embeddings
+      this.currentStep = 'Loading AI embeddings...'
+      if (onProgress) onProgress({ step: this.currentStep, progress: 45 })
+
+      const embeddingsData = await this.loadAiEmbeddings()
+      if (embeddingsData && Object.keys(embeddingsData).length > 0) {
+        await dexieDb.importEmbeddings(embeddingsData, (batchProgress) => {
+          const batchPercent = batchProgress.percentage / 100
+          const overallProgress = 45 + (batchPercent * 50)
+          if (onProgress) {
+            onProgress({
+              step: `Importing AI embeddings (${batchProgress.itemsProcessed}/${batchProgress.totalItems})`,
+              progress: overallProgress
+            })
+          }
+        })
+        if (onProgress) onProgress({ step: `AI embeddings imported (${Object.keys(embeddingsData).length} total)`, progress: 95 })
+      } else {
+        if (onProgress) onProgress({ step: 'No AI embeddings available', progress: 95 })
+      }
+
+      this.isLoading = false
+      if (onProgress) onProgress({ step: 'AI data import complete!', progress: 100 })
+
+      console.log('✅ AI data import complete')
+      return true
+    } catch (error) {
+      this.isLoading = false
+      console.error('❌ AI data import failed:', error)
+      throw error
+    }
   }
 
   /**
