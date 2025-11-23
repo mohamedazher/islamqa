@@ -48,7 +48,8 @@
         "AUTOMATIC_SCREEN_REPORTING_ENABLED": "true",
         "IOS_FIREBASE_POD_VERSION": "10.17.0"
       },
-      "cordova-plugin-prayer-widget": {}
+      "cordova-plugin-prayer-widget": {},
+      "cordova-plugin-device-orientation": {}
     }
   },
   "dependencies": {

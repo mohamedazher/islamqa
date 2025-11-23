@@ -66,6 +66,12 @@ const router = createRouter({
       meta: { title: 'Prayer Times' }
     },
     {
+      path: '/qibla',
+      name: 'qibla',
+      component: () => import('@/views/QiblaView.vue'),
+      meta: { title: 'Qibla Compass' }
+    },
+    {
       path: '/leaderboard',
       name: 'leaderboard',
       component: () => import('@/views/LeaderboardView.vue'),

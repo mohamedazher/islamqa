@@ -241,7 +241,7 @@
 
           <!-- Qibla Direction -->
           <div v-if="prayerSettings.location" class="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/30 dark:to-cyan-950/30 rounded-lg p-4 border border-teal-200 dark:border-teal-800/30">
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between mb-3">
               <div>
                 <h3 class="font-medium text-neutral-900 dark:text-neutral-100 mb-1">Qibla Direction</h3>
                 <p class="text-xs text-neutral-600 dark:text-neutral-400">From your location</p>
@@ -251,6 +251,13 @@
                 <div class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">from North</div>
               </div>
             </div>
+            <button
+              @click="openQiblaCompass"
+              class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 dark:from-emerald-600 dark:to-teal-600 text-white rounded-lg font-medium hover:from-emerald-600 hover:to-teal-600 dark:hover:from-emerald-500 dark:hover:to-teal-500 transition-all shadow-md hover:shadow-lg"
+            >
+              <Icon name="compass" size="md" />
+              Open Qibla Compass
+            </button>
           </div>
         </div>
       </section>
@@ -1295,6 +1302,10 @@ async function requestLocationPermission() {
   } finally {
     requestingPermission.value = false
   }
+}
+
+function openQiblaCompass() {
+  router.push('/qibla')
 }
 
 function openLocationSettings() {

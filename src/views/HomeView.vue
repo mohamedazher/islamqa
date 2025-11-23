@@ -397,21 +397,22 @@ const quickActions = [
     iconColor: 'text-white'
   },
   {
+    name: 'Qibla',
+    icon: 'compass',
+    description: 'Find direction',
+    to: '/qibla',
+    badge: 'NEW',
+    color: 'bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/20 dark:to-teal-800/20',
+    iconBg: 'bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-500 dark:from-emerald-500 dark:via-teal-600 dark:to-cyan-600',
+    iconColor: 'text-white'
+  },
+  {
     name: 'Quiz',
     icon: 'lightning',
     description: 'Test knowledge',
     to: '/quiz',
     color: 'bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/20 dark:to-orange-800/20',
     iconBg: 'bg-gradient-to-br from-yellow-400 via-orange-400 to-red-400 dark:from-yellow-500 dark:via-orange-500 dark:to-red-500',
-    iconColor: 'text-white'
-  },
-  {
-    name: 'Bookmarks',
-    icon: 'bookmark',
-    description: 'Saved items',
-    to: '/bookmarks',
-    color: 'bg-gradient-to-br from-accent-100 to-accent-200 dark:from-accent-900/20 dark:to-accent-800/20',
-    iconBg: 'bg-gradient-to-br from-accent-400 via-accent-500 to-accent-600 dark:from-accent-600 dark:via-accent-700 dark:to-accent-800',
     iconColor: 'text-white'
   }
 ]

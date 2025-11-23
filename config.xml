@@ -43,7 +43,7 @@
         <!-- Firebase configuration plist -->
         <resource-file src="GoogleService-Info.plist" />
         <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
-            <string>We need your location to calculate accurate prayer times for your area.</string>
+            <string>We need your location to calculate accurate prayer times and Qibla direction for your area.</string>
         </edit-config>
         <icon height="180" src="res/ios/Icon-180.png" width="180" />
         <icon height="60" src="res/ios/Icon-60.png" width="60" />
