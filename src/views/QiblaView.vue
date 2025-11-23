@@ -196,6 +196,12 @@ const compassError = ref(null)
 const calibrationNeeded = ref(false)
 const showCalibrationGuide = ref(false)
 
+// Smoothing variables
+let lastHeading = 0
+let targetHeading = 0
+let animationFrameId = null
+const SMOOTHING_FACTOR = 0.15 // Lower = smoother but slower response
+
 // Compass cleanup function
 let stopCompass = null
 
@@ -212,6 +218,39 @@ const compassSize = computed(() => {
 const formattedDistance = computed(() => {
   return qiblaService.formatDistance(qiblaInfo.value.distanceToKaaba)
 })
+
+/**
+ * Normalize angle to 0-360 range
+ */
+const normalizeAngle = (angle) => {
+  return ((angle % 360) + 360) % 360
+}
+
+/**
+ * Calculate the shortest angular distance between two angles
+ * Handles the 0°/360° wraparound properly
+ */
+const shortestAngleDiff = (from, to) => {
+  const diff = normalizeAngle(to - from)
+  return diff > 180 ? diff - 360 : diff
+}
+
+/**
+ * Smooth interpolation using low-pass filter with proper angle handling
+ */
+const smoothHeading = () => {
+  // Calculate shortest path difference
+  const diff = shortestAngleDiff(lastHeading, targetHeading)
+
+  // Apply smoothing factor
+  lastHeading = normalizeAngle(lastHeading + diff * SMOOTHING_FACTOR)
+
+  // Update the reactive heading value
+  deviceHeading.value = lastHeading
+
+  // Continue animation loop
+  animationFrameId = requestAnimationFrame(smoothHeading)
+}
 
 // Initialize
 onMounted(async () => {
@@ -269,6 +308,9 @@ onMounted(async () => {
 
     // Start compass
     startCompassWatch()
+
+    // Start the smooth animation loop
+    animationFrameId = requestAnimationFrame(smoothHeading)
   } catch (e) {
     console.error('Error initializing Qibla:', e)
     compassError.value = 'Failed to initialize compass. Please try again.'
@@ -283,6 +325,10 @@ onUnmounted(() => {
     stopCompass()
     stopCompass = null
   }
+  if (animationFrameId) {
+    cancelAnimationFrame(animationFrameId)
+    animationFrameId = null
+  }
 })
 
 // Start watching compass
@@ -290,7 +336,8 @@ const startCompassWatch = () => {
   stopCompass = qiblaService.startCompass(
     (heading) => {
       compassActive.value = true
-      deviceHeading.value = heading.magneticHeading
+      // Set target heading - the animation loop will smooth towards this
+      targetHeading = heading.magneticHeading
       calibrationNeeded.value = heading.calibrationNeeded
 
       // Show calibration guide on first detection of low accuracy
@@ -304,7 +351,7 @@ const startCompassWatch = () => {
       compassError.value = 'Compass error occurred. The static Qibla direction is shown below.'
       compassActive.value = false
     },
-    { frequency: 100 }
+    { frequency: 50 } // Faster updates for smoother data
   )
 }
 
