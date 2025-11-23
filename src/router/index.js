@@ -42,6 +42,12 @@ const router = createRouter({
       meta: { title: 'Search' }
     },
     {
+      path: '/chat',
+      name: 'chat',
+      component: () => import('@/views/ChatView.vue'),
+      meta: { title: 'Ask Islam' }
+    },
+    {
       path: '/bookmarks',
       name: 'bookmarks',
       component: () => import('@/views/FoldersView.vue'),

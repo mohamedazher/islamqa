@@ -378,6 +378,16 @@ let autoScrollInterval = null
 
 const quickActions = [
   {
+    name: 'Ask',
+    icon: 'sparkles',
+    description: 'AI-powered answers',
+    to: '/chat',
+    badge: 'NEW',
+    color: 'bg-gradient-to-br from-violet-100 to-purple-100 dark:from-violet-900/20 dark:to-purple-800/20',
+    iconBg: 'bg-gradient-to-br from-violet-500 via-purple-500 to-fuchsia-500 dark:from-violet-600 dark:via-purple-600 dark:to-fuchsia-600',
+    iconColor: 'text-white'
+  },
+  {
     name: 'Browse',
     icon: 'book',
     description: 'Explore categories',
@@ -387,20 +397,10 @@ const quickActions = [
     iconColor: 'text-white'
   },
   {
-    name: 'Search',
-    icon: 'search',
-    description: 'Find answers',
-    to: '/search',
-    color: 'bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-800/20',
-    iconBg: 'bg-gradient-to-br from-purple-400 via-pink-400 to-rose-500 dark:from-purple-500 dark:via-pink-500 dark:to-rose-600',
-    iconColor: 'text-white'
-  },
-  {
     name: 'Quiz',
     icon: 'lightning',
     description: 'Test knowledge',
     to: '/quiz',
-    badge: 'NEW',
     color: 'bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/20 dark:to-orange-800/20',
     iconBg: 'bg-gradient-to-br from-yellow-400 via-orange-400 to-red-400 dark:from-yellow-500 dark:via-orange-500 dark:to-red-500',
     iconColor: 'text-white'
