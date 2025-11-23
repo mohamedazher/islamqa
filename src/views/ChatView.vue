@@ -285,10 +285,11 @@ import { useDataStore } from '@/stores/data'
 import dexieDb from '@/services/dexieDatabase'
 import dataLoader from '@/services/dataLoader'
 import chatSearchService from '@/services/chatSearchService'
+import { createEmbedRequest } from '@/utils/embedHash'
 import Icon from '@/components/common/Icon.vue'
 
-// Gemini API key for query embeddings
-const GEMINI_API_KEY = 'AIzaSyAEma46H6zePFRvQnp8ccfkOPI9eb7mbR8'
+// n8n proxy endpoint for embeddings
+const EMBED_API_URL = 'https://integrations_v2.halerp.com/webhook/encode_search'
 
 const router = useRouter()
 const dataStore = useDataStore()
@@ -362,30 +363,26 @@ const scrollToBottom = async () => {
   }
 }
 
-// Get query embedding from Gemini API
+// Get query embedding via n8n proxy
 const getQueryEmbedding = async (text) => {
   try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key=${GEMINI_API_KEY}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          content: {
-            parts: [{ text }]
-          }
-        })
-      }
-    )
+    // Create validated request with hash
+    const requestPayload = await createEmbedRequest(text)
+
+    const response = await fetch(EMBED_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestPayload)
+    })
 
     if (!response.ok) {
-      throw new Error(`Gemini API error: ${response.status}`)
+      throw new Error(`Embedding API error: ${response.status}`)
     }
 
     const data = await response.json()
-    return data.embedding?.values || null
+    return data.embedding || null
   } catch (error) {
     console.warn('Failed to get query embedding:', error)
     return null
