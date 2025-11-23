@@ -9,7 +9,15 @@ class ChatSearchService {
     this.questions = []
     this.summaries = {}
     this.fuseInstance = null
+    this.enhancedData = []
     this.isReady = false
+
+    // Common ruling words to exclude from topic search
+    this.rulingWords = new Set([
+      'halal', 'haram', 'makruh', 'mubah', 'mustahabb', 'wajib',
+      'permissible', 'forbidden', 'allowed', 'prohibited', 'obligatory',
+      'is', 'it', 'the', 'a', 'an', 'in', 'islam', 'islamic', 'ruling', 'on'
+    ])
   }
 
   /**
@@ -20,36 +28,60 @@ class ChatSearchService {
     this.summaries = summaries || {}
 
     // Create enhanced search data by merging questions with summaries
-    const enhancedData = this.questions.map(q => {
+    this.enhancedData = this.questions.map(q => {
       const summary = this.summaries[q.reference] || {}
       return {
         ...q,
         ai_summary: summary.summary || '',
-        ai_tags: summary.tags || [],
-        ai_key_terms: summary.key_terms || [],
-        ai_query_phrases: summary.query_phrases || [],
+        ai_tags: (summary.tags || []).join(' '),
+        ai_key_terms: (summary.key_terms || []).join(' '),
+        ai_query_phrases: (summary.query_phrases || []).join(' '),
         ai_ruling: summary.ruling || null
       }
     })
 
-    // Initialize Fuse with enhanced data
-    this.fuseInstance = new Fuse(enhancedData, {
+    // Initialize Fuse with enhanced data - prioritize title and summary
+    this.fuseInstance = new Fuse(this.enhancedData, {
       keys: [
-        { name: 'title', weight: 0.3 },
-        { name: 'ai_summary', weight: 0.35 },
-        { name: 'ai_key_terms', weight: 0.15 },
+        { name: 'title', weight: 0.4 },
+        { name: 'ai_summary', weight: 0.3 },
         { name: 'ai_query_phrases', weight: 0.15 },
+        { name: 'ai_key_terms', weight: 0.1 },
         { name: 'ai_tags', weight: 0.05 }
       ],
       threshold: 0.4,
       ignoreLocation: true,
       minMatchCharLength: 2,
       includeScore: true,
-      isCaseSensitive: false
+      isCaseSensitive: false,
+      findAllMatches: true
     })
 
     this.isReady = true
     console.log(`ChatSearchService initialized with ${questions.length} questions and ${Object.keys(summaries).length} summaries`)
+  }
+
+  /**
+   * Extract topic words from query (excluding ruling words)
+   */
+  extractTopicWords(query) {
+    return query.toLowerCase()
+      .split(/\s+/)
+      .filter(word => word.length > 1 && !this.rulingWords.has(word))
+  }
+
+  /**
+   * Extract ruling intent from query
+   */
+  extractRulingIntent(query) {
+    const lowerQuery = query.toLowerCase()
+    if (lowerQuery.includes('haram') || lowerQuery.includes('forbidden') || lowerQuery.includes('prohibited')) {
+      return 'haram'
+    }
+    if (lowerQuery.includes('halal') || lowerQuery.includes('permissible') || lowerQuery.includes('allowed')) {
+      return 'halal'
+    }
+    return null
   }
 
   /**
@@ -66,79 +98,46 @@ class ChatSearchService {
       return []
     }
 
-    const searchTerm = query.trim().toLowerCase()
+    const topicWords = this.extractTopicWords(query)
+    const rulingIntent = this.extractRulingIntent(query)
 
-    // Fuzzy search
-    const fuseResults = this.fuseInstance.search(searchTerm)
-
-    // Also do exact tag matching for boost
-    const tagMatches = this.findByTags(searchTerm)
-
-    // Combine and deduplicate
-    const seenRefs = new Set()
-    const combined = []
-
-    // Add fuse results first
-    for (const result of fuseResults) {
-      if (!seenRefs.has(result.item.reference)) {
-        seenRefs.add(result.item.reference)
-        combined.push({
-          ...result.item,
-          score: result.score,
-          matchType: 'fuzzy'
-        })
-      }
+    // If we have topic words, search for them specifically
+    let searchQuery = query.trim()
+    if (topicWords.length > 0) {
+      // Prioritize topic words in search
+      searchQuery = topicWords.join(' ')
     }
 
-    // Boost tag matches
-    for (const match of tagMatches) {
-      if (!seenRefs.has(match.reference)) {
-        seenRefs.add(match.reference)
-        combined.push({
-          ...match,
-          score: 0.1, // High relevance for tag match
-          matchType: 'tag'
-        })
+    // Fuzzy search with topic-focused query
+    const fuseResults = this.fuseInstance.search(searchQuery)
+
+    // Score and filter results
+    const scoredResults = fuseResults.map(result => {
+      let adjustedScore = result.score
+
+      // Boost if title contains topic words
+      const titleLower = (result.item.title || '').toLowerCase()
+      const topicInTitle = topicWords.some(word => titleLower.includes(word))
+      if (topicInTitle) {
+        adjustedScore *= 0.5 // Significant boost
       }
-    }
 
-    // Sort by score (lower is better in Fuse)
-    combined.sort((a, b) => a.score - b.score)
-
-    return combined.slice(0, limit)
-  }
-
-  /**
-   * Find questions by matching tags
-   */
-  findByTags(query) {
-    const queryWords = query.toLowerCase().split(/\s+/)
-    const matches = []
-
-    for (const q of this.questions) {
-      const summary = this.summaries[q.reference]
-      if (!summary) continue
-
-      const tags = summary.tags || []
-      const keyTerms = summary.key_terms || []
-      const allTerms = [...tags, ...keyTerms].map(t => t.toLowerCase())
-
-      // Check if any query word matches tags
-      const hasMatch = queryWords.some(word =>
-        allTerms.some(term => term.includes(word) || word.includes(term))
-      )
-
-      if (hasMatch) {
-        matches.push({
-          ...q,
-          ai_summary: summary.summary,
-          ai_tags: summary.tags,
-          ai_ruling: summary.ruling
-        })
+      // Boost if ruling matches intent
+      if (rulingIntent && result.item.ai_ruling === rulingIntent) {
+        adjustedScore *= 0.8 // Slight boost
       }
-    }
 
-    return matches.slice(0, 10)
+      return {
+        ...result.item,
+        score: adjustedScore,
+        matchType: 'fuzzy'
+      }
+    })
+
+    // Sort by adjusted score (lower is better)
+    scoredResults.sort((a, b) => a.score - b.score)
+
+    return scoredResults.slice(0, limit)
   }
 
   /**
