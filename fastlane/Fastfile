@@ -244,7 +244,7 @@ platform :ios do
   lane :production do
     UI.important("🚀 App Store Production Deployment")
     UI.important("================================================")
-    UI.warn("⚠️  This will submit to App Store for review!")
+    UI.important("⚠️  This will submit to App Store for review!")
 
     # Prompt user for confirmation
     unless UI.confirm("Are you sure you want to submit to App Store? (type 'yes'):")
