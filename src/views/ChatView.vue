@@ -53,8 +53,47 @@
       ref="messagesContainer"
       class="flex-1 overflow-y-auto p-4 space-y-4"
     >
+      <!-- AI Data Missing - Import Prompt -->
+      <div v-if="aiDataMissing" class="text-center py-8">
+        <div class="w-16 h-16 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Icon name="exclamation" size="xl" class="text-amber-600 dark:text-amber-400" />
+        </div>
+        <h2 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+          AI Search Data Required
+        </h2>
+        <p class="text-neutral-600 dark:text-neutral-400 mb-6 max-w-sm mx-auto">
+          To enable intelligent search, we need to import AI data. This includes summaries and embeddings for semantic search.
+        </p>
+
+        <!-- Import Progress -->
+        <div v-if="isImportingAi" class="max-w-sm mx-auto mb-6">
+          <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border border-neutral-200 dark:border-neutral-700">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-5 h-5 border-2 border-primary-600 border-t-transparent rounded-full animate-spin"></div>
+              <span class="text-sm text-neutral-700 dark:text-neutral-300">{{ importStep }}</span>
+            </div>
+            <div class="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2">
+              <div
+                class="bg-primary-600 dark:bg-primary-500 h-2 rounded-full transition-all duration-300"
+                :style="{ width: importProgress + '%' }"
+              ></div>
+            </div>
+            <p class="text-xs text-neutral-500 mt-2 text-right">{{ Math.round(importProgress) }}%</p>
+          </div>
+        </div>
+
+        <!-- Import Button -->
+        <button
+          v-if="!isImportingAi"
+          @click="startAiImport"
+          class="bg-primary-600 dark:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 dark:hover:bg-primary-600 transition"
+        >
+          Import AI Data
+        </button>
+      </div>
+
       <!-- Welcome Message -->
-      <div v-if="messages.length === 0" class="text-center py-8">
+      <div v-else-if="messages.length === 0" class="text-center py-8">
         <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
           <Icon name="sparkles" size="xl" class="text-primary-600 dark:text-primary-400" />
         </div>
@@ -244,6 +283,7 @@ import { ref, onMounted, nextTick, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDataStore } from '@/stores/data'
 import dexieDb from '@/services/dexieDatabase'
+import dataLoader from '@/services/dataLoader'
 import chatSearchService from '@/services/chatSearchService'
 import Icon from '@/components/common/Icon.vue'
 
@@ -264,6 +304,12 @@ const searchMode = ref('') // 'semantic' or 'keyword'
 const showQuestionModal = ref(false)
 const modalQuestion = ref(null)
 const showClearConfirm = ref(false)
+
+// AI data import state
+const aiDataMissing = ref(false)
+const isImportingAi = ref(false)
+const importProgress = ref(0)
+const importStep = ref('')
 
 // LocalStorage key for persistence
 const STORAGE_KEY = 'islamqa_chat_messages'
@@ -467,6 +513,37 @@ const goBack = () => {
   router.back()
 }
 
+// Start AI data import
+const startAiImport = async () => {
+  isImportingAi.value = true
+  importProgress.value = 0
+  importStep.value = 'Starting import...'
+
+  try {
+    await dataLoader.importAiDataOnly((progress) => {
+      importProgress.value = progress.progress
+      importStep.value = progress.step
+    })
+
+    // Reload AI data after import
+    const [summaries, embeddings] = await Promise.all([
+      loadSummaries(),
+      loadEmbeddings()
+    ])
+
+    const questions = await dataStore.getAllQuestions()
+    await chatSearchService.initialize(questions, summaries, embeddings)
+
+    aiDataMissing.value = false
+    isImportingAi.value = false
+    importStep.value = 'Import complete!'
+  } catch (error) {
+    console.error('AI import failed:', error)
+    importStep.value = 'Import failed. Please try again.'
+    isImportingAi.value = false
+  }
+}
+
 // Load summaries from Dexie (with JSON fallback)
 const loadSummaries = async () => {
   try {
@@ -532,6 +609,22 @@ onMounted(async () => {
       await scrollToBottom()
     }
 
+    // Check if AI data is available
+    const hasAiData = await dexieDb.hasAiData()
+    if (!hasAiData) {
+      // Check if embeddings.json exists as fallback
+      try {
+        const response = await fetch('./data/embeddings.json', { method: 'HEAD' })
+        if (!response.ok) {
+          aiDataMissing.value = true
+          return
+        }
+      } catch {
+        aiDataMissing.value = true
+        return
+      }
+    }
+
     // Load questions
     const questions = await dataStore.getAllQuestions()
 
@@ -540,6 +633,12 @@ onMounted(async () => {
       loadSummaries(),
       loadEmbeddings()
     ])
+
+    // Check if we actually have embeddings
+    if (Object.keys(embeddings).length === 0) {
+      aiDataMissing.value = true
+      return
+    }
 
     // Initialize chat search service with embeddings
     await chatSearchService.initialize(questions, summaries, embeddings)
