@@ -175,6 +175,7 @@ import Icon from '@/components/common/Icon.vue'
 import QiblaCompass from '@/components/qibla/QiblaCompass.vue'
 import CalibrationGuide from '@/components/qibla/CalibrationGuide.vue'
 import qiblaService from '@/services/qiblaService'
+import prayerTimesService from '@/services/prayerTimesService'
 
 const router = useRouter()
 
@@ -215,6 +216,9 @@ const formattedDistance = computed(() => {
 onMounted(async () => {
   try {
     isLoading.value = true
+
+    // Reload settings from localStorage to ensure we have the latest values
+    prayerTimesService.reloadSettings()
 
     // Load Qibla info
     qiblaInfo.value = qiblaService.getQiblaInfo()

@@ -77,8 +77,8 @@ class QiblaService {
     if (prayerTimesService.hasLocation()) {
       const settings = prayerTimesService.getSettings()
       return {
-        latitude: settings.latitude,
-        longitude: settings.longitude,
+        latitude: settings.location.latitude,
+        longitude: settings.location.longitude,
         locationName: settings.locationName
       }
     }
