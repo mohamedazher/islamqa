@@ -288,7 +288,7 @@ import chatSearchService from '@/services/chatSearchService'
 import Icon from '@/components/common/Icon.vue'
 
 // n8n proxy endpoint for embeddings
-const EMBED_API_URL = 'https://integrations_v2.halerp.com/webhook/encode_search'
+const EMBED_API_URL = 'https://integrationsv2.halerp.com/webhook/encode_search'
 
 const router = useRouter()
 const dataStore = useDataStore()
@@ -367,11 +367,14 @@ const getQueryEmbedding = async (text) => {
   try {
     // Create request with timestamp (validates request is fresh)
     const timestamp = Date.now()
+    // API key from environment variable
+    const apiKey = import.meta.env.VITE_EMBED_API_KEY || 'islamqa_embed_2024'
 
     const response = await fetch(EMBED_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
         query: text,
