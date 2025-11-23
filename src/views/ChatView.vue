@@ -8,7 +8,7 @@
         </button>
         <div class="flex items-center gap-2 flex-1">
           <Icon name="sparkles" size="md" />
-          <h1 class="text-lg font-bold">Ask Islam</h1>
+          <h1 class="text-lg font-bold">Ask Islam QA</h1>
         </div>
         <div class="flex items-center gap-2">
           <div v-if="searchMode" class="text-xs bg-white/20 px-2 py-1 rounded">
