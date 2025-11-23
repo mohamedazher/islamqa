@@ -93,15 +93,59 @@ class DataLoaderService {
 
       // Step 3: Load and import quiz questions (LLM-generated)
       this.currentStep = 'Loading quiz questions...'
-      if (onProgress) onProgress({ step: this.currentStep, progress: 80 })
+      if (onProgress) onProgress({ step: this.currentStep, progress: 76 })
 
       const quizQuestionsData = await this.loadQuizQuestions()
       if (quizQuestionsData && quizQuestionsData.length > 0) {
         await dexieDb.bulkImportQuizQuestions(quizQuestionsData)
-        this.progress = 90
-        if (onProgress) onProgress({ step: `Quiz questions imported (${quizQuestionsData.length} total)`, progress: 90 })
+        this.progress = 80
+        if (onProgress) onProgress({ step: `Quiz questions imported (${quizQuestionsData.length} total)`, progress: 80 })
       } else {
-        if (onProgress) onProgress({ step: 'No quiz questions available yet', progress: 90 })
+        if (onProgress) onProgress({ step: 'No quiz questions available yet', progress: 80 })
+      }
+
+      // Step 4: Load and import AI summaries (for chat search)
+      this.currentStep = 'Loading AI summaries...'
+      if (onProgress) onProgress({ step: this.currentStep, progress: 82 })
+
+      const summariesData = await this.loadAiSummaries()
+      if (summariesData && Object.keys(summariesData).length > 0) {
+        await dexieDb.importSummaries(summariesData, (batchProgress) => {
+          const batchPercent = batchProgress.percentage / 100
+          const overallProgress = 82 + (batchPercent * 4)
+          if (onProgress) {
+            onProgress({
+              step: `Importing AI summaries (${batchProgress.itemsProcessed}/${batchProgress.totalItems})`,
+              progress: overallProgress
+            })
+          }
+        })
+        this.progress = 86
+        if (onProgress) onProgress({ step: `AI summaries imported (${Object.keys(summariesData).length} total)`, progress: 86 })
+      } else {
+        if (onProgress) onProgress({ step: 'No AI summaries available yet', progress: 86 })
+      }
+
+      // Step 5: Load and import AI embeddings (for semantic search)
+      this.currentStep = 'Loading AI embeddings...'
+      if (onProgress) onProgress({ step: this.currentStep, progress: 87 })
+
+      const embeddingsData = await this.loadAiEmbeddings()
+      if (embeddingsData && Object.keys(embeddingsData).length > 0) {
+        await dexieDb.importEmbeddings(embeddingsData, (batchProgress) => {
+          const batchPercent = batchProgress.percentage / 100
+          const overallProgress = 87 + (batchPercent * 8)
+          if (onProgress) {
+            onProgress({
+              step: `Importing AI embeddings (${batchProgress.itemsProcessed}/${batchProgress.totalItems})`,
+              progress: overallProgress
+            })
+          }
+        })
+        this.progress = 95
+        if (onProgress) onProgress({ step: `AI embeddings imported (${Object.keys(embeddingsData).length} total)`, progress: 95 })
+      } else {
+        if (onProgress) onProgress({ step: 'No AI embeddings available yet', progress: 95 })
       }
 
       // Mark as imported
@@ -228,6 +272,71 @@ class DataLoaderService {
   async loadAnswers(part) {
     console.warn('⚠️  loadAnswers() is deprecated. Answers are now embedded in questions.answer')
     return []
+  }
+
+  /**
+   * Load AI summaries from batch files
+   * Loads all available summary batch files and merges them
+   * @returns {Object} - Object with reference keys and summary data
+   */
+  async loadAiSummaries() {
+    const summaries = {}
+    try {
+      const basePath = this.getDataPath()
+
+      // Try to load batch files (batch_001.json to batch_020.json)
+      for (let i = 1; i <= 20; i++) {
+        const batchNum = String(i).padStart(3, '0')
+        try {
+          const response = await fetch(`${basePath}/summaries/batch_${batchNum}.json`)
+          if (response.ok) {
+            const batch = await response.json()
+            if (batch.summaries) {
+              Object.assign(summaries, batch.summaries)
+            }
+          }
+        } catch (e) {
+          // Batch file doesn't exist yet, skip silently
+        }
+      }
+
+      const count = Object.keys(summaries).length
+      if (count > 0) {
+        console.log(`📝 Loaded ${count} AI summaries from batch files`)
+      }
+      return summaries
+    } catch (error) {
+      console.warn('⚠️  Error loading AI summaries:', error.message)
+      return {}
+    }
+  }
+
+  /**
+   * Load AI embeddings from JSON file
+   * @returns {Object} - Object with reference keys and vector arrays
+   */
+  async loadAiEmbeddings() {
+    try {
+      const basePath = this.getDataPath()
+      const response = await fetch(`${basePath}/embeddings.json`)
+
+      if (!response.ok) {
+        console.warn(`⚠️  AI embeddings file not found (HTTP ${response.status})`)
+        return {}
+      }
+
+      const data = await response.json()
+      const embeddings = data.embeddings || {}
+      const count = Object.keys(embeddings).length
+
+      if (count > 0) {
+        console.log(`🔢 Loaded ${count} AI embeddings (${data.metadata?.dimensions || 768}D vectors)`)
+      }
+      return embeddings
+    } catch (error) {
+      console.warn('⚠️  Error loading AI embeddings:', error.message)
+      return {}
+    }
   }
 
   /**

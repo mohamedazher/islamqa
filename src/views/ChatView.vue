@@ -152,6 +152,7 @@
 import { ref, onMounted, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDataStore } from '@/stores/data'
+import dexieDb from '@/services/dexieDatabase'
 import chatSearchService from '@/services/chatSearchService'
 import Icon from '@/components/common/Icon.vue'
 
@@ -307,38 +308,54 @@ const goBack = () => {
   router.back()
 }
 
-// Load summaries from batch files
+// Load summaries from Dexie (with JSON fallback)
 const loadSummaries = async () => {
-  const summaries = {}
-
   try {
-    // Try to load batch files
+    // First try to load from Dexie
+    const summaries = await dexieDb.getAllSummaries()
+    if (Object.keys(summaries).length > 0) {
+      console.log(`Loaded ${Object.keys(summaries).length} summaries from Dexie`)
+      return summaries
+    }
+
+    // Fallback to JSON files (for first-time users before import completes)
+    console.log('No summaries in Dexie, trying JSON fallback...')
+    const fallbackSummaries = {}
     for (let i = 1; i <= 20; i++) {
       const batchNum = String(i).padStart(3, '0')
       try {
         const response = await fetch(`./data/summaries/batch_${batchNum}.json`)
         if (response.ok) {
           const batch = await response.json()
-          Object.assign(summaries, batch.summaries)
+          Object.assign(fallbackSummaries, batch.summaries)
         }
       } catch (e) {
         // Batch file doesn't exist yet, skip
       }
     }
+    return fallbackSummaries
   } catch (error) {
     console.warn('Error loading summaries:', error)
+    return {}
   }
-
-  return summaries
 }
 
-// Load embeddings
+// Load embeddings from Dexie (with JSON fallback)
 const loadEmbeddings = async () => {
   try {
+    // First try to load from Dexie
+    const embeddings = await dexieDb.getAllEmbeddings()
+    if (Object.keys(embeddings).length > 0) {
+      console.log(`Loaded ${Object.keys(embeddings).length} embeddings from Dexie`)
+      return embeddings
+    }
+
+    // Fallback to JSON file (for first-time users before import completes)
+    console.log('No embeddings in Dexie, trying JSON fallback...')
     const response = await fetch('./data/embeddings.json')
     if (response.ok) {
       const data = await response.json()
-      console.log(`Loaded embeddings: ${data.metadata?.total || 0} vectors`)
+      console.log(`Loaded embeddings from JSON: ${data.metadata?.total || 0} vectors`)
       return data.embeddings || {}
     }
   } catch (error) {

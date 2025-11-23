@@ -31,6 +31,23 @@ class DexieDatabase extends Dexie {
       quiz_questions: 'reference'  // Pre-generated quiz questions by LLM, indexed by question reference
     })
 
+    // Version 2: Add AI chat support with embeddings and summaries
+    this.version(2).stores({
+      categories: 'reference, parent_reference',
+      questions: 'reference, primary_category',
+      folders: '++id, folder_name',
+      folder_questions: '++id, reference, folder_id',
+      latest_questions: 'reference, primary_category',
+      settings: 'key',
+      quiz_configurations: '++id, mode, difficulty',
+      quiz_attempts: '++id, session_id, completion_date',
+      quiz_sessions: '++id, quiz_config_id',
+      quiz_questions: 'reference',
+      // NEW: AI chat tables for semantic search
+      ai_summaries: 'reference',  // LLM-generated summaries, tags, key_terms per question
+      ai_embeddings: 'reference'   // Gemini embeddings (768 dimensions) per question
+    })
+
     // Shortcuts to tables
     this.categories = this.table('categories')
     this.questions = this.table('questions')
@@ -44,6 +61,9 @@ class DexieDatabase extends Dexie {
     this.quiz_attempts = this.table('quiz_attempts')
     this.quiz_sessions = this.table('quiz_sessions')
     this.quiz_questions = this.table('quiz_questions')
+    // NEW: AI chat tables
+    this.ai_summaries = this.table('ai_summaries')
+    this.ai_embeddings = this.table('ai_embeddings')
   }
 
   /**
@@ -698,9 +718,213 @@ class DexieDatabase extends Dexie {
     }
   }
 
+  // ==========================================
+  // AI Chat Methods (Summaries & Embeddings)
+  // ==========================================
+
+  /**
+   * Import AI summaries in bulk
+   * @param {Object} summaries - Object with reference keys and summary data values
+   * @param {Function} onProgress - Optional progress callback
+   */
+  async importSummaries(summaries, onProgress = null) {
+    try {
+      const entries = Object.entries(summaries)
+      const BATCH_SIZE = 500
+      const totalItems = entries.length
+      const totalBatches = Math.ceil(totalItems / BATCH_SIZE)
+
+      console.log(`📦 Importing ${totalItems} AI summaries in ${totalBatches} batches`)
+
+      for (let i = 0; i < totalBatches; i++) {
+        const start = i * BATCH_SIZE
+        const end = Math.min(start + BATCH_SIZE, totalItems)
+        const batch = entries.slice(start, end).map(([reference, data]) => ({
+          reference: String(reference),
+          summary: data.summary || '',
+          tags: data.tags || [],
+          key_terms: data.key_terms || [],
+          query_phrases: data.query_phrases || [],
+          ruling: data.ruling || null
+        }))
+
+        await this.ai_summaries.bulkPut(batch)
+
+        if (onProgress) {
+          onProgress({
+            batchIndex: i + 1,
+            totalBatches,
+            itemsProcessed: end,
+            totalItems,
+            percentage: (end / totalItems) * 100
+          })
+        }
+
+        // Yield to event loop
+        if (i < totalBatches - 1) {
+          await new Promise(resolve => setTimeout(resolve, 0))
+        }
+      }
+
+      console.log(`✅ Imported ${totalItems} AI summaries`)
+    } catch (error) {
+      console.error('Error importing AI summaries:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Import AI embeddings in bulk
+   * @param {Object} embeddings - Object with reference keys and vector arrays
+   * @param {Function} onProgress - Optional progress callback
+   */
+  async importEmbeddings(embeddings, onProgress = null) {
+    try {
+      const entries = Object.entries(embeddings)
+      const BATCH_SIZE = 200 // Smaller batch for large vectors
+      const totalItems = entries.length
+      const totalBatches = Math.ceil(totalItems / BATCH_SIZE)
+
+      console.log(`📦 Importing ${totalItems} AI embeddings in ${totalBatches} batches`)
+
+      for (let i = 0; i < totalBatches; i++) {
+        const start = i * BATCH_SIZE
+        const end = Math.min(start + BATCH_SIZE, totalItems)
+        const batch = entries.slice(start, end).map(([reference, vector]) => ({
+          reference: String(reference),
+          vector: vector // 768-dimension array from Gemini
+        }))
+
+        await this.ai_embeddings.bulkPut(batch)
+
+        if (onProgress) {
+          onProgress({
+            batchIndex: i + 1,
+            totalBatches,
+            itemsProcessed: end,
+            totalItems,
+            percentage: (end / totalItems) * 100
+          })
+        }
+
+        // Yield to event loop
+        if (i < totalBatches - 1) {
+          await new Promise(resolve => setTimeout(resolve, 0))
+        }
+      }
+
+      console.log(`✅ Imported ${totalItems} AI embeddings`)
+    } catch (error) {
+      console.error('Error importing AI embeddings:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Get all AI summaries as object (for chatSearchService)
+   * @returns {Object} - Object with reference keys and summary data
+   */
+  async getAllSummaries() {
+    try {
+      const summaries = await this.ai_summaries.toArray()
+      const result = {}
+      for (const s of summaries) {
+        result[s.reference] = {
+          summary: s.summary,
+          tags: s.tags,
+          key_terms: s.key_terms,
+          query_phrases: s.query_phrases,
+          ruling: s.ruling
+        }
+      }
+      console.log(`📖 Loaded ${summaries.length} AI summaries from Dexie`)
+      return result
+    } catch (error) {
+      console.error('Error getting AI summaries:', error)
+      return {}
+    }
+  }
+
+  /**
+   * Get all AI embeddings as object (for chatSearchService)
+   * @returns {Object} - Object with reference keys and vector arrays
+   */
+  async getAllEmbeddings() {
+    try {
+      const embeddings = await this.ai_embeddings.toArray()
+      const result = {}
+      for (const e of embeddings) {
+        result[e.reference] = e.vector
+      }
+      console.log(`🔢 Loaded ${embeddings.length} AI embeddings from Dexie`)
+      return result
+    } catch (error) {
+      console.error('Error getting AI embeddings:', error)
+      return {}
+    }
+  }
+
+  /**
+   * Get AI summary for a specific question
+   */
+  async getSummary(reference) {
+    try {
+      const refStr = String(reference)
+      return await this.ai_summaries.get(refStr)
+    } catch (error) {
+      console.error('Error getting AI summary:', error)
+      return null
+    }
+  }
+
+  /**
+   * Get AI embedding for a specific question
+   */
+  async getEmbedding(reference) {
+    try {
+      const refStr = String(reference)
+      return await this.ai_embeddings.get(refStr)
+    } catch (error) {
+      console.error('Error getting AI embedding:', error)
+      return null
+    }
+  }
+
+  /**
+   * Get AI data stats
+   */
+  async getAiStats() {
+    try {
+      const [summariesCount, embeddingsCount] = await Promise.all([
+        this.ai_summaries.count(),
+        this.ai_embeddings.count()
+      ])
+      return {
+        summaries: summariesCount,
+        embeddings: embeddingsCount
+      }
+    } catch (error) {
+      console.error('Error getting AI stats:', error)
+      return { summaries: 0, embeddings: 0 }
+    }
+  }
+
+  /**
+   * Check if AI data has been imported
+   */
+  async hasAiData() {
+    try {
+      const count = await this.ai_embeddings.count()
+      return count > 0
+    } catch (error) {
+      console.error('Error checking AI data:', error)
+      return false
+    }
+  }
+
   /**
    * Clear all data (for debugging/reset)
-   * UPDATED: Removed answers from transaction since table no longer exists
+   * UPDATED: Includes AI tables
    */
   async clearAllData() {
     try {
@@ -714,7 +938,9 @@ class DexieDatabase extends Dexie {
         this.quiz_configurations,
         this.quiz_attempts,
         this.quiz_sessions,
-        this.quiz_questions
+        this.quiz_questions,
+        this.ai_summaries,
+        this.ai_embeddings
       ], async () => {
         await this.categories.clear()
         await this.questions.clear()
@@ -726,6 +952,8 @@ class DexieDatabase extends Dexie {
         await this.quiz_attempts.clear()
         await this.quiz_sessions.clear()
         await this.quiz_questions.clear()
+        await this.ai_summaries.clear()
+        await this.ai_embeddings.clear()
       })
       console.log('✅ Database cleared')
     } catch (error) {
