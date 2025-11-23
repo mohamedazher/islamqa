@@ -285,6 +285,7 @@ import { useDataStore } from '@/stores/data'
 import dexieDb from '@/services/dexieDatabase'
 import dataLoader from '@/services/dataLoader'
 import chatSearchService from '@/services/chatSearchService'
+import { generateToken } from '@/utils/tokenHash'
 import Icon from '@/components/common/Icon.vue'
 
 // n8n proxy endpoint for embeddings
@@ -365,20 +366,19 @@ const scrollToBottom = async () => {
 // Get query embedding via n8n proxy
 const getQueryEmbedding = async (text) => {
   try {
-    // Create request with timestamp (validates request is fresh)
+    // Generate token from query + timestamp
     const timestamp = Date.now()
-    // API key from environment variable
-    const apiKey = import.meta.env.VITE_EMBED_API_KEY || 'islamqa_embed_2024'
+    const token = generateToken(text, timestamp)
 
     const response = await fetch(EMBED_API_URL, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         query: text,
-        timestamp
+        timestamp,
+        token
       })
     })
 
