@@ -10,6 +10,9 @@
           <Icon name="sparkles" size="md" />
           <h1 class="text-lg font-bold">Ask Islam</h1>
         </div>
+        <div v-if="searchMode" class="ml-auto text-xs bg-white/20 px-2 py-1 rounded">
+          {{ searchMode }}
+        </div>
       </div>
     </header>
 
@@ -27,7 +30,7 @@
           Assalamu Alaikum!
         </h2>
         <p class="text-neutral-600 dark:text-neutral-400 mb-6 max-w-sm mx-auto">
-          Ask me any question about Islam. I'll find relevant answers from our database of 15,000+ scholarly Q&As.
+          Ask me any question about Islam. I'll find relevant answers from our database of scholarly Q&As.
         </p>
 
         <!-- Suggested Questions -->
@@ -66,6 +69,13 @@
               </span>
             </div>
 
+            <!-- Similarity Score -->
+            <div v-if="message.similarity" class="mb-2">
+              <span class="text-xs text-neutral-500">
+                Relevance: {{ Math.round(message.similarity * 100) }}%
+              </span>
+            </div>
+
             <!-- Source Cards -->
             <div v-if="message.results && message.results.length > 0" class="space-y-2 mt-3">
               <p class="text-xs text-neutral-500 dark:text-neutral-400 font-medium">Sources:</p>
@@ -75,9 +85,14 @@
                 @click="openQuestion(result.reference)"
                 class="bg-neutral-50 dark:bg-neutral-900 rounded-lg p-3 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 transition border border-neutral-200 dark:border-neutral-700"
               >
-                <h4 class="text-sm font-medium text-neutral-900 dark:text-neutral-100 line-clamp-2 mb-1">
-                  {{ result.title }}
-                </h4>
+                <div class="flex items-start justify-between gap-2">
+                  <h4 class="text-sm font-medium text-neutral-900 dark:text-neutral-100 line-clamp-2 mb-1 flex-1">
+                    {{ result.title }}
+                  </h4>
+                  <span v-if="result.similarity" class="text-xs text-primary-600 dark:text-primary-400 whitespace-nowrap">
+                    {{ Math.round(result.similarity * 100) }}%
+                  </span>
+                </div>
                 <p v-if="result.summary" class="text-xs text-neutral-600 dark:text-neutral-400 line-clamp-2">
                   {{ result.summary }}
                 </p>
@@ -140,6 +155,9 @@ import { useDataStore } from '@/stores/data'
 import chatSearchService from '@/services/chatSearchService'
 import Icon from '@/components/common/Icon.vue'
 
+// Gemini API key for query embeddings
+const GEMINI_API_KEY = 'AIzaSyAEma46H6zePFRvQnp8ccfkOPI9eb7mbR8'
+
 const router = useRouter()
 const dataStore = useDataStore()
 
@@ -148,12 +166,43 @@ const inputText = ref('')
 const isLoading = ref(false)
 const messagesContainer = ref(null)
 const suggestedQuestions = ref([])
+const searchMode = ref('') // 'semantic' or 'keyword'
 
 // Scroll to bottom of messages
 const scrollToBottom = async () => {
   await nextTick()
   if (messagesContainer.value) {
     messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight
+  }
+}
+
+// Get query embedding from Gemini API
+const getQueryEmbedding = async (text) => {
+  try {
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key=${GEMINI_API_KEY}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: {
+            parts: [{ text }]
+          }
+        })
+      }
+    )
+
+    if (!response.ok) {
+      throw new Error(`Gemini API error: ${response.status}`)
+    }
+
+    const data = await response.json()
+    return data.embedding?.values || null
+  } catch (error) {
+    console.warn('Failed to get query embedding:', error)
+    return null
   }
 }
 
@@ -207,8 +256,19 @@ const askQuestion = async (question) => {
   await scrollToBottom()
 
   try {
+    // Try to get query embedding for semantic search
+    const queryEmbedding = await getQueryEmbedding(question)
+
     // Search for relevant answers
-    const results = chatSearchService.search(question, 5)
+    const results = chatSearchService.search(question, 5, queryEmbedding)
+
+    // Update search mode indicator
+    if (results.length > 0 && results[0].matchType === 'vector') {
+      searchMode.value = 'semantic'
+    } else {
+      searchMode.value = 'keyword'
+    }
+
     const response = chatSearchService.formatAsResponse(results, question)
 
     // Remove loading indicator
@@ -219,6 +279,7 @@ const askQuestion = async (question) => {
       type: 'assistant',
       content: response.message,
       ruling: response.ruling,
+      similarity: response.similarity,
       results: response.results
     })
 
@@ -271,22 +332,40 @@ const loadSummaries = async () => {
   return summaries
 }
 
+// Load embeddings
+const loadEmbeddings = async () => {
+  try {
+    const response = await fetch('./data/embeddings.json')
+    if (response.ok) {
+      const data = await response.json()
+      console.log(`Loaded embeddings: ${data.metadata?.total || 0} vectors`)
+      return data.embeddings || {}
+    }
+  } catch (error) {
+    console.warn('Error loading embeddings:', error)
+  }
+  return {}
+}
+
 // Initialize
 onMounted(async () => {
   try {
     // Load questions
     const questions = await dataStore.getAllQuestions()
 
-    // Load AI summaries
-    const summaries = await loadSummaries()
+    // Load AI summaries and embeddings in parallel
+    const [summaries, embeddings] = await Promise.all([
+      loadSummaries(),
+      loadEmbeddings()
+    ])
 
-    // Initialize chat search service
-    await chatSearchService.initialize(questions, summaries)
+    // Initialize chat search service with embeddings
+    await chatSearchService.initialize(questions, summaries, embeddings)
 
     // Get suggested questions
     suggestedQuestions.value = chatSearchService.getSuggestedQuestions()
 
-    console.log('Chat service initialized')
+    console.log('Chat service initialized with semantic search')
   } catch (error) {
     console.error('Error initializing chat:', error)
   }

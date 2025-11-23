@@ -1,47 +1,70 @@
 import Fuse from 'fuse.js'
 
 /**
- * Chat Search Service - Enhanced search using AI-generated summaries
- * Provides better semantic matching for chat interface
+ * Chat Search Service - Semantic search using Gemini embeddings
+ * Uses cosine similarity for finding relevant Q&As
  */
 class ChatSearchService {
   constructor() {
     this.questions = []
     this.summaries = {}
+    this.embeddings = {}
+    this.embeddingsList = [] // Array format for fast iteration
     this.fuseInstance = null
-    this.enhancedData = []
     this.isReady = false
-
-    // Common ruling words to exclude from topic search
-    this.rulingWords = new Set([
-      'halal', 'haram', 'makruh', 'mubah', 'mustahabb', 'wajib',
-      'permissible', 'forbidden', 'allowed', 'prohibited', 'obligatory',
-      'is', 'it', 'the', 'a', 'an', 'in', 'islam', 'islamic', 'ruling', 'on'
-    ])
+    this.hasEmbeddings = false
   }
 
   /**
-   * Initialize with questions and AI summaries
+   * Initialize with questions, summaries, and embeddings
    */
-  async initialize(questions, summaries) {
+  async initialize(questions, summaries, embeddings = null) {
     this.questions = questions
     this.summaries = summaries || {}
 
-    // Create enhanced search data by merging questions with summaries
-    this.enhancedData = this.questions.map(q => {
+    // Process embeddings if provided
+    if (embeddings && Object.keys(embeddings).length > 0) {
+      this.embeddings = embeddings
+      this.hasEmbeddings = true
+
+      // Create array format for faster iteration
+      this.embeddingsList = Object.entries(embeddings).map(([ref, vector]) => ({
+        reference: ref,
+        vector: new Float32Array(vector) // Use typed array for performance
+      }))
+
+      console.log(`Loaded ${this.embeddingsList.length} embeddings`)
+    }
+
+    // Create question lookup map
+    this.questionMap = {}
+    for (const q of this.questions) {
+      this.questionMap[q.reference] = q
+    }
+
+    // Initialize Fuse as fallback
+    this.initializeFuse()
+
+    this.isReady = true
+    console.log(`ChatSearchService initialized with ${questions.length} questions, ${Object.keys(summaries).length} summaries, embeddings: ${this.hasEmbeddings}`)
+  }
+
+  /**
+   * Initialize Fuse.js for fallback/hybrid search
+   */
+  initializeFuse() {
+    const enhancedData = this.questions.map(q => {
       const summary = this.summaries[q.reference] || {}
       return {
         ...q,
         ai_summary: summary.summary || '',
         ai_tags: (summary.tags || []).join(' '),
         ai_key_terms: (summary.key_terms || []).join(' '),
-        ai_query_phrases: (summary.query_phrases || []).join(' '),
-        ai_ruling: summary.ruling || null
+        ai_query_phrases: (summary.query_phrases || []).join(' ')
       }
     })
 
-    // Initialize Fuse with enhanced data - prioritize title and summary
-    this.fuseInstance = new Fuse(this.enhancedData, {
+    this.fuseInstance = new Fuse(enhancedData, {
       keys: [
         { name: 'title', weight: 0.4 },
         { name: 'ai_summary', weight: 0.3 },
@@ -53,43 +76,70 @@ class ChatSearchService {
       ignoreLocation: true,
       minMatchCharLength: 2,
       includeScore: true,
-      isCaseSensitive: false,
-      findAllMatches: true
+      isCaseSensitive: false
     })
-
-    this.isReady = true
-    console.log(`ChatSearchService initialized with ${questions.length} questions and ${Object.keys(summaries).length} summaries`)
   }
 
   /**
-   * Extract topic words from query (excluding ruling words)
+   * Compute cosine similarity between two vectors
    */
-  extractTopicWords(query) {
-    return query.toLowerCase()
-      .split(/\s+/)
-      .filter(word => word.length > 1 && !this.rulingWords.has(word))
-  }
+  cosineSimilarity(vecA, vecB) {
+    let dotProduct = 0
+    let normA = 0
+    let normB = 0
 
-  /**
-   * Extract ruling intent from query
-   */
-  extractRulingIntent(query) {
-    const lowerQuery = query.toLowerCase()
-    if (lowerQuery.includes('haram') || lowerQuery.includes('forbidden') || lowerQuery.includes('prohibited')) {
-      return 'haram'
+    for (let i = 0; i < vecA.length; i++) {
+      dotProduct += vecA[i] * vecB[i]
+      normA += vecA[i] * vecA[i]
+      normB += vecB[i] * vecB[i]
     }
-    if (lowerQuery.includes('halal') || lowerQuery.includes('permissible') || lowerQuery.includes('allowed')) {
-      return 'halal'
-    }
-    return null
+
+    if (normA === 0 || normB === 0) return 0
+    return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB))
   }
 
   /**
-   * Search for relevant Q&As
-   * Returns top matches with relevance scores
+   * Search using vector similarity
    */
-  search(query, limit = 5) {
-    if (!this.isReady || !this.fuseInstance) {
+  vectorSearch(queryEmbedding, limit = 5) {
+    if (!this.hasEmbeddings || !queryEmbedding) {
+      return []
+    }
+
+    const queryVector = new Float32Array(queryEmbedding)
+
+    // Calculate similarity for all embeddings
+    const similarities = this.embeddingsList.map(item => ({
+      reference: item.reference,
+      similarity: this.cosineSimilarity(queryVector, item.vector)
+    }))
+
+    // Sort by similarity (descending)
+    similarities.sort((a, b) => b.similarity - a.similarity)
+
+    // Return top results with question data
+    return similarities.slice(0, limit).map(item => {
+      const question = this.questionMap[item.reference]
+      const summary = this.summaries[item.reference]
+
+      return {
+        ...question,
+        reference: item.reference,
+        similarity: item.similarity,
+        score: 1 - item.similarity, // Convert to score (lower is better for consistency)
+        ai_summary: summary?.summary || '',
+        ai_tags: summary?.tags || [],
+        ai_ruling: summary?.ruling || null,
+        matchType: 'vector'
+      }
+    }).filter(r => r.reference) // Filter out any missing questions
+  }
+
+  /**
+   * Hybrid search: combines vector search with keyword fallback
+   */
+  search(query, limit = 5, queryEmbedding = null) {
+    if (!this.isReady) {
       console.warn('ChatSearchService not initialized')
       return []
     }
@@ -98,46 +148,34 @@ class ChatSearchService {
       return []
     }
 
-    const topicWords = this.extractTopicWords(query)
-    const rulingIntent = this.extractRulingIntent(query)
-
-    // If we have topic words, search for them specifically
-    let searchQuery = query.trim()
-    if (topicWords.length > 0) {
-      // Prioritize topic words in search
-      searchQuery = topicWords.join(' ')
+    // If we have query embedding, use vector search
+    if (queryEmbedding && this.hasEmbeddings) {
+      const vectorResults = this.vectorSearch(queryEmbedding, limit)
+      if (vectorResults.length > 0) {
+        return vectorResults
+      }
     }
 
-    // Fuzzy search with topic-focused query
-    const fuseResults = this.fuseInstance.search(searchQuery)
+    // Fallback to Fuse.js keyword search
+    return this.keywordSearch(query, limit)
+  }
 
-    // Score and filter results
-    const scoredResults = fuseResults.map(result => {
-      let adjustedScore = result.score
+  /**
+   * Keyword-based search using Fuse.js
+   */
+  keywordSearch(query, limit = 5) {
+    if (!this.fuseInstance) {
+      return []
+    }
 
-      // Boost if title contains topic words
-      const titleLower = (result.item.title || '').toLowerCase()
-      const topicInTitle = topicWords.some(word => titleLower.includes(word))
-      if (topicInTitle) {
-        adjustedScore *= 0.5 // Significant boost
-      }
+    const results = this.fuseInstance.search(query.trim())
 
-      // Boost if ruling matches intent
-      if (rulingIntent && result.item.ai_ruling === rulingIntent) {
-        adjustedScore *= 0.8 // Slight boost
-      }
-
-      return {
-        ...result.item,
-        score: adjustedScore,
-        matchType: 'fuzzy'
-      }
-    })
-
-    // Sort by adjusted score (lower is better)
-    scoredResults.sort((a, b) => a.score - b.score)
-
-    return scoredResults.slice(0, limit)
+    return results.slice(0, limit).map(result => ({
+      ...result.item,
+      score: result.score,
+      similarity: 1 - result.score,
+      matchType: 'keyword'
+    }))
   }
 
   /**
@@ -172,12 +210,14 @@ class ChatSearchService {
       type: 'found',
       message: summary?.summary || `Here's what I found about "${query}":`,
       ruling: summary?.ruling || null,
+      similarity: topResult.similarity,
       results: results.map(r => ({
         reference: r.reference,
         title: r.title,
         summary: this.summaries[r.reference]?.summary || '',
         tags: this.summaries[r.reference]?.tags || [],
         ruling: this.summaries[r.reference]?.ruling || null,
+        similarity: r.similarity,
         score: r.score
       }))
     }
