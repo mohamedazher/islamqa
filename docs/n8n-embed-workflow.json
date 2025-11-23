@@ -1,0 +1,102 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "encode_search",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [100, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Validate token derived from query + timestamp\nconst MAX_AGE_MS = 5 * 60 * 1000; // 5 minutes\n\nconst body = $input.first().json.body;\nconst { query, timestamp, token } = body;\n\n// Check required fields\nif (!query || !timestamp || !token) {\n  throw new Error('Missing required fields: query, timestamp, token');\n}\n\n// Check timestamp is recent\nconst now = Date.now();\nconst age = Math.abs(now - timestamp);\nif (age > MAX_AGE_MS) {\n  throw new Error(`Request expired (age: ${age}ms, max: ${MAX_AGE_MS}ms)`);\n}\n\n// Regenerate token to verify\nconst payload = `${query}|${timestamp}`;\nlet hash = 5381;\nfor (let i = 0; i < payload.length; i++) {\n  const char = payload.charCodeAt(i);\n  hash = ((hash << 5) + hash) ^ char;\n}\nconst expectedToken = Math.abs(hash >>> 0).toString(16).padStart(8, '0');\n\n// Validate token\nif (token !== expectedToken) {\n  throw new Error(`Invalid token (got: ${token}, expected: ${expectedToken})`);\n}\n\nreturn [{ json: { query } }];"
+      },
+      "id": "validate",
+      "name": "Validate Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [300, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key={{ $env.GEMINI_API_KEY }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ content: { parts: [{ text: $json.query }] } }) }}",
+        "options": {}
+      },
+      "id": "gemini",
+      "name": "Call Gemini API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ embedding: $json.embedding.values }) }}",
+        "options": {}
+      },
+      "id": "respond",
+      "name": "Respond Success",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [700, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Request": {
+      "main": [
+        [
+          {
+            "node": "Call Gemini API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Gemini API": {
+      "main": [
+        [
+          {
+            "node": "Respond Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}
