@@ -285,7 +285,6 @@ import { useDataStore } from '@/stores/data'
 import dexieDb from '@/services/dexieDatabase'
 import dataLoader from '@/services/dataLoader'
 import chatSearchService from '@/services/chatSearchService'
-import { createEmbedRequest } from '@/utils/embedHash'
 import Icon from '@/components/common/Icon.vue'
 
 // n8n proxy endpoint for embeddings
@@ -366,15 +365,18 @@ const scrollToBottom = async () => {
 // Get query embedding via n8n proxy
 const getQueryEmbedding = async (text) => {
   try {
-    // Create validated request with hash
-    const requestPayload = await createEmbedRequest(text)
+    // Create request with timestamp (validates request is fresh)
+    const timestamp = Date.now()
 
     const response = await fetch(EMBED_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(requestPayload)
+      body: JSON.stringify({
+        query: text,
+        timestamp
+      })
     })
 
     if (!response.ok) {
