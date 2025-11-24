@@ -68,10 +68,9 @@
 
       <!-- Rotating Compass Rose (rotates opposite to device heading) -->
       <div
-        class="absolute inset-0 transition-transform"
+        class="absolute inset-0"
         :style="{
-          transform: `rotate(${-deviceHeading}deg)`,
-          transitionDuration: smooth ? '100ms' : '0ms'
+          transform: `rotate(${-deviceHeading}deg)`
         }"
       >
         <!-- Inner compass circle -->
@@ -88,10 +87,9 @@
 
       <!-- Qibla Direction Indicator (always points to Qibla) -->
       <div
-        class="absolute inset-0 transition-transform"
+        class="absolute inset-0"
         :style="{
-          transform: `rotate(${qiblaRelative}deg)`,
-          transitionDuration: smooth ? '100ms' : '0ms'
+          transform: `rotate(${qiblaRelative}deg)`
         }"
       >
         <svg :width="size" :height="size" class="absolute inset-0">
@@ -191,11 +189,6 @@ const props = defineProps({
   size: {
     type: Number,
     default: 280
-  },
-  // Enable smooth transitions
-  smooth: {
-    type: Boolean,
-    default: true
   },
   // Tolerance for alignment detection (degrees)
   alignmentTolerance: {
