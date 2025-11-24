@@ -2,7 +2,7 @@
   <div class="qibla-compass flex flex-col items-center justify-center">
     <!-- Compass Container -->
     <div class="relative" :style="{ width: size + 'px', height: size + 'px' }">
-      <!-- Outer Ring with Degree Markers -->
+      <!-- Static Outer Ring (bezel) -->
       <svg
         :width="size"
         :height="size"
@@ -18,74 +18,91 @@
           stroke-width="2"
           class="text-neutral-200 dark:text-neutral-700"
         />
-
-        <!-- Degree Markers -->
-        <g :transform="`translate(${size / 2}, ${size / 2})`">
-          <!-- Major markers every 30 degrees -->
-          <g v-for="deg in majorDegrees" :key="'major-' + deg">
-            <line
-              :x1="0"
-              :y1="-(size / 2 - 20)"
-              :x2="0"
-              :y2="-(size / 2 - 8)"
-              stroke="currentColor"
-              stroke-width="2"
-              class="text-neutral-400 dark:text-neutral-500"
-              :transform="`rotate(${deg})`"
-            />
-          </g>
-          <!-- Minor markers every 10 degrees -->
-          <g v-for="deg in minorDegrees" :key="'minor-' + deg">
-            <line
-              :x1="0"
-              :y1="-(size / 2 - 16)"
-              :x2="0"
-              :y2="-(size / 2 - 8)"
-              stroke="currentColor"
-              stroke-width="1"
-              class="text-neutral-300 dark:text-neutral-600"
-              :transform="`rotate(${deg})`"
-            />
-          </g>
-        </g>
-
-        <!-- Cardinal Direction Labels -->
-        <g :transform="`translate(${size / 2}, ${size / 2})`">
-          <text
-            v-for="cardinal in cardinals"
-            :key="cardinal.label"
-            :x="cardinal.x"
-            :y="cardinal.y"
-            text-anchor="middle"
-            dominant-baseline="middle"
-            class="text-xs font-bold fill-current"
-            :class="cardinal.label === 'N' ? 'text-red-500 dark:text-red-400' : 'text-neutral-600 dark:text-neutral-400'"
-          >
-            {{ cardinal.label }}
-          </text>
-        </g>
+        <!-- Inner background -->
+        <circle
+          :cx="size / 2"
+          :cy="size / 2"
+          :r="size / 2 - 8"
+          fill="currentColor"
+          class="text-neutral-100 dark:text-neutral-800"
+        />
       </svg>
 
-      <!-- Rotating Compass Rose (rotates opposite to device heading) -->
+      <!-- Rotating Compass Dial (rotates with device heading) -->
       <div
         class="absolute inset-0"
         :style="{
           transform: `rotate(${-deviceHeading}deg)`
         }"
       >
-        <!-- Inner compass circle -->
         <svg :width="size" :height="size" class="absolute inset-0">
-          <circle
-            :cx="size / 2"
-            :cy="size / 2"
-            :r="size / 2 - 40"
-            fill="currentColor"
-            class="text-neutral-100 dark:text-neutral-800"
-          />
+          <g :transform="`translate(${size / 2}, ${size / 2})`">
+            <!-- Degree Markers -->
+            <!-- Major markers every 30 degrees -->
+            <g v-for="deg in majorDegrees" :key="'major-' + deg">
+              <line
+                :x1="0"
+                :y1="-(size / 2 - 20)"
+                :x2="0"
+                :y2="-(size / 2 - 10)"
+                stroke="currentColor"
+                stroke-width="2"
+                class="text-neutral-400 dark:text-neutral-500"
+                :transform="`rotate(${deg})`"
+              />
+            </g>
+            <!-- Minor markers every 10 degrees -->
+            <g v-for="deg in minorDegrees" :key="'minor-' + deg">
+              <line
+                :x1="0"
+                :y1="-(size / 2 - 16)"
+                :x2="0"
+                :y2="-(size / 2 - 10)"
+                stroke="currentColor"
+                stroke-width="1"
+                class="text-neutral-300 dark:text-neutral-600"
+                :transform="`rotate(${deg})`"
+              />
+            </g>
+
+            <!-- Cardinal Direction Labels -->
+            <text
+              :y="-(size / 2 - 35)"
+              text-anchor="middle"
+              dominant-baseline="middle"
+              class="text-sm font-bold fill-current text-red-500 dark:text-red-400"
+            >
+              N
+            </text>
+            <text
+              :x="size / 2 - 35"
+              text-anchor="middle"
+              dominant-baseline="middle"
+              class="text-sm font-bold fill-current text-neutral-600 dark:text-neutral-400"
+            >
+              E
+            </text>
+            <text
+              :y="size / 2 - 35"
+              text-anchor="middle"
+              dominant-baseline="middle"
+              class="text-sm font-bold fill-current text-neutral-600 dark:text-neutral-400"
+            >
+              S
+            </text>
+            <text
+              :x="-(size / 2 - 35)"
+              text-anchor="middle"
+              dominant-baseline="middle"
+              class="text-sm font-bold fill-current text-neutral-600 dark:text-neutral-400"
+            >
+              W
+            </text>
+          </g>
         </svg>
       </div>
 
-      <!-- Qibla Direction Indicator (always points to Qibla) -->
+      <!-- Qibla Direction Indicator (always points to Qibla relative to device) -->
       <div
         class="absolute inset-0"
         :style="{
@@ -95,21 +112,30 @@
         <svg :width="size" :height="size" class="absolute inset-0">
           <!-- Qibla Arrow -->
           <g :transform="`translate(${size / 2}, ${size / 2})`">
-            <!-- Arrow body -->
+            <!-- Arrow head -->
             <polygon
-              :points="`0,${-(size / 2 - 50)} -12,${-(size / 2 - 90)} 0,${-(size / 2 - 80)} 12,${-(size / 2 - 90)}`"
+              :points="`0,${-(size / 2 - 45)} -10,${-(size / 2 - 75)} 0,${-(size / 2 - 65)} 10,${-(size / 2 - 75)}`"
               fill="currentColor"
               class="text-emerald-500 dark:text-emerald-400"
             />
             <!-- Arrow line -->
             <line
               x1="0"
-              :y1="-(size / 2 - 90)"
+              :y1="-(size / 2 - 75)"
               x2="0"
-              y2="0"
+              y2="20"
               stroke="currentColor"
-              stroke-width="3"
+              stroke-width="4"
+              stroke-linecap="round"
               class="text-emerald-500 dark:text-emerald-400"
+            />
+            <!-- Opposite end marker -->
+            <circle
+              cx="0"
+              cy="30"
+              r="6"
+              fill="currentColor"
+              class="text-emerald-300 dark:text-emerald-600"
             />
           </g>
         </svg>
@@ -136,9 +162,9 @@
         </div>
       </div>
 
-      <!-- North Indicator (fixed at top) -->
-      <div class="absolute top-2 left-1/2 -translate-x-1/2">
-        <div class="w-3 h-3 bg-red-500 dark:bg-red-400 rounded-full shadow"></div>
+      <!-- Fixed Top Indicator (shows where phone is pointing) -->
+      <div class="absolute top-1 left-1/2 -translate-x-1/2">
+        <div class="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[12px] border-t-neutral-800 dark:border-t-neutral-200"></div>
       </div>
 
       <!-- Alignment Glow Effect -->
@@ -161,6 +187,9 @@
       </div>
       <div v-if="isAligned" class="mt-2 text-emerald-600 dark:text-emerald-400 font-semibold animate-pulse">
         Facing Qibla
+      </div>
+      <div v-else class="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+        Rotate until arrow points up
       </div>
     </div>
   </div>
@@ -213,17 +242,6 @@ const majorDegrees = [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330]
 
 // Minor degree markers (every 10 degrees, excluding major ones)
 const minorDegrees = [10, 20, 40, 50, 70, 80, 100, 110, 130, 140, 160, 170, 190, 200, 220, 230, 250, 260, 280, 290, 310, 320, 340, 350]
-
-// Cardinal direction positions
-const cardinals = computed(() => {
-  const radius = props.size / 2 - 30
-  return [
-    { label: 'N', x: 0, y: -radius },
-    { label: 'E', x: radius, y: 0 },
-    { label: 'S', x: 0, y: radius },
-    { label: 'W', x: -radius, y: 0 }
-  ]
-})
 </script>
 
 <style scoped>
