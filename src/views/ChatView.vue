@@ -130,28 +130,11 @@
         <!-- Assistant Message -->
         <div v-else-if="message.type === 'assistant'" class="flex justify-start">
           <div class="max-w-[85%] bg-white dark:bg-neutral-800 rounded-2xl rounded-bl-md px-4 py-3 shadow-sm border border-neutral-200 dark:border-neutral-700">
-            <!-- Summary Response -->
-            <p class="text-sm text-neutral-800 dark:text-neutral-200 mb-3">{{ message.content }}</p>
-
-            <!-- Ruling Badge -->
-            <div v-if="message.ruling" class="mb-3">
-              <span :class="getRulingClass(message.ruling)" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium">
-                {{ formatRuling(message.ruling) }}
-              </span>
-            </div>
-
-            <!-- Similarity Score -->
-            <div v-if="message.similarity" class="mb-2">
-              <span class="text-xs text-neutral-500">
-                Relevance: {{ Math.round(message.similarity * 100) }}%
-              </span>
-            </div>
-
             <!-- Source Cards -->
-            <div v-if="message.results && message.results.length > 0" class="space-y-2 mt-3">
-              <p class="text-xs text-neutral-500 dark:text-neutral-400 font-medium">Sources:</p>
+            <div v-if="message.results && message.results.length > 0" class="space-y-2">
+              <p class="text-xs text-neutral-500 dark:text-neutral-400 font-medium mb-3">Matching Questions:</p>
               <div
-                v-for="result in message.results.slice(0, 3)"
+                v-for="result in message.results.slice(0, message.showAll ? message.results.length : 6)"
                 :key="result.reference"
                 @click="openQuestion(result.reference)"
                 class="bg-neutral-50 dark:bg-neutral-900 rounded-lg p-3 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 transition border border-neutral-200 dark:border-neutral-700"
@@ -177,6 +160,22 @@
                   </span>
                 </div>
               </div>
+
+              <!-- See More Button -->
+              <button
+                v-if="message.results.length > 6 && !message.showAll"
+                @click.stop="message.showAll = true"
+                class="w-full mt-2 px-4 py-2 text-sm font-medium text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-lg transition"
+              >
+                Show {{ message.results.length - 6 }} More Results
+              </button>
+              <button
+                v-if="message.showAll && message.results.length > 6"
+                @click.stop="message.showAll = false"
+                class="w-full mt-2 px-4 py-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition"
+              >
+                Show Less
+              </button>
             </div>
           </div>
         </div>
@@ -468,7 +467,8 @@ const askQuestion = async (question) => {
       content: response.message,
       ruling: response.ruling,
       similarity: response.similarity,
-      results: response.results
+      results: response.results,
+      showAll: false
     })
 
   } catch (error) {
@@ -477,7 +477,8 @@ const askQuestion = async (question) => {
     messages.value.push({
       type: 'assistant',
       content: 'Sorry, I encountered an error while searching. Please try again.',
-      results: []
+      results: [],
+      showAll: false
     })
   }
 

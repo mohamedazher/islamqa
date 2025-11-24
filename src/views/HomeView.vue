@@ -108,7 +108,7 @@
       <!-- Quick Actions Grid -->
       <div class="mb-8">
         <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Quick Access</h3>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-3 lg:gap-4">
           <Card
             v-for="action in quickActions"
             :key="action.name"
@@ -413,6 +413,15 @@ const quickActions = [
     to: '/quiz',
     color: 'bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/20 dark:to-orange-800/20',
     iconBg: 'bg-gradient-to-br from-yellow-400 via-orange-400 to-red-400 dark:from-yellow-500 dark:via-orange-500 dark:to-red-500',
+    iconColor: 'text-white'
+  },
+  {
+    name: 'Leaderboard',
+    icon: 'trophy',
+    description: 'View rankings',
+    to: '/leaderboard',
+    color: 'bg-gradient-to-br from-orange-100 to-red-100 dark:from-orange-900/20 dark:to-red-800/20',
+    iconBg: 'bg-gradient-to-br from-amber-400 via-orange-400 to-red-400 dark:from-amber-500 dark:via-orange-500 dark:to-red-500',
     iconColor: 'text-white'
   }
 ]
