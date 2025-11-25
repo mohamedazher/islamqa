@@ -172,8 +172,8 @@ platform :ios do
     UI.important("🚀 TestFlight Deployment")
     UI.important("================================================")
 
-    # Increment patch version
-    sh("cd .. && yarn version:patch")
+    # Note: Version is managed via git commits with [beta]/[release] tags
+    # iOS and Android use the same version to keep them in sync
 
     # Build release IPA
     build_release
@@ -252,8 +252,8 @@ platform :ios do
       exit 1
     end
 
-    # Increment patch version
-    sh("cd .. && yarn version:patch")
+    # Note: Version is managed via git commits with [release]/[production] tags
+    # iOS and Android use the same version to keep them in sync
 
     # Build release IPA
     build_release
