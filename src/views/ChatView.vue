@@ -242,18 +242,18 @@
           </div>
 
           <!-- Question Content -->
-          <div class="prose dark:prose-invert max-w-none">
+          <div class="prose prose-sm dark:prose-invert max-w-none">
             <div class="bg-primary-50 dark:bg-primary-950/30 border-l-4 border-primary-500 dark:border-primary-600 p-4 rounded">
               <h4 class="text-sm font-semibold text-primary-900 dark:text-primary-100 mb-2">Question</h4>
-              <div class="text-neutral-800 dark:text-neutral-200 text-sm" v-html="modalQuestion.question"></div>
+              <div class="text-neutral-800 dark:text-neutral-200" v-html="modalQuestion.question"></div>
             </div>
           </div>
 
           <!-- Answer Content -->
-          <div class="prose dark:prose-invert max-w-none">
+          <div ref="modalAnswerContainer" class="prose prose-sm dark:prose-invert max-w-none">
             <div class="bg-accent-50 dark:bg-accent-950/30 border-l-4 border-accent-500 dark:border-accent-600 p-4 rounded">
               <h4 class="text-sm font-semibold text-accent-900 dark:text-accent-100 mb-2">Answer</h4>
-              <div class="text-neutral-800 dark:text-neutral-200 text-sm" v-html="modalQuestion.answer"></div>
+              <div class="text-neutral-800 dark:text-neutral-200" v-html="processedModalAnswer"></div>
             </div>
           </div>
         </div>
@@ -285,6 +285,7 @@ import dexieDb from '@/services/dexieDatabase'
 import dataLoader from '@/services/dataLoader'
 import chatSearchService from '@/services/chatSearchService'
 import { generateToken } from '@/utils/tokenHash'
+import { processAnswerLinks } from '@/utils/linkHandler'
 import Icon from '@/components/common/Icon.vue'
 
 // n8n proxy endpoint for embeddings
@@ -303,6 +304,8 @@ const searchMode = ref('') // 'semantic' or 'keyword'
 // Modal state
 const showQuestionModal = ref(false)
 const modalQuestion = ref(null)
+const processedModalAnswer = ref('')
+const modalAnswerContainer = ref(null)
 const showClearConfirm = ref(false)
 
 // AI data import state
@@ -486,13 +489,56 @@ const askQuestion = async (question) => {
   await scrollToBottom()
 }
 
+/**
+ * Setup click handlers for TOC (Table of Contents) links in modal
+ * Handles smooth scrolling to anchor elements within the modal
+ */
+function setupModalTocLinkHandlers(container) {
+  if (!container) return
+
+  // Find all TOC links marked by processAnswerLinks
+  const tocLinks = container.querySelectorAll('a[data-toc-link], a.toc-link, a[href^="#"]')
+  console.log(`📍 Found ${tocLinks.length} TOC links in modal`)
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      const anchorId = link.getAttribute('data-toc-anchor')
+      if (!anchorId) return
+
+      console.log(`🖱️  Modal TOC link clicked for anchor: ${anchorId}`)
+      event.preventDefault()
+      event.stopImmediatePropagation()
+
+      const targetElement = document.getElementById(anchorId)
+      if (targetElement) {
+        console.log('✅ Scrolling to TOC section in modal:', anchorId)
+        // Scroll within the modal container
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else {
+        console.warn('❌ TOC target not found in modal:', anchorId)
+      }
+    }, true)
+  })
+}
+
 // Open question detail in modal
 const openQuestion = async (reference) => {
   try {
     const question = await dataStore.getQuestion(reference)
     if (question) {
       modalQuestion.value = question
+      // Process answer links to convert cross-answer links and handle TOC anchors
+      if (question.answer) {
+        processedModalAnswer.value = processAnswerLinks(question.answer)
+      }
       showQuestionModal.value = true
+
+      // Setup link handlers after content is rendered
+      await nextTick()
+      if (modalAnswerContainer.value) {
+        setupModalTocLinkHandlers(modalAnswerContainer.value)
+        console.log('Modal TOC link handlers setup complete')
+      }
     }
   } catch (error) {
     console.error('Error loading question:', error)
@@ -666,5 +712,97 @@ onMounted(async () => {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Prose styling for modal content */
+.prose {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.prose :deep(p) {
+  margin-bottom: 1rem;
+}
+
+.prose :deep(strong) {
+  font-weight: 600;
+  color: #111827;
+}
+
+.dark .prose :deep(strong) {
+  color: #f3f4f6;
+}
+
+.prose :deep(em) {
+  font-style: italic;
+}
+
+/* Link styles */
+.prose :deep(a) {
+  color: #059669;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.prose :deep(a:hover) {
+  color: #047857;
+}
+
+.dark .prose :deep(a) {
+  color: #34d399;
+}
+
+.dark .prose :deep(a:hover) {
+  color: #10b981;
+}
+
+/* Table of Contents styling */
+.prose :deep(#toc_container) {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.dark .prose :deep(#toc_container) {
+  background-color: #064e3b;
+  border-color: #065f46;
+}
+
+.prose :deep(.toc_title) {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #065f46;
+  margin-bottom: 0.75rem;
+}
+
+.dark .prose :deep(.toc_title) {
+  color: #6ee7b7;
+}
+
+.prose :deep(.toc_list) {
+  list-style: none;
+  padding-left: 0;
+}
+
+.prose :deep(.toc_list li) {
+  margin-bottom: 0.5rem;
+}
+
+/* Section headers with anchors */
+.prose :deep(h3 span[id]) {
+  scroll-margin-top: 80px;
+}
+
+.prose :deep(ul),
+.prose :deep(ol) {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose :deep(li) {
+  margin-bottom: 0.5rem;
 }
 </style>
