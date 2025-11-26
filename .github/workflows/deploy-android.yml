@@ -73,9 +73,7 @@ jobs:
         run: yarn version:patch
 
       - name: Setup Cordova
-        run: |
-          npm install -g cordova@latest
-          cordova telemetry off
+        run: npm install -g cordova@latest
 
       - name: Decode and setup keystore
         env:
