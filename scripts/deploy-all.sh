@@ -122,6 +122,15 @@ if [[ -n $(git status -s) ]]; then
     print_warning "You have uncommitted changes:"
     git status -s
     echo ""
+
+    # Check for unwanted files that shouldn't be committed
+    if git status -s | grep -E "apk_analysis/|\.apk$|\.ipa$|node_modules/|platforms/|plugins/"; then
+        print_error "Found files that should be ignored:"
+        git status -s | grep -E "apk_analysis/|\.apk$|\.ipa$|node_modules/|platforms/|plugins/" || true
+        print_error "These files should not be committed. Please check .gitignore"
+        exit 1
+    fi
+
     read -p "Continue anyway? (y/n) " -n 1 -r
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
