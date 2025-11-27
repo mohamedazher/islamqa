@@ -37,6 +37,9 @@ Thumbs.db
 *.xcarchive
 *.dSYM
 
+# APK analysis folder (extracted APKs)
+apk_analysis/
+
 # Logs
 *.log
 npm-debug.log*
