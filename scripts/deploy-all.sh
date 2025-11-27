@@ -18,6 +18,10 @@
 
 set -e  # Exit on error
 
+# Disable pager to prevent vi/less from opening
+export PAGER=cat
+export GH_PAGER=cat
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -242,7 +246,7 @@ if [ "$DEPLOY_ANDROID" = true ]; then
     # Wait a moment then show latest run
     sleep 3
     print_info "Latest workflow run:"
-    gh run list -L 1 --json name,status,displayTitle,createdAt
+    gh run list -L 1 --json displayTitle,status,createdAt 2>/dev/null | cat
 fi
 
 # =============================================================================
