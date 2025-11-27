@@ -157,10 +157,16 @@ print_header "Version Bump"
 
 # Increment patch version
 print_info "Incrementing patch version..."
-yarn version:patch
+# Use npm version instead of yarn to avoid interactive editor
+npm version patch --no-git-tag-version > /dev/null 2>&1
+
+# Also update config.xml versionCode
+CURRENT_VERSION_CODE=$(grep -o 'android-versionCode="[0-9]*"' config.xml | grep -o '[0-9]*')
+NEW_VERSION_CODE=$((CURRENT_VERSION_CODE + 1))
+sed -i '' "s/android-versionCode=\"${CURRENT_VERSION_CODE}\"/android-versionCode=\"${NEW_VERSION_CODE}\"/" config.xml
 
 NEW_VERSION=$(node -p "require('./package.json').version")
-print_success "Version bumped: $CURRENT_VERSION → $NEW_VERSION"
+print_success "Version bumped: $CURRENT_VERSION → $NEW_VERSION (versionCode: $CURRENT_VERSION_CODE → $NEW_VERSION_CODE)"
 
 # =============================================================================
 # Run Tests
