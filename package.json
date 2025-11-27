@@ -1,6 +1,6 @@
 {
   "name": "com.dkurve.betterislamqa",
-  "version": "2.0.60",
+  "version": "2.0.61",
   "displayName": "BetterIslam Q&A",
   "scripts": {
     "dev": "vite",
