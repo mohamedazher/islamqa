@@ -212,33 +212,21 @@ const headerGradient = computed(() => {
   return 'bg-gradient-to-br from-teal-500 via-cyan-500 to-blue-500'
 })
 
-// Confetti celebration function
+// Confetti celebration function - subtle and brief
 function triggerConfetti() {
-  const duration = 3000
-  const end = Date.now() + duration
+  const colors = ['#10b981', '#14b8a6', '#06b6d4']
 
-  const colors = ['#10b981', '#14b8a6', '#06b6d4', '#3b82f6', '#8b5cf6']
-
-  ;(function frame() {
-    confetti({
-      particleCount: 3,
-      angle: 60,
-      spread: 55,
-      origin: { x: 0 },
-      colors: colors
-    })
-    confetti({
-      particleCount: 3,
-      angle: 120,
-      spread: 55,
-      origin: { x: 1 },
-      colors: colors
-    })
-
-    if (Date.now() < end) {
-      requestAnimationFrame(frame)
-    }
-  })()
+  // Single burst from center-top
+  confetti({
+    particleCount: 30,
+    angle: 90,
+    spread: 45,
+    origin: { x: 0.5, y: 0.3 },
+    colors: colors,
+    ticks: 100,
+    gravity: 1.2,
+    scalar: 0.8
+  })
 }
 
 // Watch for reaching the last card
