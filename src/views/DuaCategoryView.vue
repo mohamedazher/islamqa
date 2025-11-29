@@ -178,10 +178,11 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, nextTick } from 'vue'
+import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useDuaStore } from '@/stores/dua'
 import { renderMarkdown } from '@/utils/markdownRenderer'
+import confetti from 'canvas-confetti'
 import Icon from '@/components/common/Icon.vue'
 import DuaQuickSettings from '@/components/dua/DuaQuickSettings.vue'
 
@@ -194,6 +195,7 @@ const virtueExpandedIndex = ref(null)
 const cardsContainer = ref(null)
 const currentScrollIndex = ref(0)
 const renderedVirtueCache = ref(new Map())
+const hasTriggeredConfetti = ref(false)
 
 const category = computed(() => duaStore.currentCategory)
 const allDuas = computed(() => duaStore.currentDuas)
@@ -208,6 +210,43 @@ const headerGradient = computed(() => {
     return `bg-gradient-to-br ${category.value.color}`
   }
   return 'bg-gradient-to-br from-teal-500 via-cyan-500 to-blue-500'
+})
+
+// Confetti celebration function
+function triggerConfetti() {
+  const duration = 3000
+  const end = Date.now() + duration
+
+  const colors = ['#10b981', '#14b8a6', '#06b6d4', '#3b82f6', '#8b5cf6']
+
+  ;(function frame() {
+    confetti({
+      particleCount: 3,
+      angle: 60,
+      spread: 55,
+      origin: { x: 0 },
+      colors: colors
+    })
+    confetti({
+      particleCount: 3,
+      angle: 120,
+      spread: 55,
+      origin: { x: 1 },
+      colors: colors
+    })
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame)
+    }
+  })()
+}
+
+// Watch for reaching the last card
+watch(currentScrollIndex, (newIndex) => {
+  if (newIndex === totalDuas.value - 1 && !hasTriggeredConfetti.value && totalDuas.value > 0) {
+    hasTriggeredConfetti.value = true
+    triggerConfetti()
+  }
 })
 
 // Handle scroll to track current dua
@@ -230,8 +269,7 @@ function handleScroll(e) {
     if (newIndex >= totalDuas.value - 1) {
       const isAtEnd = scrollLeft + cardWidth >= container.scrollWidth - 10
       if (isAtEnd && newIndex === totalDuas.value - 1) {
-        // User is at the last card, show completion on next scroll attempt
-        // We'll rely on a manual "Complete" gesture or auto-show after dwelling
+        // User is at the last card, confetti already triggered by watcher
       }
     }
   }, 150)
@@ -262,6 +300,7 @@ function getRenderedVirtue(virtue) {
 
 function restartFromBeginning() {
   showCompletion.value = false
+  hasTriggeredConfetti.value = false
   scrollToIndex(0)
 }
 
@@ -278,6 +317,7 @@ onMounted(async () => {
   // Scroll to first card after data loads
   await nextTick()
   scrollToIndex(0)
+  hasTriggeredConfetti.value = false
 })
 </script>
 
