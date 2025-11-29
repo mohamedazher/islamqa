@@ -12,9 +12,14 @@
         <div class="text-center flex-1 mx-4">
           <h1 class="text-base font-semibold truncate">{{ category?.title }}</h1>
         </div>
-        <button @click="showSettings = true" class="p-2 -mr-2 rounded-lg hover:bg-white/10">
-          <Icon name="settings" size="md" class="text-white" />
-        </button>
+        <div class="flex items-center gap-1">
+          <button @click="handleShareDua" class="p-2 rounded-lg hover:bg-white/10">
+            <Icon name="share" size="md" class="text-white" />
+          </button>
+          <button @click="showSettings = true" class="p-2 -mr-2 rounded-lg hover:bg-white/10">
+            <Icon name="settings" size="md" class="text-white" />
+          </button>
+        </div>
       </div>
 
       <!-- Progress Section -->
@@ -186,6 +191,7 @@ import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useDuaStore } from '@/stores/dua'
 import { renderMarkdown } from '@/utils/markdownRenderer'
+import { shareDua } from '@/utils/sharing'
 import confetti from 'canvas-confetti'
 import Icon from '@/components/common/Icon.vue'
 import DuaQuickSettings from '@/components/dua/DuaQuickSettings.vue'
@@ -298,6 +304,18 @@ function restartFromBeginning() {
 
 function updateSettings(newSettings) {
   duaStore.updateSettings(newSettings)
+}
+
+// Share current dua
+async function handleShareDua() {
+  const currentDuaData = allDuas.value[currentScrollIndex.value]
+  if (currentDuaData) {
+    try {
+      await shareDua(currentDuaData)
+    } catch (error) {
+      console.error('Error sharing dua:', error)
+    }
+  }
 }
 
 onMounted(async () => {

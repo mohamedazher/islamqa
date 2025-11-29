@@ -37,6 +37,53 @@ export async function shareQuestion(question) {
 }
 
 /**
+ * Share a dua
+ */
+export async function shareDua(dua) {
+  const title = `Dua: ${dua.title}`
+
+  // Build the text content
+  let text = `📿 ${dua.title}\n\n`
+
+  // Add Arabic text
+  if (dua.arabic) {
+    text += `${dua.arabic}\n\n`
+  }
+
+  // Add transliteration if available
+  if (dua.transliteration) {
+    text += `${dua.transliteration}\n\n`
+  }
+
+  // Add translation
+  if (dua.translation) {
+    const cleanTranslation = stripHtml(dua.translation)
+    text += `${cleanTranslation}\n\n`
+  }
+
+  // Add reference if available
+  if (dua.reference) {
+    text += `📖 ${dua.reference}\n\n`
+  }
+
+  // Add repetitions if > 1
+  if (dua.repetitions && dua.repetitions > 1) {
+    text += `🔁 Repeat ${dua.repetitions}×\n\n`
+  }
+
+  text += 'Shared from BetterIslam Q&A'
+
+  // For duas, we don't have a specific URL, so we'll share the app
+  const url = 'https://play.google.com/store/apps/details?id=com.dkurve.betterislamqa'
+
+  return share({
+    title,
+    text,
+    url
+  })
+}
+
+/**
  * Share the app
  */
 export async function shareApp() {
