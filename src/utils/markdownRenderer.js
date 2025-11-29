@@ -27,5 +27,11 @@ export function renderMarkdown(text) {
     .replace(/\\\|/g, '|')      // Handle escaped pipes
     .replace(/\n\n\n+/g, '\n\n') // Normalize multiple consecutive newlines to double newline
 
+  // Convert bullet points (•) to markdown list items
+  // Replace "• text" with "- text" and ensure proper line breaks
+  processed = processed
+    .replace(/•\s+/g, '\n- ')   // Convert • bullet to markdown list item
+    .replace(/\n\n-\s/g, '\n- ') // Fix double newlines before list items
+
   return md.render(processed)
 }
