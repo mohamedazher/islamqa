@@ -1,0 +1,262 @@
+{
+  "category_id": 17,
+  "category_name": "Food & Drink",
+  "duas": [
+    {
+      "id": 1,
+      "category_id": 17,
+      "title": "Before Eating #1",
+      "title_ar": null,
+      "arabic": "",
+      "transliteration": "Bismillāh.",
+      "translation": "In the name of Allah.",
+      "virtue": "",
+      "reference": "",
+      "repetitions": null,
+      "order": 1,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 2,
+      "category_id": 17,
+      "title": "Before Eating #2",
+      "title_ar": null,
+      "arabic": "اَللّٰهُمَّ بَارِكْ لَنَا فِيْهِ وَأَطْعِمْنَا خَيْراً مِنْهُ.",
+      "transliteration": "Allāhumma bārik lanā fīhi wa aṭʿimnā khayran minh.",
+      "translation": "O Allah, bless us in it and feed us that which is better than it.",
+      "virtue": "Ibn Abbās (raḍiy Allāhu ‘anhuma) narrated: “I entered with the Messenger of Allah ﷺ, I and Khālid bin Al-Walid, upon Maimunah (raḍiy Allāhu ‘anhā) so she brought us a vessel of milk. The Messenger of Allah ﷺ drank from it, I was upon his right and Khālid was upon his left, so he said to me: ‘The (turn to) drink is for you, so if you wish, you could choose to grant it to Khalid.’ So I said: ‘I would not prefer anyone other than myself for your leftovers.’ Then the Messenger of Allah ﷺ said: ‘Whoever Allah feeds some food, then let him say \\[the above\\].’” (Tirmidhī 3455)",
+      "reference": "Tirmidhī 3455",
+      "repetitions": null,
+      "order": 2,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 3,
+      "category_id": 17,
+      "title": "If One Forgets at the Beginning:",
+      "title_ar": null,
+      "arabic": "بِسْمِ اللّٰهِ أَوَّلَهُ وَآخِرَهُ.",
+      "transliteration": "Bismi-llāhi awwalahū wa ākhirah.",
+      "translation": "In the Name of Allah at the beginning and at the end of it.",
+      "virtue": "The Messenger of Allah (ﷺ) said: When one of you eats, he should mention Allah’s name; if he forgets to mention Allah’s name at the beginning, he should say \\[the above\\].” (Abu Dawud 3767, Tirmidhī 1858) Umayyah (raḍiy Allāhu ‘anhu) said: “The Messenger of Allah ﷺ was sitting whilst a man was eating food. That man did not mention the Name of Allah until only a morsel of food was left. When he raised it to his mouth, he said \\[the above\\]. The Messenger of Allah ﷺ smiled at this and said: “Shaytān had been eating with him but when he mentioned the Name of Allah, Shaytān vomited all that was in his stomach.” (Abū Dāwūd 3768)",
+      "reference": "Abu Dawud 3767, Tirmidhī 1858",
+      "repetitions": null,
+      "order": 3,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 4,
+      "category_id": 17,
+      "title": "After Eating #1",
+      "title_ar": null,
+      "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذِيْ أَطْعَمَنِيْ هٰذَا ، وَرَزَقَنِيْهِ مِنْ غَيْرِ حَوْلٍ مِنِّيْ وَلَا قُوَّةٍ.",
+      "transliteration": "Alḥamdu-lillāhi-l-ladhī aṭʿamanī hādhā wa razaqanīhi min ghayri ḥawlim-minnī wa lā quwwah.",
+      "translation": "Praise be to Allah who has fed me this and provided me with it without any power and might from me.",
+      "virtue": "The Messenger of Allah ﷺ said: “Whosoever eats food and says \\[the above\\] at the end, all his past sins will be forgiven.” (Abū Dāwūd 4023 Tirmidhī 3458, Ibn Mājah 3285)",
+      "reference": "Abū Dāwūd 4023 Tirmidhī 3458, Ibn Mājah 3285",
+      "repetitions": null,
+      "order": 4,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 5,
+      "category_id": 17,
+      "title": "After Eating #2",
+      "title_ar": null,
+      "arabic": "اَلْحَمْدُ لِلّٰهِ حَمْدًا كَثِيْرًا طَيِّبًا مُبَارَكًا فِيْهِ ، غَيْرَ مَكْفِيٍّ وَلَا مُوَدَّعٍ ، وَلَا مُسْتَغْنًى عَنْ��ُ رَبَّنَا.",
+      "transliteration": "Alḥamdu-lillāhi ḥamdan kathīran ṭayyibam-mubārakan fīh, ghayra makfiyyiw-wa lā muwaddaʿiw-wa lā mustaghnan ʿanhu rabbanā.",
+      "translation": "Allah be praised with an abundant beautiful blessed praise, a never-ending praise, a praise which we will never bid farewell to and an indispensable praise, our Lord.",
+      "virtue": "Abū Umāmah (raḍiy Allāhu ‘anhu) narrated that when the table spread would be lifted from in front of him, the Messenger of Allah ﷺ would say \\[the above\\]. (Composite: Bukhārī 5458, Tirmidhī 3456)",
+      "reference": "Composite: Bukhārī 5458, Tirmidhī 3456",
+      "repetitions": null,
+      "order": 5,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 6,
+      "category_id": 17,
+      "title": "After Eating #3",
+      "title_ar": null,
+      "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذِيْ كَفَانَا وَأَرْوَانَا ، غَيْرَ مَكْفِىٍّ وَلَا مَكْفُوْرٍ.",
+      "transliteration": "Al-ḥamdu lillāhi-lladhī kafānā wa arwānā, ghayra makfiyyiw-wa lā makfūr.",
+      "translation": "Praise be to Allah Who has sufficed us and quenched our thirst unsufficed and unrejected.",
+      "virtue": "Abū Umāmah (raḍiy Allāhu ‘anhu) narrated that finished eating and the table spread would be lifted from in front of him, the Messenger of Allah ﷺ would say \\[the above\\]. (Bukhārī 5459)",
+      "reference": "Bukhārī 5459",
+      "repetitions": null,
+      "order": 6,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 7,
+      "category_id": 17,
+      "title": "After Eating #4",
+      "title_ar": null,
+      "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذِيْ أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِيْنَ.",
+      "transliteration": "Alhamdu-lillāhi-l-ladhī aṭʿamanā wa saqānā wa jaʿalanā muslimīn.",
+      "translation": "All praise is for Allah, who has fed us and given us drink and made us Muslims.",
+      "virtue": "When the Messenger of Allah ﷺ used to eat or drink, he would say \\[the above\\]. (Abū Dāwūd 3850, Tirmidhī 3547)",
+      "reference": "Abū Dāwūd 3850, Tirmidhī 3547",
+      "repetitions": null,
+      "order": 7,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 8,
+      "category_id": 17,
+      "title": "After Eating #5",
+      "title_ar": null,
+      "arabic": "الْحَمْدُ لِلّٰهِ الَّذِيْ يُطْعِمُ وَلَا يُطْعَمُ ، مَنَّ عَلَيْنَا فَهَدَانَا وَأَطْعَمَنَا وَسَقَانَا ، وَكُلَّ بَلَاءٍ حَسَنٍ أَبْلَانَا ، الْحَمْدُ لِلّٰهِ غَيْرَ مُوَدَّعٍ وَلَا مُكَافَأٍ وَلَا مَكْفُورٍ وَلَا مُسْتَغْنًى عَنْهُ ، الْحَمْدُ لِلّٰهِ الَّذِيْ أَطْعَمَ مِنَ الطَّعَامِ ، وَسَقَىٰ مِنَ الشَّرَابِ ، وَكَسَا مِنَ الْعُرْيِ ، وَهَدَىٰ مِنَ الضَّلَالَةِ ، وَبَصَّرَ مِنَ الْعَمَىٰ ، وَفَضَّلَ عَلَى كَثِيرٍ مِّنْ خَلْقِهِ تَفْضِيْلًا ، اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِيْنَ.",
+      "transliteration": "Al-ḥamdu lillāhi-lladhī yuṭʿiumu wa lā yuṭʿam, manna ʿalaynā fa-hadānā wa aṭʿamanā wa saqānā, wa kulla balā’in ḥasanin ablānā, al-ḥamdu lillāhi ghayra muwaddaʿin wa lā mukāfa’iw-wa lā makfūrin wa lā mustaghnan ʿanh, al-ḥamdu lillāhi-lladhī aṭʿama mina-ṭ-ṭaʿām, wa saqā mina-sh-sharāb, wa kasā minal-ʿurā, wa hadā mina-ḍ-ḍalālah, wa baṣṣara mina-l-ʿamā, wa faḍḍala ʿalā kathīrim-min-khalqihī tafḍīlā, alḥamdu-lillāhi Rabbi-l-ʿālamīn.",
+      "translation": "All praise is for Allah who feeds and is not fed. He favoured us, and thus guided us, blessed us with food and drink, and bestowed upon us every favour. All praise is for Allah, a praise which we will never bid farewell to, a never-ending praise, an accepted praise and an indispensable praise. All praise is for Allah who provided food and drink; who clothed us, guided us from error, removed our blindness and favoured us greatly over many of His creation. All praise is for Allah, Lord of the worlds.",
+      "virtue": "Abū Hurayrah (raḍiy Allāhu ‘anhu) narrates: “A man from the Ansār from the people of Qubā invited the Prophet ﷺ for a meal. When he ﷺ had finished eating and had washed his hands, he said \\[the above\\].” (Nasā’ī in Sunan al-Kubrā 10060, Ibn Ḥibbān 5219)",
+      "reference": "",
+      "repetitions": null,
+      "order": 8,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 9,
+      "category_id": 17,
+      "title": "After Eating #6",
+      "title_ar": null,
+      "arabic": "اَللّٰهُمَّ أَطْعَمْتَ وَأَسْقَيْتَ ، وَهَدَيْتَ وَأَحْيَيْتَ ، فَلَكَ الْحَمْدُ عَلَىٰ مَا أَعْطَيْتَ.",
+      "transliteration": "Allāhumma aṭʿamta wa asqayta, wa hadayta wa aḥyayta, fa-laka-l-ḥamdu ʿalā ma aʿatayta.",
+      "translation": "O Allah, You have fed and given to drink, You have guided us and revived us. So, to You be all praise for what You have granted.",
+      "virtue": "ʿAbd al-Raḥmān b. Jubayr (raḥimahullāh) stated that a man who served the Prophet ﷺ for eight years told him that he heard the Prophet ﷺ say \\[the above\\] when food was brought to him. (Aḥmad 16595)",
+      "reference": "Aḥmad 16595",
+      "repetitions": null,
+      "order": 9,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 10,
+      "category_id": 17,
+      "title": "After Eating #7",
+      "title_ar": null,
+      "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذِيْ أَطْعَمَ وَسَقَىٰ ، وَسَوَّغَهُ وَجَعَلَ لَهُ مَخْرَجًا.",
+      "transliteration": "Al-ḥamdu lillāhi-lladhī aṭʿama wa saqā, wa sawwagahu wa jaʿla lahu makhrajā.",
+      "translation": "Praise be to Allah, Who has provided \\[food and drink\\], made it easy to swallow, and made a way out for it.",
+      "virtue": "Abū Ayyūb al-Anṣārī (raḍiy Allāhu ‘anhu) narrated that when the Messenger of Allah ﷺ ate and drank, he said \\[the above\\]. (Abū Dāwūd 3851)",
+      "reference": "Abū Dāwūd 3851",
+      "repetitions": null,
+      "order": 10,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 11,
+      "category_id": 17,
+      "title": "After Drinking Milk",
+      "title_ar": null,
+      "arabic": "اَللّٰهُمَّ بَارِكْ لَنَا فِيْهِ وَزِدْنَا مِنْهُ.",
+      "transliteration": "Allāhumma bārik lanā fīhi wa zidnā minh.",
+      "translation": "O Allah, bless us in it and give us more of it.",
+      "virtue": "The Messenger of Allah ﷺ said: “Whomsoever Allah gives milk to drink, then let him say \\[the above\\].” And the Messenger of Allah ﷺ said, ‘There is nothing that suffices in the place of food and drink except for milk.’” (Tirmidhī 3455)",
+      "reference": "Tirmidhī 3455",
+      "repetitions": null,
+      "order": 11,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 12,
+      "category_id": 17,
+      "title": "Supplication for Somebody Who Gives One Food or Drink",
+      "title_ar": null,
+      "arabic": "ْاللَّهُمَّ أَطْعِمْ مَنْ أَطْعَمَنِيْ وَاسْقِ مَنْ سَقَانِي.",
+      "transliteration": "Allāhumma aṭʿim man aṭʿamanī, wa-sqi man saqānī.",
+      "translation": "O Allah, feed the one who has fed me and give to drink the one who has given me to drink.",
+      "virtue": "Miqdād (raḍiy Allāhu ‘anhu) narrated in a long hadīth that the Messenger of Allah ﷺ lifted his head to the heavens and said \\[the above\\]. (Muslim 2055)",
+      "reference": "Muslim 2055",
+      "repetitions": null,
+      "order": 12,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 13,
+      "category_id": 17,
+      "title": "Du‘a’ for the Host #1",
+      "title_ar": null,
+      "arabic": "أَفْطَرَ عِنْدَكُمُ الصَّائِمُوْنَ ، وَأَكَلَ طَعَامَكُمُ الأَبْرَارُ ، وَصَلَّتْ عَلَيْكُمُ الْمَلَائِكَةُ.",
+      "transliteration": "Afṭara ʿindakumu-ṣ-ṣāimūn, wa akala ṭaʿāmakumu-l-abrār, wa ṣallat ʿalaykumu-l-malā’ikah.",
+      "translation": "May the fasting open their fasts with you, the pious eat your food, and the angels pray for blessings on you.",
+      "virtue": "The Messenger of Allah ﷺ came to visit Sa’d ibn Ubaydah (raḍiy Allāhu ‘anhu), and he brought bread and olive oil, and he ate (them). Then the Messenger of Allah ﷺ said \\[the above\\]. (Abū Dāwūd 3854, Ibn Mājah 1747) Jābir (raḍiy Allāhu ‘anhu) narrated that Abū al-Haytham ibn at-Tayyihān made some food for the Prophet ﷺ. He invited the Prophet ﷺ and his Companions. When they had finished, \\[the Prophet ﷺ\\] said: “Repay and reward your brother.” “O Messenger of Allah, what is his reward?” they asked. He replied: “When a man’s house is entered, his food eaten, his drink is drunk, and then they supplicate for him, that is his reward and repayment.” (Abū Dāwūd 3853)",
+      "reference": "Abū Dāwūd 3854, Ibn Mājah 1747",
+      "repetitions": null,
+      "order": 13,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 14,
+      "category_id": 17,
+      "title": "Du‘a’ for the Host #2",
+      "title_ar": null,
+      "arabic": "اَللّٰهُمَّ بَارِكْ لَهُمْ فِيْ مَا رَزَقْتَهُمْ ، وَاغْفِرْ لَهُمْ وَارْحَمْهُمْ.",
+      "transliteration": "Allāhumma bārik lahum fī mā razaqtahum, wa-ghfir lahum, wa-rḥamhum.",
+      "translation": "O Allah, bless them in what You have provided them, forgive them and have mercy upon them.",
+      "virtue": "‘Abdullah bin Busr (raḍiy Allāhu ‘anhuma) reported: “The Messenger of Allah ﷺ came as a guest to my father. We brought him food and a waterskin with milk and he ate from it. Then he was brought dates, and he ate one of them, placed the date-stone between his fingers, and put his index and middle fingers together. Then he was brought a drink and he drank. After that he passed it to the person on his right. He (the narrator) said: My father took hold of the rein of his riding animal and requested him to supplicate for us. Thereupon he said \\[the above\\].” (Muslim 2042)",
+      "reference": "Muslim 2042",
+      "repetitions": null,
+      "order": 14,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 15,
+      "category_id": 17,
+      "title": "After Opening a Fast #1",
+      "title_ar": null,
+      "arabic": "ذَهَبَ الظَّمَأُ ، وَابْتَلَّتِ الْعُرُوْقُ ، وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللّٰهُ.",
+      "transliteration": "Dhahaba-ẓ-ẓama’, wa-b-tallati-l-ʿurūq, wa thabata-l-ajru in shā’a-llāh.",
+      "translation": "The thirst has gone, the veins have been moistened, and the reward has been secured, if Allah wills.",
+      "virtue": "ʿAbdullāh b. ʿUmar (raḍiy Allāhu ‘anhuma) said the Messenger of Allah ﷺ said \\[the above\\] when he broke his fast. (Abū Dāwūd 2357) The Messenger of Allah ﷺ said: “The deeds of the people are presented (to Allah) on Mondays and Thursdays. So I like that my actions be presented whilst I am fasting.” (Tirmidhī) And He ﷺ said: “Fasting three days of each month is equivalent to fasting for a lifetime. The days of al-Bīdh are: the thirteenth, fourteenth and fifteenth.” (Nasā’ī)",
+      "reference": "Abū Dāwūd 2357",
+      "repetitions": null,
+      "order": 15,
+      "tags": [
+        "Food & Drink"
+      ]
+    },
+    {
+      "id": 16,
+      "category_id": 17,
+      "title": "After Opening a Fast #2",
+      "title_ar": null,
+      "arabic": "اَللّٰهُمَّ لَكَ صُمْتُ وَعَلَىٰ رِزْقِكَ أَفْطَرْتُ.",
+      "transliteration": "Allāhumma laka ṣumtu wa ʿalā rizqiqa afṭart.",
+      "translation": "O Allah, for You I have fasted, and with Your provision I have broken my fast.",
+      "virtue": "When the Messenger of Allah ﷺ broke his fast he would say \\[the above\\]. (Abū Dāwūd 2358) [Next](https://lifewithallah.com/articles/seasons-of-worship/jumuah/the-meaning-of-salawat-on-the-prophet/)",
+      "reference": "Abū Dāwūd 2358",
+      "repetitions": null,
+      "order": 16,
+      "tags": [
+        "Food & Drink"
+      ]
+    }
+  ]
+}

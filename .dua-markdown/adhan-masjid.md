@@ -1,0 +1,111 @@
+# Adhan & Masjid – Life With Allah
+[Skip to content](#content)
+
+*   [Cart](https://lifewithallah.com/cart)
+    
+    No products in the basket.
+    
+
+*   [Cart](https://lifewithallah.com/cart)
+    
+    No products in the basket.
+    
+
+Adhan & Masjid
+--------------
+
+*   ##### After the Adhan is complete #1
+    
+    وَأَنَا أَشْهَدُ أَنْ لَّا إِلٰهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ ، وَأَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ ، رَضِيْتُ بِاللهِ رَبًّا ، وَبِمُحَمَّدٍ رَسُوْلًا ، وَبِالْإِسْلَامِ دِيْنًا
+    
+    I also bear witness that there is no god but Allah. He is Alone and He has no partner whatsoever, and that Muhammad ﷺ is His servant and His Messenger. I am satisfied with Allah as my Lord, with Muhammad as my Messenger, and with Islam as my religion.
+    
+    Wa ana ash-hadu al-lā ilāha illa-llāhu waḥdahū lā sharīka lah, wa anna Muḥammadan ʿabduhū wa rasūluh, raḍītu bi-llāhi rabbā, wa bi Muḥammadi-r-rasūlā, wa bi-l-islāmi dīnā.
+    
+    The Messenger of Allah ﷺ said: “If anyone says \[the above\] on hearing the mu’adhdhin, his sins will be forgiven.” (Muslim 386)
+    
+*   ##### After the Adhan is complete #2
+    
+    اَللّٰهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ ، وَعَلَىٰ آلِ مُحَمَّدٍ
+    
+    O Allah, honour and have mercy upon Muhammad and the family of Muhammad…
+    
+    Allāhumma ṣalli ʿalā Muḥammad wa ʿalā āli Muḥammad…
+    
+    The Messenger of Allah ﷺ said: “When you hear the mu’adhdhin calling for the prayer, repeat his words then send blessings upon me. The one who sends blessings upon me once, Allah will send 10 blessings upon him…” (Muslim 384)
+    
+*   ##### After the Adhan is complete #3
+    
+    اَللّٰهُمَّ رَبَّ هٰذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلَاةِ الْقَائِمَةِ ، آتِ مُحَمَّدًا الْوَسِيْلَةَ وَالْفَضِيْلَةَ ، وَابْعَثْهُ مَقَامًا مَّحْمُوْدًا الَّذِيْ وَعَدْتَّهُ
+    
+    O Allah, Lord of this perfect call and established prayer, grant Muhammad the status (a unique lofty status in Paradise) and pre-eminence, and resurrect him to the praiseworthy station that You have promised him.
+    
+    Allāhumma rabba hādhi-hi-d-dʿawati-t-tāmmati wa-ṣ-ṣalāti-l-qāimah, āti Muḥammadani-l-wasīlata wa-l-faḍīlah, wa-b-ʿath-hu maqāma-m-maḥmūdani-l-ladhī wa ʿadtah.
+    
+    The Messenger of Allah ﷺ said: “Whoever says \[the above\] after the adhān shall receive my intercession on the Day of Judgement.” (Bukhārī 614)
+    
+*   ##### Whilst Going to the Masjid
+    
+    اَللّٰهُمَّ اجْعَلْ فِيْ قَلْبِيْ نُوْرًا ، وَفِيْ بَصَرِيْ نُوْرًا ، وَفِيْ سَمْعِيْ نُوْرًا ، وَعَنْ يَّمِيْنِيْ نُوْرًا ، وَعَنْ يَّسَارِيْ نُوْرًا ، وَفَوْقِيْ نُوْرًا ، وَتَحْتِيْ نُوْرًا ، وَأَمَامِيْ نُوْرًا ، وَخَلْفِيْ نُوْرًا ، وَاجْعَلْ لِيْ نُوْرًا
+    
+    O Allah, place light in my heart, light in my sight and light in my hearing. Place light on my right and place light on my left. Place light above me and place light beneath me. Place light in front of me, place light behind me and grant me light.
+    
+    Allāhumma-j-ʿal fī qalbī nūrā, wa fī baṣarī nūrā, wa fī samʿī nūrā, wa ʿay-yamīnī nūrā, wa ʿay-yasārī nūrā, wa fawqī nūrā, wa taḥtī nūrā, wa amāmī nūrā, wa khalfī nūrā, wa-j-ʿal lī nūrā.
+    
+    Ibn ʿAbbas (radiy Allāhū ʿanhumā): One night I slept at the house of Maimūnā (raḍiy Allāhu ‘anhā). The Prophet ﷺ woke up, answered the call of nature, washed his face and hands, and then slept. He got up (late at night), went to a water skin, opened the mouth and performed wudhū not using much water, yet he washed all the parts properly and then offered the prayer.
+    
+    I got up and stretched, fearing that the Prophet ﷺ might sense that I was watching him, and then I performed wudhū, and when he got up to offer the Salah, I stood on his left. He caught hold of my ear and brought me over to his right side. He offered thirteen rakʿāt (units) in total and then lay down and slept till he started breathing heavily as he used to do when he slept.
+    
+    In the meantime Bilal (radiy Allāhū ʿanhu) informed the Prophet ﷺ of the approaching of (Fajr) Salah, and the Prophet ﷺ offered the Fajr salah without performing a new wudhū. And he used to say in his supplication \[the above\]. (Bukhārī 6316, Muslim 763)
+    
+*   ##### When Entering the Masjid #1
+    
+    أَعُوْذُ بِاللّٰهِ الْعَظِيْمِ ، وَبِوَجْهِهِ الْكَرِيْمِ ، وَسُلْطَانِهِ الْقَدِيْمِ ، مِنَ الشَّيْطَانِ الرَّجِيْمِ
+    
+    I seek protection in Allah, the Supreme, His Noble Countenance, and His Eternal Authority from the accursed Shaytān.
+    
+    Aʿūdhu bi-llāhi-l-ʿaẓīm, wa bi wajhihi-l-karīm, wa sulṭānihi-l-qadīm, mina-sh-Shayṭāni-r-rajīm.
+    
+    Haywah b. Shurayh (raḥimahullāh) narrated: “I met ‘Uqbah b. Muslim (raḍiy Allāhu ‘anhu) and said to him: ‘It has been reported to me that someone has narrated to you from the Prophet ﷺ that when he entered the mosque, he would say \[the above\]. Is it only this? He replied: ‘Yes. Whoever says \[the above\], Shaytān says: ‘He has gained protection against me for the entire day.’” (Abū Dawūd 466)
+    
+*   ##### When Entering the Masjid #2
+    
+    بِسْمِ اللّٰهِ ، وَالصَّلَاةُ وَالسَّلَامُ عَلَىٰ رَسُوْلِ اللّٰهِ ، اَللّٰهُمَّ اغْفِرْ لِيْ ذُنُوْبِيْ ، اَللّٰهُمَّ افْتَحْ لِيْ أَبْوَابَ رَحْمَتِكَ
+    
+    In the Name of Allah. Peace and blessings be upon the Messenger of Allah. O Allah, forgive my sins. O Allah, open the gates of Your mercy for me.
+    
+    Bismi-llāh, wa-ṣ-ṣalātu wa-s-salāmu ʿalā Rasūl-i-llāh, Allāhumma-ghfir lī dhunūbī, Allāhumma-f-taḥ lī abwāba raḥmatik.
+    
+    Fātimah (raḍiy Allāhu ‘anhā) the daughter of the Messenger of Allah ﷺ said: “Whenever the Messenger of Allah ﷺ entered the mosque he would say: ‘In the Name of Allah. Peace be upon the Messenger of Allah. O Allah, forgive my sins. O Allah, open the gates of Your mercy for me.’ When he left he would say: In the Name of Allah. Peace be upon the Messenger of Allah. O Allah, I ask You from Your bounty. (Ibn Mājah 771)
+    
+    Abū Usayd (raḍiy Allāhu ‘anhu) reported that the Messenger of Allah ﷺ said: “When any one of you enters the mosque, he should say: ‘O Allah, open the gates of Your mercy for me.’; and when he steps out he should say: ‘O Allah, I ask You from Your bounty.'” (Muslim 713)
+    
+    (Composite: Ibn al-Sunnī 88, Abū Dawūd 465, Ibn Mājah 771, Muslim 713)
+    
+*   ##### When Leaving the Masjid #1
+    
+    بِسْمِ اللّٰهِ ، وَالصَّلَاةُ وَالسَّلَامُ عَلَىٰ رَسُوْلِ اللّٰهِ ، اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ مِنْ فَضْلِكَ
+    
+    In the Name of Allah. Peace and blessings be upon the Messenger of Allah. O Allah, I ask You from Your bounty.
+    
+    Bismi-llāh, wa-ṣ-ṣalātu wa-s-salāmu ʿalā rasūl-illāh, allāhumma innī as’aluka min faḍlik.
+    
+    (Composite: Ibn Mājah 771, Ibn al-Sunnī 88, Muslim 713)
+    
+*   ##### When Leaving the Masjid #2
+    
+    اَللّٰهُمَّ اعْصِمْنِيْ مِنَ الشَّيْطَانِ الرَّجِيْمِ
+    
+    O Allah, protect me from the rejected Shaytān.
+    
+    Allāhumma-ʿṣimnī mina-sh-shayṭāni-r-rajīm.
+    
+
+Related Articles
+----------------
+
+[Page load link](#)
+
+By clicking accept, you agree to the storing of cookies on your device to enhance site navigation and analyze site usage. [Accept](#)
+
+[Go to Top](#)

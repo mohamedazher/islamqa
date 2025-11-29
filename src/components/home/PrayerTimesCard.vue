@@ -152,7 +152,7 @@
           <div
             v-for="(dayData, index) in weekPrayerTimes"
             :key="index"
-            class="flex-shrink-0 w-full snap-center px-5 py-4 space-y-2"
+            class="flex-shrink-0 w-full snap-center snap-always px-5 py-4 space-y-2"
           >
             <div
               v-for="prayer in dayData.prayers"
