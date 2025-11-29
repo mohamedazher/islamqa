@@ -81,10 +81,10 @@ const gamificationStore = useGamificationStore()
 
 const navigation = [
   { name: 'Home', to: '/', icon: 'home' },
-  { name: 'Browse', to: '/browse', icon: 'book' },
+  { name: 'Duas', to: '/dua', icon: 'heart' },
   { name: 'Ask Islam QA', to: '/chat', icon: 'sparkles', badge: 'NEW' },
   { name: 'Leaderboard', to: '/leaderboard', icon: 'trophy' },
-  { name: 'My Bookmarks', to: '/bookmarks', icon: 'bookmark' },
+  { name: 'Qibla Compass', to: '/qibla', icon: 'compass' },
   { name: 'Settings', to: '/settings', icon: 'cog' },
 ]
 

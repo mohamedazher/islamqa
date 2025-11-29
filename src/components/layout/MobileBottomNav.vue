@@ -36,9 +36,9 @@ const route = useRoute()
 
 const navigation = [
   { name: 'Home', to: '/', icon: 'home' },
-  { name: 'Browse', to: '/browse', icon: 'book' },
+  { name: 'Dua', to: '/dua', icon: 'heart' },
   { name: 'Ask', to: '/chat', icon: 'sparkles', badge: true },
-  { name: 'Bookmarks', to: '/bookmarks', icon: 'bookmark' },
+  { name: 'Qibla', to: '/qibla', icon: 'compass' },
   { name: 'More', to: '/settings', icon: 'cog' },
 ]
 
