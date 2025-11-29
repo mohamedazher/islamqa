@@ -124,6 +124,9 @@
 
             <!-- Transliteration -->
             <div v-if="duaStore.settings.show_transliteration && dua.transliteration" class="bg-neutral-100 dark:bg-neutral-800 rounded-xl p-4 shadow-sm">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">Transliteration</span>
+              </div>
               <p
                 class="text-neutral-700 dark:text-neutral-300 leading-relaxed text-center italic"
                 :style="{ fontSize: duaStore.settings.transliteration_font_size + 'px' }"
@@ -134,6 +137,9 @@
 
             <!-- Translation -->
             <div v-if="duaStore.settings.show_translation && dua.translation" class="bg-white dark:bg-neutral-900 rounded-xl p-4 border border-neutral-200 dark:border-neutral-700 shadow-sm">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">Translation</span>
+              </div>
               <p
                 class="text-neutral-700 dark:text-neutral-300 leading-relaxed"
                 :style="{ fontSize: duaStore.settings.translation_font_size + 'px' }"
