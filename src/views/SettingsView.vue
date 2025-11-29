@@ -47,6 +47,117 @@
         </div>
       </section>
 
+      <!-- Dua Text Settings Section -->
+      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
+        <div class="px-3 sm:px-4 py-2 sm:py-3 border-b border-neutral-200 dark:border-neutral-800">
+          <h2 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+            <Icon name="book" size="sm" class="text-primary-600 dark:text-primary-400" />
+            Dua Text Settings
+          </h2>
+        </div>
+        <div class="p-3 sm:p-4 space-y-6">
+          <!-- Arabic Font Size -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <label class="text-sm font-semibold text-neutral-700 dark:text-neutral-300">Arabic Size</label>
+              <span class="text-base font-bold text-primary-500">{{ duaSettings.arabic_font_size }}px</span>
+            </div>
+            <input
+              v-model.number="duaSettings.arabic_font_size"
+              @input="saveDuaSettings"
+              type="range"
+              min="20"
+              max="40"
+              class="w-full h-2 bg-neutral-200 dark:bg-neutral-700 rounded-full appearance-none cursor-pointer"
+            />
+            <div class="text-center text-neutral-600 dark:text-neutral-400 text-sm bg-neutral-50 dark:bg-neutral-950/50 rounded-lg p-3">
+              <p dir="rtl" :style="{ fontSize: duaSettings.arabic_font_size + 'px' }">بسم الله الرحمن الرحيم</p>
+            </div>
+          </div>
+
+          <!-- Transliteration Font Size -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <label class="text-sm font-semibold text-neutral-700 dark:text-neutral-300">Transliteration Size</label>
+              <span class="text-base font-bold text-primary-500">{{ duaSettings.transliteration_font_size }}px</span>
+            </div>
+            <input
+              v-model.number="duaSettings.transliteration_font_size"
+              @input="saveDuaSettings"
+              type="range"
+              min="12"
+              max="24"
+              class="w-full h-2 bg-neutral-200 dark:bg-neutral-700 rounded-full appearance-none cursor-pointer"
+            />
+            <div class="text-center text-neutral-600 dark:text-neutral-400 text-sm bg-neutral-50 dark:bg-neutral-950/50 rounded-lg p-3">
+              <p :style="{ fontSize: duaSettings.transliteration_font_size + 'px' }">Bismillāh ar-raḥmān ar-raḥīm</p>
+            </div>
+          </div>
+
+          <!-- Translation Font Size -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <label class="text-sm font-semibold text-neutral-700 dark:text-neutral-300">Translation Size</label>
+              <span class="text-base font-bold text-primary-500">{{ duaSettings.translation_font_size }}px</span>
+            </div>
+            <input
+              v-model.number="duaSettings.translation_font_size"
+              @input="saveDuaSettings"
+              type="range"
+              min="12"
+              max="20"
+              class="w-full h-2 bg-neutral-200 dark:bg-neutral-700 rounded-full appearance-none cursor-pointer"
+            />
+            <div class="text-center text-neutral-600 dark:text-neutral-400 text-sm bg-neutral-50 dark:bg-neutral-950/50 rounded-lg p-3">
+              <p :style="{ fontSize: duaSettings.translation_font_size + 'px' }">In the name of Allah, the Most Gracious, the Most Merciful</p>
+            </div>
+          </div>
+
+          <!-- Visibility Toggles -->
+          <div class="space-y-2 pt-4 border-t border-neutral-200 dark:border-neutral-700">
+            <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-950/50 transition-colors">
+              <input
+                v-model="duaSettings.show_transliteration"
+                @change="saveDuaSettings"
+                type="checkbox"
+                class="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
+              />
+              <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Show Transliteration</span>
+            </label>
+
+            <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-950/50 transition-colors">
+              <input
+                v-model="duaSettings.show_translation"
+                @change="saveDuaSettings"
+                type="checkbox"
+                class="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
+              />
+              <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Show Translation</span>
+            </label>
+
+            <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-950/50 transition-colors">
+              <input
+                v-model="duaSettings.show_reference"
+                @change="saveDuaSettings"
+                type="checkbox"
+                class="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
+              />
+              <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Show Reference</span>
+            </label>
+
+            <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-950/50 transition-colors">
+              <input
+                v-model="duaSettings.show_virtue"
+                @change="saveDuaSettings"
+                type="checkbox"
+                class="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
+              />
+              <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Show Virtue & Benefit</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
       <!-- Profile Section -->
       <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
@@ -829,6 +940,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
 import { useDataStore } from '@/stores/data'
+import { useDuaStore } from '@/stores/dua'
 import dexieDb from '@/services/dexieDatabase'
 import Icon from '@/components/common/Icon.vue'
 import { shareApp } from '@/utils/sharing'
@@ -844,6 +956,7 @@ import prayerTimesService, { CALCULATION_METHODS, MADHAB_OPTIONS } from '@/servi
 const router = useRouter()
 const { isDark, toggleTheme } = useTheme()
 const dataStore = useDataStore()
+const duaStore = useDuaStore()
 const { isAnalyticsEnabled, updateConsent } = usePrivacyConsent()
 const { setEnabled } = useAnalytics()
 
@@ -874,6 +987,17 @@ const userProfile = ref({
 })
 const showUsernameDialog = ref(false)
 const newUsername = ref('')
+
+// Dua settings
+const duaSettings = ref({
+  arabic_font_size: 28,
+  transliteration_font_size: 16,
+  translation_font_size: 14,
+  show_transliteration: true,
+  show_translation: true,
+  show_reference: true,
+  show_virtue: true
+})
 const isUpdatingUsername = ref(false)
 
 // Prayer Times settings
@@ -918,6 +1042,9 @@ onMounted(async () => {
     // Load prayer times settings immediately (synchronous, reads from localStorage)
     loadPrayerSettings()
 
+    // Load dua settings from store
+    duaSettings.value = { ...duaStore.settings }
+
     // Load stats and check permissions in parallel (non-blocking)
     const loadPromises = []
 
@@ -942,6 +1069,11 @@ onMounted(async () => {
 
 function goBack() {
   router.back()
+}
+
+// Dua Settings
+function saveDuaSettings() {
+  duaStore.updateSettings(duaSettings.value)
 }
 
 async function handleShareApp() {
