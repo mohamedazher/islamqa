@@ -40,9 +40,11 @@ class DataLoaderService {
 
         // Check if AI data needs to be imported (for existing users)
         const hasAiData = await dexieDb.hasAiData()
-        if (!hasAiData) {
-          console.log('📦 Main data exists but AI data missing - importing AI data...')
-          await this.importAiDataOnly(onProgress)
+        const hasDuaData = await dexieDb.hasDuaData()
+
+        if (!hasAiData || !hasDuaData) {
+          console.log('📦 Main data exists but supplementary data missing - importing...')
+          await this.importSupplementaryDataOnly(onProgress, !hasAiData, !hasDuaData)
         } else {
           if (onProgress) onProgress({ step: 'Data already loaded', progress: 100 })
         }
@@ -112,9 +114,35 @@ class DataLoaderService {
         if (onProgress) onProgress({ step: 'No quiz questions available yet', progress: 80 })
       }
 
+      // Step 3b: Load and import dua categories (offline access)
+      this.currentStep = 'Loading dua categories...'
+      if (onProgress) onProgress({ step: this.currentStep, progress: 81 })
+
+      const duaCategoriesData = await this.loadDuaCategories()
+      if (duaCategoriesData && duaCategoriesData.length > 0) {
+        await dexieDb.importDuaCategories(duaCategoriesData)
+        this.progress = 82
+        if (onProgress) onProgress({ step: `Dua categories imported (${duaCategoriesData.length} total)`, progress: 82 })
+      } else {
+        if (onProgress) onProgress({ step: 'No dua categories available', progress: 82 })
+      }
+
+      // Step 3c: Load and import duas (offline access)
+      this.currentStep = 'Loading duas...'
+      if (onProgress) onProgress({ step: this.currentStep, progress: 83 })
+
+      const duasData = await this.loadAllDuas()
+      if (duasData && duasData.length > 0) {
+        await dexieDb.importDuas(duasData)
+        this.progress = 84
+        if (onProgress) onProgress({ step: `Duas imported (${duasData.length} total)`, progress: 84 })
+      } else {
+        if (onProgress) onProgress({ step: 'No duas available', progress: 84 })
+      }
+
       // Step 4: Load and import AI summaries (for chat search)
       this.currentStep = 'Loading AI summaries...'
-      if (onProgress) onProgress({ step: this.currentStep, progress: 82 })
+      if (onProgress) onProgress({ step: this.currentStep, progress: 85 })
 
       const summariesData = await this.loadAiSummaries()
       if (summariesData && Object.keys(summariesData).length > 0) {
@@ -272,6 +300,150 @@ class DataLoaderService {
   }
 
   /**
+   * Load dua categories from JSON file
+   * Provides offline access to dua structure
+   * Maps string IDs to numeric IDs for database queries
+   */
+  async loadDuaCategories() {
+    try {
+      const basePath = this.getDataPath()
+      const response = await fetch(`${basePath}/dua/categories.json`)
+      if (!response.ok) {
+        console.warn(`⚠️  Dua categories file not found (HTTP ${response.status})`)
+        return []
+      }
+      const data = await response.json()
+      const categories = data.categories || []
+
+      // Map each category to add numeric ID based on actual file content
+      // The numeric ID is stored in each category's JSON file as category_id
+      const categoryIdMap = {
+        'waking-up': 1,
+        'before-sleep': 2,
+        'morning': 3,
+        'evening': 4,
+        'salah': 5,
+        'after-salah': 6,
+        'dhikr-all-times': 7,
+        'praises-allah': 8,
+        'istighfar': 9,
+        'salawat': 10,
+        'quranic-duas': 11,
+        'sunnah-duas': 12,
+        'lavatory-wudu': 13,
+        'clothes': 14,
+        'home': 15,
+        'adhan-masjid': 16,
+        'food-drink': 17,
+        'travel': 18,
+        'gatherings': 19,
+        'istikhara': 20,
+        'marriage-children': 21,
+        'ruqyah-illness': 22,
+        'death': 23,
+        'difficulties-happiness': 24,
+        'protection-iman': 25,
+        'nature': 26,
+        'nightmares': 27,
+        'social-interactions': 28,
+        'hajj-umrah': 29,
+        'money-shopping': 30,
+        'names-allah': 31
+      }
+
+      // Add numeric ID to each category for database queries
+      categories.forEach(cat => {
+        cat.numeric_id = categoryIdMap[cat.id] || null
+      })
+
+      console.log(`📿 Loaded ${categories.length} dua categories with numeric IDs`)
+      return categories
+    } catch (error) {
+      console.warn('⚠️  Failed to load dua categories (optional):', error.message)
+      return []
+    }
+  }
+
+  /**
+   * Load all duas from individual category files
+   * Merges all dua data from separate category JSON files into a single array
+   * Provides offline access to all duas
+   */
+  async loadAllDuas() {
+    const allDuas = []
+    try {
+      const basePath = this.getDataPath()
+
+      // Map of category IDs to filename slugs
+      const categoryFileMap = {
+        'morning': 'morning',
+        'evening': 'evening',
+        'before-sleep': 'before-sleep',
+        'salah': 'salah',
+        'after-salah': 'after-salah',
+        'ruqyah-illness': 'ruqyah-illness',
+        'praises-allah': 'praises-allah',
+        'salawat': 'salawat',
+        'quranic-duas': 'quranic-duas',
+        'sunnah-duas': 'sunnah-duas',
+        'names-allah': 'names-allah',
+        'dhikr-all-times': 'dhikr-all-times',
+        'istighfar': 'istighfar',
+        'waking-up': 'waking-up',
+        'nightmares': 'nightmares',
+        'clothes': 'clothes',
+        'lavatory-wudu': 'lavatory-wudu',
+        'home': 'home',
+        'adhan-masjid': 'adhan-masjid',
+        'istikhara': 'istikhara',
+        'gatherings': 'gatherings',
+        'food-drink': 'food-drink',
+        'travel': 'travel',
+        'death': 'death',
+        'nature': 'nature',
+        'social-interactions': 'social-interactions',
+        'protection-iman': 'protection-iman',
+        'difficulties-happiness': 'difficulties-happiness',
+        'hajj-umrah': 'hajj-umrah',
+        'money-shopping': 'money-shopping',
+        'marriage-children': 'marriage-children'
+      }
+
+      // Load each category file and extract duas
+      for (const [categoryId, filename] of Object.entries(categoryFileMap)) {
+        try {
+          const response = await fetch(`${basePath}/dua/${filename}.json`)
+          if (response.ok) {
+            const data = await response.json()
+            const categoryDuas = data.duas || []
+            console.log(`📿 Loading ${categoryId} (${filename}): ${categoryDuas.length} duas, category_id=${data.category_id}`)
+
+            // Add category_id and create unique global ID for each dua
+            // Each dua file has id: 1,2,3... so we need to make them globally unique
+            const numericCategoryId = data.category_id
+            categoryDuas.forEach((dua, index) => {
+              dua.category_id = numericCategoryId
+              dua.order = dua.order || 1
+              // Create a unique global ID: categoryId * 1000 + local id
+              // This ensures no collisions across categories
+              dua.id = numericCategoryId * 1000 + (dua.id || index + 1)
+            })
+            allDuas.push(...categoryDuas)
+          }
+        } catch (e) {
+          console.warn(`⚠️  Failed to load dua category file: ${filename}.json`)
+        }
+      }
+
+      console.log(`📿 Loaded ${allDuas.length} duas from ${Object.keys(categoryFileMap).length} category files`)
+      return allDuas
+    } catch (error) {
+      console.warn('⚠️  Failed to load duas:', error.message)
+      return []
+    }
+  }
+
+  /**
    * DEPRECATED: Answers are now embedded in questions
    * Previously loaded answers from 12 separate files
    * Now: Access answers via question.answer field directly
@@ -283,65 +455,108 @@ class DataLoaderService {
   }
 
   /**
-   * Import only AI data (summaries and embeddings) for existing users
-   * Called when main data is already imported but AI data is missing
+   * Import supplementary data (AI summaries, embeddings, dua data) for existing users
+   * Called when main data is already imported but supplementary data is missing
+   * Handles version upgrades gracefully
    */
-  async importAiDataOnly(onProgress) {
+  async importSupplementaryDataOnly(onProgress, needsAiData = true, needsDuaData = true) {
     try {
       this.isLoading = true
+      let progressBase = 10
 
-      // Step 1: Load and import AI summaries
-      this.currentStep = 'Loading AI summaries...'
-      if (onProgress) onProgress({ step: this.currentStep, progress: 10 })
+      // Step 1: Load and import AI summaries (if needed)
+      if (needsAiData) {
+        this.currentStep = 'Loading AI summaries...'
+        if (onProgress) onProgress({ step: this.currentStep, progress: progressBase })
 
-      const summariesData = await this.loadAiSummaries()
-      if (summariesData && Object.keys(summariesData).length > 0) {
-        await dexieDb.importSummaries(summariesData, (batchProgress) => {
-          const batchPercent = batchProgress.percentage / 100
-          const overallProgress = 10 + (batchPercent * 30)
-          if (onProgress) {
-            onProgress({
-              step: `Importing AI summaries (${batchProgress.itemsProcessed}/${batchProgress.totalItems})`,
-              progress: overallProgress
-            })
-          }
-        })
-        if (onProgress) onProgress({ step: `AI summaries imported (${Object.keys(summariesData).length} total)`, progress: 40 })
-      } else {
-        if (onProgress) onProgress({ step: 'No AI summaries available', progress: 40 })
+        const summariesData = await this.loadAiSummaries()
+        if (summariesData && Object.keys(summariesData).length > 0) {
+          await dexieDb.importSummaries(summariesData, (batchProgress) => {
+            const batchPercent = batchProgress.percentage / 100
+            const overallProgress = progressBase + (batchPercent * 20)
+            if (onProgress) {
+              onProgress({
+                step: `Importing AI summaries (${batchProgress.itemsProcessed}/${batchProgress.totalItems})`,
+                progress: overallProgress
+              })
+            }
+          })
+          if (onProgress) onProgress({ step: `AI summaries imported (${Object.keys(summariesData).length} total)`, progress: progressBase + 20 })
+        } else {
+          if (onProgress) onProgress({ step: 'No AI summaries available', progress: progressBase + 20 })
+        }
+
+        // Step 2: Load and import AI embeddings
+        progressBase += 20
+        this.currentStep = 'Loading AI embeddings...'
+        if (onProgress) onProgress({ step: this.currentStep, progress: progressBase })
+
+        const embeddingsData = await this.loadAiEmbeddings()
+        if (embeddingsData && Object.keys(embeddingsData).length > 0) {
+          await dexieDb.importEmbeddings(embeddingsData, (batchProgress) => {
+            const batchPercent = batchProgress.percentage / 100
+            const overallProgress = progressBase + (batchPercent * 20)
+            if (onProgress) {
+              onProgress({
+                step: `Importing AI embeddings (${batchProgress.itemsProcessed}/${batchProgress.totalItems})`,
+                progress: overallProgress
+              })
+            }
+          })
+          if (onProgress) onProgress({ step: `AI embeddings imported (${Object.keys(embeddingsData).length} total)`, progress: progressBase + 20 })
+        } else {
+          if (onProgress) onProgress({ step: 'No AI embeddings available', progress: progressBase + 20 })
+        }
+        progressBase += 20
       }
 
-      // Step 2: Load and import AI embeddings
-      this.currentStep = 'Loading AI embeddings...'
-      if (onProgress) onProgress({ step: this.currentStep, progress: 45 })
+      // Step 3: Load and import dua data (if needed)
+      if (needsDuaData) {
+        this.currentStep = 'Loading dua categories...'
+        if (onProgress) onProgress({ step: this.currentStep, progress: progressBase })
 
-      const embeddingsData = await this.loadAiEmbeddings()
-      if (embeddingsData && Object.keys(embeddingsData).length > 0) {
-        await dexieDb.importEmbeddings(embeddingsData, (batchProgress) => {
-          const batchPercent = batchProgress.percentage / 100
-          const overallProgress = 45 + (batchPercent * 50)
-          if (onProgress) {
-            onProgress({
-              step: `Importing AI embeddings (${batchProgress.itemsProcessed}/${batchProgress.totalItems})`,
-              progress: overallProgress
-            })
-          }
-        })
-        if (onProgress) onProgress({ step: `AI embeddings imported (${Object.keys(embeddingsData).length} total)`, progress: 95 })
-      } else {
-        if (onProgress) onProgress({ step: 'No AI embeddings available', progress: 95 })
+        const duaCategoriesData = await this.loadDuaCategories()
+        if (duaCategoriesData && duaCategoriesData.length > 0) {
+          await dexieDb.importDuaCategories(duaCategoriesData)
+          progressBase += 10
+          if (onProgress) onProgress({ step: `Dua categories imported (${duaCategoriesData.length} total)`, progress: progressBase })
+        } else {
+          progressBase += 10
+          if (onProgress) onProgress({ step: 'No dua categories available', progress: progressBase })
+        }
+
+        this.currentStep = 'Loading duas...'
+        if (onProgress) onProgress({ step: this.currentStep, progress: progressBase })
+
+        const duasData = await this.loadAllDuas()
+        if (duasData && duasData.length > 0) {
+          await dexieDb.importDuas(duasData)
+          progressBase += 10
+          if (onProgress) onProgress({ step: `Duas imported (${duasData.length} total)`, progress: progressBase })
+        } else {
+          progressBase += 10
+          if (onProgress) onProgress({ step: 'No duas available', progress: progressBase })
+        }
       }
 
       this.isLoading = false
-      if (onProgress) onProgress({ step: 'AI data import complete!', progress: 100 })
+      if (onProgress) onProgress({ step: 'Supplementary data import complete!', progress: 100 })
 
-      console.log('✅ AI data import complete')
+      console.log('✅ Supplementary data import complete')
       return true
     } catch (error) {
       this.isLoading = false
-      console.error('❌ AI data import failed:', error)
+      console.error('❌ Supplementary data import failed:', error)
       throw error
     }
+  }
+
+  /**
+   * DEPRECATED: Use importSupplementaryDataOnly instead
+   * Kept for backwards compatibility
+   */
+  async importAiDataOnly(onProgress) {
+    return this.importSupplementaryDataOnly(onProgress, true, false)
   }
 
   /**

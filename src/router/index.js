@@ -94,6 +94,30 @@ const router = createRouter({
       name: 'contact-us',
       component: () => import('@/views/ContactUsView.vue'),
       meta: { title: 'Contact Us' }
+    },
+    {
+      path: '/dua',
+      name: 'dua',
+      component: () => import('@/views/DuaHomeView.vue'),
+      meta: { title: 'Dua & Adhkar' }
+    },
+    {
+      path: '/dua/category/:id',
+      name: 'dua-category',
+      component: () => import('@/views/DuaCategoryView.vue'),
+      meta: { title: 'Category' }
+    },
+    {
+      path: '/dua/category/:categoryId/dua/:duaIndex',
+      name: 'dua-detail',
+      component: () => import('@/views/DuaDetailView.vue'),
+      meta: { title: 'Dua' }
+    },
+    {
+      path: '/dua/favorites',
+      name: 'dua-favorites',
+      component: () => import('@/views/DuaFavoritesView.vue'),
+      meta: { title: 'Favorite Duas' }
     }
   ]
 })

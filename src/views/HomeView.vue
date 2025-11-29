@@ -423,6 +423,16 @@ const quickActions = [
     color: 'bg-gradient-to-br from-orange-100 to-red-100 dark:from-orange-900/20 dark:to-red-800/20',
     iconBg: 'bg-gradient-to-br from-amber-400 via-orange-400 to-red-400 dark:from-amber-500 dark:via-orange-500 dark:to-red-500',
     iconColor: 'text-white'
+  },
+  {
+    name: 'Dua',
+    icon: 'bookmark',
+    description: 'Adhkar & duas',
+    to: '/dua',
+    badge: 'NEW',
+    color: 'bg-gradient-to-br from-rose-100 to-pink-100 dark:from-rose-900/20 dark:to-pink-800/20',
+    iconBg: 'bg-gradient-to-br from-rose-400 via-pink-500 to-rose-500 dark:from-rose-600 dark:via-pink-600 dark:to-rose-600',
+    iconColor: 'text-white'
   }
 ]
 

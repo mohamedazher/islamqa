@@ -48,6 +48,27 @@ class DexieDatabase extends Dexie {
       ai_embeddings: 'reference'   // Gemini embeddings (768 dimensions) per question
     })
 
+    // Version 3: Add Dua & Adhkar tables
+    this.version(3).stores({
+      categories: 'reference, parent_reference',
+      questions: 'reference, primary_category',
+      folders: '++id, folder_name',
+      folder_questions: '++id, reference, folder_id',
+      latest_questions: 'reference, primary_category',
+      settings: 'key',
+      quiz_configurations: '++id, mode, difficulty',
+      quiz_attempts: '++id, session_id, completion_date',
+      quiz_sessions: '++id, quiz_config_id',
+      quiz_questions: 'reference',
+      ai_summaries: 'reference',
+      ai_embeddings: 'reference',
+      // NEW: Dua & Adhkar tables
+      dua_categories: 'id, parent_id, type, order',
+      duas: 'id, category_id, order',
+      dua_favorites: '++id, dua_id',
+      dua_settings: 'key'
+    })
+
     // Shortcuts to tables
     this.categories = this.table('categories')
     this.questions = this.table('questions')
@@ -64,6 +85,11 @@ class DexieDatabase extends Dexie {
     // NEW: AI chat tables
     this.ai_summaries = this.table('ai_summaries')
     this.ai_embeddings = this.table('ai_embeddings')
+    // NEW: Dua & Adhkar tables
+    this.dua_categories = this.table('dua_categories')
+    this.duas = this.table('duas')
+    this.dua_favorites = this.table('dua_favorites')
+    this.dua_settings = this.table('dua_settings')
   }
 
   /**
@@ -922,9 +948,286 @@ class DexieDatabase extends Dexie {
     }
   }
 
+  // ==========================================
+  // Dua & Adhkar Methods
+  // ==========================================
+
+  /**
+   * Get all dua categories, optionally filtered by type
+   * @param {string|null} type - 'main' or 'other', null for all
+   */
+  async getDuaCategories(type = null) {
+    try {
+      let query = this.dua_categories.orderBy('order')
+      const all = await query.toArray()
+      console.log(`📚 getDuaCategories: Found ${all.length} total categories in DB`)
+      if (all.length > 0) {
+        console.log(`  → First category:`, all[0])
+        console.log(`  → Sample category keys:`, Object.keys(all[0]))
+      }
+      if (type) {
+        const filtered = all.filter(c => c.type === type)
+        console.log(`  → Filtered to ${filtered.length} ${type} categories`)
+        return filtered
+      }
+      return all
+    } catch (error) {
+      console.error('Error getting dua categories:', error)
+      return []
+    }
+  }
+
+  /**
+   * Get a single dua category by id
+   */
+  async getDuaCategory(id) {
+    try {
+      return await this.dua_categories.get(id)
+    } catch (error) {
+      console.error('Error getting dua category:', error)
+      return null
+    }
+  }
+
+  /**
+   * Get duas by category id
+   * Supports both string IDs (from UI) and numeric IDs (from database)
+   */
+  async getDuasByCategory(categoryId) {
+    try {
+      console.log(`🔍 getDuasByCategory called with: ${categoryId} (type: ${typeof categoryId})`)
+
+      // If categoryId is a string (like "morning"), find the numeric ID first
+      let numericId = categoryId
+      if (typeof categoryId === 'string' && isNaN(categoryId)) {
+        console.log(`  → String ID detected, looking up category...`)
+        // String ID - look up the category to get its numeric_id
+        const cat = await this.dua_categories.get(categoryId)
+        console.log(`  → Category found:`, cat)
+        if (cat && cat.numeric_id) {
+          numericId = cat.numeric_id
+          console.log(`  → Mapped to numeric_id: ${numericId}`)
+        } else {
+          console.warn(`  → Category not found or no numeric_id!`)
+          return []
+        }
+      }
+
+      console.log(`  → Querying duas with category_id = ${numericId}`)
+      const results = await this.duas
+        .where('category_id')
+        .equals(numericId)
+        .sortBy('order')
+
+      console.log(`  → Found ${results.length} duas`)
+      return results
+    } catch (error) {
+      console.error('Error getting duas by category:', error)
+      return []
+    }
+  }
+
+  /**
+   * Get a single dua by id
+   */
+  async getDua(id) {
+    try {
+      return await this.duas.get(id)
+    } catch (error) {
+      console.error('Error getting dua:', error)
+      return null
+    }
+  }
+
+  /**
+   * Get all favorite dua ids
+   */
+  async getDuaFavorites() {
+    try {
+      const favorites = await this.dua_favorites.toArray()
+      return favorites.map(f => f.dua_id)
+    } catch (error) {
+      console.error('Error getting dua favorites:', error)
+      return []
+    }
+  }
+
+  /**
+   * Add dua to favorites
+   */
+  async addDuaFavorite(duaId) {
+    try {
+      const existing = await this.dua_favorites
+        .where('dua_id')
+        .equals(duaId)
+        .first()
+      if (!existing) {
+        await this.dua_favorites.add({ dua_id: duaId })
+      }
+    } catch (error) {
+      console.error('Error adding dua favorite:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Remove dua from favorites
+   */
+  async removeDuaFavorite(duaId) {
+    try {
+      await this.dua_favorites
+        .where('dua_id')
+        .equals(duaId)
+        .delete()
+    } catch (error) {
+      console.error('Error removing dua favorite:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Check if dua is favorited
+   */
+  async isDuaFavorite(duaId) {
+    try {
+      const favorite = await this.dua_favorites
+        .where('dua_id')
+        .equals(duaId)
+        .first()
+      return !!favorite
+    } catch (error) {
+      console.error('Error checking dua favorite:', error)
+      return false
+    }
+  }
+
+  /**
+   * Get dua settings
+   */
+  async getDuaSettings() {
+    try {
+      const settings = await this.dua_settings.toArray()
+      const result = {}
+      settings.forEach(s => { result[s.key] = s.value })
+      return {
+        arabic_font_size: result.arabic_font_size ?? 28,
+        transliteration_font_size: result.transliteration_font_size ?? 16,
+        translation_font_size: result.translation_font_size ?? 14,
+        show_transliteration: result.show_transliteration ?? true,
+        show_translation: result.show_translation ?? true,
+        show_reference: result.show_reference ?? true,
+        show_virtue: result.show_virtue ?? true
+      }
+    } catch (error) {
+      console.error('Error getting dua settings:', error)
+      return {
+        arabic_font_size: 28,
+        transliteration_font_size: 16,
+        translation_font_size: 14,
+        show_transliteration: true,
+        show_translation: true,
+        show_reference: true,
+        show_virtue: true
+      }
+    }
+  }
+
+  /**
+   * Update dua settings
+   */
+  async updateDuaSettings(settings) {
+    try {
+      const entries = Object.entries(settings)
+      for (const [key, value] of entries) {
+        await this.dua_settings.put({ key, value })
+      }
+    } catch (error) {
+      console.error('Error updating dua settings:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Import dua categories
+   */
+  async importDuaCategories(categories) {
+    try {
+      await this.dua_categories.bulkPut(categories)
+      console.log(`✅ Imported ${categories.length} dua categories`)
+    } catch (error) {
+      console.error('Error importing dua categories:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Import duas with batching
+   */
+  async importDuas(duas) {
+    try {
+      console.log(`📝 importDuas called with ${duas.length} duas`)
+      if (duas.length > 0) {
+        console.log(`  → First dua:`, duas[0])
+        console.log(`  → Last dua:`, duas[duas.length - 1])
+      }
+
+      // Import in batches like we do for questions
+      const BATCH_SIZE = 100
+      const batches = Math.ceil(duas.length / BATCH_SIZE)
+
+      for (let i = 0; i < batches; i++) {
+        const start = i * BATCH_SIZE
+        const end = Math.min(start + BATCH_SIZE, duas.length)
+        const batch = duas.slice(start, end)
+
+        console.log(`  📝 Batch ${i + 1}/${batches}: Importing duas ${start + 1}-${end}`)
+        await this.duas.bulkPut(batch)
+      }
+
+      console.log(`✅ Imported ${duas.length} duas in ${batches} batches`)
+    } catch (error) {
+      console.error('❌ Error importing duas:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Check if dua data is imported
+   */
+  async hasDuaData() {
+    try {
+      const count = await this.dua_categories.count()
+      return count > 0
+    } catch (error) {
+      console.error('Error checking dua data:', error)
+      return false
+    }
+  }
+
+  /**
+   * Get dua stats
+   */
+  async getDuaStats() {
+    try {
+      const [categoriesCount, duasCount, favoritesCount] = await Promise.all([
+        this.dua_categories.count(),
+        this.duas.count(),
+        this.dua_favorites.count()
+      ])
+      return {
+        categories: categoriesCount,
+        duas: duasCount,
+        favorites: favoritesCount
+      }
+    } catch (error) {
+      console.error('Error getting dua stats:', error)
+      return { categories: 0, duas: 0, favorites: 0 }
+    }
+  }
+
   /**
    * Clear all data (for debugging/reset)
-   * UPDATED: Includes AI tables
+   * UPDATED: Includes AI tables and Dua tables
    */
   async clearAllData() {
     try {
@@ -940,7 +1243,11 @@ class DexieDatabase extends Dexie {
         this.quiz_sessions,
         this.quiz_questions,
         this.ai_summaries,
-        this.ai_embeddings
+        this.ai_embeddings,
+        this.dua_categories,
+        this.duas,
+        this.dua_favorites,
+        this.dua_settings
       ], async () => {
         await this.categories.clear()
         await this.questions.clear()
@@ -954,6 +1261,10 @@ class DexieDatabase extends Dexie {
         await this.quiz_questions.clear()
         await this.ai_summaries.clear()
         await this.ai_embeddings.clear()
+        await this.dua_categories.clear()
+        await this.duas.clear()
+        await this.dua_favorites.clear()
+        await this.dua_settings.clear()
       })
       console.log('✅ Database cleared')
     } catch (error) {
