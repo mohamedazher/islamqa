@@ -10,30 +10,22 @@ const md = new MarkdownIt({
 export function renderMarkdown(text) {
   if (!text) return ''
 
-  // Remove NBSP characters (non-breaking spaces) that may have been inserted
+  // Remove NBSP characters (non-breaking spaces)
   let processed = text.replace(/\u00A0/g, ' ')
 
-  // Unescape escaped characters that might be in the data
+  // Unescape escaped characters
   processed = processed
     .replace(/\\\\n/g, '\n')    // Handle double-escaped newlines FIRST
     .replace(/\\n/g, '\n')      // Handle escaped newlines
-    .replace(/\\\*/g, '*')      // Handle escaped asterisks (converts \* to *)
+    .replace(/\\\*/g, '*')      // Handle escaped asterisks
     .replace(/\\\[/g, '[')      // Handle escaped brackets
-    .replace(/\\\]/g, ']')      // Handle escaped brackets
-    .replace(/\\\(/g, '(')      // Handle escaped parentheses
-    .replace(/\\\)/g, ')')      // Handle escaped parentheses
-    .replace(/\\\!/g, '!')      // Handle escaped exclamation
-    .replace(/\\\#/g, '#')      // Handle escaped hash
-    .replace(/\\\|/g, '|')      // Handle escaped pipes
-    .replace(/\n\n\n+/g, '\n\n') // Normalize multiple consecutive newlines to double newline
+    .replace(/\\\]/g, ']')
+    .replace(/\\\(/g, '(')
+    .replace(/\\\)/g, ')')
+    .replace(/\\\!/g, '!')
+    .replace(/\\\#/g, '#')
+    .replace(/\\\|/g, '|')
 
-  // Format bullet points - wrap in div to handle styling
-  // Split by bullet pattern and wrap bullet sections
-  const bulletRegex = /(•[^\n]*(?:\n•[^\n]*)*)/g
-  processed = processed.replace(bulletRegex, (match) => {
-    // Wrap bullet section with markers for CSS styling
-    return `<div class="bullet-section">${match}</div>`
-  })
-
+  // Use markdown-it to render properly
   return md.render(processed)
 }
