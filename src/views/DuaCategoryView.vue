@@ -89,27 +89,31 @@
 
             <!-- Arabic Text Card with Counter & Reference -->
             <div class="relative bg-white dark:bg-neutral-900 rounded-2xl p-5 border border-neutral-200 dark:border-neutral-700 shadow-lg">
-              <!-- Repetition Badge -->
-              <div class="absolute top-3 right-3 bg-primary-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-md">
-                {{ dua.repetitions || 1 }}×
-              </div>
-
               <!-- Arabic Text -->
               <p
-                class="text-center leading-loose text-neutral-900 dark:text-white font-arabic pr-12"
+                class="text-center leading-loose text-neutral-900 dark:text-white font-arabic"
                 dir="rtl"
                 :style="{ fontSize: duaStore.settings.arabic_font_size + 'px', lineHeight: '2' }"
               >
                 {{ dua.arabic }}
               </p>
 
-              <!-- Reference -->
-              <div
-                v-if="duaStore.settings.show_reference && dua.reference"
-                class="flex items-center justify-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400 mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700"
-              >
-                <Icon name="book" size="sm" />
-                <span>{{ dua.reference }}</span>
+              <!-- Reference & Counter Footer -->
+              <div class="flex items-center justify-between gap-3 mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700">
+                <!-- Reference -->
+                <div
+                  v-if="duaStore.settings.show_reference && dua.reference"
+                  class="flex items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400 flex-1"
+                >
+                  <Icon name="book" size="sm" />
+                  <span class="truncate">{{ dua.reference }}</span>
+                </div>
+                <div v-else class="flex-1"></div>
+
+                <!-- Repetition Badge -->
+                <div class="bg-primary-500/10 dark:bg-primary-500/20 text-primary-600 dark:text-primary-400 text-xs font-bold px-2.5 py-1 rounded-full">
+                  {{ dua.repetitions || 1 }}×
+                </div>
               </div>
             </div>
 
