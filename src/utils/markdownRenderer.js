@@ -28,11 +28,11 @@ export function renderMarkdown(text) {
     .replace(/\n\n\n+/g, '\n\n') // Normalize multiple consecutive newlines to double newline
 
   // Format bullet points with proper line spacing
-  // Keep • as is but ensure each bullet is on its own line with spacing
+  // Add blank line before first bullet and after last bullet
   processed = processed
+    .replace(/([^\n•])\n(•)/g, '$1\n\n$2')  // Blank line before first bullet
+    .replace(/(\n•[^\n]*)\n([^\n•])/g, '$1\n\n$2')  // Blank line after bullets
     .replace(/\s*•\s+/g, '\n• ')  // Each bullet on new line
-    .replace(/\n\n+•/g, '\n\n• ') // Ensure one blank line before bullets
-    .replace(/(•[^\n]*)\n([^\n•])/g, '$1\n\n$2') // One blank line after bullet list
 
   return md.render(processed)
 }
