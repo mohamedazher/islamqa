@@ -27,10 +27,13 @@ export function renderMarkdown(text) {
     .replace(/\\\|/g, '|')      // Handle escaped pipes
     .replace(/\n\n\n+/g, '\n\n') // Normalize multiple consecutive newlines to double newline
 
-  // Format bullet points with proper line spacing
-  // Group consecutive bullets and add spacing before and after
-  processed = processed.replace(/([^\n])(\n•)/g, '$1\n\n•')  // Add blank line before bullets
-  processed = processed.replace(/(•[^\n]*\n)(?!•)/g, '$1\n')  // Add blank line after bullets
+  // Format bullet points - wrap in div to handle styling
+  // Split by bullet pattern and wrap bullet sections
+  const bulletRegex = /(•[^\n]*(?:\n•[^\n]*)*)/g
+  processed = processed.replace(bulletRegex, (match) => {
+    // Wrap bullet section with markers for CSS styling
+    return `<div class="bullet-section">${match}</div>`
+  })
 
   return md.render(processed)
 }

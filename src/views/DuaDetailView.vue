@@ -215,6 +215,13 @@
 .markdown-content :deep(a:hover) {
   opacity: 1;
 }
+
+.markdown-content :deep(.bullet-section) {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
 </style>
 
 <script setup>
