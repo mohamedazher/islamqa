@@ -518,7 +518,10 @@ const generateWeekPrayerTimes = () => {
   }
 }
 
-// Handle carousel scroll to update current day index
+// Handle carousel scroll to update current day index and snap to exact position
+let scrollTimeout = null
+let lastScrollLeft = 0
+let lastScrollTime = 0
 const handleCarouselScroll = () => {
   if (!carouselContainer.value || weekPrayerTimes.value.length === 0) return
 
@@ -530,6 +533,28 @@ const handleCarouselScroll = () => {
   if (newIndex !== currentDayIndex.value && newIndex >= 0 && newIndex < weekPrayerTimes.value.length) {
     currentDayIndex.value = newIndex
   }
+
+  // Track scroll velocity to detect momentum end
+  const now = Date.now()
+  const timeDelta = now - lastScrollTime
+  const scrollDelta = Math.abs(scrollLeft - lastScrollLeft)
+  const velocity = scrollDelta / Math.max(timeDelta, 1)
+
+  lastScrollLeft = scrollLeft
+  lastScrollTime = now
+
+  // Snap to exact position when scroll ends (use longer timeout for momentum)
+  clearTimeout(scrollTimeout)
+  const timeoutDuration = velocity > 0.1 ? 300 : 150
+  scrollTimeout = setTimeout(() => {
+    const snappedPosition = currentDayIndex.value * cardWidth
+    if (Math.abs(container.scrollLeft - snappedPosition) > 2) {
+      container.scrollTo({
+        left: snappedPosition,
+        behavior: 'smooth'
+      })
+    }
+  }, timeoutDuration)
 }
 
 // Scroll to specific day (when dot is clicked)

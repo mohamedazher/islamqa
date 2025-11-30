@@ -108,16 +108,10 @@ const router = createRouter({
       meta: { title: 'Category' }
     },
     {
-      path: '/dua/category/:categoryId/dua/:duaIndex',
-      name: 'dua-detail',
-      component: () => import('@/views/DuaDetailView.vue'),
-      meta: { title: 'Dua' }
-    },
-    {
       path: '/dua/favorites',
       name: 'dua-favorites',
-      component: () => import('@/views/DuaFavoritesView.vue'),
-      meta: { title: 'Favorite Duas' }
+      component: () => import('@/views/FoldersView.vue'),
+      meta: { title: 'Saved Items' }
     }
   ]
 })

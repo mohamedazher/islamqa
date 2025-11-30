@@ -253,8 +253,10 @@ watch(currentScrollIndex, (newIndex) => {
   }
 })
 
-// Handle scroll to track current dua
+// Handle scroll to track current dua and snap to exact position
 let scrollTimeout = null
+let lastScrollLeft = 0
+let lastScrollTime = 0
 function handleScroll(e) {
   const container = e.target
   const scrollLeft = container.scrollLeft
@@ -267,16 +269,35 @@ function handleScroll(e) {
     virtueExpandedIndex.value = null
   }
 
-  // Check if scrolled past last card (show completion)
+  // Track scroll velocity to detect momentum end
+  const now = Date.now()
+  const timeDelta = now - lastScrollTime
+  const scrollDelta = Math.abs(scrollLeft - lastScrollLeft)
+  const velocity = scrollDelta / Math.max(timeDelta, 1)
+
+  lastScrollLeft = scrollLeft
+  lastScrollTime = now
+
+  // Snap to exact position when scroll ends (use longer timeout for momentum)
   clearTimeout(scrollTimeout)
+  const timeoutDuration = velocity > 0.05 ? 400 : 200
   scrollTimeout = setTimeout(() => {
-    if (newIndex >= totalDuas.value - 1) {
-      const isAtEnd = scrollLeft + cardWidth >= container.scrollWidth - 10
-      if (isAtEnd && newIndex === totalDuas.value - 1) {
+    const snappedPosition = currentScrollIndex.value * cardWidth
+    if (Math.abs(container.scrollLeft - snappedPosition) > 1) {
+      container.scrollTo({
+        left: snappedPosition,
+        behavior: 'smooth'
+      })
+    }
+
+    // Check if scrolled to last card (show completion)
+    if (currentScrollIndex.value >= totalDuas.value - 1) {
+      const isAtEnd = snappedPosition + cardWidth >= container.scrollWidth - 10
+      if (isAtEnd && currentScrollIndex.value === totalDuas.value - 1) {
         // User is at the last card, confetti already triggered by watcher
       }
     }
-  }, 150)
+  }, timeoutDuration)
 }
 
 // Scroll to specific index
@@ -359,6 +380,7 @@ onMounted(async () => {
 
 .snap-center {
   scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 
 /* Markdown content styles */

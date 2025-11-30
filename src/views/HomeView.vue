@@ -158,7 +158,7 @@
 
         <!-- Horizontal Scrolling Container -->
         <div class="relative -mx-4 px-4 lg:-mx-0 lg:px-0">
-          <div ref="carouselContainer" class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide lg:grid lg:grid-cols-3 lg:overflow-visible scroll-smooth">
+          <div ref="carouselContainer" class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide lg:grid lg:grid-cols-3 lg:overflow-visible scroll-smooth" @scroll="handleExploreScroll">
             <!-- UPDATED: Changed .id to .reference, .question to .title, .question_no to .reference -->
             <Card
               v-for="question in randomQuestions"
@@ -601,6 +601,44 @@ function viewQuestion(questionId) {
 
 function openPrayerSettings() {
   router.push('/settings')
+}
+
+// Handle carousel scroll snapping for Explore Questions
+let exploreScrollTimeout = null
+let exploreLastScrollLeft = 0
+let exploreLastScrollTime = 0
+function handleExploreScroll() {
+  if (!carouselContainer.value || window.innerWidth >= 1024) return
+
+  const container = carouselContainer.value
+  const gap = 16 // 1rem gap from Tailwind
+  const cardWidth = container.firstElementChild?.offsetWidth || 0
+  if (!cardWidth) return
+
+  // Track scroll velocity to detect momentum end
+  const now = Date.now()
+  const timeDelta = now - exploreLastScrollTime
+  const scrollDelta = Math.abs(container.scrollLeft - exploreLastScrollLeft)
+  const velocity = scrollDelta / Math.max(timeDelta, 1)
+
+  exploreLastScrollLeft = container.scrollLeft
+  exploreLastScrollTime = now
+
+  clearTimeout(exploreScrollTimeout)
+  const timeoutDuration = velocity > 0.1 ? 300 : 150
+  exploreScrollTimeout = setTimeout(() => {
+    const scrollLeft = container.scrollLeft
+    // Calculate nearest card position
+    const cardIndex = Math.round(scrollLeft / (cardWidth + gap))
+    const snappedPosition = cardIndex * (cardWidth + gap)
+
+    if (Math.abs(container.scrollLeft - snappedPosition) > 2) {
+      container.scrollTo({
+        left: snappedPosition,
+        behavior: 'smooth'
+      })
+    }
+  }, timeoutDuration)
 }
 </script>
 

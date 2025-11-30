@@ -399,6 +399,7 @@ class UnifiedChatSearchService {
             id: r.id,
             reference: r.reference || r.id,
             title: r.title,
+            title_ar: r.title_ar,
             arabic: r.arabic,
             transliteration: r.transliteration,
             translation: r.translation,
@@ -407,6 +408,7 @@ class UnifiedChatSearchService {
             similarity: r.similarity,
             score: r.score,
             resultType: r.resultType,
+            category_id: r.category_id,
             category: r.category_name || null
           }
         } else {

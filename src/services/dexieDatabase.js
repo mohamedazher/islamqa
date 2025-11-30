@@ -982,7 +982,32 @@ class DexieDatabase extends Dexie {
    */
   async getDuaCategory(id) {
     try {
-      return await this.dua_categories.get(id)
+      console.log(`📂 getDuaCategory called with: ${id} (type: ${typeof id})`)
+
+      // First try direct lookup by ID
+      let category = await this.dua_categories.get(id)
+      if (category) {
+        console.log(`  ✅ Found category by ID: ${id}`)
+        return category
+      }
+
+      // If not found and it's a numeric ID, search by numeric_id
+      const numericId = typeof id === 'string' ? parseInt(id, 10) : id
+      if (!isNaN(numericId)) {
+        console.log(`  🔍 Searching by numeric_id: ${numericId}`)
+        const results = await this.dua_categories
+          .where('numeric_id')
+          .equals(numericId)
+          .toArray()
+
+        if (results.length > 0) {
+          console.log(`  ✅ Found category by numeric_id: ${numericId}`)
+          return results[0]
+        }
+      }
+
+      console.warn(`  ⚠️ Category not found: ${id}`)
+      return null
     } catch (error) {
       console.error('Error getting dua category:', error)
       return null
@@ -997,23 +1022,30 @@ class DexieDatabase extends Dexie {
     try {
       console.log(`🔍 getDuasByCategory called with: ${categoryId} (type: ${typeof categoryId})`)
 
-      // If categoryId is a string (like "morning"), find the numeric ID first
+      // Convert string categoryId to number if it's numeric
       let numericId = categoryId
-      if (typeof categoryId === 'string' && isNaN(categoryId)) {
-        console.log(`  → String ID detected, looking up category...`)
-        // String ID - look up the category to get its numeric_id
-        const cat = await this.dua_categories.get(categoryId)
-        console.log(`  → Category found:`, cat)
-        if (cat && cat.numeric_id) {
-          numericId = cat.numeric_id
-          console.log(`  → Mapped to numeric_id: ${numericId}`)
+      if (typeof categoryId === 'string') {
+        const parsed = parseInt(categoryId, 10)
+        if (!isNaN(parsed)) {
+          // It's a numeric string like "8" - convert to number
+          numericId = parsed
+          console.log(`  → Converted numeric string "${categoryId}" to number ${numericId}`)
         } else {
-          console.warn(`  → Category not found or no numeric_id!`)
-          return []
+          // It's a non-numeric string like "morning" - look up the category
+          console.log(`  → String ID detected, looking up category...`)
+          const cat = await this.dua_categories.get(categoryId)
+          console.log(`  → Category found:`, cat)
+          if (cat && cat.numeric_id) {
+            numericId = cat.numeric_id
+            console.log(`  → Mapped to numeric_id: ${numericId}`)
+          } else {
+            console.warn(`  → Category not found or no numeric_id!`)
+            return []
+          }
         }
       }
 
-      console.log(`  → Querying duas with category_id = ${numericId}`)
+      console.log(`  → Querying duas with category_id = ${numericId} (type: ${typeof numericId})`)
       const results = await this.duas
         .where('category_id')
         .equals(numericId)

@@ -299,26 +299,67 @@
         </div>
 
         <div class="p-6 space-y-6">
-          <!-- Question Title -->
-          <div>
-            <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
-              {{ modalQuestion.title }}
-            </h3>
-          </div>
+          <!-- Dua Layout -->
+          <div v-if="modalQuestion.type === 'dua'" class="space-y-4">
+            <!-- Title -->
+            <div class="text-center">
+              <h3 class="text-lg font-bold text-neutral-900 dark:text-white">{{ modalQuestion.title }}</h3>
+              <p v-if="modalQuestion.title_ar" class="text-sm text-neutral-500 dark:text-neutral-400 mt-1" dir="rtl">
+                {{ modalQuestion.title_ar }}
+              </p>
+            </div>
 
-          <!-- Question Content -->
-          <div class="prose prose-sm dark:prose-invert max-w-none">
-            <div class="bg-primary-50 dark:bg-primary-950/30 border-l-4 border-primary-500 dark:border-primary-600 p-4 rounded">
-              <h4 class="text-sm font-semibold text-primary-900 dark:text-primary-100 mb-2">Question</h4>
-              <div class="text-neutral-800 dark:text-neutral-200" v-html="modalQuestion.question"></div>
+            <!-- Arabic Text -->
+            <div class="bg-white dark:bg-neutral-900 rounded-2xl p-5 border border-neutral-200 dark:border-neutral-700 shadow-lg">
+              <p
+                class="text-center leading-loose text-neutral-900 dark:text-white font-arabic"
+                dir="rtl"
+                :style="{ fontSize: '18px', lineHeight: '2' }"
+              >
+                {{ modalQuestion.arabic }}
+              </p>
+            </div>
+
+            <!-- Transliteration -->
+            <div v-if="modalQuestion.transliteration" class="bg-neutral-100 dark:bg-neutral-800 rounded-xl p-4 shadow-sm">
+              <div class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide mb-2">Transliteration</div>
+              <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed text-center italic">
+                {{ modalQuestion.transliteration }}
+              </p>
+            </div>
+
+            <!-- Translation -->
+            <div v-if="modalQuestion.translation" class="bg-white dark:bg-neutral-900 rounded-xl p-4 border border-neutral-200 dark:border-neutral-700 shadow-sm">
+              <div class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide mb-2">Translation</div>
+              <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                {{ modalQuestion.translation }}
+              </p>
             </div>
           </div>
 
-          <!-- Answer Content -->
-          <div ref="modalAnswerContainer" class="prose prose-sm dark:prose-invert max-w-none">
-            <div class="bg-accent-50 dark:bg-accent-950/30 border-l-4 border-accent-500 dark:border-accent-600 p-4 rounded">
-              <h4 class="text-sm font-semibold text-accent-900 dark:text-accent-100 mb-2">Answer</h4>
-              <div class="text-neutral-800 dark:text-neutral-200" v-html="processedModalAnswer"></div>
+          <!-- Question/Answer Layout -->
+          <div v-else class="space-y-6">
+            <!-- Question Title -->
+            <div>
+              <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+                {{ modalQuestion.title }}
+              </h3>
+            </div>
+
+            <!-- Question Content -->
+            <div class="prose prose-sm dark:prose-invert max-w-none">
+              <div class="bg-primary-50 dark:bg-primary-950/30 border-l-4 border-primary-500 dark:border-primary-600 p-4 rounded">
+                <h4 class="text-sm font-semibold text-primary-900 dark:text-primary-100 mb-2">Question</h4>
+                <div class="text-neutral-800 dark:text-neutral-200" v-html="modalQuestion.question"></div>
+              </div>
+            </div>
+
+            <!-- Answer Content -->
+            <div ref="modalAnswerContainer" class="prose prose-sm dark:prose-invert max-w-none">
+              <div class="bg-accent-50 dark:bg-accent-950/30 border-l-4 border-accent-500 dark:border-accent-600 p-4 rounded">
+                <h4 class="text-sm font-semibold text-accent-900 dark:text-accent-100 mb-2">Answer</h4>
+                <div class="text-neutral-800 dark:text-neutral-200" v-html="processedModalAnswer"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -332,11 +373,11 @@
             View Full Page
           </button>
           <button
-            v-else
-            disabled
-            class="flex-1 bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-6 py-3 rounded-lg font-semibold opacity-50 cursor-not-allowed"
+            v-else-if="modalQuestion.type === 'dua'"
+            @click="openDuaCategory(modalQuestion)"
+            class="flex-1 bg-emerald-600 dark:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 dark:hover:bg-emerald-600 transition"
           >
-            Full Page N/A
+            Open Dua Category
           </button>
           <button
             @click="closeQuestionModal"
@@ -356,6 +397,7 @@ import { useRouter } from 'vue-router'
 import { useDataStore } from '@/stores/data'
 import dexieDb from '@/services/dexieDatabase'
 import dataLoader from '@/services/dataLoader'
+import duaService from '@/services/duaService'
 import unifiedChatSearchService from '@/services/unifiedChatSearchService'
 import { generateToken } from '@/utils/tokenHash'
 import { processAnswerLinks } from '@/utils/linkHandler'
@@ -658,31 +700,41 @@ const openDua = async (dua) => {
       hasArabic: !!dua.arabic,
       hasTranslit: !!dua.transliteration,
       hasTranslation: !!dua.translation,
-      hasVirtue: !!dua.virtue,
+      hasCategory: !!dua.category_id,
       allKeys: Object.keys(dua).join(', ')
     })
 
-    // Use the dua object directly (already loaded)
+    // Fetch full dua from database if needed to ensure all fields are populated
+    let fullDua = dua
+    if (!dua.arabic || !dua.category_id) {
+      try {
+        const duaFromDb = await duaService.getDua(dua.id)
+        if (duaFromDb) {
+          fullDua = duaFromDb
+        }
+      } catch (error) {
+        console.warn('Could not fetch full dua from database:', error)
+        // Continue with what we have
+      }
+    }
+
+    // Use the dua object (with fallbacks)
     const question = {
-      reference: dua.id,
-      title: dua.title,
-      question: `<div class="space-y-4">
-        <div>
-          <h4 class="font-semibold text-sm mb-2">Arabic:</h4>
-          <p class="text-neutral-700 dark:text-neutral-300 mb-4">${dua.arabic || ''}</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-sm mb-2">Transliteration:</h4>
-          <p class="text-neutral-700 dark:text-neutral-300 mb-4">${dua.transliteration || ''}</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-sm mb-2">Translation:</h4>
-          <p class="text-neutral-700 dark:text-neutral-300">${dua.translation || ''}</p>
-        </div>
-      </div>`,
-      answer: dua.virtue || 'No virtues documented',
-      category: dua.category_name,
-      type: 'dua'
+      reference: fullDua.id,
+      id: fullDua.id,
+      title: fullDua.title,
+      title_ar: fullDua.title_ar,
+      type: 'dua',
+      // Dua-specific fields
+      arabic: fullDua.arabic,
+      transliteration: fullDua.transliteration,
+      translation: fullDua.translation,
+      virtue: fullDua.virtue || 'No virtues documented',
+      category_id: fullDua.category_id,
+      category_name: fullDua.category_name,
+      // Fallback for Q&A layout (if needed)
+      question: fullDua.question,
+      answer: fullDua.virtue || 'No virtues documented'
     }
 
     modalQuestion.value = question
@@ -709,6 +761,21 @@ const closeQuestionModal = () => {
 const viewFullQuestion = (reference) => {
   closeQuestionModal()
   router.push(`/question/${reference}`)
+}
+
+// Navigate to dua category
+const openDuaCategory = (dua) => {
+  closeQuestionModal()
+
+  // Try to get category ID from various possible fields
+  const categoryId = dua.category_id || dua.category || dua.categoryId
+
+  if (!categoryId) {
+    console.warn('⚠️ No category ID found for dua:', dua)
+    return
+  }
+
+  router.push(`/dua/category/${categoryId}`)
 }
 
 // Go back
