@@ -799,7 +799,7 @@ const loadAllDuas = async () => {
         if (content.duas && Array.isArray(content.duas)) {
           allDuas.push(...content.duas.map(dua => ({
             ...dua,
-            source_file: file,  // Add source file for composite key matching with embeddings
+            source_file: `${file}.json`,  // Add source file (with .json) for composite key matching with embeddings
             category_id: content.category_id,
             category_name: content.category_name
           })))
