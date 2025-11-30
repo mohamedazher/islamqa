@@ -62,7 +62,9 @@ class UnifiedChatSearchService {
 
     this.duaMap = {}
     for (const dua of this.duas) {
-      this.duaMap[dua.id] = dua
+      // Use composite key to handle duplicate IDs across different dua files
+      const compositeKey = dua.source_file ? `${dua.source_file}:${dua.id}` : `${dua.id}`
+      this.duaMap[compositeKey] = dua
     }
 
     // Initialize Fuse for both question and dua fallback search

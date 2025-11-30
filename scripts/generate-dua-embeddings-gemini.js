@@ -151,7 +151,7 @@ async function generateAllEmbeddings(duas) {
   const embeddings = checkpoint.embeddings
 
   // Filter out already completed duas
-  const pendingDuas = duas.filter(dua => !completedIds.has(dua.id))
+  const pendingDuas = duas.filter(dua => !completedIds.has(dua.source_file + ':' + dua.id))
 
   if (pendingDuas.length === 0) {
     console.log('All duas already embedded. Loading from checkpoint...')
@@ -174,12 +174,14 @@ async function generateAllEmbeddings(duas) {
         const text = composeEmbeddingText(dua)
         const embedding = await generateEmbedding(text)
 
-        embeddings[dua.id] = embedding
-        completedIds.add(dua.id)
+        // Use composite key: source_file:id to avoid conflicts across files
+        const compositeKey = `${dua.source_file}:${dua.id}`
+        embeddings[compositeKey] = embedding
+        completedIds.add(compositeKey)
 
-        console.log(`  ✓ ${dua.id}: ${dua.title.substring(0, 50)}...`)
+        console.log(`  ✓ ${compositeKey}: ${dua.title.substring(0, 50)}...`)
       } catch (error) {
-        console.error(`  ✗ ${dua.id}: ${error.message}`)
+        console.error(`  ✗ ${dua.source_file}:${dua.id}: ${error.message}`)
         // Continue on error instead of failing
       }
     }
