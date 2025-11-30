@@ -535,7 +535,8 @@ const askQuestion = async (question) => {
     const queryEmbedding = await getQueryEmbedding(question)
 
     // Search for relevant answers AND duas using unified service
-    const results = unifiedChatSearchService.search(question, 5, queryEmbedding)
+    // Request more results for pagination (6 initial + more for "Show More" button)
+    const results = unifiedChatSearchService.search(question, 20, queryEmbedding)
 
     // Update search mode indicator
     if (results.length > 0 && results[0].matchType === 'vector') {
