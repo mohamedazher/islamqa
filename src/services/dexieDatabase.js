@@ -69,6 +69,27 @@ class DexieDatabase extends Dexie {
       dua_settings: 'key'
     })
 
+    // Version 4: Add numeric_id index to dua_categories for category lookup
+    this.version(4).stores({
+      categories: 'reference, parent_reference',
+      questions: 'reference, primary_category',
+      folders: '++id, folder_name',
+      folder_questions: '++id, reference, folder_id',
+      latest_questions: 'reference, primary_category',
+      settings: 'key',
+      quiz_configurations: '++id, mode, difficulty',
+      quiz_attempts: '++id, session_id, completion_date',
+      quiz_sessions: '++id, quiz_config_id',
+      quiz_questions: 'reference',
+      ai_summaries: 'reference',
+      ai_embeddings: 'reference',
+      // UPDATED: Added numeric_id index to dua_categories
+      dua_categories: 'id, parent_id, type, order, numeric_id',
+      duas: 'id, category_id, order',
+      dua_favorites: '++id, dua_id',
+      dua_settings: 'key'
+    })
+
     // Shortcuts to tables
     this.categories = this.table('categories')
     this.questions = this.table('questions')
@@ -984,25 +1005,25 @@ class DexieDatabase extends Dexie {
     try {
       console.log(`📂 getDuaCategory called with: ${id} (type: ${typeof id})`)
 
-      // First try direct lookup by ID
+      // First try direct lookup by string ID (e.g., "morning")
       let category = await this.dua_categories.get(id)
       if (category) {
-        console.log(`  ✅ Found category by ID: ${id}`)
+        console.log(`  ✅ Found category by string ID: ${id}`)
         return category
       }
 
-      // If not found and it's a numeric ID, search by numeric_id
+      // If not found, try numeric ID lookup
       const numericId = typeof id === 'string' ? parseInt(id, 10) : id
       if (!isNaN(numericId)) {
         console.log(`  🔍 Searching by numeric_id: ${numericId}`)
-        const results = await this.dua_categories
+        category = await this.dua_categories
           .where('numeric_id')
           .equals(numericId)
-          .toArray()
+          .first()
 
-        if (results.length > 0) {
+        if (category) {
           console.log(`  ✅ Found category by numeric_id: ${numericId}`)
-          return results[0]
+          return category
         }
       }
 
