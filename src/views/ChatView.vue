@@ -183,6 +183,24 @@
                   {{ result.category }}
                 </p>
 
+                <!-- Dua Content (for duas) -->
+                <div v-if="result.resultType === 'dua'" class="mt-2 space-y-2 border-t border-neutral-200 dark:border-neutral-700 pt-2">
+                  <!-- Arabic -->
+                  <div v-if="result.arabic" class="text-sm text-neutral-800 dark:text-neutral-200 text-right font-semibold">
+                    {{ result.arabic }}
+                  </div>
+
+                  <!-- Transliteration -->
+                  <div v-if="result.transliteration" class="text-xs text-neutral-600 dark:text-neutral-400 italic">
+                    {{ result.transliteration }}
+                  </div>
+
+                  <!-- Translation -->
+                  <div v-if="result.translation" class="text-xs text-neutral-700 dark:text-neutral-300">
+                    {{ result.translation }}
+                  </div>
+                </div>
+
                 <!-- Tags -->
                 <div v-if="result.tags && result.tags.length > 0" class="flex flex-wrap gap-1 mt-2">
                   <span
@@ -194,12 +212,6 @@
                   </span>
                 </div>
 
-                <!-- Ruling Badge (for Q&A) -->
-                <div v-if="result.ruling && result.resultType === 'question'" class="mt-2">
-                  <span :class="getRulingClass(result.ruling)" class="text-xs px-2 py-1 rounded font-medium">
-                    {{ formatRuling(result.ruling) }}
-                  </span>
-                </div>
               </div>
 
               <!-- See More Button -->
@@ -881,6 +893,9 @@ onMounted(async () => {
 
     console.log(`Chat service initialized: ${questions.length} questions, ${duas.length} duas`)
     console.log(`Embeddings: Questions=${Object.keys(embeddings).length}, Duas=${Object.keys(duaEmbeddings).length}`)
+
+    // Scroll to last message after initialization
+    await scrollToBottom()
   } catch (error) {
     console.error('Error initializing chat:', error)
   }
