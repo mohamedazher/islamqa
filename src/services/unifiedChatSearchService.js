@@ -392,17 +392,38 @@ class UnifiedChatSearchService {
       message: `I found relevant ${resultTypeName}s for your question. Here's what I found:`,
       ruling: topResult.ai_ruling || null,
       similarity: topResult.similarity,
-      results: results.map(r => ({
-        reference: r.reference || r.id,
-        title: r.title,
-        summary: this.summaries[r.reference]?.summary || '',
-        tags: r.tags || [],
-        ruling: this.summaries[r.reference]?.ruling || null,
-        similarity: r.similarity,
-        score: r.score,
-        resultType: r.resultType,
-        category: r.category_name || null
-      }))
+      results: results.map(r => {
+        // For duas, include all content fields; for questions, include AI summary
+        if (r.resultType === 'dua') {
+          return {
+            id: r.id,
+            reference: r.reference || r.id,
+            title: r.title,
+            arabic: r.arabic,
+            transliteration: r.transliteration,
+            translation: r.translation,
+            virtue: r.virtue,
+            tags: r.tags || [],
+            similarity: r.similarity,
+            score: r.score,
+            resultType: r.resultType,
+            category: r.category_name || null
+          }
+        } else {
+          // Question result
+          return {
+            reference: r.reference || r.id,
+            title: r.title,
+            summary: this.summaries[r.reference]?.summary || '',
+            tags: r.tags || [],
+            ruling: this.summaries[r.reference]?.ruling || null,
+            similarity: r.similarity,
+            score: r.score,
+            resultType: r.resultType,
+            category: r.category_name || null
+          }
+        }
+      })
     }
   }
 
