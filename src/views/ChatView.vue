@@ -132,24 +132,58 @@
           <div class="max-w-[85%] bg-white dark:bg-neutral-800 rounded-2xl rounded-bl-md px-4 py-3 shadow-sm border border-neutral-200 dark:border-neutral-700">
             <!-- Source Cards -->
             <div v-if="message.results && message.results.length > 0" class="space-y-2">
-              <p class="text-xs text-neutral-500 dark:text-neutral-400 font-medium mb-3">Matching Questions:</p>
+              <!-- Results Header -->
+              <div class="flex items-center gap-2 mb-3">
+                <p class="text-xs text-neutral-500 dark:text-neutral-400 font-medium">Results:</p>
+                <div class="flex gap-1 text-xs">
+                  <span v-if="message.questionCount > 0" class="px-2 py-0.5 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded">
+                    {{ message.questionCount }} Q&As
+                  </span>
+                  <span v-if="message.duaCount > 0" class="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded">
+                    {{ message.duaCount }} Duas
+                  </span>
+                </div>
+              </div>
+
+              <!-- Result Cards -->
               <div
                 v-for="result in message.results.slice(0, message.showAll ? message.results.length : 6)"
-                :key="result.reference"
-                @click="openQuestion(result.reference)"
-                class="bg-neutral-50 dark:bg-neutral-900 rounded-lg p-3 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 transition border border-neutral-200 dark:border-neutral-700"
+                :key="`${result.resultType}-${result.reference || result.id}`"
+                @click="openResult(result)"
+                :class="{
+                  'bg-neutral-50 dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800': true,
+                  'rounded-lg p-3 cursor-pointer transition border border-neutral-200 dark:border-neutral-700': true,
+                  'border-l-4 border-l-primary-500': result.resultType === 'question',
+                  'border-l-4 border-l-emerald-500': result.resultType === 'dua'
+                }"
               >
-                <div class="flex items-start justify-between gap-2">
-                  <h4 class="text-sm font-medium text-neutral-900 dark:text-neutral-100 line-clamp-2 mb-1 flex-1">
-                    {{ result.title }}
-                  </h4>
-                  <span v-if="result.similarity" class="text-xs text-primary-600 dark:text-primary-400 whitespace-nowrap">
+                <!-- Result Type Badge -->
+                <div class="flex items-start justify-between gap-2 mb-1">
+                  <div class="flex items-center gap-2 flex-1">
+                    <span v-if="result.resultType === 'dua'" class="text-xs px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full font-medium">
+                      Dua
+                    </span>
+                    <span v-else class="text-xs px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-medium">
+                      Q&A
+                    </span>
+                    <h4 class="text-sm font-medium text-neutral-900 dark:text-neutral-100 line-clamp-2 flex-1">
+                      {{ result.title }}
+                    </h4>
+                  </div>
+                  <span v-if="result.similarity" class="text-xs text-primary-600 dark:text-primary-400 whitespace-nowrap font-medium">
                     {{ Math.round(result.similarity * 100) }}%
                   </span>
                 </div>
-                <p v-if="result.summary" class="text-xs text-neutral-600 dark:text-neutral-400 line-clamp-2">
+
+                <!-- Result Category/Summary -->
+                <p v-if="result.summary" class="text-xs text-neutral-600 dark:text-neutral-400 line-clamp-2 mb-2">
                   {{ result.summary }}
                 </p>
+                <p v-else-if="result.category" class="text-xs text-neutral-500 dark:text-neutral-500 line-clamp-1 mb-2">
+                  {{ result.category }}
+                </p>
+
+                <!-- Tags -->
                 <div v-if="result.tags && result.tags.length > 0" class="flex flex-wrap gap-1 mt-2">
                   <span
                     v-for="tag in result.tags.slice(0, 3)"
@@ -157,6 +191,13 @@
                     class="text-xs px-2 py-0.5 bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-300 rounded"
                   >
                     {{ tag }}
+                  </span>
+                </div>
+
+                <!-- Ruling Badge (for Q&A) -->
+                <div v-if="result.ruling && result.resultType === 'question'" class="mt-2">
+                  <span :class="getRulingClass(result.ruling)" class="text-xs px-2 py-1 rounded font-medium">
+                    {{ formatRuling(result.ruling) }}
                   </span>
                 </div>
               </div>
@@ -220,11 +261,21 @@
       </p>
     </div>
 
-    <!-- Question Detail Modal -->
+    <!-- Question/Dua Detail Modal -->
     <div v-if="showQuestionModal && modalQuestion" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
       <div class="bg-white dark:bg-neutral-900 rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto my-8">
         <div class="sticky top-0 bg-white dark:bg-neutral-900 border-b dark:border-neutral-800 p-4 flex items-center justify-between">
-          <h2 class="text-base sm:text-lg font-bold text-neutral-900 dark:text-neutral-100">Source Question</h2>
+          <div class="flex items-center gap-2">
+            <span v-if="modalQuestion.type === 'dua'" class="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full font-medium">
+              Dua
+            </span>
+            <span v-else class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-medium">
+              Q&A
+            </span>
+            <h2 class="text-base sm:text-lg font-bold text-neutral-900 dark:text-neutral-100">
+              {{ modalQuestion.type === 'dua' ? 'Dua' : 'Source Question' }}
+            </h2>
+          </div>
           <button
             @click="closeQuestionModal"
             class="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition"
@@ -260,10 +311,18 @@
 
         <div class="sticky bottom-0 bg-white dark:bg-neutral-900 border-t dark:border-neutral-800 p-4 flex gap-2">
           <button
+            v-if="modalQuestion.type === 'question'"
             @click="viewFullQuestion(modalQuestion.reference)"
             class="flex-1 bg-primary-600 dark:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 dark:hover:bg-primary-600 transition"
           >
             View Full Page
+          </button>
+          <button
+            v-else
+            disabled
+            class="flex-1 bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-6 py-3 rounded-lg font-semibold opacity-50 cursor-not-allowed"
+          >
+            Full Page N/A
           </button>
           <button
             @click="closeQuestionModal"
@@ -284,6 +343,7 @@ import { useDataStore } from '@/stores/data'
 import dexieDb from '@/services/dexieDatabase'
 import dataLoader from '@/services/dataLoader'
 import chatSearchService from '@/services/chatSearchService'
+import unifiedChatSearchService from '@/services/unifiedChatSearchService'
 import { generateToken } from '@/utils/tokenHash'
 import { processAnswerLinks } from '@/utils/linkHandler'
 import Icon from '@/components/common/Icon.vue'
@@ -449,8 +509,8 @@ const askQuestion = async (question) => {
     // Try to get query embedding for semantic search
     const queryEmbedding = await getQueryEmbedding(question)
 
-    // Search for relevant answers
-    const results = chatSearchService.search(question, 5, queryEmbedding)
+    // Search for relevant answers AND duas using unified service
+    const results = unifiedChatSearchService.search(question, 5, queryEmbedding)
 
     // Update search mode indicator
     if (results.length > 0 && results[0].matchType === 'vector') {
@@ -459,7 +519,11 @@ const askQuestion = async (question) => {
       searchMode.value = 'keyword'
     }
 
-    const response = chatSearchService.formatAsResponse(results, question)
+    const response = unifiedChatSearchService.formatAsResponse(results, question)
+
+    // Count questions and duas in results
+    const questionCount = results.filter(r => r.resultType === 'question').length
+    const duaCount = results.filter(r => r.resultType === 'dua').length
 
     // Remove loading indicator
     messages.value = messages.value.filter(m => m.type !== 'loading')
@@ -471,6 +535,8 @@ const askQuestion = async (question) => {
       ruling: response.ruling,
       similarity: response.similarity,
       results: response.results,
+      questionCount,
+      duaCount,
       showAll: false
     })
 
@@ -521,6 +587,15 @@ function setupModalTocLinkHandlers(container) {
   })
 }
 
+// Open result (question or dua) in modal
+const openResult = async (result) => {
+  if (result.resultType === 'question') {
+    openQuestion(result.reference)
+  } else if (result.resultType === 'dua') {
+    openDua(result)
+  }
+}
+
 // Open question detail in modal
 const openQuestion = async (reference) => {
   try {
@@ -542,6 +617,46 @@ const openQuestion = async (reference) => {
     }
   } catch (error) {
     console.error('Error loading question:', error)
+  }
+}
+
+// Open dua detail in modal (same modal as questions for simplicity)
+const openDua = async (dua) => {
+  try {
+    // Use the dua object directly (already loaded)
+    const question = {
+      reference: dua.id,
+      title: dua.title,
+      question: `<div class="space-y-4">
+        <div>
+          <h4 class="font-semibold text-sm mb-2">Arabic:</h4>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">${dua.arabic || ''}</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm mb-2">Transliteration:</h4>
+          <p class="text-neutral-700 dark:text-neutral-300 mb-4">${dua.transliteration || ''}</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm mb-2">Translation:</h4>
+          <p class="text-neutral-700 dark:text-neutral-300">${dua.translation || ''}</p>
+        </div>
+      </div>`,
+      answer: dua.virtue || 'No virtues documented',
+      category: dua.category_name,
+      type: 'dua'
+    }
+
+    modalQuestion.value = question
+    processedModalAnswer.value = question.answer
+
+    showQuestionModal.value = true
+
+    await nextTick()
+    if (modalAnswerContainer.value) {
+      setupModalTocLinkHandlers(modalAnswerContainer.value)
+    }
+  } catch (error) {
+    console.error('Error loading dua:', error)
   }
 }
 
@@ -649,6 +764,54 @@ const loadEmbeddings = async () => {
   return {}
 }
 
+// Load dua embeddings from JSON
+const loadDuaEmbeddings = async () => {
+  try {
+    const response = await fetch('./data/dua-embeddings.json')
+    if (response.ok) {
+      const duaEmbeddings = await response.json()
+      console.log(`Loaded ${Object.keys(duaEmbeddings).length} dua embeddings`)
+      return duaEmbeddings
+    }
+  } catch (error) {
+    console.warn('Error loading dua embeddings:', error)
+  }
+  return {}
+}
+
+// Helper function to load all duas from category JSON files
+const loadAllDuas = async () => {
+  const allDuas = []
+  const duaFiles = [
+    'morning', 'evening', 'before-sleep', 'after-salah', 'salah', 'travel',
+    'food-drink', 'money-shopping', 'marriage-children', 'death', 'nature',
+    'istighfar', 'difficulties-happiness', 'dhikr-all-times', 'waking-up',
+    'evening', 'protection-iman', 'praises-allah', 'ruqyah-illness',
+    'quranic-duas', 'sunnah-duas', 'adhan-masjid', 'salawat', 'hajj-umrah',
+    'gatherings', 'home', 'clothes'
+  ]
+
+  for (const file of duaFiles) {
+    try {
+      const response = await fetch(`./data/dua/${file}.json`)
+      if (response.ok) {
+        const content = await response.json()
+        if (content.duas && Array.isArray(content.duas)) {
+          allDuas.push(...content.duas.map(dua => ({
+            ...dua,
+            category_id: content.category_id,
+            category_name: content.category_name
+          })))
+        }
+      }
+    } catch (error) {
+      // File may not exist, skip
+    }
+  }
+
+  return allDuas
+}
+
 // Initialize
 onMounted(async () => {
   try {
@@ -674,28 +837,40 @@ onMounted(async () => {
       }
     }
 
-    // Load questions
+    // Load questions and duas in parallel
     const questions = await dataStore.getAllQuestions()
+    const duas = await loadAllDuas()
 
-    // Load AI summaries and embeddings in parallel
-    const [summaries, embeddings] = await Promise.all([
+    // Load AI summaries, question embeddings, and dua embeddings in parallel
+    const [summaries, embeddings, duaEmbeddings] = await Promise.all([
       loadSummaries(),
-      loadEmbeddings()
+      loadEmbeddings(),
+      loadDuaEmbeddings()
     ])
 
-    // Check if we actually have embeddings
+    // Check if we actually have question embeddings
     if (Object.keys(embeddings).length === 0) {
       aiDataMissing.value = true
       return
     }
 
-    // Initialize chat search service with embeddings
+    // Initialize old chat search service for backward compatibility
     await chatSearchService.initialize(questions, summaries, embeddings)
 
-    // Get suggested questions
-    suggestedQuestions.value = chatSearchService.getSuggestedQuestions()
+    // Initialize unified search service with questions AND duas
+    await unifiedChatSearchService.initialize(
+      questions,
+      duas,
+      summaries,
+      embeddings,
+      duaEmbeddings
+    )
 
-    console.log('Chat service initialized with semantic search')
+    // Get suggested questions
+    suggestedQuestions.value = unifiedChatSearchService.getSuggestedQuestions()
+
+    console.log(`Chat service initialized: ${questions.length} questions, ${duas.length} duas`)
+    console.log(`Embeddings: Questions=${Object.keys(embeddings).length}, Duas=${Object.keys(duaEmbeddings).length}`)
   } catch (error) {
     console.error('Error initializing chat:', error)
   }
