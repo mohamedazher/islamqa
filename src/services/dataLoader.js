@@ -140,15 +140,34 @@ class DataLoaderService {
         if (onProgress) onProgress({ step: 'No duas available', progress: 84 })
       }
 
+      // Step 3d: Load and import dua embeddings (for semantic search)
+      this.currentStep = 'Loading dua embeddings...'
+      if (onProgress) onProgress({ step: this.currentStep, progress: 84.5 })
+
+      const duaEmbeddingsData = await this.loadDuaEmbeddings()
+      if (duaEmbeddingsData && Object.keys(duaEmbeddingsData).length > 0) {
+        // Store dua embeddings in localStorage for access (or IndexedDB if needed)
+        try {
+          localStorage.setItem('dua_embeddings', JSON.stringify(duaEmbeddingsData))
+          this.progress = 85
+          if (onProgress) onProgress({ step: `Dua embeddings loaded (${Object.keys(duaEmbeddingsData).length} total)`, progress: 85 })
+        } catch (error) {
+          console.warn('⚠️  Failed to store dua embeddings in localStorage:', error.message)
+          if (onProgress) onProgress({ step: 'Dua embeddings (storage error)', progress: 85 })
+        }
+      } else {
+        if (onProgress) onProgress({ step: 'No dua embeddings available yet', progress: 85 })
+      }
+
       // Step 4: Load and import AI summaries (for chat search)
       this.currentStep = 'Loading AI summaries...'
-      if (onProgress) onProgress({ step: this.currentStep, progress: 85 })
+      if (onProgress) onProgress({ step: this.currentStep, progress: 86 })
 
       const summariesData = await this.loadAiSummaries()
       if (summariesData && Object.keys(summariesData).length > 0) {
         await dexieDb.importSummaries(summariesData, (batchProgress) => {
           const batchPercent = batchProgress.percentage / 100
-          const overallProgress = 82 + (batchPercent * 4)
+          const overallProgress = 86 + (batchPercent * 3)
           if (onProgress) {
             onProgress({
               step: `Importing AI summaries (${batchProgress.itemsProcessed}/${batchProgress.totalItems})`,
@@ -156,21 +175,21 @@ class DataLoaderService {
             })
           }
         })
-        this.progress = 86
-        if (onProgress) onProgress({ step: `AI summaries imported (${Object.keys(summariesData).length} total)`, progress: 86 })
+        this.progress = 89
+        if (onProgress) onProgress({ step: `AI summaries imported (${Object.keys(summariesData).length} total)`, progress: 89 })
       } else {
-        if (onProgress) onProgress({ step: 'No AI summaries available yet', progress: 86 })
+        if (onProgress) onProgress({ step: 'No AI summaries available yet', progress: 89 })
       }
 
       // Step 5: Load and import AI embeddings (for semantic search)
       this.currentStep = 'Loading AI embeddings...'
-      if (onProgress) onProgress({ step: this.currentStep, progress: 87 })
+      if (onProgress) onProgress({ step: this.currentStep, progress: 90 })
 
       const embeddingsData = await this.loadAiEmbeddings()
       if (embeddingsData && Object.keys(embeddingsData).length > 0) {
         await dexieDb.importEmbeddings(embeddingsData, (batchProgress) => {
           const batchPercent = batchProgress.percentage / 100
-          const overallProgress = 87 + (batchPercent * 8)
+          const overallProgress = 90 + (batchPercent * 5)
           if (onProgress) {
             onProgress({
               step: `Importing AI embeddings (${batchProgress.itemsProcessed}/${batchProgress.totalItems})`,
@@ -537,6 +556,26 @@ class DataLoaderService {
           progressBase += 10
           if (onProgress) onProgress({ step: 'No duas available', progress: progressBase })
         }
+
+        // Load dua embeddings for semantic search
+        this.currentStep = 'Loading dua embeddings...'
+        if (onProgress) onProgress({ step: this.currentStep, progress: progressBase })
+
+        const duaEmbeddingsData = await this.loadDuaEmbeddings()
+        if (duaEmbeddingsData && Object.keys(duaEmbeddingsData).length > 0) {
+          try {
+            localStorage.setItem('dua_embeddings', JSON.stringify(duaEmbeddingsData))
+            progressBase += 5
+            if (onProgress) onProgress({ step: `Dua embeddings loaded (${Object.keys(duaEmbeddingsData).length} total)`, progress: progressBase })
+          } catch (error) {
+            console.warn('⚠️  Failed to store dua embeddings in localStorage:', error.message)
+            progressBase += 5
+            if (onProgress) onProgress({ step: 'Dua embeddings (storage error)', progress: progressBase })
+          }
+        } else {
+          progressBase += 5
+          if (onProgress) onProgress({ step: 'No dua embeddings available', progress: progressBase })
+        }
       }
 
       this.isLoading = false
@@ -620,6 +659,33 @@ class DataLoaderService {
       return embeddings
     } catch (error) {
       console.warn('⚠️  Error loading AI embeddings:', error.message)
+      return {}
+    }
+  }
+
+  /**
+   * Load dua embeddings from JSON file
+   * Embeddings enable semantic search for duas
+   */
+  async loadDuaEmbeddings() {
+    try {
+      const basePath = this.getDataPath()
+      const response = await fetch(`${basePath}/dua-embeddings.json`)
+
+      if (!response.ok) {
+        console.warn(`⚠️  Dua embeddings file not found (HTTP ${response.status})`)
+        return {}
+      }
+
+      const embeddings = await response.json()
+      const count = Object.keys(embeddings).length
+
+      if (count > 0) {
+        console.log(`🔢 Loaded ${count} dua embeddings (768D vectors)`)
+      }
+      return embeddings
+    } catch (error) {
+      console.warn('⚠️  Error loading dua embeddings:', error.message)
       return {}
     }
   }

@@ -13,7 +13,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Configuration
-const GEMINI_API_KEY = 'AIzaSyAEma46H6zePFRvQnp8ccfkOPI9eb7mbR8';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+if (!GEMINI_API_KEY) {
+  console.error('ERROR: GEMINI_API_KEY environment variable not set');
+  console.error('Set it with: export GEMINI_API_KEY="your-api-key"');
+  process.exit(1);
+}
+
 const BATCH_SIZE = 100; // Process 100 at a time
 const DELAY_MS = 100; // Delay between batches to avoid rate limits
 
