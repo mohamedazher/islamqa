@@ -1131,6 +1131,9 @@ async function handleClearData(selections) {
       console.log('🗑️  Clearing database...')
       await dexieDb.clearAllData()
       dataStore.isReady = false
+      // Also clear chat messages since they depend on Q&A data
+      console.log('🗑️  Clearing chat history...')
+      localStorage.removeItem('islamqa_chat_messages')
     }
 
     // Clear bookmarks
