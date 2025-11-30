@@ -842,6 +842,15 @@ onMounted(async () => {
     const questions = await dataStore.getAllQuestions()
     const duas = await loadAllDuas()
 
+    // DEBUG: Verify source_file is added to duas
+    const duaWithSourceFile = duas.find(d => d.source_file)
+    if (duaWithSourceFile) {
+      console.log(`✓ Duas have source_file: ${duaWithSourceFile.source_file}:${duaWithSourceFile.id}`)
+    } else {
+      console.warn(`✗ PROBLEM: Duas missing source_file field!`)
+      console.warn(`Sample dua keys:`, Object.keys(duas[0]).join(', '))
+    }
+
     // Load AI summaries, question embeddings, and dua embeddings in parallel
     const [summaries, embeddings, duaEmbeddings] = await Promise.all([
       loadSummaries(),
