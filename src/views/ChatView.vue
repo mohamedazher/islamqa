@@ -147,7 +147,7 @@
 
               <!-- Result Cards -->
               <div
-                v-for="result in message.results.slice(0, message.showAll ? message.results.length : 6)"
+                v-for="result in message.results.slice(0, message.visibleResultsCount)"
                 :key="`${result.resultType}-${result.reference || result.id}`"
                 @click="openResult(result)"
                 :class="{
@@ -214,17 +214,19 @@
 
               </div>
 
-              <!-- See More Button -->
+              <!-- Show More Button -->
               <button
-                v-if="message.results.length > 6 && !message.showAll"
-                @click.stop="message.showAll = true"
+                v-if="message.results.length > message.visibleResultsCount"
+                @click.stop="showMoreResults(message)"
                 class="w-full mt-2 px-4 py-2 text-sm font-medium text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-lg transition"
               >
-                Show {{ message.results.length - 6 }} More Results
+                Show {{ Math.min(message.resultsPerPage, message.results.length - message.visibleResultsCount) }} More Results
               </button>
+
+              <!-- Show Less Button -->
               <button
-                v-if="message.showAll && message.results.length > 6"
-                @click.stop="message.showAll = false"
+                v-if="message.visibleResultsCount > 6"
+                @click.stop="showLessResults(message)"
                 class="w-full mt-2 px-4 py-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition"
               >
                 Show Less
@@ -437,6 +439,18 @@ const scrollToBottom = async () => {
   }
 }
 
+// Show more results with pagination
+const showMoreResults = async (message) => {
+  message.visibleResultsCount += message.resultsPerPage
+  await nextTick()
+  await scrollToBottom()
+}
+
+// Show less results (collapse to initial view)
+const showLessResults = (message) => {
+  message.visibleResultsCount = 6
+}
+
 // Get query embedding via n8n proxy
 const getQueryEmbedding = async (text) => {
   try {
@@ -549,7 +563,8 @@ const askQuestion = async (question) => {
       results: response.results,
       questionCount,
       duaCount,
-      showAll: false
+      visibleResultsCount: 6,
+      resultsPerPage: 6
     })
 
   } catch (error) {
@@ -559,7 +574,8 @@ const askQuestion = async (question) => {
       type: 'assistant',
       content: 'Sorry, I encountered an error while searching. Please try again.',
       results: [],
-      showAll: false
+      visibleResultsCount: 6,
+      resultsPerPage: 6
     })
   }
 

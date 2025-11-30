@@ -286,7 +286,7 @@ class UnifiedChatSearchService {
    * Unified hybrid search: questions + duas
    * Returns mixed results ranked by relevance
    */
-  search(query, limit = 5, queryEmbedding = null) {
+  search(query, limit = 10, queryEmbedding = null) {
     if (!this.isReady) {
       console.warn('UnifiedChatSearchService not initialized')
       return []
