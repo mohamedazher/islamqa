@@ -635,6 +635,17 @@ const openQuestion = async (reference) => {
 // Open dua detail in modal (same modal as questions for simplicity)
 const openDua = async (dua) => {
   try {
+    // DEBUG: Log dua object structure
+    console.log('Opening dua:', {
+      id: dua.id,
+      title: dua.title,
+      hasArabic: !!dua.arabic,
+      hasTranslit: !!dua.transliteration,
+      hasTranslation: !!dua.translation,
+      hasVirtue: !!dua.virtue,
+      allKeys: Object.keys(dua).join(', ')
+    })
+
     // Use the dua object directly (already loaded)
     const question = {
       reference: dua.id,
