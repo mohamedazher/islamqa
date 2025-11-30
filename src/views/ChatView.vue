@@ -356,7 +356,6 @@ import { useRouter } from 'vue-router'
 import { useDataStore } from '@/stores/data'
 import dexieDb from '@/services/dexieDatabase'
 import dataLoader from '@/services/dataLoader'
-import chatSearchService from '@/services/chatSearchService'
 import unifiedChatSearchService from '@/services/unifiedChatSearchService'
 import { generateToken } from '@/utils/tokenHash'
 import { processAnswerLinks } from '@/utils/linkHandler'
@@ -735,7 +734,7 @@ const startAiImport = async () => {
     ])
 
     const questions = await dataStore.getAllQuestions()
-    await chatSearchService.initialize(questions, summaries, embeddings)
+    await unifiedChatSearchService.initialize(questions, summaries, embeddings, null, null)
 
     aiDataMissing.value = false
     isImportingAi.value = false
@@ -902,9 +901,6 @@ onMounted(async () => {
       aiDataMissing.value = true
       return
     }
-
-    // Initialize old chat search service for backward compatibility
-    await chatSearchService.initialize(questions, summaries, embeddings)
 
     // Initialize unified search service with questions AND duas
     await unifiedChatSearchService.initialize(
