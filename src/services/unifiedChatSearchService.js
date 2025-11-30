@@ -152,102 +152,132 @@ class UnifiedChatSearchService {
 
   /**
    * Vector search across questions and duas
+   * Returns balanced mix of both types for better user experience
    */
   vectorSearch(queryEmbedding, limit = 10) {
-    const results = []
-
-    if (!queryEmbedding) return results
+    if (!queryEmbedding) return []
 
     const queryVector = new Float32Array(queryEmbedding)
+    let questionResults = []
+    let duaResults = []
 
     // Search questions
     if (this.hasQuestionEmbeddings) {
-      const questionSimilarities = this.embeddingsList.map(item => ({
-        reference: item.reference,
-        similarity: this.cosineSimilarity(queryVector, item.vector),
-        type: 'question'
-      }))
+      const questionSimilarities = this.embeddingsList
+        .map(item => ({
+          reference: item.reference,
+          similarity: this.cosineSimilarity(queryVector, item.vector)
+        }))
+        .sort((a, b) => b.similarity - a.similarity)
 
-      questionSimilarities.forEach(sim => {
+      questionResults = questionSimilarities.map(sim => {
         const question = this.questionMap[sim.reference]
-        if (question) {
-          results.push({
-            ...question,
-            reference: sim.reference,
-            similarity: sim.similarity,
-            score: 1 - sim.similarity,
-            matchType: 'vector',
-            resultType: 'question'
-          })
-        }
-      })
+        return question ? {
+          ...question,
+          reference: sim.reference,
+          similarity: sim.similarity,
+          score: 1 - sim.similarity,
+          matchType: 'vector',
+          resultType: 'question'
+        } : null
+      }).filter(Boolean)
     }
 
     // Search duas
     if (this.hasDuaEmbeddings) {
-      const duaSimilarities = this.duaEmbeddingsList.map(item => ({
-        id: item.id,
-        similarity: this.cosineSimilarity(queryVector, item.vector),
-        type: 'dua'
-      }))
+      const duaSimilarities = this.duaEmbeddingsList
+        .map(item => ({
+          id: item.id,
+          similarity: this.cosineSimilarity(queryVector, item.vector)
+        }))
+        .sort((a, b) => b.similarity - a.similarity)
 
-      duaSimilarities.forEach(sim => {
+      duaResults = duaSimilarities.map(sim => {
         const dua = this.duaMap[sim.id]
-        if (dua) {
-          results.push({
-            ...dua,
-            id: sim.id,
-            similarity: sim.similarity,
-            score: 1 - sim.similarity,
-            matchType: 'vector',
-            resultType: 'dua'
-          })
-        }
-      })
+        return dua ? {
+          ...dua,
+          id: sim.id,
+          similarity: sim.similarity,
+          score: 1 - sim.similarity,
+          matchType: 'vector',
+          resultType: 'dua'
+        } : null
+      }).filter(Boolean)
     }
 
-    // Sort all results by similarity
-    results.sort((a, b) => b.similarity - a.similarity)
+    // Interleave results to balance questions and duas
+    const balanced = this.interleaveResults(questionResults, duaResults, limit)
+    return balanced
+  }
+
+  /**
+   * Interleave two result arrays for balanced distribution
+   * Example: [Q1, Q2, Q3] + [D1, D2] → [Q1, D1, Q2, D2, Q3]
+   */
+  interleaveResults(questions, duas, limit) {
+    const results = []
+    let qIndex = 0
+    let dIndex = 0
+
+    // Determine interleaving strategy based on available results
+    const totalAvailable = questions.length + duas.length
+
+    // If one type is missing, just return the available type
+    if (questions.length === 0) return duas.slice(0, limit)
+    if (duas.length === 0) return questions.slice(0, limit)
+
+    // Interleave alternating between questions and duas
+    while (results.length < limit && (qIndex < questions.length || dIndex < duas.length)) {
+      // Alternate: question, dua, question, dua...
+      if (qIndex < questions.length && (dIndex >= duas.length || results.length % 2 === 0)) {
+        results.push(questions[qIndex++])
+      } else if (dIndex < duas.length) {
+        results.push(duas[dIndex++])
+      } else if (qIndex < questions.length) {
+        results.push(questions[qIndex++])
+      }
+    }
 
     return results.slice(0, limit)
   }
 
   /**
    * Keyword search across questions and duas
+   * Returns balanced mix of both types
    */
   keywordSearch(query, limit = 10) {
-    const results = []
+    let questionResults = []
+    let duaResults = []
 
     // Search questions
     if (this.fuseInstance) {
-      const questionResults = this.fuseInstance.search(query.trim())
-      questionResults.forEach(result => {
-        results.push({
-          ...result.item,
-          fuseScore: result.score,
-          similarity: 1 - result.score,
-          matchType: 'keyword',
-          resultType: 'question'
-        })
-      })
+      const results = this.fuseInstance.search(query.trim())
+      questionResults = results.map(result => ({
+        ...result.item,
+        fuseScore: result.score,
+        similarity: 1 - result.score,
+        matchType: 'keyword',
+        resultType: 'question'
+      }))
     }
 
     // Search duas
     if (this.fuseInstanceDua) {
-      const duaResults = this.fuseInstanceDua.search(query.trim())
-      duaResults.forEach(result => {
-        results.push({
-          ...result.item,
-          fuseScore: result.score,
-          similarity: 1 - result.score,
-          matchType: 'keyword',
-          resultType: 'dua'
-        })
-      })
+      const results = this.fuseInstanceDua.search(query.trim())
+      duaResults = results.map(result => ({
+        ...result.item,
+        fuseScore: result.score,
+        similarity: 1 - result.score,
+        matchType: 'keyword',
+        resultType: 'dua'
+      }))
     }
 
+    // Interleave results for balanced distribution
+    const interleaved = this.interleaveResults(questionResults, duaResults, limit * 2)
+
     // Re-rank combined results by type and relevance
-    return this.rankMixedResults(results, query).slice(0, limit)
+    return this.rankMixedResults(interleaved, query).slice(0, limit)
   }
 
   /**

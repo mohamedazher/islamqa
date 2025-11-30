@@ -76,14 +76,23 @@ function loadAllDuas() {
 
 /**
  * Compose embedding text for a dua
- * Combines: title + category + tags + virtue excerpt
+ * Combines: category + title + translation + tags + virtue excerpt
+ *
+ * This captures the full contextual meaning:
+ * - Category provides situational context (when/where the dua is used)
+ * - Title describes what the dua is for
+ * - Translation provides the meaning/content
+ * - Tags enhance searchability by purpose
+ * - Virtue explains the benefits/virtues
  */
 function composeEmbeddingText(dua) {
   const parts = [
-    // Title (strongest signal of intent)
+    // Category (context signal - when/where used)
+    dua.category_name ? `Category: ${dua.category_name}` : '',
+    // Title (strongest signal of intent/purpose)
     dua.title || '',
-    // Category (context signal)
-    `Category: ${dua.category_name || ''}`,
+    // Translation (meaning/content of the dua)
+    dua.translation ? `Meaning: ${dua.translation}` : '',
     // Tags (purpose/situation signal)
     dua.tags && dua.tags.length > 0 ? `Tags: ${dua.tags.join(', ')}` : '',
     // Virtue/benefits excerpt (detailed purpose)
