@@ -55,10 +55,11 @@ class DuaChatSearchService {
       console.log(`DuaChatSearchService: Loaded ${this.embeddingsList.length} dua embeddings`)
     }
 
-    // Build lookup map
+    // Build lookup map with composite keys to handle duplicate IDs across files
     this.duaMap = {}
     for (const dua of this.duas) {
-      this.duaMap[dua.id] = dua
+      const compositeKey = dua.source_file ? `${dua.source_file}:${dua.id}` : `${dua.id}`
+      this.duaMap[compositeKey] = dua
     }
 
     // Initialize Fuse for keyword fallback
@@ -82,7 +83,9 @@ class DuaChatSearchService {
         contexts: this.extractContexts(dua),
         keyword: this.buildKeywordString(dua)
       }
-      this.metadataIndex[dua.id] = metadata
+      // Use composite key to match duaMap
+      const compositeKey = dua.source_file ? `${dua.source_file}:${dua.id}` : `${dua.id}`
+      this.metadataIndex[compositeKey] = metadata
     }
   }
 
@@ -249,8 +252,8 @@ class DuaChatSearchService {
 
     if (filters.context && filters.context.length > 0) {
       similarities = similarities.filter(sim => {
-        const metadata = this.metadataIndex[sim.id]
-        return filters.context.some(ctx =>
+        const metadata = this.metadataIndex[sim.reference]
+        return metadata && filters.context.some(ctx =>
           metadata.contexts.includes(ctx.toLowerCase())
         )
       })
