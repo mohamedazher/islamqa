@@ -290,6 +290,12 @@ function handleScroll(e) {
       })
     }
 
+    // Reset vertical scroll of all card containers to top
+    const cardContainers = container.querySelectorAll('.overflow-y-auto')
+    cardContainers.forEach(card => {
+      card.scrollTop = 0
+    })
+
     // Check if scrolled to last card (show completion)
     if (currentScrollIndex.value >= totalDuas.value - 1) {
       const isAtEnd = snappedPosition + cardWidth >= container.scrollWidth - 10
