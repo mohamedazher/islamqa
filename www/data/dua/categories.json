@@ -9,7 +9,8 @@
       "color": "from-amber-400 to-orange-500",
       "type": "main",
       "order": 1,
-      "dua_count": 24
+      "dua_count": 24,
+      "numeric_id": 3
     },
     {
       "id": "evening",
@@ -20,7 +21,8 @@
       "color": "from-orange-400 to-rose-500",
       "type": "main",
       "order": 2,
-      "dua_count": 23
+      "dua_count": 23,
+      "numeric_id": 4
     },
     {
       "id": "before-sleep",
@@ -31,7 +33,8 @@
       "color": "from-indigo-500 to-purple-600",
       "type": "main",
       "order": 3,
-      "dua_count": 18
+      "dua_count": 18,
+      "numeric_id": 2
     },
     {
       "id": "salah",
@@ -42,7 +45,8 @@
       "color": "from-green-400 to-emerald-500",
       "type": "main",
       "order": 4,
-      "dua_count": 52
+      "dua_count": 52,
+      "numeric_id": 5
     },
     {
       "id": "after-salah",
@@ -53,7 +57,8 @@
       "color": "from-teal-400 to-cyan-500",
       "type": "main",
       "order": 5,
-      "dua_count": 12
+      "dua_count": 12,
+      "numeric_id": 6
     },
     {
       "id": "ruqyah-illness",
@@ -64,7 +69,8 @@
       "color": "from-lime-400 to-green-500",
       "type": "main",
       "order": 6,
-      "dua_count": 20
+      "dua_count": 20,
+      "numeric_id": 22
     },
     {
       "id": "praises-allah",
@@ -75,7 +81,8 @@
       "color": "from-yellow-400 to-amber-500",
       "type": "main",
       "order": 7,
-      "dua_count": 30
+      "dua_count": 30,
+      "numeric_id": 8
     },
     {
       "id": "salawat",
@@ -86,7 +93,8 @@
       "color": "from-rose-400 to-pink-500",
       "type": "main",
       "order": 8,
-      "dua_count": 9
+      "dua_count": 9,
+      "numeric_id": 10
     },
     {
       "id": "quranic-duas",
@@ -97,7 +105,8 @@
       "color": "from-blue-400 to-indigo-500",
       "type": "main",
       "order": 9,
-      "dua_count": 41
+      "dua_count": 41,
+      "numeric_id": 11
     },
     {
       "id": "sunnah-duas",
@@ -108,7 +117,8 @@
       "color": "from-purple-400 to-violet-500",
       "type": "main",
       "order": 10,
-      "dua_count": 75
+      "dua_count": 75,
+      "numeric_id": 12
     },
     {
       "id": "names-allah",
@@ -119,7 +129,8 @@
       "color": "from-fuchsia-400 to-rose-500",
       "type": "main",
       "order": 11,
-      "dua_count": 75
+      "dua_count": 75,
+      "numeric_id": 31
     },
     {
       "id": "dhikr-all-times",
@@ -130,7 +141,8 @@
       "color": "from-sky-400 to-blue-500",
       "type": "main",
       "order": 12,
-      "dua_count": 11
+      "dua_count": 11,
+      "numeric_id": 7
     },
     {
       "id": "istighfar",
@@ -141,7 +153,8 @@
       "color": "from-orange-400 to-red-500",
       "type": "main",
       "order": 13,
-      "dua_count": 19
+      "dua_count": 19,
+      "numeric_id": 9
     },
     {
       "id": "waking-up",
@@ -152,7 +165,8 @@
       "color": "from-sky-400 to-blue-500",
       "type": "other",
       "order": 14,
-      "dua_count": 5
+      "dua_count": 5,
+      "numeric_id": 1
     },
     {
       "id": "nightmares",
@@ -163,7 +177,8 @@
       "color": "from-slate-500 to-gray-600",
       "type": "other",
       "order": 15,
-      "dua_count": 1
+      "dua_count": 1,
+      "numeric_id": 27
     },
     {
       "id": "clothes",
@@ -174,7 +189,8 @@
       "color": "from-purple-400 to-indigo-500",
       "type": "other",
       "order": 16,
-      "dua_count": 4
+      "dua_count": 4,
+      "numeric_id": 14
     },
     {
       "id": "lavatory-wudu",
@@ -185,7 +201,8 @@
       "color": "from-cyan-400 to-blue-500",
       "type": "other",
       "order": 17,
-      "dua_count": 6
+      "dua_count": 6,
+      "numeric_id": 13
     },
     {
       "id": "home",
@@ -196,7 +213,8 @@
       "color": "from-green-400 to-emerald-500",
       "type": "other",
       "order": 18,
-      "dua_count": 3
+      "dua_count": 3,
+      "numeric_id": 15
     },
     {
       "id": "adhan-masjid",
@@ -207,7 +225,8 @@
       "color": "from-rose-400 to-pink-500",
       "type": "other",
       "order": 19,
-      "dua_count": 8
+      "dua_count": 8,
+      "numeric_id": 16
     },
     {
       "id": "istikhara",
@@ -218,7 +237,8 @@
       "color": "from-violet-400 to-purple-500",
       "type": "other",
       "order": 20,
-      "dua_count": 1
+      "dua_count": 1,
+      "numeric_id": 20
     },
     {
       "id": "gatherings",
@@ -229,7 +249,8 @@
       "color": "from-pink-400 to-rose-500",
       "type": "other",
       "order": 21,
-      "dua_count": 4
+      "dua_count": 4,
+      "numeric_id": 19
     },
     {
       "id": "food-drink",
@@ -240,7 +261,8 @@
       "color": "from-emerald-400 to-teal-500",
       "type": "other",
       "order": 22,
-      "dua_count": 16
+      "dua_count": 16,
+      "numeric_id": 17
     },
     {
       "id": "travel",
@@ -251,7 +273,8 @@
       "color": "from-blue-400 to-cyan-500",
       "type": "other",
       "order": 23,
-      "dua_count": 13
+      "dua_count": 13,
+      "numeric_id": 18
     },
     {
       "id": "death",
@@ -262,7 +285,8 @@
       "color": "from-gray-500 to-slate-600",
       "type": "other",
       "order": 24,
-      "dua_count": 16
+      "dua_count": 16,
+      "numeric_id": 23
     },
     {
       "id": "nature",
@@ -273,7 +297,8 @@
       "color": "from-green-500 to-emerald-600",
       "type": "other",
       "order": 25,
-      "dua_count": 14
+      "dua_count": 14,
+      "numeric_id": 26
     },
     {
       "id": "social-interactions",
@@ -284,7 +309,8 @@
       "color": "from-orange-400 to-amber-500",
       "type": "other",
       "order": 26,
-      "dua_count": 6
+      "dua_count": 6,
+      "numeric_id": 28
     },
     {
       "id": "protection-iman",
@@ -295,7 +321,8 @@
       "color": "from-red-400 to-rose-500",
       "type": "other",
       "order": 27,
-      "dua_count": 6
+      "dua_count": 6,
+      "numeric_id": 25
     },
     {
       "id": "difficulties-happiness",
@@ -306,7 +333,8 @@
       "color": "from-amber-500 to-orange-600",
       "type": "other",
       "order": 28,
-      "dua_count": 22
+      "dua_count": 22,
+      "numeric_id": 24
     },
     {
       "id": "hajj-umrah",
@@ -317,7 +345,8 @@
       "color": "from-green-500 to-teal-600",
       "type": "other",
       "order": 29,
-      "dua_count": 10
+      "dua_count": 10,
+      "numeric_id": 29
     },
     {
       "id": "money-shopping",
@@ -328,7 +357,8 @@
       "color": "from-yellow-500 to-amber-600",
       "type": "other",
       "order": 30,
-      "dua_count": 9
+      "dua_count": 9,
+      "numeric_id": 30
     },
     {
       "id": "marriage-children",
@@ -339,7 +369,8 @@
       "color": "from-red-400 to-pink-500",
       "type": "other",
       "order": 31,
-      "dua_count": 12
+      "dua_count": 12,
+      "numeric_id": 21
     }
   ]
 }
