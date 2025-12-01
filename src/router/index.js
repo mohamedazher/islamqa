@@ -4,6 +4,14 @@ import { useAnalytics } from '@/services/analytics'
 // Use hash mode for Cordova (no server routing needed)
 const router = createRouter({
   history: createWebHashHistory(),
+  scrollBehavior(to, from, savedPosition) {
+    // If user is going back/forward in history, restore saved position
+    if (savedPosition) {
+      return savedPosition
+    }
+    // Otherwise, scroll to top for new navigation
+    return { top: 0 }
+  },
   routes: [
     {
       path: '/',
