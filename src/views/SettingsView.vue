@@ -663,28 +663,56 @@
         </div>
         <div class="p-4 space-y-4">
           <!-- Analytics Toggle -->
-          <div class="flex items-start justify-between">
-            <div class="flex-1 pr-4">
-              <h3 class="font-medium text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
-                Analytics
-                <span v-if="!analyticsEnabled" class="text-xs bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-2 py-0.5 rounded">Disabled</span>
-              </h3>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-0.5">
-                Help improve the app by sharing anonymous usage data. No personal information is collected.
-              </p>
-            </div>
-            <button
-              @click="toggleAnalytics"
-              class="relative inline-flex h-9 w-16 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-neutral-900 flex-shrink-0"
-              :class="analyticsEnabled ? 'bg-primary-600 dark:bg-primary-500' : 'bg-neutral-300 dark:bg-neutral-700'"
-            >
-              <span
-                class="inline-flex h-7 w-7 transform items-center justify-center rounded-full bg-white shadow-sm transition-transform"
-                :class="analyticsEnabled ? 'translate-x-8' : 'translate-x-1'"
+          <div>
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex-1 pr-4">
+                <h3 class="font-medium text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+                  Analytics
+                  <span v-if="!analyticsEnabled" class="text-xs bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-2 py-0.5 rounded">Disabled</span>
+                  <span v-if="isIOSCordova" class="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-2 py-0.5 rounded">iOS Managed</span>
+                </h3>
+                <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-0.5">
+                  <span v-if="!isIOSCordova">Help improve the app by sharing anonymous usage data. No personal information is collected.</span>
+                  <span v-else>Tracking permission is managed by iOS App Tracking Transparency.</span>
+                </p>
+              </div>
+              <button
+                @click="toggleAnalytics"
+                :disabled="isIOSCordova"
+                class="relative inline-flex h-9 w-16 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-neutral-900 flex-shrink-0"
+                :class="[
+                  analyticsEnabled ? 'bg-primary-600 dark:bg-primary-500' : 'bg-neutral-300 dark:bg-neutral-700',
+                  isIOSCordova ? 'opacity-60 cursor-not-allowed' : ''
+                ]"
               >
-                <Icon :name="analyticsEnabled ? 'check' : 'close'" size="sm" class="text-neutral-700" />
-              </span>
-            </button>
+                <span
+                  class="inline-flex h-7 w-7 transform items-center justify-center rounded-full bg-white shadow-sm transition-transform"
+                  :class="analyticsEnabled ? 'translate-x-8' : 'translate-x-1'"
+                >
+                  <Icon :name="analyticsEnabled ? 'check' : 'close'" size="sm" class="text-neutral-700" />
+                </span>
+              </button>
+            </div>
+
+            <!-- iOS ATT Settings Link -->
+            <div v-if="isIOSCordova" class="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
+              <div class="flex items-start gap-2 mb-2">
+                <Icon name="info" size="sm" class="text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                <div class="text-xs text-blue-900 dark:text-blue-100 flex-1">
+                  <p class="font-semibold mb-1">To change tracking permission:</p>
+                  <p class="text-blue-700 dark:text-blue-300">
+                    Go to iOS Settings → Privacy & Security → Tracking → BetterIslam Q&A
+                  </p>
+                </div>
+              </div>
+              <button
+                @click="openAppSettings"
+                class="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-sm font-medium"
+              >
+                <Icon name="cog" size="sm" />
+                Open iOS Settings
+              </button>
+            </div>
           </div>
 
           <!-- Privacy Info Link -->
@@ -1027,6 +1055,11 @@ const isCordova = computed(() => {
   return typeof window.cordova !== 'undefined'
 })
 
+// Detect if running on iOS in Cordova
+const isIOSCordova = computed(() => {
+  return isCordova.value && window.device && window.device.platform === 'iOS'
+})
+
 const selectedCalculationMethod = computed(() => {
   return calculationMethods.find(m => m.key === prayerSettings.value.calculationMethod)
 })
@@ -1097,6 +1130,17 @@ function toggleAnalytics() {
   setEnabled(analyticsEnabled.value)
 
   console.log('[Settings] Analytics', analyticsEnabled.value ? 'enabled' : 'disabled')
+}
+
+function openAppSettings() {
+  if (window.cordova && window.cordova.plugins && window.cordova.plugins.settings) {
+    window.cordova.plugins.settings.open('application_details',
+      () => console.log('✅ Opened app settings'),
+      () => console.error('❌ Failed to open app settings')
+    )
+  } else {
+    alert('To change tracking permission:\n\n1. Open iOS Settings\n2. Scroll to BetterIslam Q&A\n3. Tap Tracking\n4. Toggle "Allow Apps to Request to Track"')
+  }
 }
 
 function showPrivacyInfo() {

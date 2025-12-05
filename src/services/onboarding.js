@@ -101,7 +101,10 @@ export function skipOnboarding() {
  * Onboarding slides data
  */
 export function getOnboardingSlides() {
-  return [
+  // Detect if running on iOS in Cordova
+  const isIOS = window.cordova && window.device && window.device.platform === 'iOS'
+
+  const allSlides = [
     {
       id: 'welcome',
       icon: 'book',
@@ -175,6 +178,13 @@ export function getOnboardingSlides() {
       type: 'import'
     }
   ]
+
+  // Filter out privacy slide on iOS (ATT handles tracking permission)
+  if (isIOS) {
+    return allSlides.filter(slide => slide.id !== 'privacy')
+  }
+
+  return allSlides
 }
 
 export default {
