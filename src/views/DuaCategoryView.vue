@@ -96,7 +96,7 @@
             <div class="relative bg-white dark:bg-neutral-900 rounded-2xl p-5 border border-neutral-200 dark:border-neutral-700 shadow-lg">
               <!-- Arabic Text -->
               <p
-                class="text-center leading-loose text-neutral-900 dark:text-white font-arabic"
+                class="text-center leading-loose text-neutral-900 dark:text-white font-arabic whitespace-pre-wrap break-words"
                 dir="rtl"
                 :style="{ fontSize: duaStore.settings.arabic_font_size + 'px', lineHeight: '2' }"
               >
@@ -366,7 +366,7 @@ onMounted(async () => {
 
 <style scoped>
 .font-arabic {
-  font-family: 'Traditional Arabic', 'Scheherazade New', 'Amiri', serif;
+  font-family: 'Amiri Quran', 'Scheherazade New', 'Traditional Arabic', 'Amiri', serif;
 }
 
 /* Hide scrollbar for swipeable cards */
