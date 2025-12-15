@@ -65,15 +65,6 @@
       </div>
     </div>
 
-    <!-- Attribution Footer -->
-    <div class="px-4 pb-8 text-center">
-      <p class="text-xs text-neutral-400 dark:text-neutral-500">
-        Content sourced from
-        <a href="https://lifewithallah.com/dhikr-dua/" target="_blank" class="text-primary-500 hover:underline">
-          LifeWithAllah.com
-        </a>
-      </p>
-    </div>
   </div>
 </template>
 
