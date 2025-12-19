@@ -1,0 +1,697 @@
+{
+  "metadata": {
+    "total_categories": 31,
+    "total_duas": 496,
+    "structure": "Each category has a dedicated JSON file with Arabic text, transliteration, English translation, virtue explanations, and Quranic/Hadith references",
+    "analysis_date": "2025-12-19"
+  },
+  "categories": [
+    {
+      "id": "morning",
+      "numeric_id": 3,
+      "name": "Morning Adhkar",
+      "dua_count": 24,
+      "type": "main",
+      "order": 1,
+      "icon": "🌅",
+      "color": "from-amber-400 to-orange-500",
+      "theme_group": "Time-based",
+      "description": "Daily morning remembrances after Fajr until sunrise",
+      "main_themes": ["Protection", "Oneness of Allah (Tawheed)", "Praise", "Forgiveness", "Anxiety relief"],
+      "duas_sample": [
+        {
+          "title": "Ayat al-Kursi: The Greatest Protection",
+          "reference": "Hakim 2064",
+          "summary": "The most powerful verse for protection from evil"
+        },
+        {
+          "title": "3 Quls: Be Sufficed in All Your Matters",
+          "reference": "Tirmidhi 3575",
+          "summary": "Surah al-Ikhlas, al-Falaq, and al-Nas for comprehensive protection"
+        },
+        {
+          "title": "Sayyid al-Istighfar: The Best Way of Seeking Forgiveness",
+          "reference": "Bukhari 6306",
+          "summary": "The most superior manner of seeking forgiveness"
+        }
+      ]
+    },
+    {
+      "id": "evening",
+      "numeric_id": 4,
+      "name": "Evening Adhkar",
+      "dua_count": 23,
+      "type": "main",
+      "order": 2,
+      "icon": "🌇",
+      "color": "from-orange-400 to-rose-500",
+      "theme_group": "Time-based",
+      "description": "Daily evening remembrances from Asr to Maghrib",
+      "main_themes": ["Protection", "Oneness of Allah", "Praise", "Forgiveness", "Seeking wellbeing"],
+      "duas_sample": [
+        {
+          "title": "Ayat al-Kursi: The Greatest Protection",
+          "reference": "Hakim 2064",
+          "summary": "Allah's greatness and dominion extended over heavens and earth"
+        },
+        {
+          "title": "3 Quls: To Suffice You in All Your Matters",
+          "reference": "Tirmidhi 3575",
+          "summary": "Perfect protection formula for evening time"
+        },
+        {
+          "title": "Sayyid al-Istighfar",
+          "reference": "Bukhari 6306",
+          "summary": "Evening repentance and forgiveness seeking"
+        }
+      ]
+    },
+    {
+      "id": "before-sleep",
+      "numeric_id": 2,
+      "name": "Before Sleep",
+      "dua_count": 18,
+      "type": "main",
+      "order": 3,
+      "icon": "🌙",
+      "color": "from-indigo-500 to-purple-600",
+      "theme_group": "Time-based",
+      "description": "Supplications before going to bed",
+      "main_themes": ["Protection during sleep", "Spiritual security", "Trust in Allah", "Sleep safety"],
+      "duas_sample": [
+        {
+          "title": "Ayat al-Kursi before sleep",
+          "summary": "Guardian angel protection throughout the night"
+        },
+        {
+          "title": "Evening Dhikr and Protection",
+          "summary": "Safe sleep protection from devils and nightmares"
+        }
+      ]
+    },
+    {
+      "id": "waking-up",
+      "numeric_id": 1,
+      "name": "Waking Up",
+      "dua_count": 5,
+      "type": "other",
+      "order": 14,
+      "icon": "⏰",
+      "color": "from-sky-400 to-blue-500",
+      "theme_group": "Time-based",
+      "description": "Supplications upon waking from sleep",
+      "main_themes": ["Gratitude", "Start of day blessing", "Energy and strength"],
+      "duas_sample": []
+    },
+    {
+      "id": "salah",
+      "numeric_id": 5,
+      "name": "Salah (Prayer)",
+      "dua_count": 52,
+      "type": "main",
+      "order": 4,
+      "icon": "🤲",
+      "color": "from-green-400 to-emerald-500",
+      "theme_group": "Action-based",
+      "description": "Duas during and around prayer",
+      "main_themes": ["Prayer openings (Istiftah)", "Spiritual preparation", "Divine connection", "Ritual purification"],
+      "duas_sample": [
+        {
+          "title": "Istiftah (The Opening Duʿa') #1",
+          "reference": "Abu Dawud 775",
+          "summary": "Glorification of Allah at prayer beginning: 'How Perfect are You O Allah'"
+        },
+        {
+          "title": "Istiftah (The Opening Duʿa') #2",
+          "reference": "Bukhari 744, Muslim 598",
+          "summary": "Distancing from sins during prayer preparation"
+        },
+        {
+          "title": "Istiftah (The Opening Duʿa') #3",
+          "reference": "Muslim 600",
+          "summary": "Abundant and sincere praise to Allah"
+        }
+      ]
+    },
+    {
+      "id": "after-salah",
+      "numeric_id": 6,
+      "name": "After Salah",
+      "dua_count": 12,
+      "type": "main",
+      "order": 5,
+      "icon": "📿",
+      "color": "from-teal-400 to-cyan-500",
+      "theme_group": "Action-based",
+      "description": "Remembrance after obligatory prayers",
+      "main_themes": ["Post-prayer reflection", "Repetition of Ayat al-Kursi", "Glorification (Tasbih)"],
+      "duas_sample": []
+    },
+    {
+      "id": "salawat",
+      "numeric_id": 10,
+      "name": "Salawat (Blessings on the Prophet)",
+      "dua_count": 9,
+      "type": "main",
+      "order": 8,
+      "icon": "🌟",
+      "color": "from-rose-400 to-pink-500",
+      "theme_group": "Spiritual/Emotional",
+      "description": "Ways to invoke blessings upon Prophet Muhammad",
+      "main_themes": ["Honoring the Prophet", "Connection to Prophet Muhammad", "Respect and love"],
+      "duas_sample": []
+    },
+    {
+      "id": "istighfar",
+      "numeric_id": 9,
+      "name": "Istighfar (Seeking Forgiveness)",
+      "dua_count": 19,
+      "type": "main",
+      "order": 13,
+      "icon": "🙏",
+      "color": "from-orange-400 to-red-500",
+      "theme_group": "Spiritual/Emotional",
+      "description": "Ways to ask Allah for forgiveness",
+      "main_themes": ["Repentance", "Seeking mercy", "Cleansing from sins", "Spiritual purification"],
+      "duas_sample": [
+        {
+          "title": "Sayyid al-Istighfar",
+          "reference": "Bukhari 6306",
+          "summary": "The most superior manner of seeking forgiveness with guaranteed paradise for sincere believer"
+        }
+      ]
+    },
+    {
+      "id": "praises-allah",
+      "numeric_id": 8,
+      "name": "Praises of Allah",
+      "dua_count": 30,
+      "type": "main",
+      "order": 7,
+      "icon": "✨",
+      "color": "from-yellow-400 to-amber-500",
+      "theme_group": "Spiritual/Emotional",
+      "description": "Glorification and praise of the Almighty",
+      "main_themes": ["Tasbih (glorification)", "Divine greatness", "Praise (Tahmid)", "Recognition of Allah's majesty"],
+      "duas_sample": []
+    },
+    {
+      "id": "quranic-duas",
+      "numeric_id": 11,
+      "name": "Quranic Duas",
+      "dua_count": 41,
+      "type": "main",
+      "order": 9,
+      "icon": "📖",
+      "color": "from-blue-400 to-indigo-500",
+      "theme_group": "Spiritual/Emotional",
+      "description": "Supplications mentioned in the Quran",
+      "main_themes": ["Quranic prayers", "Prophetic examples", "Direct from revelation", "Tested duas"],
+      "duas_sample": []
+    },
+    {
+      "id": "sunnah-duas",
+      "numeric_id": 12,
+      "name": "Sunnah Duas",
+      "dua_count": 75,
+      "type": "main",
+      "order": 10,
+      "icon": "💎",
+      "color": "from-purple-400 to-violet-500",
+      "theme_group": "Spiritual/Emotional",
+      "description": "Supplications from the Sunnah of the Prophet",
+      "main_themes": ["Prophet's teachings", "Prophetic tradition", "Hadith-based duas", "Guidance from Messenger"],
+      "duas_sample": []
+    },
+    {
+      "id": "names-allah",
+      "numeric_id": 31,
+      "name": "Names of Allah",
+      "dua_count": 75,
+      "type": "main",
+      "order": 11,
+      "icon": "⭐",
+      "color": "from-fuchsia-400 to-rose-500",
+      "theme_group": "Spiritual/Emotional",
+      "description": "The beautiful names and attributes of Allah",
+      "main_themes": ["99 Names (Asma ul-Husna)", "Divine attributes", "Calling Allah by His names", "Understanding Allah's majesty"],
+      "duas_sample": []
+    },
+    {
+      "id": "dhikr-all-times",
+      "numeric_id": 7,
+      "name": "Dhikr for All Times",
+      "dua_count": 11,
+      "type": "main",
+      "order": 12,
+      "icon": "🕐",
+      "color": "from-sky-400 to-blue-500",
+      "theme_group": "Time-based",
+      "description": "General remembrance for any time of day",
+      "main_themes": ["Anytime remembrance", "Continuous dhikr", "Universal duas", "Flexibility in timing"],
+      "duas_sample": []
+    },
+    {
+      "id": "ruqyah-illness",
+      "numeric_id": 22,
+      "name": "Ruqyah & Illness",
+      "dua_count": 20,
+      "type": "main",
+      "order": 6,
+      "icon": "🌿",
+      "color": "from-lime-400 to-green-500",
+      "theme_group": "Spiritual/Emotional",
+      "description": "Quranic verses for healing and protection",
+      "main_themes": ["Healing", "Islamic healing (Ruqyah)", "Protection from illness", "Quranic remedies"],
+      "duas_sample": []
+    },
+    {
+      "id": "protection-iman",
+      "numeric_id": 25,
+      "name": "Protection of Faith",
+      "dua_count": 6,
+      "type": "other",
+      "order": 27,
+      "icon": "🛡️",
+      "color": "from-red-400 to-rose-500",
+      "theme_group": "Spiritual/Emotional",
+      "description": "Duas for spiritual protection",
+      "main_themes": ["Faith protection", "Spiritual security", "Iman strengthening", "Protection from misguidance"],
+      "duas_sample": []
+    },
+    {
+      "id": "difficulties-happiness",
+      "numeric_id": 24,
+      "name": "Difficulties & Happiness",
+      "dua_count": 22,
+      "type": "other",
+      "order": 28,
+      "icon": "💪",
+      "color": "from-amber-500 to-orange-600",
+      "theme_group": "Spiritual/Emotional",
+      "description": "Duas during hardship and joy",
+      "main_themes": ["Hardship relief", "Ease in difficulty", "Joy gratitude", "Emotional support"],
+      "duas_sample": []
+    },
+    {
+      "id": "nightmares",
+      "numeric_id": 27,
+      "name": "Nightmares",
+      "dua_count": 1,
+      "type": "other",
+      "order": 15,
+      "icon": "☁️",
+      "color": "from-slate-500 to-gray-600",
+      "theme_group": "Spiritual/Emotional",
+      "description": "Protection after bad dreams",
+      "main_themes": ["Dream protection", "Sleep safety", "Nightmare relief"],
+      "duas_sample": []
+    },
+    {
+      "id": "istikhara",
+      "numeric_id": 20,
+      "name": "Istikharah",
+      "dua_count": 1,
+      "type": "other",
+      "order": 20,
+      "icon": "🧭",
+      "color": "from-violet-400 to-purple-500",
+      "theme_group": "Action-based",
+      "description": "Seeking guidance from Allah",
+      "main_themes": ["Guidance seeking", "Decision making", "Divine direction", "Choosing right path"],
+      "duas_sample": []
+    },
+    {
+      "id": "clothes",
+      "numeric_id": 14,
+      "name": "Clothes",
+      "dua_count": 4,
+      "type": "other",
+      "order": 16,
+      "icon": "👔",
+      "color": "from-purple-400 to-indigo-500",
+      "theme_group": "Action-based",
+      "description": "When dressing and undressing",
+      "main_themes": ["Clothing duas", "Dressing mindfulness", "Daily clothing rituals"],
+      "duas_sample": []
+    },
+    {
+      "id": "lavatory-wudu",
+      "numeric_id": 13,
+      "name": "Lavatory & Wudu",
+      "dua_count": 6,
+      "type": "other",
+      "order": 17,
+      "icon": "💧",
+      "color": "from-cyan-400 to-blue-500",
+      "theme_group": "Action-based",
+      "description": "Bathroom and ablution duas",
+      "main_themes": ["Bathroom etiquette", "Wudu duas", "Ritual purity duas", "Daily purification"],
+      "duas_sample": []
+    },
+    {
+      "id": "home",
+      "numeric_id": 15,
+      "name": "Home",
+      "dua_count": 3,
+      "type": "other",
+      "order": 18,
+      "icon": "🏠",
+      "color": "from-green-400 to-emerald-500",
+      "theme_group": "Action-based",
+      "description": "Entering and leaving the house",
+      "main_themes": ["Home protection", "Entering home duas", "Leaving home duas", "Household blessing"],
+      "duas_sample": []
+    },
+    {
+      "id": "adhan-masjid",
+      "numeric_id": 16,
+      "name": "Adhan & Masjid",
+      "dua_count": 8,
+      "type": "other",
+      "order": 19,
+      "icon": "🕌",
+      "color": "from-rose-400 to-pink-500",
+      "theme_group": "Action-based",
+      "description": "Prayer call and mosque duas",
+      "main_themes": ["Responding to Adhan", "Mosque duas", "Prayer call duas"],
+      "duas_sample": []
+    },
+    {
+      "id": "gatherings",
+      "numeric_id": 19,
+      "name": "Gatherings",
+      "dua_count": 4,
+      "type": "other",
+      "order": 21,
+      "icon": "👥",
+      "color": "from-pink-400 to-rose-500",
+      "theme_group": "Action-based",
+      "description": "Duas for social gatherings and meetings",
+      "main_themes": ["Social gathering duas", "Meeting blessings", "Assembly duas"],
+      "duas_sample": []
+    },
+    {
+      "id": "food-drink",
+      "numeric_id": 17,
+      "name": "Food & Drink",
+      "dua_count": 16,
+      "type": "other",
+      "order": 22,
+      "icon": "🍽️",
+      "color": "from-emerald-400 to-teal-500",
+      "theme_group": "Action-based",
+      "description": "Before and after eating",
+      "main_themes": ["Eating duas", "Drinking duas", "Food blessing", "Table duas"],
+      "duas_sample": [
+        {
+          "title": "Before Eating #1",
+          "summary": "Bismillah (In the name of Allah) - simple but powerful"
+        },
+        {
+          "title": "Before Eating #2",
+          "reference": "Tirmidhi 3455",
+          "summary": "Blessing in food and receiving better sustenance"
+        },
+        {
+          "title": "If One Forgets at the Beginning",
+          "reference": "Abu Dawud 3767, Tirmidhi 1858",
+          "summary": "Recovery dua if forgotten at beginning of meal - expels Shaytan"
+        }
+      ]
+    },
+    {
+      "id": "travel",
+      "numeric_id": 18,
+      "name": "Travel",
+      "dua_count": 13,
+      "type": "other",
+      "order": 23,
+      "icon": "✈️",
+      "color": "from-blue-400 to-cyan-500",
+      "theme_group": "Action-based",
+      "description": "Duas for safe journeys",
+      "main_themes": ["Journey safety", "Traveler protection", "Safe return duas"],
+      "duas_sample": [
+        {
+          "title": "When Travelling #1",
+          "reference": "Muslim 1342",
+          "summary": "Allah's greatness expressed when beginning travel - comprehensive journey dua"
+        },
+        {
+          "title": "When Travelling #2",
+          "reference": "Abu Dawud 2602",
+          "summary": "Forgiveness seeking while traveling - brings Allah's pleasure"
+        },
+        {
+          "title": "Upon Returning",
+          "summary": "Returning with repentance, worship and gratitude"
+        }
+      ]
+    },
+    {
+      "id": "death",
+      "numeric_id": 23,
+      "name": "Death & Dying",
+      "dua_count": 16,
+      "type": "other",
+      "order": 24,
+      "icon": "⚰️",
+      "color": "from-gray-500 to-slate-600",
+      "theme_group": "Spiritual/Emotional",
+      "description": "Preparation for and remembrance of death",
+      "main_themes": ["Death awareness", "Dying preparation", "Hereafter readiness", "Mortality reminder"],
+      "duas_sample": []
+    },
+    {
+      "id": "nature",
+      "numeric_id": 26,
+      "name": "Nature & Seasons",
+      "dua_count": 14,
+      "type": "other",
+      "order": 25,
+      "icon": "🌍",
+      "color": "from-green-500 to-emerald-600",
+      "theme_group": "Action-based",
+      "description": "Duas relating to natural phenomena",
+      "main_themes": ["Natural phenomena duas", "Weather duas", "Seasonal duas", "Creation appreciation"],
+      "duas_sample": []
+    },
+    {
+      "id": "social-interactions",
+      "numeric_id": 28,
+      "name": "Social Interactions",
+      "dua_count": 6,
+      "type": "other",
+      "order": 26,
+      "icon": "🤝",
+      "color": "from-orange-400 to-amber-500",
+      "theme_group": "Action-based",
+      "description": "Duas for dealings with people",
+      "main_themes": ["Social courtesy duas", "Interaction blessings", "Relationship duas", "People handling"],
+      "duas_sample": []
+    },
+    {
+      "id": "hajj-umrah",
+      "numeric_id": 29,
+      "name": "Hajj & Umrah",
+      "dua_count": 10,
+      "type": "other",
+      "order": 29,
+      "icon": "🕋️",
+      "color": "from-green-500 to-teal-600",
+      "theme_group": "Action-based",
+      "description": "Duas for pilgrimage to the Holy Kaaba",
+      "main_themes": ["Pilgrimage duas", "Hajj rituals", "Umrah duas", "Sacred journey"],
+      "duas_sample": []
+    },
+    {
+      "id": "money-shopping",
+      "numeric_id": 30,
+      "name": "Money & Shopping",
+      "dua_count": 9,
+      "type": "other",
+      "order": 30,
+      "icon": "💰",
+      "color": "from-yellow-500 to-amber-600",
+      "theme_group": "Action-based",
+      "description": "Duas related to wealth and commerce",
+      "main_themes": ["Financial duas", "Commerce duas", "Wealth management", "Business duas"],
+      "duas_sample": []
+    },
+    {
+      "id": "marriage-children",
+      "numeric_id": 21,
+      "name": "Marriage & Children",
+      "dua_count": 12,
+      "type": "other",
+      "order": 31,
+      "icon": "👨‍👩‍👧‍👦",
+      "color": "from-red-400 to-pink-500",
+      "theme_group": "Spiritual/Emotional",
+      "description": "Duas for family and children",
+      "main_themes": ["Marriage duas", "Children duas", "Family blessing", "Spousal duas"],
+      "duas_sample": []
+    }
+  ],
+  "theme_groups": {
+    "Time-based": {
+      "description": "Duas organized by specific times of day or periods",
+      "categories": [
+        "Morning Adhkar",
+        "Evening Adhkar",
+        "Before Sleep",
+        "Waking Up",
+        "Dhikr for All Times"
+      ],
+      "total_duas": 81,
+      "focus": "Daily rhythm and temporal observance"
+    },
+    "Action-based": {
+      "description": "Duas for specific actions and situations",
+      "categories": [
+        "Salah (Prayer)",
+        "After Salah",
+        "Food & Drink",
+        "Travel",
+        "Clothes",
+        "Lavatory & Wudu",
+        "Home",
+        "Adhan & Masjid",
+        "Gatherings",
+        "Istikharah",
+        "Nature & Seasons",
+        "Social Interactions",
+        "Hajj & Umrah",
+        "Money & Shopping"
+      ],
+      "total_duas": 148,
+      "focus": "Practical situations and daily activities"
+    },
+    "Spiritual/Emotional": {
+      "description": "Duas for spiritual development and emotional well-being",
+      "categories": [
+        "Salawat (Blessings on Prophet)",
+        "Istighfar (Seeking Forgiveness)",
+        "Praises of Allah",
+        "Quranic Duas",
+        "Sunnah Duas",
+        "Names of Allah",
+        "Ruqyah & Illness",
+        "Protection of Faith",
+        "Difficulties & Happiness",
+        "Nightmares",
+        "Death & Dying",
+        "Marriage & Children"
+      ],
+      "total_duas": 267,
+      "focus": "Inner development and connection with Allah"
+    }
+  },
+  "key_statistics": {
+    "total_categories": 31,
+    "total_duas": 496,
+    "main_categories": 12,
+    "other_categories": 19,
+    "largest_categories": [
+      {
+        "name": "Sunnah Duas",
+        "count": 75
+      },
+      {
+        "name": "Names of Allah",
+        "count": 75
+      },
+      {
+        "name": "Salah (Prayer)",
+        "count": 52
+      },
+      {
+        "name": "Quranic Duas",
+        "count": 41
+      },
+      {
+        "name": "Praises of Allah",
+        "count": 30
+      }
+    ],
+    "smallest_categories": [
+      {
+        "name": "Nightmares",
+        "count": 1
+      },
+      {
+        "name": "Istikharah",
+        "count": 1
+      },
+      {
+        "name": "Home",
+        "count": 3
+      },
+      {
+        "name": "Clothes",
+        "count": 4
+      },
+      {
+        "name": "Waking Up",
+        "count": 5
+      }
+    ]
+  },
+  "themes_covered": {
+    "summary": "The dua collection provides comprehensive Islamic spiritual guidance across multiple dimensions of life",
+    "time_dimensions": [
+      "Morning (24 duas)",
+      "Evening (23 duas)",
+      "Before sleep (18 duas)",
+      "Upon waking (5 duas)",
+      "Anytime (11 duas)"
+    ],
+    "spiritual_focuses": [
+      "Tawheed (Oneness of Allah) - Foundation of all duas",
+      "Protection from evil (Shaytan, envy, magic)",
+      "Forgiveness and repentance",
+      "Healing and wellbeing (Ruqyah)",
+      "Connection with Allah through His Names",
+      "Prophetic guidance and Sunnah",
+      "Direct Quranic supplications",
+      "Prophet Muhammad reverence (Salawat)"
+    ],
+    "life_situations": [
+      "Prayer and worship (64 duas)",
+      "Daily meals and drink (16 duas)",
+      "Travel and journeys (13 duas)",
+      "Family life (22 duas)",
+      "Social interactions (6 duas)",
+      "Difficulties and hardship (22 duas)",
+      "Financial matters (9 duas)",
+      "Pilgrimage (10 duas)",
+      "Personal rituals (19 duas)"
+    ]
+  },
+  "file_structure_notes": {
+    "json_format": "Each category file contains an array of duas with comprehensive details",
+    "fields_per_dua": [
+      "id - Unique identifier within category",
+      "category_id - Numeric reference to category",
+      "title - English title of the dua",
+      "title_ar - Arabic title (often null)",
+      "arabic - Original Arabic text",
+      "transliteration - Romanized Arabic",
+      "translation - English translation",
+      "virtue - Hadith narration, commentary, and benefits",
+      "reference - Hadith source (Bukhari, Muslim, Tirmidhi, etc.)",
+      "repetitions - How many times to recite (if specified)",
+      "order - Sequence within category",
+      "tags - Topic tags for categorization"
+    ],
+    "metadata_file": "categories.json contains master list with dua_count, icon, color, type, and description for each"
+  },
+  "categorization_logic": {
+    "primary_division": "Main categories (type: 'main') vs Other categories (type: 'other')",
+    "main_categories": "12 categories that are central to Islamic practice (morning, evening, prayer, etc.)",
+    "thematic_grouping": "Categories further grouped into: Time-based, Action-based, and Spiritual/Emotional",
+    "ordering_system": "Each category has an 'order' field (1-31) for display sequence",
+    "icon_color_system": "Each category has icon emoji and Tailwind color gradient for UI display"
+  }
+}
