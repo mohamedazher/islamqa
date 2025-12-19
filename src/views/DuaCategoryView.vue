@@ -96,7 +96,7 @@
             <div class="relative bg-white dark:bg-neutral-900 rounded-2xl p-5 border border-neutral-200 dark:border-neutral-700 shadow-lg">
               <!-- Arabic Text -->
               <p
-                class="text-center leading-loose text-neutral-900 dark:text-white font-arabic"
+                class="text-center leading-loose text-neutral-900 dark:text-white font-arabic whitespace-pre-wrap break-words"
                 dir="rtl"
                 :style="{ fontSize: duaStore.settings.arabic_font_size + 'px', lineHeight: '2' }"
               >
@@ -148,28 +148,7 @@
               </p>
             </div>
 
-            <!-- Virtue/Benefit (Expandable) -->
-            <div
-              v-if="duaStore.settings.show_virtue && dua.virtue"
-              class="bg-emerald-50 dark:bg-emerald-950 rounded-xl border border-emerald-200 dark:border-emerald-800 overflow-hidden shadow-sm"
-            >
-              <button
-                @click="toggleVirtue(index)"
-                class="w-full p-4 flex items-center justify-between text-left"
-              >
-                <span class="font-semibold text-emerald-900 dark:text-emerald-100">Virtue & Benefit</span>
-                <Icon
-                  :name="virtueExpandedIndex === index ? 'chevronUp' : 'chevronDown'"
-                  size="sm"
-                  class="text-emerald-600 dark:text-emerald-400 transition-transform"
-                />
-              </button>
-              <div
-                v-show="virtueExpandedIndex === index"
-                class="px-4 pb-4 text-emerald-800 dark:text-emerald-200 text-sm leading-relaxed markdown-content"
-                v-html="getRenderedVirtue(dua.virtue)"
-              />
-            </div>
+            <!-- Virtue/Benefit (Hidden for now) -->
           </div>
         </div>
       </div>
@@ -196,7 +175,6 @@
 import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useDuaStore } from '@/stores/dua'
-import { renderMarkdown } from '@/utils/markdownRenderer'
 import { shareDua } from '@/utils/sharing'
 import confetti from 'canvas-confetti'
 import Icon from '@/components/common/Icon.vue'
@@ -207,10 +185,8 @@ const duaStore = useDuaStore()
 
 const showSettings = ref(false)
 const showCompletion = ref(false)
-const virtueExpandedIndex = ref(null)
 const cardsContainer = ref(null)
 const currentScrollIndex = ref(0)
-const renderedVirtueCache = ref(new Map())
 const hasTriggeredConfetti = ref(false)
 
 const category = computed(() => duaStore.currentCategory)
@@ -265,8 +241,6 @@ function handleScroll(e) {
 
   if (newIndex !== currentScrollIndex.value && newIndex < totalDuas.value) {
     currentScrollIndex.value = newIndex
-    // Collapse virtue when changing cards
-    virtueExpandedIndex.value = null
   }
 
   // Track scroll velocity to detect momentum end
@@ -315,20 +289,6 @@ function scrollToIndex(index) {
   }
 }
 
-// Toggle virtue expansion
-function toggleVirtue(index) {
-  virtueExpandedIndex.value = virtueExpandedIndex.value === index ? null : index
-}
-
-// Get rendered virtue with caching
-function getRenderedVirtue(virtue) {
-  if (!virtue) return ''
-  if (!renderedVirtueCache.value.has(virtue)) {
-    renderedVirtueCache.value.set(virtue, renderMarkdown(virtue))
-  }
-  return renderedVirtueCache.value.get(virtue)
-}
-
 function restartFromBeginning() {
   showCompletion.value = false
   hasTriggeredConfetti.value = false
@@ -366,7 +326,7 @@ onMounted(async () => {
 
 <style scoped>
 .font-arabic {
-  font-family: 'Traditional Arabic', 'Scheherazade New', 'Amiri', serif;
+  font-family: 'Amiri Quran', 'Scheherazade New', 'Traditional Arabic', 'Amiri', serif;
 }
 
 /* Hide scrollbar for swipeable cards */
@@ -389,60 +349,4 @@ onMounted(async () => {
   scroll-snap-stop: always;
 }
 
-/* Markdown content styles */
-.markdown-content :deep(h1),
-.markdown-content :deep(h2),
-.markdown-content :deep(h3),
-.markdown-content :deep(h4),
-.markdown-content :deep(h5),
-.markdown-content :deep(h6) {
-  font-weight: 600;
-  margin-top: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.markdown-content :deep(h1) { font-size: 1.25rem; }
-.markdown-content :deep(h2) { font-size: 1.1rem; }
-.markdown-content :deep(h3) { font-size: 1rem; }
-
-.markdown-content :deep(p) {
-  margin-bottom: 0.75rem;
-}
-
-.markdown-content :deep(ul),
-.markdown-content :deep(ol) {
-  margin-left: 1.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.markdown-content :deep(li) {
-  margin-bottom: 0.25rem;
-}
-
-.markdown-content :deep(strong) {
-  font-weight: 600;
-}
-
-.markdown-content :deep(em) {
-  font-style: italic;
-}
-
-.markdown-content :deep(code) {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 0.25rem;
-  padding: 0.125rem 0.375rem;
-  font-size: 0.9em;
-}
-
-.dark .markdown-content :deep(code) {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.markdown-content :deep(blockquote) {
-  border-left: 3px solid currentColor;
-  padding-left: 1rem;
-  margin-left: 0;
-  margin-bottom: 0.75rem;
-  opacity: 0.8;
-}
 </style>

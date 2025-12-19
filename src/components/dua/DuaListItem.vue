@@ -22,7 +22,11 @@
 
       <!-- Arabic -->
       <div class="mb-2 p-2 bg-neutral-50 dark:bg-neutral-800 rounded text-right">
-        <p class="text-neutral-700 dark:text-neutral-300 text-sm leading-relaxed" dir="rtl">
+        <p
+          class="text-neutral-700 dark:text-neutral-300 text-sm leading-loose font-arabic whitespace-pre-wrap break-words"
+          dir="rtl"
+          style="font-family: 'Amiri Quran', 'Scheherazade New', 'Traditional Arabic', 'Amiri', serif; line-height: 1.8;"
+        >
           {{ dua.arabic }}
         </p>
       </div>
@@ -107,3 +111,10 @@ onMounted(() => {
   checkFavorite()
 })
 </script>
+
+<style scoped>
+.font-arabic {
+  font-family: 'Amiri Quran', 'Scheherazade New', 'Traditional Arabic', 'Amiri', serif;
+  line-height: 1.8;
+}
+</style>

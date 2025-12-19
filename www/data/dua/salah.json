@@ -515,38 +515,6 @@
       ]
     },
     {
-      "id": 33,
-      "category_id": 5,
-      "title": "Sajdah al-Tilawah #1",
-      "title_ar": null,
-      "arabic": "سَجَدَ وَجْهِيْ لِلَّذِيْ خَلَقَهُ ، وَشَقَّ سَمْعَهُ وَبَصَرَهُ بِحَوْلِهِ وَقُوَّتِهِ ، فَتَبَارَكَ اللّٰهُ أَحْسَنُ الْخَالِقِيْنَ.",
-      "transliteration": "Sajada wajhī lil-ladhī kalaqahū, wa shaqqa samʿahū wa baṣarahū bi-hawlihī wa quwwatihī, fatabāraka-l-lāhu aḥsanu-l-khāliqīn.",
-      "translation": "My face has prostrated to the One who created it, and who formed its hearing and sight through His power and strength. How Blessed is Allah, the Best of Creators.",
-      "virtue": "## Narration\n\nʿĀ’ishah (raḍiy Allāhu ‘anhā) narrated: “I heard the Messenger of Allah ﷺ say \\[the above\\] in the sajdah al-tilāwah (Ḥākim 1/220)",
-      "reference": "Ḥākim 1/220",
-      "repetitions": null,
-      "order": 33,
-      "tags": [
-        "Salah (Prayer)"
-      ]
-    },
-    {
-      "id": 34,
-      "category_id": 5,
-      "title": "Sajdah al-Tilawah #2",
-      "title_ar": null,
-      "arabic": "اَللّٰهُمَّ اكْتُبْ لِيْ بِهَا عِنْدَكَ أَجْرًا ، وَضَعْ عَنِّيْ بِهَا وِزْرًا ، وَاجْعَلْهَا لِيْ عِنْدَكَ ذُخْرًا ، وَتَقَبَّلْهَا مِنِّيْ كَمَا تَقَبَّلْتَهَا مِنْ عَبْدِكَ دَاوُدَ.",
-      "transliteration": "Allāhumma-ktub lī bihā ʿindaka ajrā, wa-ḍaʿ ʿannī bihā wizrā, wa-jalhā lī indaka dhukhrā,wa-taqabbalhā minnī kamā taqabbaltahā min ʿabdika Dāwūd.",
-      "translation": "O Allah, record for me a reward by You through it \\[i. e. the prostration\\] and remove from me my sins because of it. Make it a treasure for me in Your keeping, and accept it from me as You accepted it from Dāwūd.",
-      "virtue": "## Hadith\nIbn ʿAbbās (radiy Allāhū ‘anhumā) said: A man came to the Prophet ﷺ and said: ‘O Messenger of Allah! I had a dream at night while I was sleeping in which I was praying behind a tree, when I prostrated the tree prostrated along with me. Then I heard it saying [the above].\n\n*(Tirmidhī 579)*",
-      "reference": "Tirmidhī 579",
-      "repetitions": null,
-      "order": 34,
-      "tags": [
-        "Salah (Prayer)"
-      ]
-    },
-    {
       "id": 35,
       "category_id": 5,
       "title": "Between the Two Sajdahs #1",
@@ -557,7 +525,7 @@
       "virtue": "## Hadith\nHudhayfah (raḍiy Allāhu ‘anhu) saw the Messenger of Allah ﷺ praying at night. He said: “Allah is the greatest” (three times). He then said: “How perfect is the Owner of dominion, might, grandeur and greatness!” He then began (his salah) and recited Surah al-Baqarah; then he bowed and he paused in bowing as long as he stood up; he said while bowing, “How perfect is my Lord, the Magnificent.” “How perfect is my Lord, the Magnificent.“; then he raised his head, after bowing: then he stood up and he paused as long as he paused in bowing and said, “Praise be to my Lord” ; then he prostrated and paused in prostration as long as he paused in the standing position; he said while prostrating: “How Perfect is my Lord, the Most High.“; then he raised his head after prostration, and sat as long as he prostrated, and said while sitting: “O my Lord forgive me.” He offered four rak’ahs of prayer and recited in them Sūrah al-Baqarah, Āl Imran, an-Nisā, al-Mā‘idah, or al-An’ām. The narrator Shu’bah doubted. (Abu Dāwūd 874) Imagine yourself kneeling, waiting for your name to be called out on the Day of Fear in order to be punished. Then you are given a chance to seek pardon; this is your chance. Before it is too late, you implore Allah: ‘My Lord, forgive me…My Lord, forgive me…My Lord, forgive me.’ The aforementioned duʿā’ need not be limited to two repetitions; rather, it should be repeated as many times as possible.",
       "reference": "",
       "repetitions": null,
-      "order": 35,
+      "order": 33,
       "tags": [
         "Salah (Prayer)"
       ]
@@ -572,6 +540,38 @@
       "translation": "O Allah, forgive me, have mercy on me, grant me wellbeing, guide me and grant me sustenance.",
       "virtue": "## Hadith\nʿAbdullah b. ʿAbbās (radiy Allāhū ‘anhumā): “The Prophet ﷺ used to say [the above] between the two prostrations.” (Abū Dāwūd 850) All the benefits of this world and of the hereafter are combined in this duʿā’.",
       "reference": "Abū Dāwūd 850",
+      "repetitions": null,
+      "order": 34,
+      "tags": [
+        "Salah (Prayer)"
+      ]
+    },
+    {
+      "id": 33,
+      "category_id": 5,
+      "title": "Sajdah al-Tilawah #1",
+      "title_ar": null,
+      "arabic": "سَجَدَ وَجْهِيْ لِلَّذِيْ خَلَقَهُ ، وَشَقَّ سَمْعَهُ وَبَصَرَهُ بِحَوْلِهِ وَقُوَّتِهِ ، فَتَبَارَكَ اللّٰهُ أَحْسَنُ الْخَالِقِيْنَ.",
+      "transliteration": "Sajada wajhī lil-ladhī kalaqahū, wa shaqqa samʿahū wa baṣarahū bi-hawlihī wa quwwatihī, fatabāraka-l-lāhu aḥsanu-l-khāliqīn.",
+      "translation": "My face has prostrated to the One who created it, and who formed its hearing and sight through His power and strength. How Blessed is Allah, the Best of Creators.",
+      "virtue": "## Narration\n\nʿĀ’ishah (raḍiy Allāhu ‘anhā) narrated: “I heard the Messenger of Allah ﷺ say \\[the above\\] in the sajdah al-tilāwah (Ḥākim 1/220)",
+      "reference": "Ḥākim 1/220",
+      "repetitions": null,
+      "order": 35,
+      "tags": [
+        "Salah (Prayer)"
+      ]
+    },
+    {
+      "id": 34,
+      "category_id": 5,
+      "title": "Sajdah al-Tilawah #2",
+      "title_ar": null,
+      "arabic": "اَللّٰهُمَّ اكْتُبْ لِيْ بِهَا عِنْدَكَ أَجْرًا ، وَضَعْ عَنِّيْ بِهَا وِزْرًا ، وَاجْعَلْهَا لِيْ عِنْدَكَ ذُخْرًا ، وَتَقَبَّلْهَا مِنِّيْ كَمَا تَقَبَّلْتَهَا مِنْ عَبْدِكَ دَاوُدَ.",
+      "transliteration": "Allāhumma-ktub lī bihā ʿindaka ajrā, wa-ḍaʿ ʿannī bihā wizrā, wa-jalhā lī indaka dhukhrā,wa-taqabbalhā minnī kamā taqabbaltahā min ʿabdika Dāwūd.",
+      "translation": "O Allah, record for me a reward by You through it \\[i. e. the prostration\\] and remove from me my sins because of it. Make it a treasure for me in Your keeping, and accept it from me as You accepted it from Dāwūd.",
+      "virtue": "## Hadith\nIbn ʿAbbās (radiy Allāhū ‘anhumā) said: A man came to the Prophet ﷺ and said: ‘O Messenger of Allah! I had a dream at night while I was sleeping in which I was praying behind a tree, when I prostrated the tree prostrated along with me. Then I heard it saying [the above].\n\n*(Tirmidhī 579)*",
+      "reference": "Tirmidhī 579",
       "repetitions": null,
       "order": 36,
       "tags": [

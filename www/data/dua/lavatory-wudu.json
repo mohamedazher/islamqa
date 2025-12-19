@@ -51,22 +51,6 @@
       ]
     },
     {
-      "id": 4,
-      "category_id": 13,
-      "title": "When Passing Fingers Through the Beard",
-      "title_ar": null,
-      "arabic": "هَـٰكَذَا أَمَرَنِيْ رَبِّيْ عَزَّ وَجَلَّ.",
-      "transliteration": "Hākadhā amaranī Rabbī 'azza wa jal",
-      "translation": "This is what I have been ordered to do by my Lord.",
-      "virtue": "## Hadith\n\nAnas b. Mālik (raḍiy Allāhu 'anhu) narrated:\n\n\"Whenever the Messenger of Allah ﷺ performed ablution, he took a handful of water, and, putting it under his chin, made it go through his beard, saying: [the above].\"\n\n*(Abū Dāwūd 145, Bayhaqī 250)*",
-      "reference": "Abū Dāwūd 145, Bayhaqī 250",
-      "repetitions": null,
-      "order": 4,
-      "tags": [
-        "Lavatory & Wudu"
-      ]
-    },
-    {
       "id": 5,
       "category_id": 13,
       "title": "After Completing Wuḍu #1",
@@ -77,7 +61,7 @@
       "virtue": "## Hadith\nThe Messenger of Allah ﷺ said:\n\n**\"Whoever perfects his wudhū and then says [the above], the eight gates of Paradise will be opened for him. He may enter through whichever one he wishes.\"\n\n*(Tirmidhī 55)***",
       "reference": "Tirmidhī 55",
       "repetitions": null,
-      "order": 5,
+      "order": 4,
       "tags": [
         "Lavatory & Wudu"
       ]
@@ -93,7 +77,7 @@
       "virtue": "## Hadith\n\nThe Messenger of Allah ﷺ said:\n\n\"Whosoever does wudhū and says [the above], it will be recorded in a parchment and then sealed with a seal which will not be broken till the Day of Judgement.\"\n\n*(Nasā'ī in ʿAmal al-Yawm wa-l-Laylah 81, al-Ṭabarānī in al-Duʿā' 389)*",
       "reference": "",
       "repetitions": null,
-      "order": 6,
+      "order": 5,
       "tags": [
         "Lavatory & Wudu"
       ]
