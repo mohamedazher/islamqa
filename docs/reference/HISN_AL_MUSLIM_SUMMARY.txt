@@ -1,0 +1,105 @@
+================================================================================
+HISN AL-MUSLIM (FORTRESS OF THE MUSLIM) - EXTRACTION & ANALYSIS SUMMARY
+================================================================================
+
+ANALYSIS OVERVIEW
+-----------------
+Source File: /home/user/islamqa/docs/reference/hisn_al_muslim.txt
+Output File: /home/user/islamqa/docs/reference/hisn_al_muslim_analysis.json
+Generated: 2025-12-19
+
+EXTRACTION RESULTS
+------------------
+Total Duas Extracted: 132
+Total Categories: 21
+All Duas Verified: Complete (1-132, no gaps or duplicates)
+
+CATEGORY DISTRIBUTION
+---------------------
+1. Daily Practices & Routines              14 duas    (Dua #1-14)
+2. Prayer-Related                          12 duas    (Dua #15-26)
+3. Sleep & Rest                             5 duas    (Dua #27-31)
+4. Special Prayer (Witr & Qunoot)           2 duas    (Dua #32-33)
+5. Hardship & Difficulty                   13 duas    (Dua #34-46)
+6. Family & Children                        2 duas    (Dua #47-48)
+7. Health & Sickness                        3 duas    (Dua #49-51)
+8. Death & Mourning                         9 duas    (Dua #52-60)
+9. Natural Phenomena                        7 duas    (Dua #61-67)
+10. Eating & Drinking                       9 duas    (Dua #68-76)
+11. Sneezing & Physical Acts                2 duas    (Dua #77-78)
+12. Marriage & Relationships                 3 duas    (Dua #79-81)
+13. Emotions & Situations                   13 duas    (Dua #82-94)
+14. Travel                                  11 duas    (Dua #95-105)
+15. General Supplications                    3 duas    (Dua #106-108)
+16. Social Interactions                      6 duas    (Dua #109-114)
+17. Hajj & Umrah                             7 duas    (Dua #115-121)
+18. Amazement & Good News                    2 duas    (Dua #122-123)
+19. Physical Health & Ailments               3 duas    (Dua #124-126)
+20. Sacrifice & Ritual                       2 duas    (Dua #127-128)
+21. Spiritual Practices                      4 duas    (Dua #129-132)
+                                          ----------
+                                          132 TOTAL
+
+DATA STRUCTURE
+--------------
+Each dua record contains:
+  - number: Sequential identifier (1-132)
+  - title: English translation of the dua heading
+  - arabic: Original Arabic dua heading
+  - category: Thematic category assignment
+
+JSON FORMAT
+-----------
+{
+  "total_duas": 132,
+  "categories": [
+    {
+      "name": "Category Name",
+      "count": N,
+      "duas_list": [
+        {
+          "number": 1,
+          "title": "Dua English Title",
+          "arabic": "دعاء الترجمة العربية"
+        }
+      ]
+    }
+  ],
+  "all_duas": [
+    {
+      "number": 1,
+      "title": "Dua Title",
+      "arabic": "الدعاء بالعربية",
+      "category": "Category Name"
+    }
+  ]
+}
+
+USAGE FOR DATA COMPARISON
+-------------------------
+This JSON file can be used to:
+1. Cross-reference duas against database entries
+2. Validate dua titles and translations
+3. Identify missing or extra duas in JSON data files
+4. Organize duas by category/section
+5. Create lookup tables for quick dua identification
+
+KEY FINDINGS
+------------
+- All 132 duas from Hisn al-Muslim text extracted successfully
+- Both English and Arabic titles preserved
+- Natural thematic categories identified based on dua content
+- No duplicates or gaps in numbering
+- Consistent structure suitable for JSON comparison/migration
+
+FILES GENERATED
+---------------
+1. /home/user/islamqa/docs/reference/hisn_al_muslim_analysis.json
+   - Complete structured JSON with all duas and categories
+   - Ready for comparison with application JSON data
+   - ~32KB file size
+
+2. /home/user/islamqa/docs/reference/HISN_AL_MUSLIM_SUMMARY.txt
+   - This summary document
+
+================================================================================

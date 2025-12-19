@@ -1,0 +1,2794 @@
+{
+  "metadata": {
+    "generated": "2025-12-19 19:09:30",
+    "description": "Duas from JSON files that are not in the TXT file",
+    "count": 464,
+    "threshold": "70% similarity match"
+  },
+  "duas": [
+    {
+      "title": "Whilst In a Shop/Market",
+      "arabic_title": null,
+      "category": "money-shopping",
+      "source_file": "money-shopping.json"
+    },
+    {
+      "title": "When Burdened by Debts #1",
+      "arabic_title": null,
+      "category": "money-shopping",
+      "source_file": "money-shopping.json"
+    },
+    {
+      "title": "When Burdened by Debts #2",
+      "arabic_title": null,
+      "category": "money-shopping",
+      "source_file": "money-shopping.json"
+    },
+    {
+      "title": "When Burdened by Debts #3",
+      "arabic_title": null,
+      "category": "money-shopping",
+      "source_file": "money-shopping.json"
+    },
+    {
+      "title": "When Burdened by Debts #4",
+      "arabic_title": null,
+      "category": "money-shopping",
+      "source_file": "money-shopping.json"
+    },
+    {
+      "title": "Supplication of the Borrower at the Time of Repayment",
+      "arabic_title": null,
+      "category": "money-shopping",
+      "source_file": "money-shopping.json"
+    },
+    {
+      "title": "For Abundance of Wealth #1",
+      "arabic_title": null,
+      "category": "money-shopping",
+      "source_file": "money-shopping.json"
+    },
+    {
+      "title": "For Abundance of Wealth #2",
+      "arabic_title": null,
+      "category": "money-shopping",
+      "source_file": "money-shopping.json"
+    },
+    {
+      "title": "For Abundance of Wealth #3",
+      "arabic_title": null,
+      "category": "money-shopping",
+      "source_file": "money-shopping.json"
+    },
+    {
+      "title": "Tahlil: The Best Dhikr",
+      "arabic_title": null,
+      "category": "dhikr-all-times",
+      "source_file": "dhikr-all-times.json"
+    },
+    {
+      "title": "Tasbih (Subhana-llah), Tahmid (Alhamdu li-llah), Takbir (Allahu akbar)",
+      "arabic_title": null,
+      "category": "dhikr-all-times",
+      "source_file": "dhikr-all-times.json"
+    },
+    {
+      "title": "Hawqalah: A Treasure From the Treasures of Paradise",
+      "arabic_title": null,
+      "category": "dhikr-all-times",
+      "source_file": "dhikr-all-times.json"
+    },
+    {
+      "title": "Salawat",
+      "arabic_title": null,
+      "category": "dhikr-all-times",
+      "source_file": "dhikr-all-times.json"
+    },
+    {
+      "title": "The Best Statement Uttered By All the Prophets",
+      "arabic_title": null,
+      "category": "dhikr-all-times",
+      "source_file": "dhikr-all-times.json"
+    },
+    {
+      "title": "The Best Words After the Qur’an",
+      "arabic_title": null,
+      "category": "dhikr-all-times",
+      "source_file": "dhikr-all-times.json"
+    },
+    {
+      "title": "Heavy On the Scales & Beloved to Allah",
+      "arabic_title": null,
+      "category": "dhikr-all-times",
+      "source_file": "dhikr-all-times.json"
+    },
+    {
+      "title": "Supplicate Frequently With…",
+      "arabic_title": null,
+      "category": "dhikr-all-times",
+      "source_file": "dhikr-all-times.json"
+    },
+    {
+      "title": "When Distressed, the Prophet ﷺ Would Say…",
+      "arabic_title": null,
+      "category": "dhikr-all-times",
+      "source_file": "dhikr-all-times.json"
+    },
+    {
+      "title": "For Difficult Times: All Your Prayers Answered",
+      "arabic_title": null,
+      "category": "dhikr-all-times",
+      "source_file": "dhikr-all-times.json"
+    },
+    {
+      "title": "All of Your Sins Forgiven",
+      "arabic_title": null,
+      "category": "dhikr-all-times",
+      "source_file": "dhikr-all-times.json"
+    },
+    {
+      "title": "After Coming Out of the Lavatory",
+      "arabic_title": null,
+      "category": "lavatory-wudu",
+      "source_file": "lavatory-wudu.json"
+    },
+    {
+      "title": "Before Wuḍu",
+      "arabic_title": null,
+      "category": "lavatory-wudu",
+      "source_file": "lavatory-wudu.json"
+    },
+    {
+      "title": "After Completing Wuḍu #1",
+      "arabic_title": null,
+      "category": "lavatory-wudu",
+      "source_file": "lavatory-wudu.json"
+    },
+    {
+      "title": "After Completing Wuḍu #2",
+      "arabic_title": null,
+      "category": "lavatory-wudu",
+      "source_file": "lavatory-wudu.json"
+    },
+    {
+      "title": "Ayat al-Kursi: The Greatest Protection",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "3 Quls: Be Sufficed in All Your Matters",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Sayyid al-Istighfar: The Best Way of Seeking Forgiveness",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Protect Yourself From Anxiety, Laziness, Debt etc",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Well-being in this World and the Hereafter",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Protect Yourself From the 4 Evils",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Entrust All Your Matters to Allah",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Fulfil Your Obligation to Thank Allah",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Start Your Day by Renewing Tawhid",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Start the Morning by Praising Allah",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Ask Allah for a Good Day",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Ask Allah to Bless Your Day",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Get Yourself Freed from the Hell-fire",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Ask Allah For Good Health and Protection",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Allah Will Suffice You in Everything",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Have the Prophet ﷺ Hold Your Hand and Admit You to Paradise",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Protect Yourself From All Harm",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Get Your Sins Forgiven",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "An Unparalleled Reward",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Tasbih, Tahmid and Takbir",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "Receive the Intercession of the Prophet ﷺ",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "4 Phrases That Outweigh All Other Dhikr",
+      "arabic_title": null,
+      "category": "morning",
+      "source_file": "morning.json"
+    },
+    {
+      "title": "When Leaving the Home #2",
+      "arabic_title": null,
+      "category": "home",
+      "source_file": "home.json"
+    },
+    {
+      "title": "Istikharah (Seeking Allah's Help in Making a Decision)",
+      "arabic_title": null,
+      "category": "istikhara",
+      "source_file": "istikhara.json"
+    },
+    {
+      "title": "Ayat al-Kursi: The Greatest Protection",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "3 Quls: To Suffice You in All Your Matters",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Sayyid al-Istighfar: The Best Way of Seeking Forgiveness",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Protect Yourself From Anxiety, Laziness, Debt etc",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Well-being in this World and the Hereafter",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Protect Yourself From the Four Evils",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Entrust All Your Matters to Allah",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Fulfil Your Obligation to Thank Allah",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Start Your Evening by Renewing Tawhid",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Start the Evening by Praising Allah",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Ask Allah for a Good Evening",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Ask Allah to Bless Your Evening",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Get Yourself Freed from the Hell-fire",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Upon Entering the Evening",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Ask Allah For Good Health and Protection",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Allah Will Suffice You in Everything",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Have the Prophet ﷺ Hold Your Hand and Admit You to Paradise",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Protect Yourself From All Harm",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Get Your Sins Forgiven",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "An Unparalleled Reward",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Tasbih, Tahmid and Takbir",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "Receive the Intercession of the Prophet ﷺ",
+      "arabic_title": null,
+      "category": "evening",
+      "source_file": "evening.json"
+    },
+    {
+      "title": "After Sneezing",
+      "arabic_title": null,
+      "category": "social-interactions",
+      "source_file": "social-interactions.json"
+    },
+    {
+      "title": "Your Companion Should Reply",
+      "arabic_title": null,
+      "category": "social-interactions",
+      "source_file": "social-interactions.json"
+    },
+    {
+      "title": "Then You Should Say",
+      "arabic_title": null,
+      "category": "social-interactions",
+      "source_file": "social-interactions.json"
+    },
+    {
+      "title": "When Greeting a Muslim",
+      "arabic_title": null,
+      "category": "social-interactions",
+      "source_file": "social-interactions.json"
+    },
+    {
+      "title": "When Thanking Another Person",
+      "arabic_title": null,
+      "category": "social-interactions",
+      "source_file": "social-interactions.json"
+    },
+    {
+      "title": "When Someone Informs You That They Love You",
+      "arabic_title": null,
+      "category": "social-interactions",
+      "source_file": "social-interactions.json"
+    },
+    {
+      "title": "When Travelling #1",
+      "arabic_title": null,
+      "category": "travel",
+      "source_file": "travel.json"
+    },
+    {
+      "title": "When Travelling #2",
+      "arabic_title": null,
+      "category": "travel",
+      "source_file": "travel.json"
+    },
+    {
+      "title": "Upon Returning, Add the Following:",
+      "arabic_title": null,
+      "category": "travel",
+      "source_file": "travel.json"
+    },
+    {
+      "title": "When Dismounting",
+      "arabic_title": null,
+      "category": "travel",
+      "source_file": "travel.json"
+    },
+    {
+      "title": "When Entering Upon One's Family",
+      "arabic_title": null,
+      "category": "travel",
+      "source_file": "travel.json"
+    },
+    {
+      "title": "Supplication of the Resident for the Traveller #2",
+      "arabic_title": null,
+      "category": "travel",
+      "source_file": "travel.json"
+    },
+    {
+      "title": "Supplication of the Resident for the Traveller #3",
+      "arabic_title": null,
+      "category": "travel",
+      "source_file": "travel.json"
+    },
+    {
+      "title": "When Night Falls on a Journey",
+      "arabic_title": null,
+      "category": "travel",
+      "source_file": "travel.json"
+    },
+    {
+      "title": "When One is Unable to Keep Steady on a Conveyance",
+      "arabic_title": null,
+      "category": "travel",
+      "source_file": "travel.json"
+    },
+    {
+      "title": "When Dawn Approaches",
+      "arabic_title": null,
+      "category": "travel",
+      "source_file": "travel.json"
+    },
+    {
+      "title": "Surah al-Fatihah: The Greatest Duʿa",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of the Grief-stricken Prophet Yunus ﷺ",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Prophet Musa ﷺ for Forgiveness",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Prophet Adam ﷺ and Hawwa for Forgiveness",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Prophet Musa ﷺ for Forgiveness",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of the Pious for Forgiveness & Protection From the Hell-fire",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of the Slaves of Allah for Forgiveness & Mercy",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for Forgiveness & Mercy",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Prophet Nuh ﷺ for Forgiveness",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for Yourself, the Deceased & the Ummah",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of the Believers on the Day of Judgement",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Asiya for a House Near Allah in Paradise",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for Protection From the Hell-fire",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Those Who Reflect",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of the Angels for the Believers",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Prophet Musa ﷺ Expressing His Dire Need",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "The Most Frequent Duʿa of the Prophet ﷺ",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of the People of the Cave for Mercy & Guidance",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for the Firmness of the Heart",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for Increase in Knowledge",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Prophet Musa ﷺ for Inner Peace & Strength",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Prophet Ibrahim ﷺ for Wisdom & a Good End",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Prophet Ibrahim ﷺ for His Progeny & Parents",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for Parents",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Zakariyya ﷺ for Pious Children",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Ibrahim ﷺ for Pious Children",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Zakariyya ﷺ for Children",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for a Joyous Household",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Prophet Sulayman ﷺ for Gratitude to Allah & Doing Good Deeds",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for Gratitude, Good Deeds & Pious Children",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for Seeking Protection from Shaytan",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for Forgiveness & Ease",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for Forgiveness & Victory",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for For Firmness & Victory",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Prophet Lut ﷺ for Help Against The Corrupt",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for Protection From Being With The Oppressors",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for Protection From The Oppressors",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa for Protection From Persecution",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Prophet Ayyub ﷺ for Times of Distress",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Prophet Yusuf ﷺ for A Good Ending",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "Duʿa of Prophet Ibrahim ﷺ & Ismaʿil ﷺ for Acceptance of Good Deeds",
+      "arabic_title": null,
+      "category": "quranic-duas",
+      "source_file": "quranic-duas.json"
+    },
+    {
+      "title": "After a Nightmare",
+      "arabic_title": null,
+      "category": "nightmares",
+      "source_file": "nightmares.json"
+    },
+    {
+      "title": "Praises of Allah from the Qur’an #1",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praises of Allah from the Qur’an #2",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praises of Allah from the Qur’an #3",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praises of Allah from the Qur’an #4",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praises of Allah from the Qur’an #5",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "The Prophet’s ﷺ Praises of Allah in Tahajjud",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "The Prophet’s ﷺ Praises at Uhud",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praising Allah with His Names",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "The Greatest Truth",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praise Allah with Expressing Your Dire Need of Him",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praise Allah with the Praises of the Entire Creation",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praise Allah for All His Favours",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praises Which the Angels Race to Take Up #1",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praises Which the Angels Race to Take Up #2",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praise Allah With the Most Virtuous Dhikr",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Exalt Allah",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praises Beloved to The Most Merciful",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "4 Phrases That Outweigh All Other Dhikr",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Magnify Your Lord",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Declare the Perfection of Allah",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praises Which Open the Doors of Paradise",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praise Allah with His Oneness",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "A Comprehensive Praise",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praises Which Bring Ease",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praises Which Lead to Your Forgiveness",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praises Which Free You From the Hell-fire",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Affirming Your Inability to Praise Allah Sufficiently",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Praise Allah For His Dominion",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Ask Allah with His Greatest Name #1",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "Ask Allah with His Greatest Name #2",
+      "arabic_title": null,
+      "category": "praises-allah",
+      "source_file": "praises-allah.json"
+    },
+    {
+      "title": "When in the State of Iḥrām",
+      "arabic_title": null,
+      "category": "hajj-umrah",
+      "source_file": "hajj-umrah.json"
+    },
+    {
+      "title": "Talbiyah in Hajj & ʿUmrah",
+      "arabic_title": null,
+      "category": "hajj-umrah",
+      "source_file": "hajj-umrah.json"
+    },
+    {
+      "title": "When Reaching al-Ḥajar al-Aswad (The Black Stone)",
+      "arabic_title": null,
+      "category": "hajj-umrah",
+      "source_file": "hajj-umrah.json"
+    },
+    {
+      "title": "Between al-Rukn al-Yamani (Yemeni Corner) & al-Hajar al-Aswad (Black Stone)",
+      "arabic_title": null,
+      "category": "hajj-umrah",
+      "source_file": "hajj-umrah.json"
+    },
+    {
+      "title": "At Maqām Ibrāhīm",
+      "arabic_title": null,
+      "category": "hajj-umrah",
+      "source_file": "hajj-umrah.json"
+    },
+    {
+      "title": "When Approaching Ṣafā to begin Saʿy",
+      "arabic_title": null,
+      "category": "hajj-umrah",
+      "source_file": "hajj-umrah.json"
+    },
+    {
+      "title": "Each Time on Safa & Marwah",
+      "arabic_title": null,
+      "category": "hajj-umrah",
+      "source_file": "hajj-umrah.json"
+    },
+    {
+      "title": "Between Ṣafā & Marwah",
+      "arabic_title": null,
+      "category": "hajj-umrah",
+      "source_file": "hajj-umrah.json"
+    },
+    {
+      "title": "On Every Throw at the Jamarāt",
+      "arabic_title": null,
+      "category": "hajj-umrah",
+      "source_file": "hajj-umrah.json"
+    },
+    {
+      "title": "After the Adhan is complete #1",
+      "arabic_title": null,
+      "category": "adhan-masjid",
+      "source_file": "adhan-masjid.json"
+    },
+    {
+      "title": "After the Adhan is complete #2",
+      "arabic_title": null,
+      "category": "adhan-masjid",
+      "source_file": "adhan-masjid.json"
+    },
+    {
+      "title": "After the Adhan is complete #3",
+      "arabic_title": null,
+      "category": "adhan-masjid",
+      "source_file": "adhan-masjid.json"
+    },
+    {
+      "title": "When Entering the Masjid #1",
+      "arabic_title": null,
+      "category": "adhan-masjid",
+      "source_file": "adhan-masjid.json"
+    },
+    {
+      "title": "When Entering the Masjid #2",
+      "arabic_title": null,
+      "category": "adhan-masjid",
+      "source_file": "adhan-masjid.json"
+    },
+    {
+      "title": "When Leaving the Masjid #1",
+      "arabic_title": null,
+      "category": "adhan-masjid",
+      "source_file": "adhan-masjid.json"
+    },
+    {
+      "title": "When Leaving the Masjid #2",
+      "arabic_title": null,
+      "category": "adhan-masjid",
+      "source_file": "adhan-masjid.json"
+    },
+    {
+      "title": "Salawat #1",
+      "arabic_title": null,
+      "category": "salawat",
+      "source_file": "salawat.json"
+    },
+    {
+      "title": "Salawat #2",
+      "arabic_title": null,
+      "category": "salawat",
+      "source_file": "salawat.json"
+    },
+    {
+      "title": "Salawat #3",
+      "arabic_title": null,
+      "category": "salawat",
+      "source_file": "salawat.json"
+    },
+    {
+      "title": "Salawat #4",
+      "arabic_title": null,
+      "category": "salawat",
+      "source_file": "salawat.json"
+    },
+    {
+      "title": "Salawat #5",
+      "arabic_title": null,
+      "category": "salawat",
+      "source_file": "salawat.json"
+    },
+    {
+      "title": "Salawat #6",
+      "arabic_title": null,
+      "category": "salawat",
+      "source_file": "salawat.json"
+    },
+    {
+      "title": "Salawat #7",
+      "arabic_title": null,
+      "category": "salawat",
+      "source_file": "salawat.json"
+    },
+    {
+      "title": "Salawat #8",
+      "arabic_title": null,
+      "category": "salawat",
+      "source_file": "salawat.json"
+    },
+    {
+      "title": "Salawat #9",
+      "arabic_title": null,
+      "category": "salawat",
+      "source_file": "salawat.json"
+    },
+    {
+      "title": "For Firmness of the Heart",
+      "arabic_title": null,
+      "category": "protection-iman",
+      "source_file": "protection-iman.json"
+    },
+    {
+      "title": "When One Experiences Doubt in Faith #1",
+      "arabic_title": null,
+      "category": "protection-iman",
+      "source_file": "protection-iman.json"
+    },
+    {
+      "title": "When One Experiences Doubt in Faith #2",
+      "arabic_title": null,
+      "category": "protection-iman",
+      "source_file": "protection-iman.json"
+    },
+    {
+      "title": "When One Fears Shirk & Riya'",
+      "arabic_title": null,
+      "category": "protection-iman",
+      "source_file": "protection-iman.json"
+    },
+    {
+      "title": "Protection From Dajjal, Trials & Tribulations",
+      "arabic_title": null,
+      "category": "protection-iman",
+      "source_file": "protection-iman.json"
+    },
+    {
+      "title": "First 10 Verses of Surah al-Kahf: Protection from Dajjal",
+      "arabic_title": null,
+      "category": "protection-iman",
+      "source_file": "protection-iman.json"
+    },
+    {
+      "title": "For the Married Couple #1",
+      "arabic_title": null,
+      "category": "marriage-children",
+      "source_file": "marriage-children.json"
+    },
+    {
+      "title": "For the Married Couple #2",
+      "arabic_title": null,
+      "category": "marriage-children",
+      "source_file": "marriage-children.json"
+    },
+    {
+      "title": "For the Married Couple #3",
+      "arabic_title": null,
+      "category": "marriage-children",
+      "source_file": "marriage-children.json"
+    },
+    {
+      "title": "Upon Marrying",
+      "arabic_title": null,
+      "category": "marriage-children",
+      "source_file": "marriage-children.json"
+    },
+    {
+      "title": "Before Intimacy",
+      "arabic_title": null,
+      "category": "marriage-children",
+      "source_file": "marriage-children.json"
+    },
+    {
+      "title": "For Children",
+      "arabic_title": null,
+      "category": "marriage-children",
+      "source_file": "marriage-children.json"
+    },
+    {
+      "title": "For Pious Children #1",
+      "arabic_title": null,
+      "category": "marriage-children",
+      "source_file": "marriage-children.json"
+    },
+    {
+      "title": "For Pious Children #2",
+      "arabic_title": null,
+      "category": "marriage-children",
+      "source_file": "marriage-children.json"
+    },
+    {
+      "title": "For Pious Children #3",
+      "arabic_title": null,
+      "category": "marriage-children",
+      "source_file": "marriage-children.json"
+    },
+    {
+      "title": "For Pious Children #4",
+      "arabic_title": null,
+      "category": "marriage-children",
+      "source_file": "marriage-children.json"
+    },
+    {
+      "title": "Congratulating the Parent of a Newborn",
+      "arabic_title": null,
+      "category": "marriage-children",
+      "source_file": "marriage-children.json"
+    },
+    {
+      "title": "Seeking Protection for Children",
+      "arabic_title": null,
+      "category": "marriage-children",
+      "source_file": "marriage-children.json"
+    },
+    {
+      "title": "During & At the End of a Gathering #1",
+      "arabic_title": null,
+      "category": "gatherings",
+      "source_file": "gatherings.json"
+    },
+    {
+      "title": "During & At the End of a Gathering #2",
+      "arabic_title": null,
+      "category": "gatherings",
+      "source_file": "gatherings.json"
+    },
+    {
+      "title": "During & At the End of a Gathering #3",
+      "arabic_title": null,
+      "category": "gatherings",
+      "source_file": "gatherings.json"
+    },
+    {
+      "title": "Concluding the Recitation of the Qur'an",
+      "arabic_title": null,
+      "category": "gatherings",
+      "source_file": "gatherings.json"
+    },
+    {
+      "title": "Istiftah (The Opening Duʿa’) #1",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Istiftah (The Opening Duʿa’) #2",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Istiftah (The Opening Duʿa’) #3",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Istiftah (The Opening Duʿa’) #4",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Istiftah (The Opening Duʿa’) #5",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Istiftah (The Opening Duʿa’) #6",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Istiftah (The Opening Duʿa’) #7",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Istiftah (The Opening Duʿa’) #8",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Istiftah (The Opening Duʿa’) #9",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Istiʿadhah #1",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Istiʿadhah #2",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Basmalah",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Rukuʿ #1",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Rukuʿ #2",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Rukuʿ #3",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Rukuʿ #4",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Rukuʿ #5",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Rukuʿ #6",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "After Standing Up From Rukuʿ #1",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "After Standing Up From Rukuʿ #2",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "After Standing Up From Rukuʿ #3",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "After Standing Up From Rukuʿ #4",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "After Standing Up From Rukuʿ #5",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "After Standing Up From Rukuʿ #6",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Sujud #1",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Sujud #2",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Sujud #3",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Sujud #4",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Sujud #5",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Sujud #6",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Sujud #7",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Sujud #8",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Between the Two Sajdahs #2",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Sajdah al-Tilawah #1",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Sajdah al-Tilawah #2",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Salah on the Prophet ﷺ",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Duʿa’ #1",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Duʿa’ #2",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Duʿa’ #3",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Duʿa’ #4",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Duʿa’ #5",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Duʿa’ #6",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Duʿa’ #7",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Duʿa’ #8",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Duʿa’ #9",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Duʿa’ #10",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Salam",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Qunut #1",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Qunut #2",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "Qunut #3",
+      "arabic_title": null,
+      "category": "salah",
+      "source_file": "salah.json"
+    },
+    {
+      "title": "After Salah #7",
+      "arabic_title": null,
+      "category": "after-salah",
+      "source_file": "after-salah.json"
+    },
+    {
+      "title": "After Salah #8",
+      "arabic_title": null,
+      "category": "after-salah",
+      "source_file": "after-salah.json"
+    },
+    {
+      "title": "After Salah #2",
+      "arabic_title": null,
+      "category": "after-salah",
+      "source_file": "after-salah.json"
+    },
+    {
+      "title": "After Salah #3",
+      "arabic_title": null,
+      "category": "after-salah",
+      "source_file": "after-salah.json"
+    },
+    {
+      "title": "After Salah #4",
+      "arabic_title": null,
+      "category": "after-salah",
+      "source_file": "after-salah.json"
+    },
+    {
+      "title": "After Salah #5",
+      "arabic_title": null,
+      "category": "after-salah",
+      "source_file": "after-salah.json"
+    },
+    {
+      "title": "After Salah #8",
+      "arabic_title": null,
+      "category": "after-salah",
+      "source_file": "after-salah.json"
+    },
+    {
+      "title": "To Be Read After Fajr & Maghrib #1",
+      "arabic_title": null,
+      "category": "after-salah",
+      "source_file": "after-salah.json"
+    },
+    {
+      "title": "To Be Read After Fajr & Maghrib #2",
+      "arabic_title": null,
+      "category": "after-salah",
+      "source_file": "after-salah.json"
+    },
+    {
+      "title": "To Be Read After Fajr",
+      "arabic_title": null,
+      "category": "after-salah",
+      "source_file": "after-salah.json"
+    },
+    {
+      "title": "To Be Read After Witr",
+      "arabic_title": null,
+      "category": "after-salah",
+      "source_file": "after-salah.json"
+    },
+    {
+      "title": "When Something You Dislike Happens #1",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When Something You Dislike Happens #2",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When One is in a Difficult Situation",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When Struck by a Calamity",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "Grief & Anxiety #1",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "Grief & Anxiety #2",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When One is Afraid of People #1",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When One is Afraid of People #2",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When One is Afraid of People #3",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When One is Afraid of People #4",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When One is Afraid of People #5",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When One is Afraid of People #6",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When Meeting the Enemy",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When One Feels Frightened",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When One Fears a Ruler",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When Overwhelmed With Difficulties",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When Difficulties Make You Yearn for Death",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "For Difficult Times: All Your Prayers Answered",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When Something Pleases You #1",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When Something Pleases You #2",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "When Thinking of Something to be a Bad Omen",
+      "arabic_title": null,
+      "category": "difficulties-happiness",
+      "source_file": "difficulties-happiness.json"
+    },
+    {
+      "title": "After Wearing Clothes",
+      "arabic_title": null,
+      "category": "clothes",
+      "source_file": "clothes.json"
+    },
+    {
+      "title": "To be Said to Someone Wearing New Clothes",
+      "arabic_title": null,
+      "category": "clothes",
+      "source_file": "clothes.json"
+    },
+    {
+      "title": "Before Removing Clothes",
+      "arabic_title": null,
+      "category": "clothes",
+      "source_file": "clothes.json"
+    },
+    {
+      "title": "Istighfar - From the Qur’an #1",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Qur’an #2",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Qur’an #3",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Qur’an #4",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Qur’an #5",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Qur’an #6",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Qur’an #7",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Qur’an #8",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Qur’an #9",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Sunnah #1",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Sunnah #2",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Sunnah #3",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Sunnah #4",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Sunnah #5",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Sunnah #6",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Sunnah #7",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Sunnah #8",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Sunnah #9",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Istighfar - From the Sunnah #10",
+      "arabic_title": null,
+      "category": "istighfar",
+      "source_file": "istighfar.json"
+    },
+    {
+      "title": "Before Eating #2",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "If One Forgets at the Beginning:",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "After Eating #1",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "After Eating #2",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "After Eating #3",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "After Eating #4",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "After Eating #5",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "After Eating #6",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "After Eating #7",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "After Drinking Milk",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "Supplication for Somebody Who Gives One Food or Drink",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "Du‘a’ for the Host #1",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "Du‘a’ for the Host #2",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "After Opening a Fast #1",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "After Opening a Fast #2",
+      "arabic_title": null,
+      "category": "food-drink",
+      "source_file": "food-drink.json"
+    },
+    {
+      "title": "Sayyid al-Istighfar: The Best Way of Seeking Forgiveness",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Praising Allah, Forgiveness and Good Character",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Comprehensive Forgiveness",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Forgiveness",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Forgiveness, Anger and Trials",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Forgiveness For All Types of Sins",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Acknowledgement of Your Sins, Forgiveness & Mercy",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Forgiveness, Mercy & Guidance",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "A Deep Cleansing of Sins",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Forgiveness for the Believers",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Unwavering Iman, Blessings & The Prophet’s Company in Paradise",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Asking for Jannah al-Firdaws",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection From Hell-Fire & the Punishment of The Grave",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection From Hell-Fire, Punishment of the Grave & Trials",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection From The Anguish of the World & Hereafter",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Attainment of Every Good",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Easy Reckoning",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "The Prophet’s Comprehensive Duʿa After the Battle of Uhud",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Best of What the Righteous are Granted",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Asking For Martyrdom",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "A Goodly Life & Death",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Entrust All Your Matters to Allah",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Renewal of Iman",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Safeguarding of My Islam & Asking For All Good",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Steadfastness on Din",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Steadfastness on Obedience",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Steadfastness on Islam",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Best Outcomes & Protection from Humiliation",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "A Priceless Treasure",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Well-being in this World & the Hereafter",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Becoming A Godly Person",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Seeking Help For Excellence In Worship",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Duʿa for Allah’s Love & Protection From Trials",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Loving Allah & What He Loves",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "The Ultimate Duʿa",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Asking for Good & Protection From Evil",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "A Comprehensive Duʿa",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "All-Encompassing Nur (Light)",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "The Qur’an: the Banisher of Grief & Anxiety",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Goodness in Din, Dunya & the Hereafter",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "A Comprehensive Duʿa",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Guidance, Well-Being, Blessings & Protection",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Guidance to the Truth",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Guidance, Piety, Chastity & Self-Sufficiency",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Guidance & Steadfastness",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Guidance & Protection from Evil",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Misguidance",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Deep Understanding of the Din",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Beneficial Knowledge",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Beneficial Knowledge, Pure Sustenance & Accepted Deeds",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Purification of the Heart",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Four Superficial Actions",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from a Prayer Which Does Not Benefit",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Shirk & Riya",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Evil Traits & Endings",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Physical & Spiritual Illnesses",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Bad Endings",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Evil Actions",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from the Evil of My Organs",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Evil Character, Actions & Desires",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Allah’s Anger & Removal of Blessings",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection From Hunger & Treachery",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Bad Days, Companions & Neighbours",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Bad Neighbours & Family Members",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Trials, Wretchedness, Bad Fate & the Gloating of Enemies",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Physical & Spiritual Evil",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Poverty, Humiliation & Oppression",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Protection from Becoming Dependent on Others",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Contentment & Allah’s Protection",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Forgiveness, Blessings & a Spacious Home",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Honour & Pleasure of Allah",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "A Beautiful Character",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Atonement for Hurting Another Muslim",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "Unity, Guidance & Repentance",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "An All Encompassing Supplication",
+      "arabic_title": null,
+      "category": "sunnah-duas",
+      "source_file": "sunnah-duas.json"
+    },
+    {
+      "title": "When Difficulties Make You Yearn for Death",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "Encouraging the Dying to Say Shahadah",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "When Nearing Death #1",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "When Nearing Death #2",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "After Someone's Death #1",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "After Someone's Death #2",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "After Someone's Death #3",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "Condolence to the Bereaved",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "Supplication for the Deceased During the Janazah Prayer #1",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "Supplication for the Deceased During the Janazah Prayer #2",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "Supplication for the Deceased During the Janazah Prayer #3",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "Supplication for the Deceased During the Janazah Prayer #4",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "Supplication for the Deceased During the Janazah Prayer #5",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "When Visiting a Graveyard #1",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "When Visiting a Graveyard #2",
+      "arabic_title": null,
+      "category": "death",
+      "source_file": "death.json"
+    },
+    {
+      "title": "The Three Quls/Muʿawwidhat",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Ayat al-Kursi: Exclusive Protection",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Last Two Ayahs of Surah al-Baqarah: Will Suffice You",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Mercy & Protection",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Protection, Well-being and Forgiveness",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Protection From Punishment",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Sleep in the Name of Your Lord",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Tasbih, Tahmid and Takbir",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Protection from Evil and Settling of Debts",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Thank Allah for Blessing You",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Protect Yourself From the 4 Evils",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Surah al-Sajdah & Surah al-Mulk",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Die Upon the Fitrah",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Surah al-Kafirun: Negation of Shirk",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Ask Allah to Protect You From Evil",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Forgiveness & Protection",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Praise Allah With the Praises of the Entire Creation",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Get Forgiven Before Going to Sleep",
+      "arabic_title": null,
+      "category": "before-sleep",
+      "source_file": "before-sleep.json"
+    },
+    {
+      "title": "Surah al-Fatihah: The Best Cure",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "Ayat al-Kursi: The Greatest Protection From Evil Jinn",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "Last Two Verses of Surah al-Baqarah: A Shaytan-Free Home",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "Muʿawwidhat: Best Words to Seek Allah’s Protection",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "Allah Will Suffice You in Everything",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "Surah al-Baqarah: A Shield From Shaytan",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "Protection From All Harm",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "Protection From Crafty Jinns",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "Protection With Allah’s Names",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "A Comprehensive Protection",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "Protection From All Diseases",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "Seeking Protection for Children",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "When You Feel Unwell",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "A Remedy for Pain",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "What The Sick Should Say & What Should Be Said For Them",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "The Duʿa of Jibril for The Prophet ﷺ When He Was Ill",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "The Prophet’s Duʿa for the One in Pain",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "A Guaranteed Cure",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "What to Say to The Unwell Person",
+      "arabic_title": null,
+      "category": "ruqyah-illness",
+      "source_file": "ruqyah-illness.json"
+    },
+    {
+      "title": "After Waking Up #2",
+      "arabic_title": null,
+      "category": "waking-up",
+      "source_file": "waking-up.json"
+    },
+    {
+      "title": "When One Wakes Up At Night",
+      "arabic_title": null,
+      "category": "waking-up",
+      "source_file": "waking-up.json"
+    },
+    {
+      "title": "After Waking Up #1",
+      "arabic_title": null,
+      "category": "waking-up",
+      "source_file": "waking-up.json"
+    },
+    {
+      "title": "Last 10 Ayat of Surah Al-Imran",
+      "arabic_title": null,
+      "category": "waking-up",
+      "source_file": "waking-up.json"
+    },
+    {
+      "title": "When Changing Sides at Night",
+      "arabic_title": null,
+      "category": "waking-up",
+      "source_file": "waking-up.json"
+    },
+    {
+      "title": "When Seeking Rain #1",
+      "arabic_title": null,
+      "category": "nature",
+      "source_file": "nature.json"
+    },
+    {
+      "title": "When Seeking Rain #2",
+      "arabic_title": null,
+      "category": "nature",
+      "source_file": "nature.json"
+    },
+    {
+      "title": "When Seeking Rain #3",
+      "arabic_title": null,
+      "category": "nature",
+      "source_file": "nature.json"
+    },
+    {
+      "title": "When Seeking Rain #4",
+      "arabic_title": null,
+      "category": "nature",
+      "source_file": "nature.json"
+    },
+    {
+      "title": "When it Rains Heavily",
+      "arabic_title": null,
+      "category": "nature",
+      "source_file": "nature.json"
+    },
+    {
+      "title": "When the Wind Blows #1",
+      "arabic_title": null,
+      "category": "nature",
+      "source_file": "nature.json"
+    },
+    {
+      "title": "When the Wind Blows #2",
+      "arabic_title": null,
+      "category": "nature",
+      "source_file": "nature.json"
+    },
+    {
+      "title": "When Dogs Bark",
+      "arabic_title": null,
+      "category": "nature",
+      "source_file": "nature.json"
+    }
+  ]
+}

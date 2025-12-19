@@ -1,0 +1,1283 @@
+================================================================================
+DUAS COMPARISON REPORT: TXT vs JSON
+================================================================================
+Generated: 2025-12-19 19:09:30
+
+PROJECT: IslamQA - Duas Database Comparison
+TXT Source: /home/user/islamqa/docs/reference/hisn_al_muslim.txt (132 duas)
+JSON Source: /home/user/islamqa/public/data/dua/*.json (489 duas)
+
+================================================================================
+EXECUTIVE SUMMARY
+================================================================================
+
+Total Duas in TXT:                      132 duas
+Total Duas in JSON:                     489 duas
+
+Coverage Analysis:
+  ✓ Duas in TXT FOUND in JSON:           28 duas ( 21.2%)
+  ✗ Duas in TXT MISSING from JSON:      104 duas ( 78.8%)
+  + Duas in JSON NOT in TXT:            464 duas ( 94.9%)
+  ⚠ Duplicate titles in JSON:            23 duplicates
+
+================================================================================
+DETAILED ANALYSIS
+================================================================================
+
+1. DUAS IN TXT FOUND IN JSON (28 duas)
+--------------------------------------------------------------------------------
+
+These dois appear in the TXT file and have been successfully matched to JSON entries
+(Match threshold: 70% similarity)
+
+
+#1. TXT Entry #3: 'When wearing a new garment'
+   Arabic: دعاء لبس الثوب الجديد
+   JSON Match: 'When Wearing New Clothes'
+   Category: clothes
+   Match Score: 72.0%
+
+#2. TXT Entry #6: 'Before entering the bathroom'
+   Arabic: دعاء دخول الخلاء
+   JSON Match: 'Before Entering the Lavatory'
+   Category: lavatory-wudu
+   Match Score: 82.1%
+
+#3. TXT Entry #8: 'Before ablution'
+   Arabic: الذكر قبل الوضوء
+   JSON Match: 'Before Eating #1'
+   Category: food-drink
+   Match Score: 71.0%
+
+#4. TXT Entry #10: 'Remembrance when leaving the home'
+   Arabic: الذكر عند الخروج من المنزل
+   JSON Match: 'When Leaving the Home #1'
+   Category: home
+   Match Score: 73.7%
+
+#5. TXT Entry #11: 'Remembrance upon entering the home'
+   Arabic: الذكر عند الدخول المنزل
+   JSON Match: 'When Entering the Home'
+   Category: home
+   Match Score: 71.4%
+
+#6. TXT Entry #12: 'When going to the mosque'
+   Arabic: دعاء الذهاب إلى المسجد
+   JSON Match: 'Whilst Going to the Masjid'
+   Category: adhan-masjid
+   Match Score: 72.0%
+
+#7. TXT Entry #13: 'Upon entering the mosque'
+   Arabic: دعاء دخول المسجد
+   JSON Match: 'Upon Entering the Morning'
+   Category: morning
+   Match Score: 81.6%
+
+#8. TXT Entry #20: 'Between the two prostrations'
+   Arabic: دعاء الجلسة بين السجدتين
+   JSON Match: 'Between the Two Sajdahs #1'
+   Category: salah
+   Match Score: 70.4%
+
+#9. TXT Entry #22: 'The Tashahhud'
+   Arabic: التشهد
+   JSON Match: 'Tashahhud'
+   Category: salah
+   Match Score: 81.8%
+
+#10. TXT Entry #25: 'After salam'
+   Arabic: الأذكار بعد السلام من الصلاة
+   JSON Match: 'After Salah #1'
+   Category: after-salah
+   Match Score: 80.0%
+
+#11. TXT Entry #28: 'Before sleeping'
+   Arabic: أذكار النوم
+   JSON Match: 'Before Eating #1'
+   Category: food-drink
+   Match Score: 71.0%
+
+#12. TXT Entry #35: 'For one in distress'
+   Arabic: دعاء الكرب
+   JSON Match: 'When One is Distressed'
+   Category: difficulties-happiness
+   Match Score: 73.2%
+
+#13. TXT Entry #58: 'Placing the deceased in the grave'
+   Arabic: دعاء عند إدخال الميت القبر
+   JSON Match: 'When Placing the Deceased Inside the Grave'
+   Category: death
+   Match Score: 88.0%
+
+#14. TXT Entry #62: 'Upon hearing thunder'
+   Arabic: دعاء الرعد
+   JSON Match: 'Upon Hearing Thunder'
+   Category: nature
+   Match Score: 100.0%
+
+#15. TXT Entry #64: 'When it rains'
+   Arabic: الدعاء إذا رأى المطر
+   JSON Match: 'When it Rains'
+   Category: nature
+   Match Score: 100.0%
+
+#16. TXT Entry #65: 'After rainfall'
+   Arabic: الذكر بعد نزول المطر
+   JSON Match: 'After it Rains'
+   Category: nature
+   Match Score: 71.4%
+
+#17. TXT Entry #67: 'Upon sighting the crescent moon'
+   Arabic: دعاء رؤية الهلال
+   JSON Match: 'Upon Seeing the New Moon'
+   Category: nature
+   Match Score: 72.7%
+
+#18. TXT Entry #69: 'Before eating'
+   Arabic: الدعاء قبل الطعام
+   JSON Match: 'Before Eating #1'
+   Category: food-drink
+   Match Score: 89.7%
+
+#19. TXT Entry #76: 'Upon seeing the early or premature fruit'
+   Arabic: الدعاء عند رؤية باكورة الثمر
+   JSON Match: 'Upon Seeing the Early or Premature Fruit'
+   Category: nature
+   Match Score: 100.0%
+
+#20. TXT Entry #88: 'Protection from the Dajjal'
+   Arabic: الذكر الذي يعصم الله به من الدجال
+   JSON Match: 'Protection from all Evil'
+   Category: evening
+   Match Score: 72.0%
+
+#21. TXT Entry #97: 'Upon entering a town or village'
+   Arabic: دعاء دخول القرية أو البلدة
+   JSON Match: 'When Entering a Town or City'
+   Category: travel
+   Match Score: 74.6%
+
+#22. TXT Entry #98: 'When entering the market'
+   Arabic: دعاء دخول السوق
+   JSON Match: 'When Entering the Home'
+   Category: home
+   Match Score: 87.0%
+
+#23. TXT Entry #100: 'Supplication of the traveller for the resident'
+   Arabic: دعاء المسافر للمقيم
+   JSON Match: 'Supplication of the Traveller for the Resident'
+   Category: travel
+   Match Score: 100.0%
+
+#24. TXT Entry #101: 'Supplication of the resident for the traveller'
+   Arabic: دعاء المقيم للمسافر
+   JSON Match: 'Supplication of the Resident for the Traveller #1'
+   Category: travel
+   Match Score: 96.8%
+
+#25. TXT Entry #110: 'Upon hearing a rooster crow or the braying of a donkey'
+   Arabic: دعاء عند سماع صياح الديك ونهيق الحمار
+   JSON Match: 'When Hearing the Braying of a Donkey'
+   Category: nature
+   Match Score: 73.3%
+
+#26. TXT Entry #119: 'The Day of 'Arafah'
+   Arabic: الدعاء يوم عرفة
+   JSON Match: 'On the Day of ʿArafah'
+   Category: hajj-umrah
+   Match Score: 87.2%
+
+#27. TXT Entry #124: 'When feeling some pain in the body'
+   Arabic: ما يفعل ويقول من أحس وجعاً في جسده
+   JSON Match: 'When You Feel Pain in the Body'
+   Category: ruqyah-illness
+   Match Score: 81.2%
+
+#28. TXT Entry #129: 'Seeking forgiveness and repentance'
+   Arabic: الاستغفار والتوبة
+   JSON Match: 'Seek Forgiveness and Repent'
+   Category: morning
+   Match Score: 88.5%
+
+
+================================================================================
+2. DUAS IN TXT MISSING FROM JSON (104 duas)
+--------------------------------------------------------------------------------
+
+These duas are in the TXT file but could NOT be found in any JSON file:
+
+
+#1. TXT Entry #1
+   English: When waking up
+   Arabic: أذكار الاستيقاظ من النوم
+
+#2. TXT Entry #2
+   English: When wearing a garment
+   Arabic: دعاء لبس الثوب
+
+#3. TXT Entry #4
+   English: To someone wearing a new garment
+   Arabic: الدعاء لمن لبس ثوباً جديداً
+
+#4. TXT Entry #5
+   English: Before undressing
+   Arabic: ما يقول إذا وضع الثوب
+
+#5. TXT Entry #7
+   English: After leaving the bathroom
+   Arabic: دعاء الخروج من الخلاء
+
+#6. TXT Entry #9
+   English: Upon completing the ablution
+   Arabic: الذكر بعد الفراغ من الوضوء
+
+#7. TXT Entry #14
+   English: Upon leaving the mosque
+   Arabic: دعاء الخروج من المسجد
+
+#8. TXT Entry #15
+   English: Concerning the athan (the call to prayer)
+   Arabic: أذكار الأذان
+
+#9. TXT Entry #16
+   English: At the start of the prayer (after takbeer)
+   Arabic: دعاء الاستفتاح
+
+#10. TXT Entry #17
+   English: While bowing in prayer
+   Arabic: دعاء الركوع
+
+#11. TXT Entry #18
+   English: Upon rising from the bowing position
+   Arabic: دعاء الرفع من الركوع
+
+#12. TXT Entry #19
+   English: While prostrating
+   Arabic: دعاء السجود
+
+#13. TXT Entry #21
+   English: When prostrating due to recitation of the Quran
+   Arabic: دعاء سجود التلاوة
+
+#14. TXT Entry #23
+   English: Prayers upon the Prophet ﷺ after the tashahhud
+   Arabic: الصلاة على النبي ﷺ بعد التشهد
+
+#15. TXT Entry #24
+   English: After the last tashahhud and before salam
+   Arabic: الدعاء بعد التشهد الأخير وقبل السلام
+
+#16. TXT Entry #26
+   English: For seeking guidance in forming a decision or choosing the proper course
+   Arabic: دعاء صلاة الاستخارة
+
+#17. TXT Entry #27
+   English: In the morning and evening
+   Arabic: أذكار الصباح والمساء
+
+#18. TXT Entry #29
+   English: When tossing and turning during the night
+   Arabic: الدعاء إذا تقلب ليلاً
+
+#19. TXT Entry #30
+   English: Upon experiencing unrest, fear, apprehensiveness during sleep
+   Arabic: دعاء القلق والفزع في النوم ومن بلي بالوحشة
+
+#20. TXT Entry #31
+   English: Upon seeing a good dream or a bad dream
+   Arabic: ما يفعل من رأى الرؤيا أو الحلم
+
+#21. TXT Entry #32
+   English: Qunoot Al-Witr
+   Arabic: دعاء قنوت الوتر
+
+#22. TXT Entry #33
+   English: Immediately after salam of the witr prayer
+   Arabic: الذكر عقب السلام من الوتر
+
+#23. TXT Entry #34
+   English: For anxiety and sorrow
+   Arabic: دعاء الهم والحزن
+
+#24. TXT Entry #36
+   English: Upon encountering an enemy or those of authority
+   Arabic: دعاء لقاء العدو وذي السلطان
+
+#25. TXT Entry #37
+   English: For one afraid of the ruler's injustice
+   Arabic: دعاء من خاف ظلم السلطان
+
+#26. TXT Entry #38
+   English: Against enemies
+   Arabic: الدعاء على العدو
+
+#27. TXT Entry #39
+   English: When being afraid of a group of people
+   Arabic: ما يقول من خاف قوماً
+
+#28. TXT Entry #40
+   English: For one afflicted with doubt in his faith
+   Arabic: دعاء من أصابه شك في الإيمان
+
+#29. TXT Entry #41
+   English: Settling a debt
+   Arabic: الدعاء قضاء الدين
+
+#30. TXT Entry #42
+   English: For one afflicted by whisperings in prayer or recitation
+   Arabic: دعاء الوسوسة في الصلاة والقراءة
+
+#31. TXT Entry #43
+   English: For one whose affairs have become difficult
+   Arabic: دعاء من استصعب عليه أمر
+
+#32. TXT Entry #44
+   English: Upon committing a sin
+   Arabic: ما يقول ويفعل من أذنب ذنباً
+
+#33. TXT Entry #45
+   English: For expelling the devil and his whisperings
+   Arabic: دعاء طرد الشيطان ووساوسه
+
+#34. TXT Entry #46
+   English: When stricken with a mishap or overtaken by an affair
+   Arabic: الدعاء حينما يقع مالا يرضاه أو غلب على أمره
+
+#35. TXT Entry #47
+   English: Congratulation on the occasion of a birth and its reply
+   Arabic: تهنئة المولود له وجوابه
+
+#36. TXT Entry #48
+   English: Placing childen under Allah’s protection
+   Arabic: ما يعوذ به الأولاد
+
+#37. TXT Entry #49
+   English: When visiting the sick
+   Arabic: الدعاء للمريض في عيادته
+
+#38. TXT Entry #50
+   English: Excellence of visiting the sick
+   Arabic: فضل عيادة المريض
+
+#39. TXT Entry #51
+   English: When the sick have renounced all hope of life
+   Arabic: دعاء المريض الذي يئس من حياته
+
+#40. TXT Entry #52
+   English: Instruction for the one nearing death
+   Arabic: تلقين المحتضر لا إله إلا الله
+
+#41. TXT Entry #53
+   English: For one afflicted by a calamity
+   Arabic: دعاء من أصيب بمصيبة
+
+#42. TXT Entry #54
+   English: When closing the eyes of the deceased
+   Arabic: الدعاء عند إغماض الميت
+
+#43. TXT Entry #55
+   English: For the deceased at the funeral prayer
+   Arabic: الدعاء للميت في الصلاة عليه
+
+#44. TXT Entry #56
+   English: When the deceased is a child, during the funeral prayer
+   Arabic: الدعاء للفرط في الصلاة عليه
+
+#45. TXT Entry #57
+   English: Condolence
+   Arabic: دعاء التعزية
+
+#46. TXT Entry #59
+   English: After burying the deceased
+   Arabic: دعاء بعد دفن الميت
+
+#47. TXT Entry #60
+   English: Visiting the graves
+   Arabic: دعاء زيارة القبور
+
+#48. TXT Entry #61
+   English: During a wind storm
+   Arabic: دعاء الريح
+
+#49. TXT Entry #63
+   English: For rain
+   Arabic: من أدعية الاستسقاء
+
+#50. TXT Entry #66
+   English: Asking for clear skies
+   Arabic: من أدعية الاستصحاء
+
+#51. TXT Entry #68
+   English: Upon breaking fast
+   Arabic: الدعاء عند إفطار الصائم
+
+#52. TXT Entry #70
+   English: Upon completing the meal
+   Arabic: الدعاء عند الفراغ من الطعام
+
+#53. TXT Entry #71
+   English: Of the guest for the host
+   Arabic: دعاء الضيف لصاحب الطعام
+
+#54. TXT Entry #72
+   English: To one who intends to give food or drink
+   Arabic: الدعاء إذا أراد الطعام أو الشراب
+
+#55. TXT Entry #73
+   English: When breaking fast in someone’s home
+   Arabic: الدعاء إذا أفطر عند أهل بيت
+
+#56. TXT Entry #74
+   English: By one fasting when presented with food and does not break his fast
+   Arabic: دعاء الصائم إذا حضر الطعام ولم يفطر
+
+#57. TXT Entry #75
+   English: When insulted while fasting
+   Arabic: ما يقول الصائم إذا سابه أحد
+
+#58. TXT Entry #77
+   English: Upon sneezing
+   Arabic: دعاء العطاس
+
+#59. TXT Entry #78
+   English: When a disbeliever praises Allah after sneezing
+   Arabic: ما يقالُ للكافر إذا عطس فحمد الله
+
+#60. TXT Entry #79
+   English: To the newlywed
+   Arabic: الدعاء للمتزوج
+
+#61. TXT Entry #80
+   English: On the wedding night or when buying an animal
+   Arabic: دعاء المتزوج لنفسه ودعاء شراء الدابة
+
+#62. TXT Entry #81
+   English: Before sexual intercourse with the wife
+   Arabic: الدعاء قبل إتيان الزوجة
+
+#63. TXT Entry #82
+   English: When angry
+   Arabic: دعاء الغضب
+
+#64. TXT Entry #83
+   English: Upon seeing someone in trial or tribulation
+   Arabic: دعاء من رأى مبتلى
+
+#65. TXT Entry #84
+   English: At a sitting or gathering
+   Arabic: ما يقال في المجلس
+
+#66. TXT Entry #85
+   English: For the expiation of sins, said at the conclusion of a sitting or gathering
+   Arabic: كفارة المجلس
+
+#67. TXT Entry #86
+   English: Returning a supplication of forgiveness
+   Arabic: الدعاء لمن قال غفر الله لك
+
+#68. TXT Entry #87
+   English: To one who does you a favour
+   Arabic: الدعاء لمن صنع إليك معروفاً
+
+#69. TXT Entry #89
+   English: To one who pronounces his love for you, for Allah’s sake
+   Arabic: الدعاء لمن قال إني أحبك في الله
+
+#70. TXT Entry #90
+   English: To one who has offered you some of his wealth
+   Arabic: الدعاء لمن عرض عليك ماله
+
+#71. TXT Entry #91
+   English: To the debtor when his debt is settled
+   Arabic: الدعاء لمن أقرض عند القضاء
+
+#72. TXT Entry #92
+   English: For fear of shirk
+   Arabic: دعاء الخوف من الشرك
+
+#73. TXT Entry #93
+   English: To someone who says "May Allah bless you"
+   Arabic: الدعاء لمن قال بارك الله فيك
+
+#74. TXT Entry #94
+   English: The scorn of ascribing things to evil omens
+   Arabic: دعاء كراهية الطيرة
+
+#75. TXT Entry #95
+   English: When mounting an animal or any means of transport
+   Arabic: دعاء ركوب الدابة أو ما يقوم مقامها
+
+#76. TXT Entry #96
+   English: For travel
+   Arabic: دعاء السفر
+
+#77. TXT Entry #99
+   English: When the mounted animal (or mean of transport) stumbles
+   Arabic: الدعاء إذا تعس المركوب
+
+#78. TXT Entry #102
+   English: Takbir and Tasbih during travel
+   Arabic: التكبير والتسبيح في سير السفر
+
+#79. TXT Entry #103
+   English: Prayer of the traveller as dawn approaches
+   Arabic: دعاء المسافر إذا أسحر
+
+#80. TXT Entry #104
+   English: Stopping or lodging somewhere in travel and otherwise
+   Arabic: الدعاء إذا نزل منزلا في سفر أو غيره
+
+#81. TXT Entry #105
+   English: While returning from travel
+   Arabic: ذكر الرجوع من السفر
+
+#82. TXT Entry #106
+   English: What to say upon receiving pleasing or displeasing news
+   Arabic: ما يقول من أتاه أمر يسره أو يكرهه
+
+#83. TXT Entry #107
+   English: Excellence of sending prayers upon the Prophet (saws)
+   Arabic: فضل الصلاة على النبي ﷺ
+
+#84. TXT Entry #108
+   English: Excellence of spreading the Islamic greeting
+   Arabic: إفشاء السلام
+
+#85. TXT Entry #109
+   English: Returning a greeting to a disbeliever
+   Arabic: كيف يرد السلام على الكافر إذا سلم
+
+#86. TXT Entry #111
+   English: Upon hearing the barking of dogs at night
+   Arabic: دعاء عند سماع نباح الكلاب بالليل
+
+#87. TXT Entry #112
+   English: For one you have insulted
+   Arabic: الدعاء لمن سببته
+
+#88. TXT Entry #113
+   English: The etiquette of praising a fellow Muslim
+   Arabic: ما يقول المسلم إذا مدح المسلم
+
+#89. TXT Entry #114
+   English: For the one that have been praised
+   Arabic: ما يقول المسلم إذا زكي
+
+#90. TXT Entry #115
+   English: The Talbiya for the one doing Hajj or 'Umrah
+   Arabic: كيف يلبي المحرم في الحج أو العمرة
+
+#91. TXT Entry #116
+   English: The Takbîr passing the black stone
+   Arabic: التكبير إذا أتي الركن الأسود
+
+#92. TXT Entry #117
+   English: Between the Yemeni corner and the black stone
+   Arabic: الدعاء بين الركن اليماني والحجر الأسود
+
+#93. TXT Entry #118
+   English: When at Mount Safa and Mount Marwah
+   Arabic: دعاء الوقوف على الصفا والمروة
+
+#94. TXT Entry #120
+   English: Remembrance at Muzdalifa
+   Arabic: الذكر عند المشعر الحرام
+
+#95. TXT Entry #121
+   English: Takbir when throwing each pebble at the Jamarat
+   Arabic: التكبير عند رمي الجمار مع كل حصاة
+
+#96. TXT Entry #122
+   English: At times of amazement and that which delights
+   Arabic: ما يقول عند التعجب والأمر السار
+
+#97. TXT Entry #123
+   English: Upon receiving pleasant news
+   Arabic: ما يفعل من أتاه أمر يسره
+
+#98. TXT Entry #125
+   English: When in fear of afflicting something with an (evil) eye from oneself
+   Arabic: ما يقول من خشي أن يصيب شيئاً بعينه
+
+#99. TXT Entry #126
+   English: When startled
+   Arabic: ما يقال عند الفزع
+
+#100. TXT Entry #127
+   English: When slaughtering or offering a sacrifice
+   Arabic: ما يقول عند الذبح أو النحر
+
+#101. TXT Entry #128
+   English: To ward off the plot of the rebellious devils
+   Arabic: ما يقول لرد كيد مردة الشياطين
+
+#102. TXT Entry #130
+   English: Excellence of Tasbih, Tahmid, Tahlil, and Takbir
+   Arabic: من فضل التسبيح والتحميد ، والتهليل ، والتكبير
+
+#103. TXT Entry #131
+   English: How the Prophet ﷺ made tasbeeh
+   Arabic: كيف كان النبي ﷺ يسبح ؟
+
+#104. TXT Entry #132
+   English: Comprehensive types of good and manners
+   Arabic: من أنواع الخير والآداب الجامعة
+
+
+================================================================================
+3. DUAS IN JSON NOT IN TXT (464 duas)
+--------------------------------------------------------------------------------
+
+These duas are in JSON files but do NOT appear to have a match in the TXT file:
+
+
+ADHAN-MASJID (7 duas):
+  • After the Adhan is complete #1
+  • After the Adhan is complete #2
+  • After the Adhan is complete #3
+  • When Entering the Masjid #1
+  • When Entering the Masjid #2
+  • When Leaving the Masjid #1
+  • When Leaving the Masjid #2
+
+AFTER-SALAH (11 duas):
+  • After Salah #7
+  • After Salah #8
+  • After Salah #2
+  • After Salah #3
+  • After Salah #4
+  • After Salah #5
+  • After Salah #8
+  • To Be Read After Fajr & Maghrib #1
+  • To Be Read After Fajr & Maghrib #2
+  • To Be Read After Fajr
+  • To Be Read After Witr
+
+BEFORE-SLEEP (18 duas):
+  • The Three Quls/Muʿawwidhat
+  • Ayat al-Kursi: Exclusive Protection
+  • Last Two Ayahs of Surah al-Baqarah: Will Suffice You
+  • Mercy & Protection
+  • Protection, Well-being and Forgiveness
+  • Protection From Punishment
+  • Sleep in the Name of Your Lord
+  • Tasbih, Tahmid and Takbir
+  • Protection from Evil and Settling of Debts
+  • Thank Allah for Blessing You
+  • Protect Yourself From the 4 Evils
+  • Surah al-Sajdah & Surah al-Mulk
+  • Die Upon the Fitrah
+  • Surah al-Kafirun: Negation of Shirk
+  • Ask Allah to Protect You From Evil
+  • Forgiveness & Protection
+  • Praise Allah With the Praises of the Entire Creation
+  • Get Forgiven Before Going to Sleep
+
+CLOTHES (3 duas):
+  • After Wearing Clothes
+  • To be Said to Someone Wearing New Clothes
+  • Before Removing Clothes
+
+DEATH (15 duas):
+  • When Difficulties Make You Yearn for Death
+  • Encouraging the Dying to Say Shahadah
+  • When Nearing Death #1
+  • When Nearing Death #2
+  • After Someone's Death #1
+  • After Someone's Death #2
+  • After Someone's Death #3
+  • Condolence to the Bereaved
+  • Supplication for the Deceased During the Janazah Prayer #1
+  • Supplication for the Deceased During the Janazah Prayer #2
+  • Supplication for the Deceased During the Janazah Prayer #3
+  • Supplication for the Deceased During the Janazah Prayer #4
+  • Supplication for the Deceased During the Janazah Prayer #5
+  • When Visiting a Graveyard #1
+  • When Visiting a Graveyard #2
+
+DHIKR-ALL-TIMES (11 duas):
+  • Tahlil: The Best Dhikr
+  • Tasbih (Subhana-llah), Tahmid (Alhamdu li-llah), Takbir (Allahu akbar)
+  • Hawqalah: A Treasure From the Treasures of Paradise
+  • Salawat
+  • The Best Statement Uttered By All the Prophets
+  • The Best Words After the Qur’an
+  • Heavy On the Scales & Beloved to Allah
+  • Supplicate Frequently With…
+  • When Distressed, the Prophet ﷺ Would Say…
+  • For Difficult Times: All Your Prayers Answered
+  • All of Your Sins Forgiven
+
+DIFFICULTIES-HAPPINESS (21 duas):
+  • When Something You Dislike Happens #1
+  • When Something You Dislike Happens #2
+  • When One is in a Difficult Situation
+  • When Struck by a Calamity
+  • Grief & Anxiety #1
+  • Grief & Anxiety #2
+  • When One is Afraid of People #1
+  • When One is Afraid of People #2
+  • When One is Afraid of People #3
+  • When One is Afraid of People #4
+  • When One is Afraid of People #5
+  • When One is Afraid of People #6
+  • When Meeting the Enemy
+  • When One Feels Frightened
+  • When One Fears a Ruler
+  • When Overwhelmed With Difficulties
+  • When Difficulties Make You Yearn for Death
+  • For Difficult Times: All Your Prayers Answered
+  • When Something Pleases You #1
+  • When Something Pleases You #2
+  • When Thinking of Something to be a Bad Omen
+
+EVENING (22 duas):
+  • Ayat al-Kursi: The Greatest Protection
+  • 3 Quls: To Suffice You in All Your Matters
+  • Sayyid al-Istighfar: The Best Way of Seeking Forgiveness
+  • Protect Yourself From Anxiety, Laziness, Debt etc
+  • Well-being in this World and the Hereafter
+  • Protect Yourself From the Four Evils
+  • Entrust All Your Matters to Allah
+  • Fulfil Your Obligation to Thank Allah
+  • Start Your Evening by Renewing Tawhid
+  • Start the Evening by Praising Allah
+  • Ask Allah for a Good Evening
+  • Ask Allah to Bless Your Evening
+  • Get Yourself Freed from the Hell-fire
+  • Upon Entering the Evening
+  • Ask Allah For Good Health and Protection
+  • Allah Will Suffice You in Everything
+  • Have the Prophet ﷺ Hold Your Hand and Admit You to Paradise
+  • Protect Yourself From All Harm
+  • Get Your Sins Forgiven
+  • An Unparalleled Reward
+  • Tasbih, Tahmid and Takbir
+  • Receive the Intercession of the Prophet ﷺ
+
+FOOD-DRINK (15 duas):
+  • Before Eating #2
+  • If One Forgets at the Beginning:
+  • After Eating #1
+  • After Eating #2
+  • After Eating #3
+  • After Eating #4
+  • After Eating #5
+  • After Eating #6
+  • After Eating #7
+  • After Drinking Milk
+  • Supplication for Somebody Who Gives One Food or Drink
+  • Du‘a’ for the Host #1
+  • Du‘a’ for the Host #2
+  • After Opening a Fast #1
+  • After Opening a Fast #2
+
+GATHERINGS (4 duas):
+  • During & At the End of a Gathering #1
+  • During & At the End of a Gathering #2
+  • During & At the End of a Gathering #3
+  • Concluding the Recitation of the Qur'an
+
+HAJJ-UMRAH (9 duas):
+  • When in the State of Iḥrām
+  • Talbiyah in Hajj & ʿUmrah
+  • When Reaching al-Ḥajar al-Aswad (The Black Stone)
+  • Between al-Rukn al-Yamani (Yemeni Corner) & al-Hajar al-Aswad (Black Stone)
+  • At Maqām Ibrāhīm
+  • When Approaching Ṣafā to begin Saʿy
+  • Each Time on Safa & Marwah
+  • Between Ṣafā & Marwah
+  • On Every Throw at the Jamarāt
+
+HOME (1 duas):
+  • When Leaving the Home #2
+
+ISTIGHFAR (19 duas):
+  • Istighfar - From the Qur’an #1
+  • Istighfar - From the Qur’an #2
+  • Istighfar - From the Qur’an #3
+  • Istighfar - From the Qur’an #4
+  • Istighfar - From the Qur’an #5
+  • Istighfar - From the Qur’an #6
+  • Istighfar - From the Qur’an #7
+  • Istighfar - From the Qur’an #8
+  • Istighfar - From the Qur’an #9
+  • Istighfar - From the Sunnah #1
+  • Istighfar - From the Sunnah #2
+  • Istighfar - From the Sunnah #3
+  • Istighfar - From the Sunnah #4
+  • Istighfar - From the Sunnah #5
+  • Istighfar - From the Sunnah #6
+  • Istighfar - From the Sunnah #7
+  • Istighfar - From the Sunnah #8
+  • Istighfar - From the Sunnah #9
+  • Istighfar - From the Sunnah #10
+
+ISTIKHARA (1 duas):
+  • Istikharah (Seeking Allah's Help in Making a Decision)
+
+LAVATORY-WUDU (4 duas):
+  • After Coming Out of the Lavatory
+  • Before Wuḍu
+  • After Completing Wuḍu #1
+  • After Completing Wuḍu #2
+
+MARRIAGE-CHILDREN (12 duas):
+  • For the Married Couple #1
+  • For the Married Couple #2
+  • For the Married Couple #3
+  • Upon Marrying
+  • Before Intimacy
+  • For Children
+  • For Pious Children #1
+  • For Pious Children #2
+  • For Pious Children #3
+  • For Pious Children #4
+  • Congratulating the Parent of a Newborn
+  • Seeking Protection for Children
+
+MONEY-SHOPPING (9 duas):
+  • Whilst In a Shop/Market
+  • When Burdened by Debts #1
+  • When Burdened by Debts #2
+  • When Burdened by Debts #3
+  • When Burdened by Debts #4
+  • Supplication of the Borrower at the Time of Repayment
+  • For Abundance of Wealth #1
+  • For Abundance of Wealth #2
+  • For Abundance of Wealth #3
+
+MORNING (22 duas):
+  • Ayat al-Kursi: The Greatest Protection
+  • 3 Quls: Be Sufficed in All Your Matters
+  • Sayyid al-Istighfar: The Best Way of Seeking Forgiveness
+  • Protect Yourself From Anxiety, Laziness, Debt etc
+  • Well-being in this World and the Hereafter
+  • Protect Yourself From the 4 Evils
+  • Entrust All Your Matters to Allah
+  • Fulfil Your Obligation to Thank Allah
+  • Start Your Day by Renewing Tawhid
+  • Start the Morning by Praising Allah
+  • Ask Allah for a Good Day
+  • Ask Allah to Bless Your Day
+  • Get Yourself Freed from the Hell-fire
+  • Ask Allah For Good Health and Protection
+  • Allah Will Suffice You in Everything
+  • Have the Prophet ﷺ Hold Your Hand and Admit You to Paradise
+  • Protect Yourself From All Harm
+  • Get Your Sins Forgiven
+  • An Unparalleled Reward
+  • Tasbih, Tahmid and Takbir
+  • Receive the Intercession of the Prophet ﷺ
+  • 4 Phrases That Outweigh All Other Dhikr
+
+NATURE (8 duas):
+  • When Seeking Rain #1
+  • When Seeking Rain #2
+  • When Seeking Rain #3
+  • When Seeking Rain #4
+  • When it Rains Heavily
+  • When the Wind Blows #1
+  • When the Wind Blows #2
+  • When Dogs Bark
+
+NIGHTMARES (1 duas):
+  • After a Nightmare
+
+PRAISES-ALLAH (30 duas):
+  • Praises of Allah from the Qur’an #1
+  • Praises of Allah from the Qur’an #2
+  • Praises of Allah from the Qur’an #3
+  • Praises of Allah from the Qur’an #4
+  • Praises of Allah from the Qur’an #5
+  • The Prophet’s ﷺ Praises of Allah in Tahajjud
+  • The Prophet’s ﷺ Praises at Uhud
+  • Praising Allah with His Names
+  • The Greatest Truth
+  • Praise Allah with Expressing Your Dire Need of Him
+  • Praise Allah with the Praises of the Entire Creation
+  • Praise Allah for All His Favours
+  • Praises Which the Angels Race to Take Up #1
+  • Praises Which the Angels Race to Take Up #2
+  • Praise Allah With the Most Virtuous Dhikr
+  • Exalt Allah
+  • Praises Beloved to The Most Merciful
+  • 4 Phrases That Outweigh All Other Dhikr
+  • Magnify Your Lord
+  • Declare the Perfection of Allah
+  • Praises Which Open the Doors of Paradise
+  • Praise Allah with His Oneness
+  • A Comprehensive Praise
+  • Praises Which Bring Ease
+  • Praises Which Lead to Your Forgiveness
+  • Praises Which Free You From the Hell-fire
+  • Affirming Your Inability to Praise Allah Sufficiently
+  • Praise Allah For His Dominion
+  • Ask Allah with His Greatest Name #1
+  • Ask Allah with His Greatest Name #2
+
+PROTECTION-IMAN (6 duas):
+  • For Firmness of the Heart
+  • When One Experiences Doubt in Faith #1
+  • When One Experiences Doubt in Faith #2
+  • When One Fears Shirk & Riya'
+  • Protection From Dajjal, Trials & Tribulations
+  • First 10 Verses of Surah al-Kahf: Protection from Dajjal
+
+QURANIC-DUAS (41 duas):
+  • Surah al-Fatihah: The Greatest Duʿa
+  • Duʿa of the Grief-stricken Prophet Yunus ﷺ
+  • Duʿa of Prophet Musa ﷺ for Forgiveness
+  • Duʿa of Prophet Adam ﷺ and Hawwa for Forgiveness
+  • Duʿa of Prophet Musa ﷺ for Forgiveness
+  • Duʿa of the Pious for Forgiveness & Protection From the Hell-fire
+  • Duʿa of the Slaves of Allah for Forgiveness & Mercy
+  • Duʿa for Forgiveness & Mercy
+  • Duʿa of Prophet Nuh ﷺ for Forgiveness
+  • Duʿa for Yourself, the Deceased & the Ummah
+  • Duʿa of the Believers on the Day of Judgement
+  • Duʿa of Asiya for a House Near Allah in Paradise
+  • Duʿa for Protection From the Hell-fire
+  • Duʿa of Those Who Reflect
+  • Duʿa of the Angels for the Believers
+  • Duʿa of Prophet Musa ﷺ Expressing His Dire Need
+  • The Most Frequent Duʿa of the Prophet ﷺ
+  • Duʿa of the People of the Cave for Mercy & Guidance
+  • Duʿa for the Firmness of the Heart
+  • Duʿa for Increase in Knowledge
+  • Duʿa of Prophet Musa ﷺ for Inner Peace & Strength
+  • Duʿa of Prophet Ibrahim ﷺ for Wisdom & a Good End
+  • Duʿa of Prophet Ibrahim ﷺ for His Progeny & Parents
+  • Duʿa for Parents
+  • Duʿa of Zakariyya ﷺ for Pious Children
+  • Duʿa of Ibrahim ﷺ for Pious Children
+  • Duʿa of Zakariyya ﷺ for Children
+  • Duʿa for a Joyous Household
+  • Duʿa of Prophet Sulayman ﷺ for Gratitude to Allah & Doing Good Deeds
+  • Duʿa for Gratitude, Good Deeds & Pious Children
+  • Duʿa for Seeking Protection from Shaytan
+  • Duʿa for Forgiveness & Ease
+  • Duʿa for Forgiveness & Victory
+  • Duʿa for For Firmness & Victory
+  • Duʿa of Prophet Lut ﷺ for Help Against The Corrupt
+  • Duʿa for Protection From Being With The Oppressors
+  • Duʿa for Protection From The Oppressors
+  • Duʿa for Protection From Persecution
+  • Duʿa of Prophet Ayyub ﷺ for Times of Distress
+  • Duʿa of Prophet Yusuf ﷺ for A Good Ending
+  • Duʿa of Prophet Ibrahim ﷺ & Ismaʿil ﷺ for Acceptance of Good Deeds
+
+RUQYAH-ILLNESS (19 duas):
+  • Surah al-Fatihah: The Best Cure
+  • Ayat al-Kursi: The Greatest Protection From Evil Jinn
+  • Last Two Verses of Surah al-Baqarah: A Shaytan-Free Home
+  • Muʿawwidhat: Best Words to Seek Allah’s Protection
+  • Allah Will Suffice You in Everything
+  • Surah al-Baqarah: A Shield From Shaytan
+  • Protection From All Harm
+  • Protection From Crafty Jinns
+  • Protection With Allah’s Names
+  • A Comprehensive Protection
+  • Protection From All Diseases
+  • Seeking Protection for Children
+  • When You Feel Unwell
+  • A Remedy for Pain
+  • What The Sick Should Say & What Should Be Said For Them
+  • The Duʿa of Jibril for The Prophet ﷺ When He Was Ill
+  • The Prophet’s Duʿa for the One in Pain
+  • A Guaranteed Cure
+  • What to Say to The Unwell Person
+
+SALAH (50 duas):
+  • Istiftah (The Opening Duʿa’) #1
+  • Istiftah (The Opening Duʿa’) #2
+  • Istiftah (The Opening Duʿa’) #3
+  • Istiftah (The Opening Duʿa’) #4
+  • Istiftah (The Opening Duʿa’) #5
+  • Istiftah (The Opening Duʿa’) #6
+  • Istiftah (The Opening Duʿa’) #7
+  • Istiftah (The Opening Duʿa’) #8
+  • Istiftah (The Opening Duʿa’) #9
+  • Istiʿadhah #1
+  • Istiʿadhah #2
+  • Basmalah
+  • Rukuʿ #1
+  • Rukuʿ #2
+  • Rukuʿ #3
+  • Rukuʿ #4
+  • Rukuʿ #5
+  • Rukuʿ #6
+  • After Standing Up From Rukuʿ #1
+  • After Standing Up From Rukuʿ #2
+  • After Standing Up From Rukuʿ #3
+  • After Standing Up From Rukuʿ #4
+  • After Standing Up From Rukuʿ #5
+  • After Standing Up From Rukuʿ #6
+  • Sujud #1
+  • Sujud #2
+  • Sujud #3
+  • Sujud #4
+  • Sujud #5
+  • Sujud #6
+  • Sujud #7
+  • Sujud #8
+  • Between the Two Sajdahs #2
+  • Sajdah al-Tilawah #1
+  • Sajdah al-Tilawah #2
+  • Salah on the Prophet ﷺ
+  • Duʿa’ #1
+  • Duʿa’ #2
+  • Duʿa’ #3
+  • Duʿa’ #4
+  • Duʿa’ #5
+  • Duʿa’ #6
+  • Duʿa’ #7
+  • Duʿa’ #8
+  • Duʿa’ #9
+  • Duʿa’ #10
+  • Salam
+  • Qunut #1
+  • Qunut #2
+  • Qunut #3
+
+SALAWAT (9 duas):
+  • Salawat #1
+  • Salawat #2
+  • Salawat #3
+  • Salawat #4
+  • Salawat #5
+  • Salawat #6
+  • Salawat #7
+  • Salawat #8
+  • Salawat #9
+
+SOCIAL-INTERACTIONS (6 duas):
+  • After Sneezing
+  • Your Companion Should Reply
+  • Then You Should Say
+  • When Greeting a Muslim
+  • When Thanking Another Person
+  • When Someone Informs You That They Love You
+
+SUNNAH-DUAS (75 duas):
+  • Sayyid al-Istighfar: The Best Way of Seeking Forgiveness
+  • Praising Allah, Forgiveness and Good Character
+  • Comprehensive Forgiveness
+  • Forgiveness
+  • Forgiveness, Anger and Trials
+  • Forgiveness For All Types of Sins
+  • Acknowledgement of Your Sins, Forgiveness & Mercy
+  • Forgiveness, Mercy & Guidance
+  • A Deep Cleansing of Sins
+  • Forgiveness for the Believers
+  • Unwavering Iman, Blessings & The Prophet’s Company in Paradise
+  • Asking for Jannah al-Firdaws
+  • Protection From Hell-Fire & the Punishment of The Grave
+  • Protection From Hell-Fire, Punishment of the Grave & Trials
+  • Protection From The Anguish of the World & Hereafter
+  • Attainment of Every Good
+  • Easy Reckoning
+  • The Prophet’s Comprehensive Duʿa After the Battle of Uhud
+  • Best of What the Righteous are Granted
+  • Asking For Martyrdom
+  • A Goodly Life & Death
+  • Entrust All Your Matters to Allah
+  • Renewal of Iman
+  • Safeguarding of My Islam & Asking For All Good
+  • Steadfastness on Din
+  • Steadfastness on Obedience
+  • Steadfastness on Islam
+  • Best Outcomes & Protection from Humiliation
+  • A Priceless Treasure
+  • Well-being in this World & the Hereafter
+  • Becoming A Godly Person
+  • Seeking Help For Excellence In Worship
+  • Duʿa for Allah’s Love & Protection From Trials
+  • Loving Allah & What He Loves
+  • The Ultimate Duʿa
+  • Asking for Good & Protection From Evil
+  • A Comprehensive Duʿa
+  • All-Encompassing Nur (Light)
+  • The Qur’an: the Banisher of Grief & Anxiety
+  • Goodness in Din, Dunya & the Hereafter
+  • A Comprehensive Duʿa
+  • Guidance, Well-Being, Blessings & Protection
+  • Guidance to the Truth
+  • Guidance, Piety, Chastity & Self-Sufficiency
+  • Guidance & Steadfastness
+  • Guidance & Protection from Evil
+  • Protection from Misguidance
+  • Deep Understanding of the Din
+  • Beneficial Knowledge
+  • Beneficial Knowledge, Pure Sustenance & Accepted Deeds
+  • Purification of the Heart
+  • Protection from Four Superficial Actions
+  • Protection from a Prayer Which Does Not Benefit
+  • Protection from Shirk & Riya
+  • Protection from Evil Traits & Endings
+  • Protection from Physical & Spiritual Illnesses
+  • Protection from Bad Endings
+  • Protection from Evil Actions
+  • Protection from the Evil of My Organs
+  • Protection from Evil Character, Actions & Desires
+  • Protection from Allah’s Anger & Removal of Blessings
+  • Protection From Hunger & Treachery
+  • Protection from Bad Days, Companions & Neighbours
+  • Protection from Bad Neighbours & Family Members
+  • Protection from Trials, Wretchedness, Bad Fate & the Gloating of Enemies
+  • Protection from Physical & Spiritual Evil
+  • Protection from Poverty, Humiliation & Oppression
+  • Protection from Becoming Dependent on Others
+  • Contentment & Allah’s Protection
+  • Forgiveness, Blessings & a Spacious Home
+  • Honour & Pleasure of Allah
+  • A Beautiful Character
+  • Atonement for Hurting Another Muslim
+  • Unity, Guidance & Repentance
+  • An All Encompassing Supplication
+
+TRAVEL (10 duas):
+  • When Travelling #1
+  • When Travelling #2
+  • Upon Returning, Add the Following:
+  • When Dismounting
+  • When Entering Upon One's Family
+  • Supplication of the Resident for the Traveller #2
+  • Supplication of the Resident for the Traveller #3
+  • When Night Falls on a Journey
+  • When One is Unable to Keep Steady on a Conveyance
+  • When Dawn Approaches
+
+WAKING-UP (5 duas):
+  • After Waking Up #2
+  • When One Wakes Up At Night
+  • After Waking Up #1
+  • Last 10 Ayat of Surah Al-Imran
+  • When Changing Sides at Night
+
+
+================================================================================
+4. DUPLICATE ANALYSIS (23 duplicates)
+--------------------------------------------------------------------------------
+
+Duas that appear multiple times in JSON files:
+
+
+• '4 Phrases That Outweigh All Other Dhikr' appears 2 times
+  - morning (morning.json)
+  - praises-allah (praises-allah.json)
+
+• 'A Comprehensive Duʿa' appears 2 times
+  - sunnah-duas (sunnah-duas.json)
+  - sunnah-duas (sunnah-duas.json)
+
+• 'After Salah #8' appears 2 times
+  - after-salah (after-salah.json)
+  - after-salah (after-salah.json)
+
+• 'Allah Will Suffice You in Everything' appears 3 times
+  - morning (morning.json)
+  - evening (evening.json)
+  - ruqyah-illness (ruqyah-illness.json)
+
+• 'An Unparalleled Reward' appears 2 times
+  - morning (morning.json)
+  - evening (evening.json)
+
+• 'Ask Allah For Good Health and Protection' appears 2 times
+  - morning (morning.json)
+  - evening (evening.json)
+
+• 'Ayat al-Kursi: The Greatest Protection' appears 2 times
+  - morning (morning.json)
+  - evening (evening.json)
+
+• 'Duʿa of Prophet Musa ﷺ for Forgiveness' appears 2 times
+  - quranic-duas (quranic-duas.json)
+  - quranic-duas (quranic-duas.json)
+
+• 'Entrust All Your Matters to Allah' appears 3 times
+  - morning (morning.json)
+  - evening (evening.json)
+  - sunnah-duas (sunnah-duas.json)
+
+• 'For Difficult Times: All Your Prayers Answered' appears 2 times
+  - dhikr-all-times (dhikr-all-times.json)
+  - difficulties-happiness (difficulties-happiness.json)
+
+• 'Fulfil Your Obligation to Thank Allah' appears 2 times
+  - morning (morning.json)
+  - evening (evening.json)
+
+• 'Get Your Sins Forgiven' appears 2 times
+  - morning (morning.json)
+  - evening (evening.json)
+
+• 'Get Yourself Freed from the Hell-fire' appears 2 times
+  - morning (morning.json)
+  - evening (evening.json)
+
+• 'Have the Prophet ﷺ Hold Your Hand and Admit You to Paradise' appears 2 times
+  - morning (morning.json)
+  - evening (evening.json)
+
+• 'Protect Yourself From All Harm' appears 2 times
+  - morning (morning.json)
+  - evening (evening.json)
+
+• 'Protect Yourself From Anxiety, Laziness, Debt etc' appears 2 times
+  - morning (morning.json)
+  - evening (evening.json)
+
+• 'Protect Yourself From the 4 Evils' appears 2 times
+  - morning (morning.json)
+  - before-sleep (before-sleep.json)
+
+• 'Receive the Intercession of the Prophet ﷺ' appears 2 times
+  - morning (morning.json)
+  - evening (evening.json)
+
+• 'Sayyid al-Istighfar: The Best Way of Seeking Forgiveness' appears 3 times
+  - morning (morning.json)
+  - evening (evening.json)
+  - sunnah-duas (sunnah-duas.json)
+
+• 'Seeking Protection for Children' appears 2 times
+  - marriage-children (marriage-children.json)
+  - ruqyah-illness (ruqyah-illness.json)
+
+• 'Tasbih, Tahmid and Takbir' appears 3 times
+  - morning (morning.json)
+  - evening (evening.json)
+  - before-sleep (before-sleep.json)
+
+• 'Well-being in this World and the Hereafter' appears 2 times
+  - morning (morning.json)
+  - evening (evening.json)
+
+• 'When Difficulties Make You Yearn for Death' appears 2 times
+  - difficulties-happiness (difficulties-happiness.json)
+  - death (death.json)
+
+
+================================================================================
+COVERAGE INSIGHTS
+================================================================================
+
+✓ Match Rate: 21.2% of TXT duas are in JSON
+✓ JSON Expansion: JSON includes 94.9% more duas than TXT
+✓ Total Unique: 596 total unique duas across both sources
+
+Key Observations:
+1. The TXT file (Fortress of the Muslim) is relatively old/limited
+2. JSON files contain extensive expansion beyond the TXT source
+3. Most JSON duas come from different/additional sources
+4. Some duplicates exist in JSON files (possible data quality issue)
+
+Recommendations:
+1. Review and consolidate duplicate entries in JSON
+2. Consider updating TXT file with additional duas from JSON
+3. Implement deduplication process in JSON data pipeline
+4. Map TXT entries to their JSON equivalents for reference
+
+================================================================================

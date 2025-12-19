@@ -1,0 +1,634 @@
+{
+  "metadata": {
+    "generated": "2025-12-19 19:09:30",
+    "description": "Duas from TXT file that are missing from JSON files",
+    "count": 104,
+    "threshold": "70% similarity match"
+  },
+  "duas": [
+    {
+      "number": 1,
+      "english_title": "When waking up",
+      "arabic_title": "أذكار الاستيقاظ من النوم",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 2,
+      "english_title": "When wearing a garment",
+      "arabic_title": "دعاء لبس الثوب",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 4,
+      "english_title": "To someone wearing a new garment",
+      "arabic_title": "الدعاء لمن لبس ثوباً جديداً",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 5,
+      "english_title": "Before undressing",
+      "arabic_title": "ما يقول إذا وضع الثوب",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 7,
+      "english_title": "After leaving the bathroom",
+      "arabic_title": "دعاء الخروج من الخلاء",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 9,
+      "english_title": "Upon completing the ablution",
+      "arabic_title": "الذكر بعد الفراغ من الوضوء",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 14,
+      "english_title": "Upon leaving the mosque",
+      "arabic_title": "دعاء الخروج من المسجد",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 15,
+      "english_title": "Concerning the athan (the call to prayer)",
+      "arabic_title": "أذكار الأذان",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 16,
+      "english_title": "At the start of the prayer (after takbeer)",
+      "arabic_title": "دعاء الاستفتاح",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 17,
+      "english_title": "While bowing in prayer",
+      "arabic_title": "دعاء الركوع",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 18,
+      "english_title": "Upon rising from the bowing position",
+      "arabic_title": "دعاء الرفع من الركوع",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 19,
+      "english_title": "While prostrating",
+      "arabic_title": "دعاء السجود",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 21,
+      "english_title": "When prostrating due to recitation of the Quran",
+      "arabic_title": "دعاء سجود التلاوة",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 23,
+      "english_title": "Prayers upon the Prophet ﷺ after the tashahhud",
+      "arabic_title": "الصلاة على النبي ﷺ بعد التشهد",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 24,
+      "english_title": "After the last tashahhud and before salam",
+      "arabic_title": "الدعاء بعد التشهد الأخير وقبل السلام",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 26,
+      "english_title": "For seeking guidance in forming a decision or choosing the proper course",
+      "arabic_title": "دعاء صلاة الاستخارة",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 27,
+      "english_title": "In the morning and evening",
+      "arabic_title": "أذكار الصباح والمساء",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 29,
+      "english_title": "When tossing and turning during the night",
+      "arabic_title": "الدعاء إذا تقلب ليلاً",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 30,
+      "english_title": "Upon experiencing unrest, fear, apprehensiveness during sleep",
+      "arabic_title": "دعاء القلق والفزع في النوم ومن بلي بالوحشة",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 31,
+      "english_title": "Upon seeing a good dream or a bad dream",
+      "arabic_title": "ما يفعل من رأى الرؤيا أو الحلم",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 32,
+      "english_title": "Qunoot Al-Witr",
+      "arabic_title": "دعاء قنوت الوتر",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 33,
+      "english_title": "Immediately after salam of the witr prayer",
+      "arabic_title": "الذكر عقب السلام من الوتر",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 34,
+      "english_title": "For anxiety and sorrow",
+      "arabic_title": "دعاء الهم والحزن",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 36,
+      "english_title": "Upon encountering an enemy or those of authority",
+      "arabic_title": "دعاء لقاء العدو وذي السلطان",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 37,
+      "english_title": "For one afraid of the ruler's injustice",
+      "arabic_title": "دعاء من خاف ظلم السلطان",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 38,
+      "english_title": "Against enemies",
+      "arabic_title": "الدعاء على العدو",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 39,
+      "english_title": "When being afraid of a group of people",
+      "arabic_title": "ما يقول من خاف قوماً",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 40,
+      "english_title": "For one afflicted with doubt in his faith",
+      "arabic_title": "دعاء من أصابه شك في الإيمان",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 41,
+      "english_title": "Settling a debt",
+      "arabic_title": "الدعاء قضاء الدين",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 42,
+      "english_title": "For one afflicted by whisperings in prayer or recitation",
+      "arabic_title": "دعاء الوسوسة في الصلاة والقراءة",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 43,
+      "english_title": "For one whose affairs have become difficult",
+      "arabic_title": "دعاء من استصعب عليه أمر",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 44,
+      "english_title": "Upon committing a sin",
+      "arabic_title": "ما يقول ويفعل من أذنب ذنباً",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 45,
+      "english_title": "For expelling the devil and his whisperings",
+      "arabic_title": "دعاء طرد الشيطان ووساوسه",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 46,
+      "english_title": "When stricken with a mishap or overtaken by an affair",
+      "arabic_title": "الدعاء حينما يقع مالا يرضاه أو غلب على أمره",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 47,
+      "english_title": "Congratulation on the occasion of a birth and its reply",
+      "arabic_title": "تهنئة المولود له وجوابه",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 48,
+      "english_title": "Placing childen under Allah’s protection",
+      "arabic_title": "ما يعوذ به الأولاد",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 49,
+      "english_title": "When visiting the sick",
+      "arabic_title": "الدعاء للمريض في عيادته",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 50,
+      "english_title": "Excellence of visiting the sick",
+      "arabic_title": "فضل عيادة المريض",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 51,
+      "english_title": "When the sick have renounced all hope of life",
+      "arabic_title": "دعاء المريض الذي يئس من حياته",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 52,
+      "english_title": "Instruction for the one nearing death",
+      "arabic_title": "تلقين المحتضر لا إله إلا الله",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 53,
+      "english_title": "For one afflicted by a calamity",
+      "arabic_title": "دعاء من أصيب بمصيبة",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 54,
+      "english_title": "When closing the eyes of the deceased",
+      "arabic_title": "الدعاء عند إغماض الميت",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 55,
+      "english_title": "For the deceased at the funeral prayer",
+      "arabic_title": "الدعاء للميت في الصلاة عليه",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 56,
+      "english_title": "When the deceased is a child, during the funeral prayer",
+      "arabic_title": "الدعاء للفرط في الصلاة عليه",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 57,
+      "english_title": "Condolence",
+      "arabic_title": "دعاء التعزية",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 59,
+      "english_title": "After burying the deceased",
+      "arabic_title": "دعاء بعد دفن الميت",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 60,
+      "english_title": "Visiting the graves",
+      "arabic_title": "دعاء زيارة القبور",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 61,
+      "english_title": "During a wind storm",
+      "arabic_title": "دعاء الريح",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 63,
+      "english_title": "For rain",
+      "arabic_title": "من أدعية الاستسقاء",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 66,
+      "english_title": "Asking for clear skies",
+      "arabic_title": "من أدعية الاستصحاء",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 68,
+      "english_title": "Upon breaking fast",
+      "arabic_title": "الدعاء عند إفطار الصائم",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 70,
+      "english_title": "Upon completing the meal",
+      "arabic_title": "الدعاء عند الفراغ من الطعام",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 71,
+      "english_title": "Of the guest for the host",
+      "arabic_title": "دعاء الضيف لصاحب الطعام",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 72,
+      "english_title": "To one who intends to give food or drink",
+      "arabic_title": "الدعاء إذا أراد الطعام أو الشراب",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 73,
+      "english_title": "When breaking fast in someone’s home",
+      "arabic_title": "الدعاء إذا أفطر عند أهل بيت",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 74,
+      "english_title": "By one fasting when presented with food and does not break his fast",
+      "arabic_title": "دعاء الصائم إذا حضر الطعام ولم يفطر",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 75,
+      "english_title": "When insulted while fasting",
+      "arabic_title": "ما يقول الصائم إذا سابه أحد",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 77,
+      "english_title": "Upon sneezing",
+      "arabic_title": "دعاء العطاس",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 78,
+      "english_title": "When a disbeliever praises Allah after sneezing",
+      "arabic_title": "ما يقالُ للكافر إذا عطس فحمد الله",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 79,
+      "english_title": "To the newlywed",
+      "arabic_title": "الدعاء للمتزوج",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 80,
+      "english_title": "On the wedding night or when buying an animal",
+      "arabic_title": "دعاء المتزوج لنفسه ودعاء شراء الدابة",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 81,
+      "english_title": "Before sexual intercourse with the wife",
+      "arabic_title": "الدعاء قبل إتيان الزوجة",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 82,
+      "english_title": "When angry",
+      "arabic_title": "دعاء الغضب",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 83,
+      "english_title": "Upon seeing someone in trial or tribulation",
+      "arabic_title": "دعاء من رأى مبتلى",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 84,
+      "english_title": "At a sitting or gathering",
+      "arabic_title": "ما يقال في المجلس",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 85,
+      "english_title": "For the expiation of sins, said at the conclusion of a sitting or gathering",
+      "arabic_title": "كفارة المجلس",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 86,
+      "english_title": "Returning a supplication of forgiveness",
+      "arabic_title": "الدعاء لمن قال غفر الله لك",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 87,
+      "english_title": "To one who does you a favour",
+      "arabic_title": "الدعاء لمن صنع إليك معروفاً",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 89,
+      "english_title": "To one who pronounces his love for you, for Allah’s sake",
+      "arabic_title": "الدعاء لمن قال إني أحبك في الله",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 90,
+      "english_title": "To one who has offered you some of his wealth",
+      "arabic_title": "الدعاء لمن عرض عليك ماله",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 91,
+      "english_title": "To the debtor when his debt is settled",
+      "arabic_title": "الدعاء لمن أقرض عند القضاء",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 92,
+      "english_title": "For fear of shirk",
+      "arabic_title": "دعاء الخوف من الشرك",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 93,
+      "english_title": "To someone who says \"May Allah bless you\"",
+      "arabic_title": "الدعاء لمن قال بارك الله فيك",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 94,
+      "english_title": "The scorn of ascribing things to evil omens",
+      "arabic_title": "دعاء كراهية الطيرة",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 95,
+      "english_title": "When mounting an animal or any means of transport",
+      "arabic_title": "دعاء ركوب الدابة أو ما يقوم مقامها",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 96,
+      "english_title": "For travel",
+      "arabic_title": "دعاء السفر",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 99,
+      "english_title": "When the mounted animal (or mean of transport) stumbles",
+      "arabic_title": "الدعاء إذا تعس المركوب",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 102,
+      "english_title": "Takbir and Tasbih during travel",
+      "arabic_title": "التكبير والتسبيح في سير السفر",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 103,
+      "english_title": "Prayer of the traveller as dawn approaches",
+      "arabic_title": "دعاء المسافر إذا أسحر",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 104,
+      "english_title": "Stopping or lodging somewhere in travel and otherwise",
+      "arabic_title": "الدعاء إذا نزل منزلا في سفر أو غيره",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 105,
+      "english_title": "While returning from travel",
+      "arabic_title": "ذكر الرجوع من السفر",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 106,
+      "english_title": "What to say upon receiving pleasing or displeasing news",
+      "arabic_title": "ما يقول من أتاه أمر يسره أو يكرهه",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 107,
+      "english_title": "Excellence of sending prayers upon the Prophet (saws)",
+      "arabic_title": "فضل الصلاة على النبي ﷺ",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 108,
+      "english_title": "Excellence of spreading the Islamic greeting",
+      "arabic_title": "إفشاء السلام",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 109,
+      "english_title": "Returning a greeting to a disbeliever",
+      "arabic_title": "كيف يرد السلام على الكافر إذا سلم",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 111,
+      "english_title": "Upon hearing the barking of dogs at night",
+      "arabic_title": "دعاء عند سماع نباح الكلاب بالليل",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 112,
+      "english_title": "For one you have insulted",
+      "arabic_title": "الدعاء لمن سببته",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 113,
+      "english_title": "The etiquette of praising a fellow Muslim",
+      "arabic_title": "ما يقول المسلم إذا مدح المسلم",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 114,
+      "english_title": "For the one that have been praised",
+      "arabic_title": "ما يقول المسلم إذا زكي",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 115,
+      "english_title": "The Talbiya for the one doing Hajj or 'Umrah",
+      "arabic_title": "كيف يلبي المحرم في الحج أو العمرة",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 116,
+      "english_title": "The Takbîr passing the black stone",
+      "arabic_title": "التكبير إذا أتي الركن الأسود",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 117,
+      "english_title": "Between the Yemeni corner and the black stone",
+      "arabic_title": "الدعاء بين الركن اليماني والحجر الأسود",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 118,
+      "english_title": "When at Mount Safa and Mount Marwah",
+      "arabic_title": "دعاء الوقوف على الصفا والمروة",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 120,
+      "english_title": "Remembrance at Muzdalifa",
+      "arabic_title": "الذكر عند المشعر الحرام",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 121,
+      "english_title": "Takbir when throwing each pebble at the Jamarat",
+      "arabic_title": "التكبير عند رمي الجمار مع كل حصاة",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 122,
+      "english_title": "At times of amazement and that which delights",
+      "arabic_title": "ما يقول عند التعجب والأمر السار",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 123,
+      "english_title": "Upon receiving pleasant news",
+      "arabic_title": "ما يفعل من أتاه أمر يسره",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 125,
+      "english_title": "When in fear of afflicting something with an (evil) eye from oneself",
+      "arabic_title": "ما يقول من خشي أن يصيب شيئاً بعينه",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 126,
+      "english_title": "When startled",
+      "arabic_title": "ما يقال عند الفزع",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 127,
+      "english_title": "When slaughtering or offering a sacrifice",
+      "arabic_title": "ما يقول عند الذبح أو النحر",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 128,
+      "english_title": "To ward off the plot of the rebellious devils",
+      "arabic_title": "ما يقول لرد كيد مردة الشياطين",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 130,
+      "english_title": "Excellence of Tasbih, Tahmid, Tahlil, and Takbir",
+      "arabic_title": "من فضل التسبيح والتحميد ، والتهليل ، والتكبير",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 131,
+      "english_title": "How the Prophet ﷺ made tasbeeh",
+      "arabic_title": "كيف كان النبي ﷺ يسبح ؟",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    },
+    {
+      "number": 132,
+      "english_title": "Comprehensive types of good and manners",
+      "arabic_title": "من أنواع الخير والآداب الجامعة",
+      "source": "Fortress of the Muslim (Hisn al-Muslim)"
+    }
+  ]
+}

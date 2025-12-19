@@ -1,0 +1,1585 @@
+{
+  "total_duas": 132,
+  "categories": [
+    {
+      "name": "Daily Practices & Routines",
+      "count": 14,
+      "duas_list": [
+        {
+          "number": 1,
+          "title": "When waking up",
+          "arabic": "أذكار الاستيقاظ من النوم"
+        },
+        {
+          "number": 2,
+          "title": "When wearing a garment",
+          "arabic": "دعاء لبس الثوب"
+        },
+        {
+          "number": 3,
+          "title": "When wearing a new garment",
+          "arabic": "دعاء لبس الثوب الجديد"
+        },
+        {
+          "number": 4,
+          "title": "To someone wearing a new garment",
+          "arabic": "الدعاء لمن لبس ثوباً جديداً"
+        },
+        {
+          "number": 5,
+          "title": "Before undressing",
+          "arabic": "ما يقول إذا وضع الثوب"
+        },
+        {
+          "number": 6,
+          "title": "Before entering the bathroom",
+          "arabic": "دعاء دخول الخلاء"
+        },
+        {
+          "number": 7,
+          "title": "After leaving the bathroom",
+          "arabic": "دعاء الخروج من الخلاء"
+        },
+        {
+          "number": 8,
+          "title": "Before ablution",
+          "arabic": "الذكر قبل الوضوء"
+        },
+        {
+          "number": 9,
+          "title": "Upon completing the ablution",
+          "arabic": "الذكر بعد الفراغ من الوضوء"
+        },
+        {
+          "number": 10,
+          "title": "Remembrance when leaving the home",
+          "arabic": "الذكر عند الخروج من المنزل"
+        },
+        {
+          "number": 11,
+          "title": "Remembrance upon entering the home",
+          "arabic": "الذكر عند الدخول المنزل"
+        },
+        {
+          "number": 12,
+          "title": "When going to the mosque",
+          "arabic": "دعاء الذهاب إلى المسجد"
+        },
+        {
+          "number": 13,
+          "title": "Upon entering the mosque",
+          "arabic": "دعاء دخول المسجد"
+        },
+        {
+          "number": 14,
+          "title": "Upon leaving the mosque",
+          "arabic": "دعاء الخروج من المسجد"
+        }
+      ]
+    },
+    {
+      "name": "Prayer-Related",
+      "count": 12,
+      "duas_list": [
+        {
+          "number": 15,
+          "title": "Concerning the athan (the call to prayer)",
+          "arabic": "أذكار الأذان"
+        },
+        {
+          "number": 16,
+          "title": "At the start of the prayer (after takbeer)",
+          "arabic": "دعاء الاستفتاح"
+        },
+        {
+          "number": 17,
+          "title": "While bowing in prayer",
+          "arabic": "دعاء الركوع"
+        },
+        {
+          "number": 18,
+          "title": "Upon rising from the bowing position",
+          "arabic": "دعاء الرفع من الركوع"
+        },
+        {
+          "number": 19,
+          "title": "While prostrating",
+          "arabic": "دعاء السجود"
+        },
+        {
+          "number": 20,
+          "title": "Between the two prostrations",
+          "arabic": "دعاء الجلسة بين السجدتين"
+        },
+        {
+          "number": 21,
+          "title": "When prostrating due to recitation of the Quran",
+          "arabic": "دعاء سجود التلاوة"
+        },
+        {
+          "number": 22,
+          "title": "The Tashahhud",
+          "arabic": "التشهد"
+        },
+        {
+          "number": 23,
+          "title": "Prayers upon the Prophet ﷺ after the tashahhud",
+          "arabic": "الصلاة على النبي ﷺ بعد التشهد"
+        },
+        {
+          "number": 24,
+          "title": "After the last tashahhud and before salam",
+          "arabic": "الدعاء بعد التشهد الأخير وقبل السلام"
+        },
+        {
+          "number": 25,
+          "title": "After salam",
+          "arabic": "الأذكار بعد السلام من الصلاة"
+        },
+        {
+          "number": 26,
+          "title": "For seeking guidance in forming a decision or choosing the proper course",
+          "arabic": "دعاء صلاة الاستخارة"
+        }
+      ]
+    },
+    {
+      "name": "Sleep & Rest",
+      "count": 5,
+      "duas_list": [
+        {
+          "number": 27,
+          "title": "In the morning and evening",
+          "arabic": "أذكار الصباح والمساء"
+        },
+        {
+          "number": 28,
+          "title": "Before sleeping",
+          "arabic": "أذكار النوم"
+        },
+        {
+          "number": 29,
+          "title": "When tossing and turning during the night",
+          "arabic": "الدعاء إذا تقلب ليلاً"
+        },
+        {
+          "number": 30,
+          "title": "Upon experiencing unrest, fear, apprehensiveness during sleep",
+          "arabic": "دعاء القلق والفزع في النوم ومن بلي بالوحشة"
+        },
+        {
+          "number": 31,
+          "title": "Upon seeing a good dream or a bad dream",
+          "arabic": "ما يفعل من رأى الرؤيا أو الحلم"
+        }
+      ]
+    },
+    {
+      "name": "Special Prayer (Witr & Qunoot)",
+      "count": 2,
+      "duas_list": [
+        {
+          "number": 32,
+          "title": "Qunoot Al-Witr",
+          "arabic": "دعاء قنوت الوتر"
+        },
+        {
+          "number": 33,
+          "title": "Immediately after salam of the witr prayer",
+          "arabic": "الذكر عقب السلام من الوتر"
+        }
+      ]
+    },
+    {
+      "name": "Hardship & Difficulty",
+      "count": 13,
+      "duas_list": [
+        {
+          "number": 34,
+          "title": "For anxiety and sorrow",
+          "arabic": "دعاء الهم والحزن"
+        },
+        {
+          "number": 35,
+          "title": "For one in distress",
+          "arabic": "دعاء الكرب"
+        },
+        {
+          "number": 36,
+          "title": "Upon encountering an enemy or those of authority",
+          "arabic": "دعاء لقاء العدو وذي السلطان"
+        },
+        {
+          "number": 37,
+          "title": "For one afraid of the ruler's injustice",
+          "arabic": "دعاء من خاف ظلم السلطان"
+        },
+        {
+          "number": 38,
+          "title": "Against enemies",
+          "arabic": "الدعاء على العدو"
+        },
+        {
+          "number": 39,
+          "title": "When being afraid of a group of people",
+          "arabic": "ما يقول من خاف قوماً"
+        },
+        {
+          "number": 40,
+          "title": "For one afflicted with doubt in his faith",
+          "arabic": "دعاء من أصابه شك في الإيمان"
+        },
+        {
+          "number": 41,
+          "title": "Settling a debt",
+          "arabic": "الدعاء قضاء الدين"
+        },
+        {
+          "number": 42,
+          "title": "For one afflicted by whisperings in prayer or recitation",
+          "arabic": "دعاء الوسوسة في الصلاة والقراءة"
+        },
+        {
+          "number": 43,
+          "title": "For one whose affairs have become difficult",
+          "arabic": "دعاء من استصعب عليه أمر"
+        },
+        {
+          "number": 44,
+          "title": "Upon committing a sin",
+          "arabic": "ما يقول ويفعل من أذنب ذنباً"
+        },
+        {
+          "number": 45,
+          "title": "For expelling the devil and his whisperings",
+          "arabic": "دعاء طرد الشيطان ووساوسه"
+        },
+        {
+          "number": 46,
+          "title": "When stricken with a mishap or overtaken by an affair",
+          "arabic": "الدعاء حينما يقع مالا يرضاه أو غلب على أمره"
+        }
+      ]
+    },
+    {
+      "name": "Family & Children",
+      "count": 2,
+      "duas_list": [
+        {
+          "number": 47,
+          "title": "Congratulation on the occasion of a birth and its reply",
+          "arabic": "تهنئة المولود له وجوابه"
+        },
+        {
+          "number": 48,
+          "title": "Placing childen under Allah’s protection",
+          "arabic": "ما يعوذ به الأولاد"
+        }
+      ]
+    },
+    {
+      "name": "Health & Sickness",
+      "count": 3,
+      "duas_list": [
+        {
+          "number": 49,
+          "title": "When visiting the sick",
+          "arabic": "الدعاء للمريض في عيادته"
+        },
+        {
+          "number": 50,
+          "title": "Excellence of visiting the sick",
+          "arabic": "فضل عيادة المريض"
+        },
+        {
+          "number": 51,
+          "title": "When the sick have renounced all hope of life",
+          "arabic": "دعاء المريض الذي يئس من حياته"
+        }
+      ]
+    },
+    {
+      "name": "Death & Mourning",
+      "count": 9,
+      "duas_list": [
+        {
+          "number": 52,
+          "title": "Instruction for the one nearing death",
+          "arabic": "تلقين المحتضر لا إله إلا الله"
+        },
+        {
+          "number": 53,
+          "title": "For one afflicted by a calamity",
+          "arabic": "دعاء من أصيب بمصيبة"
+        },
+        {
+          "number": 54,
+          "title": "When closing the eyes of the deceased",
+          "arabic": "الدعاء عند إغماض الميت"
+        },
+        {
+          "number": 55,
+          "title": "For the deceased at the funeral prayer",
+          "arabic": "الدعاء للميت في الصلاة عليه"
+        },
+        {
+          "number": 56,
+          "title": "When the deceased is a child, during the funeral prayer",
+          "arabic": "الدعاء للفرط في الصلاة عليه"
+        },
+        {
+          "number": 57,
+          "title": "Condolence",
+          "arabic": "دعاء التعزية"
+        },
+        {
+          "number": 58,
+          "title": "Placing the deceased in the grave",
+          "arabic": "دعاء عند إدخال الميت القبر"
+        },
+        {
+          "number": 59,
+          "title": "After burying the deceased",
+          "arabic": "دعاء بعد دفن الميت"
+        },
+        {
+          "number": 60,
+          "title": "Visiting the graves",
+          "arabic": "دعاء زيارة القبور"
+        }
+      ]
+    },
+    {
+      "name": "Natural Phenomena",
+      "count": 7,
+      "duas_list": [
+        {
+          "number": 61,
+          "title": "During a wind storm",
+          "arabic": "دعاء الريح"
+        },
+        {
+          "number": 62,
+          "title": "Upon hearing thunder",
+          "arabic": "دعاء الرعد"
+        },
+        {
+          "number": 63,
+          "title": "For rain",
+          "arabic": "من أدعية الاستسقاء"
+        },
+        {
+          "number": 64,
+          "title": "When it rains",
+          "arabic": "الدعاء إذا رأى المطر"
+        },
+        {
+          "number": 65,
+          "title": "After rainfall",
+          "arabic": "الذكر بعد نزول المطر"
+        },
+        {
+          "number": 66,
+          "title": "Asking for clear skies",
+          "arabic": "من أدعية الاستصحاء"
+        },
+        {
+          "number": 67,
+          "title": "Upon sighting the crescent moon",
+          "arabic": "دعاء رؤية الهلال"
+        }
+      ]
+    },
+    {
+      "name": "Eating & Drinking",
+      "count": 9,
+      "duas_list": [
+        {
+          "number": 68,
+          "title": "Upon breaking fast",
+          "arabic": "الدعاء عند إفطار الصائم"
+        },
+        {
+          "number": 69,
+          "title": "Before eating",
+          "arabic": "الدعاء قبل الطعام"
+        },
+        {
+          "number": 70,
+          "title": "Upon completing the meal",
+          "arabic": "الدعاء عند الفراغ من الطعام"
+        },
+        {
+          "number": 71,
+          "title": "Of the guest for the host",
+          "arabic": "دعاء الضيف لصاحب الطعام"
+        },
+        {
+          "number": 72,
+          "title": "To one who intends to give food or drink",
+          "arabic": "الدعاء إذا أراد الطعام أو الشراب"
+        },
+        {
+          "number": 73,
+          "title": "When breaking fast in someone’s home",
+          "arabic": "الدعاء إذا أفطر عند أهل بيت"
+        },
+        {
+          "number": 74,
+          "title": "By one fasting when presented with food and does not break his fast",
+          "arabic": "دعاء الصائم إذا حضر الطعام ولم يفطر"
+        },
+        {
+          "number": 75,
+          "title": "When insulted while fasting",
+          "arabic": "ما يقول الصائم إذا سابه أحد"
+        },
+        {
+          "number": 76,
+          "title": "Upon seeing the early or premature fruit",
+          "arabic": "الدعاء عند رؤية باكورة الثمر"
+        }
+      ]
+    },
+    {
+      "name": "Sneezing & Physical Acts",
+      "count": 2,
+      "duas_list": [
+        {
+          "number": 77,
+          "title": "Upon sneezing",
+          "arabic": "دعاء العطاس"
+        },
+        {
+          "number": 78,
+          "title": "When a disbeliever praises Allah after sneezing",
+          "arabic": "ما يقالُ للكافر إذا عطس فحمد الله"
+        }
+      ]
+    },
+    {
+      "name": "Marriage & Relationships",
+      "count": 3,
+      "duas_list": [
+        {
+          "number": 79,
+          "title": "To the newlywed",
+          "arabic": "الدعاء للمتزوج"
+        },
+        {
+          "number": 80,
+          "title": "On the wedding night or when buying an animal",
+          "arabic": "دعاء المتزوج لنفسه ودعاء شراء الدابة"
+        },
+        {
+          "number": 81,
+          "title": "Before sexual intercourse with the wife",
+          "arabic": "الدعاء قبل إتيان الزوجة"
+        }
+      ]
+    },
+    {
+      "name": "Emotions & Situations",
+      "count": 13,
+      "duas_list": [
+        {
+          "number": 82,
+          "title": "When angry",
+          "arabic": "دعاء الغضب"
+        },
+        {
+          "number": 83,
+          "title": "Upon seeing someone in trial or tribulation",
+          "arabic": "دعاء من رأى مبتلى"
+        },
+        {
+          "number": 84,
+          "title": "At a sitting or gathering",
+          "arabic": "ما يقال في المجلس"
+        },
+        {
+          "number": 85,
+          "title": "For the expiation of sins, said at the conclusion of a sitting or gathering",
+          "arabic": "كفارة المجلس"
+        },
+        {
+          "number": 86,
+          "title": "Returning a supplication of forgiveness",
+          "arabic": "الدعاء لمن قال غفر الله لك"
+        },
+        {
+          "number": 87,
+          "title": "To one who does you a favour",
+          "arabic": "الدعاء لمن صنع إليك معروفاً"
+        },
+        {
+          "number": 88,
+          "title": "Protection from the Dajjal",
+          "arabic": "الذكر الذي يعصم الله به من الدجال"
+        },
+        {
+          "number": 89,
+          "title": "To one who pronounces his love for you, for Allah’s sake",
+          "arabic": "الدعاء لمن قال إني أحبك في الله"
+        },
+        {
+          "number": 90,
+          "title": "To one who has offered you some of his wealth",
+          "arabic": "الدعاء لمن عرض عليك ماله"
+        },
+        {
+          "number": 91,
+          "title": "To the debtor when his debt is settled",
+          "arabic": "الدعاء لمن أقرض عند القضاء"
+        },
+        {
+          "number": 92,
+          "title": "For fear of shirk",
+          "arabic": "دعاء الخوف من الشرك"
+        },
+        {
+          "number": 93,
+          "title": "To someone who says \"May Allah bless you\"",
+          "arabic": "الدعاء لمن قال بارك الله فيك"
+        },
+        {
+          "number": 94,
+          "title": "The scorn of ascribing things to evil omens",
+          "arabic": "دعاء كراهية الطيرة"
+        }
+      ]
+    },
+    {
+      "name": "Travel",
+      "count": 11,
+      "duas_list": [
+        {
+          "number": 95,
+          "title": "When mounting an animal or any means of transport",
+          "arabic": "دعاء ركوب الدابة أو ما يقوم مقامها"
+        },
+        {
+          "number": 96,
+          "title": "For travel",
+          "arabic": "دعاء السفر"
+        },
+        {
+          "number": 97,
+          "title": "Upon entering a town or village",
+          "arabic": "دعاء دخول القرية أو البلدة"
+        },
+        {
+          "number": 98,
+          "title": "When entering the market",
+          "arabic": "دعاء دخول السوق"
+        },
+        {
+          "number": 99,
+          "title": "When the mounted animal (or mean of transport) stumbles",
+          "arabic": "الدعاء إذا تعس المركوب"
+        },
+        {
+          "number": 100,
+          "title": "Supplication of the traveller for the resident",
+          "arabic": "دعاء المسافر للمقيم"
+        },
+        {
+          "number": 101,
+          "title": "Supplication of the resident for the traveller",
+          "arabic": "دعاء المقيم للمسافر"
+        },
+        {
+          "number": 102,
+          "title": "Takbir and Tasbih during travel",
+          "arabic": "التكبير والتسبيح في سير السفر"
+        },
+        {
+          "number": 103,
+          "title": "Prayer of the traveller as dawn approaches",
+          "arabic": "دعاء المسافر إذا أسحر"
+        },
+        {
+          "number": 104,
+          "title": "Stopping or lodging somewhere in travel and otherwise",
+          "arabic": "الدعاء إذا نزل منزلا في سفر أو غيره"
+        },
+        {
+          "number": 105,
+          "title": "While returning from travel",
+          "arabic": "ذكر الرجوع من السفر"
+        }
+      ]
+    },
+    {
+      "name": "General Supplications",
+      "count": 3,
+      "duas_list": [
+        {
+          "number": 106,
+          "title": "What to say upon receiving pleasing or displeasing news",
+          "arabic": "ما يقول من أتاه أمر يسره أو يكرهه"
+        },
+        {
+          "number": 107,
+          "title": "Excellence of sending prayers upon the Prophet (saws)",
+          "arabic": "فضل الصلاة على النبي ﷺ"
+        },
+        {
+          "number": 108,
+          "title": "Excellence of spreading the Islamic greeting",
+          "arabic": "إفشاء السلام"
+        }
+      ]
+    },
+    {
+      "name": "Social Interactions",
+      "count": 6,
+      "duas_list": [
+        {
+          "number": 109,
+          "title": "Returning a greeting to a disbeliever",
+          "arabic": "كيف يرد السلام على الكافر إذا سلم"
+        },
+        {
+          "number": 110,
+          "title": "Upon hearing a rooster crow or the braying of a donkey",
+          "arabic": "دعاء عند سماع صياح الديك ونهيق الحمار"
+        },
+        {
+          "number": 111,
+          "title": "Upon hearing the barking of dogs at night",
+          "arabic": "دعاء عند سماع نباح الكلاب بالليل"
+        },
+        {
+          "number": 112,
+          "title": "For one you have insulted",
+          "arabic": "الدعاء لمن سببته"
+        },
+        {
+          "number": 113,
+          "title": "The etiquette of praising a fellow Muslim",
+          "arabic": "ما يقول المسلم إذا مدح المسلم"
+        },
+        {
+          "number": 114,
+          "title": "For the one that have been praised",
+          "arabic": "ما يقول المسلم إذا زكي"
+        }
+      ]
+    },
+    {
+      "name": "Hajj & Umrah",
+      "count": 7,
+      "duas_list": [
+        {
+          "number": 115,
+          "title": "The Talbiya for the one doing Hajj or 'Umrah",
+          "arabic": "كيف يلبي المحرم في الحج أو العمرة"
+        },
+        {
+          "number": 116,
+          "title": "The Takbîr passing the black stone",
+          "arabic": "التكبير إذا أتي الركن الأسود"
+        },
+        {
+          "number": 117,
+          "title": "Between the Yemeni corner and the black stone",
+          "arabic": "الدعاء بين الركن اليماني والحجر الأسود"
+        },
+        {
+          "number": 118,
+          "title": "When at Mount Safa and Mount Marwah",
+          "arabic": "دعاء الوقوف على الصفا والمروة"
+        },
+        {
+          "number": 119,
+          "title": "The Day of 'Arafah",
+          "arabic": "الدعاء يوم عرفة"
+        },
+        {
+          "number": 120,
+          "title": "Remembrance at Muzdalifa",
+          "arabic": "الذكر عند المشعر الحرام"
+        },
+        {
+          "number": 121,
+          "title": "Takbir when throwing each pebble at the Jamarat",
+          "arabic": "التكبير عند رمي الجمار مع كل حصاة"
+        }
+      ]
+    },
+    {
+      "name": "Amazement & Good News",
+      "count": 2,
+      "duas_list": [
+        {
+          "number": 122,
+          "title": "At times of amazement and that which delights",
+          "arabic": "ما يقول عند التعجب والأمر السار"
+        },
+        {
+          "number": 123,
+          "title": "Upon receiving pleasant news",
+          "arabic": "ما يفعل من أتاه أمر يسره"
+        }
+      ]
+    },
+    {
+      "name": "Physical Health & Ailments",
+      "count": 3,
+      "duas_list": [
+        {
+          "number": 124,
+          "title": "When feeling some pain in the body",
+          "arabic": "ما يفعل ويقول من أحس وجعاً في جسده"
+        },
+        {
+          "number": 125,
+          "title": "When in fear of afflicting something with an (evil) eye from oneself",
+          "arabic": "ما يقول من خشي أن يصيب شيئاً بعينه"
+        },
+        {
+          "number": 126,
+          "title": "When startled",
+          "arabic": "ما يقال عند الفزع"
+        }
+      ]
+    },
+    {
+      "name": "Sacrifice & Ritual",
+      "count": 2,
+      "duas_list": [
+        {
+          "number": 127,
+          "title": "When slaughtering or offering a sacrifice",
+          "arabic": "ما يقول عند الذبح أو النحر"
+        },
+        {
+          "number": 128,
+          "title": "To ward off the plot of the rebellious devils",
+          "arabic": "ما يقول لرد كيد مردة الشياطين"
+        }
+      ]
+    },
+    {
+      "name": "Spiritual Practices",
+      "count": 4,
+      "duas_list": [
+        {
+          "number": 129,
+          "title": "Seeking forgiveness and repentance",
+          "arabic": "الاستغفار والتوبة"
+        },
+        {
+          "number": 130,
+          "title": "Excellence of Tasbih, Tahmid, Tahlil, and Takbir",
+          "arabic": "من فضل التسبيح والتحميد ، والتهليل ، والتكبير"
+        },
+        {
+          "number": 131,
+          "title": "How the Prophet ﷺ made tasbeeh",
+          "arabic": "كيف كان النبي ﷺ يسبح ؟"
+        },
+        {
+          "number": 132,
+          "title": "Comprehensive types of good and manners",
+          "arabic": "من أنواع الخير والآداب الجامعة"
+        }
+      ]
+    }
+  ],
+  "all_duas": [
+    {
+      "number": 1,
+      "title": "When waking up",
+      "arabic": "أذكار الاستيقاظ من النوم",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 2,
+      "title": "When wearing a garment",
+      "arabic": "دعاء لبس الثوب",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 3,
+      "title": "When wearing a new garment",
+      "arabic": "دعاء لبس الثوب الجديد",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 4,
+      "title": "To someone wearing a new garment",
+      "arabic": "الدعاء لمن لبس ثوباً جديداً",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 5,
+      "title": "Before undressing",
+      "arabic": "ما يقول إذا وضع الثوب",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 6,
+      "title": "Before entering the bathroom",
+      "arabic": "دعاء دخول الخلاء",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 7,
+      "title": "After leaving the bathroom",
+      "arabic": "دعاء الخروج من الخلاء",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 8,
+      "title": "Before ablution",
+      "arabic": "الذكر قبل الوضوء",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 9,
+      "title": "Upon completing the ablution",
+      "arabic": "الذكر بعد الفراغ من الوضوء",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 10,
+      "title": "Remembrance when leaving the home",
+      "arabic": "الذكر عند الخروج من المنزل",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 11,
+      "title": "Remembrance upon entering the home",
+      "arabic": "الذكر عند الدخول المنزل",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 12,
+      "title": "When going to the mosque",
+      "arabic": "دعاء الذهاب إلى المسجد",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 13,
+      "title": "Upon entering the mosque",
+      "arabic": "دعاء دخول المسجد",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 14,
+      "title": "Upon leaving the mosque",
+      "arabic": "دعاء الخروج من المسجد",
+      "category": "Daily Practices & Routines"
+    },
+    {
+      "number": 15,
+      "title": "Concerning the athan (the call to prayer)",
+      "arabic": "أذكار الأذان",
+      "category": "Prayer-Related"
+    },
+    {
+      "number": 16,
+      "title": "At the start of the prayer (after takbeer)",
+      "arabic": "دعاء الاستفتاح",
+      "category": "Prayer-Related"
+    },
+    {
+      "number": 17,
+      "title": "While bowing in prayer",
+      "arabic": "دعاء الركوع",
+      "category": "Prayer-Related"
+    },
+    {
+      "number": 18,
+      "title": "Upon rising from the bowing position",
+      "arabic": "دعاء الرفع من الركوع",
+      "category": "Prayer-Related"
+    },
+    {
+      "number": 19,
+      "title": "While prostrating",
+      "arabic": "دعاء السجود",
+      "category": "Prayer-Related"
+    },
+    {
+      "number": 20,
+      "title": "Between the two prostrations",
+      "arabic": "دعاء الجلسة بين السجدتين",
+      "category": "Prayer-Related"
+    },
+    {
+      "number": 21,
+      "title": "When prostrating due to recitation of the Quran",
+      "arabic": "دعاء سجود التلاوة",
+      "category": "Prayer-Related"
+    },
+    {
+      "number": 22,
+      "title": "The Tashahhud",
+      "arabic": "التشهد",
+      "category": "Prayer-Related"
+    },
+    {
+      "number": 23,
+      "title": "Prayers upon the Prophet ﷺ after the tashahhud",
+      "arabic": "الصلاة على النبي ﷺ بعد التشهد",
+      "category": "Prayer-Related"
+    },
+    {
+      "number": 24,
+      "title": "After the last tashahhud and before salam",
+      "arabic": "الدعاء بعد التشهد الأخير وقبل السلام",
+      "category": "Prayer-Related"
+    },
+    {
+      "number": 25,
+      "title": "After salam",
+      "arabic": "الأذكار بعد السلام من الصلاة",
+      "category": "Prayer-Related"
+    },
+    {
+      "number": 26,
+      "title": "For seeking guidance in forming a decision or choosing the proper course",
+      "arabic": "دعاء صلاة الاستخارة",
+      "category": "Prayer-Related"
+    },
+    {
+      "number": 27,
+      "title": "In the morning and evening",
+      "arabic": "أذكار الصباح والمساء",
+      "category": "Sleep & Rest"
+    },
+    {
+      "number": 28,
+      "title": "Before sleeping",
+      "arabic": "أذكار النوم",
+      "category": "Sleep & Rest"
+    },
+    {
+      "number": 29,
+      "title": "When tossing and turning during the night",
+      "arabic": "الدعاء إذا تقلب ليلاً",
+      "category": "Sleep & Rest"
+    },
+    {
+      "number": 30,
+      "title": "Upon experiencing unrest, fear, apprehensiveness during sleep",
+      "arabic": "دعاء القلق والفزع في النوم ومن بلي بالوحشة",
+      "category": "Sleep & Rest"
+    },
+    {
+      "number": 31,
+      "title": "Upon seeing a good dream or a bad dream",
+      "arabic": "ما يفعل من رأى الرؤيا أو الحلم",
+      "category": "Sleep & Rest"
+    },
+    {
+      "number": 32,
+      "title": "Qunoot Al-Witr",
+      "arabic": "دعاء قنوت الوتر",
+      "category": "Special Prayer (Witr & Qunoot)"
+    },
+    {
+      "number": 33,
+      "title": "Immediately after salam of the witr prayer",
+      "arabic": "الذكر عقب السلام من الوتر",
+      "category": "Special Prayer (Witr & Qunoot)"
+    },
+    {
+      "number": 34,
+      "title": "For anxiety and sorrow",
+      "arabic": "دعاء الهم والحزن",
+      "category": "Hardship & Difficulty"
+    },
+    {
+      "number": 35,
+      "title": "For one in distress",
+      "arabic": "دعاء الكرب",
+      "category": "Hardship & Difficulty"
+    },
+    {
+      "number": 36,
+      "title": "Upon encountering an enemy or those of authority",
+      "arabic": "دعاء لقاء العدو وذي السلطان",
+      "category": "Hardship & Difficulty"
+    },
+    {
+      "number": 37,
+      "title": "For one afraid of the ruler's injustice",
+      "arabic": "دعاء من خاف ظلم السلطان",
+      "category": "Hardship & Difficulty"
+    },
+    {
+      "number": 38,
+      "title": "Against enemies",
+      "arabic": "الدعاء على العدو",
+      "category": "Hardship & Difficulty"
+    },
+    {
+      "number": 39,
+      "title": "When being afraid of a group of people",
+      "arabic": "ما يقول من خاف قوماً",
+      "category": "Hardship & Difficulty"
+    },
+    {
+      "number": 40,
+      "title": "For one afflicted with doubt in his faith",
+      "arabic": "دعاء من أصابه شك في الإيمان",
+      "category": "Hardship & Difficulty"
+    },
+    {
+      "number": 41,
+      "title": "Settling a debt",
+      "arabic": "الدعاء قضاء الدين",
+      "category": "Hardship & Difficulty"
+    },
+    {
+      "number": 42,
+      "title": "For one afflicted by whisperings in prayer or recitation",
+      "arabic": "دعاء الوسوسة في الصلاة والقراءة",
+      "category": "Hardship & Difficulty"
+    },
+    {
+      "number": 43,
+      "title": "For one whose affairs have become difficult",
+      "arabic": "دعاء من استصعب عليه أمر",
+      "category": "Hardship & Difficulty"
+    },
+    {
+      "number": 44,
+      "title": "Upon committing a sin",
+      "arabic": "ما يقول ويفعل من أذنب ذنباً",
+      "category": "Hardship & Difficulty"
+    },
+    {
+      "number": 45,
+      "title": "For expelling the devil and his whisperings",
+      "arabic": "دعاء طرد الشيطان ووساوسه",
+      "category": "Hardship & Difficulty"
+    },
+    {
+      "number": 46,
+      "title": "When stricken with a mishap or overtaken by an affair",
+      "arabic": "الدعاء حينما يقع مالا يرضاه أو غلب على أمره",
+      "category": "Hardship & Difficulty"
+    },
+    {
+      "number": 47,
+      "title": "Congratulation on the occasion of a birth and its reply",
+      "arabic": "تهنئة المولود له وجوابه",
+      "category": "Family & Children"
+    },
+    {
+      "number": 48,
+      "title": "Placing childen under Allah’s protection",
+      "arabic": "ما يعوذ به الأولاد",
+      "category": "Family & Children"
+    },
+    {
+      "number": 49,
+      "title": "When visiting the sick",
+      "arabic": "الدعاء للمريض في عيادته",
+      "category": "Health & Sickness"
+    },
+    {
+      "number": 50,
+      "title": "Excellence of visiting the sick",
+      "arabic": "فضل عيادة المريض",
+      "category": "Health & Sickness"
+    },
+    {
+      "number": 51,
+      "title": "When the sick have renounced all hope of life",
+      "arabic": "دعاء المريض الذي يئس من حياته",
+      "category": "Health & Sickness"
+    },
+    {
+      "number": 52,
+      "title": "Instruction for the one nearing death",
+      "arabic": "تلقين المحتضر لا إله إلا الله",
+      "category": "Death & Mourning"
+    },
+    {
+      "number": 53,
+      "title": "For one afflicted by a calamity",
+      "arabic": "دعاء من أصيب بمصيبة",
+      "category": "Death & Mourning"
+    },
+    {
+      "number": 54,
+      "title": "When closing the eyes of the deceased",
+      "arabic": "الدعاء عند إغماض الميت",
+      "category": "Death & Mourning"
+    },
+    {
+      "number": 55,
+      "title": "For the deceased at the funeral prayer",
+      "arabic": "الدعاء للميت في الصلاة عليه",
+      "category": "Death & Mourning"
+    },
+    {
+      "number": 56,
+      "title": "When the deceased is a child, during the funeral prayer",
+      "arabic": "الدعاء للفرط في الصلاة عليه",
+      "category": "Death & Mourning"
+    },
+    {
+      "number": 57,
+      "title": "Condolence",
+      "arabic": "دعاء التعزية",
+      "category": "Death & Mourning"
+    },
+    {
+      "number": 58,
+      "title": "Placing the deceased in the grave",
+      "arabic": "دعاء عند إدخال الميت القبر",
+      "category": "Death & Mourning"
+    },
+    {
+      "number": 59,
+      "title": "After burying the deceased",
+      "arabic": "دعاء بعد دفن الميت",
+      "category": "Death & Mourning"
+    },
+    {
+      "number": 60,
+      "title": "Visiting the graves",
+      "arabic": "دعاء زيارة القبور",
+      "category": "Death & Mourning"
+    },
+    {
+      "number": 61,
+      "title": "During a wind storm",
+      "arabic": "دعاء الريح",
+      "category": "Natural Phenomena"
+    },
+    {
+      "number": 62,
+      "title": "Upon hearing thunder",
+      "arabic": "دعاء الرعد",
+      "category": "Natural Phenomena"
+    },
+    {
+      "number": 63,
+      "title": "For rain",
+      "arabic": "من أدعية الاستسقاء",
+      "category": "Natural Phenomena"
+    },
+    {
+      "number": 64,
+      "title": "When it rains",
+      "arabic": "الدعاء إذا رأى المطر",
+      "category": "Natural Phenomena"
+    },
+    {
+      "number": 65,
+      "title": "After rainfall",
+      "arabic": "الذكر بعد نزول المطر",
+      "category": "Natural Phenomena"
+    },
+    {
+      "number": 66,
+      "title": "Asking for clear skies",
+      "arabic": "من أدعية الاستصحاء",
+      "category": "Natural Phenomena"
+    },
+    {
+      "number": 67,
+      "title": "Upon sighting the crescent moon",
+      "arabic": "دعاء رؤية الهلال",
+      "category": "Natural Phenomena"
+    },
+    {
+      "number": 68,
+      "title": "Upon breaking fast",
+      "arabic": "الدعاء عند إفطار الصائم",
+      "category": "Eating & Drinking"
+    },
+    {
+      "number": 69,
+      "title": "Before eating",
+      "arabic": "الدعاء قبل الطعام",
+      "category": "Eating & Drinking"
+    },
+    {
+      "number": 70,
+      "title": "Upon completing the meal",
+      "arabic": "الدعاء عند الفراغ من الطعام",
+      "category": "Eating & Drinking"
+    },
+    {
+      "number": 71,
+      "title": "Of the guest for the host",
+      "arabic": "دعاء الضيف لصاحب الطعام",
+      "category": "Eating & Drinking"
+    },
+    {
+      "number": 72,
+      "title": "To one who intends to give food or drink",
+      "arabic": "الدعاء إذا أراد الطعام أو الشراب",
+      "category": "Eating & Drinking"
+    },
+    {
+      "number": 73,
+      "title": "When breaking fast in someone’s home",
+      "arabic": "الدعاء إذا أفطر عند أهل بيت",
+      "category": "Eating & Drinking"
+    },
+    {
+      "number": 74,
+      "title": "By one fasting when presented with food and does not break his fast",
+      "arabic": "دعاء الصائم إذا حضر الطعام ولم يفطر",
+      "category": "Eating & Drinking"
+    },
+    {
+      "number": 75,
+      "title": "When insulted while fasting",
+      "arabic": "ما يقول الصائم إذا سابه أحد",
+      "category": "Eating & Drinking"
+    },
+    {
+      "number": 76,
+      "title": "Upon seeing the early or premature fruit",
+      "arabic": "الدعاء عند رؤية باكورة الثمر",
+      "category": "Eating & Drinking"
+    },
+    {
+      "number": 77,
+      "title": "Upon sneezing",
+      "arabic": "دعاء العطاس",
+      "category": "Sneezing & Physical Acts"
+    },
+    {
+      "number": 78,
+      "title": "When a disbeliever praises Allah after sneezing",
+      "arabic": "ما يقالُ للكافر إذا عطس فحمد الله",
+      "category": "Sneezing & Physical Acts"
+    },
+    {
+      "number": 79,
+      "title": "To the newlywed",
+      "arabic": "الدعاء للمتزوج",
+      "category": "Marriage & Relationships"
+    },
+    {
+      "number": 80,
+      "title": "On the wedding night or when buying an animal",
+      "arabic": "دعاء المتزوج لنفسه ودعاء شراء الدابة",
+      "category": "Marriage & Relationships"
+    },
+    {
+      "number": 81,
+      "title": "Before sexual intercourse with the wife",
+      "arabic": "الدعاء قبل إتيان الزوجة",
+      "category": "Marriage & Relationships"
+    },
+    {
+      "number": 82,
+      "title": "When angry",
+      "arabic": "دعاء الغضب",
+      "category": "Emotions & Situations"
+    },
+    {
+      "number": 83,
+      "title": "Upon seeing someone in trial or tribulation",
+      "arabic": "دعاء من رأى مبتلى",
+      "category": "Emotions & Situations"
+    },
+    {
+      "number": 84,
+      "title": "At a sitting or gathering",
+      "arabic": "ما يقال في المجلس",
+      "category": "Emotions & Situations"
+    },
+    {
+      "number": 85,
+      "title": "For the expiation of sins, said at the conclusion of a sitting or gathering",
+      "arabic": "كفارة المجلس",
+      "category": "Emotions & Situations"
+    },
+    {
+      "number": 86,
+      "title": "Returning a supplication of forgiveness",
+      "arabic": "الدعاء لمن قال غفر الله لك",
+      "category": "Emotions & Situations"
+    },
+    {
+      "number": 87,
+      "title": "To one who does you a favour",
+      "arabic": "الدعاء لمن صنع إليك معروفاً",
+      "category": "Emotions & Situations"
+    },
+    {
+      "number": 88,
+      "title": "Protection from the Dajjal",
+      "arabic": "الذكر الذي يعصم الله به من الدجال",
+      "category": "Emotions & Situations"
+    },
+    {
+      "number": 89,
+      "title": "To one who pronounces his love for you, for Allah’s sake",
+      "arabic": "الدعاء لمن قال إني أحبك في الله",
+      "category": "Emotions & Situations"
+    },
+    {
+      "number": 90,
+      "title": "To one who has offered you some of his wealth",
+      "arabic": "الدعاء لمن عرض عليك ماله",
+      "category": "Emotions & Situations"
+    },
+    {
+      "number": 91,
+      "title": "To the debtor when his debt is settled",
+      "arabic": "الدعاء لمن أقرض عند القضاء",
+      "category": "Emotions & Situations"
+    },
+    {
+      "number": 92,
+      "title": "For fear of shirk",
+      "arabic": "دعاء الخوف من الشرك",
+      "category": "Emotions & Situations"
+    },
+    {
+      "number": 93,
+      "title": "To someone who says \"May Allah bless you\"",
+      "arabic": "الدعاء لمن قال بارك الله فيك",
+      "category": "Emotions & Situations"
+    },
+    {
+      "number": 94,
+      "title": "The scorn of ascribing things to evil omens",
+      "arabic": "دعاء كراهية الطيرة",
+      "category": "Emotions & Situations"
+    },
+    {
+      "number": 95,
+      "title": "When mounting an animal or any means of transport",
+      "arabic": "دعاء ركوب الدابة أو ما يقوم مقامها",
+      "category": "Travel"
+    },
+    {
+      "number": 96,
+      "title": "For travel",
+      "arabic": "دعاء السفر",
+      "category": "Travel"
+    },
+    {
+      "number": 97,
+      "title": "Upon entering a town or village",
+      "arabic": "دعاء دخول القرية أو البلدة",
+      "category": "Travel"
+    },
+    {
+      "number": 98,
+      "title": "When entering the market",
+      "arabic": "دعاء دخول السوق",
+      "category": "Travel"
+    },
+    {
+      "number": 99,
+      "title": "When the mounted animal (or mean of transport) stumbles",
+      "arabic": "الدعاء إذا تعس المركوب",
+      "category": "Travel"
+    },
+    {
+      "number": 100,
+      "title": "Supplication of the traveller for the resident",
+      "arabic": "دعاء المسافر للمقيم",
+      "category": "Travel"
+    },
+    {
+      "number": 101,
+      "title": "Supplication of the resident for the traveller",
+      "arabic": "دعاء المقيم للمسافر",
+      "category": "Travel"
+    },
+    {
+      "number": 102,
+      "title": "Takbir and Tasbih during travel",
+      "arabic": "التكبير والتسبيح في سير السفر",
+      "category": "Travel"
+    },
+    {
+      "number": 103,
+      "title": "Prayer of the traveller as dawn approaches",
+      "arabic": "دعاء المسافر إذا أسحر",
+      "category": "Travel"
+    },
+    {
+      "number": 104,
+      "title": "Stopping or lodging somewhere in travel and otherwise",
+      "arabic": "الدعاء إذا نزل منزلا في سفر أو غيره",
+      "category": "Travel"
+    },
+    {
+      "number": 105,
+      "title": "While returning from travel",
+      "arabic": "ذكر الرجوع من السفر",
+      "category": "Travel"
+    },
+    {
+      "number": 106,
+      "title": "What to say upon receiving pleasing or displeasing news",
+      "arabic": "ما يقول من أتاه أمر يسره أو يكرهه",
+      "category": "General Supplications"
+    },
+    {
+      "number": 107,
+      "title": "Excellence of sending prayers upon the Prophet (saws)",
+      "arabic": "فضل الصلاة على النبي ﷺ",
+      "category": "General Supplications"
+    },
+    {
+      "number": 108,
+      "title": "Excellence of spreading the Islamic greeting",
+      "arabic": "إفشاء السلام",
+      "category": "General Supplications"
+    },
+    {
+      "number": 109,
+      "title": "Returning a greeting to a disbeliever",
+      "arabic": "كيف يرد السلام على الكافر إذا سلم",
+      "category": "Social Interactions"
+    },
+    {
+      "number": 110,
+      "title": "Upon hearing a rooster crow or the braying of a donkey",
+      "arabic": "دعاء عند سماع صياح الديك ونهيق الحمار",
+      "category": "Social Interactions"
+    },
+    {
+      "number": 111,
+      "title": "Upon hearing the barking of dogs at night",
+      "arabic": "دعاء عند سماع نباح الكلاب بالليل",
+      "category": "Social Interactions"
+    },
+    {
+      "number": 112,
+      "title": "For one you have insulted",
+      "arabic": "الدعاء لمن سببته",
+      "category": "Social Interactions"
+    },
+    {
+      "number": 113,
+      "title": "The etiquette of praising a fellow Muslim",
+      "arabic": "ما يقول المسلم إذا مدح المسلم",
+      "category": "Social Interactions"
+    },
+    {
+      "number": 114,
+      "title": "For the one that have been praised",
+      "arabic": "ما يقول المسلم إذا زكي",
+      "category": "Social Interactions"
+    },
+    {
+      "number": 115,
+      "title": "The Talbiya for the one doing Hajj or 'Umrah",
+      "arabic": "كيف يلبي المحرم في الحج أو العمرة",
+      "category": "Hajj & Umrah"
+    },
+    {
+      "number": 116,
+      "title": "The Takbîr passing the black stone",
+      "arabic": "التكبير إذا أتي الركن الأسود",
+      "category": "Hajj & Umrah"
+    },
+    {
+      "number": 117,
+      "title": "Between the Yemeni corner and the black stone",
+      "arabic": "الدعاء بين الركن اليماني والحجر الأسود",
+      "category": "Hajj & Umrah"
+    },
+    {
+      "number": 118,
+      "title": "When at Mount Safa and Mount Marwah",
+      "arabic": "دعاء الوقوف على الصفا والمروة",
+      "category": "Hajj & Umrah"
+    },
+    {
+      "number": 119,
+      "title": "The Day of 'Arafah",
+      "arabic": "الدعاء يوم عرفة",
+      "category": "Hajj & Umrah"
+    },
+    {
+      "number": 120,
+      "title": "Remembrance at Muzdalifa",
+      "arabic": "الذكر عند المشعر الحرام",
+      "category": "Hajj & Umrah"
+    },
+    {
+      "number": 121,
+      "title": "Takbir when throwing each pebble at the Jamarat",
+      "arabic": "التكبير عند رمي الجمار مع كل حصاة",
+      "category": "Hajj & Umrah"
+    },
+    {
+      "number": 122,
+      "title": "At times of amazement and that which delights",
+      "arabic": "ما يقول عند التعجب والأمر السار",
+      "category": "Amazement & Good News"
+    },
+    {
+      "number": 123,
+      "title": "Upon receiving pleasant news",
+      "arabic": "ما يفعل من أتاه أمر يسره",
+      "category": "Amazement & Good News"
+    },
+    {
+      "number": 124,
+      "title": "When feeling some pain in the body",
+      "arabic": "ما يفعل ويقول من أحس وجعاً في جسده",
+      "category": "Physical Health & Ailments"
+    },
+    {
+      "number": 125,
+      "title": "When in fear of afflicting something with an (evil) eye from oneself",
+      "arabic": "ما يقول من خشي أن يصيب شيئاً بعينه",
+      "category": "Physical Health & Ailments"
+    },
+    {
+      "number": 126,
+      "title": "When startled",
+      "arabic": "ما يقال عند الفزع",
+      "category": "Physical Health & Ailments"
+    },
+    {
+      "number": 127,
+      "title": "When slaughtering or offering a sacrifice",
+      "arabic": "ما يقول عند الذبح أو النحر",
+      "category": "Sacrifice & Ritual"
+    },
+    {
+      "number": 128,
+      "title": "To ward off the plot of the rebellious devils",
+      "arabic": "ما يقول لرد كيد مردة الشياطين",
+      "category": "Sacrifice & Ritual"
+    },
+    {
+      "number": 129,
+      "title": "Seeking forgiveness and repentance",
+      "arabic": "الاستغفار والتوبة",
+      "category": "Spiritual Practices"
+    },
+    {
+      "number": 130,
+      "title": "Excellence of Tasbih, Tahmid, Tahlil, and Takbir",
+      "arabic": "من فضل التسبيح والتحميد ، والتهليل ، والتكبير",
+      "category": "Spiritual Practices"
+    },
+    {
+      "number": 131,
+      "title": "How the Prophet ﷺ made tasbeeh",
+      "arabic": "كيف كان النبي ﷺ يسبح ؟",
+      "category": "Spiritual Practices"
+    },
+    {
+      "number": 132,
+      "title": "Comprehensive types of good and manners",
+      "arabic": "من أنواع الخير والآداب الجامعة",
+      "category": "Spiritual Practices"
+    }
+  ]
+}

@@ -1,0 +1,1692 @@
+{
+  "summary": {
+    "totalFiles": 31,
+    "totalDuas": 489,
+    "totalCategories": 30,
+    "totalDuplicates": 63,
+    "exactDuplicates": 24,
+    "titleDuplicates": 24,
+    "nearDuplicates": 152
+  },
+  "duplicatesList": [
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "After Salah #8",
+      "arabicPreview": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ. قُلْ هُوَ اللّٰهُ أَحَدٌ ، اَللّٰهُ الصَّمَدُ ، لَمْ يَلِدْ ...",
+      "filesFound": [
+        "after-salah.json",
+        "before-sleep.json",
+        "evening.json",
+        "ruqyah-illness.json"
+      ],
+      "entries": [
+        {
+          "title": "After Salah #8",
+          "filename": "after-salah.json",
+          "categoryName": "After Salah",
+          "id": 3
+        },
+        {
+          "title": "After Salah #8",
+          "filename": "after-salah.json",
+          "categoryName": "After Salah",
+          "id": 8
+        },
+        {
+          "title": "The Three Quls/Muʿawwidhat",
+          "filename": "before-sleep.json",
+          "categoryName": "Before Sleep",
+          "id": 5
+        },
+        {
+          "title": "3 Quls: To Suffice You in All Your Matters",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 2
+        },
+        {
+          "title": "Muʿawwidhat: Best Words to Seek Allah’s Protection",
+          "filename": "ruqyah-illness.json",
+          "categoryName": "Ruqyah & Illness",
+          "id": 4
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Protect Yourself From the 4 Evils",
+      "arabicPreview": "اَللّٰهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ ، فَاطِرَ السَّمٰوَاتِ وَالْأَرْضِ ، رَبَّ كُلِّ شَيْءٍ...",
+      "filesFound": [
+        "before-sleep.json",
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Protect Yourself From the 4 Evils",
+          "filename": "before-sleep.json",
+          "categoryName": "Before Sleep",
+          "id": 10
+        },
+        {
+          "title": "Protect Yourself From the Four Evils",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 6
+        },
+        {
+          "title": "Protect Yourself From the 4 Evils",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 6
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Encouraging the Dying to Say Shahadah",
+      "arabicPreview": "لَا إِلٰهَ إِلَّا اللّٰهُ...",
+      "filesFound": [
+        "death.json",
+        "dhikr-all-times.json",
+        "difficulties-happiness.json"
+      ],
+      "entries": [
+        {
+          "title": "Encouraging the Dying to Say Shahadah",
+          "filename": "death.json",
+          "categoryName": "Death & Bereavement",
+          "id": 2
+        },
+        {
+          "title": "Tahlil: The Best Dhikr",
+          "filename": "dhikr-all-times.json",
+          "categoryName": "Dhikr for All Times",
+          "id": 1
+        },
+        {
+          "title": "When One Feels Frightened",
+          "filename": "difficulties-happiness.json",
+          "categoryName": "Difficulties & Happiness",
+          "id": 14
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Well-being in this World and the Hereafter",
+      "arabicPreview": "اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ الْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ ، اَللّٰهُمَّ إِنِّيْ أَسْأَ...",
+      "filesFound": [
+        "evening.json",
+        "morning.json",
+        "sunnah-duas.json"
+      ],
+      "entries": [
+        {
+          "title": "Well-being in this World and the Hereafter",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 5
+        },
+        {
+          "title": "Well-being in this World and the Hereafter",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 5
+        },
+        {
+          "title": "Well-being in this World & the Hereafter",
+          "filename": "sunnah-duas.json",
+          "categoryName": "Sunnah Duas",
+          "id": 30
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Entrust All Your Matters to Allah",
+      "arabicPreview": "يَا حَيُّ يَا قَيُّوْمُ ، بِرَحْمَتِكَ أَسْتَغِيْثُ ، أَصْلِحْ لِيْ شَأْنِيْ كُلَّهُ ، وَلَا تَكِلْن...",
+      "filesFound": [
+        "evening.json",
+        "morning.json",
+        "sunnah-duas.json"
+      ],
+      "entries": [
+        {
+          "title": "Entrust All Your Matters to Allah",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 7
+        },
+        {
+          "title": "Entrust All Your Matters to Allah",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 7
+        },
+        {
+          "title": "Entrust All Your Matters to Allah",
+          "filename": "sunnah-duas.json",
+          "categoryName": "Sunnah Duas",
+          "id": 22
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Allah Will Suffice You in Everything",
+      "arabicPreview": "حَسْبِيَ اللّٰهُ لَا إِلٰهَ إِلَّا هُوَ ، عَلَيْهِ تَوَكَّلْتُ ، وَهُوَ رَبُّ الْعَرْشِ الْعَظِيْمِ....",
+      "filesFound": [
+        "evening.json",
+        "morning.json",
+        "ruqyah-illness.json"
+      ],
+      "entries": [
+        {
+          "title": "Allah Will Suffice You in Everything",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 16
+        },
+        {
+          "title": "Allah Will Suffice You in Everything",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 16
+        },
+        {
+          "title": "Allah Will Suffice You in Everything",
+          "filename": "ruqyah-illness.json",
+          "categoryName": "Ruqyah & Illness",
+          "id": 5
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "After Salah #7",
+      "arabicPreview": "أَعُوْذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ. اَللّٰهُ لَآ إِلٰهَ إِلَّا هُوَ الْحَىُّ الْقَيُّو...",
+      "filesFound": [
+        "after-salah.json",
+        "ruqyah-illness.json"
+      ],
+      "entries": [
+        {
+          "title": "After Salah #7",
+          "filename": "after-salah.json",
+          "categoryName": "After Salah",
+          "id": 2
+        },
+        {
+          "title": "After Salah #5",
+          "filename": "after-salah.json",
+          "categoryName": "After Salah",
+          "id": 7
+        },
+        {
+          "title": "Ayat al-Kursi: The Greatest Protection From Evil Jinn",
+          "filename": "ruqyah-illness.json",
+          "categoryName": "Ruqyah & Illness",
+          "id": 2
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Praise Allah With the Praises of the Entire Creation",
+      "arabicPreview": "اَلْحَمْدُ لِلّٰهِ الَّذِيْ كَفَانِيْ وَآوَانِيْ ، اَلْحَمْدُ لِلّٰهِ الَّذِيْ أَطْعَمَنِيْ وَسَقَان...",
+      "filesFound": [
+        "before-sleep.json",
+        "praises-allah.json"
+      ],
+      "entries": [
+        {
+          "title": "Praise Allah With the Praises of the Entire Creation",
+          "filename": "before-sleep.json",
+          "categoryName": "Before Sleep",
+          "id": 15
+        },
+        {
+          "title": "Praise Allah with the Praises of the Entire Creation",
+          "filename": "praises-allah.json",
+          "categoryName": "Praises of Allah",
+          "id": 11
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "For Difficult Times: All Your Prayers Answered",
+      "arabicPreview": "لَآ إِلٰهَ إِلَّآ أَنْتَ سُبْحَانَكَ إِنِّيْ كُنْتُ مِنَ الظَّالِمِيْنَ...",
+      "filesFound": [
+        "difficulties-happiness.json",
+        "istighfar.json"
+      ],
+      "entries": [
+        {
+          "title": "For Difficult Times: All Your Prayers Answered",
+          "filename": "difficulties-happiness.json",
+          "categoryName": "Difficulties & Happiness",
+          "id": 18
+        },
+        {
+          "title": "Istighfar - From the Qur’an #1",
+          "filename": "istighfar.json",
+          "categoryName": "Istighfar (Seeking Forgiveness)",
+          "id": 1
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Ayat al-Kursi: The Greatest Protection",
+      "arabicPreview": "أَعُوْذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ. اَللّٰهُ لَآ إِلٰهَ إِلَّا هُوَ الْحَىُّ الْقَيُّ...",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Ayat al-Kursi: The Greatest Protection",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 1
+        },
+        {
+          "title": "Ayat al-Kursi: The Greatest Protection",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 1
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Protect Yourself From Anxiety, Laziness, Debt etc",
+      "arabicPreview": "اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ ، وَأَعُوْذُ بِكَ مِنَ الْعَجْزِ وَالْكَ...",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Protect Yourself From Anxiety, Laziness, Debt etc",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 4
+        },
+        {
+          "title": "Protect Yourself From Anxiety, Laziness, Debt etc",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 4
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Ask Allah For Good Health and Protection",
+      "arabicPreview": "اَللّٰهُمَّ عَافِنِيْ فِيْ بَدَنِيْ ، اَللّٰهُمَّ عَافِنِيْ فِيْ سَمْعِيْ ، اَللّٰهُمَّ عَافِنِيْ فِ...",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Ask Allah For Good Health and Protection",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 15
+        },
+        {
+          "title": "Ask Allah For Good Health and Protection",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 15
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Have the Prophet ﷺ Hold Your Hand and Admit You to Paradise",
+      "arabicPreview": "رَضِيْتُ بِاللّٰهِ رَبًّا ، وَبِالْإِسْلَامِ دِيْنًا ، وَبِمُحَمَّدٍ نَّبِيًّا....",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Have the Prophet ﷺ Hold Your Hand and Admit You to Paradise",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 17
+        },
+        {
+          "title": "Have the Prophet ﷺ Hold Your Hand and Admit You to Paradise",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 17
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Protect Yourself From All Harm",
+      "arabicPreview": "بِسْمِ اللّٰهِ الَّذِيْ لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ ، وَهُوَ ...",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Protect Yourself From All Harm",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 18
+        },
+        {
+          "title": "Protect Yourself From All Harm",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 18
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Get Your Sins Forgiven",
+      "arabicPreview": "سُبْحَانَ اللّٰهِ وَبِحَمْدِهِ....",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Get Your Sins Forgiven",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 19
+        },
+        {
+          "title": "Get Your Sins Forgiven",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 19
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "An Unparalleled Reward",
+      "arabicPreview": "لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ ، وَهُوَ عَلَ...",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "An Unparalleled Reward",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 20
+        },
+        {
+          "title": "An Unparalleled Reward",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 20
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Tasbih, Tahmid and Takbir",
+      "arabicPreview": "سُبْحَانَ اللّٰهِ ، اَلْحَمْدُ لِلّٰهِ ، اَللّٰهُ أَكْبَرُ....",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Tasbih, Tahmid and Takbir",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 21
+        },
+        {
+          "title": "Tasbih, Tahmid and Takbir",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 21
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Protection from all Evil",
+      "arabicPreview": "أَعُوْذُ بِكَلِمَاتِ اللّٰهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ....",
+      "filesFound": [
+        "evening.json",
+        "ruqyah-illness.json"
+      ],
+      "entries": [
+        {
+          "title": "Protection from all Evil",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 23
+        },
+        {
+          "title": "Protection From All Harm",
+          "filename": "ruqyah-illness.json",
+          "categoryName": "Ruqyah & Illness",
+          "id": 7
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Seeking Protection for Children",
+      "arabicPreview": "أُعِيْذُكُمَا (أُعِيْذُكَ) بِكَلِمَاتِ اللّٰهِ التَّامَّةِ ، مِنْ كُلِّ شَيْطَانٍ وَّهَامَّةٍ ، وَمِ...",
+      "filesFound": [
+        "marriage-children.json",
+        "ruqyah-illness.json"
+      ],
+      "entries": [
+        {
+          "title": "Seeking Protection for Children",
+          "filename": "marriage-children.json",
+          "categoryName": "Marriage & Children",
+          "id": 12
+        },
+        {
+          "title": "Seeking Protection for Children",
+          "filename": "ruqyah-illness.json",
+          "categoryName": "Ruqyah & Illness",
+          "id": 12
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "After a Nightmare",
+      "arabicPreview": "أَعُوْذُ بِكَلِمَاتِ اللّٰهِ التَّامَّاتِ مِنْ غَضَبِهِ وَعِقَابِهِ ، وَشَرِّ عِبَادِهِ ، وَمِنْ هَم...",
+      "filesFound": [
+        "nightmares.json",
+        "ruqyah-illness.json"
+      ],
+      "entries": [
+        {
+          "title": "After a Nightmare",
+          "filename": "nightmares.json",
+          "categoryName": "Nightmares",
+          "id": 1
+        },
+        {
+          "title": "A Comprehensive Protection",
+          "filename": "ruqyah-illness.json",
+          "categoryName": "Ruqyah & Illness",
+          "id": 10
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "For Firmness of the Heart",
+      "arabicPreview": "يَا مُقَلِّبَ الْقُلُوْبِ ثَبِّتْ قَلْبِيْ عَلَىٰ دِيْنِكَ...",
+      "filesFound": [
+        "protection-iman.json",
+        "sunnah-duas.json"
+      ],
+      "entries": [
+        {
+          "title": "For Firmness of the Heart",
+          "filename": "protection-iman.json",
+          "categoryName": "Protection & Iman",
+          "id": 1
+        },
+        {
+          "title": "Steadfastness on Din",
+          "filename": "sunnah-duas.json",
+          "categoryName": "Sunnah Duas",
+          "id": 25
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Sujud #7",
+      "arabicPreview": "اَللّٰهُمَّ اغْفِرْ لِيْ ذَنْبِيْ كُلَّهُ ، دِقَّهُ وَجِلَّهُ ، وَأَوَّلَهُ وَآخِرَهُ ، وَعَلَانِيَت...",
+      "filesFound": [
+        "salah.json",
+        "sunnah-duas.json"
+      ],
+      "entries": [
+        {
+          "title": "Sujud #7",
+          "filename": "salah.json",
+          "categoryName": "Salah (Prayer)",
+          "id": 31
+        },
+        {
+          "title": "Forgiveness For All Types of Sins",
+          "filename": "sunnah-duas.json",
+          "categoryName": "Sunnah Duas",
+          "id": 6
+        }
+      ]
+    },
+    {
+      "type": "EXACT_DUPLICATE",
+      "mainTitle": "Salah on the Prophet ﷺ",
+      "arabicPreview": "اَللّٰهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَّعَلَىٰ اٰلِ مُحَمَّدٍ ، كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِيْمَ و...",
+      "filesFound": [
+        "salah.json",
+        "salawat.json"
+      ],
+      "entries": [
+        {
+          "title": "Salah on the Prophet ﷺ",
+          "filename": "salah.json",
+          "categoryName": "Salah (Prayer)",
+          "id": 38
+        },
+        {
+          "title": "Salawat #1",
+          "filename": "salawat.json",
+          "categoryName": "Salawat (Blessings on the Prophet)",
+          "id": 1
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Tasbih, Tahmid and Takbir",
+      "filesFound": [
+        "before-sleep.json",
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Tasbih, Tahmid and Takbir",
+          "filename": "before-sleep.json",
+          "categoryName": "Before Sleep",
+          "id": 6
+        },
+        {
+          "title": "Tasbih, Tahmid and Takbir",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 21
+        },
+        {
+          "title": "Tasbih, Tahmid and Takbir",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 21
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Sayyid al-Istighfar: The Best Way of Seeking Forgiveness",
+      "filesFound": [
+        "evening.json",
+        "morning.json",
+        "sunnah-duas.json"
+      ],
+      "entries": [
+        {
+          "title": "Sayyid al-Istighfar: The Best Way of Seeking Forgiveness",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 3
+        },
+        {
+          "title": "Sayyid al-Istighfar: The Best Way of Seeking Forgiveness",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 3
+        },
+        {
+          "title": "Sayyid al-Istighfar: The Best Way of Seeking Forgiveness",
+          "filename": "sunnah-duas.json",
+          "categoryName": "Sunnah Duas",
+          "id": 1
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Entrust All Your Matters to Allah",
+      "filesFound": [
+        "evening.json",
+        "morning.json",
+        "sunnah-duas.json"
+      ],
+      "entries": [
+        {
+          "title": "Entrust All Your Matters to Allah",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 7
+        },
+        {
+          "title": "Entrust All Your Matters to Allah",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 7
+        },
+        {
+          "title": "Entrust All Your Matters to Allah",
+          "filename": "sunnah-duas.json",
+          "categoryName": "Sunnah Duas",
+          "id": 22
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Allah Will Suffice You in Everything",
+      "filesFound": [
+        "evening.json",
+        "morning.json",
+        "ruqyah-illness.json"
+      ],
+      "entries": [
+        {
+          "title": "Allah Will Suffice You in Everything",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 16
+        },
+        {
+          "title": "Allah Will Suffice You in Everything",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 16
+        },
+        {
+          "title": "Allah Will Suffice You in Everything",
+          "filename": "ruqyah-illness.json",
+          "categoryName": "Ruqyah & Illness",
+          "id": 5
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Protect Yourself From the 4 Evils",
+      "filesFound": [
+        "before-sleep.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Protect Yourself From the 4 Evils",
+          "filename": "before-sleep.json",
+          "categoryName": "Before Sleep",
+          "id": 10
+        },
+        {
+          "title": "Protect Yourself From the 4 Evils",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 6
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Praise Allah With the Praises of the Entire Creation",
+      "filesFound": [
+        "before-sleep.json",
+        "praises-allah.json"
+      ],
+      "entries": [
+        {
+          "title": "Praise Allah With the Praises of the Entire Creation",
+          "filename": "before-sleep.json",
+          "categoryName": "Before Sleep",
+          "id": 15
+        },
+        {
+          "title": "Praise Allah with the Praises of the Entire Creation",
+          "filename": "praises-allah.json",
+          "categoryName": "Praises of Allah",
+          "id": 11
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "When Difficulties Make You Yearn for Death",
+      "filesFound": [
+        "death.json",
+        "difficulties-happiness.json"
+      ],
+      "entries": [
+        {
+          "title": "When Difficulties Make You Yearn for Death",
+          "filename": "death.json",
+          "categoryName": "Death & Bereavement",
+          "id": 1
+        },
+        {
+          "title": "When Difficulties Make You Yearn for Death",
+          "filename": "difficulties-happiness.json",
+          "categoryName": "Difficulties & Happiness",
+          "id": 17
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "For Difficult Times: All Your Prayers Answered",
+      "filesFound": [
+        "dhikr-all-times.json",
+        "difficulties-happiness.json"
+      ],
+      "entries": [
+        {
+          "title": "For Difficult Times: All Your Prayers Answered",
+          "filename": "dhikr-all-times.json",
+          "categoryName": "Dhikr for All Times",
+          "id": 10
+        },
+        {
+          "title": "For Difficult Times: All Your Prayers Answered",
+          "filename": "difficulties-happiness.json",
+          "categoryName": "Difficulties & Happiness",
+          "id": 18
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Ayat al-Kursi: The Greatest Protection",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Ayat al-Kursi: The Greatest Protection",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 1
+        },
+        {
+          "title": "Ayat al-Kursi: The Greatest Protection",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 1
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Protect Yourself From Anxiety, Laziness, Debt etc",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Protect Yourself From Anxiety, Laziness, Debt etc",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 4
+        },
+        {
+          "title": "Protect Yourself From Anxiety, Laziness, Debt etc",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 4
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Well-being in this World and the Hereafter",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Well-being in this World and the Hereafter",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 5
+        },
+        {
+          "title": "Well-being in this World and the Hereafter",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 5
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Fulfil Your Obligation to Thank Allah",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Fulfil Your Obligation to Thank Allah",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 8
+        },
+        {
+          "title": "Fulfil Your Obligation to Thank Allah",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 8
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Get Yourself Freed from the Hell-fire",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Get Yourself Freed from the Hell-fire",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 13
+        },
+        {
+          "title": "Get Yourself Freed from the Hell-fire",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 13
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Ask Allah For Good Health and Protection",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Ask Allah For Good Health and Protection",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 15
+        },
+        {
+          "title": "Ask Allah For Good Health and Protection",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 15
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Have the Prophet ﷺ Hold Your Hand and Admit You to Paradise",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Have the Prophet ﷺ Hold Your Hand and Admit You to Paradise",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 17
+        },
+        {
+          "title": "Have the Prophet ﷺ Hold Your Hand and Admit You to Paradise",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 17
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Protect Yourself From All Harm",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Protect Yourself From All Harm",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 18
+        },
+        {
+          "title": "Protect Yourself From All Harm",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 18
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Get Your Sins Forgiven",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Get Your Sins Forgiven",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 19
+        },
+        {
+          "title": "Get Your Sins Forgiven",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 19
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "An Unparalleled Reward",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "An Unparalleled Reward",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 20
+        },
+        {
+          "title": "An Unparalleled Reward",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 20
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Receive the Intercession of the Prophet ﷺ",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Receive the Intercession of the Prophet ﷺ",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 22
+        },
+        {
+          "title": "Receive the Intercession of the Prophet ﷺ",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 22
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "Seeking Protection for Children",
+      "filesFound": [
+        "marriage-children.json",
+        "ruqyah-illness.json"
+      ],
+      "entries": [
+        {
+          "title": "Seeking Protection for Children",
+          "filename": "marriage-children.json",
+          "categoryName": "Marriage & Children",
+          "id": 12
+        },
+        {
+          "title": "Seeking Protection for Children",
+          "filename": "ruqyah-illness.json",
+          "categoryName": "Ruqyah & Illness",
+          "id": 12
+        }
+      ]
+    },
+    {
+      "type": "EXACT_TITLE_DUPLICATE",
+      "mainTitle": "4 Phrases That Outweigh All Other Dhikr",
+      "filesFound": [
+        "morning.json",
+        "praises-allah.json"
+      ],
+      "entries": [
+        {
+          "title": "4 Phrases That Outweigh All Other Dhikr",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 24
+        },
+        {
+          "title": "4 Phrases That Outweigh All Other Dhikr",
+          "filename": "praises-allah.json",
+          "categoryName": "Praises of Allah",
+          "id": 18
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "88.89",
+      "mainTitle": "Protect Yourself From the 4 Evils",
+      "relatedTitle": "Protect Yourself From the Four Evils",
+      "filesFound": [
+        "before-sleep.json",
+        "morning.json",
+        "evening.json"
+      ],
+      "entries": [
+        {
+          "title": "Protect Yourself From the 4 Evils",
+          "filename": "before-sleep.json",
+          "categoryName": "Before Sleep",
+          "id": 10
+        },
+        {
+          "title": "Protect Yourself From the 4 Evils",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 6
+        },
+        {
+          "title": "Protect Yourself From the Four Evils",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 6
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "76.00",
+      "mainTitle": "All of Your Sins Forgiven",
+      "relatedTitle": "Get Your Sins Forgiven",
+      "filesFound": [
+        "dhikr-all-times.json",
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "All of Your Sins Forgiven",
+          "filename": "dhikr-all-times.json",
+          "categoryName": "Dhikr for All Times",
+          "id": 11
+        },
+        {
+          "title": "Get Your Sins Forgiven",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 19
+        },
+        {
+          "title": "Get Your Sins Forgiven",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 19
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "90.48",
+      "mainTitle": "Well-being in this World and the Hereafter",
+      "relatedTitle": "Well-being in this World & the Hereafter",
+      "filesFound": [
+        "evening.json",
+        "morning.json",
+        "sunnah-duas.json"
+      ],
+      "entries": [
+        {
+          "title": "Well-being in this World and the Hereafter",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 5
+        },
+        {
+          "title": "Well-being in this World and the Hereafter",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 5
+        },
+        {
+          "title": "Well-being in this World & the Hereafter",
+          "filename": "sunnah-duas.json",
+          "categoryName": "Sunnah Duas",
+          "id": 30
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "77.78",
+      "mainTitle": "Salawat",
+      "relatedTitle": "Salawat #1",
+      "filesFound": [
+        "dhikr-all-times.json",
+        "salawat.json"
+      ],
+      "entries": [
+        {
+          "title": "Salawat",
+          "filename": "dhikr-all-times.json",
+          "categoryName": "Dhikr for All Times",
+          "id": 4
+        },
+        {
+          "title": "Salawat #1",
+          "filename": "salawat.json",
+          "categoryName": "Salawat (Blessings on the Prophet)",
+          "id": 1
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "77.78",
+      "mainTitle": "Salawat",
+      "relatedTitle": "Salawat #2",
+      "filesFound": [
+        "dhikr-all-times.json",
+        "salawat.json"
+      ],
+      "entries": [
+        {
+          "title": "Salawat",
+          "filename": "dhikr-all-times.json",
+          "categoryName": "Dhikr for All Times",
+          "id": 4
+        },
+        {
+          "title": "Salawat #2",
+          "filename": "salawat.json",
+          "categoryName": "Salawat (Blessings on the Prophet)",
+          "id": 2
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "77.78",
+      "mainTitle": "Salawat",
+      "relatedTitle": "Salawat #3",
+      "filesFound": [
+        "dhikr-all-times.json",
+        "salawat.json"
+      ],
+      "entries": [
+        {
+          "title": "Salawat",
+          "filename": "dhikr-all-times.json",
+          "categoryName": "Dhikr for All Times",
+          "id": 4
+        },
+        {
+          "title": "Salawat #3",
+          "filename": "salawat.json",
+          "categoryName": "Salawat (Blessings on the Prophet)",
+          "id": 3
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "77.78",
+      "mainTitle": "Salawat",
+      "relatedTitle": "Salawat #4",
+      "filesFound": [
+        "dhikr-all-times.json",
+        "salawat.json"
+      ],
+      "entries": [
+        {
+          "title": "Salawat",
+          "filename": "dhikr-all-times.json",
+          "categoryName": "Dhikr for All Times",
+          "id": 4
+        },
+        {
+          "title": "Salawat #4",
+          "filename": "salawat.json",
+          "categoryName": "Salawat (Blessings on the Prophet)",
+          "id": 4
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "77.78",
+      "mainTitle": "Salawat",
+      "relatedTitle": "Salawat #5",
+      "filesFound": [
+        "dhikr-all-times.json",
+        "salawat.json"
+      ],
+      "entries": [
+        {
+          "title": "Salawat",
+          "filename": "dhikr-all-times.json",
+          "categoryName": "Dhikr for All Times",
+          "id": 4
+        },
+        {
+          "title": "Salawat #5",
+          "filename": "salawat.json",
+          "categoryName": "Salawat (Blessings on the Prophet)",
+          "id": 5
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "77.78",
+      "mainTitle": "Salawat",
+      "relatedTitle": "Salawat #6",
+      "filesFound": [
+        "dhikr-all-times.json",
+        "salawat.json"
+      ],
+      "entries": [
+        {
+          "title": "Salawat",
+          "filename": "dhikr-all-times.json",
+          "categoryName": "Dhikr for All Times",
+          "id": 4
+        },
+        {
+          "title": "Salawat #6",
+          "filename": "salawat.json",
+          "categoryName": "Salawat (Blessings on the Prophet)",
+          "id": 6
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "77.78",
+      "mainTitle": "Salawat",
+      "relatedTitle": "Salawat #7",
+      "filesFound": [
+        "dhikr-all-times.json",
+        "salawat.json"
+      ],
+      "entries": [
+        {
+          "title": "Salawat",
+          "filename": "dhikr-all-times.json",
+          "categoryName": "Dhikr for All Times",
+          "id": 4
+        },
+        {
+          "title": "Salawat #7",
+          "filename": "salawat.json",
+          "categoryName": "Salawat (Blessings on the Prophet)",
+          "id": 7
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "77.78",
+      "mainTitle": "Salawat",
+      "relatedTitle": "Salawat #8",
+      "filesFound": [
+        "dhikr-all-times.json",
+        "salawat.json"
+      ],
+      "entries": [
+        {
+          "title": "Salawat",
+          "filename": "dhikr-all-times.json",
+          "categoryName": "Dhikr for All Times",
+          "id": 4
+        },
+        {
+          "title": "Salawat #8",
+          "filename": "salawat.json",
+          "categoryName": "Salawat (Blessings on the Prophet)",
+          "id": 8
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "77.78",
+      "mainTitle": "Salawat",
+      "relatedTitle": "Salawat #9",
+      "filesFound": [
+        "dhikr-all-times.json",
+        "salawat.json"
+      ],
+      "entries": [
+        {
+          "title": "Salawat",
+          "filename": "dhikr-all-times.json",
+          "categoryName": "Dhikr for All Times",
+          "id": 4
+        },
+        {
+          "title": "Salawat #9",
+          "filename": "salawat.json",
+          "categoryName": "Salawat (Blessings on the Prophet)",
+          "id": 9
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "91.43",
+      "mainTitle": "Start the Evening by Praising Allah",
+      "relatedTitle": "Start the Morning by Praising Allah",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Start the Evening by Praising Allah",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 10
+        },
+        {
+          "title": "Start the Morning by Praising Allah",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 10
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "88.00",
+      "mainTitle": "Upon Entering the Evening",
+      "relatedTitle": "Upon Entering the Morning",
+      "filesFound": [
+        "evening.json",
+        "morning.json"
+      ],
+      "entries": [
+        {
+          "title": "Upon Entering the Evening",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 14
+        },
+        {
+          "title": "Upon Entering the Morning",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 14
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "83.33",
+      "mainTitle": "Protection from all Evil",
+      "relatedTitle": "Protection From All Harm",
+      "filesFound": [
+        "evening.json",
+        "ruqyah-illness.json"
+      ],
+      "entries": [
+        {
+          "title": "Protection from all Evil",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 23
+        },
+        {
+          "title": "Protection From All Harm",
+          "filename": "ruqyah-illness.json",
+          "categoryName": "Ruqyah & Illness",
+          "id": 7
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "85.37",
+      "mainTitle": "3 Quls: Be Sufficed in All Your Matters",
+      "relatedTitle": "3 Quls: To Suffice You in All Your Matters",
+      "filesFound": [
+        "morning.json",
+        "evening.json"
+      ],
+      "entries": [
+        {
+          "title": "3 Quls: Be Sufficed in All Your Matters",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 2
+        },
+        {
+          "title": "3 Quls: To Suffice You in All Your Matters",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 2
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "81.08",
+      "mainTitle": "Start Your Day by Renewing Tawhid",
+      "relatedTitle": "Start Your Evening by Renewing Tawhid",
+      "filesFound": [
+        "morning.json",
+        "evening.json"
+      ],
+      "entries": [
+        {
+          "title": "Start Your Day by Renewing Tawhid",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 9
+        },
+        {
+          "title": "Start Your Evening by Renewing Tawhid",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 9
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "77.42",
+      "mainTitle": "Ask Allah to Bless Your Day",
+      "relatedTitle": "Ask Allah to Bless Your Evening",
+      "filesFound": [
+        "morning.json",
+        "evening.json"
+      ],
+      "entries": [
+        {
+          "title": "Ask Allah to Bless Your Day",
+          "filename": "morning.json",
+          "categoryName": "Morning Adhkar",
+          "id": 12
+        },
+        {
+          "title": "Ask Allah to Bless Your Evening",
+          "filename": "evening.json",
+          "categoryName": "Evening Adhkar",
+          "id": 12
+        }
+      ]
+    },
+    {
+      "type": "SIMILAR_TITLE",
+      "similarity": "76.47",
+      "mainTitle": "Surah al-Fatihah: The Best Cure",
+      "relatedTitle": "Surah al-Fatihah: The Greatest Duʿa",
+      "filesFound": [
+        "ruqyah-illness.json",
+        "quranic-duas.json"
+      ],
+      "entries": [
+        {
+          "title": "Surah al-Fatihah: The Best Cure",
+          "filename": "ruqyah-illness.json",
+          "categoryName": "Ruqyah & Illness",
+          "id": 1
+        },
+        {
+          "title": "Surah al-Fatihah: The Greatest Duʿa",
+          "filename": "quranic-duas.json",
+          "categoryName": "Quranic Duas",
+          "id": 1
+        }
+      ]
+    }
+  ],
+  "crossCategoryOverlaps": [
+    {
+      "category": "Sunnah Duas",
+      "duaCount": 75
+    },
+    {
+      "category": "Salah (Prayer)",
+      "duaCount": 52
+    },
+    {
+      "category": "Quranic Duas",
+      "duaCount": 41
+    },
+    {
+      "category": "Praises of Allah",
+      "duaCount": 30
+    },
+    {
+      "category": "Morning Adhkar",
+      "duaCount": 24
+    },
+    {
+      "category": "Evening Adhkar",
+      "duaCount": 23
+    },
+    {
+      "category": "Difficulties & Happiness",
+      "duaCount": 22
+    },
+    {
+      "category": "Ruqyah & Illness",
+      "duaCount": 20
+    },
+    {
+      "category": "Istighfar (Seeking Forgiveness)",
+      "duaCount": 19
+    },
+    {
+      "category": "Before Sleep",
+      "duaCount": 18
+    },
+    {
+      "category": "Death & Bereavement",
+      "duaCount": 16
+    },
+    {
+      "category": "Food & Drink",
+      "duaCount": 16
+    },
+    {
+      "category": "Nature & Weather",
+      "duaCount": 14
+    },
+    {
+      "category": "Travel",
+      "duaCount": 13
+    },
+    {
+      "category": "After Salah",
+      "duaCount": 12
+    },
+    {
+      "category": "Marriage & Children",
+      "duaCount": 12
+    },
+    {
+      "category": "Dhikr for All Times",
+      "duaCount": 11
+    },
+    {
+      "category": "Hajj & Umrah",
+      "duaCount": 10
+    },
+    {
+      "category": "Money & Shopping",
+      "duaCount": 9
+    },
+    {
+      "category": "Salawat (Blessings on the Prophet)",
+      "duaCount": 9
+    },
+    {
+      "category": "Adhan & Masjid",
+      "duaCount": 8
+    },
+    {
+      "category": "Protection & Iman",
+      "duaCount": 6
+    },
+    {
+      "category": "Social Interactions",
+      "duaCount": 6
+    },
+    {
+      "category": "Lavatory & Wudu",
+      "duaCount": 5
+    },
+    {
+      "category": "Waking Up",
+      "duaCount": 5
+    },
+    {
+      "category": "Clothing",
+      "duaCount": 4
+    },
+    {
+      "category": "Gatherings",
+      "duaCount": 4
+    },
+    {
+      "category": "Home",
+      "duaCount": 3
+    },
+    {
+      "category": "Istikhara (Seeking Guidance)",
+      "duaCount": 1
+    },
+    {
+      "category": "Nightmares",
+      "duaCount": 1
+    }
+  ]
+}
