@@ -107,7 +107,7 @@
               <div class="flex items-center justify-between gap-3 mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700">
                 <!-- Reference -->
                 <div
-                  v-if="duaStore.settings.show_reference && dua.reference"
+                  v-if="dua.reference"
                   class="flex items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400 flex-1"
                 >
                   <Icon name="book" size="sm" />

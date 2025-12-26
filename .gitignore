@@ -40,6 +40,9 @@ Thumbs.db
 # APK analysis folder (extracted APKs)
 apk_analysis/
 
+# Backups (not for production)
+backups/
+
 # Logs
 *.log
 npm-debug.log*

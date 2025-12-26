@@ -91,16 +91,6 @@
         />
         <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Show Translation</span>
       </label>
-
-      <label class="flex items-center gap-3 cursor-pointer">
-        <input
-          v-model="localSettings.show_reference"
-          type="checkbox"
-          class="w-4 h-4 text-primary-500 rounded"
-        />
-        <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Show Reference</span>
-      </label>
-
     </div>
 
     <!-- Action Buttons -->
@@ -134,8 +124,7 @@ const localSettings = ref({
   transliteration_font_size: 16,
   translation_font_size: 14,
   show_transliteration: true,
-  show_translation: true,
-  show_reference: true
+  show_translation: true
 })
 
 onMounted(() => {

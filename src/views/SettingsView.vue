@@ -134,17 +134,6 @@
               />
               <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Show Translation</span>
             </label>
-
-            <label class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-950/50 transition-colors">
-              <input
-                v-model="duaSettings.show_reference"
-                @change="saveDuaSettings"
-                type="checkbox"
-                class="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
-              />
-              <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Show Reference</span>
-            </label>
-
           </div>
         </div>
       </section>
@@ -1013,8 +1002,7 @@ const duaSettings = ref({
   transliteration_font_size: 16,
   translation_font_size: 14,
   show_transliteration: true,
-  show_translation: true,
-  show_reference: true
+  show_translation: true
 })
 const isUpdatingUsername = ref(false)
 

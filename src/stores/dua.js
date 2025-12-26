@@ -19,8 +19,7 @@ export const useDuaStore = defineStore('dua', {
       transliteration_font_size: 16,
       translation_font_size: 14,
       show_transliteration: true,
-      show_translation: true,
-      show_reference: true
+      show_translation: true
     },
     isLoading: false,
     isImported: false,
