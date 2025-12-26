@@ -244,21 +244,128 @@ export OPENAI_API_KEY="your-key-here"
 node scripts/generate-dua-embeddings.js
 ```
 
-## Testing the Migration
+## Automatic Migration for App Updates
 
-### 1. Clear Existing Data
-Open browser console and run:
+### How It Works
+
+The app now includes an **automatic data version migration system** that handles updates seamlessly:
+
+#### For Existing Users (Updating from Store)
+1. **Version Check**: On app start, checks stored data version
+2. **Migration Detection**: If version mismatch detected, triggers migration
+3. **Data Backup**: Preserves user favorites list
+4. **Clean Slate**: Clears old LifeWithAllaah data
+5. **Fresh Import**: Imports new Hisn al-Muslim data
+6. **User Notification**: Shows migration notice with old favorites count
+7. **Version Save**: Stores new data version to prevent re-migration
+
+#### For New Users (Fresh Install)
+1. **No Version**: No stored version detected
+2. **No Data**: No existing dua data found
+3. **Direct Import**: Proceeds with normal import of Hisn al-Muslim
+4. **Version Save**: Stores data version for future updates
+
+### Data Version System
+
 ```javascript
-// Clear IndexedDB
-indexedDB.deleteDatabase('IslamQADB')
-// Refresh page
-location.reload()
+// Current version constant in duaDataLoader.js
+const CURRENT_DUA_DATA_VERSION = 2 // Hisn al-Muslim
+
+// Stored in IndexedDB settings table
+{
+  key: 'dua_data_version',
+  value: 2
+}
 ```
 
-### 2. Test Import
-- App should redirect to import page
-- Should show progress loading Hisn al-Muslim
-- Should complete with 15 categories and 268 duas
+**Version History**:
+- Version 1: Original LifeWithAllaah data (implicit, no version stored)
+- Version 2: Hisn al-Muslim migration
+
+### Migration Flow
+
+```
+App Start
+    ↓
+Check Data Version
+    ↓
+┌─────────────────┐
+│ Version Match?  │
+└────┬────────┬───┘
+     │        │
+    YES      NO
+     │        │
+     │    Migration
+     │     Needed
+     │        ↓
+     │   Backup Favorites
+     │        ↓
+     │   Clear Old Data
+     │        ↓
+     │   Import New Data
+     │        ↓
+     │   Show Notice
+     │        ↓
+     ↓        ↓
+  Skip ──→ Continue
+     ↓
+   Done
+```
+
+### User Favorites Handling
+
+**What Happens to Favorites**:
+- Old favorite IDs are backed up before clearing
+- Stored in settings as `migrated_favorite_ids`
+- Migration notice shows count of old favorites
+- User can manually re-favorite preferred duas
+- After user acknowledges notice, backup is cleaned up
+
+**Why Not Auto-Migrate Favorites?**:
+- Different dua IDs between old and new data
+- Different categorization and content
+- Better UX to let users re-choose from new authentic content
+
+### Testing the Migration
+
+#### Test 1: Existing User Update
+```javascript
+// Simulate existing user with old data
+// 1. Install previous version (with LifeWithAllaah data)
+// 2. Add some favorites
+// 3. Update to new version
+// 4. Observe automatic migration
+
+// Expected behavior:
+// - Migration notice appears
+// - Shows count of old favorites
+// - New Hisn al-Muslim data loaded
+// - All 268 duas available
+```
+
+#### Test 2: Fresh Install
+```javascript
+// 1. Clear all data: indexedDB.deleteDatabase('IslamQADB')
+// 2. Refresh app
+// 3. Observe normal import
+
+// Expected behavior:
+// - No migration notice
+// - Direct import of Hisn al-Muslim
+// - Version 2 saved
+```
+
+#### Test 3: Re-opening After Migration
+```javascript
+// 1. After migration completes
+// 2. Close and reopen app
+// 3. Should not trigger migration again
+
+// Expected behavior:
+// - Version match detected
+// - Skip migration
+// - Load existing data
+```
 
 ### 3. Verify Categories
 - Check that main tab has 7 categories

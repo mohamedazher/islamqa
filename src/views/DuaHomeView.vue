@@ -65,6 +65,8 @@
       </div>
     </div>
 
+    <!-- Migration Notice (shown after update) -->
+    <MigrationNotice />
   </div>
 </template>
 
@@ -74,6 +76,7 @@ import { useRouter } from 'vue-router'
 import { useDuaStore } from '@/stores/dua'
 import Icon from '@/components/common/Icon.vue'
 import DuaCategoryCard from '@/components/dua/DuaCategoryCard.vue'
+import MigrationNotice from '@/components/dua/MigrationNotice.vue'
 
 const router = useRouter()
 const duaStore = useDuaStore()
