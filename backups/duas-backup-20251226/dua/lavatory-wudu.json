@@ -1,0 +1,86 @@
+{
+  "category_id": 13,
+  "category_name": "Lavatory & Wudu",
+  "duas": [
+    {
+      "id": 1,
+      "category_id": 13,
+      "title": "Before Entering the Lavatory",
+      "title_ar": null,
+      "arabic": "بِسْمِ اللّٰهِ ، اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ.",
+      "transliteration": "Bismi-llāh, allāhumma innī aʿūdhu bika mina-l-khubuthi wa-l-khabā'ith",
+      "translation": "In the Name of Allah. O Allah, I seek Your protection from the male and female devils.",
+      "virtue": "## The Screen from Jinn\n\nAlī b. Abī Tālib (raḍiy Allāhu 'anhu) narrated that the Messenger of Allah ﷺ said:\n\n\"The screen between the jinn and the nakedness of the children of Ādam when they enter the lavatory is to say: 'In the Name of Allah.'\"\n\n*(Tirmidhī 606)*\n\n## Seeking Protection\n\nAnas b. Mālik (raḍiy Allāhu 'anhu) narrated that whenever the Prophet ﷺ went to answer the call of nature, he used to say:\n\n\"O Allah, I seek Your protection from the male and female devils.\"\n\n*(Bukhārī 142, Muslim 375)*\n\n## Waste Areas Are Visited by Jinn\n\nZayd b. Arqam (raḍiy Allāhu 'anhu) narrated that the Messenger of Allah ﷺ said:\n\n\"These waste areas are visited (by jinns), so when anyone of you enters, let him say: 'O Allah, I seek Your protection from the male and female devils.'\"\n\n*(Abū Dāwūd 6, Ibn Ḥibbān 1408, Ibn Mājah 296)*",
+      "reference": "Tirmidhī 606",
+      "repetitions": null,
+      "order": 1,
+      "tags": [
+        "Lavatory & Wudu"
+      ]
+    },
+    {
+      "id": 2,
+      "category_id": 13,
+      "title": "After Coming Out of the Lavatory",
+      "title_ar": null,
+      "arabic": "",
+      "transliteration": "Ghufrānak.",
+      "translation": "I seek Your forgiveness.",
+      "virtue": "",
+      "reference": "",
+      "repetitions": null,
+      "order": 2,
+      "tags": [
+        "Lavatory & Wudu"
+      ]
+    },
+    {
+      "id": 3,
+      "category_id": 13,
+      "title": "Before Wuḍu",
+      "title_ar": null,
+      "arabic": "",
+      "transliteration": "Bismillāh.",
+      "translation": "In the name of Allah.",
+      "virtue": "",
+      "reference": "",
+      "repetitions": null,
+      "order": 3,
+      "tags": [
+        "Lavatory & Wudu"
+      ]
+    },
+    {
+      "id": 5,
+      "category_id": 13,
+      "title": "After Completing Wuḍu #1",
+      "title_ar": null,
+      "arabic": "أَشْهَدُ أَنْ لَّا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ ورَسُوْلُهُ ، اَللّٰهُمَّ اجْعَلْنِيْ مِنَ التَّوَّابِيْنَ ، وَاجْعَلْنِيْ مِنَ المُتَطَهِّرِيْنَ.",
+      "transliteration": "Ash-hadu al-lā ilāha illā-llāhu waḥdahū lā sharīka lah, wa ash-hadu anna Muḥammadan ʿabduhu wa rasūluh. Allāhumma-j-ʿalnī mina-t-tawwābīn, wa-j-ʿalnī mina-l-mutaṭahhirīn.",
+      "translation": "I bear witness that there is no god but Allah. He is Alone and He has no partner whatsoever. And I bear witness that Muhammad ﷺ is His slave and His Messenger. O Allah, make me amongst the repentant, and make me amongst those who purify themselves.",
+      "virtue": "## Hadith\nThe Messenger of Allah ﷺ said:\n\n**\"Whoever perfects his wudhū and then says [the above], the eight gates of Paradise will be opened for him. He may enter through whichever one he wishes.\"\n\n*(Tirmidhī 55)***",
+      "reference": "Tirmidhī 55",
+      "repetitions": null,
+      "order": 4,
+      "tags": [
+        "Lavatory & Wudu"
+      ]
+    },
+    {
+      "id": 6,
+      "category_id": 13,
+      "title": "After Completing Wuḍu #2",
+      "title_ar": null,
+      "arabic": "سُبْحَانَكَ اللّٰهُمَّ وَبِحَمْدِكَ ، أَشْهَدُ أَنْ لَّا إِلٰهَ إِلَّا أَنْتَ ، أَسْتَغْفِرُكَ وأَتُوْبُ إِلَيْكَ.",
+      "transliteration": "Subḥanaka-llāhumma wa bi ḥamdik, ash-hadu al-lā ilāha illā Ant, astaghfiruka wa atūbu ilayk.",
+      "translation": "You are free from imperfection, O Allah, and all praise is to You. I bear witness that there is no god but You. I seek Your forgiveness and turn to You in repentance.",
+      "virtue": "## Hadith\n\nThe Messenger of Allah ﷺ said:\n\n\"Whosoever does wudhū and says [the above], it will be recorded in a parchment and then sealed with a seal which will not be broken till the Day of Judgement.\"\n\n*(Nasā'ī in ʿAmal al-Yawm wa-l-Laylah 81, al-Ṭabarānī in al-Duʿā' 389)*",
+      "reference": "",
+      "repetitions": null,
+      "order": 5,
+      "tags": [
+        "Lavatory & Wudu"
+      ]
+    }
+  ]
+}

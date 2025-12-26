@@ -729,12 +729,11 @@ const openDua = async (dua) => {
       arabic: fullDua.arabic,
       transliteration: fullDua.transliteration,
       translation: fullDua.translation,
-      virtue: fullDua.virtue || 'No virtues documented',
       category_id: fullDua.category_id,
       category_name: fullDua.category_name,
       // Fallback for Q&A layout (if needed)
       question: fullDua.question,
-      answer: fullDua.virtue || 'No virtues documented'
+      answer: fullDua.translation || ''
     }
 
     modalQuestion.value = question

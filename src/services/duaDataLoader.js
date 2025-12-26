@@ -20,90 +20,67 @@ class DuaDataLoader {
         return { success: true, message: 'Already imported' }
       }
 
-      // Step 1: Load categories
-      console.log(`📚 DuaDataLoader: Step 1 - Loading categories...`)
+      // Step 1: Load categories from Hisn al-Muslim
+      console.log(`📚 DuaDataLoader: Loading Hisn al-Muslim categories...`)
       if (onProgress) onProgress('Loading categories...', 10)
+
       const categoriesResponse = await fetch('./data/dua/categories.json')
-      console.log(`📚 DuaDataLoader: Categories response status: ${categoriesResponse.status}`)
-      const categoriesData = await categoriesResponse.json()
-      console.log(`📚 DuaDataLoader: Loaded ${categoriesData.categories.length} categories`)
+      if (!categoriesResponse.ok) {
+        throw new Error(`Failed to load categories: ${categoriesResponse.status}`)
+      }
+
+      const categories = await categoriesResponse.json()
+      console.log(`📚 DuaDataLoader: Loaded ${categories.length} categories`)
 
       // Step 2: Import categories
       if (onProgress) onProgress('Importing categories...', 20)
+      await dexieDb.importDuaCategories(categories)
+      console.log(`✅ Imported ${categories.length} categories`)
 
-      // Build a map of category IDs from the JSON files
-      const categoryIdMap = {}
-      for (let i = 0; i < categoriesData.categories.length; i++) {
-        const category = categoriesData.categories[i]
-        try {
-          const filePath = `./data/dua/${category.id}.json`
-          const response = await fetch(filePath)
-          if (response.ok) {
-            const data = await response.json()
-            categoryIdMap[category.id] = data.category_id
-          }
-        } catch (error) {
-          console.warn(`Could not fetch category ID for ${category.id}`)
-        }
+      // Step 3: Load all duas from single file
+      if (onProgress) onProgress('Loading duas...', 30)
+
+      const duasResponse = await fetch('./data/dua/duas.json')
+      if (!duasResponse.ok) {
+        throw new Error(`Failed to load duas: ${duasResponse.status}`)
       }
 
-      // Add numeric_id to each category based on actual data
-      categoriesData.categories.forEach(cat => {
-        cat.numeric_id = categoryIdMap[cat.id] || null
-      })
+      const duasByCategory = await duasResponse.json()
+      console.log(`📚 DuaDataLoader: Loaded duas for ${Object.keys(duasByCategory).length} categories`)
 
-      await dexieDb.importDuaCategories(categoriesData.categories)
-
-      // Step 3: Load and import duas for each category
-      const categories = categoriesData.categories
-      const totalCategories = categories.length
+      // Step 4: Import duas by category
+      const categoryIds = Object.keys(duasByCategory)
+      const totalCategories = categoryIds.length
 
       for (let i = 0; i < totalCategories; i++) {
-        const category = categories[i]
-        const progress = 20 + ((i / totalCategories) * 70)
+        const categoryId = categoryIds[i]
+        const duas = duasByCategory[categoryId]
+        const progress = 30 + ((i / totalCategories) * 60)
+
+        const category = categories.find(c => c.id === categoryId)
+        const categoryName = category ? category.title : categoryId
 
         if (onProgress) {
-          onProgress(`Loading ${category.title}...`, progress)
+          onProgress(`Importing ${categoryName}...`, progress)
         }
 
-        try {
-          const filePath = `./data/dua/${category.id}.json`
-          console.log(`📖 DuaDataLoader: Loading ${filePath} for ${category.title}`)
-          const duasResponse = await fetch(filePath)
-          console.log(`📖 DuaDataLoader: Response status ${duasResponse.status} for ${category.id}`)
-
-          if (duasResponse.ok) {
-            const duasData = await duasResponse.json()
-            console.log(`📖 DuaDataLoader: File has ${duasData.duas ? duasData.duas.length : 0} duas, category_id=${duasData.category_id}`)
-
-            if (duasData.duas && duasData.duas.length > 0) {
-              // Create unique global IDs for duas to avoid collisions
-              const numericCategoryId = duasData.category_id
-              duasData.duas.forEach((dua, index) => {
-                dua.id = numericCategoryId * 1000 + (dua.id || index + 1)
-              })
-
-              console.log(`📖 Importing ${duasData.duas.length} duas for ${category.title} (category_id=${duasData.category_id})`)
-              await dexieDb.importDuas(duasData.duas)
-            } else {
-              console.warn(`⚠️ No duas found in file for ${category.id}`)
-            }
-          } else {
-            console.warn(`⚠️ HTTP ${duasResponse.status} for ${filePath}`)
-          }
-        } catch (error) {
-          console.warn(`❌ Could not load duas for category ${category.id}:`, error)
+        if (duas && duas.length > 0) {
+          console.log(`📖 Importing ${duas.length} duas for ${categoryName}`)
+          await dexieDb.importDuas(duas)
+        } else {
+          console.warn(`⚠️ No duas found for category ${categoryId}`)
         }
       }
 
-      // Step 4: Mark as complete
+      // Step 5: Mark as complete
       if (onProgress) onProgress('Finalizing...', 95)
+      console.log(`✅ Import complete`)
 
       if (onProgress) onProgress('Complete!', 100)
 
       return { success: true, message: 'Import complete' }
     } catch (error) {
-      console.error('Error importing dua data:', error)
+      console.error('❌ Error importing dua data:', error)
       throw error
     }
   }
