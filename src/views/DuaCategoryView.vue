@@ -108,10 +108,10 @@
                 <!-- Reference -->
                 <div
                   v-if="dua.reference"
-                  class="flex items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400 flex-1"
+                  class="flex items-start gap-1.5 text-xs text-neutral-500 dark:text-neutral-400 flex-1 min-w-0"
                 >
-                  <Icon name="book" size="sm" />
-                  <span class="truncate">{{ dua.reference }}</span>
+                  <Icon name="book" size="sm" class="flex-shrink-0 mt-0.5" />
+                  <span class="break-words">{{ dua.reference }}</span>
                 </div>
                 <div v-else class="flex-1"></div>
 
