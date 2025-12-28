@@ -7,7 +7,7 @@
 import dexieDb from './dexieDatabase'
 
 // Current data version - increment when data structure changes
-const CURRENT_DUA_DATA_VERSION = 8 // Version 8: 5-tab organization (Daily, Salah, Protection, Social, Life Events)
+const CURRENT_DUA_DATA_VERSION = 9 // Version 9: Normalize dua field names (arabic, transliteration, translation, title)
 
 class DuaDataLoader {
   /**

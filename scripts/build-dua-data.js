@@ -285,13 +285,29 @@ function buildDuaData() {
       type: 'chapter'
     })
 
-    // Update duas with consistent category_id and add unique global id
-    const updatedDuas = duas.map((dua, idx) => ({
-      ...dua,
-      id: `${chapterNum}_${dua.id || idx + 1}`, // Unique global id
-      category_id: categoryId,
-      chapter_num: chapterNum
-    }))
+    // Update duas with consistent category_id, normalize field names, and add unique global id
+    const updatedDuas = duas.map((dua, idx) => {
+      // Normalize field names for consistent component access
+      const normalized = {
+        id: `${chapterNum}_${dua.id || idx + 1}`,
+        category_id: categoryId,
+        category_name: categoryName,
+        chapter_num: chapterNum,
+        // Normalize text fields (support both old and new field names)
+        arabic: dua.dua_text_arabic || dua.arabic || '',
+        transliteration: dua.dua_text_transliteration || dua.transliteration || '',
+        translation: dua.dua_text_english || dua.translation || '',
+        // Generate title from translation if not present
+        title: dua.title || (dua.dua_text_english || dua.translation || '').slice(0, 100) + ((dua.dua_text_english || dua.translation || '').length > 100 ? '...' : ''),
+        // Keep other fields
+        reference: dua.reference || '',
+        virtue: dua.virtue || dua.hadith || '',
+        repetitions: dua.repetitions || dua.repeat || null,
+        tags: dua.tags || [],
+        hisn_al_muslim_number: dua.hisn_al_muslim_number || null,
+      }
+      return normalized
+    })
 
     duasByCategory[categoryId] = updatedDuas
     totalDuas += duas.length

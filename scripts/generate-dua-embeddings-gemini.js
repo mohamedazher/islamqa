@@ -2,14 +2,14 @@
  * Generate embeddings for duas using Gemini API
  *
  * This script:
- * 1. Loads all duas from category files
- * 2. Composes embedding text: title + category + tags + virtue excerpt
+ * 1. Loads all duas from chapter_*.json files (Hisn al-Muslim 132 chapters)
+ * 2. Composes embedding text: category + title + translation + tags
  * 3. Generates embeddings using Gemini text-embedding-004
  * 4. Stores in public/data/dua-embeddings.json
  *
  * Usage: node scripts/generate-dua-embeddings-gemini.js
  *
- * Note: Requires GEMINI_API_KEY environment variable or hardcoded key
+ * Note: Requires GEMINI_API_KEY environment variable
  */
 
 import { GoogleGenerativeAI } from '@google/generative-ai'
@@ -42,32 +42,51 @@ const genAI = new GoogleGenerativeAI(GEMINI_API_KEY)
 const model = genAI.getGenerativeModel({ model: 'text-embedding-004' })
 
 /**
- * Load all duas from category files
+ * Load all duas from chapter_*.json files
+ * New format: Each chapter file is a flat array of duas
  */
 function loadAllDuas() {
   const allDuas = []
-  const files = fs.readdirSync(duaDataDir).filter(f => f.endsWith('.json'))
+  const files = fs.readdirSync(duaDataDir)
+    .filter(f => f.startsWith('chapter_') && f.endsWith('.json'))
+    .sort((a, b) => {
+      // Sort by chapter number
+      const numA = parseInt(a.match(/chapter_(\d+)/)?.[1] || '0')
+      const numB = parseInt(b.match(/chapter_(\d+)/)?.[1] || '0')
+      return numA - numB
+    })
 
-  // Exclude utility files
-  const excludeFiles = new Set(['index.json', 'home.json', 'categories.json', 'istikhara.json', 'lavatory-wudu.json', 'nightmares.json', 'names-allah.json', 'protection-iman.json', 'social-interactions.json'])
+  console.log(`Found ${files.length} chapter files`)
 
   for (const file of files) {
-    if (excludeFiles.has(file)) continue
-
     try {
       const filePath = path.join(duaDataDir, file)
       const content = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
 
-      if (content.duas && Array.isArray(content.duas)) {
-        allDuas.push(...content.duas.map(dua => ({
+      // Extract chapter number from filename
+      const chapterMatch = file.match(/chapter_(\d+)/)
+      if (!chapterMatch) {
+        console.warn(`  ⚠️ Skipping ${file} - unexpected filename format`)
+        continue
+      }
+
+      const chapterNum = parseInt(chapterMatch[1])
+
+      // New format: flat array of duas
+      if (Array.isArray(content)) {
+        const duasWithMeta = content.map(dua => ({
           ...dua,
           source_file: file,
-          category_id: content.category_id,
-          category_name: content.category_name
-        })))
+          chapter_num: chapterNum,
+          // Ensure category_name exists
+          category_name: dua.category_name || file.replace(/chapter_\d+_/, '').replace('.json', '').replace(/_/g, ' ')
+        }))
+        allDuas.push(...duasWithMeta)
+      } else {
+        console.warn(`  ⚠️ Skipping ${file} - not an array`)
       }
     } catch (error) {
-      console.error(`Error loading ${file}:`, error.message)
+      console.error(`  ❌ Error loading ${file}:`, error.message)
     }
   }
 
@@ -76,14 +95,13 @@ function loadAllDuas() {
 
 /**
  * Compose embedding text for a dua
- * Combines: category + title + translation + tags + virtue excerpt
+ * Combines: category + title + translation + tags
  *
  * This captures the full contextual meaning:
  * - Category provides situational context (when/where the dua is used)
  * - Title describes what the dua is for
  * - Translation provides the meaning/content
  * - Tags enhance searchability by purpose
- * - Virtue explains the benefits/virtues
  */
 function composeEmbeddingText(dua) {
   const parts = [
@@ -94,9 +112,7 @@ function composeEmbeddingText(dua) {
     // Translation (meaning/content of the dua)
     dua.translation ? `Meaning: ${dua.translation}` : '',
     // Tags (purpose/situation signal)
-    dua.tags && dua.tags.length > 0 ? `Tags: ${dua.tags.join(', ')}` : '',
-    // Virtue/benefits excerpt (detailed purpose)
-    dua.virtue ? `Benefits: ${dua.virtue.substring(0, 500)}` : ''
+    dua.tags && dua.tags.length > 0 ? `Tags: ${dua.tags.join(', ')}` : ''
   ]
 
   return parts.filter(p => p.trim()).join('. ').trim()
@@ -143,7 +159,7 @@ function sleep(ms) {
  * Generate embeddings for all duas
  */
 async function generateAllEmbeddings(duas) {
-  console.log(`Loading ${duas.length} duas for embedding generation...`)
+  console.log(`\nProcessing ${duas.length} duas for embedding generation...`)
 
   // Load checkpoint to resume if interrupted
   const checkpoint = loadCheckpoint()
@@ -151,7 +167,11 @@ async function generateAllEmbeddings(duas) {
   const embeddings = checkpoint.embeddings
 
   // Filter out already completed duas
-  const pendingDuas = duas.filter(dua => !completedIds.has(dua.source_file + ':' + dua.id))
+  // Use new key format: chapter_N:id
+  const pendingDuas = duas.filter(dua => {
+    const key = `chapter_${dua.chapter_num}:${dua.id}`
+    return !completedIds.has(key)
+  })
 
   if (pendingDuas.length === 0) {
     console.log('All duas already embedded. Loading from checkpoint...')
@@ -174,14 +194,15 @@ async function generateAllEmbeddings(duas) {
         const text = composeEmbeddingText(dua)
         const embedding = await generateEmbedding(text)
 
-        // Use composite key: source_file:id to avoid conflicts across files
-        const compositeKey = `${dua.source_file}:${dua.id}`
+        // Use new key format: chapter_N:id
+        const compositeKey = `chapter_${dua.chapter_num}:${dua.id}`
         embeddings[compositeKey] = embedding
         completedIds.add(compositeKey)
 
-        console.log(`  ✓ ${compositeKey}: ${dua.title.substring(0, 50)}...`)
+        const titlePreview = (dua.title || dua.category_name || 'Untitled').substring(0, 50)
+        console.log(`  ✓ ${compositeKey}: ${titlePreview}...`)
       } catch (error) {
-        console.error(`  ✗ ${dua.source_file}:${dua.id}: ${error.message}`)
+        console.error(`  ✗ chapter_${dua.chapter_num}:${dua.id}: ${error.message}`)
         // Continue on error instead of failing
       }
     }
@@ -209,21 +230,21 @@ async function generateAllEmbeddings(duas) {
  */
 async function main() {
   try {
-    console.log('=== Dua Embeddings Generation ===')
+    console.log('=== Dua Embeddings Generation (Hisn al-Muslim) ===')
     console.log(`API Key configured: ${GEMINI_API_KEY.substring(0, 10)}...`)
     console.log('')
 
-    // Load all duas
+    // Load all duas from chapter files
     const duas = loadAllDuas()
-    console.log(`Loaded ${duas.length} duas from ${new Set(duas.map(d => d.source_file)).size} files`)
-    console.log('')
+    const uniqueChapters = new Set(duas.map(d => d.chapter_num))
+    console.log(`Loaded ${duas.length} duas from ${uniqueChapters.size} chapters`)
 
     // Generate embeddings
     const embeddings = await generateAllEmbeddings(duas)
 
     // Save to output file
     fs.writeFileSync(outputPath, JSON.stringify(embeddings, null, 2))
-    console.log(`Saved embeddings to ${outputPath}`)
+    console.log(`\nSaved embeddings to ${outputPath}`)
     console.log(`File size: ${(fs.statSync(outputPath).size / 1024 / 1024).toFixed(2)} MB`)
 
     // Clean up checkpoint on successful completion

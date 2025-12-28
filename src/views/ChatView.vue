@@ -884,35 +884,34 @@ const loadDuaEmbeddings = async () => {
   return {}
 }
 
-// Helper function to load all duas from category JSON files
+// Helper function to load all duas from duas.json (Hisn al-Muslim 132 chapters)
 const loadAllDuas = async () => {
   const allDuas = []
-  const duaFiles = [
-    'morning', 'evening', 'before-sleep', 'after-salah', 'salah', 'travel',
-    'food-drink', 'money-shopping', 'marriage-children', 'death', 'nature',
-    'istighfar', 'difficulties-happiness', 'dhikr-all-times', 'waking-up',
-    'evening', 'protection-iman', 'praises-allah', 'ruqyah-illness',
-    'quranic-duas', 'sunnah-duas', 'adhan-masjid', 'salawat', 'hajj-umrah',
-    'gatherings', 'home', 'clothes'
-  ]
 
-  for (const file of duaFiles) {
-    try {
-      const response = await fetch(`./data/dua/${file}.json`)
-      if (response.ok) {
-        const content = await response.json()
-        if (content.duas && Array.isArray(content.duas)) {
-          allDuas.push(...content.duas.map(dua => ({
+  try {
+    const response = await fetch('./data/dua/duas.json')
+    if (response.ok) {
+      const duasByCategory = await response.json()
+
+      // duas.json is keyed by chapter_N (e.g., "chapter_1", "chapter_27", etc.)
+      for (const [categoryId, duas] of Object.entries(duasByCategory)) {
+        if (Array.isArray(duas)) {
+          // Extract chapter number from category_id (e.g., "chapter_27" -> 27)
+          const chapterMatch = categoryId.match(/chapter_(\d+)/)
+          const chapterNum = chapterMatch ? parseInt(chapterMatch[1]) : null
+
+          allDuas.push(...duas.map(dua => ({
             ...dua,
-            source_file: `${file}.json`,  // Add source file (with .json) for composite key matching with embeddings
-            category_id: content.category_id,
-            category_name: content.category_name
+            // Use chapter_N:id format for embedding key matching
+            chapter_num: chapterNum,
+            category_id: categoryId
           })))
         }
       }
-    } catch (error) {
-      // File may not exist, skip
+      console.log(`Loaded ${allDuas.length} duas from ${Object.keys(duasByCategory).length} chapters`)
     }
+  } catch (error) {
+    console.warn('Error loading duas:', error)
   }
 
   return allDuas
@@ -947,13 +946,13 @@ onMounted(async () => {
     const questions = await dataStore.getAllQuestions()
     const duas = await loadAllDuas()
 
-    // DEBUG: Verify source_file is added to duas
-    const duaWithSourceFile = duas.find(d => d.source_file)
-    if (duaWithSourceFile) {
-      console.log(`✓ Duas have source_file: ${duaWithSourceFile.source_file}:${duaWithSourceFile.id}`)
+    // DEBUG: Verify chapter_num is added to duas (for embedding key matching)
+    const duaWithChapter = duas.find(d => d.chapter_num)
+    if (duaWithChapter) {
+      console.log(`✓ Duas have chapter_num: chapter_${duaWithChapter.chapter_num}:${duaWithChapter.id}`)
     } else {
-      console.warn(`✗ PROBLEM: Duas missing source_file field!`)
-      console.warn(`Sample dua keys:`, Object.keys(duas[0]).join(', '))
+      console.warn(`✗ PROBLEM: Duas missing chapter_num field!`)
+      console.warn(`Sample dua keys:`, duas[0] ? Object.keys(duas[0]).join(', ') : 'none')
     }
 
     // Load AI summaries, question embeddings, and dua embeddings in parallel

@@ -62,8 +62,8 @@ class UnifiedChatSearchService {
 
     this.duaMap = {}
     for (const dua of this.duas) {
-      // Use composite key to handle duplicate IDs across different dua files
-      const compositeKey = dua.source_file ? `${dua.source_file}:${dua.id}` : `${dua.id}`
+      // Use chapter_N:id format to match embedding keys (e.g., "chapter_1:1")
+      const compositeKey = dua.chapter_num ? `chapter_${dua.chapter_num}:${dua.id}` : `${dua.id}`
       this.duaMap[compositeKey] = dua
     }
 
