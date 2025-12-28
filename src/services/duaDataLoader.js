@@ -7,7 +7,7 @@
 import dexieDb from './dexieDatabase'
 
 // Current data version - increment when data structure changes
-const CURRENT_DUA_DATA_VERSION = 3 // Version 3: Hisn al-Muslim 132 chapters
+const CURRENT_DUA_DATA_VERSION = 4 // Version 4: Added icons and colors to categories
 
 class DuaDataLoader {
   /**
