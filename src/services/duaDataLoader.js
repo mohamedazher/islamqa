@@ -7,7 +7,7 @@
 import dexieDb from './dexieDatabase'
 
 // Current data version - increment when data structure changes
-const CURRENT_DUA_DATA_VERSION = 10 // Version 10: Split morning/evening adhkar into separate categories
+const CURRENT_DUA_DATA_VERSION = 11 // Version 11: Fix dua ID collision between morning/evening (unique IDs per category)
 
 class DuaDataLoader {
   /**

@@ -457,10 +457,15 @@ function buildDuaData() {
     })
 
     // Update duas with consistent category_id, normalize field names, and add unique global id
+    // IMPORTANT: Use categoryId (not chapterNum) in ID to avoid collisions between morning/evening
     const updatedDuas = duas.map((dua, idx) => {
+      // For split chapters (morning/evening), use full categoryId to ensure unique IDs
+      // e.g., "chapter_27_morning_hisn_75" vs "chapter_27_evening_hisn_75"
+      const idPrefix = (isMorning || isEvening) ? `${chapterNum}_${chapterSlug}` : `${chapterNum}`
+
       // Normalize field names for consistent component access
       const normalized = {
-        id: `${chapterNum}_${dua.id || idx + 1}`,
+        id: `${idPrefix}_${dua.id || idx + 1}`,
         category_id: categoryId,
         category_name: categoryName,
         chapter_num: chapterNum,

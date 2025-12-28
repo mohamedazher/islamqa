@@ -64,15 +64,35 @@ class UnifiedChatSearchService {
     for (const dua of this.duas) {
       // Use category_id:originalId format to match embedding keys
       // e.g., "chapter_1:1", "chapter_27_morning:hisn_75", "chapter_27_evening:hisn_75"
-      // dua.id from duas.json is composite like "1_1" or "27_hisn_75" (chapterNum_originalId)
-      // Extract original ID by removing the chapter prefix (split on first _ only)
+      //
+      // dua.id formats from duas.json:
+      // - Regular chapters: "{chapterNum}_{originalId}" → e.g., "1_1", "28_1"
+      // - Morning/evening: "{chapterNum}_{slug}_{originalId}" → e.g., "27_morning_hisn_75"
+      //
+      // Extract originalId based on whether this is a morning/evening chapter
       const idStr = String(dua.id)
-      const firstUnderscoreIdx = idStr.indexOf('_')
-      const originalId = firstUnderscoreIdx > -1
-        ? idStr.substring(firstUnderscoreIdx + 1)
-        : dua.id
+      const categoryId = dua.category_id || ''
+      const isMorningEvening = categoryId.endsWith('_morning') || categoryId.endsWith('_evening')
+
+      let originalId
+      if (isMorningEvening) {
+        // Format: "27_morning_hisn_75" or "27_evening_hisn_75"
+        // Find second underscore to extract originalId
+        const firstUnderscore = idStr.indexOf('_')
+        const secondUnderscore = idStr.indexOf('_', firstUnderscore + 1)
+        originalId = secondUnderscore > -1
+          ? idStr.substring(secondUnderscore + 1)
+          : idStr
+      } else {
+        // Format: "1_1" or "28_hisn_75"
+        const firstUnderscore = idStr.indexOf('_')
+        originalId = firstUnderscore > -1
+          ? idStr.substring(firstUnderscore + 1)
+          : idStr
+      }
+
       // Use category_id (e.g., "chapter_27_morning") not just chapter_num
-      const compositeKey = dua.category_id ? `${dua.category_id}:${originalId}` : `${dua.id}`
+      const compositeKey = categoryId ? `${categoryId}:${originalId}` : `${dua.id}`
       this.duaMap[compositeKey] = dua
     }
 
