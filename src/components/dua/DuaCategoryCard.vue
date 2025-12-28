@@ -2,36 +2,32 @@
   <!-- Card matching question CategoryCard mobile style -->
   <div
     @click="$emit('click')"
-    class="group relative overflow-hidden bg-gradient-to-br rounded-xl shadow-md hover:shadow-xl dark:shadow-neutral-900/50 p-5 cursor-pointer transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+    class="group relative overflow-hidden bg-gradient-to-br rounded-xl shadow-md hover:shadow-xl dark:shadow-neutral-900/50 p-4 cursor-pointer transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
     :class="gradientClass"
   >
     <!-- Decorative Circle -->
     <div class="absolute -right-4 -top-4 w-24 h-24 rounded-full opacity-10 bg-white"></div>
 
     <div class="relative">
-      <div class="flex items-start gap-3">
-        <!-- Icon Container -->
-        <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-          <span class="text-2xl">{{ category.icon || '📿' }}</span>
+      <!-- Icon and Arrow row -->
+      <div class="flex items-center justify-between mb-2">
+        <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+          <span class="text-xl">{{ category.icon || '📿' }}</span>
         </div>
-
-        <!-- Content -->
-        <div class="flex-1 min-w-0">
-          <h4 class="font-bold text-white line-clamp-2 break-words mb-2 leading-snug">
-            {{ category.title }}
-          </h4>
-          <p class="text-xs text-white/90 flex items-center gap-2">
-            <span class="bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full">
-              {{ category.dua_count }} duas
-            </span>
-          </p>
-        </div>
-
-        <!-- Arrow -->
-        <svg class="w-5 h-5 text-white/70 group-hover:text-white transition-colors flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="w-5 h-5 text-white/70 group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
           <path d="M9 5l7 7-7 7"></path>
         </svg>
       </div>
+
+      <!-- Title - full width -->
+      <h4 class="font-bold text-white text-sm leading-snug mb-2 line-clamp-3">
+        {{ category.title }}
+      </h4>
+
+      <!-- Dua count -->
+      <span class="text-xs bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full text-white/90">
+        {{ category.dua_count }} duas
+      </span>
     </div>
   </div>
 </template>
