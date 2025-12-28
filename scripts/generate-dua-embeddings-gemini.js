@@ -63,14 +63,23 @@ function loadAllDuas() {
       const filePath = path.join(duaDataDir, file)
       const content = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
 
-      // Extract chapter number from filename
-      const chapterMatch = file.match(/chapter_(\d+)/)
+      // Extract chapter number and slug from filename
+      // Handles: chapter_27_morning.json, chapter_27_evening.json, chapter_1_waking_up.json
+      const chapterMatch = file.match(/chapter_(\d+)_(.+)\.json/)
       if (!chapterMatch) {
         console.warn(`  ⚠️ Skipping ${file} - unexpected filename format`)
         continue
       }
 
       const chapterNum = parseInt(chapterMatch[1])
+      const chapterSlug = chapterMatch[2]
+
+      // Determine category_id: for morning/evening use full id, otherwise just chapter_N
+      const isMorning = chapterSlug === 'morning'
+      const isEvening = chapterSlug === 'evening'
+      const categoryId = (isMorning || isEvening)
+        ? `chapter_${chapterNum}_${chapterSlug}`
+        : `chapter_${chapterNum}`
 
       // New format: flat array of duas
       if (Array.isArray(content)) {
@@ -78,8 +87,10 @@ function loadAllDuas() {
           ...dua,
           source_file: file,
           chapter_num: chapterNum,
+          // Use full category_id for split chapters
+          category_id: categoryId,
           // Ensure category_name exists
-          category_name: dua.category_name || file.replace(/chapter_\d+_/, '').replace('.json', '').replace(/_/g, ' ')
+          category_name: dua.category_name || chapterSlug.replace(/_/g, ' ')
         }))
         allDuas.push(...duasWithMeta)
       } else {
@@ -167,9 +178,9 @@ async function generateAllEmbeddings(duas) {
   const embeddings = checkpoint.embeddings
 
   // Filter out already completed duas
-  // Use new key format: chapter_N:id
+  // Use key format: category_id:id (e.g., "chapter_27_morning:hisn_75")
   const pendingDuas = duas.filter(dua => {
-    const key = `chapter_${dua.chapter_num}:${dua.id}`
+    const key = `${dua.category_id}:${dua.id}`
     return !completedIds.has(key)
   })
 
@@ -194,15 +205,15 @@ async function generateAllEmbeddings(duas) {
         const text = composeEmbeddingText(dua)
         const embedding = await generateEmbedding(text)
 
-        // Use new key format: chapter_N:id
-        const compositeKey = `chapter_${dua.chapter_num}:${dua.id}`
+        // Use key format: category_id:id (e.g., "chapter_27_morning:hisn_75")
+        const compositeKey = `${dua.category_id}:${dua.id}`
         embeddings[compositeKey] = embedding
         completedIds.add(compositeKey)
 
         const titlePreview = (dua.title || dua.category_name || 'Untitled').substring(0, 50)
         console.log(`  ✓ ${compositeKey}: ${titlePreview}...`)
       } catch (error) {
-        console.error(`  ✗ chapter_${dua.chapter_num}:${dua.id}: ${error.message}`)
+        console.error(`  ✗ ${dua.category_id}:${dua.id}: ${error.message}`)
         // Continue on error instead of failing
       }
     }

@@ -175,6 +175,7 @@
 import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useDuaStore } from '@/stores/dua'
+import { useGamificationStore } from '@/stores/gamification'
 import { shareDua } from '@/utils/sharing'
 import confetti from 'canvas-confetti'
 import Icon from '@/components/common/Icon.vue'
@@ -182,6 +183,7 @@ import DuaQuickSettings from '@/components/dua/DuaQuickSettings.vue'
 
 const route = useRoute()
 const duaStore = useDuaStore()
+const gamificationStore = useGamificationStore()
 
 const showSettings = ref(false)
 const showCompletion = ref(false)
@@ -221,8 +223,20 @@ function triggerConfetti() {
   })
 }
 
-// Watch for reaching the last card
+// Track dua reads
+const readDuaIndices = ref(new Set())
+
+// Watch for dua changes and award points
 watch(currentScrollIndex, (newIndex) => {
+  // Track unique dua reads (only count first time viewing each dua in session)
+  if (!readDuaIndices.value.has(newIndex) && allDuas.value[newIndex]) {
+    readDuaIndices.value.add(newIndex)
+    const currentDua = allDuas.value[newIndex]
+    const categoryId = route.params.id
+    gamificationStore.readDua(currentDua.id, categoryId)
+  }
+
+  // Trigger confetti when reaching the last card
   if (newIndex === totalDuas.value - 1 && !hasTriggeredConfetti.value && totalDuas.value > 0) {
     hasTriggeredConfetti.value = true
     triggerConfetti()
@@ -321,6 +335,19 @@ onMounted(async () => {
   await nextTick()
   scrollToIndex(0)
   hasTriggeredConfetti.value = false
+
+  // Track the first dua as read
+  if (allDuas.value.length > 0) {
+    readDuaIndices.value.add(0)
+    gamificationStore.readDua(allDuas.value[0].id, categoryId)
+  }
+
+  // Set adhkar totals if this is a morning/evening category
+  if (categoryId.includes('morning') || categoryId === 'chapter_27_morning') {
+    gamificationStore.setMorningAdhkarTotal(allDuas.value.length)
+  } else if (categoryId.includes('evening') || categoryId === 'chapter_27_evening') {
+    gamificationStore.setEveningAdhkarTotal(allDuas.value.length)
+  }
 })
 </script>
 

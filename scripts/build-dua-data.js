@@ -105,92 +105,257 @@ const EMOJI_KEYWORDS = [
 // Get emoji based on keywords
 // Tab assignments for 132 chapters
 // Based on usage frequency and logical grouping
+// The ORDER in each array determines display order (logical daily flow)
 const TAB_ASSIGNMENTS = {
-  // TAB 1: DAILY - Most frequently used, multiple times a day
+  // TAB 1: DAILY - Ordered by time of day flow
   daily: [
+    // === WAKING UP ===
     1,   // When waking up
-    2, 3, 5, 6,  // Clothes (wearing, new garment, undressing)
-    7, 8, 9,     // Bathroom/ablution
-    10, 11,      // Home (leaving, entering)
-    27,  // Morning and evening adhkar (MOST IMPORTANT!)
-    29, 30, 31,  // Sleep-related (tossing, unrest, dreams)
-    68, 69, 70, 71, // Eating/fasting (breaking fast, before eating, after meal, ayat kursi)
-    73, 74, 75,  // More fasting related
     93,  // Upon rising in morning
-    102, 103, 104, 105, // Sleep (laying down, before lying, before sleeping, waking up)
+    105, // Upon waking up from sleep
+
+    // === MORNING ADHKAR ===
+    '27_morning',  // Morning Adhkar (special handling for split chapter)
+
+    // === BATHROOM & ABLUTION ===
+    7,   // After leaving the bathroom
+    8,   // Before ablution
+    9,   // Upon completing ablution
+
+    // === GETTING DRESSED ===
+    2,   // When wearing a garment
+    3,   // When wearing a new garment
+
+    // === LEAVING HOME ===
+    10,  // Remembrance when leaving home
+
+    // === DURING THE DAY - EATING ===
+    69,  // Before eating
+    70,  // Upon completing the meal
+    71,  // Ayat al-Kursi
     108, // After eating
-    111, 112, 115, // More sleep related
+
+    // === FASTING ===
+    68,  // Upon breaking fast
+    73,  // When breaking fast in someone's home
+    74,  // By one fasting when presented with food
+    75,  // When insulted while fasting
+
+    // === RETURNING HOME ===
+    11,  // Remembrance upon entering home
+
+    // === UNDRESSING ===
+    5,   // Before undressing
+    6,   // Before undressing (alt)
+
+    // === EVENING ADHKAR ===
+    '27_evening',  // Evening Adhkar (special handling for split chapter)
+
+    // === BEFORE SLEEP ===
+    102, // When laying down to sleep
+    103, // Before lying down to sleep
+    104, // Before sleeping
+    111, // Before sleeping (alt)
+    115, // Apprehensiveness sleep
+
+    // === DURING SLEEP ===
+    29,  // When tossing and turning
+    30,  // Upon experiencing unrest during sleep
+    31,  // Upon seeing good/bad dream
+    112, // When tossing and turning (alt)
   ],
 
-  // TAB 2: SALAH - Prayer related
+  // TAB 2: SALAH - Prayer related (ordered by prayer sequence)
   salah: [
-    12, 13, 14,  // Mosque (going, entering, leaving)
-    15, 16, 17, 18, 19, 20, // Prayer positions (salawat, opening, bowing, rising, prostrating, between)
-    21, 22, 23, 24, 25, // More prayer (sajdah tilawah, tashahhud, salawat, after tashahhud, after salam)
-    26, 28,  // Istikhara
-    32, 33,  // Witr/Qunoot
-    36,  // Bowing prayer
-    52,  // Tashahhud
-    66,  // After salam
-    107, // Excellence of prayers upon prophet
-    116, // Qunoot of witr
-    118, 119, // After obligatory prayer, after witr
+    // === GOING TO MOSQUE ===
+    12,  // When going to the mosque
+    13,  // Upon entering the mosque
+
+    // === BEFORE PRAYER ===
+    26,  // Istikhara - seeking guidance
+    28,  // Istikhara (alt)
+
+    // === DURING PRAYER (in sequence) ===
+    16,  // At the start of the prayer (after takbeer)
+    17,  // While bowing in prayer
+    36,  // Bowing prayer (alt)
+    18,  // Upon rising from bowing position
+    19,  // While prostrating
+    20,  // Between the two prostrations
+    21,  // When prostrating due to Quran recitation
+    22,  // The Tashahhud
+    52,  // Tashahhud (alt)
+    15,  // Prayers upon Prophet after tashahhud
+    23,  // Prayers upon Prophet after tashahhud (alt)
+    24,  // After the last tashahhud and before salam
+
+    // === AFTER PRAYER ===
+    25,  // After salam
+    66,  // After salam (alt)
+    118, // After obligatory prayer
+
+    // === WITR PRAYER ===
+    32,  // Qunoot Al-Witr
+    116, // Qunoot of witr (alt)
+    33,  // Immediately after salam of witr
+    119, // After witr (alt)
+
+    // === LEAVING MOSQUE ===
+    14,  // Upon leaving the mosque
+
+    // === SALAWAT ===
+    107, // Excellence of prayers upon Prophet
   ],
 
   // TAB 3: PROTECTION - Spiritual protection & emotional relief
   protection: [
-    34, 35,  // Anxiety, distress
-    37, 38, 39, // Fear of rulers, against enemies, afraid of group
-    40, 42,  // Doubt in faith, whisperings in prayer
-    43, 44, 45, 46, // Affairs difficult, committing sin, expelling devil, mishap
-    48,  // Children protection
-    53,  // Calamity affliction
-    61,  // Children protection
-    76,  // Three quls protection
-    81, 82,  // Gratitude, seeking health refuge
-    85, 86,  // Expiation, returning forgiveness supplication
+    // === QURANIC PROTECTION ===
+    76,  // Three Quls (Al-Ikhlas, Al-Falaq, An-Nas)
+
+    // === GENERAL PROTECTION ===
     88,  // Seeking help/refuge in Allah
-    92, 94, 96, // Fear of shirk, scorn of omens, seeking forgiveness
-    124, 125, 126, // Distress, seeking refuge, encountering enemy
-    128, 129, 130, 131, 132, // Ward off devils, fear of rulers, against enemies, afraid of group
+    125, // Seeking refuge in Allah
+
+    // === AGAINST EVIL/DEVILS ===
+    45,  // For expelling the devil and his whisperings
+    128, // To ward off rebellious devils
+    42,  // Whisperings in prayer
+
+    // === ANXIETY & DISTRESS ===
+    34,  // For anxiety and sorrow
+    35,  // For one in distress
+    124, // For one in distress (alt)
+    43,  // For one whose affairs have become difficult
+
+    // === FAITH & SINS ===
+    40,  // For one afflicted with doubt in faith
+    44,  // Upon committing a sin
+    92,  // For fear of shirk
+    96,  // Seeking forgiveness
+
+    // === CALAMITIES ===
+    46,  // When stricken with a mishap
+    53,  // For one afflicted by a calamity
+
+    // === AGAINST ENEMIES & RULERS ===
+    37,  // For one afraid of ruler's injustice
+    129, // Fear of ruler's injustice (alt)
+    130, // Fear of ruler's injustice (alt 2)
+    38,  // Against enemies
+    131, // Against enemies (alt)
+    39,  // When afraid of a group
+    132, // When afraid of a group (alt)
+    126, // Upon encountering an enemy or authority
+
+    // === CHILDREN PROTECTION ===
+    48,  // Placing children under Allah's protection
+    61,  // Children protection (alt)
+
+    // === HEALTH & GRATITUDE ===
+    81,  // Gratitude for blessings
+    82,  // Seeking health and refuge from evil
+
+    // === FORGIVENESS ===
+    85,  // Expiation of sins at end of gathering
+    86,  // Returning a supplication of forgiveness
+
+    // === OTHER ===
+    94,  // Scorn of ascribing things to evil omens
   ],
 
   // TAB 4: SOCIAL - Interactions, travel, weather
   social: [
+    // === SOCIAL INTERACTIONS ===
     4,   // To someone wearing new garment
-    62, 63, 64, 65, 67, // Weather (thunder, rain, after rain, crescent moon)
-    72,  // Intending to give food
-    77, 78,  // Sneezing
-    83, 84,  // Seeing someone in trial, gatherings
-    87,  // To one who does favour
-    89, 90,  // Love for Allah's sake, one who offered wealth
-    95, 97, 98, 99, 100, 101, // Travel (mounting, town, market, stumbles, traveller duas)
-    106, // Pleasing/displeasing news
-    109, 110, // Greeting disbeliever, rooster/donkey
-    113, 114, // Praising, when praised
-    122, 123, // Amazement, pleasant news
+    77,  // Upon sneezing
+    78,  // When a disbeliever praises Allah after sneezing
+    84,  // At a sitting or gathering
+    87,  // To one who does you a favour
+    89,  // To one who pronounces love for Allah's sake
+    90,  // To one who offered you wealth
+    113, // Etiquette of praising a fellow Muslim
+    114, // For the one that has been praised
+    109, // Returning greeting to a disbeliever
+    83,  // Upon seeing someone in trial
+
+    // === NEWS & EMOTIONS ===
+    106, // Upon receiving pleasing or displeasing news
+    122, // At times of amazement and delight
+    123, // Upon receiving pleasant news
+
+    // === FOOD & HOSPITALITY ===
+    72,  // To one who intends to give food/drink
+
+    // === TRAVEL ===
+    95,  // When mounting transport
+    97,  // Upon entering a town or village
+    98,  // When entering the market
+    99,  // When transport stumbles
+    100, // Supplication of traveller for resident
+    101, // Supplication of resident for traveller
+
+    // === WEATHER & NATURE ===
+    62,  // Upon hearing thunder
+    63,  // For rain
+    64,  // When it rains
+    65,  // After rainfall
+    67,  // Upon sighting crescent moon
+    110, // Upon hearing rooster crow or donkey braying
   ],
 
   // TAB 5: LIFE EVENTS - Major milestones (marriage, birth, death, hajj)
   life: [
-    41,  // Settling debt
-    47,  // Birth congratulation
-    49, 50, 51, // Visiting sick, sick renounced hope
-    54, 55, 56, 57, 58, 59, 60, // Death/funeral (closing eyes, funeral prayer, child, condolence, grave)
-    79, 80,  // Marriage (newlywed, wedding)
-    91,  // Settling debt
-    117, 120, 121, 127, // Hajj (tawaf, muzdalifa, jamarat, slaughter)
+    // === MARRIAGE ===
+    79,  // To the newlywed
+    80,  // On wedding night or buying animal
+
+    // === BIRTH & CHILDREN ===
+    47,  // Congratulation on birth
+
+    // === FINANCES ===
+    41,  // Settling a debt
+    91,  // To the debtor when debt is settled
+
+    // === SICKNESS ===
+    49,  // When visiting the sick
+    50,  // Excellence of visiting the sick
+    51,  // When sick have renounced hope
+
+    // === DEATH & FUNERAL ===
+    54,  // When closing eyes of deceased
+    55,  // For deceased at funeral prayer
+    56,  // When deceased is a child
+    57,  // Condolence
+    58,  // Placing deceased in the grave
+    59,  // After burying the deceased
+    60,  // Visiting the graves
+
+    // === HAJJ & UMRAH ===
+    117, // Between Yemeni corner and black stone (Tawaf)
+    120, // Remembrance at Muzdalifa
+    121, // Takbir when throwing pebbles at Jamarat
+    127, // When slaughtering or offering sacrifice
   ],
 }
 
-// Get tab for a chapter number
-function getTabForChapter(chapterNum) {
+// Get tab and order for a chapter
+// chapterKey can be a number (e.g., 27) or string (e.g., '27_morning')
+function getTabAndOrder(chapterKey) {
   for (const [tab, chapters] of Object.entries(TAB_ASSIGNMENTS)) {
-    if (chapters.includes(chapterNum)) {
-      return tab
+    const index = chapters.indexOf(chapterKey)
+    if (index !== -1) {
+      return { tab, order: index + 1 }
+    }
+    // Also check numeric version for string keys
+    if (typeof chapterKey === 'string') {
+      const numericKey = parseInt(chapterKey)
+      const numIndex = chapters.indexOf(numericKey)
+      if (numIndex !== -1) {
+        return { tab, order: numIndex + 1 }
+      }
     }
   }
-  return 'daily' // Default fallback
+  return { tab: 'daily', order: 999 } // Default fallback
 }
 
 function getEmojiForCategory(title) {
@@ -261,14 +426,20 @@ function buildDuaData() {
 
     // Get category info from first dua
     const firstDua = duas[0]
-    const categoryId = `chapter_${chapterNum}`
+
+    // Handle special split chapters (e.g., chapter_27_morning, chapter_27_evening)
+    const isMorning = chapterSlug === 'morning'
+    const isEvening = chapterSlug === 'evening'
+    const categoryId = (isMorning || isEvening) ? `chapter_${chapterNum}_${chapterSlug}` : `chapter_${chapterNum}`
     const categoryName = firstDua.category_name || chapterSlug.replace(/_/g, ' ')
 
     // Get emoji icon based on category name
     const icon = getEmojiForCategory(categoryName)
 
-    // Get tab assignment for this chapter
-    const tab = getTabForChapter(chapterNum)
+    // Get tab and order for this chapter
+    // Use special key for morning/evening chapters
+    const chapterKey = isMorning ? `${chapterNum}_morning` : isEvening ? `${chapterNum}_evening` : chapterNum
+    const { tab, order: tabOrder } = getTabAndOrder(chapterKey)
 
     // Create category entry (colors computed in component based on numeric_id)
     categories.push({
@@ -279,7 +450,7 @@ function buildDuaData() {
       description: `Hisn al-Muslim Chapter ${chapterNum}`,
       icon: icon,
       dua_count: duas.length,
-      order: chapterNum,
+      order: tabOrder,  // Order within the tab (based on logical flow)
       tab: tab,
       parent_id: null,
       type: 'chapter'

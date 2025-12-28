@@ -893,16 +893,16 @@ const loadAllDuas = async () => {
     if (response.ok) {
       const duasByCategory = await response.json()
 
-      // duas.json is keyed by chapter_N (e.g., "chapter_1", "chapter_27", etc.)
+      // duas.json is keyed by category_id (e.g., "chapter_1", "chapter_27_morning", "chapter_27_evening")
       for (const [categoryId, duas] of Object.entries(duasByCategory)) {
         if (Array.isArray(duas)) {
-          // Extract chapter number from category_id (e.g., "chapter_27" -> 27)
+          // Extract chapter number from category_id (e.g., "chapter_27" or "chapter_27_morning" -> 27)
           const chapterMatch = categoryId.match(/chapter_(\d+)/)
           const chapterNum = chapterMatch ? parseInt(chapterMatch[1]) : null
 
           allDuas.push(...duas.map(dua => ({
             ...dua,
-            // Use chapter_N:id format for embedding key matching
+            // Use category_id (e.g., "chapter_27_morning") for embedding key matching
             chapter_num: chapterNum,
             category_id: categoryId
           })))

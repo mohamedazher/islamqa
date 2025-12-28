@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "hisn_number": 172,
+    "category_id": "when_it_rains",
+    "category_name": "When it rains",
+    "title": "When it rains - Hisn al-Muslim 172",
+    "arabic": "اللّهُمَّ صَيِّـباً نافِـعاً",
+    "transliteration": "Allahumma sayyiban nafi'a.",
+    "translation": "O Allah, (bring) beneficial rain clouds.",
+    "reference": "Al-Bukhari, cf. Al-Asqalani, Fathul-Bari 2/518",
+    "repetitions": null,
+    "order": 1,
+    "tags": ["When it rains", "Weather", "Rain"]
+  }
+]

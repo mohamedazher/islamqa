@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "hisn_number": null,
+    "category_id": "upon_breaking_fast",
+    "category_name": "Upon breaking fast",
+    "title": "Upon breaking fast - Hisn al-Muslim 68",
+    "arabic": "ذَهَـبَ الظَّمَـأُ، وَابْتَلَّـتِ العُـروق، وَثَبَـتَ الأجْـرُ إِنْ شـاءَ الله",
+    "transliteration": "Dhahaba aẓ-ẓama', wabtallati al-'urūq, wa thabata al-ajru in shā' Allāh",
+    "translation": "The thirst is gone, the veins are moistened and the reward is confirmed if Allah wills.",
+    "reference": "Hisn al-Muslim 176",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "Upon breaking fast"
+    ]
+  },
+  {
+    "id": 2,
+    "hisn_number": null,
+    "category_id": "upon_breaking_fast",
+    "category_name": "Upon breaking fast",
+    "title": "Upon breaking fast - Hisn al-Muslim 68",
+    "arabic": "اللّهُـمَّ إِنَّـي أَسْـأَلُـكَ بِرَحْمَـتِكَ الّتي وَسِـعَت كُلَّ شيء، أَنْ تَغْـفِرَ لي",
+    "transliteration": "Allāhumma laka ṣumtu wa 'alā rizqika afṭartu",
+    "translation": "O Allah, for You I have fasted and with Your provision I have broken my fast.",
+    "reference": "Hisn al-Muslim 177",
+    "repetitions": null,
+    "order": 2,
+    "tags": [
+      "Upon breaking fast"
+    ]
+  }
+]

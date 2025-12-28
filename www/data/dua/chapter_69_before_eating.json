@@ -1,0 +1,34 @@
+[
+  {
+    "id": 178,
+    "hisn_number": null,
+    "category_id": "before_eating",
+    "category_name": "Before eating",
+    "title": "Bismillah - Upon beginning to eat",
+    "arabic": "بِسْمِ الله",
+    "transliteration": "Bismillāh. And if you forget then when you remember, say: Bismillāhi fī awwalihi wa ākhirih.",
+    "translation": "In the Name of Allah.",
+    "reference": "Hisn al-Muslim 178",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "Before eating"
+    ]
+  },
+  {
+    "id": 179,
+    "hisn_number": null,
+    "category_id": "before_eating",
+    "category_name": "Before eating",
+    "title": "Dua for food and milk",
+    "arabic": "بِسْمِ اللهِ أَوَّلَهُ وَآخِرَه",
+    "transliteration": "Allāhumma bārik lanā fīhi, wa aṭ'imnā khayran minh. Whomever Allah has given milk to drink, should say: Allāhumma bārik lanā fīhi, wa zidnā minh.",
+    "translation": "In the Name of Allah at the beginning and at the end of it.",
+    "reference": "Hisn al-Muslim 179",
+    "repetitions": null,
+    "order": 2,
+    "tags": [
+      "Before eating"
+    ]
+  }
+]

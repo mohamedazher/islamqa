@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "hisn_number": 13,
+    "category_id": "upon_completing_ablution",
+    "category_name": "Upon completing the ablution",
+    "title": "Upon completing the ablution - Hisn al-Muslim 13",
+    "arabic": "أَشْهَدُ أَنْ لا إِلَـهَ إِلاّ اللهُ وَحْدَهُ لا شَريـكَ لَـهُ وَأَشْهَدُأَنَّ مُحَمّـداً عَبْـدُهُ وَرَسـولُـه",
+    "transliteration": "'Ash-hadu 'an lā 'ilāha 'illallāhu waḥdahu lā sharīka lahu wa 'ash-hadu 'anna Muḥammadan `abduhu wa Rasūluhu",
+    "translation": "I bear witness that none has the right to be worshipped but Allah alone, Who has no partner; and I bear witness that Muhammad is His slave and His Messenger",
+    "reference": "Muslim 1/209",
+    "repetitions": null,
+    "order": 1,
+    "tags": ["Upon completing the ablution"]
+  },
+  {
+    "id": 2,
+    "hisn_number": 14,
+    "category_id": "upon_completing_ablution",
+    "category_name": "Upon completing the ablution",
+    "title": "Upon completing the ablution - Hisn al-Muslim 14",
+    "arabic": "اللّهُـمَّ اجْعَلنـي مِنَ التَّـوّابينَ وَاجْعَـلْني مِنَ المتَطَهّـرين.",
+    "transliteration": "Allāhummaj`alnī minat-tawwābīna waj`alnī minal-mutaṭahhirīn",
+    "translation": "O Allah, make me among those who turn to You in repentance, and make me among those who are purified",
+    "reference": "At-Tirmidhi 1/78. See also Al-Albani, Sahih At-Tirmidhi 1/18",
+    "repetitions": null,
+    "order": 2,
+    "tags": ["Upon completing the ablution"]
+  },
+  {
+    "id": 3,
+    "hisn_number": 15,
+    "category_id": "upon_completing_ablution",
+    "category_name": "Upon completing the ablution",
+    "title": "Upon completing the ablution - Hisn al-Muslim 15",
+    "arabic": "سُبْحـانَكَ اللّهُـمَّ وَبِحَمدِك أَشْهَـدُ أَنْ لا إِلهَ إِلاّ أَنْتَ أَسْتَغْفِرُكَ وَأَتوبُ إِلَـيْك",
+    "transliteration": "Subḥānaka Allāhumma wa biḥamdika, 'ash-hadu 'an lā 'ilāha 'illā 'Anta, 'astaghfiruka wa 'atūbu 'ilayk",
+    "translation": "Glory is to You, O Allah, and praise; I bear witness that there is none worthy of worship but You. I seek Your forgiveness and turn to You in repentance",
+    "reference": "An-Nasa'i, 'Amalul-Yawm wal-Laylah, p. 173. See also Al-Albani, 'Irwa'ul-Ghalil 1/135 and 2/94",
+    "repetitions": null,
+    "order": 3,
+    "tags": ["Upon completing the ablution"]
+  }
+]

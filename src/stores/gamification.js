@@ -16,13 +16,31 @@ export const useGamificationStore = defineStore('gamification', () => {
   const questionsRead = ref(0)
   const readQuestionIds = ref(new Set()) // Track unique questions read
 
+  // Dua-specific state
+  const readDuaIds = ref(new Set()) // Track unique duas read
+  const lastMorningAdhkarDate = ref(null)
+  const lastEveningAdhkarDate = ref(null)
+  const morningStreak = ref(0) // Consecutive days completing ALL morning duas
+  const eveningStreak = ref(0) // Consecutive days completing ALL evening duas
+  const bothStreak = ref(0) // Consecutive days completing BOTH morning & evening
+  const todayMorningDuas = ref(new Set()) // Duas read today for morning adhkar
+  const todayEveningDuas = ref(new Set()) // Duas read today for evening adhkar
+  const morningAdhkarTotal = ref(25) // Total duas in morning adhkar (chapter 27)
+  const eveningAdhkarTotal = ref(25) // Total duas in evening adhkar (chapter 27)
+
   const stats = ref({
     totalPoints: 0,
     quizzesCompleted: 0,
     questionsRead: 0,
     bookmarksCreated: 0,
     avgAccuracy: 0,
-    longestStreak: 0
+    longestStreak: 0,
+    // Dua stats
+    duasRead: 0,
+    morningAdhkarDays: 0,
+    eveningAdhkarDays: 0,
+    bothAdhkarDays: 0,
+    longestAdhkarStreak: 0
   })
 
   // Define tier system
@@ -108,6 +126,97 @@ export const useGamificationStore = defineStore('gamification', () => {
       requirement: { type: 'daily-streak', count: 5 },
       points: 200,
       unlocked: false
+    },
+    // Dua achievements
+    {
+      id: 'first-dua',
+      name: 'First Dua',
+      description: 'Read your first dua',
+      icon: '🤲',
+      requirement: { type: 'dua-read', count: 1 },
+      points: 25,
+      unlocked: false
+    },
+    {
+      id: 'dua-learner',
+      name: 'Dua Learner',
+      description: 'Read 25 duas',
+      icon: '📿',
+      requirement: { type: 'dua-read', count: 25 },
+      points: 100,
+      unlocked: false
+    },
+    {
+      id: 'dua-memorizer',
+      name: 'Dua Memorizer',
+      description: 'Read 100 duas',
+      icon: '🧠',
+      requirement: { type: 'dua-read', count: 100 },
+      points: 300,
+      unlocked: false
+    },
+    {
+      id: 'morning-starter',
+      name: 'Morning Starter',
+      description: 'Complete morning adhkar',
+      icon: '🌅',
+      requirement: { type: 'morning-adhkar', count: 1 },
+      points: 50,
+      unlocked: false
+    },
+    {
+      id: 'evening-closer',
+      name: 'Evening Closer',
+      description: 'Complete evening adhkar',
+      icon: '🌆',
+      requirement: { type: 'evening-adhkar', count: 1 },
+      points: 50,
+      unlocked: false
+    },
+    {
+      id: 'full-day-adhkar',
+      name: 'Full Day',
+      description: 'Complete both morning & evening adhkar in one day',
+      icon: '✨',
+      requirement: { type: 'both-adhkar', count: 1 },
+      points: 100,
+      unlocked: false
+    },
+    {
+      id: 'adhkar-week',
+      name: 'Weekly Warrior',
+      description: 'Maintain a 7-day adhkar streak',
+      icon: '🔥',
+      requirement: { type: 'adhkar-streak', count: 7 },
+      points: 250,
+      unlocked: false
+    },
+    {
+      id: 'adhkar-month',
+      name: 'Monthly Master',
+      description: 'Maintain a 30-day adhkar streak',
+      icon: '👑',
+      requirement: { type: 'adhkar-streak', count: 30 },
+      points: 1000,
+      unlocked: false
+    },
+    {
+      id: 'morning-routine',
+      name: 'Morning Routine',
+      description: 'Complete morning adhkar 10 times',
+      icon: '☀️',
+      requirement: { type: 'morning-adhkar', count: 10 },
+      points: 200,
+      unlocked: false
+    },
+    {
+      id: 'evening-routine',
+      name: 'Evening Routine',
+      description: 'Complete evening adhkar 10 times',
+      icon: '🌙',
+      requirement: { type: 'evening-adhkar', count: 10 },
+      points: 200,
+      unlocked: false
     }
   ]
 
@@ -168,9 +277,27 @@ export const useGamificationStore = defineStore('gamification', () => {
       lastQuizDate.value = data.lastQuizDate || null
       lastDailyQuizDate.value = data.lastDailyQuizDate || null
       achievements.value = data.achievements || allAchievements.map(a => ({ ...a }))
-      stats.value = data.stats || stats.value
+      stats.value = { ...stats.value, ...data.stats }
       // Restore read question IDs from array
       readQuestionIds.value = new Set(data.readQuestionIds || [])
+
+      // Restore dua-specific state
+      readDuaIds.value = new Set(data.readDuaIds || [])
+      lastMorningAdhkarDate.value = data.lastMorningAdhkarDate || null
+      lastEveningAdhkarDate.value = data.lastEveningAdhkarDate || null
+      morningStreak.value = data.morningStreak || 0
+      eveningStreak.value = data.eveningStreak || 0
+      bothStreak.value = data.bothStreak || 0
+
+      // Reset today's progress if it's a new day
+      const today = new Date().toISOString().split('T')[0]
+      if (data.todayDate !== today) {
+        todayMorningDuas.value = new Set()
+        todayEveningDuas.value = new Set()
+      } else {
+        todayMorningDuas.value = new Set(data.todayMorningDuas || [])
+        todayEveningDuas.value = new Set(data.todayEveningDuas || [])
+      }
     } else {
       // Initialize with all achievements locked
       achievements.value = allAchievements.map(a => ({ ...a, unlocked: false }))
@@ -178,14 +305,25 @@ export const useGamificationStore = defineStore('gamification', () => {
   }
 
   function saveToStorage() {
+    const today = new Date().toISOString().split('T')[0]
     localStorage.setItem('gamification', JSON.stringify({
       points: points.value,
-      streak: streak.value, // Fixed: was saving points.value instead of streak.value
+      streak: streak.value,
       lastQuizDate: lastQuizDate.value,
       lastDailyQuizDate: lastDailyQuizDate.value,
       achievements: achievements.value,
       stats: stats.value,
-      readQuestionIds: Array.from(readQuestionIds.value) // Convert Set to array for storage
+      readQuestionIds: Array.from(readQuestionIds.value),
+      // Dua-specific storage
+      readDuaIds: Array.from(readDuaIds.value),
+      lastMorningAdhkarDate: lastMorningAdhkarDate.value,
+      lastEveningAdhkarDate: lastEveningAdhkarDate.value,
+      morningStreak: morningStreak.value,
+      eveningStreak: eveningStreak.value,
+      bothStreak: bothStreak.value,
+      todayDate: today,
+      todayMorningDuas: Array.from(todayMorningDuas.value),
+      todayEveningDuas: Array.from(todayEveningDuas.value)
     }))
   }
 
@@ -293,6 +431,22 @@ export const useGamificationStore = defineStore('gamification', () => {
         case 'daily-streak':
           shouldUnlock = streak.value >= req.count && streak.value % 5 === 0
           break
+        // Dua achievement types
+        case 'dua-read':
+          shouldUnlock = stats.value.duasRead >= req.count
+          break
+        case 'morning-adhkar':
+          shouldUnlock = stats.value.morningAdhkarDays >= req.count
+          break
+        case 'evening-adhkar':
+          shouldUnlock = stats.value.eveningAdhkarDays >= req.count
+          break
+        case 'both-adhkar':
+          shouldUnlock = stats.value.bothAdhkarDays >= req.count
+          break
+        case 'adhkar-streak':
+          shouldUnlock = bothStreak.value >= req.count
+          break
       }
 
       if (shouldUnlock) {
@@ -316,6 +470,231 @@ export const useGamificationStore = defineStore('gamification', () => {
     return lastDaily === today
   }
 
+  // ============ DUA METHODS ============
+
+  /**
+   * Track a dua being read
+   * @param {string} duaId - The dua ID
+   * @param {string} categoryId - The category ID (e.g., 'chapter_27_morning')
+   */
+  function readDua(duaId, categoryId = null) {
+    if (!duaId) return
+
+    // Track unique duas read
+    const isNewDua = !readDuaIds.value.has(duaId)
+    if (isNewDua) {
+      readDuaIds.value.add(duaId)
+      stats.value.duasRead++
+      awardPoints(5, 'Dua read')
+    }
+
+    // Track morning/evening adhkar progress
+    if (categoryId) {
+      if (categoryId.includes('morning') || categoryId === 'chapter_27_morning') {
+        todayMorningDuas.value.add(duaId)
+        checkMorningAdhkarCompletion()
+      } else if (categoryId.includes('evening') || categoryId === 'chapter_27_evening') {
+        todayEveningDuas.value.add(duaId)
+        checkEveningAdhkarCompletion()
+      }
+    }
+
+    checkAchievements()
+    saveToStorage()
+  }
+
+  /**
+   * Set the total number of duas in morning adhkar
+   */
+  function setMorningAdhkarTotal(total) {
+    morningAdhkarTotal.value = total
+  }
+
+  /**
+   * Set the total number of duas in evening adhkar
+   */
+  function setEveningAdhkarTotal(total) {
+    eveningAdhkarTotal.value = total
+  }
+
+  /**
+   * Check if morning adhkar is complete for today
+   */
+  function checkMorningAdhkarCompletion() {
+    const today = new Date().toISOString().split('T')[0]
+
+    // Already completed today
+    if (lastMorningAdhkarDate.value === today) return
+
+    // Check if all morning duas are read
+    if (todayMorningDuas.value.size >= morningAdhkarTotal.value) {
+      completeMorningAdhkar()
+    }
+  }
+
+  /**
+   * Check if evening adhkar is complete for today
+   */
+  function checkEveningAdhkarCompletion() {
+    const today = new Date().toISOString().split('T')[0]
+
+    // Already completed today
+    if (lastEveningAdhkarDate.value === today) return
+
+    // Check if all evening duas are read
+    if (todayEveningDuas.value.size >= eveningAdhkarTotal.value) {
+      completeEveningAdhkar()
+    }
+  }
+
+  /**
+   * Mark morning adhkar as complete
+   */
+  function completeMorningAdhkar() {
+    const today = new Date().toISOString().split('T')[0]
+
+    // Don't double-count
+    if (lastMorningAdhkarDate.value === today) return
+
+    // Update streak
+    const lastDate = lastMorningAdhkarDate.value
+    if (lastDate) {
+      const dayDiff = Math.floor((new Date(today) - new Date(lastDate)) / (1000 * 60 * 60 * 24))
+      if (dayDiff === 1) {
+        morningStreak.value++
+      } else if (dayDiff > 1) {
+        morningStreak.value = 1
+      }
+    } else {
+      morningStreak.value = 1
+    }
+
+    lastMorningAdhkarDate.value = today
+    stats.value.morningAdhkarDays++
+
+    // Award bonus points for completing ALL morning duas
+    awardPoints(20, 'Morning adhkar complete! ☀️')
+    console.log(`🌅 Morning adhkar complete! Streak: ${morningStreak.value} days`)
+
+    // Check if both are done today
+    checkBothAdhkarCompletion()
+    checkAchievements()
+    saveToStorage()
+  }
+
+  /**
+   * Mark evening adhkar as complete
+   */
+  function completeEveningAdhkar() {
+    const today = new Date().toISOString().split('T')[0]
+
+    // Don't double-count
+    if (lastEveningAdhkarDate.value === today) return
+
+    // Update streak
+    const lastDate = lastEveningAdhkarDate.value
+    if (lastDate) {
+      const dayDiff = Math.floor((new Date(today) - new Date(lastDate)) / (1000 * 60 * 60 * 24))
+      if (dayDiff === 1) {
+        eveningStreak.value++
+      } else if (dayDiff > 1) {
+        eveningStreak.value = 1
+      }
+    } else {
+      eveningStreak.value = 1
+    }
+
+    lastEveningAdhkarDate.value = today
+    stats.value.eveningAdhkarDays++
+
+    // Award bonus points for completing ALL evening duas
+    awardPoints(20, 'Evening adhkar complete! 🌙')
+    console.log(`🌆 Evening adhkar complete! Streak: ${eveningStreak.value} days`)
+
+    // Check if both are done today
+    checkBothAdhkarCompletion()
+    checkAchievements()
+    saveToStorage()
+  }
+
+  /**
+   * Check if both morning and evening adhkar are complete today
+   */
+  function checkBothAdhkarCompletion() {
+    const today = new Date().toISOString().split('T')[0]
+
+    const morningDone = lastMorningAdhkarDate.value === today
+    const eveningDone = lastEveningAdhkarDate.value === today
+
+    if (morningDone && eveningDone) {
+      // Check if this is a new "both" completion (not already counted today)
+      const lastBothDate = localStorage.getItem('lastBothAdhkarDate')
+      if (lastBothDate !== today) {
+        localStorage.setItem('lastBothAdhkarDate', today)
+        stats.value.bothAdhkarDays++
+
+        // Update both streak
+        const yesterday = new Date()
+        yesterday.setDate(yesterday.getDate() - 1)
+        const yesterdayStr = yesterday.toISOString().split('T')[0]
+
+        if (lastBothDate === yesterdayStr) {
+          bothStreak.value++
+          stats.value.longestAdhkarStreak = Math.max(stats.value.longestAdhkarStreak, bothStreak.value)
+          awardPoints(30, `${bothStreak.value}-day adhkar streak! 🔥`)
+        } else if (lastBothDate && lastBothDate !== yesterdayStr) {
+          bothStreak.value = 1
+        } else {
+          bothStreak.value = 1
+        }
+
+        // Bonus for completing both in one day
+        awardPoints(25, 'Both morning & evening adhkar complete! ✨')
+        console.log(`✨ Both adhkar complete! Streak: ${bothStreak.value} days`)
+      }
+    }
+  }
+
+  /**
+   * Check if morning adhkar is complete today
+   */
+  function hasDoneMorningAdhkarToday() {
+    const today = new Date().toISOString().split('T')[0]
+    return lastMorningAdhkarDate.value === today
+  }
+
+  /**
+   * Check if evening adhkar is complete today
+   */
+  function hasDoneEveningAdhkarToday() {
+    const today = new Date().toISOString().split('T')[0]
+    return lastEveningAdhkarDate.value === today
+  }
+
+  /**
+   * Get morning adhkar progress for today
+   */
+  function getMorningProgress() {
+    return {
+      completed: todayMorningDuas.value.size,
+      total: morningAdhkarTotal.value,
+      percent: Math.round((todayMorningDuas.value.size / morningAdhkarTotal.value) * 100),
+      isComplete: hasDoneMorningAdhkarToday()
+    }
+  }
+
+  /**
+   * Get evening adhkar progress for today
+   */
+  function getEveningProgress() {
+    return {
+      completed: todayEveningDuas.value.size,
+      total: eveningAdhkarTotal.value,
+      percent: Math.round((todayEveningDuas.value.size / eveningAdhkarTotal.value) * 100),
+      isComplete: hasDoneEveningAdhkarToday()
+    }
+  }
+
   function resetProgress() {
     if (confirm('Are you sure you want to reset all progress? This cannot be undone.')) {
       points.value = 0
@@ -329,9 +708,24 @@ export const useGamificationStore = defineStore('gamification', () => {
         questionsRead: 0,
         bookmarksCreated: 0,
         avgAccuracy: 0,
-        longestStreak: 0
+        longestStreak: 0,
+        duasRead: 0,
+        morningAdhkarDays: 0,
+        eveningAdhkarDays: 0,
+        bothAdhkarDays: 0,
+        longestAdhkarStreak: 0
       }
+      // Reset dua state
+      readDuaIds.value = new Set()
+      lastMorningAdhkarDate.value = null
+      lastEveningAdhkarDate.value = null
+      morningStreak.value = 0
+      eveningStreak.value = 0
+      bothStreak.value = 0
+      todayMorningDuas.value = new Set()
+      todayEveningDuas.value = new Set()
       localStorage.removeItem('gamification')
+      localStorage.removeItem('lastBothAdhkarDate')
     }
   }
 
@@ -345,6 +739,12 @@ export const useGamificationStore = defineStore('gamification', () => {
     achievements,
     stats,
     tiers,
+    // Dua state
+    morningStreak,
+    eveningStreak,
+    bothStreak,
+    todayMorningDuas,
+    todayEveningDuas,
 
     // Computed
     currentLevel,
@@ -366,6 +766,16 @@ export const useGamificationStore = defineStore('gamification', () => {
     checkAchievements,
     getAchievement,
     hasTakenDailyQuizToday,
-    resetProgress
+    resetProgress,
+    // Dua methods
+    readDua,
+    setMorningAdhkarTotal,
+    setEveningAdhkarTotal,
+    completeMorningAdhkar,
+    completeEveningAdhkar,
+    hasDoneMorningAdhkarToday,
+    hasDoneEveningAdhkarToday,
+    getMorningProgress,
+    getEveningProgress
   }
 })

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "hisn_number": null,
+    "category_id": "after_rainfall",
+    "category_name": "After rainfall",
+    "title": "After rainfall - Hisn al-Muslim 65",
+    "arabic": "مُطِـرْنا بِفَضْـلِ اللهِ وَرَحْمَـتِه",
+    "transliteration": "Muṭirnā bifaḍlillāhi wa raḥmatih",
+    "translation": "We have been given rain by the grace and mercy of Allah.",
+    "reference": "Al-Bukhari 1/205, Muslim 1/83",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "After rainfall"
+    ]
+  }
+]

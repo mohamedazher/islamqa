@@ -1,0 +1,72 @@
+[
+  {
+    "id": 33,
+    "hisn_number": 33,
+    "category_id": "bowing_in_prayer",
+    "category_name": "While bowing in prayer",
+    "title": "While bowing in prayer - Hisn al-Muslim 33",
+    "arabic": "سُبْـحانَ رَبِّـيَ الْعَظـيم (ثلاث مرات)",
+    "transliteration": "Subḥāna Rabbiyal-`Aẓīm.",
+    "translation": "Glory to my Lord the Exalted",
+    "reference": "Abu Dawud, Ibn Majah, An-Nasa'i, At-Tirmidhi, and Ahmad. See Al-Albani's Sahih At-Tirmidhi 1/83.",
+    "repetitions": 3,
+    "order": 1,
+    "tags": ["While bowing in prayer", "Tasbeeh"]
+  },
+  {
+    "id": 34,
+    "hisn_number": 34,
+    "category_id": "bowing_in_prayer",
+    "category_name": "While bowing in prayer",
+    "title": "While bowing in prayer - Hisn al-Muslim 34",
+    "arabic": "سُبْـحانَكَ اللّهُـمَّ رَبَّـنا وَبِحَـمْدِك ، اللّهُـمَّ اغْفِـرْ لي",
+    "transliteration": "Subḥānaka Allāhumma Rabbanā wa biḥamdika Allāhum-maghfir lī.",
+    "translation": "Glory is to You, O Allah, our Lord, and praise is Yours. O Allah, forgive me.",
+    "reference": "Al-Bukhari 1/99, Muslim 1/350.",
+    "repetitions": null,
+    "order": 2,
+    "tags": ["While bowing in prayer", "Tasbeeh"]
+  },
+  {
+    "id": 35,
+    "hisn_number": 35,
+    "category_id": "bowing_in_prayer",
+    "category_name": "While bowing in prayer",
+    "title": "While bowing in prayer - Hisn al-Muslim 35",
+    "arabic": "سُبـّوحٌ قُـدّْوس ، رَبُّ الملائِكَـةِ وَالـرُّوح",
+    "transliteration": "Subbūḥun, Quddūsun, Rabbul-malā'ikati warrūḥ.",
+    "translation": "Glory (to You), Most Holy (are You), Lord of the angels and the Spirit.",
+    "reference": "Muslim 1/353, Abu Dawud 1/230.",
+    "repetitions": null,
+    "order": 3,
+    "tags": ["While bowing in prayer", "Tasbeeh"]
+  },
+  {
+    "id": 36,
+    "hisn_number": 36,
+    "category_id": "bowing_in_prayer",
+    "category_name": "While bowing in prayer",
+    "title": "While bowing in prayer - Hisn al-Muslim 36",
+    "arabic": "اللّهُـمَّ لَكَ رَكَـعْتُ وَبِكَ آمَـنْت، ولَكَ أَسْلَـمْت ، خَشَـعَ لَكَ سَمْـعي، وَبَصَـري ، وَمُخِّـي، وَعَظْمـي، وَعَصَـبي ، وَما استَقَـلَّ بِهِ قَدَمي",
+    "transliteration": "Allāhumma laka raka`tu, wa bika 'āmantu, wa laka 'aslamtu khasha`a laka sam`ee wa baṣarī, wa mukhkhī, wa `aẓmī, wa `aṣabī, wa mastaqalla bihi qadamī.",
+    "translation": "O Allah, to You I bow (in prayer) and in You I believe and to You I have submitted. Before You my hearing is humbled, and my sight, and my mind, my bones, my nerves and what my feet have mounted upon (for travel).",
+    "reference": "Muslim 1/534, Abu Dawud, An-Nasa'i and At-Tirmidhi.",
+    "repetitions": null,
+    "order": 4,
+    "tags": ["While bowing in prayer"]
+  },
+  {
+    "id": 37,
+    "hisn_number": 37,
+    "category_id": "bowing_in_prayer",
+    "category_name": "While bowing in prayer",
+    "title": "While bowing in prayer - Hisn al-Muslim 37",
+    "arabic": "سُبْـحانَ ذي الْجَبَـروت، والمَلَـكوت، وَالكِبْـرِياء، وَالْعَظَـمَةِ",
+    "transliteration": "Subḥāna dhil-jabarūti, walmalakūti, walkibriyā'i, wal`aẓamati.",
+    "translation": "Glory is to You, Master of power, of dominion, of majesty and greatness.",
+    "reference": "Abu Dawud 1/230, An-Nasa'i and Ahmad. Its chain of narration is good (Hasan).",
+    "repetitions": null,
+    "order": 5,
+    "tags": ["While bowing in prayer", "Tasbeeh"]
+  }
+]

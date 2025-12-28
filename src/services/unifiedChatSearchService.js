@@ -62,7 +62,8 @@ class UnifiedChatSearchService {
 
     this.duaMap = {}
     for (const dua of this.duas) {
-      // Use chapter_N:originalId format to match embedding keys (e.g., "chapter_1:1")
+      // Use category_id:originalId format to match embedding keys
+      // e.g., "chapter_1:1", "chapter_27_morning:hisn_75", "chapter_27_evening:hisn_75"
       // dua.id from duas.json is composite like "1_1" or "27_hisn_75" (chapterNum_originalId)
       // Extract original ID by removing the chapter prefix (split on first _ only)
       const idStr = String(dua.id)
@@ -70,7 +71,8 @@ class UnifiedChatSearchService {
       const originalId = firstUnderscoreIdx > -1
         ? idStr.substring(firstUnderscoreIdx + 1)
         : dua.id
-      const compositeKey = dua.chapter_num ? `chapter_${dua.chapter_num}:${originalId}` : `${dua.id}`
+      // Use category_id (e.g., "chapter_27_morning") not just chapter_num
+      const compositeKey = dua.category_id ? `${dua.category_id}:${originalId}` : `${dua.id}`
       this.duaMap[compositeKey] = dua
     }
 

@@ -1037,14 +1037,14 @@ class DexieDatabase extends Dexie {
 
   /**
    * Get duas by category id
-   * In Hisn al-Muslim data: categoryId is a string like "morning_evening"
+   * In Hisn al-Muslim data: categoryId is a string like "chapter_27_morning" or "chapter_1"
    */
   async getDuasByCategory(categoryId) {
     try {
       console.log(`🔍 getDuasByCategory called with: ${categoryId} (type: ${typeof categoryId})`)
 
       // In the Hisn al-Muslim data structure:
-      // - Categories have string `id` (e.g., "morning_evening")
+      // - Categories have string `id` (e.g., "chapter_27_morning", "chapter_1")
       // - Duas have string `category_id` that matches the category's `id`
       const stringId = String(categoryId)
 

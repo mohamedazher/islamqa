@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "hisn_number": 140,
+    "category_id": "upon_committing_a_sin",
+    "category_name": "Upon committing a sin",
+    "title": "Upon committing a sin - Hisn al-Muslim 140",
+    "arabic": "مَا مِنْ عَبْدٍ يُذنِبُ ذَنْباً فَيُحْسِنُ الطُّهُورَ، ثُمَّ يَقُومُ فَيُصَلِّي رَكْعَتَيْنِ، ثُمَّ يَسْتَغْفِرُ اللَّهَ إِلاَّ غَفَرَ اللَّهُ لَهُ",
+    "transliteration": "Mā min 'abdin yudhnib dhanbān fa-yuḥsin aṭ-ṭuhūr, thumma yaqūm fa-yuṣallī rak'atayn, thumma yastaghfir Allāh illā ghafara Allāhu lah.",
+    "translation": "There is not any slave of Allah who commits a sin, then he perfects his purification and stands to pray two Rak'ahs of prayer, then seeks Allah's forgiveness, except that Allah will forgive him.",
+    "reference": "Abu Dawud 2/86, At-Tirmidhi 2/257. Al-Albani graded it authentic in Sahih Abu Dawud 1/283.",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "sin",
+      "repentance",
+      "forgiveness",
+      "purification",
+      "prayer",
+      "istighfar"
+    ]
+  }
+]

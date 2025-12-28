@@ -20,7 +20,7 @@
     "description": "Hisn al-Muslim Chapter 2",
     "icon": "👔",
     "dua_count": 1,
-    "order": 2,
+    "order": 8,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -33,7 +33,7 @@
     "description": "Hisn al-Muslim Chapter 3",
     "icon": "👔",
     "dua_count": 1,
-    "order": 3,
+    "order": 9,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -46,7 +46,7 @@
     "description": "Hisn al-Muslim Chapter 4",
     "icon": "👔",
     "dua_count": 2,
-    "order": 4,
+    "order": 1,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -59,7 +59,7 @@
     "description": "Hisn al-Muslim Chapter 5",
     "icon": "👔",
     "dua_count": 1,
-    "order": 5,
+    "order": 20,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -72,7 +72,7 @@
     "description": "Hisn al-Muslim Chapter 6",
     "icon": "👔",
     "dua_count": 1,
-    "order": 6,
+    "order": 21,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -85,7 +85,7 @@
     "description": "Hisn al-Muslim Chapter 7",
     "icon": "💧",
     "dua_count": 1,
-    "order": 7,
+    "order": 5,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -98,7 +98,7 @@
     "description": "Hisn al-Muslim Chapter 8",
     "icon": "💧",
     "dua_count": 1,
-    "order": 8,
+    "order": 6,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -111,7 +111,7 @@
     "description": "Hisn al-Muslim Chapter 9",
     "icon": "💧",
     "dua_count": 3,
-    "order": 9,
+    "order": 7,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -137,7 +137,7 @@
     "description": "Hisn al-Muslim Chapter 11",
     "icon": "🏠",
     "dua_count": 1,
-    "order": 11,
+    "order": 19,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -150,7 +150,7 @@
     "description": "Hisn al-Muslim Chapter 12",
     "icon": "🕌",
     "dua_count": 1,
-    "order": 12,
+    "order": 1,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -163,7 +163,7 @@
     "description": "Hisn al-Muslim Chapter 13",
     "icon": "🕌",
     "dua_count": 1,
-    "order": 13,
+    "order": 2,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -176,7 +176,7 @@
     "description": "Hisn al-Muslim Chapter 14",
     "icon": "🕌",
     "dua_count": 1,
-    "order": 14,
+    "order": 24,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -189,7 +189,7 @@
     "description": "Hisn al-Muslim Chapter 15",
     "icon": "🤲",
     "dua_count": 2,
-    "order": 15,
+    "order": 14,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -202,7 +202,7 @@
     "description": "Hisn al-Muslim Chapter 16",
     "icon": "🤲",
     "dua_count": 6,
-    "order": 16,
+    "order": 5,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -215,7 +215,7 @@
     "description": "Hisn al-Muslim Chapter 17",
     "icon": "🤲",
     "dua_count": 5,
-    "order": 17,
+    "order": 6,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -228,7 +228,7 @@
     "description": "Hisn al-Muslim Chapter 18",
     "icon": "🌅",
     "dua_count": 3,
-    "order": 18,
+    "order": 8,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -241,7 +241,7 @@
     "description": "Hisn al-Muslim Chapter 19",
     "icon": "🤲",
     "dua_count": 7,
-    "order": 19,
+    "order": 9,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -254,7 +254,7 @@
     "description": "Hisn al-Muslim Chapter 20",
     "icon": "🤲",
     "dua_count": 2,
-    "order": 20,
+    "order": 10,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -267,7 +267,7 @@
     "description": "Hisn al-Muslim Chapter 21",
     "icon": "🤲",
     "dua_count": 2,
-    "order": 21,
+    "order": 11,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -280,7 +280,7 @@
     "description": "Hisn al-Muslim Chapter 22",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 22,
+    "order": 12,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -293,7 +293,7 @@
     "description": "Hisn al-Muslim Chapter 23",
     "icon": "🤲",
     "dua_count": 2,
-    "order": 23,
+    "order": 15,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -306,7 +306,7 @@
     "description": "Hisn al-Muslim Chapter 24",
     "icon": "🤲",
     "dua_count": 11,
-    "order": 24,
+    "order": 16,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -319,7 +319,7 @@
     "description": "Hisn al-Muslim Chapter 25",
     "icon": "✋",
     "dua_count": 8,
-    "order": 25,
+    "order": 17,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -332,20 +332,33 @@
     "description": "Hisn al-Muslim Chapter 26",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 26,
+    "order": 3,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
   {
-    "id": "chapter_27",
+    "id": "chapter_27_evening",
     "numeric_id": 27,
-    "title": "In the morning and evening",
+    "title": "Evening Adhkar",
+    "title_ar": "",
+    "description": "Hisn al-Muslim Chapter 27",
+    "icon": "🌆",
+    "dua_count": 22,
+    "order": 22,
+    "tab": "daily",
+    "parent_id": null,
+    "type": "chapter"
+  },
+  {
+    "id": "chapter_27_morning",
+    "numeric_id": 27,
+    "title": "Morning Adhkar",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 27",
     "icon": "🌅",
-    "dua_count": 25,
-    "order": 27,
+    "dua_count": 24,
+    "order": 4,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -358,7 +371,7 @@
     "description": "Hisn al-Muslim Chapter 28",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 28,
+    "order": 4,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -371,7 +384,7 @@
     "description": "Hisn al-Muslim Chapter 29",
     "icon": "🌙",
     "dua_count": 1,
-    "order": 29,
+    "order": 28,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -384,7 +397,7 @@
     "description": "Hisn al-Muslim Chapter 30",
     "icon": "🌙",
     "dua_count": 1,
-    "order": 30,
+    "order": 29,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -397,7 +410,7 @@
     "description": "Hisn al-Muslim Chapter 31",
     "icon": "🌙",
     "dua_count": 2,
-    "order": 31,
+    "order": 30,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -410,7 +423,7 @@
     "description": "Hisn al-Muslim Chapter 32",
     "icon": "🤲",
     "dua_count": 3,
-    "order": 32,
+    "order": 20,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -423,7 +436,7 @@
     "description": "Hisn al-Muslim Chapter 33",
     "icon": "✋",
     "dua_count": 1,
-    "order": 33,
+    "order": 22,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -436,7 +449,7 @@
     "description": "Hisn al-Muslim Chapter 34",
     "icon": "💭",
     "dua_count": 2,
-    "order": 34,
+    "order": 7,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -449,7 +462,7 @@
     "description": "Hisn al-Muslim Chapter 35",
     "icon": "💭",
     "dua_count": 4,
-    "order": 35,
+    "order": 8,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -462,7 +475,7 @@
     "description": "Hisn al-Muslim Chapter 36",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 36,
+    "order": 7,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -475,7 +488,7 @@
     "description": "Hisn al-Muslim Chapter 37",
     "icon": "🛡️",
     "dua_count": 2,
-    "order": 37,
+    "order": 17,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -488,7 +501,7 @@
     "description": "Hisn al-Muslim Chapter 38",
     "icon": "📿",
     "dua_count": 1,
-    "order": 38,
+    "order": 20,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -501,7 +514,7 @@
     "description": "Hisn al-Muslim Chapter 39",
     "icon": "🛡️",
     "dua_count": 1,
-    "order": 39,
+    "order": 22,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -514,7 +527,7 @@
     "description": "Hisn al-Muslim Chapter 40",
     "icon": "💭",
     "dua_count": 3,
-    "order": 40,
+    "order": 11,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -527,7 +540,7 @@
     "description": "Hisn al-Muslim Chapter 41",
     "icon": "💰",
     "dua_count": 2,
-    "order": 41,
+    "order": 4,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -540,7 +553,7 @@
     "description": "Hisn al-Muslim Chapter 42",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 42,
+    "order": 6,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -553,7 +566,7 @@
     "description": "Hisn al-Muslim Chapter 43",
     "icon": "💭",
     "dua_count": 1,
-    "order": 43,
+    "order": 10,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -566,7 +579,7 @@
     "description": "Hisn al-Muslim Chapter 44",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 44,
+    "order": 12,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -579,7 +592,7 @@
     "description": "Hisn al-Muslim Chapter 45",
     "icon": "⚔️",
     "dua_count": 3,
-    "order": 45,
+    "order": 4,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -592,7 +605,7 @@
     "description": "Hisn al-Muslim Chapter 46",
     "icon": "📿",
     "dua_count": 1,
-    "order": 46,
+    "order": 15,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -605,7 +618,7 @@
     "description": "Hisn al-Muslim Chapter 47",
     "icon": "👶",
     "dua_count": 2,
-    "order": 47,
+    "order": 3,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -618,7 +631,7 @@
     "description": "Hisn al-Muslim Chapter 48",
     "icon": "🛡️",
     "dua_count": 1,
-    "order": 48,
+    "order": 25,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -631,7 +644,7 @@
     "description": "Hisn al-Muslim Chapter 49",
     "icon": "🏥",
     "dua_count": 2,
-    "order": 49,
+    "order": 6,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -644,7 +657,7 @@
     "description": "Hisn al-Muslim Chapter 50",
     "icon": "🏥",
     "dua_count": 1,
-    "order": 50,
+    "order": 7,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -657,7 +670,7 @@
     "description": "Hisn al-Muslim Chapter 51",
     "icon": "🏥",
     "dua_count": 3,
-    "order": 51,
+    "order": 8,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -670,7 +683,7 @@
     "description": "Hisn al-Muslim Chapter 52",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 52,
+    "order": 13,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -683,7 +696,7 @@
     "description": "Hisn al-Muslim Chapter 53",
     "icon": "💔",
     "dua_count": 1,
-    "order": 53,
+    "order": 16,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -696,7 +709,7 @@
     "description": "Hisn al-Muslim Chapter 54",
     "icon": "🕊️",
     "dua_count": 1,
-    "order": 54,
+    "order": 9,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -709,7 +722,7 @@
     "description": "Hisn al-Muslim Chapter 55",
     "icon": "🤲",
     "dua_count": 4,
-    "order": 55,
+    "order": 10,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -722,7 +735,7 @@
     "description": "Hisn al-Muslim Chapter 56",
     "icon": "🤲",
     "dua_count": 2,
-    "order": 56,
+    "order": 11,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -735,7 +748,7 @@
     "description": "Hisn al-Muslim Chapter 57",
     "icon": "💔",
     "dua_count": 2,
-    "order": 57,
+    "order": 12,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -748,7 +761,7 @@
     "description": "Hisn al-Muslim Chapter 58",
     "icon": "🪦",
     "dua_count": 1,
-    "order": 58,
+    "order": 13,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -761,7 +774,7 @@
     "description": "Hisn al-Muslim Chapter 59",
     "icon": "🕊️",
     "dua_count": 1,
-    "order": 59,
+    "order": 14,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -774,7 +787,7 @@
     "description": "Hisn al-Muslim Chapter 60",
     "icon": "🪦",
     "dua_count": 1,
-    "order": 60,
+    "order": 15,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -787,7 +800,7 @@
     "description": "Hisn al-Muslim Chapter 61",
     "icon": "🛡️",
     "dua_count": 1,
-    "order": 61,
+    "order": 26,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -800,7 +813,7 @@
     "description": "Hisn al-Muslim Chapter 62",
     "icon": "⛈️",
     "dua_count": 1,
-    "order": 62,
+    "order": 22,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -813,7 +826,7 @@
     "description": "Hisn al-Muslim Chapter 63",
     "icon": "🌧️",
     "dua_count": 3,
-    "order": 63,
+    "order": 23,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -826,7 +839,7 @@
     "description": "Hisn al-Muslim Chapter 64",
     "icon": "🌧️",
     "dua_count": 1,
-    "order": 64,
+    "order": 24,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -839,7 +852,7 @@
     "description": "Hisn al-Muslim Chapter 65",
     "icon": "🌧️",
     "dua_count": 1,
-    "order": 65,
+    "order": 25,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -852,7 +865,7 @@
     "description": "Hisn al-Muslim Chapter 66",
     "icon": "✋",
     "dua_count": 1,
-    "order": 66,
+    "order": 18,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -865,7 +878,7 @@
     "description": "Hisn al-Muslim Chapter 67",
     "icon": "🌙",
     "dua_count": 1,
-    "order": 67,
+    "order": 26,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -878,7 +891,7 @@
     "description": "Hisn al-Muslim Chapter 68",
     "icon": "🌙",
     "dua_count": 2,
-    "order": 68,
+    "order": 15,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -891,7 +904,7 @@
     "description": "Hisn al-Muslim Chapter 69",
     "icon": "🍽️",
     "dua_count": 2,
-    "order": 69,
+    "order": 11,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -904,7 +917,7 @@
     "description": "Hisn al-Muslim Chapter 70",
     "icon": "🍽️",
     "dua_count": 2,
-    "order": 70,
+    "order": 12,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -917,7 +930,7 @@
     "description": "Hisn al-Muslim Chapter 71",
     "icon": "📖",
     "dua_count": 1,
-    "order": 71,
+    "order": 13,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -930,7 +943,7 @@
     "description": "Hisn al-Muslim Chapter 72",
     "icon": "🍽️",
     "dua_count": 1,
-    "order": 72,
+    "order": 15,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -943,7 +956,7 @@
     "description": "Hisn al-Muslim Chapter 73",
     "icon": "🏠",
     "dua_count": 1,
-    "order": 73,
+    "order": 16,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -956,7 +969,7 @@
     "description": "Hisn al-Muslim Chapter 74",
     "icon": "🍽️",
     "dua_count": 1,
-    "order": 74,
+    "order": 17,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -969,7 +982,7 @@
     "description": "Hisn al-Muslim Chapter 75",
     "icon": "🌙",
     "dua_count": 1,
-    "order": 75,
+    "order": 18,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -982,7 +995,7 @@
     "description": "Hisn al-Muslim Chapter 76",
     "icon": "📖",
     "dua_count": 3,
-    "order": 76,
+    "order": 1,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -995,7 +1008,7 @@
     "description": "Hisn al-Muslim Chapter 77",
     "icon": "🤧",
     "dua_count": 1,
-    "order": 77,
+    "order": 2,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1008,7 +1021,7 @@
     "description": "Hisn al-Muslim Chapter 78",
     "icon": "👋",
     "dua_count": 1,
-    "order": 78,
+    "order": 3,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1021,7 +1034,7 @@
     "description": "Hisn al-Muslim Chapter 79",
     "icon": "💑",
     "dua_count": 1,
-    "order": 79,
+    "order": 1,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -1034,7 +1047,7 @@
     "description": "Hisn al-Muslim Chapter 80",
     "icon": "🌙",
     "dua_count": 1,
-    "order": 80,
+    "order": 2,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -1047,7 +1060,7 @@
     "description": "Hisn al-Muslim Chapter 81",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 81,
+    "order": 27,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1060,7 +1073,7 @@
     "description": "Hisn al-Muslim Chapter 82",
     "icon": "🏥",
     "dua_count": 1,
-    "order": 82,
+    "order": 28,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1073,7 +1086,7 @@
     "description": "Hisn al-Muslim Chapter 83",
     "icon": "📿",
     "dua_count": 1,
-    "order": 83,
+    "order": 11,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1086,7 +1099,7 @@
     "description": "Hisn al-Muslim Chapter 84",
     "icon": "👥",
     "dua_count": 1,
-    "order": 84,
+    "order": 4,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1099,7 +1112,7 @@
     "description": "Hisn al-Muslim Chapter 85",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 85,
+    "order": 29,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1112,7 +1125,7 @@
     "description": "Hisn al-Muslim Chapter 86",
     "icon": "🌙",
     "dua_count": 1,
-    "order": 86,
+    "order": 30,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1125,7 +1138,7 @@
     "description": "Hisn al-Muslim Chapter 87",
     "icon": "✨",
     "dua_count": 1,
-    "order": 87,
+    "order": 5,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1138,7 +1151,7 @@
     "description": "Hisn al-Muslim Chapter 88",
     "icon": "🛡️",
     "dua_count": 1,
-    "order": 88,
+    "order": 2,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1151,7 +1164,7 @@
     "description": "Hisn al-Muslim Chapter 89",
     "icon": "❤️",
     "dua_count": 1,
-    "order": 89,
+    "order": 6,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1164,7 +1177,7 @@
     "description": "Hisn al-Muslim Chapter 90",
     "icon": "🎁",
     "dua_count": 1,
-    "order": 90,
+    "order": 7,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1177,7 +1190,7 @@
     "description": "Hisn al-Muslim Chapter 91",
     "icon": "💰",
     "dua_count": 1,
-    "order": 91,
+    "order": 5,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -1190,7 +1203,7 @@
     "description": "Hisn al-Muslim Chapter 92",
     "icon": "🛡️",
     "dua_count": 1,
-    "order": 92,
+    "order": 13,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1203,7 +1216,7 @@
     "description": "Hisn al-Muslim Chapter 93",
     "icon": "🌅",
     "dua_count": 1,
-    "order": 93,
+    "order": 2,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -1216,7 +1229,7 @@
     "description": "Hisn al-Muslim Chapter 94",
     "icon": "⚔️",
     "dua_count": 1,
-    "order": 94,
+    "order": 31,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1229,7 +1242,7 @@
     "description": "Hisn al-Muslim Chapter 95",
     "icon": "✈️",
     "dua_count": 1,
-    "order": 95,
+    "order": 16,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1242,7 +1255,7 @@
     "description": "Hisn al-Muslim Chapter 96",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 96,
+    "order": 14,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1255,7 +1268,7 @@
     "description": "Hisn al-Muslim Chapter 97",
     "icon": "🏘️",
     "dua_count": 1,
-    "order": 97,
+    "order": 17,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1268,7 +1281,7 @@
     "description": "Hisn al-Muslim Chapter 98",
     "icon": "🏘️",
     "dua_count": 1,
-    "order": 98,
+    "order": 18,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1281,7 +1294,7 @@
     "description": "Hisn al-Muslim Chapter 99",
     "icon": "✈️",
     "dua_count": 1,
-    "order": 99,
+    "order": 19,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1294,7 +1307,7 @@
     "description": "Hisn al-Muslim Chapter 100",
     "icon": "✈️",
     "dua_count": 1,
-    "order": 100,
+    "order": 20,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1307,7 +1320,7 @@
     "description": "Hisn al-Muslim Chapter 101",
     "icon": "✈️",
     "dua_count": 2,
-    "order": 101,
+    "order": 21,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1320,7 +1333,7 @@
     "description": "Hisn al-Muslim Chapter 102",
     "icon": "🌙",
     "dua_count": 1,
-    "order": 102,
+    "order": 23,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -1333,7 +1346,7 @@
     "description": "Hisn al-Muslim Chapter 103",
     "icon": "🌙",
     "dua_count": 1,
-    "order": 103,
+    "order": 24,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -1346,7 +1359,7 @@
     "description": "Hisn al-Muslim Chapter 104",
     "icon": "🌙",
     "dua_count": 1,
-    "order": 104,
+    "order": 25,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -1359,7 +1372,7 @@
     "description": "Hisn al-Muslim Chapter 105",
     "icon": "🌅",
     "dua_count": 1,
-    "order": 105,
+    "order": 3,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -1372,7 +1385,7 @@
     "description": "Hisn al-Muslim Chapter 106",
     "icon": "🤲",
     "dua_count": 2,
-    "order": 106,
+    "order": 12,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1385,7 +1398,7 @@
     "description": "Hisn al-Muslim Chapter 107",
     "icon": "🤲",
     "dua_count": 5,
-    "order": 107,
+    "order": 25,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -1398,7 +1411,7 @@
     "description": "Hisn al-Muslim Chapter 108",
     "icon": "🍽️",
     "dua_count": 1,
-    "order": 108,
+    "order": 14,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -1411,7 +1424,7 @@
     "description": "Hisn al-Muslim Chapter 109",
     "icon": "🌙",
     "dua_count": 1,
-    "order": 109,
+    "order": 10,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1424,7 +1437,7 @@
     "description": "Hisn al-Muslim Chapter 110",
     "icon": "🐓",
     "dua_count": 1,
-    "order": 110,
+    "order": 27,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1437,7 +1450,7 @@
     "description": "Hisn al-Muslim Chapter 111",
     "icon": "🌙",
     "dua_count": 1,
-    "order": 111,
+    "order": 26,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -1450,7 +1463,7 @@
     "description": "Hisn al-Muslim Chapter 112",
     "icon": "🌙",
     "dua_count": 1,
-    "order": 112,
+    "order": 31,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -1463,7 +1476,7 @@
     "description": "Hisn al-Muslim Chapter 113",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 113,
+    "order": 8,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1476,7 +1489,7 @@
     "description": "Hisn al-Muslim Chapter 114",
     "icon": "👏",
     "dua_count": 1,
-    "order": 114,
+    "order": 9,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1489,7 +1502,7 @@
     "description": "Hisn al-Muslim Chapter 115",
     "icon": "🌙",
     "dua_count": 1,
-    "order": 115,
+    "order": 27,
     "tab": "daily",
     "parent_id": null,
     "type": "chapter"
@@ -1502,7 +1515,7 @@
     "description": "Hisn al-Muslim Chapter 116",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 116,
+    "order": 21,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -1515,7 +1528,7 @@
     "description": "Hisn al-Muslim Chapter 117",
     "icon": "📿",
     "dua_count": 1,
-    "order": 117,
+    "order": 16,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -1528,7 +1541,7 @@
     "description": "Hisn al-Muslim Chapter 118",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 118,
+    "order": 19,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -1541,7 +1554,7 @@
     "description": "Hisn al-Muslim Chapter 119",
     "icon": "✋",
     "dua_count": 1,
-    "order": 119,
+    "order": 23,
     "tab": "salah",
     "parent_id": null,
     "type": "chapter"
@@ -1554,7 +1567,7 @@
     "description": "Hisn al-Muslim Chapter 120",
     "icon": "🕋",
     "dua_count": 1,
-    "order": 120,
+    "order": 17,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -1567,7 +1580,7 @@
     "description": "Hisn al-Muslim Chapter 121",
     "icon": "🤲",
     "dua_count": 1,
-    "order": 121,
+    "order": 18,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -1580,7 +1593,7 @@
     "description": "Hisn al-Muslim Chapter 122",
     "icon": "✨",
     "dua_count": 2,
-    "order": 122,
+    "order": 13,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1593,7 +1606,7 @@
     "description": "Hisn al-Muslim Chapter 123",
     "icon": "✨",
     "dua_count": 1,
-    "order": 123,
+    "order": 14,
     "tab": "social",
     "parent_id": null,
     "type": "chapter"
@@ -1606,7 +1619,7 @@
     "description": "Hisn al-Muslim Chapter 124",
     "icon": "💭",
     "dua_count": 1,
-    "order": 124,
+    "order": 9,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1619,7 +1632,7 @@
     "description": "Hisn al-Muslim Chapter 125",
     "icon": "🛡️",
     "dua_count": 1,
-    "order": 125,
+    "order": 3,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1632,7 +1645,7 @@
     "description": "Hisn al-Muslim Chapter 126",
     "icon": "🛡️",
     "dua_count": 1,
-    "order": 126,
+    "order": 24,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1645,7 +1658,7 @@
     "description": "Hisn al-Muslim Chapter 127",
     "icon": "🐑",
     "dua_count": 1,
-    "order": 127,
+    "order": 19,
     "tab": "life",
     "parent_id": null,
     "type": "chapter"
@@ -1658,7 +1671,7 @@
     "description": "Hisn al-Muslim Chapter 128",
     "icon": "⚔️",
     "dua_count": 1,
-    "order": 128,
+    "order": 5,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1671,7 +1684,7 @@
     "description": "Hisn al-Muslim Chapter 129",
     "icon": "🛡️",
     "dua_count": 1,
-    "order": 129,
+    "order": 18,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1684,7 +1697,7 @@
     "description": "Hisn al-Muslim Chapter 130",
     "icon": "🛡️",
     "dua_count": 1,
-    "order": 130,
+    "order": 19,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1697,7 +1710,7 @@
     "description": "Hisn al-Muslim Chapter 131",
     "icon": "📿",
     "dua_count": 1,
-    "order": 131,
+    "order": 21,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"
@@ -1710,7 +1723,7 @@
     "description": "Hisn al-Muslim Chapter 132",
     "icon": "🛡️",
     "dua_count": 1,
-    "order": 132,
+    "order": 23,
     "tab": "protection",
     "parent_id": null,
     "type": "chapter"

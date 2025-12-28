@@ -7,7 +7,7 @@
 import dexieDb from './dexieDatabase'
 
 // Current data version - increment when data structure changes
-const CURRENT_DUA_DATA_VERSION = 9 // Version 9: Normalize dua field names (arabic, transliteration, translation, title)
+const CURRENT_DUA_DATA_VERSION = 10 // Version 10: Split morning/evening adhkar into separate categories
 
 class DuaDataLoader {
   /**

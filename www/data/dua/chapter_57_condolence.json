@@ -1,0 +1,30 @@
+[
+  {
+    "id": 162,
+    "hisn_number": 162,
+    "category_id": "condolence",
+    "category_name": "Condolence",
+    "title": "Condolence - Hisn al-Muslim 162",
+    "arabic": "إن لله ما أخذ وله ما أعطى . وكل شيء عنده بأجل مُسمى ... فلتصبر ولتحتسب",
+    "transliteration": "Inna lillāhi mā akhadh, wa lahu mā a`tā, wa kullu shay'in `indahu bi ajalin musammā . . . faltaṣbir wa 'l-taḥtasib.",
+    "translation": "Surely, Allah takes what is His, and what He gives is His, and to all things He has appointed a time... so have patience and be rewarded.",
+    "reference": "Al-Bukhari 2/80, Muslim 2/636",
+    "repetitions": null,
+    "order": 1,
+    "tags": ["Condolence", "Patience"]
+  },
+  {
+    "id": 162,
+    "hisn_number": 162,
+    "category_id": "condolence",
+    "category_name": "Condolence",
+    "title": "Condolence - Alternative - Hisn al-Muslim 162",
+    "arabic": "أعظم الله أجرك ، وأحسن عزاءك وغفر لميتك",
+    "transliteration": "A`ẓamallāhu ajrak, wa 'aḥsana `azā'ak, wa ghafara limayyitik.",
+    "translation": "May Allah magnify your reward, and make perfect your bereavement, and forgive your departed.",
+    "reference": "An-Nawawi, Kitabul-'Athkar, p. 126",
+    "repetitions": null,
+    "order": 2,
+    "tags": ["Condolence", "Forgiveness"]
+  }
+]

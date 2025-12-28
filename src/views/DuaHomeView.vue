@@ -144,6 +144,9 @@
 
     <!-- Categories Grid (Normal View) -->
     <div v-else class="p-4">
+      <!-- Adhkar Progress (Daily tab only) -->
+      <AdhkarProgress v-if="activeTab === 'daily'" class="mb-4" />
+
       <!-- Tab description card -->
       <div class="mb-4 p-3 bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 flex items-center gap-3">
         <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
@@ -183,12 +186,15 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDuaStore } from '@/stores/dua'
+import { useGamificationStore } from '@/stores/gamification'
 import Icon from '@/components/common/Icon.vue'
 import DuaCategoryCard from '@/components/dua/DuaCategoryCard.vue'
 import MigrationNotice from '@/components/dua/MigrationNotice.vue'
+import AdhkarProgress from '@/components/dua/AdhkarProgress.vue'
 
 const router = useRouter()
 const duaStore = useDuaStore()
+const gamificationStore = useGamificationStore()
 
 const tabs = [
   { id: 'daily', label: 'Daily', icon: '🌅', description: 'Morning, evening, sleep, eating & daily routines' },
@@ -311,6 +317,9 @@ function openDua(categoryId, dua) {
 }
 
 onMounted(async () => {
+  // Initialize gamification store
+  gamificationStore.initializeFromStorage()
+
   if (!duaStore.isImported) {
     await duaStore.initialize()
   } else if (duaStore.categories.length === 0) {

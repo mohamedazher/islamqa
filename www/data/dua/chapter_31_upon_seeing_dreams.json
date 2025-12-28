@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "hisn_number": 114,
+    "category_id": 31,
+    "category_name": "Upon seeing a good dream or a bad dream",
+    "title": "When you see a bad dream",
+    "arabic": "يَنْفُثُ عَنْ يَسَارِهِ (ثلاثاً). يَسْتَعِيذُ بِاللَّهِ مِنَ الشَّيطَانِ وَمِنْ شَرِّ مَا رَأَى (ثَلاَثَ مَرَّاتٍ). لاَ يُحَدِّثْ بِهَا أَحَداً. يَــتَحَوَّلُ عَنْ جَنْبِهِ الَّذِي كَانَ عَلَيْهِ.",
+    "transliteration": "Yanfuthu 'an yasarihi (thalathan). Yasta'idhu billahi minash-shaytani wa min sharri ma ra'a (thalatha marratin). La yuhaddithu biha ahadan. Yatahawwalu 'an janbih alladhi kana alayh.",
+    "translation": "Spit to your left (three times). Seek refuge in Allah from the Devil and from the evil of what you have seen (three times). Do not speak about it to anyone. Turn over on your other side.",
+    "reference": "Muslim 4/1772",
+    "repetitions": "1",
+    "order": 1,
+    "tags": ["dreams", "nightmares", "evil", "refuge"]
+  },
+  {
+    "id": 2,
+    "hisn_number": 115,
+    "category_id": 31,
+    "category_name": "Upon seeing a good dream or a bad dream",
+    "title": "What to do after a bad dream",
+    "arabic": "يقوم يصلي إن أراد ذلك.",
+    "transliteration": "Yaqomu yusalli in arada dhalik.",
+    "translation": "Get up and pray if you desire to do so.",
+    "reference": "Muslim 4/1773",
+    "repetitions": "1",
+    "order": 2,
+    "tags": ["dreams", "prayer", "remedy", "night prayer"]
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "hisn_number": 240,
+    "category_id": "amazement_delights",
+    "category_name": "At times of amazement and that which delights",
+    "title": "At times of amazement and that which delights - Hisn al-Muslim 240",
+    "arabic": "سُـبْحانَ الله",
+    "transliteration": "Subḥānallāh!",
+    "translation": "Glory is to Allah.",
+    "reference": "Al-Bukhari, cf. Al-Asqalani, Fathul-Bari 1/210, 390, 414 and Muslim 4/1857.",
+    "repetitions": null,
+    "order": 1,
+    "tags": ["Amazement", "Delights", "Glorification"]
+  },
+  {
+    "id": 2,
+    "hisn_number": 241,
+    "category_id": "amazement_delights",
+    "category_name": "At times of amazement and that which delights",
+    "title": "At times of amazement and that which delights - Hisn al-Muslim 241",
+    "arabic": "اللهُ أَكْـبَر",
+    "transliteration": "Allāhu Akbar!",
+    "translation": "Allah is the Most Great.",
+    "reference": "Al-Bukhari, cf. Al-Asqalani, Fathul-Bari 8/441. See also Al-Albani, Sahih At-Tirmidhi 2/103, 235, Ahmad 5/218.",
+    "repetitions": null,
+    "order": 2,
+    "tags": ["Amazement", "Delights", "Greatness of Allah"]
+  }
+]
