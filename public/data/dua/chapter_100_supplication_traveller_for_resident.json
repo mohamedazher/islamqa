@@ -1,0 +1,21 @@
+{
+  "chapter_number": 100,
+  "hisn_reference": "Hisn al-Muslim 211",
+  "title": "Supplication of the traveller for the resident",
+  "title_arabic": "دعاء المسافر للمقيم",
+  "description": "A supplication to be said for someone who is staying home when you are traveling.",
+  "duas": [
+    {
+      "id": 1,
+      "transliteration": "Astawdi'ukumu 'llāha 'l-ladhi lā taḍī'u wadā'i'uh.",
+      "translation": "I place you in the trust of Allah, whose trust is never misplaced.",
+      "arabic": "أَسْتَـوْدِعُكُـمُ اللَّهَ الَّـذي لا تَضـيعُ وَدائِعُـه",
+      "reference": "Ahmad 2/403, Ibn Majah 2/943. See also Al-Albani, Sahih Ibn Majah 2/133."
+    }
+  ],
+  "category": "Travel",
+  "sub_category": "Traveling",
+  "occasion": "When bidding farewell to someone who is staying home",
+  "source": "Hisn al-Muslim (Fortress of the Muslim)",
+  "benefits": "Seeking Allah's protection and care for those left behind during travel"
+}

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:dua": "node scripts/build-dua-data.js",
     "build:web": "vite build --config vite.config.web.js",
     "preview": "vite preview",
     "test": "vitest run",

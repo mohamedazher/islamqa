@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "hisn_number": 218,
+    "chapter_number": 106,
+    "category_id": "receiving_pleasing_displeasing_news",
+    "category_name": "What to say upon receiving pleasing or displeasing news",
+    "title": "When receiving something that pleases you - Hisn al-Muslim 218",
+    "arabic": "الْحَمْدُ لِلَّهِ الَّذِي بِنِعْمَتِهِ تَتِمُّ الصَّالِحَاتُ",
+    "transliteration": "Alḥamdu lillāhi 'lladhi bi ni`matihi tatimmuṣ-ṣāliḥāt.",
+    "translation": "Praise is to Allah Who by His blessings all good things are perfected.",
+    "description": "When something happened that pleased him, the Prophet (ﷺ) used to say this supplication.",
+    "reference": "Ibn As-Sunni, 'Amalul-Yawm wal-Laylah, and Al-Hakim who graded it authentic 1/499. See also Al-Albani, Sahihul-Jami' As-Saghir 4/201.",
+    "repetitions": null,
+    "order": 1,
+    "tags": ["Receiving news", "Pleasing", "Gratitude"]
+  },
+  {
+    "id": 2,
+    "hisn_number": 218,
+    "chapter_number": 106,
+    "category_id": "receiving_pleasing_displeasing_news",
+    "category_name": "What to say upon receiving pleasing or displeasing news",
+    "title": "When receiving something that displeases you - Hisn al-Muslim 218",
+    "arabic": "الْحَمْدُ لِلَّهِ عَلَى كُلِّ حَالٍ",
+    "transliteration": "Alḥamdu lillāhi `alā kulli ḥāl.",
+    "translation": "Praise is to Allah in all circumstances.",
+    "description": "When something happened that displeased him, the Prophet (ﷺ) used to say this supplication.",
+    "reference": "Ibn As-Sunni, 'Amalul-Yawm wal-Laylah, and Al-Hakim who graded it authentic 1/499. See also Al-Albani, Sahihul-Jami' As-Saghir 4/201.",
+    "repetitions": null,
+    "order": 2,
+    "tags": ["Receiving news", "Displeasing", "Patience", "Gratitude"]
+  }
+]

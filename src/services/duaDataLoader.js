@@ -7,7 +7,7 @@
 import dexieDb from './dexieDatabase'
 
 // Current data version - increment when data structure changes
-const CURRENT_DUA_DATA_VERSION = 2 // Version 2: Hisn al-Muslim migration
+const CURRENT_DUA_DATA_VERSION = 3 // Version 3: Hisn al-Muslim 132 chapters
 
 class DuaDataLoader {
   /**
@@ -65,6 +65,9 @@ class DuaDataLoader {
       // Step 4: Import duas by category
       const categoryIds = Object.keys(duasByCategory)
       const totalCategories = categoryIds.length
+      let totalDuasImported = 0
+
+      console.log(`📖 Found ${totalCategories} categories in duas.json: ${categoryIds.join(', ')}`)
 
       for (let i = 0; i < totalCategories; i++) {
         const categoryId = categoryIds[i]
@@ -79,12 +82,15 @@ class DuaDataLoader {
         }
 
         if (duas && duas.length > 0) {
-          console.log(`📖 Importing ${duas.length} duas for ${categoryName}`)
+          console.log(`📖 [${i + 1}/${totalCategories}] Importing ${duas.length} duas for "${categoryName}" (id: ${categoryId})`)
           await dexieDb.importDuas(duas)
+          totalDuasImported += duas.length
         } else {
           console.warn(`⚠️ No duas found for category ${categoryId}`)
         }
       }
+
+      console.log(`✅ Total duas imported: ${totalDuasImported} across ${totalCategories} categories`)
 
       // Step 5: Save data version
       if (onProgress) onProgress('Finalizing...', 95)

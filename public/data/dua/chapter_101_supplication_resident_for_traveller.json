@@ -1,0 +1,24 @@
+{
+  "chapter": 101,
+  "title": "Supplication of the resident for the traveller",
+  "description": "Duas to be said by one who is resident (staying in place) for someone who is travelling",
+  "source": "Hisn al-Muslim",
+  "duas": [
+    {
+      "id": 1,
+      "reference": "Hisn al-Muslim 212",
+      "transliteration": "Astawdi`ullāha dīnak, wa amānatak, wa khawātīma `amalik.",
+      "translation": "I leave your religion in the care of Allah, as well as your safety, and the last of your deeds.",
+      "arabic": "أَسْتَـوْدِعُ اللَّهَ ديـنَكَ وَأَمانَتَـكَ، وَخَـواتيـمَ عَمَـلِك",
+      "source_reference": "Ahmad 2/7, At-Tirmidhi 5/499. See also Al-Albani, Sahih At-Tirmidhi 2/155."
+    },
+    {
+      "id": 2,
+      "reference": "Hisn al-Muslim 213",
+      "transliteration": "Zawwadaka 'llāhut-taqwā, wa ghafara dhanbak, wa yassara laka 'l-khayra ḥaythu mā kunt.",
+      "translation": "May Allah give you piety as your provision, forgive your sins, and make goodness easy for you wherever you are.",
+      "arabic": "زَوَّدَكَ اللَّهُ التقْوى، وَغَفَـرَذَنْـبَكَ، وَيَسَّـرَ لَكَ الخَـيْرَ حَيْـثُما كُنْـت",
+      "source_reference": "At-Tirmidhi. See Al-Albani, Sahih At-Tirmidhi, 3/155."
+    }
+  ]
+}

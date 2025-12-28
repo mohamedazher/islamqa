@@ -1,0 +1,58 @@
+[
+  {
+    "id": 122,
+    "hisn_number": 122,
+    "category_id": "distress",
+    "category_name": "For one in distress",
+    "title": "For one in distress - Hisn al-Muslim 122",
+    "arabic": "لَا إلَهَ إِلَّا اللَّهُ الْعَظـيمُ الْحَلِـيمْ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ العَـرْشِ العَظِيـمِ، لَا إِلَـهَ إِلَّا اللَّهْ رَبُّ السَّمَـوّاتِ ورّبُّ الأَرْضِ ورَبُّ العَرْشِ الكَـريم",
+    "transliteration": "Lā ilāha illallāh al-`Aẓīmul-Ḥalīm, lā ilāha illallāh Rabbu 'l-`Arshi 'l-'Aẓīm, lā ilāha illallāh Rabbus-samāwāti wa Rabbu 'l-arḍ wa Rabbu 'l-`Arshi 'l-Karīm.",
+    "translation": "There is none worthy of worship but Allah, the Mighty, the Forbearing. There is none worthy of worship but Allah, Lord of the Magnificent Throne. There is none worthy of worship but Allah, Lord of the heavens and Lord of the earth, and Lord of the Noble Throne.",
+    "reference": "Al-Bukhari 8/154, Muslim 4/2092",
+    "repetitions": null,
+    "order": 1,
+    "tags": ["For one in distress"]
+  },
+  {
+    "id": 123,
+    "hisn_number": 123,
+    "category_id": "distress",
+    "category_name": "For one in distress",
+    "title": "For one in distress - Hisn al-Muslim 123",
+    "arabic": "اللّهُـمَّ رَحْمَتَـكَ أَرْجـو فَلا تَكِلـني إِلى نَفْـسي طَـرْفَةَ عَـيْن، وَأَصْلِـحْ لي شَأْنـي كُلَّـه لَا إِلَهَ إِلَّا أنْـت",
+    "transliteration": "Allāhumma raḥmataka arjū falā takilnī ilā nafsī ṭarfata `ayn, wa aṣliḥ lī sha'nī kullah, lā ilāha illā ant.",
+    "translation": "O Allah, I hope for Your mercy. Do not leave me to myself even for the blinking of an eye (i.e. a moment). Correct all of my affairs for me. There is none worthy of worship but You.",
+    "reference": "Abu Dawud 4/324, Ahmad 5/42. Al-Albani graded it as good in Sahih Abu Dawud 3/959.",
+    "repetitions": null,
+    "order": 2,
+    "tags": ["For one in distress"]
+  },
+  {
+    "id": 124,
+    "hisn_number": 124,
+    "category_id": "distress",
+    "category_name": "For one in distress",
+    "title": "For one in distress - Hisn al-Muslim 124",
+    "arabic": "لَا إِلَهَ إِلَّا أنْـت سُـبْحانَكَ إِنِّي كُنْـتُ مِنَ الظّـالِميـن",
+    "transliteration": "Lā ilāha illā anta subḥānaka innī kuntu minaẓ-ẓālimīn.",
+    "translation": "There is none worthy of worship but You, glory is to You. Surely, I was among the wrongdoers.",
+    "reference": "At-Tirmidhi 5/529. Al-Hakim declared it authentic and Ath-Thahabi agreed with him 1/505. See also Al-Albani, Sahih At-Tirmidhi 3/168.",
+    "repetitions": null,
+    "order": 3,
+    "tags": ["For one in distress"]
+  },
+  {
+    "id": 125,
+    "hisn_number": 125,
+    "category_id": "distress",
+    "category_name": "For one in distress",
+    "title": "For one in distress - Hisn al-Muslim 125",
+    "arabic": "اللهُ اللهُ رَبِّي لا أُشْـرِكُ بِهِ شَيْـئاً",
+    "transliteration": "Allāh, Allāhu Rabbī lā ushriku bihi shay'a.",
+    "translation": "Allah, Allah is my Lord. I do not associate anything with Him.",
+    "reference": "Abu Dawud 2/87. See also Al-Albani, Sahih Ibn Mdjah 2/335.",
+    "repetitions": null,
+    "order": 4,
+    "tags": ["For one in distress"]
+  }
+]

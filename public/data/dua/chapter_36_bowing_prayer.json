@@ -1,0 +1,33 @@
+{
+  "chapter_number": 36,
+  "section_number": 17,
+  "section_title": "While bowing in prayer",
+  "section_title_arabic": "دعاء الركوع",
+  "title": "Dua while in Rukoo (bowing position)",
+  "description": "This is the dua recited when bowing in prayer",
+  "duas": [
+    {
+      "id": 1,
+      "number": 36,
+      "title": "Dua during Rukoo",
+      "transliteration": "Allāhumma laka raka'tu, wa bika 'āmantu, wa laka 'aslamtu khasha'a laka sam'ee wa baṣarī, wa mukhkhī, wa 'aẓmī, wa 'aṣabī, wa mastaqalla bihi qadamī.",
+      "translation": "O Allah, to You I bow (in prayer) and in You I believe and to You I have submitted. Before You my hearing is humbled, and my sight, and my mind, my bones, my nerves and what my feet have mounted upon (for travel).",
+      "arabic": "اللّهُـمَّ لَكَ رَكَـعْتُ وَبِكَ آمَـنْت، ولَكَ أَسْلَـمْت ، خَشَـعَ لَكَ سَمْـعي، وَبَصَـري ، وَمُخِّـي، وَعَظْمـي، وَعَصَـبي ، وَما استَقَـلَّ بِهِ قَدَمي",
+      "references": [
+        {
+          "source": "Muslim",
+          "reference": "1/534"
+        },
+        {
+          "source": "Abu Dawud"
+        },
+        {
+          "source": "An-Nasa'i"
+        },
+        {
+          "source": "At-Tirmidhi"
+        }
+      ]
+    }
+  ]
+}

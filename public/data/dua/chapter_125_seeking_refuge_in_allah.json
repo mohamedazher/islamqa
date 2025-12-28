@@ -1,0 +1,47 @@
+{
+  "chapter_number": 125,
+  "chapter_title": "Seeking Refuge in Allah",
+  "chapter_title_arabic": "التوكل على الله والاستعاذة به",
+  "source": "Hisn al-Muslim (Fortress of the Muslim)",
+  "duas": [
+    {
+      "dua_id": 1,
+      "title": "Supplication of Refuge and Trust in Allah",
+      "title_arabic": "الاستعاذة بالله والتوكل عليه",
+      "text_transliteration": "Allāh, Allāhu Rabbī lā ushriku bihi shay'a.",
+      "text_arabic": "اللهُ اللهُ رَبِّي لا أُشْـرِكُ بِهِ شَيْـئاً",
+      "text_english": "Allah, Allah is my Lord. I do not associate anything with Him.",
+      "reference": {
+        "source": "Abu Dawud",
+        "volume": 2,
+        "page": 87,
+        "additional_references": "See also Al-Albani, Sahih Ibn Majah 2/335"
+      },
+      "authenticity": "Authenticated",
+      "category": "Trust and Reliance on Allah",
+      "occasion": "When needing to seek refuge and affirm monotheism",
+      "benefits": [
+        "Strengthens faith and tawheed",
+        "Establishes reliance on Allah alone",
+        "Protects from shirk and polytheism"
+      ],
+      "recitation_notes": "Should be recited with intention and full heart, affirming that Allah alone is the Lord and Master of all affairs."
+    }
+  ],
+  "chapter_context": {
+    "description": "This chapter focuses on the supplication for seeking refuge in Allah and declaring His oneness, emphasizing complete trust in and reliance upon Allah.",
+    "related_chapters": [124, 126, 127, 128],
+    "key_themes": [
+      "Tawheed (Monotheism)",
+      "Seeking refuge in Allah",
+      "Trust and reliance (Tawakkul)",
+      "Protection from associates with Allah"
+    ]
+  },
+  "metadata": {
+    "version": "1.0",
+    "date_extracted": "2025-12-28",
+    "language": "en",
+    "completeness": "complete"
+  }
+}

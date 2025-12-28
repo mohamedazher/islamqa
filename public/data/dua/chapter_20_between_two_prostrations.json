@@ -1,0 +1,42 @@
+[
+  {
+    "id": 48,
+    "hisn_number": 48,
+    "category_id": 20,
+    "category_name": "Between the two prostrations",
+    "title": "Lord, forgive me",
+    "arabic": "رَبِّ اغْفِـرْ لي ، رَبِّ اغْفِـرْ لي",
+    "transliteration": "Rabbi'ghfir lī, Rabbi'ghfir lī",
+    "translation": "Lord, forgive me. My Lord, forgive me.",
+    "reference": "Abu Dawud 1/231. See also Al-Albani, Sahih Ibn Majah 1/148.",
+    "repetitions": 1,
+    "order": 1,
+    "tags": [
+      "prayer",
+      "prostration",
+      "salah",
+      "forgiveness"
+    ]
+  },
+  {
+    "id": 49,
+    "hisn_number": 49,
+    "category_id": 20,
+    "category_name": "Between the two prostrations",
+    "title": "O Allah forgive me",
+    "arabic": "اللّهُـمَّ اغْفِـرْ لي ، وَارْحَمْـني ، وَاهْدِنـي ، وَاجْبُرْنـي ، وَعافِنـي وَارْزُقْنـي وَارْفَعْـني",
+    "transliteration": "Allāhumma'ghfir lī, war'ḥamnī, wahdinī, wajburnī, wa āfinī, warzuqnī, warfa'nī",
+    "translation": "O Allah forgive me, have mercy on me, guide me, support me, protect me, provide for me, and elevate me.",
+    "reference": "Abu Dawud, Ibn Majah, At-Tirmidhi. See also Al-Albani, Sahih At-Tirmidhi 1/90 and Sahih Ibn Majah 1/148.",
+    "repetitions": 1,
+    "order": 2,
+    "tags": [
+      "prayer",
+      "prostration",
+      "salah",
+      "forgiveness",
+      "mercy",
+      "guidance"
+    ]
+  }
+]

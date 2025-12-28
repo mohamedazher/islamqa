@@ -1,0 +1,49 @@
+[
+  {
+    "id": 147,
+    "hisn_number": 147,
+    "chapter": 49,
+    "category_id": "visiting_sick",
+    "category_name": "When visiting the sick",
+    "title": "Do not worry, it will be a purification",
+    "arabic": "لا بأْسَ طَهـورٌ إِنْ شـاءَ الله",
+    "transliteration": "Lā ba'sa ṭahūrun in shā Allāh.",
+    "translation": "Do not worry, it will be a purification (for you), Allah willing.",
+    "reference": "Al-Bukhari, cf. Al-Asqalani Fathul-Bari 10/118",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "sick",
+      "visiting",
+      "dua",
+      "supplications",
+      "encouragement",
+      "purification"
+    ],
+    "notes": "Said to a sick person to comfort and encourage them."
+  },
+  {
+    "id": 148,
+    "hisn_number": 148,
+    "chapter": 49,
+    "category_id": "visiting_sick",
+    "category_name": "When visiting the sick",
+    "title": "I ask Almighty Allah to make you well",
+    "arabic": "أَسْـأَلُ اللهَ العَـظيـم، رَبَّ العَـرْشِ العَـظيـم أَنْ يَشْفـيك . (سبع مرات)",
+    "transliteration": "As'alullāha 'l-`Aẓīma Rabba 'l-`Arshil-`Aẓīmi an yashfiyak.",
+    "translation": "I ask Almighty Allah, Lord of the Magnificent Throne, to make you well.",
+    "reference": "At-Tirmidhi, Abu Dawud. See also Al-Albani, Sahih At-Tirmidhi 2/210 and Sahihul-Jami' As-Saghir 5/180",
+    "repetitions": 7,
+    "order": 2,
+    "tags": [
+      "sick",
+      "visiting",
+      "dua",
+      "supplications",
+      "healing",
+      "illness",
+      "divine throne"
+    ],
+    "notes": "Recite seven times in Arabic. A powerful dua for healing the sick."
+  }
+]

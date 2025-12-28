@@ -1,0 +1,32 @@
+[
+  {
+    "id": 160,
+    "hisn_number": 160,
+    "category_id": 56,
+    "category_name": "When the deceased is a child, during the funeral prayer",
+    "title": "Supplication for a deceased child during the funeral prayer",
+    "arabic": "اللهم أعذه من عذاب القبر",
+    "transliteration": "Allāhumma a'īdh'hu min 'adhābi 'l-qabr",
+    "translation": "O Allah, protect him from the torment of the grave.",
+    "reference": "Ibn Qudamah, Al-Mughni 3/416",
+    "repetitions": "1",
+    "order": 1,
+    "tags": ["child", "funeral", "death", "protection", "grave", "dua"],
+    "extended_translation": "It is also good to say: O Allah, make him a precursor, a forerunner and a treasure for his parents and an answered intercessor. O Allah, make him weigh heavily in their scales (of good) and magnify their reward. Make him join the righteous of the believers. Place him in the care of Ibrahim. Save him by Your mercy from the torment of Hell. Give him a home better than his home, and a family better than his family. O Allah, forgive those who have gone (i.e. passed away) before us, our children lost (by death), and those who have preceded us in Faith."
+  },
+  {
+    "id": 161,
+    "hisn_number": 161,
+    "category_id": 56,
+    "category_name": "When the deceased is a child, during the funeral prayer",
+    "title": "Alternative supplication for a deceased child",
+    "arabic": "اللهُـمِّ اجْعَلْـهُ لَنا فَرَطـاً، وَسَلَـفاً وَأَجْـراً",
+    "transliteration": "Allāhumma'j'alhu lanā faraṭan, wa salafan, wa ajra",
+    "translation": "O Allah, make him for us a precursor, a forerunner and a cause of reward.",
+    "reference": "Al-Bukhari, Kitabul-Jana'iz, p. 65",
+    "repetitions": "1",
+    "order": 2,
+    "tags": ["child", "funeral", "death", "reward", "supplication", "dua"],
+    "notes": "Al-Hasan (Al-Basri) used to recite Surat Al-Fatihah for a child's funeral and then say this supplication."
+  }
+]

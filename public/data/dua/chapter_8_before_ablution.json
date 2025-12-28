@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "hisn_number": 12,
+    "category_id": "before_ablution",
+    "category_name": "Before ablution",
+    "title": "Before ablution - Hisn al-Muslim 12",
+    "arabic": "بِسْمِ الله",
+    "transliteration": "Bismillāhi",
+    "translation": "In the Name of Allah",
+    "reference": "Abu Dawud, Ibn Majah, and Ahmad. See also Al-Albani, 'Irwa'ul-Ghain 1/122.",
+    "repetitions": null,
+    "order": 1,
+    "tags": ["Before ablution"]
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 129,
+    "hisn_number": 129,
+    "category_id": "fear_rulers_injustice",
+    "category_name": "For one afraid of the ruler's injustice",
+    "title": "For one afraid of the ruler's injustice - Hisn al-Muslim 129",
+    "arabic": "اللَّهُمَّ ربَّ السَّمَوَاتِ السَّبْعِ، وَرَبَّ الْعَرْشِ الْعَظِيمِ، كُنْ لِي جَاراً مِنْ فُلاَنِ بْنِ فُلاَنٍ، وَأَحْزَابِهِ مِنْ خَلاَئِقِكَ، أَنْ يَفْرُطَ عَلَيَّ أَحَدٌ مِنْهُمْ أَوْ يَطْغَى، عَزَّ جَارُكَ، وَجَلَّ ثَنَاؤُكَ، وَلاَ إِلَهَ إِلاَّ أَنْتَ",
+    "transliteration": "Allāhumma Rabbas-samāwātis-sab', wa Rabba 'l-'Arshi 'l-'Aẓīm, kun lī jāran min [here you mention the person's name], wa aḥzābihi min khalā'iqik, an yafruṭa 'alayya aḥadun minhum aw yaṭghā, 'azza jāruk, wa jalla thanā'uk, wa lā ilāha illā ant.",
+    "translation": "O Allah, Lord of the seven heavens, Lord of the Magnificent Throne, be for me a support against [such and such a person] and his helpers from among your creatures, lest any of them abuse me or do me wrong. Mighty is Your patronage, and glorious are Your praises. There is none worthy of worship but You.",
+    "reference": "Al-Bukhari, Al-'Adab Al-Mufrad (no. 707). Al-Albani graded it authentic in Sahih Al-'Adab Al-Mufrad (no. 545).",
+    "repetitions": null,
+    "order": 1,
+    "tags": ["Fear of rulers", "Injustice", "Protection"]
+  },
+  {
+    "id": 130,
+    "hisn_number": 130,
+    "category_id": "fear_rulers_injustice",
+    "category_name": "For one afraid of the ruler's injustice",
+    "title": "For one afraid of the ruler's injustice - Hisn al-Muslim 130",
+    "arabic": "الله أكبر، الله أعز من خلقه جميعاً ، الله أعز مما أخاف وأحذر ، أعوذ بالله الذي لا إله إلا هو ، الممسك السموات السبع أن يقعن على الأرض إلا بإذنه ، من شر عبدك فلان ، وجنوده وأتباعه وأشياعه ، من الجن والأنس ، اللهم كن لي جاراً من شرهم ، جل ثناؤك وعز جارك ، وتبارك اسمك ، ولا إله غيرك",
+    "transliteration": "Allāhu Akbar, Allāhu a'azzu min khalqihi jamī'a, Allāhu a'azzu mimmā akhāfu wa aḥdhar, a'ūdhu billāhi 'l-ladhī lā ilāha illā hū, almumsikis-samāwātis-sab'i an yaqa'na 'ala 'l-arḍi illā bi idhnih, min sharri 'abdika [name of the person], wa junūdihi wa atbā'ihi wa ashyā'ih, mina 'l-jinni wa 'l-ins, Allāhumma kun lī jāran min sharrihim, jalla thanā'uk, wa 'azza jāruk, wa tabāraka-smuk, wa lā ilāha ghayruk.",
+    "translation": "Allah is the Most Great, Mightier than all His creation. He is Mightier than what I fear and dread. I seek refuge in Allah, Who there is none worthy of worship but Him. He is the One Who holds the seven heavens from falling upon the earth except by His command. [I seek refuge in You Allah] from the evil of Your slave [name of the person], and his helpers, his followers, and his supporters from among the jinn and mankind. O Allah, be my support against their evil. Glorious are Your praises and mighty is Your patronage. Blessed is Your Name, there is no true God but You.",
+    "reference": "Al-Bukhari, 5/172.",
+    "repetitions": 3,
+    "order": 2,
+    "tags": ["Fear of rulers", "Injustice", "Protection", "Quranic"]
+  }
+]

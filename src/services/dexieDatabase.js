@@ -1037,39 +1037,21 @@ class DexieDatabase extends Dexie {
 
   /**
    * Get duas by category id
-   * Supports both string IDs (from UI) and numeric IDs (from database)
+   * In Hisn al-Muslim data: categoryId is a string like "morning_evening"
    */
   async getDuasByCategory(categoryId) {
     try {
       console.log(`🔍 getDuasByCategory called with: ${categoryId} (type: ${typeof categoryId})`)
 
-      // Convert string categoryId to number if it's numeric
-      let numericId = categoryId
-      if (typeof categoryId === 'string') {
-        const parsed = parseInt(categoryId, 10)
-        if (!isNaN(parsed)) {
-          // It's a numeric string like "8" - convert to number
-          numericId = parsed
-          console.log(`  → Converted numeric string "${categoryId}" to number ${numericId}`)
-        } else {
-          // It's a non-numeric string like "morning" - look up the category
-          console.log(`  → String ID detected, looking up category...`)
-          const cat = await this.dua_categories.get(categoryId)
-          console.log(`  → Category found:`, cat)
-          if (cat && cat.numeric_id) {
-            numericId = cat.numeric_id
-            console.log(`  → Mapped to numeric_id: ${numericId}`)
-          } else {
-            console.warn(`  → Category not found or no numeric_id!`)
-            return []
-          }
-        }
-      }
+      // In the Hisn al-Muslim data structure:
+      // - Categories have string `id` (e.g., "morning_evening")
+      // - Duas have string `category_id` that matches the category's `id`
+      const stringId = String(categoryId)
 
-      console.log(`  → Querying duas with category_id = ${numericId} (type: ${typeof numericId})`)
+      console.log(`  → Querying duas with category_id = "${stringId}"`)
       const results = await this.duas
         .where('category_id')
-        .equals(numericId)
+        .equals(stringId)
         .sortBy('order')
 
       console.log(`  → Found ${results.length} duas`)

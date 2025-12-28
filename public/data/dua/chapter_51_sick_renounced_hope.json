@@ -1,0 +1,73 @@
+{
+  "chapter": {
+    "id": 51,
+    "hisn_number": 150,
+    "category_id": 51,
+    "category_name": "When the sick have renounced all hope of life",
+    "description": "Supplications for the one who is dying or has lost hope in recovery",
+    "order": 51
+  },
+  "duas": [
+    {
+      "id": 1,
+      "hisn_number": 150,
+      "category_id": 51,
+      "category_name": "When the sick have renounced all hope of life",
+      "title": "Supplication for forgiveness and mercy at the time of death",
+      "arabic": "أللّهُـمَّ اغْفِـرْ لي وَارْحَمْـني وَأَلْحِقْـني بِالرَّفـيقِ الأّعْلـى",
+      "transliteration": "Allāhumma'ghfir lī warḥamnī wa alḥiqnī bir-rafīqi 'l-'A`alā.",
+      "translation": "O Allah, forgive me and have mercy upon me, and join me with the highest companions (in Paradise).",
+      "reference": "Al-Bukhari 7/10, Muslim 4/1893",
+      "repetitions": 1,
+      "order": 1,
+      "tags": [
+        "death",
+        "forgiveness",
+        "mercy",
+        "paradise",
+        "dying"
+      ]
+    },
+    {
+      "id": 2,
+      "hisn_number": 151,
+      "category_id": 51,
+      "category_name": "When the sick have renounced all hope of life",
+      "title": "The Prophet's supplication at the time of death",
+      "arabic": "جعل النبي صلى الله عليه وسلم عند موته يدخل يديه في الماء فيمسح بهما وجههُ ويقول : لا إله إلا الله إن للموت لسكرات",
+      "transliteration": "Lā ilāha illallāh inna li 'lmawti la'sakarāt.",
+      "translation": "There is none worthy of worship but Allah, surely death has agonies.",
+      "reference": "Al-Bukhari, cf. Al-Asqalani, Fathul-Bari 8/144",
+      "repetitions": 1,
+      "order": 2,
+      "tags": [
+        "death",
+        "tawheed",
+        "prophet's example",
+        "dying",
+        "struggle of death"
+      ]
+    },
+    {
+      "id": 3,
+      "hisn_number": 152,
+      "category_id": 51,
+      "category_name": "When the sick have renounced all hope of life",
+      "title": "Comprehensive declaration of Allah's oneness and might",
+      "arabic": "لا إلهَ إلاّ اللّهُ وَاللّهُ أَكْبَـر، لا إلهَ إلاّ اللّهُ وحْـدَهُ، لا إلهَ إلاّ اللّهُ وحْـدَهُ لا شَريكَ لهُ، لا إلهَ إلاّ اللّهُ لهُ المُلكُ ولهُ الحَمْد، لا إلهَ إلاّ اللّهُ وَلا حَـوْلَ وَلا قُـوَّةَ إِلاّ بِالله",
+      "transliteration": "Lā ilāha illallāh wallāhu Akbar, lā ilāha illallāhu waḥdah, lā ilāha illallāh waḥdahu lā sharīka lah, lā ilāha illallāh lahu 'l-mulku wa lahu 'l-ḥamd, lā ilāha illallāh wa lā ḥawla wa lā quwwata illā billāh.",
+      "translation": "There is none worthy of worship but Allah, Allah is the Most Great. None has the right to be worshipped but Allah alone. None has the right to be worshipped but Allah alone, Who has no partner. There is none worthy of worship but Allah, His is the dominion and His is the praise. There is none worthy of worship but Allah, there is no power and no might but by Allah.",
+      "reference": "At-Tirmidhi and Ibn Majah. See also Al-Albani, Sahih At-Tirmidhi 3/152 and Sahih Ibn Majah 2/317",
+      "repetitions": 1,
+      "order": 3,
+      "tags": [
+        "death",
+        "tawheed",
+        "greatness of Allah",
+        "divine power",
+        "dependence on Allah",
+        "dying"
+      ]
+    }
+  ]
+}

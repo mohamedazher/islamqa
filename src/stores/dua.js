@@ -28,8 +28,8 @@ export const useDuaStore = defineStore('dua', {
   }),
 
   getters: {
-    mainCategories: (state) => state.categories.filter(c => c.type === 'main'),
-    otherCategories: (state) => state.categories.filter(c => c.type === 'other'),
+    mainCategories: (state) => state.categories.filter(c => c.tab === 'main'),
+    otherCategories: (state) => state.categories.filter(c => c.tab === 'other'),
     currentDua: (state) => state.currentDuas[state.currentDuaIndex] || null,
     progress: (state) => {
       if (state.currentDuas.length === 0) return '0/0'
@@ -47,21 +47,16 @@ export const useDuaStore = defineStore('dua', {
     async initialize() {
       this.isLoading = true
       try {
-        // Check if data is imported
-        this.isImported = await duaService.isImported()
-        console.log(`📚 [DuaStore] Initialize: isImported = ${this.isImported}`)
-
-        if (!this.isImported) {
-          // Import data
-          console.log(`📚 [DuaStore] Starting dua data import...`)
-          await duaDataLoader.loadAndImport((status, progress) => {
-            this.importStatus = status
-            this.importProgress = progress
-            console.log(`  → ${status} (${progress}%)`)
-          })
-          this.isImported = true
-          console.log(`📚 [DuaStore] Dua data import complete`)
-        }
+        // Always run loadAndImport - it handles version checking and migration internally
+        // This ensures existing users get migrated to new data structure
+        console.log(`📚 [DuaStore] Starting dua data import/check...`)
+        await duaDataLoader.loadAndImport((status, progress) => {
+          this.importStatus = status
+          this.importProgress = progress
+          console.log(`  → ${status} (${progress}%)`)
+        })
+        this.isImported = true
+        console.log(`📚 [DuaStore] Dua data ready`)
 
         // Load categories
         console.log(`📚 [DuaStore] Loading categories...`)
