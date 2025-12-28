@@ -7,7 +7,7 @@
 import dexieDb from './dexieDatabase'
 
 // Current data version - increment when data structure changes
-const CURRENT_DUA_DATA_VERSION = 4 // Version 4: Added icons and colors to categories
+const CURRENT_DUA_DATA_VERSION = 5 // Version 5: Hash-based unique colors for each category
 
 class DuaDataLoader {
   /**

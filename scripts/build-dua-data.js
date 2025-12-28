@@ -10,78 +10,117 @@ const path = require('path')
 
 const DUA_DIR = path.join(__dirname, '../public/data/dua')
 
-// Icon and color mappings based on category keywords
-const CATEGORY_THEMES = [
-  // Sleep & Night
-  { keywords: ['sleep', 'night', 'bed', 'lying', 'dream', 'nightmare', 'tossing', 'turning', 'apprehensive'], icon: 'moon', color: 'from-indigo-500 via-purple-500 to-indigo-600' },
-  // Morning & Waking
-  { keywords: ['waking', 'morning', 'rising', 'dawn'], icon: 'sun', color: 'from-amber-400 via-orange-400 to-yellow-500' },
-  // Evening
-  { keywords: ['evening'], icon: 'sunset', color: 'from-orange-500 via-rose-500 to-purple-500' },
-  // Prayer & Salah
-  { keywords: ['prayer', 'salah', 'prostrat', 'bowing', 'ruku', 'sujud', 'tashahhud', 'salam', 'witr', 'qunoot', 'takbir'], icon: 'mosque', color: 'from-teal-500 via-emerald-500 to-green-500' },
-  // Mosque
-  { keywords: ['mosque', 'masjid'], icon: 'mosque', color: 'from-emerald-500 via-teal-500 to-cyan-500' },
-  // Ablution & Wudu
-  { keywords: ['ablution', 'wudu', 'bathroom', 'lavatory'], icon: 'droplet', color: 'from-cyan-400 via-blue-400 to-sky-500' },
-  // Food & Eating
-  { keywords: ['eating', 'food', 'meal', 'drink', 'fast', 'iftar', 'breaking fast'], icon: 'utensils', color: 'from-lime-500 via-green-500 to-emerald-500' },
-  // Travel
-  { keywords: ['travel', 'journey', 'transport', 'mount', 'animal', 'vehicle', 'town', 'village', 'market'], icon: 'plane', color: 'from-sky-500 via-blue-500 to-indigo-500' },
-  // Death & Funeral
-  { keywords: ['death', 'deceased', 'funeral', 'grave', 'bury', 'condolence', 'calamity'], icon: 'heart', color: 'from-slate-500 via-gray-500 to-zinc-500' },
-  // Protection & Safety
-  { keywords: ['protect', 'refuge', 'shield', 'safe', 'evil', 'devil', 'shirk', 'fear', 'afraid', 'enemy', 'ruler'], icon: 'shield', color: 'from-violet-500 via-purple-500 to-fuchsia-500' },
-  // Clothes & Garments
-  { keywords: ['garment', 'cloth', 'wear', 'dress', 'undress', 'new garment'], icon: 'shirt', color: 'from-pink-400 via-rose-400 to-red-400' },
-  // Weather & Nature
-  { keywords: ['rain', 'thunder', 'wind', 'storm', 'weather', 'sky', 'clear'], icon: 'cloud', color: 'from-blue-400 via-cyan-400 to-teal-400' },
-  // Health & Sickness
-  { keywords: ['sick', 'ill', 'health', 'pain', 'afflict', 'visit'], icon: 'heartPulse', color: 'from-red-400 via-rose-400 to-pink-400' },
-  // Children & Family
-  { keywords: ['child', 'birth', 'baby', 'newborn', 'family'], icon: 'users', color: 'from-rose-400 via-pink-400 to-fuchsia-400' },
-  // Marriage & Wedding
-  { keywords: ['marriage', 'wedding', 'newlywed', 'spouse'], icon: 'heart', color: 'from-pink-500 via-rose-500 to-red-500' },
-  // Remembrance & Dhikr
-  { keywords: ['dhikr', 'remembrance', 'praise', 'glorif', 'tasbih', 'istighfar', 'forgive'], icon: 'sparkles', color: 'from-amber-500 via-yellow-500 to-orange-400' },
-  // Guidance & Istikhara
-  { keywords: ['guidance', 'istikhara', 'decision', 'seeking'], icon: 'compass', color: 'from-blue-500 via-indigo-500 to-violet-500' },
-  // Distress & Anxiety
-  { keywords: ['distress', 'anxiety', 'sorrow', 'difficult', 'debt', 'worry', 'trouble'], icon: 'leaf', color: 'from-green-400 via-emerald-400 to-teal-400' },
-  // Home
-  { keywords: ['home', 'house', 'enter', 'leave', 'door'], icon: 'home', color: 'from-amber-500 via-orange-500 to-red-400' },
-  // Hajj & Umrah
-  { keywords: ['hajj', 'umrah', 'tawaf', 'safa', 'marwa', 'arafat', 'muzdalifa', 'jamarat', 'kaaba'], icon: 'kaaba', color: 'from-stone-500 via-amber-600 to-yellow-500' },
-  // Moon & Occasions
-  { keywords: ['moon', 'crescent', 'ramadan', 'eid'], icon: 'moon', color: 'from-emerald-400 via-teal-400 to-cyan-400' },
-  // Gratitude & Blessings
-  { keywords: ['gratitude', 'thank', 'blessing', 'favour', 'pleasant', 'pleasing', 'amazement', 'delights'], icon: 'star', color: 'from-yellow-400 via-amber-400 to-orange-400' },
-  // Social & Gatherings
-  { keywords: ['gathering', 'sitting', 'meeting', 'greeting', 'praise', 'praised', 'sneez'], icon: 'users', color: 'from-blue-400 via-indigo-400 to-purple-400' },
-  // Quran
-  { keywords: ['quran', 'ayat', 'kursi', 'recit', 'qul', 'surah'], icon: 'book', color: 'from-emerald-600 via-green-500 to-teal-500' },
-  // Prophet & Salawat
-  { keywords: ['prophet', 'salawat', 'muhammad', 'prayers upon'], icon: 'star', color: 'from-emerald-500 via-green-500 to-lime-500' },
-  // Sin & Repentance
-  { keywords: ['sin', 'repent', 'expiation', 'committing'], icon: 'refresh', color: 'from-slate-400 via-gray-400 to-zinc-400' },
-  // Doubt & Whisperings
-  { keywords: ['doubt', 'whisper', 'faith'], icon: 'shield', color: 'from-indigo-400 via-blue-400 to-cyan-400' },
-  // Sacrifice & Slaughter
-  { keywords: ['slaughter', 'sacrifice', 'animal'], icon: 'gift', color: 'from-red-500 via-rose-500 to-pink-500' },
+// Icon mappings based on category keywords
+const ICON_KEYWORDS = [
+  { keywords: ['sleep', 'night', 'bed', 'lying', 'dream', 'nightmare', 'tossing', 'turning', 'apprehensive'], icon: 'moon' },
+  { keywords: ['waking', 'morning', 'rising', 'dawn'], icon: 'sun' },
+  { keywords: ['evening'], icon: 'sunset' },
+  { keywords: ['prayer', 'salah', 'prostrat', 'bowing', 'ruku', 'sujud', 'tashahhud', 'salam', 'witr', 'qunoot', 'takbir'], icon: 'mosque' },
+  { keywords: ['mosque', 'masjid'], icon: 'mosque' },
+  { keywords: ['ablution', 'wudu', 'bathroom', 'lavatory'], icon: 'droplet' },
+  { keywords: ['eating', 'food', 'meal', 'drink', 'fast', 'iftar', 'breaking fast'], icon: 'utensils' },
+  { keywords: ['travel', 'journey', 'transport', 'mount', 'vehicle', 'town', 'village', 'market'], icon: 'plane' },
+  { keywords: ['death', 'deceased', 'funeral', 'grave', 'bury', 'condolence', 'calamity'], icon: 'heart' },
+  { keywords: ['protect', 'refuge', 'shield', 'safe', 'evil', 'devil', 'shirk', 'fear', 'afraid', 'enemy', 'ruler'], icon: 'shield' },
+  { keywords: ['garment', 'cloth', 'wear', 'dress', 'undress'], icon: 'shirt' },
+  { keywords: ['rain', 'thunder', 'wind', 'storm', 'weather', 'sky', 'clear'], icon: 'cloud' },
+  { keywords: ['sick', 'ill', 'health', 'pain', 'afflict', 'visit'], icon: 'heartPulse' },
+  { keywords: ['child', 'birth', 'baby', 'newborn', 'family'], icon: 'users' },
+  { keywords: ['marriage', 'wedding', 'newlywed', 'spouse'], icon: 'heart' },
+  { keywords: ['dhikr', 'remembrance', 'praise', 'glorif', 'tasbih', 'istighfar', 'forgive'], icon: 'sparkles' },
+  { keywords: ['guidance', 'istikhara', 'decision', 'seeking'], icon: 'compass' },
+  { keywords: ['distress', 'anxiety', 'sorrow', 'difficult', 'debt', 'worry', 'trouble'], icon: 'leaf' },
+  { keywords: ['home', 'house', 'enter', 'leave', 'door'], icon: 'home' },
+  { keywords: ['hajj', 'umrah', 'tawaf', 'safa', 'marwa', 'arafat', 'muzdalifa', 'jamarat', 'kaaba'], icon: 'kaaba' },
+  { keywords: ['moon', 'crescent', 'ramadan', 'eid'], icon: 'moon' },
+  { keywords: ['gratitude', 'thank', 'blessing', 'favour', 'pleasant', 'pleasing', 'amazement', 'delights'], icon: 'star' },
+  { keywords: ['gathering', 'sitting', 'meeting', 'greeting', 'praised', 'sneez'], icon: 'users' },
+  { keywords: ['quran', 'ayat', 'kursi', 'recit', 'qul', 'surah'], icon: 'book' },
+  { keywords: ['prophet', 'salawat', 'muhammad', 'prayers upon'], icon: 'star' },
+  { keywords: ['sin', 'repent', 'expiation', 'committing'], icon: 'refresh' },
+  { keywords: ['doubt', 'whisper', 'faith'], icon: 'shield' },
+  { keywords: ['slaughter', 'sacrifice', 'animal'], icon: 'gift' },
 ]
 
-// Get icon and color for a category based on its title
-function getCategoryTheme(title) {
-  const lowerTitle = title.toLowerCase()
+// Beautiful gradient color palette - vibrant combinations (no gray/black)
+const COLOR_PALETTE = [
+  'from-rose-500 via-pink-500 to-fuchsia-500',
+  'from-pink-500 via-fuchsia-500 to-purple-500',
+  'from-fuchsia-500 via-purple-500 to-violet-500',
+  'from-purple-500 via-violet-500 to-indigo-500',
+  'from-violet-500 via-indigo-500 to-blue-500',
+  'from-indigo-500 via-blue-500 to-cyan-500',
+  'from-blue-500 via-cyan-500 to-teal-500',
+  'from-cyan-500 via-teal-500 to-emerald-500',
+  'from-teal-500 via-emerald-500 to-green-500',
+  'from-emerald-500 via-green-500 to-lime-500',
+  'from-green-500 via-lime-500 to-yellow-500',
+  'from-lime-500 via-yellow-500 to-amber-500',
+  'from-yellow-500 via-amber-500 to-orange-500',
+  'from-amber-500 via-orange-500 to-red-500',
+  'from-orange-500 via-red-500 to-rose-500',
+  'from-red-500 via-rose-500 to-pink-500',
+  'from-sky-400 via-blue-500 to-indigo-600',
+  'from-emerald-400 via-teal-500 to-cyan-600',
+  'from-amber-400 via-orange-500 to-red-600',
+  'from-fuchsia-400 via-pink-500 to-rose-600',
+  'from-violet-400 via-purple-500 to-fuchsia-600',
+  'from-cyan-400 via-sky-500 to-blue-600',
+  'from-lime-400 via-green-500 to-emerald-600',
+  'from-rose-400 via-red-500 to-orange-600',
+  'from-indigo-400 via-violet-500 to-purple-600',
+  'from-teal-400 via-cyan-500 to-sky-600',
+  'from-orange-400 via-amber-500 to-yellow-600',
+  'from-pink-400 via-rose-500 to-red-600',
+  'from-blue-400 via-indigo-500 to-violet-600',
+  'from-green-400 via-emerald-500 to-teal-600',
+  'from-red-400 via-orange-500 to-amber-600',
+  'from-purple-400 via-fuchsia-500 to-pink-600',
+  'from-sky-500 via-cyan-400 to-teal-500',
+  'from-rose-600 via-pink-500 to-fuchsia-400',
+  'from-amber-600 via-yellow-500 to-lime-400',
+  'from-violet-600 via-indigo-500 to-blue-400',
+  'from-emerald-600 via-green-500 to-lime-400',
+  'from-fuchsia-600 via-purple-500 to-violet-400',
+  'from-cyan-600 via-teal-500 to-emerald-400',
+]
 
-  for (const theme of CATEGORY_THEMES) {
-    if (theme.keywords.some(keyword => lowerTitle.includes(keyword))) {
-      return { icon: theme.icon, color: theme.color }
+// Simple hash function to generate consistent index from string
+function hashString(str) {
+  let hash = 0
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i)
+    hash = ((hash << 5) - hash) + char
+    hash = hash & hash // Convert to 32bit integer
+  }
+  return Math.abs(hash)
+}
+
+// Get icon based on keywords
+function getIconForCategory(title) {
+  const lowerTitle = title.toLowerCase()
+  for (const mapping of ICON_KEYWORDS) {
+    if (mapping.keywords.some(keyword => lowerTitle.includes(keyword))) {
+      return mapping.icon
     }
   }
+  return 'book' // Default icon
+}
 
-  // Default theme
-  return { icon: 'book', color: 'from-teal-500 via-cyan-500 to-blue-500' }
+// Get unique color based on category title hash
+function getColorForCategory(title, chapterNum) {
+  // Use both title and chapter number for better distribution
+  const hash = hashString(title + chapterNum)
+  const colorIndex = hash % COLOR_PALETTE.length
+  return COLOR_PALETTE[colorIndex]
+}
+
+// Get icon and color for a category
+function getCategoryTheme(title, chapterNum) {
+  return {
+    icon: getIconForCategory(title),
+    color: getColorForCategory(title, chapterNum)
+  }
 }
 
 function buildDuaData() {
@@ -145,8 +184,8 @@ function buildDuaData() {
     const categoryId = `chapter_${chapterNum}`
     const categoryName = firstDua.category_name || chapterSlug.replace(/_/g, ' ')
 
-    // Get theme (icon and color) based on category name
-    const theme = getCategoryTheme(categoryName)
+    // Get theme (icon and color) based on category name and chapter number
+    const theme = getCategoryTheme(categoryName, chapterNum)
 
     // Create category entry
     categories.push({
