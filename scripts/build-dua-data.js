@@ -102,60 +102,6 @@ const EMOJI_KEYWORDS = [
   { keywords: ['seeking'], emoji: '🔍' },
 ]
 
-// Beautiful gradient color palette - vibrant combinations (no gray/black)
-const COLOR_PALETTE = [
-  'from-rose-500 via-pink-500 to-fuchsia-500',
-  'from-pink-500 via-fuchsia-500 to-purple-500',
-  'from-fuchsia-500 via-purple-500 to-violet-500',
-  'from-purple-500 via-violet-500 to-indigo-500',
-  'from-violet-500 via-indigo-500 to-blue-500',
-  'from-indigo-500 via-blue-500 to-cyan-500',
-  'from-blue-500 via-cyan-500 to-teal-500',
-  'from-cyan-500 via-teal-500 to-emerald-500',
-  'from-teal-500 via-emerald-500 to-green-500',
-  'from-emerald-500 via-green-500 to-lime-500',
-  'from-green-500 via-lime-500 to-yellow-500',
-  'from-lime-500 via-yellow-500 to-amber-500',
-  'from-yellow-500 via-amber-500 to-orange-500',
-  'from-amber-500 via-orange-500 to-red-500',
-  'from-orange-500 via-red-500 to-rose-500',
-  'from-red-500 via-rose-500 to-pink-500',
-  'from-sky-400 via-blue-500 to-indigo-600',
-  'from-emerald-400 via-teal-500 to-cyan-600',
-  'from-amber-400 via-orange-500 to-red-600',
-  'from-fuchsia-400 via-pink-500 to-rose-600',
-  'from-violet-400 via-purple-500 to-fuchsia-600',
-  'from-cyan-400 via-sky-500 to-blue-600',
-  'from-lime-400 via-green-500 to-emerald-600',
-  'from-rose-400 via-red-500 to-orange-600',
-  'from-indigo-400 via-violet-500 to-purple-600',
-  'from-teal-400 via-cyan-500 to-sky-600',
-  'from-orange-400 via-amber-500 to-yellow-600',
-  'from-pink-400 via-rose-500 to-red-600',
-  'from-blue-400 via-indigo-500 to-violet-600',
-  'from-green-400 via-emerald-500 to-teal-600',
-  'from-red-400 via-orange-500 to-amber-600',
-  'from-purple-400 via-fuchsia-500 to-pink-600',
-  'from-sky-500 via-cyan-400 to-teal-500',
-  'from-rose-600 via-pink-500 to-fuchsia-400',
-  'from-amber-600 via-yellow-500 to-lime-400',
-  'from-violet-600 via-indigo-500 to-blue-400',
-  'from-emerald-600 via-green-500 to-lime-400',
-  'from-fuchsia-600 via-purple-500 to-violet-400',
-  'from-cyan-600 via-teal-500 to-emerald-400',
-]
-
-// Simple hash function to generate consistent index from string
-function hashString(str) {
-  let hash = 0
-  for (let i = 0; i < str.length; i++) {
-    const char = str.charCodeAt(i)
-    hash = ((hash << 5) - hash) + char
-    hash = hash & hash // Convert to 32bit integer
-  }
-  return Math.abs(hash)
-}
-
 // Get emoji based on keywords
 function getEmojiForCategory(title) {
   const lowerTitle = title.toLowerCase()
@@ -165,22 +111,6 @@ function getEmojiForCategory(title) {
     }
   }
   return '📿' // Default emoji (prayer beads)
-}
-
-// Get unique color based on category title hash
-function getColorForCategory(title, chapterNum) {
-  // Use both title and chapter number for better distribution
-  const hash = hashString(title + chapterNum)
-  const colorIndex = hash % COLOR_PALETTE.length
-  return COLOR_PALETTE[colorIndex]
-}
-
-// Get emoji and color for a category
-function getCategoryTheme(title, chapterNum) {
-  return {
-    icon: getEmojiForCategory(title),
-    color: getColorForCategory(title, chapterNum)
-  }
 }
 
 function buildDuaData() {
@@ -244,18 +174,17 @@ function buildDuaData() {
     const categoryId = `chapter_${chapterNum}`
     const categoryName = firstDua.category_name || chapterSlug.replace(/_/g, ' ')
 
-    // Get theme (icon and color) based on category name and chapter number
-    const theme = getCategoryTheme(categoryName, chapterNum)
+    // Get emoji icon based on category name
+    const icon = getEmojiForCategory(categoryName)
 
-    // Create category entry
+    // Create category entry (colors computed in component based on numeric_id)
     categories.push({
       id: categoryId,
       numeric_id: chapterNum,
       title: categoryName,
       title_ar: '', // Can be filled later
       description: `Hisn al-Muslim Chapter ${chapterNum}`,
-      icon: theme.icon,
-      color: theme.color,
+      icon: icon,
       dua_count: duas.length,
       order: chapterNum,
       tab: chapterNum <= 30 ? 'main' : 'other', // First 30 chapters in main tab
