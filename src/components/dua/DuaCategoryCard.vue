@@ -11,8 +11,8 @@
 
     <!-- Content -->
     <div class="relative p-4 h-full flex flex-col justify-end">
-      <div class="mb-1 text-white/80">
-        <Icon :name="category.icon || 'book'" size="lg" />
+      <div class="mb-1 text-2xl">
+        {{ category.icon || '📿' }}
       </div>
       <h3 class="text-white font-bold text-lg leading-tight">{{ category.title }}</h3>
       <p class="text-white/70 text-xs mt-1">{{ category.dua_count }} duas</p>
@@ -22,7 +22,6 @@
 
 <script setup>
 import { computed } from 'vue'
-import Icon from '@/components/common/Icon.vue'
 
 const props = defineProps({
   category: {

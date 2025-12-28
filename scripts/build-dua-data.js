@@ -10,36 +10,96 @@ const path = require('path')
 
 const DUA_DIR = path.join(__dirname, '../public/data/dua')
 
-// Icon mappings based on category keywords
-const ICON_KEYWORDS = [
-  { keywords: ['sleep', 'night', 'bed', 'lying', 'dream', 'nightmare', 'tossing', 'turning', 'apprehensive'], icon: 'moon' },
-  { keywords: ['waking', 'morning', 'rising', 'dawn'], icon: 'sun' },
-  { keywords: ['evening'], icon: 'sunset' },
-  { keywords: ['prayer', 'salah', 'prostrat', 'bowing', 'ruku', 'sujud', 'tashahhud', 'salam', 'witr', 'qunoot', 'takbir'], icon: 'mosque' },
-  { keywords: ['mosque', 'masjid'], icon: 'mosque' },
-  { keywords: ['ablution', 'wudu', 'bathroom', 'lavatory'], icon: 'droplet' },
-  { keywords: ['eating', 'food', 'meal', 'drink', 'fast', 'iftar', 'breaking fast'], icon: 'utensils' },
-  { keywords: ['travel', 'journey', 'transport', 'mount', 'vehicle', 'town', 'village', 'market'], icon: 'plane' },
-  { keywords: ['death', 'deceased', 'funeral', 'grave', 'bury', 'condolence', 'calamity'], icon: 'heart' },
-  { keywords: ['protect', 'refuge', 'shield', 'safe', 'evil', 'devil', 'shirk', 'fear', 'afraid', 'enemy', 'ruler'], icon: 'shield' },
-  { keywords: ['garment', 'cloth', 'wear', 'dress', 'undress'], icon: 'shirt' },
-  { keywords: ['rain', 'thunder', 'wind', 'storm', 'weather', 'sky', 'clear'], icon: 'cloud' },
-  { keywords: ['sick', 'ill', 'health', 'pain', 'afflict', 'visit'], icon: 'heartPulse' },
-  { keywords: ['child', 'birth', 'baby', 'newborn', 'family'], icon: 'users' },
-  { keywords: ['marriage', 'wedding', 'newlywed', 'spouse'], icon: 'heart' },
-  { keywords: ['dhikr', 'remembrance', 'praise', 'glorif', 'tasbih', 'istighfar', 'forgive'], icon: 'sparkles' },
-  { keywords: ['guidance', 'istikhara', 'decision', 'seeking'], icon: 'compass' },
-  { keywords: ['distress', 'anxiety', 'sorrow', 'difficult', 'debt', 'worry', 'trouble'], icon: 'leaf' },
-  { keywords: ['home', 'house', 'enter', 'leave', 'door'], icon: 'home' },
-  { keywords: ['hajj', 'umrah', 'tawaf', 'safa', 'marwa', 'arafat', 'muzdalifa', 'jamarat', 'kaaba'], icon: 'kaaba' },
-  { keywords: ['moon', 'crescent', 'ramadan', 'eid'], icon: 'moon' },
-  { keywords: ['gratitude', 'thank', 'blessing', 'favour', 'pleasant', 'pleasing', 'amazement', 'delights'], icon: 'star' },
-  { keywords: ['gathering', 'sitting', 'meeting', 'greeting', 'praised', 'sneez'], icon: 'users' },
-  { keywords: ['quran', 'ayat', 'kursi', 'recit', 'qul', 'surah'], icon: 'book' },
-  { keywords: ['prophet', 'salawat', 'muhammad', 'prayers upon'], icon: 'star' },
-  { keywords: ['sin', 'repent', 'expiation', 'committing'], icon: 'refresh' },
-  { keywords: ['doubt', 'whisper', 'faith'], icon: 'shield' },
-  { keywords: ['slaughter', 'sacrifice', 'animal'], icon: 'gift' },
+// Emoji mappings based on category keywords (order matters - more specific first!)
+const EMOJI_KEYWORDS = [
+  // Location-specific (check before general "remembrance")
+  { keywords: ['home', 'house'], emoji: '🏠' },
+  { keywords: ['mosque', 'masjid'], emoji: '🕌' },
+  { keywords: ['town', 'village', 'market'], emoji: '🏘️' },
+  { keywords: ['grave', 'visiting the grave'], emoji: '🪦' },
+
+  // Time-specific
+  { keywords: ['waking', 'morning', 'rising', 'dawn'], emoji: '🌅' },
+  { keywords: ['evening'], emoji: '🌆' },
+  { keywords: ['sleep', 'night', 'bed', 'lying', 'dream', 'nightmare', 'tossing', 'turning', 'apprehensive'], emoji: '🌙' },
+
+  // Prayer-specific
+  { keywords: ['tashahhud'], emoji: '🙏' },
+  { keywords: ['salam'], emoji: '✋' },
+  { keywords: ['witr', 'qunoot'], emoji: '🤲' },
+  { keywords: ['prayer', 'salah', 'prostrat', 'bowing', 'ruku', 'sujud', 'obligatory', 'takbir'], emoji: '🤲' },
+
+  // Ablution
+  { keywords: ['ablution', 'wudu', 'bathroom', 'lavatory'], emoji: '💧' },
+
+  // Food & Fasting
+  { keywords: ['eating', 'food', 'meal', 'drink'], emoji: '🍽️' },
+  { keywords: ['fast', 'fasting', 'iftar', 'breaking fast'], emoji: '🌙' },
+
+  // Travel
+  { keywords: ['travel', 'journey', 'transport', 'traveller', 'resident'], emoji: '✈️' },
+  { keywords: ['mount', 'stumbles'], emoji: '🐪' },
+
+  // Death & Hardship
+  { keywords: ['death', 'deceased', 'funeral', 'bury', 'closing eyes'], emoji: '🕊️' },
+  { keywords: ['condolence', 'calamity', 'affliction'], emoji: '💔' },
+  { keywords: ['sick', 'ill', 'health', 'pain', 'visit'], emoji: '🏥' },
+
+  // Protection
+  { keywords: ['protect', 'refuge', 'shield', 'safe'], emoji: '🛡️' },
+  { keywords: ['evil', 'devil', 'ward off', 'expelling'], emoji: '⚔️' },
+  { keywords: ['fear', 'afraid', 'enemy', 'ruler', 'injustice'], emoji: '😰' },
+
+  // Clothing
+  { keywords: ['garment', 'cloth', 'wear', 'dress', 'undress'], emoji: '👔' },
+
+  // Weather
+  { keywords: ['rain', 'rainfall'], emoji: '🌧️' },
+  { keywords: ['thunder'], emoji: '⛈️' },
+
+  // Family
+  { keywords: ['child', 'birth', 'baby', 'newborn', 'children'], emoji: '👶' },
+  { keywords: ['marriage', 'wedding', 'newlywed', 'spouse'], emoji: '💑' },
+
+  // Forgiveness & Guidance
+  { keywords: ['istighfar', 'forgive', 'forgiveness', 'repent', 'sin', 'expiation'], emoji: '🤲' },
+  { keywords: ['guidance', 'istikhara', 'decision'], emoji: '🧭' },
+
+  // Emotions
+  { keywords: ['distress', 'anxiety', 'sorrow', 'difficult', 'worry', 'trouble'], emoji: '😢' },
+  { keywords: ['pleasant', 'pleasing', 'amazement', 'delights', 'good news'], emoji: '😊' },
+  { keywords: ['gratitude', 'thank', 'blessing', 'favour'], emoji: '🙏' },
+
+  // Finances
+  { keywords: ['debt', 'settling'], emoji: '💰' },
+  { keywords: ['wealth', 'offered'], emoji: '🎁' },
+
+  // Hajj
+  { keywords: ['hajj', 'umrah', 'tawaf', 'kaaba', 'jamarat', 'muzdalifa'], emoji: '🕋' },
+
+  // Moon
+  { keywords: ['moon', 'crescent'], emoji: '🌙' },
+
+  // Social
+  { keywords: ['gathering', 'sitting', 'meeting'], emoji: '👥' },
+  { keywords: ['greeting', 'disbeliever'], emoji: '👋' },
+  { keywords: ['sneez'], emoji: '🤧' },
+  { keywords: ['praised', 'praising', 'etiquette'], emoji: '👏' },
+
+  // Islamic texts
+  { keywords: ['quran', 'ayat', 'kursi', 'recit', 'qul', 'surah'], emoji: '📖' },
+  { keywords: ['prophet', 'salawat', 'muhammad', 'prayers upon'], emoji: '💚' },
+
+  // Other
+  { keywords: ['doubt', 'whisper', 'faith'], emoji: '🤔' },
+  { keywords: ['slaughter', 'sacrifice', 'animal'], emoji: '🐑' },
+  { keywords: ['rooster', 'donkey', 'crow', 'braying'], emoji: '🐓' },
+  { keywords: ['love', 'allah'], emoji: '❤️' },
+  { keywords: ['omens', 'scorn'], emoji: '🚫' },
+
+  // General - checked last
+  { keywords: ['remembrance', 'dhikr'], emoji: '📿' },
+  { keywords: ['seeking'], emoji: '🔍' },
 ]
 
 // Beautiful gradient color palette - vibrant combinations (no gray/black)
@@ -96,15 +156,15 @@ function hashString(str) {
   return Math.abs(hash)
 }
 
-// Get icon based on keywords
-function getIconForCategory(title) {
+// Get emoji based on keywords
+function getEmojiForCategory(title) {
   const lowerTitle = title.toLowerCase()
-  for (const mapping of ICON_KEYWORDS) {
+  for (const mapping of EMOJI_KEYWORDS) {
     if (mapping.keywords.some(keyword => lowerTitle.includes(keyword))) {
-      return mapping.icon
+      return mapping.emoji
     }
   }
-  return 'book' // Default icon
+  return '📿' // Default emoji (prayer beads)
 }
 
 // Get unique color based on category title hash
@@ -115,10 +175,10 @@ function getColorForCategory(title, chapterNum) {
   return COLOR_PALETTE[colorIndex]
 }
 
-// Get icon and color for a category
+// Get emoji and color for a category
 function getCategoryTheme(title, chapterNum) {
   return {
-    icon: getIconForCategory(title),
+    icon: getEmojiForCategory(title),
     color: getColorForCategory(title, chapterNum)
   }
 }
