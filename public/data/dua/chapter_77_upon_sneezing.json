@@ -1,27 +1,18 @@
-{
-  "chapter": 77,
-  "title": "Upon sneezing",
-  "arabic_title": "دعاء العطاس",
-  "duas": [
-    {
-      "id": 188,
-      "reference": "Hisn al-Muslim 188",
-      "instruction": "When you sneeze, then say:",
-      "dua": "Alḥamdulillāh",
-      "arabic": "الْحَمْدُ لِلَّهِ",
-      "translation": "All praises and thanks are to Allah.",
-      "companion_response": {
-        "instruction": "Your companion should say:",
-        "dua": "Yarḥamukallāh",
-        "translation": "May Allah have mercy upon you."
-      },
-      "your_response": {
-        "instruction": "When someone says Yarḥamukallāh to you then you should say:",
-        "dua": "Yahdīkumu 'llāhu wa yuṣliḥu bālakum",
-        "arabic": "يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ",
-        "translation": "May Allah guide you and set your affairs in order."
-      },
-      "reference_source": "Al-Bukhari 7/125"
-    }
-  ]
-}
+[
+  {
+    "id": 188,
+    "hisn_number": null,
+    "category_id": "upon_sneezing",
+    "category_name": "Upon sneezing",
+    "title": "Upon sneezing - Hisn al-Muslim 77",
+    "arabic": "الْحَمْدُ لِلَّهِ",
+    "transliteration": "",
+    "translation": "All praises and thanks are to Allah.",
+    "reference": "Hisn al-Muslim 188",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "Upon sneezing"
+    ]
+  }
+]

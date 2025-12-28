@@ -1,18 +1,18 @@
-{
-  "chapter_number": 105,
-  "chapter_title": "Upon Waking Up from Sleep",
-  "duas": [
-    {
-      "dua_number": 1,
-      "arabic_text": "بِاسْـمِكَ اللّهُـمَّ أَمـوتُ وَأَحْـيا",
-      "transliteration": "Bismika Allāhumma amūtu wa aḥyā.",
-      "english_translation": "In Your Name, O Allah, I die and I live.",
-      "reference": {
-        "source": "Sahih al-Bukhari and Sahih Muslim",
-        "note": "Here, dying and living are metaphors for sleep and wakefulness. This explains why the normal order of these words has been reversed in this Hadith. In other contexts the living is mentioned before dying. See Qur'an Al-Baqarah 2:258, Aal-'Imran 3:156, Al-A'raf 7:158 among many other examples.",
-        "pages": "Al-Asqalani, Fathul-Bari 11/113, Muslim 4/2083"
-      },
-      "context": "This dua is recited upon waking up from sleep"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "hisn_number": null,
+    "category_id": "upon_waking_up_from_sleep",
+    "category_name": "Upon Waking Up from Sleep",
+    "title": "Upon Waking Up from Sleep - Hisn al-Muslim 105",
+    "arabic": "",
+    "transliteration": "Bismika Allāhumma amūtu wa aḥyā.",
+    "translation": "",
+    "reference": "",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "Upon Waking Up from Sleep"
+    ]
+  }
+]

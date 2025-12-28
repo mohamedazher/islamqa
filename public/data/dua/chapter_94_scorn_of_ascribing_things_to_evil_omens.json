@@ -1,17 +1,18 @@
-{
-  "chapter": 94,
-  "title": "The scorn of ascribing things to evil omens",
-  "reference": 94,
-  "source": "Hisn al-Muslim",
-  "duas": [
-    {
-      "id": 1,
-      "transliteration": "Allāhumma lā ṭayra illā ṭayruk, wa lā khayra illā khayruk, wa lā ilāha ghayruk.",
-      "translation": "O Allah there is no portent other than Your portent, no goodness other than Your goodness, and none worthy of worship other than You.",
-      "arabic": "اللّهُـمَّ لا طَيْـرَ إِلاّ طَيْـرُك، وَلا خَـيْرَ إِلاّ خَـيْرُك، وَلا إِلهَ غَيْـرُك",
-      "reference": "Hisn al-Muslim 205",
-      "chain": "Ahmad 2/220, Ibn As-Sunni (no. 292). See also Al-Albani, Silsilatul-'Ahadlth As-Sahihah 3/54, (no. 1065)",
-      "notes": "As for bodings of good, these used to please the Prophet (ﷺ) and so when he heard good words from someone, he used to say: 'We have taken from you a good portent from your mouth,' Abu Dawud, Ahmad. See also Al-Albani, Silsilatul-'Ahadith As-Sahihah 2/363, and it is with Abu Ash-Shaikh Al-Asfahani in 'Akhlaqun-Nabiyy, pg. 270."
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "hisn_number": null,
+    "category_id": "the_scorn_of_ascribing_things_to_evil_omens",
+    "category_name": "The scorn of ascribing things to evil omens",
+    "title": "The scorn of ascribing things to evil omens - Hisn al-Muslim 94",
+    "arabic": "اللّهُـمَّ لا طَيْـرَ إِلاّ طَيْـرُك، وَلا خَـيْرَ إِلاّ خَـيْرُك، وَلا إِلهَ غَيْـرُك",
+    "transliteration": "Allāhumma lā ṭayra illā ṭayruk, wa lā khayra illā khayruk, wa lā ilāha ghayruk.",
+    "translation": "O Allah there is no portent other than Your portent, no goodness other than Your goodness, and none worthy of worship other than You.",
+    "reference": "Hisn al-Muslim 205",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "The scorn of ascribing things to evil omens"
+    ]
+  }
+]

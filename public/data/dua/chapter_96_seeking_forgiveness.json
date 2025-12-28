@@ -1,36 +1,18 @@
-{
-  "chapter": 96,
-  "title": "Seeking Forgiveness and Repentance",
-  "description": "Dua for asking forgiveness from Allah and repenting to Him",
-  "duas": [
-    {
-      "id": 1,
-      "arabic": "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ",
-      "transliteration": "Astaghfirullāha wa atūbu ilayh",
-      "translation": "I seek the forgiveness of Allah and repent to Him",
-      "instruction": "Recite one hundred times in Arabic during the day",
-      "timing": "During the day",
-      "frequency": "One hundred times",
-      "references": [
-        {
-          "source": "Al-Bukhari",
-          "location": "Fathul-Bari 11/101",
-          "reference": "Al-Asqalani, Fathul-Bari 11/101"
-        },
-        {
-          "source": "Muslim",
-          "location": "4/2075",
-          "reference": "Muslim 4/2075"
-        }
-      ]
-    }
-  ],
-  "benefits": [
-    "Seeking forgiveness from Allah",
-    "Repentance for sins",
-    "Purification of the soul",
-    "Compliance with Quranic commandment"
-  ],
-  "source": "Hisn al-Muslim",
-  "category": "Daily Supplications"
-}
+[
+  {
+    "id": 1,
+    "hisn_number": null,
+    "category_id": "seeking_forgiveness_and_repentance",
+    "category_name": "Seeking Forgiveness and Repentance",
+    "title": "Seeking Forgiveness and Repentance - Hisn al-Muslim 96",
+    "arabic": "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ",
+    "transliteration": "Astaghfirullāha wa atūbu ilayh",
+    "translation": "I seek the forgiveness of Allah and repent to Him",
+    "reference": "Al-Bukhari Al-Asqalani, Fathul-Bari 11/101, Muslim Muslim 4/2075",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "Seeking Forgiveness and Repentance"
+    ]
+  }
+]

@@ -1,24 +1,18 @@
-{
-  "chapter_number": 74,
-  "title": "By one fasting when presented with food and does not break his fast",
-  "title_arabic": "دعاء الصائم إذا حضر الطعام ولم يفطر",
-  "description": "Supplication for one who is fasting when presented with food and does not break his fast",
-  "duas": [
-    {
-      "number": 185,
-      "hisn_reference": "Hisn al-Muslim 185",
-      "english_text": "When you are invited (to eat) then reply to the invitation. If you are fasting then invoke Allah's blessings (on your host), and if you are not fasting then eat.",
-      "transliteration": "Idhā du'iya aḥadukum falya'ib, fa'in kāna ṣā'iman falya'salii, wa'in kāna mufṭiran falya'ṭa'am",
-      "arabic_text": "إِذَا دُعِيَ أَحَدُكُمْ فَلْيُجِبْ، فَإِنْ كَانَ صَائِماً فَلْيُصَلِّ، وَإِنْ كَانَ مُفْطِراً فَلْيَطْعَمْ",
-      "reference": "Muslim 2/1054",
-      "note": "When you are invited (to eat) then reply to the invitation. If you are fasting then invoke Allah's blessings (on your host), and if you are not fasting then eat. The meaning of 'invoke Allah's blessings' (falya'salli) is to make supplication/dua (falya'da'u)."
-    }
-  ],
-  "source": "Hisn al-Muslim",
-  "book_reference": "Chapter 74",
-  "primary_category": 250,
-  "categories": [250],
-  "tags": ["fasting", "supplication", "invitation", "breaking fast"],
-  "views": 0,
-  "bookmarked": false
-}
+[
+  {
+    "id": 1,
+    "hisn_number": 185,
+    "category_id": "by_one_fasting_when_presented_with_food_and_does_not_break_his_fast",
+    "category_name": "By one fasting when presented with food and does not break his fast",
+    "title": "By one fasting when presented with food and does not break his fast - Hisn al-Muslim 74",
+    "arabic": "",
+    "transliteration": "Idhā du'iya aḥadukum falya'ib, fa'in kāna ṣā'iman falya'salii, wa'in kāna mufṭiran falya'ṭa'am",
+    "translation": "",
+    "reference": "Muslim 2/1054",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "By one fasting when presented with food and does not break his fast"
+    ]
+  }
+]

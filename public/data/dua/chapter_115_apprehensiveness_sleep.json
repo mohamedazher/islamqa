@@ -1,28 +1,22 @@
-{
-  "chapter_number": 115,
-  "hisn_al_muslim_number": 115,
-  "title_en": "Upon Apprehensiveness During Sleep",
-  "title_ar": "عند الأرق والانزعاج في النوم",
-  "duas": [
-    {
-      "dua_number": 1,
-      "text_en": "Get up and pray if you desire to do so.",
-      "text_ar": "يقوم يصلي إن أراد ذلك",
-      "transliteration": "Yaqūmu yuṣallī in arāda dhālika",
-      "reference": "Muslim 4/1773",
-      "source": "Hisn al-Muslim",
-      "category": "Sleep and Rest",
-      "tags": [
-        "sleep",
-        "apprehensiveness",
-        "prayer",
-        "night",
-        "difficulty sleeping"
-      ]
-    }
-  ],
-  "context": "What to do when experiencing apprehensiveness or restlessness during sleep. The dua encourages getting up to pray if one is unable to sleep or is experiencing anxiety during the night.",
-  "chapter_context": "Related to nighttime anxiety and sleep disturbances",
-  "source_book": "Hisn al-Muslim",
-  "source_type": "authentic_hadith"
-}
+[
+  {
+    "id": 1,
+    "hisn_number": null,
+    "category_id": "apprehensiveness_sleep",
+    "category_name": "Apprehensiveness sleep",
+    "title": "Apprehensiveness sleep - Hisn al-Muslim 115",
+    "arabic": "",
+    "transliteration": "Yaqūmu yuṣallī in arāda dhālika",
+    "translation": "",
+    "reference": "Muslim 4/1773",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "sleep",
+      "apprehensiveness",
+      "prayer",
+      "night",
+      "difficulty sleeping"
+    ]
+  }
+]

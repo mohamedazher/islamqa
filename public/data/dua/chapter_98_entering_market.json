@@ -1,16 +1,18 @@
-{
-  "chapter_number": 98,
-  "title": "When entering the market",
-  "arabic_title": "دعاء دخول السوق",
-  "duas": [
-    {
-      "id": 1,
-      "number": "(98)",
-      "dua_arabic": "لا إلهَ إلاّ اللّه وحدَهُ لا شريكَ لهُ، لهُ المُلْـكُ ولهُ الحَمْـد، يُحْيـي وَيُميـتُ وَهُوَ حَيٌّ لا يَمـوت، بِيَـدِهِ الْخَـيْرُ وَهوَ على كلّ شيءٍ قدير",
-      "dua_english": "None has the right to be worshipped but Allah alone, Who has no partner. His is the dominion and His is the praise. He brings life and He causes death, and He is living and does not die. In His Hand is all good, and He is Able to do all things.",
-      "transliteration": "Lā ilāha illallāh waḥdahu lā sharīka lah, Lahu 'l-mulku wa lahu 'l-ḥamd, Yuḥyī wa yumīt, wa huwa ḥayyun lā yamūt, Biyadihi 'l-khayr, wa huwa `alā kulli shay'in Qadīr.",
-      "reference": "At-Tirmidhi 5/291, and Al-Hakim 1/538. Al-Albani graded it good in Sahih Ibn Majah 2/21 and Sahih At-Tirmidhi 3/152.",
-      "hisn_reference": "Hisn al-Muslim 209"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "hisn_number": "(98)",
+    "category_id": "when_entering_the_market",
+    "category_name": "When entering the market",
+    "title": "When entering the market - Hisn al-Muslim 98",
+    "arabic": "لا إلهَ إلاّ اللّه وحدَهُ لا شريكَ لهُ، لهُ المُلْـكُ ولهُ الحَمْـد، يُحْيـي وَيُميـتُ وَهُوَ حَيٌّ لا يَمـوت، بِيَـدِهِ الْخَـيْرُ وَهوَ على كلّ شيءٍ قدير",
+    "transliteration": "Lā ilāha illallāh waḥdahu lā sharīka lah, Lahu 'l-mulku wa lahu 'l-ḥamd, Yuḥyī wa yumīt, wa huwa ḥayyun lā yamūt, Biyadihi 'l-khayr, wa huwa `alā kulli shay'in Qadīr.",
+    "translation": "",
+    "reference": "At-Tirmidhi 5/291, and Al-Hakim 1/538. Al-Albani graded it good in Sahih Ibn Majah 2/21 and Sahih At-Tirmidhi 3/152.",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "When entering the market"
+    ]
+  }
+]

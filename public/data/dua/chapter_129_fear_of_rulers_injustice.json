@@ -1,22 +1,18 @@
-{
-  "chapter_number": 129,
-  "chapter_title": "For one afraid of the ruler's injustice",
-  "chapter_title_arabic": "دعاء من خاف ظلم السلطان",
-  "duas": [
-    {
-      "id": "129_1",
-      "dua_number": 129,
-      "dua_english_transliteration": "Allāhumma Rabbas-samāwātis-sab`, wa Rabba 'l-`Arshi 'l-`Aẓīm, kun lī jāran min [here you mention the person's name], wa aḥzābihi min khalā'iqik, an yafruṭa `alayya aḥadun minhum aw yaṭghā, `azza jāruk, wa jalla thanā'uk, wa lā ilāha illā ant.",
-      "dua_english_translation": "O Allah, Lord of the seven heavens, Lord of the Magnificent Throne, be for me a support against [such and such a person] and his helpers from among your creatures, lest any of them abuse me or do me wrong. Mighty is Your patronage, and glorious are Your praises. There is none worthy of worship but You.",
-      "dua_arabic": "اللَّهُمَّ ربَّ السَّمَوَاتِ السَّبْعِ، وَرَبَّ الْعَرْشِ الْعَظِيمِ، كُنْ لِي جَاراً مِنْ فُلاَنِ بْنِ فُلاَنٍ، وَأَحْزَابِهِ مِنْ خَلاَئِقِكَ، أَنْ يَفْرُطَ عَلَيَّ أَحَدٌ مِنْهُمْ أَوْ يَطْغَى، عَزَّ جَارُكَ، وَجَلَّ ثَنَاؤُكَ، وَلاَ إِلَهَ إِلاَّ أَنْتَ",
-      "reference_source": "Al-Bukhari, Al-'Adab Al-Mufrad (no. 707)",
-      "authenticity": "Al-Albani graded it authentic in Sahih Al-'Adab Al-Mufrad (no. 545)"
-    }
-  ],
-  "metadata": {
-    "source_book": "Hisn al-Muslim",
-    "category_chapter_number": 37,
-    "language_original": "Arabic",
-    "transliteration_system": "Modified IGSNA"
+[
+  {
+    "id": "129_1",
+    "hisn_number": null,
+    "category_id": "for_one_afraid_of_the_ruler_s_injustice",
+    "category_name": "For one afraid of the ruler's injustice",
+    "title": "For one afraid of the ruler's injustice - Hisn al-Muslim 129",
+    "arabic": "اللَّهُمَّ ربَّ السَّمَوَاتِ السَّبْعِ، وَرَبَّ الْعَرْشِ الْعَظِيمِ، كُنْ لِي جَاراً مِنْ فُلاَنِ بْنِ فُلاَنٍ، وَأَحْزَابِهِ مِنْ خَلاَئِقِكَ، أَنْ يَفْرُطَ عَلَيَّ أَحَدٌ مِنْهُمْ أَوْ يَطْغَى، عَزَّ جَارُكَ، وَجَلَّ ثَنَاؤُكَ، وَلاَ إِلَهَ إِلاَّ أَنْتَ",
+    "transliteration": "",
+    "translation": "",
+    "reference": "",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "For one afraid of the ruler's injustice"
+    ]
   }
-}
+]

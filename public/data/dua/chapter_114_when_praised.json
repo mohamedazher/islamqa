@@ -1,21 +1,18 @@
-{
-  "chapter_number": 114,
-  "hisn_reference": "Hisn al-Muslim 232",
-  "title": "For the one that have been praised",
-  "title_arabic": "ما يقول المسلم إذا زكي",
-  "description": "A supplication to be said when someone praises you, seeking Allah's forgiveness for what they don't know about you and protection from being judged by what others say.",
-  "duas": [
-    {
-      "id": 1,
-      "transliteration": "Allāhumma lā tu'ākhidhnī bimā yaqūlūn, waghfir lī mā lā ya\u0100lamūn wa j\u0101\u0121alnī khayran mimmā yaẓunnūn.",
-      "translation": "O Allah, do not call me to account for what they say and forgive me for what they have no knowledge of and make me better than they imagine.",
-      "arabic": "اللَّهُمَّ لاَ تُؤَاخِذْنِي بِمَا يَقُولُونَ وَاغْفِرْ لِي مَا لاَ يَعْلَمُونَ وَاجْعَلْنِي خَيْرًا مِمَّا يَظُّنُّونَ",
-      "reference": "Al-Bukhari, Al-'Adabul-Mufrad no. 761. See Al-Albani, Sahih Al-'Adabul-Mufrad (no. 585). The portion with 'make me better' is from Al-Bayhaqi, Shu'ab Al-Iman 4/228."
-    }
-  ],
-  "category": "Social Interactions",
-  "sub_category": "Praise and Compliments",
-  "occasion": "When being praised or complimented",
-  "source": "Hisn al-Muslim (Fortress of the Muslim)",
-  "benefits": "Humility, seeking forgiveness from Allah, protection from arrogance and self-deception"
-}
+[
+  {
+    "id": 1,
+    "hisn_number": null,
+    "category_id": "for_the_one_that_have_been_praised",
+    "category_name": "For the one that have been praised",
+    "title": "For the one that have been praised - Hisn al-Muslim 114",
+    "arabic": "اللَّهُمَّ لاَ تُؤَاخِذْنِي بِمَا يَقُولُونَ وَاغْفِرْ لِي مَا لاَ يَعْلَمُونَ وَاجْعَلْنِي خَيْرًا مِمَّا يَظُّنُّونَ",
+    "transliteration": "Allāhumma lā tu'ākhidhnī bimā yaqūlūn, waghfir lī mā lā yaĀlamūn wa jāġalnī khayran mimmā yaẓunnūn.",
+    "translation": "O Allah, do not call me to account for what they say and forgive me for what they have no knowledge of and make me better than they imagine.",
+    "reference": "Al-Bukhari, Al-'Adabul-Mufrad no. 761. See Al-Albani, Sahih Al-'Adabul-Mufrad (no. 585). The portion with 'make me better' is from Al-Bayhaqi, Shu'ab Al-Iman 4/228.",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "For the one that have been praised"
+    ]
+  }
+]

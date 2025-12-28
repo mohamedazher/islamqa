@@ -1,28 +1,34 @@
-{
-  "chapter_number": 68,
-  "chapter_title": "Upon breaking fast",
-  "chapter_title_arabic": "الدعاء عند إفطار الصائم",
-  "duas": [
-    {
-      "reference": "Hisn al-Muslim 176",
-      "dua_english": "Dhahabaẓ-ẓama', wabtallati 'l-urūq, wa thabata 'l-'ajru in shā Allāh",
-      "dua_english_translation": "The thirst is gone, the veins are moistened, and the reward is confirmed, if Allah wills.",
-      "dua_arabic": "ذَهَـبَ الظَّمَـأُ، وَابْتَلَّـتِ العُـروق، وَثَبَـتَ الأجْـرُ إِنْ شـاءَ الله",
-      "sources": [
-        "Abu Dawud 2/306",
-        "Al-Albani, Sahihul-Jami' As-Saghir 4/209"
-      ]
-    },
-    {
-      "reference": "Hisn al-Muslim 177",
-      "dua_english": "Allāhumma innī as'aluka bi raḥmatika 'l-latī wasi'at kulla shay' an taghfira lī",
-      "dua_english_translation": "O Allah, I ask You by Your mercy, which encompasses all things, that You forgive me.",
-      "dua_arabic": "اللّهُـمَّ إِنَّـي أَسْـأَلُـكَ بِرَحْمَـتِكَ الّتي وَسِـعَت كُلَّ شيء، أَنْ تَغْـفِرَ لي",
-      "sources": [
-        "Ibn Majah 1/557 from a supplication of Abdullah bin 'Amr",
-        "Al-Hafidh graded it as good in his checking of An-Nawawi's Kitabul-'Athkdr",
-        "Sharhul-Athkar 4/342"
-      ]
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "hisn_number": null,
+    "category_id": "upon_breaking_fast",
+    "category_name": "Upon breaking fast",
+    "title": "Upon breaking fast - Hisn al-Muslim 68",
+    "arabic": "ذَهَـبَ الظَّمَـأُ، وَابْتَلَّـتِ العُـروق، وَثَبَـتَ الأجْـرُ إِنْ شـاءَ الله",
+    "transliteration": "",
+    "translation": "",
+    "reference": "Hisn al-Muslim 176",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "Upon breaking fast"
+    ]
+  },
+  {
+    "id": 2,
+    "hisn_number": null,
+    "category_id": "upon_breaking_fast",
+    "category_name": "Upon breaking fast",
+    "title": "Upon breaking fast - Hisn al-Muslim 68",
+    "arabic": "اللّهُـمَّ إِنَّـي أَسْـأَلُـكَ بِرَحْمَـتِكَ الّتي وَسِـعَت كُلَّ شيء، أَنْ تَغْـفِرَ لي",
+    "transliteration": "",
+    "translation": "",
+    "reference": "Hisn al-Muslim 177",
+    "repetitions": null,
+    "order": 2,
+    "tags": [
+      "Upon breaking fast"
+    ]
+  }
+]

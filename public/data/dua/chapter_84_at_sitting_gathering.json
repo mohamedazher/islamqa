@@ -1,18 +1,18 @@
-{
-  "chapter": 84,
-  "title": "At a sitting or gathering",
-  "arabic_title": "ما يقال في المجلس",
-  "duas": [
-    {
-      "id": 195,
-      "hisn_reference": "Hisn al-Muslim 195",
-      "english_title": "Seeking Forgiveness in a Gathering",
-      "english_text": "Ibn Umar (ra) said: Allah's Messenger (ﷺ) used to repeat in a single sitting: My Lord, forgive me, and accept my repentance, You are the Ever-Relenting, the All-Forgiving.",
-      "transliteration": "Rabbigh'fir lī wa tub `alayy innaka antat-Tawwābu 'l-Ghafūr",
-      "arabic": "رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ إِنَّكَ أَنْتَ التَّوَّابُ الْغَفُورُ",
-      "narration": "Ibn Umar (ra) said: Allah's Messenger (ﷺ) used to repeat in a single sitting:",
-      "note": "He would repeat this supplication 100 times in a single sitting before standing up.",
-      "reference": "Sahih Ibn Majah 2/321. See also Al-Albani, Sahih At-Tirmidhi 3/153."
-    }
-  ]
-}
+[
+  {
+    "id": 195,
+    "hisn_number": "195",
+    "category_id": "at_a_sitting_or_gathering",
+    "category_name": "At a sitting or gathering",
+    "title": "At a sitting or gathering - Hisn al-Muslim 84",
+    "arabic": "رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ إِنَّكَ أَنْتَ التَّوَّابُ الْغَفُورُ",
+    "transliteration": "Rabbigh'fir lī wa tub `alayy innaka antat-Tawwābu 'l-Ghafūr",
+    "translation": "",
+    "reference": "Sahih Ibn Majah 2/321. See also Al-Albani, Sahih At-Tirmidhi 3/153.",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "At a sitting or gathering"
+    ]
+  }
+]

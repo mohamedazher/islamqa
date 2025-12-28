@@ -1,26 +1,22 @@
-{
-  "chapter_number": 50,
-  "chapter_title": "Excellence of visiting the sick",
-  "chapter_title_arabic": "فضل عيادة المريض",
-  "source": "Hisn al-Muslim",
-  "duas": [
-    {
-      "id": 149,
-      "hisn_reference": "Hisn al-Muslim 149",
-      "title": "Excellence of visiting the sick",
-      "title_arabic": "فضل عيادة المريض",
-      "type": "virtue_reminder",
-      "transliteration": "When a man goes to visit his sick Muslim brother, he walks along a path of Paradise until he sits, and when he sits he is cloaked in mercy. If he comes in the morning, seventy thousand angels pray for him until evening, and if he comes in the evening, seventy thousand angels pray for him until morning.",
-      "text_arabic": "قَالَ صلى الله عليه وسلم: (إِذَا عَادَ الرَّجُلُ أَخَاهُ الْمُسْلِمَ مَشَى فِي خِرَافَةِ الْجَنَّةِ حَتَّى يَجْلِسَ، فَإِذَا جَلَسَ غَمَرَتْهُ الرَّحْمَةُ، فَإِنْ كَانَ غُدْوَةً صَلَّى عَلَيْهِ سَبْعُونَ أَلْفَ مَلَكٍ حَتَّى يُمْسِيَ، وَإِنْ كَانَ مَسَاءً صَلَّى عَلَيْهِ سَبْعُونَ أَلْفَ مَلَكٍ حَتَّى يُصْبِحَ)",
-      "reference": "Not a dua but a hadith describing the virtue of visiting the sick",
-      "category": "visiting_the_sick",
-      "tags": [
-        "visiting_sick",
-        "mercy",
-        "angels",
-        "virtue",
-        "reward"
-      ]
-    }
-  ]
-}
+[
+  {
+    "id": 149,
+    "hisn_number": "149",
+    "category_id": "excellence_of_visiting_the_sick",
+    "category_name": "Excellence of visiting the sick",
+    "title": "Excellence of visiting the sick",
+    "arabic": "",
+    "transliteration": "When a man goes to visit his sick Muslim brother, he walks along a path of Paradise until he sits, and when he sits he is cloaked in mercy. If he comes in the morning, seventy thousand angels pray for him until evening, and if he comes in the evening, seventy thousand angels pray for him until morning.",
+    "translation": "",
+    "reference": "Not a dua but a hadith describing the virtue of visiting the sick",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "visiting_sick",
+      "mercy",
+      "angels",
+      "virtue",
+      "reward"
+    ]
+  }
+]

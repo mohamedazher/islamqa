@@ -1,48 +1,66 @@
-{
-  "chapter_number": 55,
-  "chapter_title": "For the deceased at the funeral prayer",
-  "chapter_title_arabic": "الدعاء للميت في الصلاة عليه",
-  "duas": [
-    {
-      "id": 156,
-      "hisn_reference": "Hisn al-Muslim 156",
-      "dua_arabic": "اللهُـمِّ اغْفِـرْ لَهُ وَارْحَمْـه ، وَعافِهِ وَاعْفُ عَنْـه ، وَأَكْـرِمْ نُزُلَـه ، وَوَسِّـعْ مُدْخَـلَه ، وَاغْسِلْـهُ بِالْمـاءِ وَالثَّـلْجِ وَالْبَـرَدْ ، وَنَقِّـهِ مِنَ الْخطـايا كَما نَـقّيْتَ الـثَّوْبَ الأَبْيَـضَ مِنَ الدَّنَـسْ ، وَأَبْـدِلْهُ داراً خَـيْراً مِنْ دارِه ، وَأَهْلاً خَـيْراً مِنْ أَهْلِـه ، وَزَوْجَـاً خَـيْراً مِنْ زَوْجِه ، وَأَدْخِـلْهُ الْجَـنَّة ، وَأَعِـذْهُ مِنْ عَذابِ القَـبْر [وَعَذابِ النّـار]",
-      "dua_transliteration": "Allāhumma'ghfir lahu warḥamh, wa 'āfihi, wa'fu 'anh, wa akrim nuzulah, wa wassi' mudkhalah, wagh'silhu bi 'lmā'i wath-thalji walbarad, wa naqqihi mina 'l-khaṭāyā kamā naqqaytath-thawba 'l-abyaḍa minad-danas, wa abdilhu dāran khayran min dārih, wa ahlan khayran min ahlih, wa zawjan khayran min zawjih, wa adkhilhu 'l-jannah, wa a'idhhu min 'adhābi 'l-qabri [wa 'adhābin-nār].",
-      "dua_translation": "O Allah, forgive him and have mercy on him, and give him strength and pardon him. Be generous to him, and cause his entrance to be wide, and wash him with water and snow and hail. Cleanse him of his transgressions as white cloth is cleansed of stains. Give him an abode better than his home, and a family better than his family, and a wife better than his wife. Take him into Paradise, and protect him from the punishment of the grave [and from the punishment of Hell-fire].",
-      "reference": "Muslim 2/663"
-    },
-    {
-      "id": 157,
-      "hisn_reference": "Hisn al-Muslim 157",
-      "dua_arabic": "اللهُـمِّ اغْفِـرْ لِحَيِّـنا وَمَيِّتِـنا، وَشـاهِدِنا وَغائِبِـنا ، وَصَغيـرِنا وَكَبيـرِنا ، وَذَكَـرِنا وَأُنْثـانا . اللهُـمِّ مَنْ أَحْيَيْـتَهُ مِنّا فَأَحْيِـهِ عَلى الإِسْلام ، وَمَنْ تَوَفَّـيْتَهُ مِنّا فَتَوَفَّـهُ عَلى الإِيـمان ، اللهُـمِّ لا تَحْـرِمْنـا أَجْـرَه ، وَلا تُضِـلَّنا بَعْـدَه",
-      "dua_transliteration": "Allāhumma'ghfir liḥayyinā, wa mayyitinā, wa shāhidinā, wa ghā'ibinā, wa ṣaghīrinā wa kabīrinā, wa dhakarinā wa unthānā. Allāhumma man aḥyaytahu minnā fa aḥyihi 'ala 'l-Islām, wa man tawaffaytahu minnā fatawaffahu 'alal-īmān, Allāhumma lā taḥrimnā ajrah wa lā tuḍillanā ba'dah.",
-      "dua_translation": "O Allah forgive our living and our dead, those who are with us and those who are absent, our young and our old, our menfolk and our womenfolk. O Allah, whomever you give life from among us give him life in Islam, and whomever you take away from us take him away in Faith. O Allah, do not forbid us their reward and do not send us astray after them.",
-      "reference": "Ibn Majah 1/480, Ahmad 2/368"
-    },
-    {
-      "id": 158,
-      "hisn_reference": "Hisn al-Muslim 158",
-      "dua_arabic": "اللهُـمِّ إِنَّ فُلانَ بْنَ فُلانٍ في ذِمَّـتِك ، وَحَبْـلِ جِـوارِك ، فَقِـهِ مِنْ فِتْـنَةِ الْقَـبْرِ وَعَذابِ النّـار ، وَأَنْتَ أَهْلُ الْوَفـاءِ وَالْـحَقِّ ، فَاغْفِـرْ لَهُ وَارْحَمْـهُ ، إِنَّكَ أَنْتَ الغَـفورُ الـرَّحيم",
-      "dua_transliteration": "Allāhumma inna [name the person] fī dhimmatik, wa ḥabli jiwārik, faqihi min fitnati 'l-qabri wa 'adhābin-nār, wa anta ahlu 'l-wafā'i wa 'l-ḥaqq. Faghfir lahu warḥamh innaka anta 'l-Ghafūrur-Raḥīm.",
-      "dua_translation": "O Allah, surely [name the person] is under Your protection, and in the rope of Your security, so save him from the trial of the grave and from the punishment of the Fire. You fulfill promises and grant rights, so forgive him and have mercy on him. Surely You are Most Forgiving, Most Merciful.",
-      "reference": "Ibn Majah, Abu Dawud 3/211",
-      "note": "The person's name should be mentioned in place of 'fūlān' (the person's placeholder)"
-    },
-    {
-      "id": 159,
-      "hisn_reference": "Hisn al-Muslim 159",
-      "dua_arabic": "اللهُـمِّ عَبْـدُكَ وَابْنُ أَمَـتِك، احْتـاجَ إِلى رَحْمَـتِك، وَأَنْتَ غَنِـيٌّ عَنْ عَذابِـه، إِنْ كانَ مُحْـسِناً فَزِدْ في حَسَـناتِه، وَإِنْ كانَ مُسـيئاً فَتَـجاوَزْ عَنْـه",
-      "dua_transliteration": "Allāhumma 'abduka wabnu 'amatik iḥtāja ilā raḥmatik, wa anta ghaniyyun 'an 'adhābih, in kāna muḥsinan fazid fī ḥasanātih, wa in kāna musī'an fatajāwaz 'anh.",
-      "dua_translation": "O Allah, Your male slave and the child of Your female slave is in need of Your mercy, and You are not in need of his torment. If he was pious then increase his rewards and if he was a transgressor then pardon him.",
-      "reference": "Al-Hakim 1/359 (authentic), Ahkamul-Jana'iz, p. 125"
-    }
-  ],
-  "metadata": {
-    "source": "Hisn al-Muslim (Fortress of the Muslim)",
-    "source_url": "https://sunnah.com/",
-    "category": "Funeral and Death",
-    "context": "Duas to be recited during the funeral prayer (Salat al-Janazah) for the deceased",
-    "extracted_from": "hisn_al_muslim.txt",
-    "extraction_date": "2025-12-28"
+[
+  {
+    "id": 156,
+    "hisn_number": "156",
+    "category_id": "for_the_deceased_at_the_funeral_prayer",
+    "category_name": "For the deceased at the funeral prayer",
+    "title": "For the deceased at the funeral prayer - Hisn al-Muslim 55",
+    "arabic": "اللهُـمِّ اغْفِـرْ لَهُ وَارْحَمْـه ، وَعافِهِ وَاعْفُ عَنْـه ، وَأَكْـرِمْ نُزُلَـه ، وَوَسِّـعْ مُدْخَـلَه ، وَاغْسِلْـهُ بِالْمـاءِ وَالثَّـلْجِ وَالْبَـرَدْ ، وَنَقِّـهِ مِنَ الْخطـايا كَما نَـقّيْتَ الـثَّوْبَ الأَبْيَـضَ مِنَ الدَّنَـسْ ، وَأَبْـدِلْهُ داراً خَـيْراً مِنْ دارِه ، وَأَهْلاً خَـيْراً مِنْ أَهْلِـه ، وَزَوْجَـاً خَـيْراً مِنْ زَوْجِه ، وَأَدْخِـلْهُ الْجَـنَّة ، وَأَعِـذْهُ مِنْ عَذابِ القَـبْر [وَعَذابِ النّـار]",
+    "transliteration": "Allāhumma'ghfir lahu warḥamh, wa 'āfihi, wa'fu 'anh, wa akrim nuzulah, wa wassi' mudkhalah, wagh'silhu bi 'lmā'i wath-thalji walbarad, wa naqqihi mina 'l-khaṭāyā kamā naqqaytath-thawba 'l-abyaḍa minad-danas, wa abdilhu dāran khayran min dārih, wa ahlan khayran min ahlih, wa zawjan khayran min zawjih, wa adkhilhu 'l-jannah, wa a'idhhu min 'adhābi 'l-qabri [wa 'adhābin-nār].",
+    "translation": "O Allah, forgive him and have mercy on him, and give him strength and pardon him. Be generous to him, and cause his entrance to be wide, and wash him with water and snow and hail. Cleanse him of his transgressions as white cloth is cleansed of stains. Give him an abode better than his home, and a family better than his family, and a wife better than his wife. Take him into Paradise, and protect him from the punishment of the grave [and from the punishment of Hell-fire].",
+    "reference": "Muslim 2/663",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "For the deceased at the funeral prayer"
+    ]
+  },
+  {
+    "id": 157,
+    "hisn_number": "157",
+    "category_id": "for_the_deceased_at_the_funeral_prayer",
+    "category_name": "For the deceased at the funeral prayer",
+    "title": "For the deceased at the funeral prayer - Hisn al-Muslim 55",
+    "arabic": "اللهُـمِّ اغْفِـرْ لِحَيِّـنا وَمَيِّتِـنا، وَشـاهِدِنا وَغائِبِـنا ، وَصَغيـرِنا وَكَبيـرِنا ، وَذَكَـرِنا وَأُنْثـانا . اللهُـمِّ مَنْ أَحْيَيْـتَهُ مِنّا فَأَحْيِـهِ عَلى الإِسْلام ، وَمَنْ تَوَفَّـيْتَهُ مِنّا فَتَوَفَّـهُ عَلى الإِيـمان ، اللهُـمِّ لا تَحْـرِمْنـا أَجْـرَه ، وَلا تُضِـلَّنا بَعْـدَه",
+    "transliteration": "Allāhumma'ghfir liḥayyinā, wa mayyitinā, wa shāhidinā, wa ghā'ibinā, wa ṣaghīrinā wa kabīrinā, wa dhakarinā wa unthānā. Allāhumma man aḥyaytahu minnā fa aḥyihi 'ala 'l-Islām, wa man tawaffaytahu minnā fatawaffahu 'alal-īmān, Allāhumma lā taḥrimnā ajrah wa lā tuḍillanā ba'dah.",
+    "translation": "O Allah forgive our living and our dead, those who are with us and those who are absent, our young and our old, our menfolk and our womenfolk. O Allah, whomever you give life from among us give him life in Islam, and whomever you take away from us take him away in Faith. O Allah, do not forbid us their reward and do not send us astray after them.",
+    "reference": "Ibn Majah 1/480, Ahmad 2/368",
+    "repetitions": null,
+    "order": 2,
+    "tags": [
+      "For the deceased at the funeral prayer"
+    ]
+  },
+  {
+    "id": 158,
+    "hisn_number": "158",
+    "category_id": "for_the_deceased_at_the_funeral_prayer",
+    "category_name": "For the deceased at the funeral prayer",
+    "title": "For the deceased at the funeral prayer - Hisn al-Muslim 55",
+    "arabic": "اللهُـمِّ إِنَّ فُلانَ بْنَ فُلانٍ في ذِمَّـتِك ، وَحَبْـلِ جِـوارِك ، فَقِـهِ مِنْ فِتْـنَةِ الْقَـبْرِ وَعَذابِ النّـار ، وَأَنْتَ أَهْلُ الْوَفـاءِ وَالْـحَقِّ ، فَاغْفِـرْ لَهُ وَارْحَمْـهُ ، إِنَّكَ أَنْتَ الغَـفورُ الـرَّحيم",
+    "transliteration": "Allāhumma inna [name the person] fī dhimmatik, wa ḥabli jiwārik, faqihi min fitnati 'l-qabri wa 'adhābin-nār, wa anta ahlu 'l-wafā'i wa 'l-ḥaqq. Faghfir lahu warḥamh innaka anta 'l-Ghafūrur-Raḥīm.",
+    "translation": "O Allah, surely [name the person] is under Your protection, and in the rope of Your security, so save him from the trial of the grave and from the punishment of the Fire. You fulfill promises and grant rights, so forgive him and have mercy on him. Surely You are Most Forgiving, Most Merciful.",
+    "reference": "Ibn Majah, Abu Dawud 3/211",
+    "repetitions": null,
+    "order": 3,
+    "tags": [
+      "For the deceased at the funeral prayer"
+    ]
+  },
+  {
+    "id": 159,
+    "hisn_number": "159",
+    "category_id": "for_the_deceased_at_the_funeral_prayer",
+    "category_name": "For the deceased at the funeral prayer",
+    "title": "For the deceased at the funeral prayer - Hisn al-Muslim 55",
+    "arabic": "اللهُـمِّ عَبْـدُكَ وَابْنُ أَمَـتِك، احْتـاجَ إِلى رَحْمَـتِك، وَأَنْتَ غَنِـيٌّ عَنْ عَذابِـه، إِنْ كانَ مُحْـسِناً فَزِدْ في حَسَـناتِه، وَإِنْ كانَ مُسـيئاً فَتَـجاوَزْ عَنْـه",
+    "transliteration": "Allāhumma 'abduka wabnu 'amatik iḥtāja ilā raḥmatik, wa anta ghaniyyun 'an 'adhābih, in kāna muḥsinan fazid fī ḥasanātih, wa in kāna musī'an fatajāwaz 'anh.",
+    "translation": "O Allah, Your male slave and the child of Your female slave is in need of Your mercy, and You are not in need of his torment. If he was pious then increase his rewards and if he was a transgressor then pardon him.",
+    "reference": "Al-Hakim 1/359 (authentic), Ahkamul-Jana'iz, p. 125",
+    "repetitions": null,
+    "order": 4,
+    "tags": [
+      "For the deceased at the funeral prayer"
+    ]
   }
-}
+]

@@ -1,17 +1,18 @@
-{
-  "chapter_number": 73,
-  "title": "When breaking fast in someone's home",
-  "title_arabic": "الدعاء إذا أفطر عند أهل بيت",
-  "duas": [
-    {
-      "id": "73_1",
-      "hisn_number": 184,
-      "dua_english": "With you, those who are fasting have broken their fast, you have fed those who are righteous, and the angels recite their prayers upon you.",
-      "dua_transliteration": "Afṭara \\`indakumuṣ-ṣā'imūn, wa akala ṭa\\'āmakumu 'l-'abrār, wa ṣallat \\`alaykumu 'l-malā'ikah.",
-      "dua_arabic": "أَفْطَـرَ عِنْدَكُم الصّـائِمونَ وَأَكَلَ طَعامَـكُمُ الأبْـرار، وَصَلَّـتْ عَلَـيْكُمُ الملائِكَـة",
-      "reference": "Abu Dawud 3/367, Ibn Majah 1/556, An-Nasa'i, 'Amalul-Yawm wal-Laylah 296-8. Al-Albani graded it authentic in Sahih Abu Dawud 2/730.",
-      "occasion": "When breaking fast in someone's home"
-    }
-  ],
-  "description": "This chapter contains the dua to be recited when breaking one's fast (iftar) in someone's home, invoking blessings upon the household."
-}
+[
+  {
+    "id": "73_1",
+    "hisn_number": 184,
+    "category_id": "when_breaking_fast_in_someone_s_home",
+    "category_name": "When breaking fast in someone's home",
+    "title": "When breaking fast in someone's home - Hisn al-Muslim 184",
+    "arabic": "أَفْطَـرَ عِنْدَكُم الصّـائِمونَ وَأَكَلَ طَعامَـكُمُ الأبْـرار، وَصَلَّـتْ عَلَـيْكُمُ الملائِكَـة",
+    "transliteration": "Afṭara \\`indakumuṣ-ṣā'imūn, wa akala ṭa\\'āmakumu 'l-'abrār, wa ṣallat \\`alaykumu 'l-malā'ikah.",
+    "translation": "",
+    "reference": "Abu Dawud 3/367, Ibn Majah 1/556, An-Nasa'i, 'Amalul-Yawm wal-Laylah 296-8. Al-Albani graded it authentic in Sahih Abu Dawud 2/730.",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "When breaking fast in someone's home"
+    ]
+  }
+]

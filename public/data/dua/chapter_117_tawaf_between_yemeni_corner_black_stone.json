@@ -1,18 +1,18 @@
-{
-  "chapter_number": 117,
-  "chapter_title": "Between the Yemeni corner and the black stone",
-  "chapter_title_arabic": "الدعاء بين الركن اليماني والحجر الأسود",
-  "hisn_al_muslim_reference": 235,
-  "duas": [
-    {
-      "id": 1,
-      "title": "Supplication between Yemeni Corner and Black Stone",
-      "transliteration": "Rabbanā ātinā fid-dunyā ḥasanah wa fi 'l-ākhirati ḥasanah wa qinā `adhāban-nār",
-      "translation": "Our Lord, grant us the good things in this world, and the good things in the next life, and save us from the punishment of the Fire.",
-      "arabic": "﴿رَبَّنَا آتِنَا في الدُّنْيَا حسَنَةً وفي الآخِرَةِ حسَنةً وقِنَا عذَابَ النَّارِ﴾",
-      "source": "Abu Dawud 2/179, Ahmad 3/411, Al-Baghawi, Sharhus-Sunnah 7/128",
-      "grading": "Al-Albani graded it good in Sahih Abu Dawud 1/354",
-      "additional_notes": "The Ayat is from Surat Al-Baqarah, 2:201"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "hisn_number": null,
+    "category_id": "between_the_yemeni_corner_and_the_black_stone",
+    "category_name": "Between the Yemeni corner and the black stone",
+    "title": "Supplication between Yemeni Corner and Black Stone",
+    "arabic": "﴿رَبَّنَا آتِنَا في الدُّنْيَا حسَنَةً وفي الآخِرَةِ حسَنةً وقِنَا عذَابَ النَّارِ﴾",
+    "transliteration": "Rabbanā ātinā fid-dunyā ḥasanah wa fi 'l-ākhirati ḥasanah wa qinā `adhāban-nār",
+    "translation": "Our Lord, grant us the good things in this world, and the good things in the next life, and save us from the punishment of the Fire.",
+    "reference": "",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "Between the Yemeni corner and the black stone"
+    ]
+  }
+]

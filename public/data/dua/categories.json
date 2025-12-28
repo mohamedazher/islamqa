@@ -457,7 +457,7 @@
   {
     "id": "chapter_36",
     "numeric_id": 36,
-    "title": "bowing prayer",
+    "title": "While bowing in prayer",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 36",
     "icon": "🤲",
@@ -483,7 +483,7 @@
   {
     "id": "chapter_38",
     "numeric_id": 38,
-    "title": "against enemies",
+    "title": "Against enemies",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 38",
     "icon": "📿",
@@ -509,7 +509,7 @@
   {
     "id": "chapter_40",
     "numeric_id": 40,
-    "title": "doubt in faith",
+    "title": "For one afflicted with doubt in his faith",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 40",
     "icon": "💭",
@@ -535,7 +535,7 @@
   {
     "id": "chapter_42",
     "numeric_id": 42,
-    "title": "whisperings in prayer",
+    "title": "Whisperings in prayer",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 42",
     "icon": "🤲",
@@ -561,7 +561,7 @@
   {
     "id": "chapter_44",
     "numeric_id": 44,
-    "title": "committing sin",
+    "title": "Upon committing a sin",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 44",
     "icon": "🤲",
@@ -600,7 +600,7 @@
   {
     "id": "chapter_47",
     "numeric_id": 47,
-    "title": "birth congratulation",
+    "title": "Congratulation on the occasion of a birth and its reply",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 47",
     "icon": "👶",
@@ -639,7 +639,7 @@
   {
     "id": "chapter_50",
     "numeric_id": 50,
-    "title": "visiting sick",
+    "title": "Excellence of visiting the sick",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 50",
     "icon": "🏥",
@@ -652,7 +652,7 @@
   {
     "id": "chapter_51",
     "numeric_id": 51,
-    "title": "When the sick have renounced all hope of life",
+    "title": "Sick renounced hope",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 51",
     "icon": "🏥",
@@ -678,7 +678,7 @@
   {
     "id": "chapter_53",
     "numeric_id": 53,
-    "title": "calamity affliction",
+    "title": "For one afflicted by a calamity",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 53",
     "icon": "💔",
@@ -704,7 +704,7 @@
   {
     "id": "chapter_55",
     "numeric_id": 55,
-    "title": "funeral prayer deceased",
+    "title": "For the deceased at the funeral prayer",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 55",
     "icon": "🤲",
@@ -756,7 +756,7 @@
   {
     "id": "chapter_59",
     "numeric_id": 59,
-    "title": "after burying deceased",
+    "title": "After burying the deceased",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 59",
     "icon": "🕊️",
@@ -782,7 +782,7 @@
   {
     "id": "chapter_61",
     "numeric_id": 61,
-    "title": "children protection",
+    "title": "Placing children under Allah's protection",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 61",
     "icon": "🛡️",
@@ -834,7 +834,7 @@
   {
     "id": "chapter_65",
     "numeric_id": 65,
-    "title": "after rainfall",
+    "title": "After rainfall",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 65",
     "icon": "🌧️",
@@ -847,7 +847,7 @@
   {
     "id": "chapter_66",
     "numeric_id": 66,
-    "title": "after salam",
+    "title": "After salam",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 66",
     "icon": "✋",
@@ -873,7 +873,7 @@
   {
     "id": "chapter_68",
     "numeric_id": 68,
-    "title": "breaking fast",
+    "title": "Upon breaking fast",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 68",
     "icon": "🌙",
@@ -886,7 +886,7 @@
   {
     "id": "chapter_69",
     "numeric_id": 69,
-    "title": "before eating",
+    "title": "Before eating",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 69",
     "icon": "🍽️",
@@ -912,7 +912,7 @@
   {
     "id": "chapter_71",
     "numeric_id": 71,
-    "title": "ayat al kursi",
+    "title": "Ayat al-Kursi (Verse of the Throne)",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 71",
     "icon": "📖",
@@ -925,7 +925,7 @@
   {
     "id": "chapter_72",
     "numeric_id": 72,
-    "title": "intending to give food or drink",
+    "title": "To one who intends to give food or drink",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 72",
     "icon": "🍽️",
@@ -938,7 +938,7 @@
   {
     "id": "chapter_73",
     "numeric_id": 73,
-    "title": "breaking fast in home",
+    "title": "When breaking fast in someone's home",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 73",
     "icon": "🏠",
@@ -951,7 +951,7 @@
   {
     "id": "chapter_74",
     "numeric_id": 74,
-    "title": "fasting when presented with food",
+    "title": "By one fasting when presented with food and does not break his fast",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 74",
     "icon": "🍽️",
@@ -977,10 +977,10 @@
   {
     "id": "chapter_76",
     "numeric_id": 76,
-    "title": "three quls protection",
+    "title": "The Three Quls (Surahs: Al-Ikhlas, Al-Falaq, and An-Nas)",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 76",
-    "icon": "🛡️",
+    "icon": "📖",
     "dua_count": 3,
     "order": 76,
     "tab": "protection",
@@ -990,7 +990,7 @@
   {
     "id": "chapter_77",
     "numeric_id": 77,
-    "title": "upon sneezing",
+    "title": "Upon sneezing",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 77",
     "icon": "🤧",
@@ -1003,7 +1003,7 @@
   {
     "id": "chapter_78",
     "numeric_id": 78,
-    "title": "disbeliever sneezing",
+    "title": "When a disbeliever praises Allah after sneezing",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 78",
     "icon": "👋",
@@ -1029,10 +1029,10 @@
   {
     "id": "chapter_80",
     "numeric_id": 80,
-    "title": "wedding animal purchase",
+    "title": "On the wedding night or when buying an animal",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 80",
-    "icon": "💑",
+    "icon": "🌙",
     "dua_count": 1,
     "order": 80,
     "tab": "life",
@@ -1042,7 +1042,7 @@
   {
     "id": "chapter_81",
     "numeric_id": 81,
-    "title": "gratitude for blessings",
+    "title": "Gratitude for Blessings",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 81",
     "icon": "🤲",
@@ -1055,7 +1055,7 @@
   {
     "id": "chapter_82",
     "numeric_id": 82,
-    "title": "seeking health refuge",
+    "title": "Seeking Health and Refuge from Evil and Poverty",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 82",
     "icon": "🏥",
@@ -1068,7 +1068,7 @@
   {
     "id": "chapter_83",
     "numeric_id": 83,
-    "title": "upon seeing someone in trial",
+    "title": "Upon seeing someone in trial or tribulation",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 83",
     "icon": "📿",
@@ -1081,7 +1081,7 @@
   {
     "id": "chapter_84",
     "numeric_id": 84,
-    "title": "at sitting gathering",
+    "title": "At a sitting or gathering",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 84",
     "icon": "👥",
@@ -1094,7 +1094,7 @@
   {
     "id": "chapter_85",
     "numeric_id": 85,
-    "title": "expiation of sins",
+    "title": "For the expiation of sins, said at the conclusion of a sitting or gathering",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 85",
     "icon": "🤲",
@@ -1146,7 +1146,7 @@
   {
     "id": "chapter_89",
     "numeric_id": 89,
-    "title": "love for allahs sake",
+    "title": "To one who pronounces his love for you, for Allah's sake",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 89",
     "icon": "❤️",
@@ -1172,7 +1172,7 @@
   {
     "id": "chapter_91",
     "numeric_id": 91,
-    "title": "settling debt",
+    "title": "To the debtor when his debt is settled",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 91",
     "icon": "💰",
@@ -1211,7 +1211,7 @@
   {
     "id": "chapter_94",
     "numeric_id": 94,
-    "title": "scorn of ascribing things to evil omens",
+    "title": "The scorn of ascribing things to evil omens",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 94",
     "icon": "⚔️",
@@ -1224,7 +1224,7 @@
   {
     "id": "chapter_95",
     "numeric_id": 95,
-    "title": "mounting animal transport",
+    "title": "When mounting an animal or any means of transport",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 95",
     "icon": "✈️",
@@ -1237,7 +1237,7 @@
   {
     "id": "chapter_96",
     "numeric_id": 96,
-    "title": "seeking forgiveness",
+    "title": "Seeking Forgiveness and Repentance",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 96",
     "icon": "🤲",
@@ -1250,7 +1250,7 @@
   {
     "id": "chapter_97",
     "numeric_id": 97,
-    "title": "entering town village",
+    "title": "Upon entering a town or village",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 97",
     "icon": "🏘️",
@@ -1263,7 +1263,7 @@
   {
     "id": "chapter_98",
     "numeric_id": 98,
-    "title": "entering market",
+    "title": "When entering the market",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 98",
     "icon": "🏘️",
@@ -1276,10 +1276,10 @@
   {
     "id": "chapter_99",
     "numeric_id": 99,
-    "title": "mounted animal stumbles",
+    "title": "When the mounted animal (or mean of transport) stumbles",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 99",
-    "icon": "🐪",
+    "icon": "✈️",
     "dua_count": 1,
     "order": 99,
     "tab": "social",
@@ -1289,7 +1289,7 @@
   {
     "id": "chapter_100",
     "numeric_id": 100,
-    "title": "supplication traveller for resident",
+    "title": "Supplication of the traveller for the resident",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 100",
     "icon": "✈️",
@@ -1302,7 +1302,7 @@
   {
     "id": "chapter_101",
     "numeric_id": 101,
-    "title": "supplication resident for traveller",
+    "title": "Supplication of the resident for the traveller",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 101",
     "icon": "✈️",
@@ -1354,7 +1354,7 @@
   {
     "id": "chapter_105",
     "numeric_id": 105,
-    "title": "waking up from sleep",
+    "title": "Upon Waking Up from Sleep",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 105",
     "icon": "🌅",
@@ -1380,7 +1380,7 @@
   {
     "id": "chapter_107",
     "numeric_id": 107,
-    "title": "excellence sending prayers upon prophet",
+    "title": "Excellence of sending prayers upon the Prophet (ﷺ)",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 107",
     "icon": "🤲",
@@ -1406,10 +1406,10 @@
   {
     "id": "chapter_109",
     "numeric_id": 109,
-    "title": "greeting disbeliever",
+    "title": "Returning a greeting to a disbeliever",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 109",
-    "icon": "👋",
+    "icon": "🌙",
     "dua_count": 1,
     "order": 109,
     "tab": "social",
@@ -1471,7 +1471,7 @@
   {
     "id": "chapter_114",
     "numeric_id": 114,
-    "title": "when praised",
+    "title": "For the one that have been praised",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 114",
     "icon": "👏",
@@ -1484,7 +1484,7 @@
   {
     "id": "chapter_115",
     "numeric_id": 115,
-    "title": "apprehensiveness sleep",
+    "title": "Apprehensiveness sleep",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 115",
     "icon": "🌙",
@@ -1510,10 +1510,10 @@
   {
     "id": "chapter_117",
     "numeric_id": 117,
-    "title": "tawaf between yemeni corner black stone",
+    "title": "Between the Yemeni corner and the black stone",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 117",
-    "icon": "🕋",
+    "icon": "📿",
     "dua_count": 1,
     "order": 117,
     "tab": "life",
@@ -1523,7 +1523,7 @@
   {
     "id": "chapter_118",
     "numeric_id": 118,
-    "title": "after obligatory prayer",
+    "title": "After the obligatory prayer",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 118",
     "icon": "🤲",
@@ -1549,7 +1549,7 @@
   {
     "id": "chapter_120",
     "numeric_id": 120,
-    "title": "remembrance at muzdalifa",
+    "title": "Remembrance at Muzdalifa",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 120",
     "icon": "🕋",
@@ -1588,7 +1588,7 @@
   {
     "id": "chapter_123",
     "numeric_id": 123,
-    "title": "upon receiving pleasant news",
+    "title": "Upon receiving pleasant news",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 123",
     "icon": "✨",
@@ -1601,7 +1601,7 @@
   {
     "id": "chapter_124",
     "numeric_id": 124,
-    "title": "distress dua",
+    "title": "For one in distress",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 124",
     "icon": "💭",
@@ -1614,7 +1614,7 @@
   {
     "id": "chapter_125",
     "numeric_id": 125,
-    "title": "seeking refuge in allah",
+    "title": "Seeking Refuge in Allah",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 125",
     "icon": "🛡️",
@@ -1640,7 +1640,7 @@
   {
     "id": "chapter_127",
     "numeric_id": 127,
-    "title": "slaughtering sacrifice",
+    "title": "When slaughtering or offering a sacrifice",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 127",
     "icon": "🐑",
@@ -1653,7 +1653,7 @@
   {
     "id": "chapter_128",
     "numeric_id": 128,
-    "title": "ward off devils",
+    "title": "To ward off the plot of the rebellious devils",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 128",
     "icon": "⚔️",
@@ -1666,7 +1666,7 @@
   {
     "id": "chapter_129",
     "numeric_id": 129,
-    "title": "fear of rulers injustice",
+    "title": "For one afraid of the ruler's injustice",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 129",
     "icon": "🛡️",
@@ -1692,7 +1692,7 @@
   {
     "id": "chapter_131",
     "numeric_id": 131,
-    "title": "against enemies",
+    "title": "Against enemies",
     "title_ar": "",
     "description": "Hisn al-Muslim Chapter 131",
     "icon": "📿",

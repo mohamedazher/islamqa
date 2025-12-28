@@ -1,25 +1,18 @@
-{
-  "chapter": 66,
-  "title": "After salam",
-  "title_arabic": "الأذكار بعد السلام من الصلاة",
-  "chapter_description": "Invocations to be recited after the salam at the conclusion of prayer",
-  "duas": [
-    {
-      "id": 1,
-      "reference": 66,
-      "title": "Astaghfirullāh (three times) - The Forgiveness and Peace Invocation",
-      "transliteration": "Astaghfirullāh (three times) Allāhumma antas-salām, wa minkas-salām, tabārakta yā dhal-Jalāli wal-'Ikrām.",
-      "translation": "I seek the forgiveness of Allah (three times). O Allah, You are Peace and from You comes peace. Blessed are You, O Owner of majesty and honor.",
-      "arabic": "أَسْـتَغْفِرُ الله (ثَلاثاً) اللّهُـمَّ أَنْـتَ السَّلامُ وَمِـنْكَ السَّلام تَبارَكْتَ يا ذا الجَـلالِ وَالإِكْـرام",
-      "reference_source": "Muslim 1/414",
-      "category": "After prayer"
-    }
-  ],
-  "meta": {
-    "source": "Hisn al-Muslim",
-    "chapter_number": 66,
-    "category": "After salam",
-    "dua_count": 1,
-    "last_updated": "2025-12-28"
+[
+  {
+    "id": 1,
+    "hisn_number": null,
+    "category_id": "after_salam",
+    "category_name": "After salam",
+    "title": "Astaghfirullāh (three times) - The Forgiveness and Peace Invocation",
+    "arabic": "أَسْـتَغْفِرُ الله (ثَلاثاً) اللّهُـمَّ أَنْـتَ السَّلامُ وَمِـنْكَ السَّلام تَبارَكْتَ يا ذا الجَـلالِ وَالإِكْـرام",
+    "transliteration": "Astaghfirullāh (three times) Allāhumma antas-salām, wa minkas-salām, tabārakta yā dhal-Jalāli wal-'Ikrām.",
+    "translation": "I seek the forgiveness of Allah (three times). O Allah, You are Peace and from You comes peace. Blessed are You, O Owner of majesty and honor.",
+    "reference": "",
+    "repetitions": null,
+    "order": 1,
+    "tags": [
+      "After salam"
+    ]
   }
-}
+]
