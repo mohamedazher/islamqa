@@ -7,7 +7,7 @@
 import dexieDb from './dexieDatabase'
 
 // Current data version - increment when data structure changes
-const CURRENT_DUA_DATA_VERSION = 6 // Version 6: Emojis for category icons
+const CURRENT_DUA_DATA_VERSION = 7 // Version 7: Remove face emojis
 
 class DuaDataLoader {
   /**

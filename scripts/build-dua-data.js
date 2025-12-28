@@ -24,7 +24,7 @@ const EMOJI_KEYWORDS = [
   { keywords: ['sleep', 'night', 'bed', 'lying', 'dream', 'nightmare', 'tossing', 'turning', 'apprehensive'], emoji: '🌙' },
 
   // Prayer-specific
-  { keywords: ['tashahhud'], emoji: '🙏' },
+  { keywords: ['tashahhud'], emoji: '🤲' },
   { keywords: ['salam'], emoji: '✋' },
   { keywords: ['witr', 'qunoot'], emoji: '🤲' },
   { keywords: ['prayer', 'salah', 'prostrat', 'bowing', 'ruku', 'sujud', 'obligatory', 'takbir'], emoji: '🤲' },
@@ -48,7 +48,7 @@ const EMOJI_KEYWORDS = [
   // Protection
   { keywords: ['protect', 'refuge', 'shield', 'safe'], emoji: '🛡️' },
   { keywords: ['evil', 'devil', 'ward off', 'expelling'], emoji: '⚔️' },
-  { keywords: ['fear', 'afraid', 'enemy', 'ruler', 'injustice'], emoji: '😰' },
+  { keywords: ['fear', 'afraid', 'enemy', 'ruler', 'injustice'], emoji: '🛡️' },
 
   // Clothing
   { keywords: ['garment', 'cloth', 'wear', 'dress', 'undress'], emoji: '👔' },
@@ -66,9 +66,9 @@ const EMOJI_KEYWORDS = [
   { keywords: ['guidance', 'istikhara', 'decision'], emoji: '🧭' },
 
   // Emotions
-  { keywords: ['distress', 'anxiety', 'sorrow', 'difficult', 'worry', 'trouble'], emoji: '😢' },
-  { keywords: ['pleasant', 'pleasing', 'amazement', 'delights', 'good news'], emoji: '😊' },
-  { keywords: ['gratitude', 'thank', 'blessing', 'favour'], emoji: '🙏' },
+  { keywords: ['distress', 'anxiety', 'sorrow', 'difficult', 'worry', 'trouble'], emoji: '💭' },
+  { keywords: ['pleasant', 'pleasing', 'amazement', 'delights', 'good news'], emoji: '✨' },
+  { keywords: ['gratitude', 'thank', 'blessing', 'favour'], emoji: '✨' },
 
   // Finances
   { keywords: ['debt', 'settling'], emoji: '💰' },
@@ -91,7 +91,7 @@ const EMOJI_KEYWORDS = [
   { keywords: ['prophet', 'salawat', 'muhammad', 'prayers upon'], emoji: '💚' },
 
   // Other
-  { keywords: ['doubt', 'whisper', 'faith'], emoji: '🤔' },
+  { keywords: ['doubt', 'whisper', 'faith'], emoji: '💭' },
   { keywords: ['slaughter', 'sacrifice', 'animal'], emoji: '🐑' },
   { keywords: ['rooster', 'donkey', 'crow', 'braying'], emoji: '🐓' },
   { keywords: ['love', 'allah'], emoji: '❤️' },
