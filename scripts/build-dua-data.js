@@ -103,6 +103,96 @@ const EMOJI_KEYWORDS = [
 ]
 
 // Get emoji based on keywords
+// Tab assignments for 132 chapters
+// Based on usage frequency and logical grouping
+const TAB_ASSIGNMENTS = {
+  // TAB 1: DAILY - Most frequently used, multiple times a day
+  daily: [
+    1,   // When waking up
+    2, 3, 5, 6,  // Clothes (wearing, new garment, undressing)
+    7, 8, 9,     // Bathroom/ablution
+    10, 11,      // Home (leaving, entering)
+    27,  // Morning and evening adhkar (MOST IMPORTANT!)
+    29, 30, 31,  // Sleep-related (tossing, unrest, dreams)
+    68, 69, 70, 71, // Eating/fasting (breaking fast, before eating, after meal, ayat kursi)
+    73, 74, 75,  // More fasting related
+    93,  // Upon rising in morning
+    102, 103, 104, 105, // Sleep (laying down, before lying, before sleeping, waking up)
+    108, // After eating
+    111, 112, 115, // More sleep related
+  ],
+
+  // TAB 2: SALAH - Prayer related
+  salah: [
+    12, 13, 14,  // Mosque (going, entering, leaving)
+    15, 16, 17, 18, 19, 20, // Prayer positions (salawat, opening, bowing, rising, prostrating, between)
+    21, 22, 23, 24, 25, // More prayer (sajdah tilawah, tashahhud, salawat, after tashahhud, after salam)
+    26, 28,  // Istikhara
+    32, 33,  // Witr/Qunoot
+    36,  // Bowing prayer
+    52,  // Tashahhud
+    66,  // After salam
+    107, // Excellence of prayers upon prophet
+    116, // Qunoot of witr
+    118, 119, // After obligatory prayer, after witr
+  ],
+
+  // TAB 3: PROTECTION - Spiritual protection & emotional relief
+  protection: [
+    34, 35,  // Anxiety, distress
+    37, 38, 39, // Fear of rulers, against enemies, afraid of group
+    40, 42,  // Doubt in faith, whisperings in prayer
+    43, 44, 45, 46, // Affairs difficult, committing sin, expelling devil, mishap
+    48,  // Children protection
+    53,  // Calamity affliction
+    61,  // Children protection
+    76,  // Three quls protection
+    81, 82,  // Gratitude, seeking health refuge
+    85, 86,  // Expiation, returning forgiveness supplication
+    88,  // Seeking help/refuge in Allah
+    92, 94, 96, // Fear of shirk, scorn of omens, seeking forgiveness
+    124, 125, 126, // Distress, seeking refuge, encountering enemy
+    128, 129, 130, 131, 132, // Ward off devils, fear of rulers, against enemies, afraid of group
+  ],
+
+  // TAB 4: SOCIAL - Interactions, travel, weather
+  social: [
+    4,   // To someone wearing new garment
+    62, 63, 64, 65, 67, // Weather (thunder, rain, after rain, crescent moon)
+    72,  // Intending to give food
+    77, 78,  // Sneezing
+    83, 84,  // Seeing someone in trial, gatherings
+    87,  // To one who does favour
+    89, 90,  // Love for Allah's sake, one who offered wealth
+    95, 97, 98, 99, 100, 101, // Travel (mounting, town, market, stumbles, traveller duas)
+    106, // Pleasing/displeasing news
+    109, 110, // Greeting disbeliever, rooster/donkey
+    113, 114, // Praising, when praised
+    122, 123, // Amazement, pleasant news
+  ],
+
+  // TAB 5: LIFE EVENTS - Major milestones (marriage, birth, death, hajj)
+  life: [
+    41,  // Settling debt
+    47,  // Birth congratulation
+    49, 50, 51, // Visiting sick, sick renounced hope
+    54, 55, 56, 57, 58, 59, 60, // Death/funeral (closing eyes, funeral prayer, child, condolence, grave)
+    79, 80,  // Marriage (newlywed, wedding)
+    91,  // Settling debt
+    117, 120, 121, 127, // Hajj (tawaf, muzdalifa, jamarat, slaughter)
+  ],
+}
+
+// Get tab for a chapter number
+function getTabForChapter(chapterNum) {
+  for (const [tab, chapters] of Object.entries(TAB_ASSIGNMENTS)) {
+    if (chapters.includes(chapterNum)) {
+      return tab
+    }
+  }
+  return 'daily' // Default fallback
+}
+
 function getEmojiForCategory(title) {
   const lowerTitle = title.toLowerCase()
   for (const mapping of EMOJI_KEYWORDS) {
@@ -177,6 +267,9 @@ function buildDuaData() {
     // Get emoji icon based on category name
     const icon = getEmojiForCategory(categoryName)
 
+    // Get tab assignment for this chapter
+    const tab = getTabForChapter(chapterNum)
+
     // Create category entry (colors computed in component based on numeric_id)
     categories.push({
       id: categoryId,
@@ -187,7 +280,7 @@ function buildDuaData() {
       icon: icon,
       dua_count: duas.length,
       order: chapterNum,
-      tab: chapterNum <= 30 ? 'main' : 'other', // First 30 chapters in main tab
+      tab: tab,
       parent_id: null,
       type: 'chapter'
     })

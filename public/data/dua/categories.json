@@ -8,7 +8,7 @@
     "icon": "🌅",
     "dua_count": 4,
     "order": 1,
-    "tab": "main",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -21,7 +21,7 @@
     "icon": "👔",
     "dua_count": 1,
     "order": 2,
-    "tab": "main",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -34,7 +34,7 @@
     "icon": "👔",
     "dua_count": 1,
     "order": 3,
-    "tab": "main",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -47,7 +47,7 @@
     "icon": "👔",
     "dua_count": 2,
     "order": 4,
-    "tab": "main",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -60,7 +60,7 @@
     "icon": "👔",
     "dua_count": 1,
     "order": 5,
-    "tab": "main",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -73,7 +73,7 @@
     "icon": "👔",
     "dua_count": 1,
     "order": 6,
-    "tab": "main",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -86,7 +86,7 @@
     "icon": "💧",
     "dua_count": 1,
     "order": 7,
-    "tab": "main",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -99,7 +99,7 @@
     "icon": "💧",
     "dua_count": 1,
     "order": 8,
-    "tab": "main",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -112,7 +112,7 @@
     "icon": "💧",
     "dua_count": 3,
     "order": 9,
-    "tab": "main",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -125,7 +125,7 @@
     "icon": "🏠",
     "dua_count": 2,
     "order": 10,
-    "tab": "main",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -138,7 +138,7 @@
     "icon": "🏠",
     "dua_count": 1,
     "order": 11,
-    "tab": "main",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -151,7 +151,7 @@
     "icon": "🕌",
     "dua_count": 1,
     "order": 12,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -164,7 +164,7 @@
     "icon": "🕌",
     "dua_count": 1,
     "order": 13,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -177,7 +177,7 @@
     "icon": "🕌",
     "dua_count": 1,
     "order": 14,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -190,7 +190,7 @@
     "icon": "🤲",
     "dua_count": 2,
     "order": 15,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -203,7 +203,7 @@
     "icon": "🤲",
     "dua_count": 6,
     "order": 16,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -216,7 +216,7 @@
     "icon": "🤲",
     "dua_count": 5,
     "order": 17,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -229,7 +229,7 @@
     "icon": "🌅",
     "dua_count": 3,
     "order": 18,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -242,7 +242,7 @@
     "icon": "🤲",
     "dua_count": 7,
     "order": 19,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -255,7 +255,7 @@
     "icon": "🤲",
     "dua_count": 2,
     "order": 20,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -268,7 +268,7 @@
     "icon": "🤲",
     "dua_count": 2,
     "order": 21,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -281,7 +281,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 22,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -294,7 +294,7 @@
     "icon": "🤲",
     "dua_count": 2,
     "order": 23,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -307,7 +307,7 @@
     "icon": "🤲",
     "dua_count": 11,
     "order": 24,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -320,7 +320,7 @@
     "icon": "✋",
     "dua_count": 8,
     "order": 25,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -333,7 +333,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 26,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -346,7 +346,7 @@
     "icon": "🌅",
     "dua_count": 25,
     "order": 27,
-    "tab": "main",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -359,7 +359,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 28,
-    "tab": "main",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -372,7 +372,7 @@
     "icon": "🌙",
     "dua_count": 1,
     "order": 29,
-    "tab": "main",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -385,7 +385,7 @@
     "icon": "🌙",
     "dua_count": 1,
     "order": 30,
-    "tab": "main",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -398,7 +398,7 @@
     "icon": "🌙",
     "dua_count": 2,
     "order": 31,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -411,7 +411,7 @@
     "icon": "🤲",
     "dua_count": 3,
     "order": 32,
-    "tab": "other",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -424,7 +424,7 @@
     "icon": "✋",
     "dua_count": 1,
     "order": 33,
-    "tab": "other",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -437,7 +437,7 @@
     "icon": "💭",
     "dua_count": 2,
     "order": 34,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -450,7 +450,7 @@
     "icon": "💭",
     "dua_count": 4,
     "order": 35,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -463,7 +463,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 36,
-    "tab": "other",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -476,7 +476,7 @@
     "icon": "🛡️",
     "dua_count": 2,
     "order": 37,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -489,7 +489,7 @@
     "icon": "📿",
     "dua_count": 1,
     "order": 38,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -502,7 +502,7 @@
     "icon": "🛡️",
     "dua_count": 1,
     "order": 39,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -515,7 +515,7 @@
     "icon": "💭",
     "dua_count": 3,
     "order": 40,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -528,7 +528,7 @@
     "icon": "💰",
     "dua_count": 2,
     "order": 41,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -541,7 +541,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 42,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -554,7 +554,7 @@
     "icon": "💭",
     "dua_count": 1,
     "order": 43,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -567,7 +567,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 44,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -580,7 +580,7 @@
     "icon": "⚔️",
     "dua_count": 3,
     "order": 45,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -593,7 +593,7 @@
     "icon": "📿",
     "dua_count": 1,
     "order": 46,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -606,7 +606,7 @@
     "icon": "👶",
     "dua_count": 2,
     "order": 47,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -619,7 +619,7 @@
     "icon": "🛡️",
     "dua_count": 1,
     "order": 48,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -632,7 +632,7 @@
     "icon": "🏥",
     "dua_count": 2,
     "order": 49,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -645,7 +645,7 @@
     "icon": "🏥",
     "dua_count": 1,
     "order": 50,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -658,7 +658,7 @@
     "icon": "🏥",
     "dua_count": 3,
     "order": 51,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -671,7 +671,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 52,
-    "tab": "other",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -684,7 +684,7 @@
     "icon": "💔",
     "dua_count": 1,
     "order": 53,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -697,7 +697,7 @@
     "icon": "🕊️",
     "dua_count": 1,
     "order": 54,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -710,7 +710,7 @@
     "icon": "🤲",
     "dua_count": 4,
     "order": 55,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -723,7 +723,7 @@
     "icon": "🤲",
     "dua_count": 2,
     "order": 56,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -736,7 +736,7 @@
     "icon": "💔",
     "dua_count": 2,
     "order": 57,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -749,7 +749,7 @@
     "icon": "🪦",
     "dua_count": 1,
     "order": 58,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -762,7 +762,7 @@
     "icon": "🕊️",
     "dua_count": 1,
     "order": 59,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -775,7 +775,7 @@
     "icon": "🪦",
     "dua_count": 1,
     "order": 60,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -788,7 +788,7 @@
     "icon": "🛡️",
     "dua_count": 1,
     "order": 61,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -801,7 +801,7 @@
     "icon": "⛈️",
     "dua_count": 1,
     "order": 62,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -814,7 +814,7 @@
     "icon": "🌧️",
     "dua_count": 3,
     "order": 63,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -827,7 +827,7 @@
     "icon": "🌧️",
     "dua_count": 1,
     "order": 64,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -840,7 +840,7 @@
     "icon": "🌧️",
     "dua_count": 1,
     "order": 65,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -853,7 +853,7 @@
     "icon": "✋",
     "dua_count": 1,
     "order": 66,
-    "tab": "other",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -866,7 +866,7 @@
     "icon": "🌙",
     "dua_count": 1,
     "order": 67,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -879,7 +879,7 @@
     "icon": "🌙",
     "dua_count": 2,
     "order": 68,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -892,7 +892,7 @@
     "icon": "🍽️",
     "dua_count": 2,
     "order": 69,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -905,7 +905,7 @@
     "icon": "🍽️",
     "dua_count": 2,
     "order": 70,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -918,7 +918,7 @@
     "icon": "📖",
     "dua_count": 1,
     "order": 71,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -931,7 +931,7 @@
     "icon": "🍽️",
     "dua_count": 1,
     "order": 72,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -944,7 +944,7 @@
     "icon": "🏠",
     "dua_count": 1,
     "order": 73,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -957,7 +957,7 @@
     "icon": "🍽️",
     "dua_count": 1,
     "order": 74,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -970,7 +970,7 @@
     "icon": "🌙",
     "dua_count": 1,
     "order": 75,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -983,7 +983,7 @@
     "icon": "🛡️",
     "dua_count": 3,
     "order": 76,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -996,7 +996,7 @@
     "icon": "🤧",
     "dua_count": 1,
     "order": 77,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1009,7 +1009,7 @@
     "icon": "👋",
     "dua_count": 1,
     "order": 78,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1022,7 +1022,7 @@
     "icon": "💑",
     "dua_count": 1,
     "order": 79,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1035,7 +1035,7 @@
     "icon": "💑",
     "dua_count": 1,
     "order": 80,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1048,7 +1048,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 81,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1061,7 +1061,7 @@
     "icon": "🏥",
     "dua_count": 1,
     "order": 82,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1074,7 +1074,7 @@
     "icon": "📿",
     "dua_count": 1,
     "order": 83,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1087,7 +1087,7 @@
     "icon": "👥",
     "dua_count": 1,
     "order": 84,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1100,7 +1100,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 85,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1113,7 +1113,7 @@
     "icon": "🌙",
     "dua_count": 1,
     "order": 86,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1126,7 +1126,7 @@
     "icon": "✨",
     "dua_count": 1,
     "order": 87,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1139,7 +1139,7 @@
     "icon": "🛡️",
     "dua_count": 1,
     "order": 88,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1152,7 +1152,7 @@
     "icon": "❤️",
     "dua_count": 1,
     "order": 89,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1165,7 +1165,7 @@
     "icon": "🎁",
     "dua_count": 1,
     "order": 90,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1178,7 +1178,7 @@
     "icon": "💰",
     "dua_count": 1,
     "order": 91,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1191,7 +1191,7 @@
     "icon": "🛡️",
     "dua_count": 1,
     "order": 92,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1204,7 +1204,7 @@
     "icon": "🌅",
     "dua_count": 1,
     "order": 93,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1217,7 +1217,7 @@
     "icon": "⚔️",
     "dua_count": 1,
     "order": 94,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1230,7 +1230,7 @@
     "icon": "✈️",
     "dua_count": 1,
     "order": 95,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1243,7 +1243,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 96,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1256,7 +1256,7 @@
     "icon": "🏘️",
     "dua_count": 1,
     "order": 97,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1269,7 +1269,7 @@
     "icon": "🏘️",
     "dua_count": 1,
     "order": 98,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1282,7 +1282,7 @@
     "icon": "🐪",
     "dua_count": 1,
     "order": 99,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1295,7 +1295,7 @@
     "icon": "✈️",
     "dua_count": 1,
     "order": 100,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1308,7 +1308,7 @@
     "icon": "✈️",
     "dua_count": 2,
     "order": 101,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1321,7 +1321,7 @@
     "icon": "🌙",
     "dua_count": 1,
     "order": 102,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1334,7 +1334,7 @@
     "icon": "🌙",
     "dua_count": 1,
     "order": 103,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1347,7 +1347,7 @@
     "icon": "🌙",
     "dua_count": 1,
     "order": 104,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1360,7 +1360,7 @@
     "icon": "🌅",
     "dua_count": 1,
     "order": 105,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1373,7 +1373,7 @@
     "icon": "🤲",
     "dua_count": 2,
     "order": 106,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1386,7 +1386,7 @@
     "icon": "🤲",
     "dua_count": 5,
     "order": 107,
-    "tab": "other",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1399,7 +1399,7 @@
     "icon": "🍽️",
     "dua_count": 1,
     "order": 108,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1412,7 +1412,7 @@
     "icon": "👋",
     "dua_count": 1,
     "order": 109,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1425,7 +1425,7 @@
     "icon": "🐓",
     "dua_count": 1,
     "order": 110,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1438,7 +1438,7 @@
     "icon": "🌙",
     "dua_count": 1,
     "order": 111,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1451,7 +1451,7 @@
     "icon": "🌙",
     "dua_count": 1,
     "order": 112,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1464,7 +1464,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 113,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1477,7 +1477,7 @@
     "icon": "👏",
     "dua_count": 1,
     "order": 114,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1490,7 +1490,7 @@
     "icon": "🌙",
     "dua_count": 1,
     "order": 115,
-    "tab": "other",
+    "tab": "daily",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1503,7 +1503,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 116,
-    "tab": "other",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1516,7 +1516,7 @@
     "icon": "🕋",
     "dua_count": 1,
     "order": 117,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1529,7 +1529,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 118,
-    "tab": "other",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1542,7 +1542,7 @@
     "icon": "✋",
     "dua_count": 1,
     "order": 119,
-    "tab": "other",
+    "tab": "salah",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1555,7 +1555,7 @@
     "icon": "🕋",
     "dua_count": 1,
     "order": 120,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1568,7 +1568,7 @@
     "icon": "🤲",
     "dua_count": 1,
     "order": 121,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1581,7 +1581,7 @@
     "icon": "✨",
     "dua_count": 2,
     "order": 122,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1594,7 +1594,7 @@
     "icon": "✨",
     "dua_count": 1,
     "order": 123,
-    "tab": "other",
+    "tab": "social",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1607,7 +1607,7 @@
     "icon": "💭",
     "dua_count": 1,
     "order": 124,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1620,7 +1620,7 @@
     "icon": "🛡️",
     "dua_count": 1,
     "order": 125,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1633,7 +1633,7 @@
     "icon": "🛡️",
     "dua_count": 1,
     "order": 126,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1646,7 +1646,7 @@
     "icon": "🐑",
     "dua_count": 1,
     "order": 127,
-    "tab": "other",
+    "tab": "life",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1659,7 +1659,7 @@
     "icon": "⚔️",
     "dua_count": 1,
     "order": 128,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1672,7 +1672,7 @@
     "icon": "🛡️",
     "dua_count": 1,
     "order": 129,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1685,7 +1685,7 @@
     "icon": "🛡️",
     "dua_count": 1,
     "order": 130,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1698,7 +1698,7 @@
     "icon": "📿",
     "dua_count": 1,
     "order": 131,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   },
@@ -1711,7 +1711,7 @@
     "icon": "🛡️",
     "dua_count": 1,
     "order": 132,
-    "tab": "other",
+    "tab": "protection",
     "parent_id": null,
     "type": "chapter"
   }

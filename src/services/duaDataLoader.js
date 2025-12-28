@@ -7,7 +7,7 @@
 import dexieDb from './dexieDatabase'
 
 // Current data version - increment when data structure changes
-const CURRENT_DUA_DATA_VERSION = 7 // Version 7: Remove face emojis
+const CURRENT_DUA_DATA_VERSION = 8 // Version 8: 5-tab organization (Daily, Salah, Protection, Social, Life Events)
 
 class DuaDataLoader {
   /**

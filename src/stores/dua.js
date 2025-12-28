@@ -28,8 +28,17 @@ export const useDuaStore = defineStore('dua', {
   }),
 
   getters: {
-    mainCategories: (state) => state.categories.filter(c => c.tab === 'main'),
-    otherCategories: (state) => state.categories.filter(c => c.tab === 'other'),
+    // Tab-based category filters
+    dailyCategories: (state) => state.categories.filter(c => c.tab === 'daily'),
+    salahCategories: (state) => state.categories.filter(c => c.tab === 'salah'),
+    protectionCategories: (state) => state.categories.filter(c => c.tab === 'protection'),
+    socialCategories: (state) => state.categories.filter(c => c.tab === 'social'),
+    lifeCategories: (state) => state.categories.filter(c => c.tab === 'life'),
+
+    // Legacy getters (map to new tabs)
+    mainCategories: (state) => state.categories.filter(c => c.tab === 'daily'),
+    otherCategories: (state) => state.categories.filter(c => c.tab !== 'daily'),
+
     currentDua: (state) => state.currentDuas[state.currentDuaIndex] || null,
     progress: (state) => {
       if (state.currentDuas.length === 0) return '0/0'
