@@ -173,22 +173,41 @@ class LeaderboardService {
       // 0. Ensure user profile exists with required fields
       await this.createUserProfile()
 
-      // 1. Update daily leaderboard
+      // 1. Update daily leaderboard (accumulate scores, don't overwrite)
       console.log(`  📅 Writing daily score for ${today}...`)
       const dailyRef = doc(this.db, 'leaderboards', 'daily', today, this.userId)
-      await setDoc(dailyRef, {
-        userId: this.userId,
-        username: this.username,
-        score,
-        correct,
-        total,
-        accuracy,
-        timeTaken,
-        quizId,
-        mode,
-        timestamp: serverTimestamp()
-      })
-      console.log(`  ✅ Daily score written successfully`)
+      const dailyDoc = await getDoc(dailyRef)
+
+      if (dailyDoc.exists()) {
+        const existing = dailyDoc.data()
+        await updateDoc(dailyRef, {
+          score: increment(score),  // Accumulate scores
+          correct: increment(correct),
+          total: increment(total),
+          quizzesTaken: increment(1),
+          bestScore: Math.max(score, existing.bestScore || 0),
+          bestAccuracy: Math.max(accuracy, existing.bestAccuracy || 0),
+          timestamp: serverTimestamp()
+        })
+        console.log(`  ✅ Daily score accumulated (added +${score})`)
+      } else {
+        await setDoc(dailyRef, {
+          userId: this.userId,
+          username: this.username,
+          score,
+          correct,
+          total,
+          accuracy,
+          timeTaken,
+          quizId,
+          mode,
+          quizzesTaken: 1,
+          bestScore: score,
+          bestAccuracy: accuracy,
+          timestamp: serverTimestamp()
+        })
+        console.log(`  ✅ Daily score created`)
+      }
 
       // 2. Update all-time stats in users collection
       console.log(`  👤 Updating all-time stats...`)
@@ -234,6 +253,115 @@ class LeaderboardService {
       console.error('   Error code:', error.code)
       console.error('   Full error:', error)
       throw error
+    }
+  }
+
+  /**
+   * Submit dua/adhkar activity to leaderboard
+   * @param {Object} activity - The activity data
+   * @param {number} activity.points - Points earned from activity
+   * @param {string} activity.type - Activity type: 'dua_read', 'morning_adhkar', 'evening_adhkar', 'both_adhkar'
+   * @param {string} activity.description - Description of the activity
+   */
+  async submitActivity(activity) {
+    if (!this.isAvailable) {
+      console.warn('⚠️ Leaderboard service not available, skipping activity submission')
+      return false
+    }
+
+    if (!this.userId) await this.initUser()
+    if (!this.userId) {
+      console.error('❌ Cannot submit activity: User not authenticated')
+      return false
+    }
+
+    const { points, type, description } = activity
+
+    console.log(`📊 Submitting activity:`, {
+      userId: this.userId,
+      username: this.username,
+      points,
+      type,
+      description
+    })
+
+    // Validate points
+    if (!points || points <= 0) {
+      console.error('❌ Invalid activity: points must be > 0')
+      return false
+    }
+
+    const today = new Date().toISOString().split('T')[0]
+
+    try {
+      // 0. Ensure user profile exists
+      await this.createUserProfile()
+
+      // 1. Update daily leaderboard with activity points
+      console.log(`  📅 Adding activity to daily score for ${today}...`)
+      const dailyRef = doc(this.db, 'leaderboards', 'daily', today, this.userId)
+      const dailyDoc = await getDoc(dailyRef)
+
+      if (dailyDoc.exists()) {
+        await updateDoc(dailyRef, {
+          score: increment(points),
+          activityPoints: increment(points),
+          timestamp: serverTimestamp()
+        })
+        console.log(`  ✅ Daily activity points added (+${points})`)
+      } else {
+        await setDoc(dailyRef, {
+          userId: this.userId,
+          username: this.username,
+          score: points,
+          activityPoints: points,
+          correct: 0,
+          total: 0,
+          quizzesTaken: 0,
+          timestamp: serverTimestamp()
+        })
+        console.log(`  ✅ Daily entry created with activity points`)
+      }
+
+      // 2. Update all-time stats
+      console.log(`  👤 Updating all-time stats...`)
+      const userRef = doc(this.db, 'users', this.userId)
+      await updateDoc(userRef, {
+        totalScore: increment(points),
+        lastActive: serverTimestamp()
+      })
+      console.log(`  ✅ All-time stats updated (+${points})`)
+
+      // 3. Update weekly leaderboard
+      const weekId = this.getWeekId(new Date())
+      console.log(`  📆 Adding activity to weekly score for ${weekId}...`)
+      const weeklyRef = doc(this.db, 'leaderboards', 'weekly', weekId, this.userId)
+      const weeklyDoc = await getDoc(weeklyRef)
+
+      if (weeklyDoc.exists()) {
+        await updateDoc(weeklyRef, {
+          totalScore: increment(points),
+          activityPoints: increment(points),
+          timestamp: serverTimestamp()
+        })
+        console.log(`  ✅ Weekly activity points added (+${points})`)
+      } else {
+        await setDoc(weeklyRef, {
+          userId: this.userId,
+          username: this.username,
+          totalScore: points,
+          activityPoints: points,
+          quizzesTaken: 0,
+          timestamp: serverTimestamp()
+        })
+        console.log(`  ✅ Weekly entry created with activity points`)
+      }
+
+      console.log(`✅ Activity submitted: ${description} (+${points} points)`)
+      return true
+    } catch (error) {
+      console.error('❌ Failed to submit activity:', error.message)
+      return false
     }
   }
 

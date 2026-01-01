@@ -1,8 +1,10 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import leaderboardService from '@/services/leaderboardService'
 
 /**
  * Gamification Store - Tracks points, achievements, and user engagement
+ * Points are synced to Firebase leaderboard for competitive features
  */
 export const useGamificationStore = defineStore('gamification', () => {
   // State
@@ -365,12 +367,28 @@ export const useGamificationStore = defineStore('gamification', () => {
     readQuestionIds.value.add(questionId)
     stats.value.questionsRead++
     awardPoints(5, 'Question read')
+
+    // Sync to Firebase leaderboard
+    leaderboardService.submitActivity({
+      points: 5,
+      type: 'question_read',
+      description: 'Question read'
+    }).catch(err => console.warn('Failed to sync question read to leaderboard:', err))
+
     checkAchievements()
   }
 
   function createBookmark() {
     stats.value.bookmarksCreated++
     awardPoints(10, 'Bookmark created')
+
+    // Sync to Firebase leaderboard
+    leaderboardService.submitActivity({
+      points: 10,
+      type: 'bookmark_created',
+      description: 'Bookmark created'
+    }).catch(err => console.warn('Failed to sync bookmark to leaderboard:', err))
+
     checkAchievements()
   }
 
@@ -394,10 +412,24 @@ export const useGamificationStore = defineStore('gamification', () => {
         stats.value.longestStreak = Math.max(stats.value.longestStreak, streak.value)
         awardPoints(100, `${streak.value}-day streak!`)
         console.log(`🔥 Streak: ${streak.value} days!`)
+
+        // Sync streak bonus to Firebase
+        leaderboardService.submitActivity({
+          points: 100,
+          type: 'quiz_streak',
+          description: `${streak.value}-day quiz streak`
+        }).catch(err => console.warn('Failed to sync quiz streak to leaderboard:', err))
       } else if (dayDiff > 1) {
         // Streak broken
         streak.value = 1
         awardPoints(50, 'Streak reset - welcome back!')
+
+        // Sync welcome back bonus to Firebase
+        leaderboardService.submitActivity({
+          points: 50,
+          type: 'welcome_back',
+          description: 'Streak reset - welcome back'
+        }).catch(err => console.warn('Failed to sync welcome back bonus to leaderboard:', err))
       }
     } else {
       // First daily quiz
@@ -453,6 +485,13 @@ export const useGamificationStore = defineStore('gamification', () => {
         achievement.unlocked = true
         awardPoints(achievement.points, `Achievement: ${achievement.name}`)
         console.log(`🎉 Achievement unlocked: ${achievement.name}`)
+
+        // Sync achievement bonus to Firebase
+        leaderboardService.submitActivity({
+          points: achievement.points,
+          type: 'achievement',
+          description: `Achievement: ${achievement.name}`
+        }).catch(err => console.warn('Failed to sync achievement to leaderboard:', err))
       }
     })
   }
@@ -486,6 +525,13 @@ export const useGamificationStore = defineStore('gamification', () => {
       readDuaIds.value.add(duaId)
       stats.value.duasRead++
       awardPoints(5, 'Dua read')
+
+      // Sync to Firebase leaderboard
+      leaderboardService.submitActivity({
+        points: 5,
+        type: 'dua_read',
+        description: 'Dua read'
+      }).catch(err => console.warn('Failed to sync dua read to leaderboard:', err))
     }
 
     // Track morning/evening adhkar progress
@@ -576,6 +622,13 @@ export const useGamificationStore = defineStore('gamification', () => {
     awardPoints(20, 'Morning adhkar complete! ☀️')
     console.log(`🌅 Morning adhkar complete! Streak: ${morningStreak.value} days`)
 
+    // Sync to Firebase leaderboard
+    leaderboardService.submitActivity({
+      points: 20,
+      type: 'morning_adhkar',
+      description: 'Morning adhkar complete'
+    }).catch(err => console.warn('Failed to sync morning adhkar to leaderboard:', err))
+
     // Check if both are done today
     checkBothAdhkarCompletion()
     checkAchievements()
@@ -611,6 +664,13 @@ export const useGamificationStore = defineStore('gamification', () => {
     awardPoints(20, 'Evening adhkar complete! 🌙')
     console.log(`🌆 Evening adhkar complete! Streak: ${eveningStreak.value} days`)
 
+    // Sync to Firebase leaderboard
+    leaderboardService.submitActivity({
+      points: 20,
+      type: 'evening_adhkar',
+      description: 'Evening adhkar complete'
+    }).catch(err => console.warn('Failed to sync evening adhkar to leaderboard:', err))
+
     // Check if both are done today
     checkBothAdhkarCompletion()
     checkAchievements()
@@ -642,6 +702,13 @@ export const useGamificationStore = defineStore('gamification', () => {
           bothStreak.value++
           stats.value.longestAdhkarStreak = Math.max(stats.value.longestAdhkarStreak, bothStreak.value)
           awardPoints(30, `${bothStreak.value}-day adhkar streak! 🔥`)
+
+          // Sync streak bonus to Firebase
+          leaderboardService.submitActivity({
+            points: 30,
+            type: 'adhkar_streak',
+            description: `${bothStreak.value}-day adhkar streak`
+          }).catch(err => console.warn('Failed to sync streak bonus to leaderboard:', err))
         } else if (lastBothDate && lastBothDate !== yesterdayStr) {
           bothStreak.value = 1
         } else {
@@ -651,6 +718,13 @@ export const useGamificationStore = defineStore('gamification', () => {
         // Bonus for completing both in one day
         awardPoints(25, 'Both morning & evening adhkar complete! ✨')
         console.log(`✨ Both adhkar complete! Streak: ${bothStreak.value} days`)
+
+        // Sync both adhkar bonus to Firebase
+        leaderboardService.submitActivity({
+          points: 25,
+          type: 'both_adhkar',
+          description: 'Both morning & evening adhkar complete'
+        }).catch(err => console.warn('Failed to sync both adhkar bonus to leaderboard:', err))
       }
     }
   }
