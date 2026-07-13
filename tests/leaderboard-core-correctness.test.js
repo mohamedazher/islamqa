@@ -139,6 +139,7 @@ describe('atomic and idempotent score synchronization', () => {
     expect(state.docs.get(`leaderboards/weekly/${week}/stable-user`).totalScore).toBe(75)
     expect(state.docs.get(`leaderboards/weekly/${week}/stable-user`).activityPoints).toBe(0)
     expect(state.docs.get(`leaderboards/daily/${day}/stable-user`).score).toBe(75)
+    expect(state.docs.get(`leaderboards/daily/${day}/stable-user`).lastEventId).toBe(`legacy_daily_${day}`)
     expect(state.docs.has(`users/stable-user/events/legacy_daily_${day}`)).toBe(true)
 
     service = await freshService()
@@ -148,6 +149,39 @@ describe('atomic and idempotent score synchronization', () => {
     expect(state.docs.get(`users/stable-user/events/legacy_daily_${day}`)).toEqual({
       eventId: `legacy_daily_${day}`, userId: 'stable-user', kind: 'legacy_daily',
       points: 75, dailyBucket: day, weeklyBucket: week, createdAt: 'SERVER_TIME'
+    })
+  })
+
+  it('finalizes a daily marker created by the earlier migration release without recounting', async () => {
+    const { getLocalDateBucket, getLocalIsoWeekBucket } = await import('../src/services/leaderboardService.js')
+    const now = new Date()
+    const day = getLocalDateBucket(now)
+    const week = getLocalIsoWeekBucket(now)
+    const eventId = `legacy_daily_${day}`
+    storage.setItem('username', 'Existing Name')
+    state.docs.set('users/stable-user', {
+      username: 'Existing Name', totalScore: 75, quizzesTaken: 0,
+      level: 1, createdAt: 'OLD_TIME', lastActive: 'OLD_TIME', lastEventId: eventId
+    })
+    state.docs.set(`leaderboards/daily/${day}/stable-user`, {
+      userId: 'stable-user', username: 'Existing Name', score: 75
+    })
+    state.docs.set(`leaderboards/weekly/${week}/stable-user`, {
+      userId: 'stable-user', username: 'Existing Name', totalScore: 75,
+      activityPoints: 0, quizzesTaken: 0, bestScore: 0,
+      timestamp: 'OLD_TIME', lastEventId: eventId
+    })
+    state.docs.set(`users/stable-user/events/${eventId}`, {
+      eventId, userId: 'stable-user', kind: 'legacy_daily', points: 75,
+      dailyBucket: day, weeklyBucket: week, createdAt: 'OLD_TIME'
+    })
+
+    const service = await freshService()
+    await service.initUser()
+    expect(state.docs.get('users/stable-user').totalScore).toBe(75)
+    expect(state.docs.get(`leaderboards/weekly/${week}/stable-user`).totalScore).toBe(75)
+    expect(state.docs.get(`leaderboards/daily/${day}/stable-user`)).toMatchObject({
+      score: 75, lastEventId: eventId
     })
   })
 
@@ -362,5 +396,45 @@ describe('validation and profile consistency', () => {
       name: 'LeaderboardError',
       code: 'permission-denied'
     })
+  })
+
+  it('hides unreconciled legacy daily rows while preserving reconciled scores and ranks', async () => {
+    const service = await freshService()
+    await service.initUser()
+    firestore.getDocs.mockResolvedValueOnce({
+      forEach(callback) {
+        callback({
+          id: 'legacy-user',
+          data: () => ({ userId: 'legacy-user', username: 'Old App', score: 100 })
+        })
+        callback({
+          id: 'stable-user',
+          data: () => ({ userId: 'stable-user', username: 'Current User', score: 80, lastEventId: 'evt-current' })
+        })
+        callback({
+          id: 'other-current',
+          data: () => ({ userId: 'other-current', username: 'Other User', score: 60, lastEventId: 'legacy_daily_2026-07-13' })
+        })
+      }
+    })
+
+    await expect(service.getDailyLeaderboard()).resolves.toEqual([
+      expect.objectContaining({ userId: 'stable-user', score: 80, rank: 1, isCurrentUser: true }),
+      expect.objectContaining({ userId: 'other-current', score: 60, rank: 2 })
+    ])
+  })
+
+  it('omits zero-score legacy profiles from all-time rankings', async () => {
+    const service = await freshService()
+    await service.initUser()
+    firestore.getDocs.mockResolvedValueOnce({
+      forEach(callback) {
+        callback({ id: 'zero-user', data: () => ({ username: 'Random123', totalScore: 0 }) })
+        callback({ id: 'scored-user', data: () => ({ username: 'Ahmed', totalScore: 20, quizzesTaken: 0, level: 1 }) })
+      }
+    })
+    await expect(service.getAllTimeLeaderboard()).resolves.toEqual([
+      expect.objectContaining({ userId: 'scored-user', username: 'Ahmed', totalScore: 20, rank: 1 })
+    ])
   })
 })

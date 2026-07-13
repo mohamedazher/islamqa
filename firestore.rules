@@ -250,6 +250,49 @@ service cloud.firestore {
           : (('bestAccuracy' in resource.data) ? resource.data.bestAccuracy : 0));
     }
 
+    function validDailyLegacyMigrationUpdate(uid, bucket) {
+      let data = request.resource.data;
+      let event = eventAfter(uid, data.lastEventId);
+      return freshEventExists(uid, data.lastEventId)
+        && event.kind == 'legacy_daily'
+        && event.dailyBucket == bucket
+        && !('lastEventId' in resource.data)
+        && validDailyDocument(uid, bucket)
+        && data.username
+          == getAfter(/databases/$(database)/documents/users/$(uid)).data.username
+        && data.score == resource.data.score
+        && data.activityPoints == (('activityPoints' in resource.data) ? resource.data.activityPoints : 0)
+        && data.correct == (('correct' in resource.data) ? resource.data.correct : 0)
+        && data.total == (('total' in resource.data) ? resource.data.total : 0)
+        && data.quizzesTaken == (('quizzesTaken' in resource.data) ? resource.data.quizzesTaken : 0)
+        && data.bestScore == (('bestScore' in resource.data) ? resource.data.bestScore : 0)
+        && data.bestAccuracy == (('bestAccuracy' in resource.data) ? resource.data.bestAccuracy : 0);
+    }
+
+    function validDailyLegacyMigrationFinalize(uid, bucket) {
+      let data = request.resource.data;
+      let eventId = data.lastEventId;
+      let priorEventPath = eventPath(uid, eventId);
+      let event = get(priorEventPath).data;
+      return validEventId(eventId)
+        && exists(priorEventPath)
+        && event.kind == 'legacy_daily'
+        && event.userId == uid
+        && event.dailyBucket == bucket
+        && event.points == resource.data.score
+        && !('lastEventId' in resource.data)
+        && validDailyDocument(uid, bucket)
+        && data.username
+          == get(/databases/$(database)/documents/users/$(uid)).data.username
+        && data.score == resource.data.score
+        && data.activityPoints == (('activityPoints' in resource.data) ? resource.data.activityPoints : 0)
+        && data.correct == (('correct' in resource.data) ? resource.data.correct : 0)
+        && data.total == (('total' in resource.data) ? resource.data.total : 0)
+        && data.quizzesTaken == (('quizzesTaken' in resource.data) ? resource.data.quizzesTaken : 0)
+        && data.bestScore == (('bestScore' in resource.data) ? resource.data.bestScore : 0)
+        && data.bestAccuracy == (('bestAccuracy' in resource.data) ? resource.data.bestAccuracy : 0);
+    }
+
     function validLeaderboardUsernameUpdate(uid) {
       let changed = request.resource.data.diff(resource.data).affectedKeys();
       return changed.hasOnly(['username', 'timestamp'])
@@ -264,7 +307,10 @@ service cloud.firestore {
       allow read: if true;
       allow create: if signedInAs(uid) && validDailyScoreCreate(uid, bucket);
       allow update: if signedInAs(uid)
-        && (validDailyScoreUpdate(uid, bucket) || validLeaderboardUsernameUpdate(uid));
+        && (validDailyScoreUpdate(uid, bucket)
+          || validDailyLegacyMigrationUpdate(uid, bucket)
+          || validDailyLegacyMigrationFinalize(uid, bucket)
+          || validLeaderboardUsernameUpdate(uid));
       allow delete: if false;
     }
 

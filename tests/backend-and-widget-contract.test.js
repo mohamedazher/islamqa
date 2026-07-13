@@ -40,6 +40,10 @@ describe('deployable Firestore leaderboard contract', () => {
     expect(rules).toContain("data.points == get(dailyPath).data.score")
     expect(rules).toContain("data.eventId == 'legacy_daily_' + data.dailyBucket")
     expect(rules).toContain("(('activityPoints' in resource.data) ? resource.data.activityPoints : 0)")
+    expect(rules).toContain('validDailyLegacyMigrationUpdate(uid, bucket)')
+    expect(rules).toContain('validDailyLegacyMigrationFinalize(uid, bucket)')
+    expect(rules).toContain("event.kind == 'legacy_daily'")
+    expect(rules).toContain("data.score == resource.data.score")
   })
 })
 

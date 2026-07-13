@@ -440,8 +440,6 @@ class LeaderboardService {
       const [eventSnapshot, userSnapshot, dailySnapshot, weeklySnapshot] = await Promise.all([
         transaction.get(eventRef), transaction.get(userRef), transaction.get(dailyRef), transaction.get(weeklyRef)
       ])
-      if (eventSnapshot.exists()) return { duplicate: true }
-
       const user = dataOf(userSnapshot)
       const daily = dataOf(dailySnapshot)
       const weekly = dataOf(weeklySnapshot)
@@ -450,6 +448,30 @@ class LeaderboardService {
       const timestamp = serverTimestamp()
       const username = this.username
       const level = getLocalLevel()
+      const canonicalLegacyDaily = () => ({
+        userId: this.userId,
+        username,
+        score: Number(daily.score) || 0,
+        activityPoints: Number(daily.activityPoints) || 0,
+        correct: Number(daily.correct) || 0,
+        total: Number(daily.total) || 0,
+        quizzesTaken: Number(daily.quizzesTaken) || 0,
+        bestScore: Number(daily.bestScore) || 0,
+        bestAccuracy: Number(daily.bestAccuracy) || 0,
+        timestamp,
+        lastEventId: event.eventId
+      })
+
+      if (eventSnapshot.exists()) {
+        // The first reconciliation release created the immutable migration
+        // event but did not stamp the daily row. Finalize that marker without
+        // touching weekly/all-time totals again.
+        if (event.kind === 'legacy_daily' && dailySnapshot.exists() && !('lastEventId' in daily)) {
+          transaction.set(dailyRef, canonicalLegacyDaily())
+          return { duplicate: true, finalized: true }
+        }
+        return { duplicate: true }
+      }
 
       transaction.set(userRef, {
         username,
@@ -475,6 +497,12 @@ class LeaderboardService {
           timestamp,
           lastEventId: event.eventId
         })
+      } else {
+        // Canonicalize the owner's legacy row in the same transaction as its
+        // weekly/all-time reconciliation. Public daily reads can then exclude
+        // unmarked legacy rows whose owners have not upgraded yet, avoiding a
+        // misleading Today board that has no corresponding period totals.
+        transaction.set(dailyRef, canonicalLegacyDaily())
       }
 
       transaction.set(weeklyRef, {
@@ -596,8 +624,14 @@ class LeaderboardService {
     }
   }
 
-  getDailyLeaderboard(date = new Date(), limitCount = 100) {
-    return this.loadLeaderboard(['leaderboards', 'daily', getLocalDateBucket(date)], 'score', limitCount)
+  async getDailyLeaderboard(date = new Date(), limitCount = 100) {
+    const rows = await this.loadLeaderboard(['leaderboards', 'daily', getLocalDateBucket(date)], 'score', limitCount)
+    // Legacy versions could persist the daily document and fail before the
+    // weekly/all-time writes. Only show atomic or reconciled rows. Hidden rows
+    // are preserved and become visible after their owner opens an upgraded app.
+    return rows
+      .filter(row => typeof row.lastEventId === 'string' && row.lastEventId.length > 0)
+      .map((row, index) => ({ ...row, rank: index + 1 }))
   }
 
   getWeeklyLeaderboard(limitCount = 100, date = new Date()) {
@@ -606,7 +640,15 @@ class LeaderboardService {
 
   async getAllTimeLeaderboard(limitCount = 100) {
     const rows = await this.loadLeaderboard(['users'], 'totalScore', limitCount)
-    return rows.filter(row => row.username).map(row => ({ ...row, totalScore: row.totalScore || 0, quizzesTaken: row.quizzesTaken || 0, level: row.level || 1 }))
+    return rows
+      .filter(row => row.username && Number(row.totalScore) > 0)
+      .map((row, index) => ({
+        ...row,
+        totalScore: row.totalScore,
+        quizzesTaken: row.quizzesTaken || 0,
+        level: row.level || 1,
+        rank: index + 1
+      }))
   }
 
   async getUserRank(type = 'allTime') {
