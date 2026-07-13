@@ -739,7 +739,7 @@
               <div>
                 <h3 class="font-medium text-neutral-900 dark:text-neutral-100">Leaderboard participation</h3>
                 <p class="mt-0.5 text-sm text-neutral-600 dark:text-neutral-400">
-                  Creates an anonymous Firebase account and syncs a generated username, scores and learning activity.
+                  Creates an anonymous Firebase account and syncs your chosen display name, scores and learning activity.
                   Local progress works when disabled.
                 </p>
               </div>

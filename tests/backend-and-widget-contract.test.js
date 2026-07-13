@@ -33,6 +33,14 @@ describe('deployable Firestore leaderboard contract', () => {
     expect(rules).toMatch(/match \/\{document=\*\*\}[\s\S]*allow read, write: if false;/)
     expect(rules).not.toContain('allow write: if request.auth != null;')
   })
+
+  it('permits one evidence-backed migration for each legacy daily aggregate', () => {
+    expect(rules).toContain("data.kind == 'legacy_daily'")
+    expect(rules).toContain("!('lastEventId' in get(dailyPath).data)")
+    expect(rules).toContain("data.points == get(dailyPath).data.score")
+    expect(rules).toContain("data.eventId == 'legacy_daily_' + data.dailyBucket")
+    expect(rules).toContain("(('activityPoints' in resource.data) ? resource.data.activityPoints : 0)")
+  })
 })
 
 describe('native prayer widget v2 contract', () => {

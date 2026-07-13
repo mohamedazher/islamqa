@@ -6,6 +6,8 @@ const MAX_OUTBOX_EVENTS = 500
 const MAX_POINTS = 1000000
 const MAX_QUIZ_QUESTIONS = 100
 const MAX_STRING_LENGTH = 160
+const DISPLAY_NAME_MAX_LENGTH = 30
+const DISPLAY_NAME_CHOSEN_KEY = 'leaderboard_name_chosen_v1'
 const ACTIVITY_POINT_RULES = {
   question_read: [5],
   bookmark_created: [10],
@@ -75,6 +77,32 @@ function safeString(value, field, { required = false, max = MAX_STRING_LENGTH } 
     throw new LeaderboardError('invalid-payload', `${field} is invalid`)
   }
   return result
+}
+
+export function normalizeDisplayName(value) {
+  const normalized = typeof value === 'string' ? value.trim().replace(/\s+/g, ' ') : ''
+  if (normalized.length < 2 || normalized.length > DISPLAY_NAME_MAX_LENGTH) {
+    throw new LeaderboardError('invalid-username', `Display name must be between 2 and ${DISPLAY_NAME_MAX_LENGTH} characters`)
+  }
+  if (!/^[\p{L}\p{M}\p{N} _.-]+$/u.test(normalized) || !/[\p{L}\p{N}]/u.test(normalized)) {
+    throw new LeaderboardError('invalid-username', 'Display name may contain letters, numbers, spaces, dots, underscores and hyphens')
+  }
+  return normalized
+}
+
+export function isGeneratedUsername(value) {
+  return /^(Faithful|Seeking|Learning|Devoted|Wise|Humble)(Scholar|Student|Seeker|Believer|Learner)\d{1,3}$/.test(String(value || ''))
+}
+
+export function hasChosenDisplayName() {
+  return localStorage.getItem(DISPLAY_NAME_CHOSEN_KEY) === 'true'
+}
+
+export function saveChosenDisplayName(value) {
+  const normalized = normalizeDisplayName(value)
+  localStorage.setItem('username', normalized)
+  localStorage.setItem(DISPLAY_NAME_CHOSEN_KEY, 'true')
+  return normalized
 }
 
 function eventId(value) {
@@ -154,7 +182,7 @@ function normalizeActivity(input, now = new Date()) {
 }
 
 function validateQueuedEvent(input) {
-  if (!input || (input.kind !== 'quiz' && input.kind !== 'activity')) {
+  if (!input || !['quiz', 'activity', 'legacy_daily'].includes(input.kind)) {
     throw new LeaderboardError('invalid-outbox-event', 'Queued leaderboard event is invalid')
   }
   const common = {
@@ -175,7 +203,7 @@ function validateQueuedEvent(input) {
     common.timeTaken = finiteNumber(input.timeTaken, 'timeTaken', { max: 86400000 })
     common.quizId = safeString(input.quizId || '', 'quizId', { max: 100 })
     common.mode = safeString(input.mode, 'mode', { required: true, max: 50 })
-  } else {
+  } else if (input.kind === 'activity') {
     common.activityType = safeString(input.activityType, 'activityType', { required: true, max: 50 })
     if (!/^[a-z0-9_-]+$/i.test(common.activityType)) throw new LeaderboardError('invalid-outbox-event', 'Queued activity type is invalid')
     if (!ACTIVITY_POINT_RULES[common.activityType]?.includes(common.points)) {
@@ -211,7 +239,13 @@ class LeaderboardService {
       this.isAvailable = false
       return { userId: null, username: null, disabled: true }
     }
-    if (this.userId && this.db) return { userId: this.userId, username: this.username }
+    if (this.userId && this.db) {
+      return {
+        userId: this.userId,
+        username: this.username,
+        needsUsername: !hasChosenDisplayName() && isGeneratedUsername(this.username)
+      }
+    }
     if (this.initializationPromise) return this.initializationPromise
 
     this.initializationPromise = (async () => {
@@ -229,9 +263,15 @@ class LeaderboardService {
           this.username = this.generateUsername()
         }
         localStorage.setItem('username', this.username)
-        await this.createUserProfile()
+        const profile = await this.createUserProfile()
+        if (profile.usernameChanged) await this.updateUsername(this.username)
+        await this.reconcileLegacyCurrentWeek()
         await this.flushOutbox()
-        return { userId: this.userId, username: this.username }
+        return {
+          userId: this.userId,
+          username: this.username,
+          needsUsername: !hasChosenDisplayName() && isGeneratedUsername(this.username)
+        }
       } catch (error) {
         this.isAvailable = false
         console.error('Failed to initialize leaderboard:', error)
@@ -258,23 +298,35 @@ class LeaderboardService {
     if (!this.db || !this.userId) throw new LeaderboardError('not-initialized', 'Leaderboard user is not initialized')
     const { doc, runTransaction, serverTimestamp } = await ensureFirestoreApi()
     const userRef = doc(this.db, 'users', this.userId)
+    let usernameChanged = false
     await runTransaction(this.db, async transaction => {
       const snapshot = await transaction.get(userRef)
       const existing = dataOf(snapshot)
+      const explicitlyChosenLocalName = hasChosenDisplayName() && !isGeneratedUsername(this.username)
+      const canonicalUsername = explicitlyChosenLocalName ? this.username : (existing.username || this.username)
+      usernameChanged = Boolean(existing.username && existing.username !== canonicalUsername)
       transaction.set(userRef, {
-        username: existing.username || this.username,
+        username: canonicalUsername,
         totalScore: Number.isFinite(existing.totalScore) ? existing.totalScore : 0,
         quizzesTaken: Number.isFinite(existing.quizzesTaken) ? existing.quizzesTaken : 0,
         level: getLocalLevel(),
         createdAt: existing.createdAt || serverTimestamp(),
         lastActive: serverTimestamp()
       }, { merge: true })
+      this.username = canonicalUsername
+      localStorage.setItem('username', canonicalUsername)
     })
+    return { username: this.username, usernameChanged }
   }
 
   async updateUsername(newUsername) {
     if (!isLeaderboardEnabled()) return { ok: false, code: 'disabled' }
-    const nextUsername = safeString(newUsername, 'username', { required: true, max: 40 })
+    let nextUsername
+    try {
+      nextUsername = normalizeDisplayName(newUsername)
+    } catch (error) {
+      return { ok: false, ...this.toError(error, 'invalid-username') }
+    }
     if (!this.userId || !this.db) await this.initUser()
     if (!this.userId || !this.db) return { ok: false, code: 'unavailable' }
 
@@ -297,6 +349,7 @@ class LeaderboardService {
       })
       this.username = nextUsername
       localStorage.setItem('username', nextUsername)
+      localStorage.setItem(DISPLAY_NAME_CHOSEN_KEY, 'true')
       return { ok: true, username: nextUsername }
     } catch (error) {
       this.username = previousUsername
@@ -393,6 +446,7 @@ class LeaderboardService {
       const daily = dataOf(dailySnapshot)
       const weekly = dataOf(weeklySnapshot)
       const isQuiz = event.kind === 'quiz'
+      const isActivity = event.kind === 'activity'
       const timestamp = serverTimestamp()
       const username = this.username
       const level = getLocalLevel()
@@ -407,30 +461,32 @@ class LeaderboardService {
         lastEventId: event.eventId
       }, { merge: true })
 
-      transaction.set(dailyRef, {
-        userId: this.userId,
-        username,
-        score: (Number(daily.score) || 0) + event.points,
-        activityPoints: (Number(daily.activityPoints) || 0) + (isQuiz ? 0 : event.points),
-        correct: (Number(daily.correct) || 0) + (isQuiz ? event.correct : 0),
-        total: (Number(daily.total) || 0) + (isQuiz ? event.total : 0),
-        quizzesTaken: (Number(daily.quizzesTaken) || 0) + (isQuiz ? 1 : 0),
-        bestScore: Math.max(Number(daily.bestScore) || 0, isQuiz ? event.points : 0),
-        bestAccuracy: Math.max(Number(daily.bestAccuracy) || 0, isQuiz ? event.accuracy : 0),
-        timestamp,
-        lastEventId: event.eventId
-      }, { merge: true })
+      if (event.kind !== 'legacy_daily') {
+        transaction.set(dailyRef, {
+          userId: this.userId,
+          username,
+          score: (Number(daily.score) || 0) + event.points,
+          activityPoints: (Number(daily.activityPoints) || 0) + (isActivity ? event.points : 0),
+          correct: (Number(daily.correct) || 0) + (isQuiz ? event.correct : 0),
+          total: (Number(daily.total) || 0) + (isQuiz ? event.total : 0),
+          quizzesTaken: (Number(daily.quizzesTaken) || 0) + (isQuiz ? 1 : 0),
+          bestScore: Math.max(Number(daily.bestScore) || 0, isQuiz ? event.points : 0),
+          bestAccuracy: Math.max(Number(daily.bestAccuracy) || 0, isQuiz ? event.accuracy : 0),
+          timestamp,
+          lastEventId: event.eventId
+        })
+      }
 
       transaction.set(weeklyRef, {
         userId: this.userId,
         username,
         totalScore: (Number(weekly.totalScore) || 0) + event.points,
-        activityPoints: (Number(weekly.activityPoints) || 0) + (isQuiz ? 0 : event.points),
+        activityPoints: (Number(weekly.activityPoints) || 0) + (isActivity ? event.points : 0),
         quizzesTaken: (Number(weekly.quizzesTaken) || 0) + (isQuiz ? 1 : 0),
         bestScore: Math.max(Number(weekly.bestScore) || 0, isQuiz ? event.points : 0),
         timestamp,
         lastEventId: event.eventId
-      }, { merge: true })
+      })
 
       const eventDocument = {
         eventId: event.eventId,
@@ -450,7 +506,7 @@ class LeaderboardService {
           quizId: event.quizId,
           mode: event.mode
         })
-      } else {
+      } else if (event.kind === 'activity') {
         Object.assign(eventDocument, {
           activityType: event.activityType,
           description: event.description
@@ -459,6 +515,51 @@ class LeaderboardService {
       transaction.set(eventRef, eventDocument)
       return { duplicate: false }
     })
+  }
+
+  async reconcileLegacyCurrentWeek(date = new Date()) {
+    if (!this.userId || !this.db) return { migrated: false }
+    const { doc, getDoc } = await ensureFirestoreApi()
+    const value = new Date(date)
+    const monday = new Date(value)
+    const localDay = monday.getDay() || 7
+    monday.setDate(monday.getDate() - localDay + 1)
+    monday.setHours(12, 0, 0, 0)
+    const weeklyBucket = getLocalIsoWeekBucket(value)
+    let migratedPoints = 0
+
+    // Inspect every day in the current ISO week. This repairs users who used
+    // an older build earlier in the week before upgrading, while keeping the
+    // migration bounded to seven reads and one idempotent event per legacy day.
+    for (let offset = 0; offset < 7; offset++) {
+      const day = new Date(monday)
+      day.setDate(monday.getDate() + offset)
+      const dailyBucket = getLocalDateBucket(day)
+      const dailyRef = doc(this.db, 'leaderboards', 'daily', dailyBucket, this.userId)
+      try {
+        const dailySnapshot = await getDoc(dailyRef)
+        if (!dailySnapshot.exists()) continue
+        const daily = dailySnapshot.data()
+        const points = Number(daily.score)
+        // Documents written by the hardened event pipeline always have a
+        // lastEventId. Its absence identifies aggregates created by older app
+        // versions, whose daily score was never reflected in weekly/all-time.
+        if ('lastEventId' in daily || !Number.isInteger(points) || points <= 0) continue
+        await this.applyEvent({
+          eventId: `legacy_daily_${dailyBucket}`,
+          kind: 'legacy_daily',
+          points,
+          dailyBucket,
+          weeklyBucket,
+          queuedAt: day.toISOString()
+        })
+        migratedPoints += points
+      } catch (error) {
+        // Migration is best-effort and must never prevent normal score syncing.
+        console.warn(`Legacy leaderboard total for ${dailyBucket} could not be reconciled:`, error.message)
+      }
+    }
+    return { migrated: migratedPoints > 0, points: migratedPoints }
   }
 
   async loadLeaderboard(path, scoreField, limitCount) {
@@ -527,5 +628,5 @@ class LeaderboardService {
   }
 }
 
-export { normalizeActivity, normalizeQuiz, OUTBOX_KEY }
+export { normalizeActivity, normalizeQuiz, OUTBOX_KEY, DISPLAY_NAME_CHOSEN_KEY }
 export default new LeaderboardService()

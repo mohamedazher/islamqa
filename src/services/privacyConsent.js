@@ -208,7 +208,7 @@ export function getPrivacyInfo() {
         items: [
           'Ask Islam can send the exact query to the HAL search service for semantic matching',
           'Prayer location can send exact coordinates to OpenStreetMap Nominatim to obtain a city name',
-          'Leaderboard participation creates an anonymous Firebase account and uploads a generated username, scores and activity',
+          'Leaderboard participation creates an anonymous Firebase account and uploads your chosen display name, scores and activity',
           'Feedback sends the email address, message and feedback type you enter; optional diagnostics are sent only if selected'
         ],
         purpose: 'To provide features that require a network service. Each feature is disclosed and controlled separately.',
@@ -243,7 +243,7 @@ export function getPrivacyInfo() {
       },
       {
         name: 'Google Firebase Authentication and Firestore',
-        purpose: 'Optional leaderboard account, username, score and activity synchronization',
+        purpose: 'Optional leaderboard account, display name, score and activity synchronization',
         link: 'https://firebase.google.com/support/privacy'
       },
       {

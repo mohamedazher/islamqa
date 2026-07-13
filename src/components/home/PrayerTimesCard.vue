@@ -210,12 +210,12 @@
         <div class="flex-1">
           <p class="text-sm text-red-900 dark:text-red-100">{{ error }}</p>
           <button
-            v-if="error.includes('permission') || error.includes('settings')"
-            @click="$emit('openSettings')"
+            v-if="locationErrorAction"
+            @click="handleLocationErrorAction"
             class="mt-2 text-sm text-red-700 dark:text-red-300 hover:underline font-medium flex items-center gap-1"
           >
             <Icon name="cog" size="sm" />
-            Go to Settings
+            {{ locationErrorAction === 'device-settings' ? 'Open Device Settings' : 'Set Location Manually' }}
           </button>
         </div>
       </div>
@@ -231,7 +231,7 @@ import Button from '@/components/common/Button.vue'
 import Icon from '@/components/common/Icon.vue'
 import CircularCountdown from '@/components/common/CircularCountdown.vue'
 import prayerTimesService from '@/services/prayerTimesService'
-import { isLocationServicesEnabled } from '@/services/privacyConsent'
+import { isLocationServicesEnabled, updateConsent } from '@/services/privacyConsent'
 import { useLocationAutoDetect } from '@/composables/useLocationAutoDetect'
 
 const router = useRouter()
@@ -248,6 +248,7 @@ const currentPrayer = ref(null)
 const currentPrayerWindow = ref(null)
 const nextPrayerInfo = ref(null)
 const error = ref(null)
+const locationErrorAction = ref(null)
 const currentTime = ref(new Date())
 
 // Carousel state
@@ -311,6 +312,7 @@ const loadPrayerTimes = () => {
   try {
     isLoading.value = true
     error.value = null
+    locationErrorAction.value = null
 
     // Reload settings from localStorage to get latest values
     prayerTimesService.reloadSettings()
@@ -386,32 +388,44 @@ const detectLocation = async () => {
   try {
     detectingLocation.value = true
     error.value = null
+    locationErrorAction.value = null
 
     if (!isLocationServicesEnabled()) {
-      error.value = 'Location lookup is off. Enable it in Privacy Settings before using automatic detection, or set coordinates manually.'
-      emit('openSettings')
-      return
+      const approved = confirm(
+        'Detecting your location uses GPS and sends the exact coordinates to OpenStreetMap Nominatim to obtain a city name. Allow location detection?'
+      )
+      if (!approved) {
+        error.value = 'Automatic location detection was not enabled. You can set your location manually instead.'
+        locationErrorAction.value = 'manual'
+        return
+      }
+
+      const consent = updateConsent('locationServices', true)
+      if (!consent?.locationServices) {
+        throw new Error('Location consent could not be saved. Please try again or set your location manually.')
+      }
     }
+
+    // This now requests the native/browser permission from the original CTA.
     await prayerTimesService.detectLocation()
     loadPrayerTimes()
   } catch (e) {
     console.error('Failed to detect location:', e)
     error.value = e.message
-
-    // If permission was denied, show option to go to settings
-    if (e.permissionDenied && e.shouldShowSettings) {
-      setTimeout(() => {
-        const confirmed = confirm(
-          e.message + '\n\nWould you like to go to Settings to enable location access?'
-        )
-        if (confirmed) {
-          router.push('/settings')
-        }
-      }, 100)
-    }
+    locationErrorAction.value = e.permissionDenied && e.shouldShowSettings && window.cordova
+      ? 'device-settings'
+      : 'manual'
   } finally {
     detectingLocation.value = false
   }
+}
+
+const handleLocationErrorAction = () => {
+  if (locationErrorAction.value === 'device-settings') {
+    prayerTimesService.openLocationSettings()
+    return
+  }
+  emit('openSettings')
 }
 
 // Prayer times list

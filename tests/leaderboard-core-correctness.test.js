@@ -48,6 +48,7 @@ const firestore = vi.hoisted(() => ({
   query: vi.fn((...args) => args),
   orderBy: vi.fn((...args) => args),
   limit: vi.fn(value => value),
+  getDoc: vi.fn(async ref => snapshot(ref.path)),
   getDocs: vi.fn()
 }))
 
@@ -122,6 +123,97 @@ describe('atomic and idempotent score synchronization', () => {
     expect(state.docs.get('users/stable-user/events/quiz-1')).toMatchObject({ kind: 'quiz', points: 80 })
   })
 
+  it('reconciles a legacy daily score into weekly and all-time exactly once', async () => {
+    const { getLocalDateBucket, getLocalIsoWeekBucket } = await import('../src/services/leaderboardService.js')
+    const now = new Date()
+    const day = getLocalDateBucket(now)
+    const week = getLocalIsoWeekBucket(now)
+    state.docs.set(`leaderboards/daily/${day}/stable-user`, {
+      userId: 'stable-user', username: 'WiseSeeker123', score: 75,
+      activityPoints: 75, correct: 0, total: 0, quizzesTaken: 0
+    })
+
+    let service = await freshService()
+    await service.initUser()
+    expect(state.docs.get('users/stable-user').totalScore).toBe(75)
+    expect(state.docs.get(`leaderboards/weekly/${week}/stable-user`).totalScore).toBe(75)
+    expect(state.docs.get(`leaderboards/weekly/${week}/stable-user`).activityPoints).toBe(0)
+    expect(state.docs.get(`leaderboards/daily/${day}/stable-user`).score).toBe(75)
+    expect(state.docs.has(`users/stable-user/events/legacy_daily_${day}`)).toBe(true)
+
+    service = await freshService()
+    await service.initUser()
+    expect(state.docs.get('users/stable-user').totalScore).toBe(75)
+    expect(state.docs.get(`leaderboards/weekly/${week}/stable-user`).totalScore).toBe(75)
+    expect(state.docs.get(`users/stable-user/events/legacy_daily_${day}`)).toEqual({
+      eventId: `legacy_daily_${day}`, userId: 'stable-user', kind: 'legacy_daily',
+      points: 75, dailyBucket: day, weeklyBucket: week, createdAt: 'SERVER_TIME'
+    })
+  })
+
+  it('reconciles every legacy day in the current ISO week', async () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date(2026, 6, 15, 12)) // Wednesday
+    try {
+      state.docs.set('leaderboards/daily/2026-07-13/stable-user', {
+        userId: 'stable-user', username: 'WiseSeeker123', score: 20
+      })
+      state.docs.set('leaderboards/daily/2026-07-14/stable-user', {
+        userId: 'stable-user', username: 'WiseSeeker123', score: 30
+      })
+      const service = await freshService()
+      await service.initUser()
+      expect(state.docs.get('users/stable-user').totalScore).toBe(50)
+      expect(state.docs.get('leaderboards/weekly/2026-W29/stable-user').totalScore).toBe(50)
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
+  it('reconciles legacy totals before draining a queued current-day event', async () => {
+    const { getLocalDateBucket, getLocalIsoWeekBucket } = await import('../src/services/leaderboardService.js')
+    const now = new Date()
+    const day = getLocalDateBucket(now)
+    const week = getLocalIsoWeekBucket(now)
+    state.docs.set(`leaderboards/daily/${day}/stable-user`, {
+      userId: 'stable-user', username: 'WiseSeeker123', score: 75,
+      correct: 0, total: 0, quizzesTaken: 0
+    })
+    storage.setItem('leaderboard_outbox_v1', JSON.stringify([{
+      eventId: 'queued-after-upgrade', kind: 'activity', points: 5,
+      activityType: 'dua_read', description: '', dailyBucket: day,
+      weeklyBucket: week, queuedAt: now.toISOString()
+    }]))
+
+    const service = await freshService()
+    await service.initUser()
+    expect(state.docs.get('users/stable-user').totalScore).toBe(80)
+    expect(state.docs.get(`leaderboards/weekly/${week}/stable-user`).totalScore).toBe(80)
+    expect(state.docs.get(`leaderboards/daily/${day}/stable-user`).score).toBe(80)
+  })
+
+  it('canonicalizes a legacy quiz row when a new event arrives', async () => {
+    const { getLocalDateBucket, getLocalIsoWeekBucket } = await import('../src/services/leaderboardService.js')
+    const now = new Date()
+    const day = getLocalDateBucket(now)
+    const week = getLocalIsoWeekBucket(now)
+    state.docs.set(`leaderboards/daily/${day}/stable-user`, {
+      userId: 'stable-user', username: 'WiseSeeker123', score: 40,
+      correct: 4, total: 5, quizzesTaken: 1, accuracy: 80,
+      timeTaken: 1000, quizId: 'old', mode: 'daily'
+    })
+    storage.setItem('username', 'WiseSeeker123')
+    const service = await freshService()
+    await service.initUser()
+    await service.submitActivity({ eventId: 'new-activity', type: 'dua_read', points: 5 })
+    expect(state.docs.get(`leaderboards/daily/${day}/stable-user`)).toEqual({
+      userId: 'stable-user', username: 'WiseSeeker123', score: 45,
+      activityPoints: 5, correct: 4, total: 5, quizzesTaken: 1,
+      bestScore: 0, bestAccuracy: 0, timestamp: 'SERVER_TIME', lastEventId: 'new-activity'
+    })
+    expect(state.docs.get(`leaderboards/weekly/${week}/stable-user`).totalScore).toBe(45)
+  })
+
   it('keeps a failed event durably queued and retries it exactly once', async () => {
     const service = await freshService()
     await service.initUser()
@@ -177,6 +269,41 @@ describe('atomic and idempotent score synchronization', () => {
 })
 
 describe('validation and profile consistency', () => {
+  it('validates and stores a human-selected Unicode display name', async () => {
+    const { normalizeDisplayName, saveChosenDisplayName, isGeneratedUsername } = await import('../src/services/leaderboardService.js')
+    expect(normalizeDisplayName('  عبد   الله  ')).toBe('عبد الله')
+    expect(saveChosenDisplayName('Amina  Noor')).toBe('Amina Noor')
+    expect(storage.getItem('leaderboard_name_chosen_v1')).toBe('true')
+    expect(isGeneratedUsername('WiseSeeker470')).toBe(true)
+    expect(isGeneratedUsername('Amina Noor')).toBe(false)
+    expect(() => normalizeDisplayName('<script>')).toThrow(/may contain/)
+  })
+
+  it('uses an existing server profile name instead of replacing it with a new local random name', async () => {
+    state.docs.set('users/stable-user', {
+      username: 'Existing Name', totalScore: 10, quizzesTaken: 0,
+      level: 1, createdAt: 'OLD_TIME', lastActive: 'OLD_TIME'
+    })
+    const service = await freshService()
+    const user = await service.initUser()
+    expect(user.username).toBe('Existing Name')
+    expect(storage.getItem('username')).toBe('Existing Name')
+    expect(state.docs.get('users/stable-user').username).toBe('Existing Name')
+  })
+
+  it('syncs an explicitly chosen onboarding name over an existing generated profile', async () => {
+    storage.setItem('username', 'Amina Noor')
+    storage.setItem('leaderboard_name_chosen_v1', 'true')
+    state.docs.set('users/stable-user', {
+      username: 'WiseSeeker470', totalScore: 10, quizzesTaken: 0,
+      level: 1, createdAt: 'OLD_TIME', lastActive: 'OLD_TIME'
+    })
+    const service = await freshService()
+    const user = await service.initUser()
+    expect(user).toMatchObject({ username: 'Amina Noor', needsUsername: false })
+    expect(state.docs.get('users/stable-user').username).toBe('Amina Noor')
+  })
+
   it('rejects malformed or unbounded client score payloads before writing', async () => {
     const service = await freshService()
     await expect(service.submitScore({ score: Infinity, correct: 1, total: 1, accuracy: 100 }))

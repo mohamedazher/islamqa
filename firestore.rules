@@ -48,6 +48,27 @@ service cloud.firestore {
       return getAfter(eventPath(uid, eventId)).data;
     }
 
+    function legacyDailyPath(uid, bucket) {
+      return /databases/$(database)/documents/leaderboards/daily/$(bucket)/$(uid);
+    }
+
+    function validLegacyDailyMigration(uid) {
+      let data = request.resource.data;
+      let dailyPath = legacyDailyPath(uid, data.dailyBucket);
+      return data.kind == 'legacy_daily'
+        && data.keys().hasOnly([
+          'eventId', 'userId', 'kind', 'points', 'dailyBucket',
+          'weeklyBucket', 'createdAt'
+        ])
+        && exists(dailyPath)
+        && get(dailyPath).data.userId == uid
+        && !('lastEventId' in get(dailyPath).data)
+        && get(dailyPath).data.score is int
+        && get(dailyPath).data.score > 0
+        && data.points == get(dailyPath).data.score
+        && data.eventId == 'legacy_daily_' + data.dailyBucket;
+    }
+
     function validProfileCreate(uid) {
       return request.resource.data.keys().hasOnly([
           'username', 'totalScore', 'quizzesTaken', 'level', 'createdAt', 'lastActive'
@@ -161,6 +182,7 @@ service cloud.firestore {
               && validActivityPoints(request.resource.data.activityType, request.resource.data.points)
               && request.resource.data.description is string
               && request.resource.data.description.size() <= 160)
+            || validLegacyDailyMigration(uid)
           );
         allow update, delete: if false;
       }
@@ -208,17 +230,24 @@ service cloud.firestore {
         && validDailyDocument(uid, bucket)
         && data.username == resource.data.username
         && data.score == resource.data.score + event.points
-        && data.activityPoints == resource.data.activityPoints
+        && data.activityPoints == (('activityPoints' in resource.data) ? resource.data.activityPoints : 0)
           + (event.kind == 'activity' ? event.points : 0)
-        && data.correct == resource.data.correct + (event.kind == 'quiz' ? event.correct : 0)
-        && data.total == resource.data.total + (event.kind == 'quiz' ? event.total : 0)
-        && data.quizzesTaken == resource.data.quizzesTaken + (event.kind == 'quiz' ? 1 : 0)
+        && data.correct == (('correct' in resource.data) ? resource.data.correct : 0)
+          + (event.kind == 'quiz' ? event.correct : 0)
+        && data.total == (('total' in resource.data) ? resource.data.total : 0)
+          + (event.kind == 'quiz' ? event.total : 0)
+        && data.quizzesTaken == (('quizzesTaken' in resource.data) ? resource.data.quizzesTaken : 0)
+          + (event.kind == 'quiz' ? 1 : 0)
         && data.bestScore == (event.kind == 'quiz'
-          ? (resource.data.bestScore > event.points ? resource.data.bestScore : event.points)
-          : resource.data.bestScore)
+          ? ((('bestScore' in resource.data) ? resource.data.bestScore : 0) > event.points
+            ? (('bestScore' in resource.data) ? resource.data.bestScore : 0)
+            : event.points)
+          : (('bestScore' in resource.data) ? resource.data.bestScore : 0))
         && data.bestAccuracy == (event.kind == 'quiz'
-          ? (resource.data.bestAccuracy > event.accuracy ? resource.data.bestAccuracy : event.accuracy)
-          : resource.data.bestAccuracy);
+          ? ((('bestAccuracy' in resource.data) ? resource.data.bestAccuracy : 0) > event.accuracy
+            ? (('bestAccuracy' in resource.data) ? resource.data.bestAccuracy : 0)
+            : event.accuracy)
+          : (('bestAccuracy' in resource.data) ? resource.data.bestAccuracy : 0));
     }
 
     function validLeaderboardUsernameUpdate(uid) {
@@ -274,12 +303,15 @@ service cloud.firestore {
         && validWeeklyDocument(uid)
         && data.username == resource.data.username
         && data.totalScore == resource.data.totalScore + event.points
-        && data.activityPoints == resource.data.activityPoints
+        && data.activityPoints == (('activityPoints' in resource.data) ? resource.data.activityPoints : 0)
           + (event.kind == 'activity' ? event.points : 0)
-        && data.quizzesTaken == resource.data.quizzesTaken + (event.kind == 'quiz' ? 1 : 0)
+        && data.quizzesTaken == (('quizzesTaken' in resource.data) ? resource.data.quizzesTaken : 0)
+          + (event.kind == 'quiz' ? 1 : 0)
         && data.bestScore == (event.kind == 'quiz'
-          ? (resource.data.bestScore > event.points ? resource.data.bestScore : event.points)
-          : resource.data.bestScore);
+          ? ((('bestScore' in resource.data) ? resource.data.bestScore : 0) > event.points
+            ? (('bestScore' in resource.data) ? resource.data.bestScore : 0)
+            : event.points)
+          : (('bestScore' in resource.data) ? resource.data.bestScore : 0));
     }
 
     match /leaderboards/weekly/{bucket}/{uid} {

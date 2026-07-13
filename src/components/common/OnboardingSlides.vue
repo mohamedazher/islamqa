@@ -53,6 +53,53 @@
                     </p>
                   </template>
 
+                  <!-- Optional Leaderboard Identity -->
+                  <template v-else-if="slide.type === 'leaderboard'">
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8 max-w-xl mx-auto">
+                      <div class="mb-4 flex justify-center">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/20 flex items-center justify-center">
+                          <Icon name="trophy" class="text-white w-8 h-8 sm:w-10 sm:h-10" />
+                        </div>
+                      </div>
+                      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3">{{ slide.title }}</h2>
+                      <p class="text-xs sm:text-sm text-white/90 mb-5">{{ slide.description }}</p>
+
+                      <div class="text-left space-y-2">
+                        <label for="onboarding-display-name" class="block text-sm font-semibold text-white">Public display name</label>
+                        <input
+                          id="onboarding-display-name"
+                          v-model="leaderboardName"
+                          type="text"
+                          maxlength="30"
+                          autocomplete="nickname"
+                          placeholder="For example: Amina"
+                          class="w-full rounded-xl border border-white/30 bg-white px-4 py-3 text-neutral-900 outline-none focus:ring-4 focus:ring-white/30"
+                          @input="leaderboardNameError = ''"
+                        />
+                        <p class="text-xs text-white/70">2–30 characters. Letters in any language, numbers, spaces, dots, underscores and hyphens are supported.</p>
+                        <p v-if="leaderboardNameError" class="text-sm font-medium text-red-200">{{ leaderboardNameError }}</p>
+                      </div>
+
+                      <div class="mt-5 grid gap-2 sm:grid-cols-2">
+                        <button
+                          @click="chooseLeaderboard(true)"
+                          :class="leaderboardChoice === 'join' ? 'bg-white text-primary-700 ring-4 ring-white/40' : 'bg-white/20 text-white hover:bg-white/30'"
+                          class="rounded-xl px-4 py-3 font-semibold transition-all"
+                        >
+                          Join leaderboard
+                        </button>
+                        <button
+                          @click="chooseLeaderboard(false)"
+                          :class="leaderboardChoice === 'later' ? 'bg-white text-primary-700 ring-4 ring-white/40' : 'bg-white/20 text-white hover:bg-white/30'"
+                          class="rounded-xl px-4 py-3 font-semibold transition-all"
+                        >
+                          Not now
+                        </button>
+                      </div>
+                      <p class="mt-3 text-xs text-white/60">You can join, leave or rename yourself later in Settings.</p>
+                    </div>
+                  </template>
+
                   <!-- Privacy Consent Slide -->
                   <template v-else-if="slide.type === 'privacy'">
                     <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8 max-w-xl mx-auto">
@@ -246,7 +293,7 @@
                 <button
                   v-if="currentSlideData.type !== 'import' || importComplete"
                   @click="handleNextAction"
-                  :disabled="currentSlideData.type === 'privacy' && !privacyChoice"
+                  :disabled="(currentSlideData.type === 'privacy' && !privacyChoice) || (currentSlideData.type === 'leaderboard' && !leaderboardChoice)"
                   class="flex items-center gap-1.5 sm:gap-2 px-5 sm:px-8 py-3 sm:py-4 bg-white text-primary-700 dark:text-primary-800 rounded-xl font-bold text-base sm:text-lg hover:bg-white/90 transition-all shadow-xl hover:shadow-2xl hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span>{{ getButtonText() }}</span>
@@ -282,7 +329,8 @@
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import Icon from './Icon.vue'
 import { getOnboardingSlides, completeOnboarding, skipOnboarding } from '@/services/onboarding'
-import { usePrivacyConsent } from '@/services/privacyConsent'
+import { usePrivacyConsent, updateConsent } from '@/services/privacyConsent'
+import { saveChosenDisplayName } from '@/services/leaderboardService'
 import dataLoader from '@/services/dataLoader'
 import { useDataStore } from '@/stores/data'
 
@@ -305,6 +353,9 @@ const slides = getOnboardingSlides()
 // Privacy consent
 const { acceptAll, rejectAll } = usePrivacyConsent()
 const privacyChoice = ref(null)
+const leaderboardChoice = ref(null)
+const leaderboardName = ref(localStorage.getItem('username') || '')
+const leaderboardNameError = ref('')
 
 // Data import
 const dataStore = useDataStore()
@@ -356,10 +407,31 @@ function getButtonText() {
   if (currentSlideData.value.type === 'privacy') {
     return privacyChoice.value ? 'Continue' : 'Choose One'
   }
+  if (currentSlideData.value.type === 'leaderboard') {
+    return leaderboardChoice.value ? 'Continue' : 'Choose One'
+  }
   if (isLastSlide.value && importComplete.value) {
     return 'Get Started'
   }
   return 'Next'
+}
+
+function chooseLeaderboard(join) {
+  if (join) {
+    try {
+      leaderboardName.value = saveChosenDisplayName(leaderboardName.value)
+      updateConsent('leaderboard', true)
+      leaderboardChoice.value = 'join'
+      leaderboardNameError.value = ''
+    } catch (error) {
+      leaderboardChoice.value = null
+      leaderboardNameError.value = error.message
+    }
+  } else {
+    updateConsent('leaderboard', false)
+    leaderboardChoice.value = 'later'
+    leaderboardNameError.value = ''
+  }
 }
 
 function handleNextAction() {
@@ -374,12 +446,14 @@ function handleNextAction() {
 function handlePrivacyAccept() {
   privacyChoice.value = 'accept'
   acceptAll()
+  if (leaderboardChoice.value === 'join') updateConsent('leaderboard', true)
   console.log('[Onboarding] User accepted analytics')
 }
 
 function handlePrivacyReject() {
   privacyChoice.value = 'reject'
   rejectAll()
+  if (leaderboardChoice.value === 'join') updateConsent('leaderboard', true)
   console.log('[Onboarding] User declined analytics')
 }
 

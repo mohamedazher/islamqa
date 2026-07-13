@@ -1,4 +1,7 @@
 import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 vi.mock('../src/services/privacyConsent.js', () => ({
   isLocationServicesEnabled: () => true
@@ -13,6 +16,7 @@ class MemoryStorage {
 }
 
 const storage = new MemoryStorage()
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
 beforeEach(() => {
   storage.clear()
@@ -122,5 +126,25 @@ describe('reverse geocoding', () => {
     const assertion = expect(request).rejects.toThrow('Place-name lookup timed out')
     await vi.advanceTimersByTimeAsync(8000)
     await assertion
+  })
+})
+
+describe('home prayer location CTA', () => {
+  it('requests consent and detects directly instead of routing through app settings', () => {
+    const component = fs.readFileSync(
+      path.join(root, 'src/components/home/PrayerTimesCard.vue'),
+      'utf8'
+    )
+    const detectionFlow = component.slice(
+      component.indexOf('const detectLocation = async'),
+      component.indexOf('const handleLocationErrorAction')
+    )
+
+    expect(detectionFlow).toContain("updateConsent('locationServices', true)")
+    expect(detectionFlow).toContain('await prayerTimesService.detectLocation()')
+    expect(detectionFlow).not.toContain("emit('openSettings')")
+    expect(detectionFlow).not.toContain("router.push('/settings')")
+    expect(component).toContain("prayerTimesService.openLocationSettings()")
+    expect(component).toContain("locationErrorAction.value = 'manual'")
   })
 })

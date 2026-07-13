@@ -52,7 +52,7 @@ the CLI so the backend remains reproducible.
 | `leaderboards/weekly/{ISO-year-Www}/{uid}` | Local ISO-week aggregate | Yes | Owning UID, validated transaction only |
 | `users/{uid}/events/{eventId}` | Immutable idempotency record | Owner `get` only | Owner create once; no update/delete/list |
 
-The public fields include the generated/custom username, score, quiz counts,
+The public fields include the chosen display name (or a temporary generated name for existing users), score, quiz counts,
 level, activity points, accuracy summary, and timestamps. Do not add email,
 coordinates, device identifiers, or other private data to these documents.
 

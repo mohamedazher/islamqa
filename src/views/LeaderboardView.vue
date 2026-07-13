@@ -17,7 +17,7 @@
     <div v-if="!leaderboardEnabled" class="m-4 rounded-xl border border-amber-300 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/30">
       <h2 class="font-semibold text-neutral-900 dark:text-neutral-100">Leaderboard is optional</h2>
       <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">
-        Enabling it creates an anonymous Firebase account and uploads a generated username, quiz scores,
+        Enabling it creates an anonymous Firebase account and uploads your chosen display name, quiz scores,
         reading/bookmark/dua activity and timestamps. Offline learning and local progress work without it.
       </p>
       <button @click="enableLeaderboard" class="mt-4 rounded-lg bg-amber-600 px-4 py-2 font-medium text-white hover:bg-amber-700">
@@ -44,6 +44,28 @@
 
     <!-- Leaderboard Content -->
     <div v-if="leaderboardEnabled" class="flex-1 overflow-y-auto p-4 space-y-4">
+      <div v-if="showNamePrompt" class="rounded-xl border border-primary-200 bg-primary-50 p-4 dark:border-primary-800 dark:bg-primary-950/30">
+        <h2 class="font-semibold text-neutral-900 dark:text-neutral-100">Choose how you appear</h2>
+        <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-300">
+          Your current name was generated automatically. Choose a display name so you can recognize your place on the leaderboard.
+        </p>
+        <div class="mt-3 flex flex-col gap-2 sm:flex-row">
+          <input
+            v-model="displayName"
+            maxlength="30"
+            autocomplete="nickname"
+            placeholder="Your display name"
+            class="min-w-0 flex-1 rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900 outline-none focus:ring-2 focus:ring-primary-500 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
+            @keyup.enter="saveDisplayName"
+          />
+          <button :disabled="savingName" @click="saveDisplayName" class="rounded-lg bg-primary-600 px-4 py-2 font-medium text-white hover:bg-primary-700 disabled:opacity-50">
+            {{ savingName ? 'Saving…' : 'Save name' }}
+          </button>
+          <button @click="showNamePrompt = false" class="rounded-lg px-3 py-2 text-sm text-neutral-600 hover:bg-white/60 dark:text-neutral-300 dark:hover:bg-neutral-900/50">Later</button>
+        </div>
+        <p v-if="nameError" class="mt-2 text-sm text-red-600 dark:text-red-400">{{ nameError }}</p>
+      </div>
+
       <!-- Loading -->
       <div v-if="loading" class="flex items-center justify-center py-12">
         <div class="text-center">
@@ -177,6 +199,10 @@ const userScore = ref(0)
 const username = ref('')
 const leaderboardEnabled = ref(isLeaderboardEnabled())
 const loadError = ref(null)
+const showNamePrompt = ref(false)
+const displayName = ref('')
+const savingName = ref(false)
+const nameError = ref('')
 let loadRequestId = 0
 
 async function enableLeaderboard() {
@@ -222,12 +248,31 @@ async function initializeLeaderboard() {
     const user = await leaderboardService.initUser()
     if (!user?.userId) throw new Error('Authentication is unavailable. Check your connection and try again.')
     username.value = leaderboardService.username
+    displayName.value = user.username || ''
+    showNamePrompt.value = user.needsUsername === true
     console.log(`✅ Leaderboard user initialized: ${username.value}`)
     await loadLeaderboard()
   } catch (error) {
     console.error('❌ Failed to initialize leaderboard:', error)
     loadError.value = error.message || 'Leaderboard initialization failed.'
     loading.value = false
+  }
+}
+
+async function saveDisplayName() {
+  savingName.value = true
+  nameError.value = ''
+  try {
+    const result = await leaderboardService.updateUsername(displayName.value)
+    if (!result?.ok) throw new Error(result?.message || 'Display name could not be updated')
+    username.value = result.username
+    displayName.value = result.username
+    showNamePrompt.value = false
+    await loadLeaderboard()
+  } catch (error) {
+    nameError.value = error.message || 'Display name could not be updated'
+  } finally {
+    savingName.value = false
   }
 }
 

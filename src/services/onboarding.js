@@ -158,6 +158,15 @@ export function getOnboardingSlides() {
       type: 'privacy'
     },
     {
+      id: 'leaderboard',
+      icon: 'trophy',
+      title: 'Choose Your Leaderboard Name',
+      description: 'The leaderboard is optional. If you join, your chosen display name, scores, learning activity and timestamps are uploaded using an anonymous Firebase account.',
+      image: null,
+      color: 'accent',
+      type: 'leaderboard'
+    },
+    {
       id: 'offline',
       icon: 'download',
       title: '100% Offline Access',
