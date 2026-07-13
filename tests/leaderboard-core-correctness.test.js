@@ -170,6 +170,24 @@ describe('atomic and idempotent score synchronization', () => {
     }
   })
 
+  it('starts all seven bounded legacy reads concurrently', async () => {
+    let releaseReads
+    const readGate = new Promise(resolve => { releaseReads = resolve })
+    let startedReads = 0
+    firestore.getDoc.mockImplementation(async ref => {
+      startedReads++
+      await readGate
+      return snapshot(ref.path)
+    })
+
+    const service = await freshService()
+    const initialization = service.initUser()
+    await vi.waitFor(() => expect(startedReads).toBe(7))
+    releaseReads()
+    await initialization
+    expect(firestore.getDoc).toHaveBeenCalledTimes(7)
+  })
+
   it('reconciles legacy totals before draining a queued current-day event', async () => {
     const { getLocalDateBucket, getLocalIsoWeekBucket } = await import('../src/services/leaderboardService.js')
     const now = new Date()

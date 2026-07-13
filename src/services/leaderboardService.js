@@ -528,17 +528,29 @@ class LeaderboardService {
     const weeklyBucket = getLocalIsoWeekBucket(value)
     let migratedPoints = 0
 
-    // Inspect every day in the current ISO week. This repairs users who used
-    // an older build earlier in the week before upgrading, while keeping the
-    // migration bounded to seven reads and one idempotent event per legacy day.
-    for (let offset = 0; offset < 7; offset++) {
+    // Inspect every day in the current ISO week. Start all seven bounded reads
+    // together so a slow network costs one round-trip instead of seven. Any
+    // required migration writes remain sequential to preserve predictable,
+    // idempotent aggregate updates for multiple legacy days.
+    const days = Array.from({ length: 7 }, (_, offset) => {
       const day = new Date(monday)
       day.setDate(monday.getDate() + offset)
       const dailyBucket = getLocalDateBucket(day)
       const dailyRef = doc(this.db, 'leaderboards', 'daily', dailyBucket, this.userId)
+      return { day, dailyBucket, dailyRef }
+    })
+    const snapshots = await Promise.all(days.map(async item => {
       try {
-        const dailySnapshot = await getDoc(dailyRef)
-        if (!dailySnapshot.exists()) continue
+        return { ...item, dailySnapshot: await getDoc(item.dailyRef) }
+      } catch (error) {
+        console.warn(`Legacy leaderboard total for ${item.dailyBucket} could not be read:`, error.message)
+        return { ...item, error }
+      }
+    }))
+
+    for (const { day, dailyBucket, dailySnapshot, error: readError } of snapshots) {
+      if (readError || !dailySnapshot?.exists()) continue
+      try {
         const daily = dailySnapshot.data()
         const points = Number(daily.score)
         // Documents written by the hardened event pipeline always have a
