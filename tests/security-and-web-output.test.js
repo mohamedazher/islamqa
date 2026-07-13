@@ -91,7 +91,10 @@ beforeAll(async () => {
   })
 
   sanitizerResult = await runSanitizerInBrowser()
-}, 30_000)
+// Fresh CI runners may need more than 30 seconds to start headless Chrome
+// after producing both Vite builds. Keep the assertion strict while avoiding
+// an infrastructure-only timeout on otherwise successful builds.
+}, 90_000)
 
 afterAll(async () => {
   if (tempRoot) await rm(tempRoot, { recursive: true, force: true })
