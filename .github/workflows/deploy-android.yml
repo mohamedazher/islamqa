@@ -68,10 +68,6 @@ jobs:
       - name: Install Node dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Increment version (patch) for beta/production deployments
-        if: steps.deploy_target.outputs.target == 'beta' || steps.deploy_target.outputs.target == 'production'
-        run: yarn version:patch
-
       - name: Verify pinned Cordova CLI
         run: yarn cordova --version
 
