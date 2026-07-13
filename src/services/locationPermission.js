@@ -7,9 +7,12 @@
 
 class LocationPermissionService {
   constructor() {
-    this.isCordova = !!window.cordova
-    this.diagnostic = this.isCordova ? window.cordova?.plugins?.diagnostic : null
+    // Cordova plugins may not exist yet when ES modules are first evaluated.
+    // Resolve them at call time rather than permanently caching a pre-deviceready null.
   }
+
+  get isCordova() { return !!window.cordova }
+  get diagnostic() { return this.isCordova ? window.cordova?.plugins?.diagnostic || window.plugins?.diagnostic : null }
 
   /**
    * Check if location permission is granted

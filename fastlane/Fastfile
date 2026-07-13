@@ -153,8 +153,9 @@ platform :ios do
     scheme_name = "BetterIslam Q&A"
     team_id = ENV['FASTLANE_TEAM_ID']
 
-    # Create export options plist for automatic signing
-    export_opts_path = "ExportOptions.plist"
+    # Keep export settings outside the generated Cordova platform directory.
+    # `cordova prepare` may recreate that directory and remove local files.
+    export_opts_path = File.expand_path('ExportOptions.plist', __dir__)
 
     # Archive the app
     UI.important("📦 Archiving iOS app...")
@@ -162,9 +163,13 @@ platform :ios do
 
     # Export IPA with automatic code signing
     UI.important("📤 Exporting IPA with automatic code signing...")
-    sh("cd ../platforms/ios && xcodebuild -exportArchive -archivePath build/BetterIslamQA.xcarchive -exportPath build -exportOptionsPlist ExportOptions.plist -allowProvisioningUpdates")
+    sh("cd ../platforms/ios && xcodebuild -exportArchive -archivePath build/BetterIslamQA.xcarchive -exportPath build -exportOptionsPlist \"#{export_opts_path}\" -allowProvisioningUpdates")
 
-    UI.success("✅ iOS release IPA created at platforms/ios/build/BetterIslam Q&A.ipa!")
+    ipa_path = Dir[File.expand_path('../platforms/ios/build/*.ipa', __dir__)].max_by { |path| File.mtime(path) }
+    UI.user_error!("❌ xcodebuild completed without producing an IPA") unless ipa_path
+    Actions.lane_context[:BETTER_ISLAM_IPA_PATH] = ipa_path
+
+    UI.success("✅ iOS release IPA created at #{ipa_path}!")
   end
 
   desc "Deploy to TestFlight (local) - requires App Store Connect API Key"
@@ -199,7 +204,7 @@ platform :ios do
     UI.important("📤 Uploading to TestFlight...")
     upload_to_testflight(
       api_key: api_key,
-      ipa: 'platforms/ios/build/BetterIslam Q&A.ipa',
+      ipa: Actions.lane_context[:BETTER_ISLAM_IPA_PATH],
       skip_waiting_for_build_processing: true,
       skip_submission: false,
       distribute_external: false
@@ -228,9 +233,12 @@ platform :ios do
       duration: 1200
     )
 
+    ipa_path = Dir[File.expand_path('../platforms/ios/build/*.ipa', __dir__)].max_by { |path| File.mtime(path) }
+    UI.user_error!("❌ No pre-built IPA found in platforms/ios/build") unless ipa_path
+
     upload_to_testflight(
       api_key: api_key,
-      ipa: 'platforms/ios/build/BetterIslam Q&A.ipa',
+      ipa: ipa_path,
       skip_waiting_for_build_processing: true,
       skip_submission: false,
       distribute_external: false
@@ -279,7 +287,7 @@ platform :ios do
     UI.important("📤 Uploading to App Store...")
     upload_to_app_store(
       api_key: api_key,
-      ipa: 'platforms/ios/build/BetterIslamQA.ipa',
+      ipa: Actions.lane_context[:BETTER_ISLAM_IPA_PATH],
       skip_metadata: true,
       skip_screenshots: true,
       force: false,

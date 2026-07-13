@@ -11,6 +11,10 @@ import android.content.Intent;
 import android.util.Log;
 import android.os.Build;
 import android.os.SystemClock;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * Prayer Time Widget Provider
@@ -20,6 +24,12 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
 
     private static final String TAG = "PrayerTimeWidget";
     private static final String PREFS_NAME = "PrayerWidgetPrefs";
+    private static final String ACTION_PRAYER_BOUNDARY =
+        "com.dkurve.betterislamqa.prayerwidget.PRAYER_BOUNDARY";
+    private static final String[] TIMESTAMP_KEYS = {
+        "fajr_timestamp", "sunrise_timestamp", "dhuhr_timestamp", "asr_timestamp",
+        "maghrib_timestamp", "isha_timestamp", "next_fajr_timestamp"
+    };
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
@@ -52,17 +62,16 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
             // Read prayer data from SharedPreferences
             SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
-            // All prayer times
-            String fajrTime = prefs.getString("fajr_time", "--:--");
-            String dhuhrTime = prefs.getString("dhuhr_time", "--:--");
-            String asrTime = prefs.getString("asr_time", "--:--");
-            String maghribTime = prefs.getString("maghrib_time", "--:--");
-            String ishaTime = prefs.getString("isha_time", "--:--");
+            PrayerState state = derivePrayerState(prefs, System.currentTimeMillis());
 
-            // Current/Next prayer info
-            String nextPrayer = prefs.getString("next_prayer", "Fajr");
-            String timeRemaining = prefs.getString("time_remaining", "--:--");
-            String currentPrayer = prefs.getString("current_prayer", "");
+            String fajrTime = state.formattedTimes[0];
+            String dhuhrTime = state.formattedTimes[1];
+            String asrTime = state.formattedTimes[2];
+            String maghribTime = state.formattedTimes[3];
+            String ishaTime = state.formattedTimes[4];
+            String nextPrayer = state.nextPrayer;
+            String timeRemaining = state.timeRemaining;
+            String currentPrayer = state.currentPrayer;
 
             String packageName = context.getPackageName();
             Log.d(TAG, "Updating widget - Package: " + packageName + ", Next: " + nextPrayer + ", Current: " + currentPrayer + ", Time: " + timeRemaining);
@@ -89,7 +98,9 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
             safeSetText(views, context, "isha_time", ishaTime);
 
             // Update header label
-            String labelText = currentPrayer.isEmpty() ? "Next: " + nextPrayer : "Now: " + currentPrayer;
+            String labelText = currentPrayer.isEmpty()
+                ? "Next: " + nextPrayer + " in " + timeRemaining
+                : "Now: " + currentPrayer + " · ends in " + timeRemaining;
             safeSetText(views, context, "next_prayer_label", labelText);
 
             // Highlight current or next prayer row
@@ -126,6 +137,7 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
 
             // Update widget
             appWidgetManager.updateAppWidget(appWidgetId, views);
+            scheduleNextBoundary(context, state.refreshTimestamp);
             Log.d(TAG, "Widget " + appWidgetId + " updated successfully");
         } catch (Exception e) {
             Log.e(TAG, "Error updating widget: " + e.getMessage(), e);
@@ -139,7 +151,8 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
         String action = intent.getAction();
         Log.d(TAG, "onReceive: " + action);
 
-        if (AppWidgetManager.ACTION_APPWIDGET_UPDATE.equals(action)) {
+        if (AppWidgetManager.ACTION_APPWIDGET_UPDATE.equals(action)
+                || ACTION_PRAYER_BOUNDARY.equals(action)) {
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             int[] ids = appWidgetManager.getAppWidgetIds(
                 new android.content.ComponentName(context, PrayerTimeWidgetProvider.class));
@@ -148,6 +161,107 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
                 this.onUpdate(context, appWidgetManager, ids);
             }
         }
+    }
+
+    private PrayerState derivePrayerState(SharedPreferences prefs, long now) {
+        PrayerState state = new PrayerState();
+        long[] timestamps = new long[TIMESTAMP_KEYS.length];
+        boolean hasAbsoluteTimes = true;
+        for (int i = 0; i < TIMESTAMP_KEYS.length; i++) {
+            timestamps[i] = prefs.getLong(TIMESTAMP_KEYS[i], 0L);
+            if (timestamps[i] <= 0L || (i > 0 && timestamps[i] <= timestamps[i - 1])) {
+                hasAbsoluteTimes = false;
+            }
+        }
+
+        if (!hasAbsoluteTimes) {
+            state.formattedTimes = new String[] {
+                prefs.getString("fajr_time", "--:--"),
+                prefs.getString("dhuhr_time", "--:--"),
+                prefs.getString("asr_time", "--:--"),
+                prefs.getString("maghrib_time", "--:--"),
+                prefs.getString("isha_time", "--:--")
+            };
+            state.nextPrayer = prefs.getString("next_prayer", "Fajr");
+            state.currentPrayer = prefs.getString("current_prayer", "");
+            state.timeRemaining = prefs.getString("time_remaining", "--");
+            state.nextPrayerTimestamp = 0L;
+            return state;
+        }
+
+        TimeZone zone = resolveTimeZone(prefs.getString("timezone", ""));
+        SimpleDateFormat formatter = new SimpleDateFormat("h:mm a", Locale.getDefault());
+        formatter.setTimeZone(zone);
+        state.formattedTimes = new String[] {
+            formatter.format(new Date(timestamps[0])),
+            formatter.format(new Date(timestamps[2])),
+            formatter.format(new Date(timestamps[3])),
+            formatter.format(new Date(timestamps[4])),
+            formatter.format(new Date(timestamps[5]))
+        };
+
+        if (now < timestamps[0]) {
+            setState(state, "", "Fajr", timestamps[0], now);
+        } else if (now < timestamps[1]) {
+            // Sunrise ends the Fajr window, but is not itself a prayer.
+            setState(state, "Fajr", "Dhuhr", timestamps[2], now);
+            state.refreshTimestamp = timestamps[1];
+            state.timeRemaining = formatDuration(timestamps[1] - now);
+        } else if (now < timestamps[2]) {
+            setState(state, "", "Dhuhr", timestamps[2], now);
+        } else if (now < timestamps[3]) {
+            setState(state, "Dhuhr", "Asr", timestamps[3], now);
+        } else if (now < timestamps[4]) {
+            setState(state, "Asr", "Maghrib", timestamps[4], now);
+        } else if (now < timestamps[5]) {
+            setState(state, "Maghrib", "Isha", timestamps[5], now);
+        } else if (now < timestamps[6]) {
+            setState(state, "Isha", "Fajr", timestamps[6], now);
+        } else {
+            // The saved schedule is stale. Never display a negative/frozen countdown.
+            state.nextPrayer = "Fajr";
+            state.currentPrayer = "";
+            state.timeRemaining = "refresh needed";
+            state.nextPrayerTimestamp = 0L;
+        }
+        return state;
+    }
+
+    private void setState(PrayerState state, String currentPrayer, String nextPrayer,
+                          long nextPrayerTimestamp, long now) {
+        state.currentPrayer = currentPrayer;
+        state.nextPrayer = nextPrayer;
+        state.nextPrayerTimestamp = nextPrayerTimestamp;
+        state.refreshTimestamp = nextPrayerTimestamp;
+        state.timeRemaining = formatDuration(nextPrayerTimestamp - now);
+    }
+
+    private TimeZone resolveTimeZone(String identifier) {
+        if (identifier == null || identifier.isEmpty()) {
+            return TimeZone.getDefault();
+        }
+        TimeZone zone = TimeZone.getTimeZone(identifier);
+        if ("GMT".equals(zone.getID()) && !"GMT".equalsIgnoreCase(identifier)) {
+            Log.w(TAG, "Invalid timezone " + identifier + "; using device timezone");
+            return TimeZone.getDefault();
+        }
+        return zone;
+    }
+
+    private String formatDuration(long milliseconds) {
+        long totalMinutes = Math.max(0L, (milliseconds + 59999L) / 60000L);
+        long hours = totalMinutes / 60L;
+        long minutes = totalMinutes % 60L;
+        return hours > 0L ? hours + "h " + minutes + "m" : minutes + "m";
+    }
+
+    private static class PrayerState {
+        String[] formattedTimes;
+        String nextPrayer;
+        String currentPrayer;
+        String timeRemaining;
+        long nextPrayerTimestamp;
+        long refreshTimestamp;
     }
 
     /**
@@ -224,31 +338,41 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
                 flags
             );
 
-            // Schedule update every 30 minutes (1800000 milliseconds)
-            // Static widget doesn't need frequent updates - just to refresh current/next prayer indicator
+            // A battery-friendly fallback refresh. Prayer transitions additionally
+            // schedule a one-shot boundary update from the absolute timestamps.
             long intervalMillis = 1800000; // 30 minutes
             long triggerAtMillis = SystemClock.elapsedRealtime() + intervalMillis;
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                // For Android 6.0+, use setRepeating for regular updates
-                alarmManager.setRepeating(
-                    AlarmManager.ELAPSED_REALTIME,
-                    triggerAtMillis,
-                    intervalMillis,
-                    pendingIntent
-                );
-            } else {
-                alarmManager.setRepeating(
-                    AlarmManager.ELAPSED_REALTIME,
-                    triggerAtMillis,
-                    intervalMillis,
-                    pendingIntent
-                );
-            }
+            alarmManager.setInexactRepeating(
+                AlarmManager.ELAPSED_REALTIME,
+                triggerAtMillis,
+                intervalMillis,
+                pendingIntent
+            );
 
             Log.d(TAG, "Widget update scheduled every 30 minutes");
         } catch (Exception e) {
             Log.e(TAG, "Error scheduling widget update: " + e.getMessage(), e);
+        }
+    }
+
+    private void scheduleNextBoundary(Context context, long nextPrayerTimestamp) {
+        if (nextPrayerTimestamp <= System.currentTimeMillis()) return;
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        if (alarmManager == null) return;
+
+        Intent intent = new Intent(context, PrayerTimeWidgetProvider.class);
+        intent.setAction(ACTION_PRAYER_BOUNDARY);
+        int flags = PendingIntent.FLAG_UPDATE_CURRENT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) flags |= PendingIntent.FLAG_IMMUTABLE;
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 1, intent, flags);
+        long triggerElapsed = SystemClock.elapsedRealtime()
+            + Math.max(1000L, nextPrayerTimestamp - System.currentTimeMillis());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            alarmManager.setAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                triggerElapsed, pendingIntent);
+        } else {
+            alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerElapsed, pendingIntent);
         }
     }
 
@@ -278,6 +402,11 @@ public class PrayerTimeWidgetProvider extends AppWidgetProvider {
             );
 
             alarmManager.cancel(pendingIntent);
+            Intent boundaryIntent = new Intent(context, PrayerTimeWidgetProvider.class);
+            boundaryIntent.setAction(ACTION_PRAYER_BOUNDARY);
+            PendingIntent boundaryPendingIntent = PendingIntent.getBroadcast(
+                context, 1, boundaryIntent, flags);
+            alarmManager.cancel(boundaryPendingIntent);
             Log.d(TAG, "Widget update cancelled");
         } catch (Exception e) {
             Log.e(TAG, "Error cancelling widget update: " + e.getMessage());

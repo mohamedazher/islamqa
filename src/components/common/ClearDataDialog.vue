@@ -95,7 +95,7 @@
                   <span class="font-semibold text-neutral-900 dark:text-neutral-100">Quiz Progress</span>
                 </div>
                 <p class="text-sm text-neutral-600 dark:text-neutral-400">
-                  Your scores, level, and leaderboard stats. Start fresh with quizzes.
+                  Local quiz scores, level, streaks, and achievements. Previously uploaded leaderboard entries are retained.
                 </p>
               </div>
             </label>
@@ -118,7 +118,7 @@
                   <span class="font-semibold text-neutral-900 dark:text-neutral-100">App Settings</span>
                 </div>
                 <p class="text-sm text-neutral-600 dark:text-neutral-400">
-                  Theme, analytics preferences, and other app settings.
+                  Theme, privacy choices, prayer location, calculation preferences, and other app settings.
                 </p>
               </div>
             </label>
@@ -162,8 +162,8 @@
                   <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
                     <li v-if="selections.database || selections.resetEverything">• Q&A Database</li>
                     <li v-if="selections.bookmarks || selections.resetEverything">• Bookmarks & Folders</li>
-                    <li v-if="selections.quizProgress || selections.resetEverything">• Quiz Progress</li>
-                    <li v-if="selections.settings || selections.resetEverything">• App Settings (theme, privacy consent)</li>
+                    <li v-if="selections.quizProgress || selections.resetEverything">• Local Quiz Progress</li>
+                    <li v-if="selections.settings || selections.resetEverything">• App Settings (theme, privacy, prayer location)</li>
                     <li v-if="selections.resetEverything" class="font-semibold text-red-700 dark:text-red-400">
                       • Onboarding Status (full tutorial + privacy consent will show again)
                     </li>

@@ -6,6 +6,7 @@
 
 import { Coordinates, CalculationMethod, PrayerTimes, Prayer, Qibla, Madhab, HighLatitudeRule } from 'adhan'
 import locationPermission from './locationPermission'
+import { isLocationServicesEnabled } from './privacyConsent'
 
 // Storage keys
 const STORAGE_KEYS = {
@@ -13,6 +14,7 @@ const STORAGE_KEYS = {
   CALCULATION_METHOD: 'prayer_calculation_method',
   MADHAB: 'prayer_madhab',
   LOCATION_NAME: 'prayer_location_name',
+  TIME_ZONE: 'prayer_time_zone',
   HIGH_LATITUDE_RULE: 'prayer_high_latitude_rule'
 }
 
@@ -91,12 +93,30 @@ export const CALCULATION_METHODS = {
     description: 'Later Fajr (15°) and early Isha (15°)',
     regions: ['United States', 'Canada']
   },
-  KUWAIT_CUSTOM: {
-    key: 'KUWAIT_CUSTOM',
-    name: 'Kuwait (Custom)',
-    description: 'Custom Kuwait calculation',
-    regions: ['Kuwait']
+}
+
+const DEFAULT_METHOD = 'UMM_AL_QURA'
+const DEFAULT_MADHAB = 'SHAFI'
+const DEFAULT_HIGH_LATITUDE_RULE = 'MIDDLE_OF_NIGHT'
+const REVERSE_GEOCODE_TIMEOUT_MS = 8000
+
+function isFiniteCoordinate(value, min, max) {
+  return typeof value === 'number' && Number.isFinite(value) && value >= min && value <= max
+}
+
+function isValidTimeZone(timeZone) {
+  if (typeof timeZone !== 'string' || !timeZone.trim()) return false
+  try {
+    new Intl.DateTimeFormat('en-US', { timeZone }).format(new Date())
+    return true
+  } catch {
+    return false
   }
+}
+
+function deviceTimeZone() {
+  const zone = Intl.DateTimeFormat().resolvedOptions().timeZone
+  return isValidTimeZone(zone) ? zone : 'UTC'
 }
 
 // Madhab options for Asr calculation
@@ -138,6 +158,7 @@ class PrayerTimesService {
     this.calculationMethod = this.loadCalculationMethod()
     this.madhab = this.loadMadhab()
     this.locationName = this.loadLocationName()
+    this.timeZone = this.loadTimeZone()
     this.highLatitudeRule = this.loadHighLatitudeRule()
   }
 
@@ -149,7 +170,10 @@ class PrayerTimesService {
     if (stored) {
       try {
         const { latitude, longitude } = JSON.parse(stored)
-        return { latitude, longitude }
+        if (isFiniteCoordinate(latitude, -90, 90) && isFiniteCoordinate(longitude, -180, 180)) {
+          return { latitude, longitude }
+        }
+        localStorage.removeItem(STORAGE_KEYS.LOCATION)
       } catch (e) {
         console.error('Failed to parse stored location:', e)
       }
@@ -160,13 +184,30 @@ class PrayerTimesService {
   /**
    * Save location to localStorage
    */
-  saveLocation(latitude, longitude, locationName = null) {
+  saveLocation(latitude, longitude, locationName = null, timeZone = null) {
+    if (!isFiniteCoordinate(latitude, -90, 90) || !isFiniteCoordinate(longitude, -180, 180)) {
+      throw new TypeError('Invalid location coordinates')
+    }
     localStorage.setItem(STORAGE_KEYS.LOCATION, JSON.stringify({ latitude, longitude }))
     if (locationName) {
       localStorage.setItem(STORAGE_KEYS.LOCATION_NAME, locationName)
       this.locationName = locationName
     }
+    if (timeZone !== null) this.saveTimeZone(timeZone)
     this.location = { latitude, longitude }
+  }
+
+  loadTimeZone() {
+    const stored = localStorage.getItem(STORAGE_KEYS.TIME_ZONE)
+    if (isValidTimeZone(stored)) return stored
+    if (stored) localStorage.removeItem(STORAGE_KEYS.TIME_ZONE)
+    return deviceTimeZone()
+  }
+
+  saveTimeZone(timeZone) {
+    if (!isValidTimeZone(timeZone)) throw new TypeError('Invalid IANA time zone')
+    localStorage.setItem(STORAGE_KEYS.TIME_ZONE, timeZone)
+    this.timeZone = timeZone
   }
 
   /**
@@ -181,13 +222,14 @@ class PrayerTimesService {
    */
   loadCalculationMethod() {
     const stored = localStorage.getItem(STORAGE_KEYS.CALCULATION_METHOD)
-    return stored || 'UMM_AL_QURA' // Default to Saudi Arabia
+    return stored && CALCULATION_METHODS[stored] ? stored : DEFAULT_METHOD
   }
 
   /**
    * Save calculation method to localStorage
    */
   saveCalculationMethod(method) {
+    if (!CALCULATION_METHODS[method]) throw new TypeError('Invalid prayer calculation method')
     localStorage.setItem(STORAGE_KEYS.CALCULATION_METHOD, method)
     this.calculationMethod = method
   }
@@ -197,13 +239,14 @@ class PrayerTimesService {
    */
   loadMadhab() {
     const stored = localStorage.getItem(STORAGE_KEYS.MADHAB)
-    return stored || 'SHAFI' // Default to Shafi (Maliki, Hanbali)
+    return stored && MADHAB_OPTIONS[stored] ? stored : DEFAULT_MADHAB
   }
 
   /**
    * Save madhab to localStorage
    */
   saveMadhab(madhab) {
+    if (!MADHAB_OPTIONS[madhab]) throw new TypeError('Invalid madhab')
     localStorage.setItem(STORAGE_KEYS.MADHAB, madhab)
     this.madhab = madhab
   }
@@ -213,13 +256,14 @@ class PrayerTimesService {
    */
   loadHighLatitudeRule() {
     const stored = localStorage.getItem(STORAGE_KEYS.HIGH_LATITUDE_RULE)
-    return stored || 'MIDDLE_OF_NIGHT'
+    return stored && HIGH_LATITUDE_RULES[stored] ? stored : DEFAULT_HIGH_LATITUDE_RULE
   }
 
   /**
    * Save high latitude rule to localStorage
    */
   saveHighLatitudeRule(rule) {
+    if (!HIGH_LATITUDE_RULES[rule]) throw new TypeError('Invalid high latitude rule')
     localStorage.setItem(STORAGE_KEYS.HIGH_LATITUDE_RULE, rule)
     this.highLatitudeRule = rule
   }
@@ -229,7 +273,10 @@ class PrayerTimesService {
    * @param {boolean} skipPermissionCheck - Skip permission check (for retry after settings)
    * @returns {Promise<Object>} { latitude, longitude, locationName, permissionDenied }
    */
-  async detectLocation(skipPermissionCheck = false) {
+  async acquireLocation(skipPermissionCheck = false) {
+    if (!isLocationServicesEnabled()) {
+      throw new Error('Online location lookup is disabled. Enable it before detecting your location.')
+    }
     // Check permission status first (for Cordova apps)
     if (!skipPermissionCheck && window.cordova) {
       const permissionCheck = await locationPermission.checkPermissionWithMessage()
@@ -262,35 +309,12 @@ class PrayerTimesService {
 
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          const latitude = position.coords.latitude
-          const longitude = position.coords.longitude
-
-          // Try to get location name using reverse geocoding
-          // Note: We use .then() instead of async/await because iOS Cordova
-          // doesn't accept async functions for geolocation callbacks
-          this.reverseGeocode(latitude, longitude)
-            .then((locationName) => {
-              this.saveLocation(latitude, longitude, locationName)
-              resolve({
-                latitude,
-                longitude,
-                locationName,
-                permissionDenied: false
-              })
-            })
-            .catch((e) => {
-              console.warn('Could not get location name:', e)
-              // Still save location even if reverse geocoding fails
-              // Use formatted coordinates as fallback instead of generic text
-              const locationName = `${latitude.toFixed(4)}°, ${longitude.toFixed(4)}°`
-              this.saveLocation(latitude, longitude, locationName)
-              resolve({
-                latitude,
-                longitude,
-                locationName,
-                permissionDenied: false
-              })
-            })
+          const { latitude, longitude } = position.coords
+          if (!isFiniteCoordinate(latitude, -90, 90) || !isFiniteCoordinate(longitude, -180, 180)) {
+            reject(new Error('The device returned invalid location coordinates'))
+            return
+          }
+          resolve({ latitude, longitude, permissionDenied: false })
         },
         (error) => {
           // Provide more helpful error messages
@@ -328,6 +352,22 @@ class PrayerTimesService {
     })
   }
 
+  async describeLocation(latitude, longitude) {
+    try {
+      return await this.reverseGeocode(latitude, longitude)
+    } catch (error) {
+      console.warn('Could not get location name:', error)
+      return `${latitude.toFixed(4)}°, ${longitude.toFixed(4)}°`
+    }
+  }
+
+  async detectLocation(skipPermissionCheck = false) {
+    const result = await this.acquireLocation(skipPermissionCheck)
+    const locationName = await this.describeLocation(result.latitude, result.longitude)
+    this.saveLocation(result.latitude, result.longitude, locationName, deviceTimeZone())
+    return { ...result, locationName }
+  }
+
   /**
    * Check if location permission is granted
    * @returns {Promise<boolean>}
@@ -356,13 +396,22 @@ class PrayerTimesService {
    * Uses OpenStreetMap Nominatim API (free, no API key required)
    */
   async reverseGeocode(latitude, longitude) {
+    if (!isLocationServicesEnabled()) {
+      throw new Error('Online place-name lookup is disabled')
+    }
+    if (!isFiniteCoordinate(latitude, -90, 90) || !isFiniteCoordinate(longitude, -180, 180)) {
+      throw new TypeError('Invalid location coordinates')
+    }
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), REVERSE_GEOCODE_TIMEOUT_MS)
     try {
       const response = await fetch(
         `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=1`,
         {
           headers: {
             'User-Agent': 'IslamQA App'
-          }
+          },
+          signal: controller.signal
         }
       )
 
@@ -372,8 +421,6 @@ class PrayerTimesService {
       }
 
       const data = await response.json()
-      console.debug('Nominatim response:', data)
-
       // Extract city/town/village name with multiple fallbacks
       const address = data.address || {}
       const locationName =
@@ -389,11 +436,12 @@ class PrayerTimesService {
         address.country ||
         'Unknown Location'
 
-      console.debug(`✅ Geocoded location: ${locationName} (lat: ${latitude}, lon: ${longitude})`)
       return locationName
     } catch (e) {
-      console.error('Reverse geocoding error:', e)
+      if (e?.name === 'AbortError') throw new Error('Place-name lookup timed out')
       throw e
+    } finally {
+      clearTimeout(timeout)
     }
   }
 
@@ -492,6 +540,15 @@ class PrayerTimesService {
   /**
    * Calculate prayer times for a specific date
    */
+  getDateInLocation(date = new Date()) {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: this.timeZone,
+      year: 'numeric', month: '2-digit', day: '2-digit'
+    }).formatToParts(date)
+    const values = Object.fromEntries(parts.map(part => [part.type, part.value]))
+    return new Date(Number(values.year), Number(values.month) - 1, Number(values.day), 12)
+  }
+
   getPrayerTimes(date = new Date()) {
     if (!this.location) {
       throw new Error('Location not set. Please set location first.')
@@ -503,7 +560,7 @@ class PrayerTimesService {
     )
 
     const params = this.getCalculationParams()
-    const prayerTimes = new PrayerTimes(coordinates, date, params)
+    const prayerTimes = new PrayerTimes(coordinates, this.getDateInLocation(date), params)
 
     return {
       fajr: prayerTimes.fajr,
@@ -542,14 +599,14 @@ class PrayerTimesService {
    */
   formatTime(date) {
     if (!date) return '--:--'
+    return new Intl.DateTimeFormat('en-US', {
+      timeZone: this.timeZone,
+      hour: 'numeric', minute: '2-digit', hour12: true
+    }).format(date)
+  }
 
-    const hours = date.getHours()
-    const minutes = date.getMinutes()
-    const ampm = hours >= 12 ? 'PM' : 'AM'
-    const displayHours = hours % 12 || 12
-    const displayMinutes = minutes.toString().padStart(2, '0')
-
-    return `${displayHours}:${displayMinutes} ${ampm}`
+  formatDate(date, options = {}) {
+    return new Intl.DateTimeFormat('en-US', { timeZone: this.timeZone, ...options }).format(date)
   }
 
   /**
@@ -558,13 +615,15 @@ class PrayerTimesService {
   getTimeUntilNextPrayer() {
     if (!this.location) return null
 
-    const times = this.getPrayerTimes()
-    const nextPrayer = times.nextPrayer
-
-    if (!nextPrayer) return null
-
-    const nextPrayerTime = times.timeForPrayer(nextPrayer)
     const now = new Date()
+    const windows = this.getPrayerWindows(now)
+    let nextWindow = windows.find(window => window.start > now)
+    if (!nextWindow) {
+      const tomorrow = new Date(now.getTime() + 12 * 60 * 60 * 1000)
+      nextWindow = this.getPrayerWindows(tomorrow)[0]
+    }
+    if (!nextWindow) return null
+    const nextPrayerTime = nextWindow.start
     const diff = nextPrayerTime - now
 
     if (diff <= 0) return null
@@ -574,11 +633,12 @@ class PrayerTimesService {
     const seconds = Math.floor((diff % (1000 * 60)) / 1000)
 
     return {
-      prayer: this.getPrayerName(nextPrayer),
+      prayer: nextWindow.name,
       hours,
       minutes,
       seconds,
-      totalSeconds: Math.floor(diff / 1000)
+      totalSeconds: Math.floor(diff / 1000),
+      timestamp: nextPrayerTime.getTime()
     }
   }
 
@@ -587,11 +647,7 @@ class PrayerTimesService {
    */
   getCurrentPrayerName() {
     if (!this.location) return null
-
-    const times = this.getPrayerTimes()
-    const currentPrayer = times.currentPrayer
-
-    return currentPrayer ? this.getPrayerName(currentPrayer) : null
+    return this.getCurrentPrayerWindow()?.name || null
   }
 
   /**
@@ -683,6 +739,13 @@ class PrayerTimesService {
 
     const windows = this.getPrayerWindows()
     const now = new Date()
+
+    // Before today's Fajr, the active prayer window is yesterday's Isha.
+    if (now < windows[0].start) {
+      const yesterday = new Date(now.getTime() - 12 * 60 * 60 * 1000)
+      const previousIsha = this.getPrayerWindows(yesterday).find(window => window.name === 'Isha')
+      if (previousIsha && now >= previousIsha.start && now < previousIsha.end) return previousIsha
+    }
 
     for (const window of windows) {
       if (now >= window.start && now < window.end) {
@@ -914,6 +977,7 @@ class PrayerTimesService {
   reloadSettings() {
     this.location = this.loadLocation()
     this.locationName = this.loadLocationName()
+    this.timeZone = this.loadTimeZone()
     this.calculationMethod = this.loadCalculationMethod()
     this.madhab = this.loadMadhab()
     this.highLatitudeRule = this.loadHighLatitudeRule()
@@ -926,6 +990,7 @@ class PrayerTimesService {
     return {
       location: this.location,
       locationName: this.locationName,
+      timeZone: this.timeZone,
       calculationMethod: this.calculationMethod,
       calculationMethodName: CALCULATION_METHODS[this.calculationMethod]?.name || 'Unknown',
       madhab: this.madhab,
@@ -933,6 +998,19 @@ class PrayerTimesService {
       highLatitudeRule: this.highLatitudeRule,
       highLatitudeRuleName: HIGH_LATITUDE_RULES[this.highLatitudeRule]?.name || 'Unknown'
     }
+  }
+
+  getRefreshKey(date = new Date()) {
+    const storedZone = localStorage.getItem(STORAGE_KEYS.TIME_ZONE)
+    const effectiveZone = isValidTimeZone(storedZone) ? storedZone : deviceTimeZone()
+    const formatter = new Intl.DateTimeFormat('en-CA', {
+      timeZone: effectiveZone, year: 'numeric', month: '2-digit', day: '2-digit'
+    })
+    const parts = Object.fromEntries(formatter.formatToParts(date).map(part => [part.type, part.value]))
+    const calendarDate = new Date(Number(parts.year), Number(parts.month) - 1, Number(parts.day), 12)
+    const dateKey = `${calendarDate.getFullYear()}-${calendarDate.getMonth() + 1}-${calendarDate.getDate()}`
+    return [dateKey, effectiveZone, this.location?.latitude, this.location?.longitude,
+      this.calculationMethod, this.madhab, this.highLatitudeRule].join('|')
   }
 
   /**
@@ -955,10 +1033,25 @@ class PrayerTimesService {
       const nextPrayer = this.getTimeUntilNextPrayer()
       const currentWindow = this.getCurrentPrayerWindow()
       const times = this.getPrayerTimes()
+      const tomorrow = new Date(Date.now() + 12 * 60 * 60 * 1000)
+      const tomorrowTimes = this.getPrayerTimes(tomorrow)
       const formattedTimes = this.getFormattedPrayerTimes()
 
       // Prepare widget data with all 5 prayer times
       const widgetData = {
+        schemaVersion: 2,
+        timezone: this.timeZone,
+        locationName: this.locationName,
+        generatedAtMs: Date.now(),
+        prayerTimestamps: {
+          fajr: times.fajr.getTime(),
+          sunrise: times.sunrise.getTime(),
+          dhuhr: times.dhuhr.getTime(),
+          asr: times.asr.getTime(),
+          maghrib: times.maghrib.getTime(),
+          isha: times.isha.getTime(),
+          nextFajr: tomorrowTimes.fajr.getTime()
+        },
         // All prayer times (excluding Sunrise as it's not a prayer)
         fajr: formattedTimes.fajr,
         dhuhr: formattedTimes.dhuhr,
@@ -968,9 +1061,7 @@ class PrayerTimesService {
 
         // Current/Next prayer info
         nextPrayer: nextPrayer?.prayer || 'Fajr',
-        nextPrayerTime: nextPrayer ? this.formatTime(times.timeForPrayer(
-          this.getPrayerEnumFromName(nextPrayer.prayer)
-        )) : '--:--',
+        nextPrayerTime: nextPrayer ? this.formatTime(new Date(nextPrayer.timestamp)) : '--:--',
         timeRemaining: this.formatWidgetTime(nextPrayer),
         currentPrayer: currentWindow?.name || '',
         currentPrayerEnd: currentWindow ? this.formatTime(currentWindow.end) : ''
@@ -1041,15 +1132,17 @@ class PrayerTimesService {
   clearSettings() {
     localStorage.removeItem(STORAGE_KEYS.LOCATION)
     localStorage.removeItem(STORAGE_KEYS.LOCATION_NAME)
+    localStorage.removeItem(STORAGE_KEYS.TIME_ZONE)
     localStorage.removeItem(STORAGE_KEYS.CALCULATION_METHOD)
     localStorage.removeItem(STORAGE_KEYS.MADHAB)
     localStorage.removeItem(STORAGE_KEYS.HIGH_LATITUDE_RULE)
 
     this.location = null
     this.locationName = 'Unknown Location'
-    this.calculationMethod = 'MUSLIM_WORLD_LEAGUE'
-    this.madhab = 'SHAFI'
-    this.highLatitudeRule = 'MIDDLE_OF_NIGHT'
+    this.timeZone = deviceTimeZone()
+    this.calculationMethod = DEFAULT_METHOD
+    this.madhab = DEFAULT_MADHAB
+    this.highLatitudeRule = DEFAULT_HIGH_LATITUDE_RULE
   }
 }
 

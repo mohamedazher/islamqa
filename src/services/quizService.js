@@ -73,7 +73,10 @@ class QuizService {
       const { difficulty = 'all', categories = [] } = options
 
       // Get all available quiz questions (LLM-generated only)
-      const allQuizQuestions = await this.db.getAllQuizQuestions()
+      const allQuizQuestions = this.filterByDifficulty(
+        await this.db.getAllQuizQuestions(),
+        difficulty
+      )
       console.log(`🎯 [Rapid Fire] Found ${allQuizQuestions.length} quiz questions in database`)
 
       if (allQuizQuestions.length === 0) {
@@ -151,7 +154,10 @@ class QuizService {
         : categoryReference
 
       // Get all available quiz questions (LLM-generated only)
-      const allQuizQuestions = await this.db.getAllQuizQuestions()
+      const allQuizQuestions = this.filterByDifficulty(
+        await this.db.getAllQuizQuestions(),
+        difficulty
+      )
       if (allQuizQuestions.length === 0) {
         throw new Error('No quiz questions available. Please generate quiz questions first.')
       }
@@ -216,7 +222,10 @@ class QuizService {
       } = options
 
       // Get all available quiz questions (LLM-generated only)
-      const allQuizQuestions = await this.db.getAllQuizQuestions()
+      const allQuizQuestions = this.filterByDifficulty(
+        await this.db.getAllQuizQuestions(),
+        difficulty
+      )
       if (allQuizQuestions.length === 0) {
         throw new Error('No quiz questions available. Please generate quiz questions first.')
       }
@@ -505,6 +514,18 @@ class QuizService {
       ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
     }
     return shuffled
+  }
+
+  /**
+   * Filter the generated quiz records before resolving their source questions.
+   * Difficulty belongs to quiz_questions, not the source Q&A record.
+   */
+  filterByDifficulty(quizQuestions, difficulty = 'all') {
+    if (!difficulty || difficulty === 'all') return quizQuestions
+    const normalizedDifficulty = String(difficulty).toLowerCase()
+    return quizQuestions.filter(question =>
+      String(question.difficulty || '').toLowerCase() === normalizedDifficulty
+    )
   }
 
   /**

@@ -57,7 +57,7 @@
       <div class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 p-4">
         <div class="text-center">
           <div class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-1">
-            {{ currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) }}
+            {{ prayerTimesService.formatTime(currentTime) }}
           </div>
           <div class="text-sm text-neutral-600 dark:text-neutral-400">
             {{ currentDate }}
@@ -237,13 +237,18 @@ const timePeriodIcon = ref('sun')
 // Update current time every second
 let intervalId = null
 let widgetUpdateCounter = 0
+let refreshKey = ''
+
+const handleForeground = () => loadPrayerTimes()
 
 onMounted(() => {
   loadPrayerTimes()
+  window.addEventListener('app-foreground', handleForeground)
 
   // Update time every second
   intervalId = setInterval(() => {
     currentTime.value = new Date()
+    if (hasLocation.value && prayerTimesService.getRefreshKey() !== refreshKey) loadPrayerTimes()
     updatePrayerStatuses()
 
     // Update widget every 60 seconds
@@ -265,6 +270,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  window.removeEventListener('app-foreground', handleForeground)
   if (intervalId) {
     clearInterval(intervalId)
   }
@@ -291,6 +297,7 @@ const loadPrayerTimes = () => {
       timePeriodIcon.value = prayerTimesService.getTimePeriodIcon()
 
       updatePrayerStatuses()
+      refreshKey = prayerTimesService.getRefreshKey()
     }
   } catch (e) {
     console.error('Failed to load prayer times:', e)
@@ -304,7 +311,12 @@ const loadPrayerTimes = () => {
 const updatePrayerStatuses = () => {
   try {
     prayerStatuses.value = prayerTimesService.getPrayerStatuses()
-    currentPrayerWindow.value = prayerStatuses.value.find(p => p.status === 'current') || null
+    const active = prayerTimesService.getCurrentPrayerWindow()
+    const remaining = prayerTimesService.getTimeRemainingInCurrentPrayer()
+    currentPrayerWindow.value = active && remaining ? {
+      ...active,
+      countdown: remaining
+    } : null
   } catch (e) {
     console.error('Failed to update prayer statuses:', e)
   }
@@ -312,7 +324,7 @@ const updatePrayerStatuses = () => {
 
 // Current date display
 const currentDate = computed(() => {
-  return currentTime.value.toLocaleDateString('en-US', {
+  return prayerTimesService.formatDate(currentTime.value, {
     weekday: 'long',
     month: 'long',
     day: 'numeric',

@@ -36,7 +36,7 @@
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-primary-600 dark:text-primary-400 mt-0.5">•</span>
-                  <span>Search queries to improve content discovery</span>
+                  <span>Android interaction analytics through Microsoft Clarity</span>
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-primary-600 dark:text-primary-400 mt-0.5">•</span>
@@ -53,20 +53,20 @@
             <div class="bg-primary-50 dark:bg-primary-950/30 rounded-lg p-4">
               <h3 class="font-semibold text-primary-900 dark:text-primary-100 mb-2 flex items-center gap-2">
                 <Icon name="shield" size="sm" class="text-primary-600 dark:text-primary-400" />
-                What We Never Collect
+                Separate Online Features
               </h3>
               <ul class="space-y-1 text-sm text-primary-800 dark:text-primary-200">
                 <li class="flex items-start gap-2">
                   <span class="text-primary-600 dark:text-primary-400">✗</span>
-                  <span>Personal information (name, email, phone)</span>
+                  <span>Ask Islam semantic search sends the exact query only when enabled</span>
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-primary-600 dark:text-primary-400">✗</span>
-                  <span>Location data</span>
+                  <span>Place-name lookup sends coordinates only after approval</span>
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-primary-600 dark:text-primary-400">✗</span>
-                  <span>Contact lists or photos</span>
+                  <span>Leaderboard and feedback uploads are disclosed separately</span>
                 </li>
               </ul>
             </div>
@@ -147,8 +147,9 @@
               <div>
                 <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Third-Party Services</h4>
                 <p class="text-neutral-700 dark:text-neutral-300">
-                  We use Google Firebase Analytics for anonymous usage tracking. Firebase complies with GDPR and
-                  major privacy regulations. No data is sold or shared with advertisers.
+                  Optional analytics uses Google Firebase Analytics and, on Android, Microsoft Clarity.
+                  Ask Islam, location lookup, leaderboard and feedback are separate online features and are not
+                  enabled by accepting analytics.
                 </p>
               </div>
 

@@ -7,7 +7,7 @@
 import dexieDb from './dexieDatabase'
 
 // Current data version - increment when data structure changes
-const CURRENT_DUA_DATA_VERSION = 11 // Version 11: Fix dua ID collision between morning/evening (unique IDs per category)
+const CURRENT_DUA_DATA_VERSION = 12 // Source IDs, unique records, NFC Arabic, provenance and quality metadata
 
 class DuaDataLoader {
   /**
@@ -91,6 +91,9 @@ class DuaDataLoader {
       }
 
       console.log(`✅ Total duas imported: ${totalDuasImported} across ${totalCategories} categories`)
+
+      // Restore favorites saved by migrateData after every record is available.
+      await this.restoreMigratedFavorites()
 
       // Step 5: Save data version
       if (onProgress) onProgress('Finalizing...', 95)
@@ -193,6 +196,35 @@ class DuaDataLoader {
       console.error('❌ Error during migration:', error)
       throw error
     }
+  }
+
+  /**
+   * Restore favorites after a dataset migration, applying deterministic ID
+   * mappings where a runtime identifier changed. Invalid/stale IDs are skipped.
+   */
+  async restoreMigratedFavorites() {
+    const backup = await dexieDb.settings.get('migrated_favorite_ids')
+    const favoriteIds = Array.isArray(backup?.value) ? backup.value : []
+    if (favoriteIds.length === 0) return
+
+    let mappings = {}
+    try {
+      const response = await fetch('./data/dua/id-migrations.json')
+      if (response.ok) mappings = (await response.json()).mappings || {}
+    } catch (error) {
+      console.warn('Could not load dua ID migration map; preserving unchanged IDs', error)
+    }
+
+    let restored = 0
+    for (const oldId of favoriteIds) {
+      const targetId = mappings[oldId] || oldId
+      if (await dexieDb.duas.get(targetId)) {
+        await dexieDb.addDuaFavorite(targetId)
+        restored++
+      }
+    }
+    await dexieDb.settings.delete('migrated_favorite_ids')
+    console.log(`✅ Restored ${restored}/${favoriteIds.length} migrated dua favorites`)
   }
 
   /**

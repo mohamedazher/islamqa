@@ -6,6 +6,22 @@ import leaderboardService from '@/services/leaderboardService'
  * Gamification Store - Tracks points, achievements, and user engagement
  * Points are synced to Firebase leaderboard for competitive features
  */
+
+// Timezone-safe date helpers
+function getLocalDateString(date = new Date()) {
+  const y = date.getFullYear()
+  const m = String(date.getMonth() + 1).padStart(2, '0')
+  const d = String(date.getDate()).padStart(2, '0')
+  return `${y}-${m}-${d}`
+}
+
+function localDayDiff(dateStrA, dateStrB) {
+  // Returns number of calendar days between two YYYY-MM-DD strings (a - b)
+  const a = new Date(dateStrA + 'T00:00:00')
+  const b = new Date(dateStrB + 'T00:00:00')
+  return Math.round((a - b) / (1000 * 60 * 60 * 24))
+}
+
 export const useGamificationStore = defineStore('gamification', () => {
   // State
   const points = ref(0)
@@ -22,6 +38,7 @@ export const useGamificationStore = defineStore('gamification', () => {
   const readDuaIds = ref(new Set()) // Track unique duas read
   const lastMorningAdhkarDate = ref(null)
   const lastEveningAdhkarDate = ref(null)
+  const lastBothAdhkarDate = ref(null) // Moved into gamification state
   const morningStreak = ref(0) // Consecutive days completing ALL morning duas
   const eveningStreak = ref(0) // Consecutive days completing ALL evening duas
   const bothStreak = ref(0) // Consecutive days completing BOTH morning & evening
@@ -36,6 +53,7 @@ export const useGamificationStore = defineStore('gamification', () => {
     questionsRead: 0,
     bookmarksCreated: 0,
     avgAccuracy: 0,
+    totalAccuracySum: 0, // Track sum for accurate average
     longestStreak: 0,
     // Dua stats
     duasRead: 0,
@@ -275,11 +293,18 @@ export const useGamificationStore = defineStore('gamification', () => {
     if (stored) {
       const data = JSON.parse(stored)
       points.value = data.points || 0
+      level.value = Math.max(1, Math.floor(points.value / 500) + 1)
       streak.value = data.streak || 0
       lastQuizDate.value = data.lastQuizDate || null
       lastDailyQuizDate.value = data.lastDailyQuizDate || null
       achievements.value = data.achievements || allAchievements.map(a => ({ ...a }))
       stats.value = { ...stats.value, ...data.stats }
+
+      // Migrate: compute totalAccuracySum if missing
+      if (!stats.value.totalAccuracySum && stats.value.avgAccuracy && stats.value.quizzesCompleted) {
+        stats.value.totalAccuracySum = stats.value.avgAccuracy * stats.value.quizzesCompleted
+      }
+
       // Restore read question IDs from array
       readQuestionIds.value = new Set(data.readQuestionIds || [])
 
@@ -287,12 +312,22 @@ export const useGamificationStore = defineStore('gamification', () => {
       readDuaIds.value = new Set(data.readDuaIds || [])
       lastMorningAdhkarDate.value = data.lastMorningAdhkarDate || null
       lastEveningAdhkarDate.value = data.lastEveningAdhkarDate || null
+      lastBothAdhkarDate.value = data.lastBothAdhkarDate || null
       morningStreak.value = data.morningStreak || 0
       eveningStreak.value = data.eveningStreak || 0
       bothStreak.value = data.bothStreak || 0
 
+      // Migrate lastBothAdhkarDate from separate localStorage key
+      if (!lastBothAdhkarDate.value) {
+        const legacyBoth = localStorage.getItem('lastBothAdhkarDate')
+        if (legacyBoth) {
+          lastBothAdhkarDate.value = legacyBoth
+          localStorage.removeItem('lastBothAdhkarDate')
+        }
+      }
+
       // Reset today's progress if it's a new day
-      const today = new Date().toISOString().split('T')[0]
+      const today = getLocalDateString()
       if (data.todayDate !== today) {
         todayMorningDuas.value = new Set()
         todayEveningDuas.value = new Set()
@@ -307,9 +342,10 @@ export const useGamificationStore = defineStore('gamification', () => {
   }
 
   function saveToStorage() {
-    const today = new Date().toISOString().split('T')[0]
+    const today = getLocalDateString()
     localStorage.setItem('gamification', JSON.stringify({
       points: points.value,
+      level: level.value,
       streak: streak.value,
       lastQuizDate: lastQuizDate.value,
       lastDailyQuizDate: lastDailyQuizDate.value,
@@ -320,6 +356,7 @@ export const useGamificationStore = defineStore('gamification', () => {
       readDuaIds: Array.from(readDuaIds.value),
       lastMorningAdhkarDate: lastMorningAdhkarDate.value,
       lastEveningAdhkarDate: lastEveningAdhkarDate.value,
+      lastBothAdhkarDate: lastBothAdhkarDate.value,
       morningStreak: morningStreak.value,
       eveningStreak: eveningStreak.value,
       bothStreak: bothStreak.value,
@@ -331,6 +368,7 @@ export const useGamificationStore = defineStore('gamification', () => {
 
   function awardPoints(amount, reason = '') {
     points.value += amount
+    level.value = Math.max(1, Math.floor(points.value / 500) + 1)
     console.log(`🏆 +${amount} points (${reason})`)
     checkAchievements()
     saveToStorage()
@@ -340,9 +378,9 @@ export const useGamificationStore = defineStore('gamification', () => {
     stats.value.quizzesCompleted++
     stats.value.totalPoints += score
 
-    // Update average accuracy
-    const newAvg = (stats.value.avgAccuracy * (stats.value.quizzesCompleted - 1) + accuracy) / stats.value.quizzesCompleted
-    stats.value.avgAccuracy = Math.round(newAvg)
+    // Update average accuracy using cumulative sum
+    stats.value.totalAccuracySum = (stats.value.totalAccuracySum || 0) + accuracy
+    stats.value.avgAccuracy = Math.round(stats.value.totalAccuracySum / stats.value.quizzesCompleted)
 
     // Award points based on score
     awardPoints(score, 'Quiz completion')
@@ -353,8 +391,7 @@ export const useGamificationStore = defineStore('gamification', () => {
       lastDailyQuizDate.value = new Date().toISOString()
     }
 
-    checkAchievements()
-    saveToStorage()
+    // awardPoints already calls checkAchievements + saveToStorage
   }
 
   function readQuestion(questionId) {
@@ -375,7 +412,7 @@ export const useGamificationStore = defineStore('gamification', () => {
       description: 'Question read'
     }).catch(err => console.warn('Failed to sync question read to leaderboard:', err))
 
-    checkAchievements()
+    // awardPoints already calls checkAchievements
   }
 
   function createBookmark() {
@@ -389,13 +426,13 @@ export const useGamificationStore = defineStore('gamification', () => {
       description: 'Bookmark created'
     }).catch(err => console.warn('Failed to sync bookmark to leaderboard:', err))
 
-    checkAchievements()
+    // awardPoints already calls checkAchievements
   }
 
   function updateDailyStreak() {
-    const today = new Date().toISOString().split('T')[0]
-    const lastDate = lastQuizDate.value ? new Date(lastQuizDate.value) : null
-    const lastDateString = lastDate ? lastDate.toISOString().split('T')[0] : null
+    const today = getLocalDateString()
+    const lastDate = lastQuizDate.value ? lastQuizDate.value : null
+    const lastDateString = lastDate ? getLocalDateString(new Date(lastDate)) : null
 
     if (lastDateString === today) {
       // Already took quiz today
@@ -404,8 +441,8 @@ export const useGamificationStore = defineStore('gamification', () => {
 
     lastQuizDate.value = new Date().toISOString()
 
-    if (lastDate) {
-      const dayDiff = Math.floor((new Date(today) - new Date(lastDateString)) / (1000 * 60 * 60 * 24))
+    if (lastDateString) {
+      const dayDiff = localDayDiff(today, lastDateString)
       if (dayDiff === 1) {
         // Consecutive day
         streak.value++
@@ -437,54 +474,70 @@ export const useGamificationStore = defineStore('gamification', () => {
     }
   }
 
+  // Reentrant guard for checkAchievements
+  let _checkingAchievements = false
+
   function checkAchievements() {
-    achievements.value.forEach(achievement => {
-      if (achievement.unlocked) return // Already unlocked
+    if (_checkingAchievements) return
+    _checkingAchievements = true
 
-      const req = achievement.requirement
-      let shouldUnlock = false
+    try {
+      // Collect all newly qualifying achievements first
+      const newlyUnlocked = []
 
-      switch (req.type) {
-        case 'quiz':
-          shouldUnlock = stats.value.quizzesCompleted >= req.count
-          break
-        case 'accuracy':
-          shouldUnlock = stats.value.avgAccuracy >= req.count
-          break
-        case 'read':
-          shouldUnlock = stats.value.questionsRead >= req.count
-          break
-        case 'streak':
-          shouldUnlock = streak.value >= req.count
-          break
-        case 'bookmarks':
-          shouldUnlock = stats.value.bookmarksCreated >= req.count
-          break
-        case 'daily-streak':
-          shouldUnlock = streak.value >= req.count && streak.value % 5 === 0
-          break
-        // Dua achievement types
-        case 'dua-read':
-          shouldUnlock = stats.value.duasRead >= req.count
-          break
-        case 'morning-adhkar':
-          shouldUnlock = stats.value.morningAdhkarDays >= req.count
-          break
-        case 'evening-adhkar':
-          shouldUnlock = stats.value.eveningAdhkarDays >= req.count
-          break
-        case 'both-adhkar':
-          shouldUnlock = stats.value.bothAdhkarDays >= req.count
-          break
-        case 'adhkar-streak':
-          shouldUnlock = bothStreak.value >= req.count
-          break
-      }
+      achievements.value.forEach(achievement => {
+        if (achievement.unlocked) return
 
-      if (shouldUnlock) {
+        const req = achievement.requirement
+        let shouldUnlock = false
+
+        switch (req.type) {
+          case 'quiz':
+            shouldUnlock = stats.value.quizzesCompleted >= req.count
+            break
+          case 'accuracy':
+            shouldUnlock = stats.value.avgAccuracy >= req.count
+            break
+          case 'read':
+            shouldUnlock = stats.value.questionsRead >= req.count
+            break
+          case 'streak':
+            shouldUnlock = streak.value >= req.count
+            break
+          case 'bookmarks':
+            shouldUnlock = stats.value.bookmarksCreated >= req.count
+            break
+          case 'daily-streak':
+            shouldUnlock = streak.value >= req.count
+            break
+          // Dua achievement types
+          case 'dua-read':
+            shouldUnlock = stats.value.duasRead >= req.count
+            break
+          case 'morning-adhkar':
+            shouldUnlock = stats.value.morningAdhkarDays >= req.count
+            break
+          case 'evening-adhkar':
+            shouldUnlock = stats.value.eveningAdhkarDays >= req.count
+            break
+          case 'both-adhkar':
+            shouldUnlock = stats.value.bothAdhkarDays >= req.count
+            break
+          case 'adhkar-streak':
+            shouldUnlock = bothStreak.value >= req.count
+            break
+        }
+
+        if (shouldUnlock) {
+          newlyUnlocked.push(achievement)
+        }
+      })
+
+      // Batch unlock: award points for all new achievements without re-entering
+      for (const achievement of newlyUnlocked) {
         achievement.unlocked = true
-        awardPoints(achievement.points, `Achievement: ${achievement.name}`)
-        console.log(`🎉 Achievement unlocked: ${achievement.name}`)
+        points.value += achievement.points
+        console.log(`🎉 Achievement unlocked: ${achievement.name} (+${achievement.points} points)`)
 
         // Sync achievement bonus to Firebase
         leaderboardService.submitActivity({
@@ -493,7 +546,13 @@ export const useGamificationStore = defineStore('gamification', () => {
           description: `Achievement: ${achievement.name}`
         }).catch(err => console.warn('Failed to sync achievement to leaderboard:', err))
       }
-    })
+
+      if (newlyUnlocked.length > 0) {
+        saveToStorage()
+      }
+    } finally {
+      _checkingAchievements = false
+    }
   }
 
   function getAchievement(id) {
@@ -503,8 +562,8 @@ export const useGamificationStore = defineStore('gamification', () => {
   function hasTakenDailyQuizToday() {
     if (!lastDailyQuizDate.value) return false
 
-    const today = new Date().toISOString().split('T')[0]
-    const lastDaily = new Date(lastDailyQuizDate.value).toISOString().split('T')[0]
+    const today = getLocalDateString()
+    const lastDaily = getLocalDateString(new Date(lastDailyQuizDate.value))
 
     return lastDaily === today
   }
@@ -545,7 +604,7 @@ export const useGamificationStore = defineStore('gamification', () => {
       }
     }
 
-    checkAchievements()
+    // awardPoints already calls checkAchievements
     saveToStorage()
   }
 
@@ -567,7 +626,7 @@ export const useGamificationStore = defineStore('gamification', () => {
    * Check if morning adhkar is complete for today
    */
   function checkMorningAdhkarCompletion() {
-    const today = new Date().toISOString().split('T')[0]
+    const today = getLocalDateString()
 
     // Already completed today
     if (lastMorningAdhkarDate.value === today) return
@@ -582,7 +641,7 @@ export const useGamificationStore = defineStore('gamification', () => {
    * Check if evening adhkar is complete for today
    */
   function checkEveningAdhkarCompletion() {
-    const today = new Date().toISOString().split('T')[0]
+    const today = getLocalDateString()
 
     // Already completed today
     if (lastEveningAdhkarDate.value === today) return
@@ -597,7 +656,7 @@ export const useGamificationStore = defineStore('gamification', () => {
    * Mark morning adhkar as complete
    */
   function completeMorningAdhkar() {
-    const today = new Date().toISOString().split('T')[0]
+    const today = getLocalDateString()
 
     // Don't double-count
     if (lastMorningAdhkarDate.value === today) return
@@ -605,7 +664,7 @@ export const useGamificationStore = defineStore('gamification', () => {
     // Update streak
     const lastDate = lastMorningAdhkarDate.value
     if (lastDate) {
-      const dayDiff = Math.floor((new Date(today) - new Date(lastDate)) / (1000 * 60 * 60 * 24))
+      const dayDiff = localDayDiff(today, lastDate)
       if (dayDiff === 1) {
         morningStreak.value++
       } else if (dayDiff > 1) {
@@ -619,7 +678,7 @@ export const useGamificationStore = defineStore('gamification', () => {
     stats.value.morningAdhkarDays++
 
     // Award bonus points for completing ALL morning duas
-    awardPoints(20, 'Morning adhkar complete! ☀️')
+    awardPoints(20, 'Morning adhkar complete!')
     console.log(`🌅 Morning adhkar complete! Streak: ${morningStreak.value} days`)
 
     // Sync to Firebase leaderboard
@@ -631,7 +690,7 @@ export const useGamificationStore = defineStore('gamification', () => {
 
     // Check if both are done today
     checkBothAdhkarCompletion()
-    checkAchievements()
+    // awardPoints already calls checkAchievements
     saveToStorage()
   }
 
@@ -639,7 +698,7 @@ export const useGamificationStore = defineStore('gamification', () => {
    * Mark evening adhkar as complete
    */
   function completeEveningAdhkar() {
-    const today = new Date().toISOString().split('T')[0]
+    const today = getLocalDateString()
 
     // Don't double-count
     if (lastEveningAdhkarDate.value === today) return
@@ -647,7 +706,7 @@ export const useGamificationStore = defineStore('gamification', () => {
     // Update streak
     const lastDate = lastEveningAdhkarDate.value
     if (lastDate) {
-      const dayDiff = Math.floor((new Date(today) - new Date(lastDate)) / (1000 * 60 * 60 * 24))
+      const dayDiff = localDayDiff(today, lastDate)
       if (dayDiff === 1) {
         eveningStreak.value++
       } else if (dayDiff > 1) {
@@ -661,7 +720,7 @@ export const useGamificationStore = defineStore('gamification', () => {
     stats.value.eveningAdhkarDays++
 
     // Award bonus points for completing ALL evening duas
-    awardPoints(20, 'Evening adhkar complete! 🌙')
+    awardPoints(20, 'Evening adhkar complete!')
     console.log(`🌆 Evening adhkar complete! Streak: ${eveningStreak.value} days`)
 
     // Sync to Firebase leaderboard
@@ -673,7 +732,7 @@ export const useGamificationStore = defineStore('gamification', () => {
 
     // Check if both are done today
     checkBothAdhkarCompletion()
-    checkAchievements()
+    // awardPoints already calls checkAchievements
     saveToStorage()
   }
 
@@ -681,42 +740,41 @@ export const useGamificationStore = defineStore('gamification', () => {
    * Check if both morning and evening adhkar are complete today
    */
   function checkBothAdhkarCompletion() {
-    const today = new Date().toISOString().split('T')[0]
+    const today = getLocalDateString()
 
     const morningDone = lastMorningAdhkarDate.value === today
     const eveningDone = lastEveningAdhkarDate.value === today
 
     if (morningDone && eveningDone) {
       // Check if this is a new "both" completion (not already counted today)
-      const lastBothDate = localStorage.getItem('lastBothAdhkarDate')
-      if (lastBothDate !== today) {
-        localStorage.setItem('lastBothAdhkarDate', today)
+      if (lastBothAdhkarDate.value !== today) {
+        const previousBothDate = lastBothAdhkarDate.value
+        lastBothAdhkarDate.value = today
         stats.value.bothAdhkarDays++
 
         // Update both streak
-        const yesterday = new Date()
-        yesterday.setDate(yesterday.getDate() - 1)
-        const yesterdayStr = yesterday.toISOString().split('T')[0]
+        if (previousBothDate) {
+          const dayDiff = localDayDiff(today, previousBothDate)
+          if (dayDiff === 1) {
+            bothStreak.value++
+            stats.value.longestAdhkarStreak = Math.max(stats.value.longestAdhkarStreak, bothStreak.value)
+            awardPoints(30, `${bothStreak.value}-day adhkar streak!`)
 
-        if (lastBothDate === yesterdayStr) {
-          bothStreak.value++
-          stats.value.longestAdhkarStreak = Math.max(stats.value.longestAdhkarStreak, bothStreak.value)
-          awardPoints(30, `${bothStreak.value}-day adhkar streak! 🔥`)
-
-          // Sync streak bonus to Firebase
-          leaderboardService.submitActivity({
-            points: 30,
-            type: 'adhkar_streak',
-            description: `${bothStreak.value}-day adhkar streak`
-          }).catch(err => console.warn('Failed to sync streak bonus to leaderboard:', err))
-        } else if (lastBothDate && lastBothDate !== yesterdayStr) {
-          bothStreak.value = 1
+            // Sync streak bonus to Firebase
+            leaderboardService.submitActivity({
+              points: 30,
+              type: 'adhkar_streak',
+              description: `${bothStreak.value}-day adhkar streak`
+            }).catch(err => console.warn('Failed to sync streak bonus to leaderboard:', err))
+          } else {
+            bothStreak.value = 1
+          }
         } else {
           bothStreak.value = 1
         }
 
         // Bonus for completing both in one day
-        awardPoints(25, 'Both morning & evening adhkar complete! ✨')
+        awardPoints(25, 'Both morning & evening adhkar complete!')
         console.log(`✨ Both adhkar complete! Streak: ${bothStreak.value} days`)
 
         // Sync both adhkar bonus to Firebase
@@ -733,7 +791,7 @@ export const useGamificationStore = defineStore('gamification', () => {
    * Check if morning adhkar is complete today
    */
   function hasDoneMorningAdhkarToday() {
-    const today = new Date().toISOString().split('T')[0]
+    const today = getLocalDateString()
     return lastMorningAdhkarDate.value === today
   }
 
@@ -741,7 +799,7 @@ export const useGamificationStore = defineStore('gamification', () => {
    * Check if evening adhkar is complete today
    */
   function hasDoneEveningAdhkarToday() {
-    const today = new Date().toISOString().split('T')[0]
+    const today = getLocalDateString()
     return lastEveningAdhkarDate.value === today
   }
 
@@ -782,6 +840,7 @@ export const useGamificationStore = defineStore('gamification', () => {
         questionsRead: 0,
         bookmarksCreated: 0,
         avgAccuracy: 0,
+        totalAccuracySum: 0,
         longestStreak: 0,
         duasRead: 0,
         morningAdhkarDays: 0,
@@ -793,6 +852,7 @@ export const useGamificationStore = defineStore('gamification', () => {
       readDuaIds.value = new Set()
       lastMorningAdhkarDate.value = null
       lastEveningAdhkarDate.value = null
+      lastBothAdhkarDate.value = null
       morningStreak.value = 0
       eveningStreak.value = 0
       bothStreak.value = 0

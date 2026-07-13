@@ -1,11 +1,12 @@
 [
   {
     "id": 1,
-    "hisn_number": null,
+    "hisn_number": 248,
     "category_id": "seeking_forgiveness_and_repentance",
     "category_name": "Seeking Forgiveness and Repentance",
     "title": "Seeking Forgiveness and Repentance - Hisn al-Muslim 96",
-    "arabic": "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ",
+    "arabic": "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ",
+    "arabic_source_verification": "https://islamhouse.com/ar/books/2522/",
     "transliteration": "Astaghfirullāha wa atūbu ilayh",
     "translation": "I seek the forgiveness of Allah and repent to Him",
     "reference": "Al-Bukhari Al-Asqalani, Fathul-Bari 11/101, Muslim Muslim 4/2075",

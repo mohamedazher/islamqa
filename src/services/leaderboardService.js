@@ -1,547 +1,531 @@
-import { db, ensureAuthenticated, firebaseInitialized } from './firebase'
-import {
-  collection,
-  doc,
-  setDoc,
-  getDoc,
-  getDocs,
-  query,
-  orderBy,
-  limit,
-  where,
-  serverTimestamp,
-  updateDoc,
-  increment
-} from 'firebase/firestore'
-
-class LeaderboardService {
-  constructor() {
-    this.db = db
-    this.userId = null
-    this.username = null
-    this.isAvailable = firebaseInitialized
-  }
-
-  /**
-   * Initialize user (call on app start) with logging
-   */
-  async initUser() {
-    if (!this.isAvailable) {
-      console.warn('⚠️ Leaderboard service not available (Firebase not initialized)')
-      return { userId: null, username: null }
-    }
-
-    try {
-      console.log('🔐 Initializing leaderboard user...')
-      const user = await ensureAuthenticated()
-      if (!user) {
-        console.warn('⚠️ Could not authenticate user for leaderboard')
-        return { userId: null, username: null }
-      }
-      this.userId = user.uid
-      console.log(`  ✅ User authenticated: ${this.userId}`)
-
-      // Get or create username
-      this.username = localStorage.getItem('username')
-      if (!this.username) {
-        this.username = this.generateUsername()
-        localStorage.setItem('username', this.username)
-        console.log(`  ✨ Generated new username: ${this.username}`)
-      } else {
-        console.log(`  📝 Using existing username: ${this.username}`)
-      }
-
-      // Create user profile if doesn't exist
-      await this.createUserProfile()
-
-      return { userId: this.userId, username: this.username }
-    } catch (error) {
-      console.error('❌ Failed to initialize user:', error.message)
-      return { userId: null, username: null }
-    }
-  }
-
-  /**
-   * Generate random username
-   */
-  generateUsername() {
-    const adjectives = ['Faithful', 'Seeking', 'Learning', 'Devoted', 'Wise', 'Humble']
-    const nouns = ['Scholar', 'Student', 'Seeker', 'Believer', 'Learner']
-    const adj = adjectives[Math.floor(Math.random() * adjectives.length)]
-    const noun = nouns[Math.floor(Math.random() * nouns.length)]
-    const num = Math.floor(Math.random() * 1000)
-    return `${adj}${noun}${num}`
-  }
-
-  /**
-   * Create user profile with explicit field initialization
-   */
-  async createUserProfile() {
-    const userRef = doc(this.db, 'users', this.userId)
-
-    try {
-      const userDoc = await getDoc(userRef)
-
-      if (!userDoc.exists()) {
-        console.log(`👤 Creating new user profile for ${this.userId}`)
-        await setDoc(userRef, {
-          username: this.username,
-          totalScore: 0,           // Explicit: Start at 0, not undefined
-          quizzesTaken: 0,         // Explicit: Start at 0, not undefined
-          level: 1,
-          createdAt: serverTimestamp(),
-          lastActive: serverTimestamp()
-        })
-        console.log(`✅ User profile created successfully`)
-      } else {
-        // Update last active and ensure required fields exist
-        const existingData = userDoc.data()
-        const updates = {
-          lastActive: serverTimestamp()
-        }
-
-        // Ensure critical fields exist (migrate if missing)
-        if (existingData.totalScore === undefined) {
-          console.warn(`⚠️ Missing totalScore for user ${this.userId}, initializing to 0`)
-          updates.totalScore = 0
-        }
-        if (existingData.quizzesTaken === undefined) {
-          console.warn(`⚠️ Missing quizzesTaken for user ${this.userId}, initializing to 0`)
-          updates.quizzesTaken = 0
-        }
-
-        await updateDoc(userRef, updates)
-        console.log(`✅ User profile updated`)
-      }
-    } catch (error) {
-      console.error(`❌ Failed to create/update user profile: ${error.message}`)
-      throw error
-    }
-  }
-
-  /**
-   * Update username
-   */
-  async updateUsername(newUsername) {
-    if (!this.userId) await this.initUser()
-
-    this.username = newUsername
-    localStorage.setItem('username', newUsername)
-
-    const userRef = doc(this.db, 'users', this.userId)
-    await updateDoc(userRef, { username: newUsername })
-  }
-
-  /**
-   * Submit quiz score to leaderboard (with comprehensive logging)
-   */
-  async submitScore(quizResult) {
-    if (!this.isAvailable) {
-      console.warn('⚠️ Leaderboard service not available, skipping score submission')
-      return false
-    }
-
-    if (!this.userId) await this.initUser()
-    if (!this.userId) {
-      console.error('❌ Cannot submit score: User not authenticated')
-      return false
-    }
-
-    const { score, correct, total, quizId, mode, accuracy, timeTaken } = quizResult
-
-    console.log(`📊 Submitting quiz score:`, {
-      userId: this.userId,
-      username: this.username,
-      score,
-      correct,
-      total,
-      accuracy,
-      mode,
-      quizId
-    })
-
-    // Validate score
-    if (score < 0) {
-      console.error('❌ Invalid score: score must be >= 0')
-      return false
-    }
-
-    // Get today's date for daily leaderboard
-    const today = new Date().toISOString().split('T')[0]
-
-    try {
-      // 0. Ensure user profile exists with required fields
-      await this.createUserProfile()
-
-      // 1. Update daily leaderboard (accumulate scores, don't overwrite)
-      console.log(`  📅 Writing daily score for ${today}...`)
-      const dailyRef = doc(this.db, 'leaderboards', 'daily', today, this.userId)
-      const dailyDoc = await getDoc(dailyRef)
-
-      if (dailyDoc.exists()) {
-        const existing = dailyDoc.data()
-        await updateDoc(dailyRef, {
-          score: increment(score),  // Accumulate scores
-          correct: increment(correct),
-          total: increment(total),
-          quizzesTaken: increment(1),
-          bestScore: Math.max(score, existing.bestScore || 0),
-          bestAccuracy: Math.max(accuracy, existing.bestAccuracy || 0),
-          timestamp: serverTimestamp()
-        })
-        console.log(`  ✅ Daily score accumulated (added +${score})`)
-      } else {
-        await setDoc(dailyRef, {
-          userId: this.userId,
-          username: this.username,
-          score,
-          correct,
-          total,
-          accuracy,
-          timeTaken,
-          quizId,
-          mode,
-          quizzesTaken: 1,
-          bestScore: score,
-          bestAccuracy: accuracy,
-          timestamp: serverTimestamp()
-        })
-        console.log(`  ✅ Daily score created`)
-      }
-
-      // 2. Update all-time stats in users collection
-      console.log(`  👤 Updating all-time stats...`)
-      const userRef = doc(this.db, 'users', this.userId)
-      await updateDoc(userRef, {
-        totalScore: increment(score),
-        quizzesTaken: increment(1),
-        lastActive: serverTimestamp()
-      })
-      console.log(`  ✅ All-time stats updated (score: +${score})`)
-
-      // 3. Get current week for weekly leaderboard
-      const weekId = this.getWeekId(new Date())
-      console.log(`  📆 Writing weekly score for ${weekId}...`)
-      const weeklyRef = doc(this.db, 'leaderboards', 'weekly', weekId, this.userId)
-      const weeklyDoc = await getDoc(weeklyRef)
-
-      if (weeklyDoc.exists()) {
-        const existing = weeklyDoc.data()
-        await updateDoc(weeklyRef, {
-          totalScore: increment(score),
-          quizzesTaken: increment(1),
-          bestScore: Math.max(score, existing.bestScore || 0),
-          timestamp: serverTimestamp()
-        })
-        console.log(`  ✅ Weekly score updated (cumulative: +${score})`)
-      } else {
-        await setDoc(weeklyRef, {
-          userId: this.userId,
-          username: this.username,
-          totalScore: score,
-          quizzesTaken: 1,
-          bestScore: score,
-          timestamp: serverTimestamp()
-        })
-        console.log(`  ✅ Weekly score created`)
-      }
-
-      console.log('✅ Score submitted to leaderboard successfully')
-      return true
-    } catch (error) {
-      console.error('❌ Failed to submit score:', error.message)
-      console.error('   Error code:', error.code)
-      console.error('   Full error:', error)
-      throw error
-    }
-  }
-
-  /**
-   * Submit dua/adhkar activity to leaderboard
-   * @param {Object} activity - The activity data
-   * @param {number} activity.points - Points earned from activity
-   * @param {string} activity.type - Activity type: 'dua_read', 'morning_adhkar', 'evening_adhkar', 'both_adhkar'
-   * @param {string} activity.description - Description of the activity
-   */
-  async submitActivity(activity) {
-    if (!this.isAvailable) {
-      console.warn('⚠️ Leaderboard service not available, skipping activity submission')
-      return false
-    }
-
-    if (!this.userId) await this.initUser()
-    if (!this.userId) {
-      console.error('❌ Cannot submit activity: User not authenticated')
-      return false
-    }
-
-    const { points, type, description } = activity
-
-    console.log(`📊 Submitting activity:`, {
-      userId: this.userId,
-      username: this.username,
-      points,
-      type,
-      description
-    })
-
-    // Validate points
-    if (!points || points <= 0) {
-      console.error('❌ Invalid activity: points must be > 0')
-      return false
-    }
-
-    const today = new Date().toISOString().split('T')[0]
-
-    try {
-      // 0. Ensure user profile exists
-      await this.createUserProfile()
-
-      // 1. Update daily leaderboard with activity points
-      console.log(`  📅 Adding activity to daily score for ${today}...`)
-      const dailyRef = doc(this.db, 'leaderboards', 'daily', today, this.userId)
-      const dailyDoc = await getDoc(dailyRef)
-
-      if (dailyDoc.exists()) {
-        await updateDoc(dailyRef, {
-          score: increment(points),
-          activityPoints: increment(points),
-          timestamp: serverTimestamp()
-        })
-        console.log(`  ✅ Daily activity points added (+${points})`)
-      } else {
-        await setDoc(dailyRef, {
-          userId: this.userId,
-          username: this.username,
-          score: points,
-          activityPoints: points,
-          correct: 0,
-          total: 0,
-          quizzesTaken: 0,
-          timestamp: serverTimestamp()
-        })
-        console.log(`  ✅ Daily entry created with activity points`)
-      }
-
-      // 2. Update all-time stats
-      console.log(`  👤 Updating all-time stats...`)
-      const userRef = doc(this.db, 'users', this.userId)
-      await updateDoc(userRef, {
-        totalScore: increment(points),
-        lastActive: serverTimestamp()
-      })
-      console.log(`  ✅ All-time stats updated (+${points})`)
-
-      // 3. Update weekly leaderboard
-      const weekId = this.getWeekId(new Date())
-      console.log(`  📆 Adding activity to weekly score for ${weekId}...`)
-      const weeklyRef = doc(this.db, 'leaderboards', 'weekly', weekId, this.userId)
-      const weeklyDoc = await getDoc(weeklyRef)
-
-      if (weeklyDoc.exists()) {
-        await updateDoc(weeklyRef, {
-          totalScore: increment(points),
-          activityPoints: increment(points),
-          timestamp: serverTimestamp()
-        })
-        console.log(`  ✅ Weekly activity points added (+${points})`)
-      } else {
-        await setDoc(weeklyRef, {
-          userId: this.userId,
-          username: this.username,
-          totalScore: points,
-          activityPoints: points,
-          quizzesTaken: 0,
-          timestamp: serverTimestamp()
-        })
-        console.log(`  ✅ Weekly entry created with activity points`)
-      }
-
-      console.log(`✅ Activity submitted: ${description} (+${points} points)`)
-      return true
-    } catch (error) {
-      console.error('❌ Failed to submit activity:', error.message)
-      return false
-    }
-  }
-
-  /**
-   * Get daily leaderboard with validation
-   */
-  async getDailyLeaderboard(date = new Date(), limitCount = 100) {
-    const dateString = date.toISOString().split('T')[0]
-
-    try {
-      console.log(`📊 Loading daily leaderboard for ${dateString}...`)
-      const leaderboardRef = collection(this.db, 'leaderboards', 'daily', dateString)
-      const q = query(leaderboardRef, orderBy('score', 'desc'), limit(limitCount))
-      const snapshot = await getDocs(q)
-
-      const leaderboard = []
-      let rank = 1
-      snapshot.forEach((doc) => {
-        const data = doc.data()
-        leaderboard.push({
-          ...data,
-          rank: rank,
-          isCurrentUser: doc.id === this.userId
-        })
-        rank++
-      })
-
-      console.log(`  ✅ Loaded ${leaderboard.length} daily leaderboard entries`)
-      return leaderboard
-    } catch (error) {
-      console.error('❌ Failed to get daily leaderboard:', error.message)
-      return []
-    }
-  }
-
-  /**
-   * Get weekly leaderboard with validation
-   */
-  async getWeeklyLeaderboard(limitCount = 100) {
-    const weekId = this.getWeekId(new Date())
-
-    try {
-      console.log(`📊 Loading weekly leaderboard for ${weekId}...`)
-      const leaderboardRef = collection(this.db, 'leaderboards', 'weekly', weekId)
-      const q = query(leaderboardRef, orderBy('totalScore', 'desc'), limit(limitCount))
-      const snapshot = await getDocs(q)
-
-      const leaderboard = []
-      let rank = 1
-      snapshot.forEach((doc) => {
-        const data = doc.data()
-
-        // Validate required fields
-        if (!data.totalScore && data.totalScore !== 0) {
-          console.warn(`  ⚠️  Entry missing totalScore for user ${doc.id}, skipping`)
-          return
-        }
-
-        leaderboard.push({
-          ...data,
-          rank: rank,
-          isCurrentUser: doc.id === this.userId
-        })
-        rank++
-      })
-
-      console.log(`  ✅ Loaded ${leaderboard.length} weekly leaderboard entries`)
-      return leaderboard
-    } catch (error) {
-      console.error('❌ Failed to get weekly leaderboard:', error.message)
-      return []
-    }
-  }
-
-  /**
-   * Get all-time leaderboard with validation
-   */
-  async getAllTimeLeaderboard(limitCount = 100) {
-    try {
-      console.log(`📊 Loading all-time leaderboard...`)
-      const usersRef = collection(this.db, 'users')
-      const q = query(usersRef, orderBy('totalScore', 'desc'), limit(limitCount))
-      const snapshot = await getDocs(q)
-
-      const leaderboard = []
-      let rank = 1
-      snapshot.forEach((doc) => {
-        const data = doc.data()
-
-        // Validate required fields
-        if (!data.username) {
-          console.warn(`  ⚠️  User ${doc.id} missing username, skipping`)
-          return
-        }
-
-        const totalScore = data.totalScore || 0
-        const quizzesTaken = data.quizzesTaken || 0
-
-        // Only show users with at least one quiz or some score
-        if (totalScore === 0 && quizzesTaken === 0) {
-          console.log(`  ℹ️  User ${data.username} has no activity, including in leaderboard`)
-        }
-
-        leaderboard.push({
-          userId: doc.id,
-          username: data.username,
-          totalScore: totalScore,
-          quizzesTaken: quizzesTaken,
-          level: data.level || 1,
-          rank: rank,
-          isCurrentUser: doc.id === this.userId
-        })
-        rank++
-      })
-
-      console.log(`  ✅ Loaded ${leaderboard.length} all-time leaderboard entries`)
-      return leaderboard
-    } catch (error) {
-      console.error('❌ Failed to get all-time leaderboard:', error.message)
-      return []
-    }
-  }
-
-  /**
-   * Get user rank
-   */
-  async getUserRank(type = 'allTime') {
-    if (!this.userId) return null
-
-    try {
-      let leaderboard
-      if (type === 'daily') {
-        leaderboard = await this.getDailyLeaderboard(new Date(), 10000)
-      } else if (type === 'weekly') {
-        leaderboard = await this.getWeeklyLeaderboard(10000)
-      } else {
-        leaderboard = await this.getAllTimeLeaderboard(10000)
-      }
-
-      const userEntry = leaderboard.find(entry => entry.userId === this.userId || entry.isCurrentUser)
-      return userEntry ? userEntry.rank : null
-    } catch (error) {
-      console.error('❌ Failed to get user rank:', error)
-      return null
-    }
-  }
-
-  /**
-   * Get week ID (format: 2025-W45) - Using ISO 8601 standard
-   * ISO 8601: Week starts on Monday, first week contains Jan 4
-   */
-  getWeekId(date) {
-    // Create a copy to avoid mutation
-    const d = new Date(date)
-
-    // Set to UTC to avoid timezone issues
-    const year = d.getUTCFullYear()
-    const month = d.getUTCMonth()
-    const day = d.getUTCDate()
-    const dayOfWeek = d.getUTCDay()
-
-    // ISO 8601: Thursday is day 4, use it to determine week
-    const thursday = new Date(d)
-    thursday.setUTCDate(day - dayOfWeek + 4)
-
-    // Get the year of the Thursday
-    const yearOfThursday = thursday.getUTCFullYear()
-
-    // Get the first day of the year
-    const jan4 = new Date(yearOfThursday, 0, 4)
-    const firstThursday = new Date(jan4)
-    firstThursday.setUTCDate(4 - firstThursday.getUTCDay() + 1)
-
-    // Calculate week number
-    const weekNum = Math.floor((thursday - firstThursday) / (7 * 24 * 60 * 60 * 1000)) + 1
-
-    const weekId = `${yearOfThursday}-W${weekNum.toString().padStart(2, '0')}`
-    console.log(`📅 Week ID for ${date.toISOString().split('T')[0]}: ${weekId}`)
-    return weekId
+import { ensureAuthenticated, getFirebaseState } from './firebase'
+import { isLeaderboardEnabled } from './privacyConsent'
+
+const OUTBOX_KEY = 'leaderboard_outbox_v1'
+const MAX_OUTBOX_EVENTS = 500
+const MAX_POINTS = 1000000
+const MAX_QUIZ_QUESTIONS = 100
+const MAX_STRING_LENGTH = 160
+const ACTIVITY_POINT_RULES = {
+  question_read: [5],
+  bookmark_created: [10],
+  quiz_streak: [100],
+  welcome_back: [50],
+  achievement: [25, 50, 100, 150, 200, 250, 300, 1000],
+  dua_read: [5],
+  morning_adhkar: [20],
+  evening_adhkar: [20],
+  adhkar_streak: [30],
+  both_adhkar: [25]
+}
+
+let firestoreApiPromise = null
+
+async function ensureFirestoreApi() {
+  if (!firestoreApiPromise) firestoreApiPromise = import('firebase/firestore')
+  return firestoreApiPromise
+}
+
+export class LeaderboardError extends Error {
+  constructor(code, message, cause = null) {
+    super(message)
+    this.name = 'LeaderboardError'
+    this.code = code
+    this.cause = cause
   }
 }
 
+export function getLocalDateBucket(date = new Date()) {
+  const value = new Date(date)
+  if (Number.isNaN(value.getTime())) throw new LeaderboardError('invalid-date', 'Invalid leaderboard date')
+  return `${value.getFullYear()}-${String(value.getMonth() + 1).padStart(2, '0')}-${String(value.getDate()).padStart(2, '0')}`
+}
+
+// ISO-8601 week based on the user's local calendar date. Converting the local
+// Y/M/D to a UTC-only working date avoids DST changing the week calculation.
+export function getLocalIsoWeekBucket(date = new Date()) {
+  const value = new Date(date)
+  if (Number.isNaN(value.getTime())) throw new LeaderboardError('invalid-date', 'Invalid leaderboard date')
+  const working = new Date(Date.UTC(value.getFullYear(), value.getMonth(), value.getDate()))
+  const day = working.getUTCDay() || 7
+  working.setUTCDate(working.getUTCDate() + 4 - day)
+  const isoYear = working.getUTCFullYear()
+  const yearStart = new Date(Date.UTC(isoYear, 0, 1))
+  const week = Math.ceil((((working - yearStart) / 86400000) + 1) / 7)
+  return `${isoYear}-W${String(week).padStart(2, '0')}`
+}
+
+function finiteInteger(value, field, { min = 0, max = MAX_POINTS } = {}) {
+  if (!Number.isFinite(value) || !Number.isInteger(value) || value < min || value > max) {
+    throw new LeaderboardError('invalid-payload', `${field} must be an integer between ${min} and ${max}`)
+  }
+  return value
+}
+
+function finiteNumber(value, field, { min = 0, max = MAX_POINTS } = {}) {
+  if (!Number.isFinite(value) || value < min || value > max) {
+    throw new LeaderboardError('invalid-payload', `${field} must be between ${min} and ${max}`)
+  }
+  return value
+}
+
+function safeString(value, field, { required = false, max = MAX_STRING_LENGTH } = {}) {
+  const result = typeof value === 'string' ? value.trim() : ''
+  if ((required && !result) || result.length > max || /[\u0000-\u001f\u007f]/.test(result)) {
+    throw new LeaderboardError('invalid-payload', `${field} is invalid`)
+  }
+  return result
+}
+
+function eventId(value) {
+  if (value !== undefined && value !== null) {
+    const supplied = safeString(value, 'eventId', { required: true, max: 100 })
+    if (!/^[A-Za-z0-9_-]+$/.test(supplied)) throw new LeaderboardError('invalid-payload', 'eventId contains unsupported characters')
+    return supplied
+  }
+  if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID()
+  return `evt_${Date.now()}_${Math.random().toString(36).slice(2, 14)}`
+}
+
+function readOutbox() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(OUTBOX_KEY) || '[]')
+    return Array.isArray(parsed) ? parsed : []
+  } catch {
+    return []
+  }
+}
+
+function writeOutbox(events) {
+  localStorage.setItem(OUTBOX_KEY, JSON.stringify(events))
+}
+
+function getLocalLevel() {
+  try {
+    const stored = JSON.parse(localStorage.getItem('gamification') || '{}')
+    const points = Number(stored.points) || 0
+    return Math.max(1, Math.min(999, Math.floor(points / 500) + 1))
+  } catch {
+    return 1
+  }
+}
+
+function normalizeQuiz(input, now = new Date()) {
+  const points = finiteInteger(input?.score, 'score')
+  const total = finiteInteger(input?.total, 'total', { max: MAX_QUIZ_QUESTIONS })
+  const correct = finiteInteger(input?.correct, 'correct', { max: total })
+  const accuracy = finiteNumber(input?.accuracy, 'accuracy', { max: 100 })
+  if (points !== correct * 10) {
+    throw new LeaderboardError('invalid-payload', 'score must equal 10 points per correct answer')
+  }
+  return {
+    eventId: eventId(input?.eventId),
+    kind: 'quiz',
+    points,
+    correct,
+    total,
+    accuracy,
+    timeTaken: finiteNumber(input?.timeTaken || 0, 'timeTaken', { max: 86400000 }),
+    quizId: safeString(String(input?.quizId ?? ''), 'quizId', { max: 100 }),
+    mode: safeString(input?.mode || 'quiz', 'mode', { required: true, max: 50 }),
+    dailyBucket: getLocalDateBucket(now),
+    weeklyBucket: getLocalIsoWeekBucket(now),
+    queuedAt: now.toISOString()
+  }
+}
+
+function normalizeActivity(input, now = new Date()) {
+  const activityType = safeString(input?.type, 'type', { required: true, max: 50 })
+  if (!/^[a-z0-9_-]+$/i.test(activityType)) throw new LeaderboardError('invalid-payload', 'type contains unsupported characters')
+  const points = finiteInteger(input?.points, 'points', { min: 1 })
+  if (!ACTIVITY_POINT_RULES[activityType]?.includes(points)) {
+    throw new LeaderboardError('invalid-payload', 'points do not match the activity type')
+  }
+  return {
+    eventId: eventId(input?.eventId),
+    kind: 'activity',
+    points,
+    activityType,
+    description: safeString(input?.description || '', 'description'),
+    dailyBucket: getLocalDateBucket(now),
+    weeklyBucket: getLocalIsoWeekBucket(now),
+    queuedAt: now.toISOString()
+  }
+}
+
+function validateQueuedEvent(input) {
+  if (!input || (input.kind !== 'quiz' && input.kind !== 'activity')) {
+    throw new LeaderboardError('invalid-outbox-event', 'Queued leaderboard event is invalid')
+  }
+  const common = {
+    ...input,
+    eventId: eventId(input.eventId),
+    points: finiteInteger(input.points, 'points', { min: input.kind === 'quiz' ? 0 : 1 })
+  }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(input.dailyBucket || '') || !/^\d{4}-W\d{2}$/.test(input.weeklyBucket || '')) {
+    throw new LeaderboardError('invalid-outbox-event', 'Queued leaderboard period is invalid')
+  }
+  if (input.kind === 'quiz') {
+    common.total = finiteInteger(input.total, 'total', { max: MAX_QUIZ_QUESTIONS })
+    common.correct = finiteInteger(input.correct, 'correct', { max: common.total })
+    common.accuracy = finiteNumber(input.accuracy, 'accuracy', { max: 100 })
+    if (common.points !== common.correct * 10) {
+      throw new LeaderboardError('invalid-outbox-event', 'Queued quiz score is inconsistent')
+    }
+    common.timeTaken = finiteNumber(input.timeTaken, 'timeTaken', { max: 86400000 })
+    common.quizId = safeString(input.quizId || '', 'quizId', { max: 100 })
+    common.mode = safeString(input.mode, 'mode', { required: true, max: 50 })
+  } else {
+    common.activityType = safeString(input.activityType, 'activityType', { required: true, max: 50 })
+    if (!/^[a-z0-9_-]+$/i.test(common.activityType)) throw new LeaderboardError('invalid-outbox-event', 'Queued activity type is invalid')
+    if (!ACTIVITY_POINT_RULES[common.activityType]?.includes(common.points)) {
+      throw new LeaderboardError('invalid-outbox-event', 'Queued points do not match the activity type')
+    }
+    common.description = safeString(input.description || '', 'description')
+  }
+  return common
+}
+
+function dataOf(snapshot) {
+  return snapshot.exists() ? snapshot.data() : {}
+}
+
+class LeaderboardService {
+  constructor() {
+    this.db = null
+    this.userId = null
+    this.username = null
+    this.isAvailable = false
+    this.initializationPromise = null
+    this.drainPromise = null
+    if (typeof window !== 'undefined') {
+      window.addEventListener?.('online', () => {
+        if (!isLeaderboardEnabled()) return
+        this.initUser().then(() => this.flushOutbox()).catch(() => {})
+      })
+    }
+  }
+
+  async initUser() {
+    if (!isLeaderboardEnabled()) {
+      this.isAvailable = false
+      return { userId: null, username: null, disabled: true }
+    }
+    if (this.userId && this.db) return { userId: this.userId, username: this.username }
+    if (this.initializationPromise) return this.initializationPromise
+
+    this.initializationPromise = (async () => {
+      try {
+        await ensureFirestoreApi()
+        const user = await ensureAuthenticated()
+        const state = getFirebaseState()
+        if (!user || !state.db) throw new LeaderboardError('unavailable', 'Leaderboard authentication is unavailable')
+        this.db = state.db
+        this.userId = user.uid
+        this.isAvailable = true
+        try {
+          this.username = safeString(localStorage.getItem('username'), 'username', { required: true, max: 40 })
+        } catch {
+          this.username = this.generateUsername()
+        }
+        localStorage.setItem('username', this.username)
+        await this.createUserProfile()
+        await this.flushOutbox()
+        return { userId: this.userId, username: this.username }
+      } catch (error) {
+        this.isAvailable = false
+        console.error('Failed to initialize leaderboard:', error)
+        return { userId: null, username: null, error: this.toError(error) }
+      } finally {
+        this.initializationPromise = null
+      }
+    })()
+    return this.initializationPromise
+  }
+
+  generateUsername() {
+    const adjectives = ['Faithful', 'Seeking', 'Learning', 'Devoted', 'Wise', 'Humble']
+    const nouns = ['Scholar', 'Student', 'Seeker', 'Believer', 'Learner']
+    return `${adjectives[Math.floor(Math.random() * adjectives.length)]}${nouns[Math.floor(Math.random() * nouns.length)]}${Math.floor(Math.random() * 1000)}`
+  }
+
+  toError(error, fallback = 'operation-failed') {
+    if (error instanceof LeaderboardError) return { code: error.code, message: error.message }
+    return { code: error?.code || fallback, message: error?.message || 'Leaderboard operation failed' }
+  }
+
+  async createUserProfile() {
+    if (!this.db || !this.userId) throw new LeaderboardError('not-initialized', 'Leaderboard user is not initialized')
+    const { doc, runTransaction, serverTimestamp } = await ensureFirestoreApi()
+    const userRef = doc(this.db, 'users', this.userId)
+    await runTransaction(this.db, async transaction => {
+      const snapshot = await transaction.get(userRef)
+      const existing = dataOf(snapshot)
+      transaction.set(userRef, {
+        username: existing.username || this.username,
+        totalScore: Number.isFinite(existing.totalScore) ? existing.totalScore : 0,
+        quizzesTaken: Number.isFinite(existing.quizzesTaken) ? existing.quizzesTaken : 0,
+        level: getLocalLevel(),
+        createdAt: existing.createdAt || serverTimestamp(),
+        lastActive: serverTimestamp()
+      }, { merge: true })
+    })
+  }
+
+  async updateUsername(newUsername) {
+    if (!isLeaderboardEnabled()) return { ok: false, code: 'disabled' }
+    const nextUsername = safeString(newUsername, 'username', { required: true, max: 40 })
+    if (!this.userId || !this.db) await this.initUser()
+    if (!this.userId || !this.db) return { ok: false, code: 'unavailable' }
+
+    const previousUsername = this.username
+    const { doc, runTransaction, serverTimestamp } = await ensureFirestoreApi()
+    const now = new Date()
+    const userRef = doc(this.db, 'users', this.userId)
+    const dailyRef = doc(this.db, 'leaderboards', 'daily', getLocalDateBucket(now), this.userId)
+    const weeklyRef = doc(this.db, 'leaderboards', 'weekly', getLocalIsoWeekBucket(now), this.userId)
+
+    try {
+      await runTransaction(this.db, async transaction => {
+        const [userSnapshot, dailySnapshot, weeklySnapshot] = await Promise.all([
+          transaction.get(userRef), transaction.get(dailyRef), transaction.get(weeklyRef)
+        ])
+        if (!userSnapshot.exists()) throw new LeaderboardError('profile-missing', 'Leaderboard profile does not exist')
+        transaction.update(userRef, { username: nextUsername, lastActive: serverTimestamp() })
+        if (dailySnapshot.exists()) transaction.update(dailyRef, { username: nextUsername })
+        if (weeklySnapshot.exists()) transaction.update(weeklyRef, { username: nextUsername })
+      })
+      this.username = nextUsername
+      localStorage.setItem('username', nextUsername)
+      return { ok: true, username: nextUsername }
+    } catch (error) {
+      this.username = previousUsername
+      return { ok: false, ...this.toError(error, 'username-update-failed') }
+    }
+  }
+
+  async submitScore(quizResult) {
+    let event
+    try {
+      event = normalizeQuiz(quizResult)
+    } catch (error) {
+      return { ok: false, ...this.toError(error) }
+    }
+    return this.enqueueAndFlush(event)
+  }
+
+  async submitActivity(activity) {
+    let event
+    try {
+      event = normalizeActivity(activity)
+    } catch (error) {
+      return { ok: false, ...this.toError(error) }
+    }
+    return this.enqueueAndFlush(event)
+  }
+
+  async enqueueAndFlush(event) {
+    if (!isLeaderboardEnabled()) return { ok: false, code: 'disabled', queued: false }
+    const outbox = readOutbox()
+    if (!outbox.some(item => item.eventId === event.eventId)) {
+      if (outbox.length >= MAX_OUTBOX_EVENTS) {
+        return { ok: false, code: 'outbox-full', queued: false, eventId: event.eventId }
+      }
+      outbox.push(event)
+      writeOutbox(outbox)
+    }
+    if (!this.userId || !this.db) await this.initUser()
+    if (!this.userId || !this.db) return { ok: false, code: 'queued-offline', queued: true, eventId: event.eventId }
+
+    const result = await this.flushOutbox()
+    const pending = readOutbox().some(item => item.eventId === event.eventId)
+    return pending
+      ? { ok: false, code: result.error?.code || 'queued-offline', queued: true, eventId: event.eventId }
+      : { ok: true, queued: false, eventId: event.eventId }
+  }
+
+  async flushOutbox() {
+    if (!isLeaderboardEnabled() || !this.userId || !this.db) return { ok: false, code: 'unavailable' }
+    if (this.drainPromise) return this.drainPromise
+
+    this.drainPromise = (async () => {
+      let events = readOutbox()
+      for (const event of events) {
+        if (!isLeaderboardEnabled()) break
+        try {
+          await this.applyEvent(event)
+          events = readOutbox().filter(item => item.eventId !== event.eventId)
+          writeOutbox(events)
+        } catch (error) {
+          if (error instanceof LeaderboardError && ['invalid-outbox-event', 'invalid-payload'].includes(error.code)) {
+            console.warn(`Discarding invalid leaderboard outbox event ${event?.eventId || 'unknown'}:`, error.message)
+            events = readOutbox().filter(item => item.eventId !== event?.eventId)
+            writeOutbox(events)
+            continue
+          }
+          console.warn(`Leaderboard event ${event.eventId} remains queued:`, error.message)
+          return { ok: false, error: this.toError(error, 'sync-failed') }
+        }
+      }
+      return { ok: true }
+    })().finally(() => {
+      this.drainPromise = null
+    })
+    return this.drainPromise
+  }
+
+  async applyEvent(event) {
+    event = validateQueuedEvent(event)
+    const { doc, runTransaction, serverTimestamp } = await ensureFirestoreApi()
+    const userRef = doc(this.db, 'users', this.userId)
+    const dailyRef = doc(this.db, 'leaderboards', 'daily', event.dailyBucket, this.userId)
+    const weeklyRef = doc(this.db, 'leaderboards', 'weekly', event.weeklyBucket, this.userId)
+    const eventRef = doc(this.db, 'users', this.userId, 'events', event.eventId)
+
+    return runTransaction(this.db, async transaction => {
+      // Firestore transactions require all reads before any writes.
+      const [eventSnapshot, userSnapshot, dailySnapshot, weeklySnapshot] = await Promise.all([
+        transaction.get(eventRef), transaction.get(userRef), transaction.get(dailyRef), transaction.get(weeklyRef)
+      ])
+      if (eventSnapshot.exists()) return { duplicate: true }
+
+      const user = dataOf(userSnapshot)
+      const daily = dataOf(dailySnapshot)
+      const weekly = dataOf(weeklySnapshot)
+      const isQuiz = event.kind === 'quiz'
+      const timestamp = serverTimestamp()
+      const username = this.username
+      const level = getLocalLevel()
+
+      transaction.set(userRef, {
+        username,
+        totalScore: (Number(user.totalScore) || 0) + event.points,
+        quizzesTaken: (Number(user.quizzesTaken) || 0) + (isQuiz ? 1 : 0),
+        level,
+        createdAt: user.createdAt || timestamp,
+        lastActive: timestamp,
+        lastEventId: event.eventId
+      }, { merge: true })
+
+      transaction.set(dailyRef, {
+        userId: this.userId,
+        username,
+        score: (Number(daily.score) || 0) + event.points,
+        activityPoints: (Number(daily.activityPoints) || 0) + (isQuiz ? 0 : event.points),
+        correct: (Number(daily.correct) || 0) + (isQuiz ? event.correct : 0),
+        total: (Number(daily.total) || 0) + (isQuiz ? event.total : 0),
+        quizzesTaken: (Number(daily.quizzesTaken) || 0) + (isQuiz ? 1 : 0),
+        bestScore: Math.max(Number(daily.bestScore) || 0, isQuiz ? event.points : 0),
+        bestAccuracy: Math.max(Number(daily.bestAccuracy) || 0, isQuiz ? event.accuracy : 0),
+        timestamp,
+        lastEventId: event.eventId
+      }, { merge: true })
+
+      transaction.set(weeklyRef, {
+        userId: this.userId,
+        username,
+        totalScore: (Number(weekly.totalScore) || 0) + event.points,
+        activityPoints: (Number(weekly.activityPoints) || 0) + (isQuiz ? 0 : event.points),
+        quizzesTaken: (Number(weekly.quizzesTaken) || 0) + (isQuiz ? 1 : 0),
+        bestScore: Math.max(Number(weekly.bestScore) || 0, isQuiz ? event.points : 0),
+        timestamp,
+        lastEventId: event.eventId
+      }, { merge: true })
+
+      const eventDocument = {
+        eventId: event.eventId,
+        userId: this.userId,
+        kind: event.kind,
+        points: event.points,
+        dailyBucket: event.dailyBucket,
+        weeklyBucket: event.weeklyBucket,
+        createdAt: timestamp
+      }
+      if (isQuiz) {
+        Object.assign(eventDocument, {
+          correct: event.correct,
+          total: event.total,
+          accuracy: event.accuracy,
+          timeTaken: event.timeTaken,
+          quizId: event.quizId,
+          mode: event.mode
+        })
+      } else {
+        Object.assign(eventDocument, {
+          activityType: event.activityType,
+          description: event.description
+        })
+      }
+      transaction.set(eventRef, eventDocument)
+      return { duplicate: false }
+    })
+  }
+
+  async loadLeaderboard(path, scoreField, limitCount) {
+    if (!isLeaderboardEnabled()) return []
+    if (!this.userId || !this.db) await this.initUser()
+    if (!this.db) throw new LeaderboardError('unavailable', 'Leaderboard is unavailable')
+    if (!Number.isInteger(limitCount) || limitCount < 1 || limitCount > 10000) {
+      throw new LeaderboardError('invalid-limit', 'Leaderboard limit must be between 1 and 10000')
+    }
+    const { collection, getDocs, limit, orderBy, query } = await ensureFirestoreApi()
+    try {
+      const snapshot = await getDocs(query(collection(this.db, ...path), orderBy(scoreField, 'desc'), limit(limitCount)))
+      const rows = []
+      snapshot.forEach(snapshotDoc => {
+        const data = snapshotDoc.data()
+        if (!Number.isFinite(data[scoreField])) return
+        rows.push({ ...data, userId: data.userId || snapshotDoc.id, rank: rows.length + 1, isCurrentUser: snapshotDoc.id === this.userId })
+      })
+      return rows
+    } catch (error) {
+      throw new LeaderboardError(error?.code || 'read-failed', error?.message || 'Could not load leaderboard', error)
+    }
+  }
+
+  getDailyLeaderboard(date = new Date(), limitCount = 100) {
+    return this.loadLeaderboard(['leaderboards', 'daily', getLocalDateBucket(date)], 'score', limitCount)
+  }
+
+  getWeeklyLeaderboard(limitCount = 100, date = new Date()) {
+    return this.loadLeaderboard(['leaderboards', 'weekly', getLocalIsoWeekBucket(date)], 'totalScore', limitCount)
+  }
+
+  async getAllTimeLeaderboard(limitCount = 100) {
+    const rows = await this.loadLeaderboard(['users'], 'totalScore', limitCount)
+    return rows.filter(row => row.username).map(row => ({ ...row, totalScore: row.totalScore || 0, quizzesTaken: row.quizzesTaken || 0, level: row.level || 1 }))
+  }
+
+  async getUserRank(type = 'allTime') {
+    if (!this.userId || !this.db) await this.initUser()
+    if (!this.userId || !this.db) return null
+    const now = new Date()
+    const path = type === 'daily'
+      ? ['leaderboards', 'daily', getLocalDateBucket(now)]
+      : type === 'weekly'
+        ? ['leaderboards', 'weekly', getLocalIsoWeekBucket(now)]
+        : ['users']
+    const scoreField = type === 'daily' ? 'score' : 'totalScore'
+    const { collection, doc, getCountFromServer, getDoc, query, where } = await ensureFirestoreApi()
+    try {
+      const userSnapshot = await getDoc(doc(this.db, ...path, this.userId))
+      if (!userSnapshot.exists()) return null
+      const score = Number(userSnapshot.data()[scoreField])
+      if (!Number.isFinite(score)) return null
+      const higherScores = await getCountFromServer(query(
+        collection(this.db, ...path),
+        where(scoreField, '>', score)
+      ))
+      return { rank: higherScores.data().count + 1, score }
+    } catch (error) {
+      throw new LeaderboardError(error?.code || 'rank-read-failed', error?.message || 'Could not load your rank', error)
+    }
+  }
+
+  getWeekId(date) {
+    return getLocalIsoWeekBucket(date)
+  }
+}
+
+export { normalizeActivity, normalizeQuiz, OUTBOX_KEY }
 export default new LeaderboardService()

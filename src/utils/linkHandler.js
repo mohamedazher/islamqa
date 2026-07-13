@@ -1,3 +1,5 @@
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
+
 /**
  * Link Handler Utility
  *
@@ -165,7 +167,7 @@ export function processAnswerLinks(answerHtml) {
 
   // Create a temporary DOM element to parse HTML
   const parser = new DOMParser()
-  const doc = parser.parseFromString(answerHtml, 'text/html')
+  const doc = parser.parseFromString(sanitizeHtml(answerHtml), 'text/html')
 
   // Find all links
   const links = doc.querySelectorAll('a')
@@ -176,7 +178,8 @@ export function processAnswerLinks(answerHtml) {
 
     // Handle hash/anchor links (TOC navigation)
     // For hash-only links like #section_name, we need to prevent Vue Router hash mode from handling them
-    // Solution: Store the anchor ID in a data attribute and make href="javascript:void(0)" to prevent navigation
+    // Store the anchor separately and use a harmless fragment. The click
+    // handlers prevent navigation without introducing a javascript: URL.
     if (isHashLink(href)) {
       // Extract the anchor ID from the hash
       const anchorId = href.substring(1) // Remove the '#'
@@ -186,7 +189,7 @@ export function processAnswerLinks(answerHtml) {
 
       // Change href to prevent browser default hash navigation that Vue Router will intercept
       // We'll handle navigation entirely via JavaScript click handler
-      link.setAttribute('href', 'javascript:void(0)')
+      link.setAttribute('href', `#${encodeURIComponent(anchorId)}`)
       link.style.cursor = 'pointer'
 
       // Add classes to identify TOC links for styling and selection
@@ -201,12 +204,13 @@ export function processAnswerLinks(answerHtml) {
     // Pattern matching handles: /en/answers/123, https://islamqa.info/en/answers/123, etc.
     const questionRef = extractQuestionReference(href)
     if (questionRef !== null) {
-      // Convert to Vue Router hash mode format: /#/question/49023
-      link.setAttribute('href', `/#/question/${questionRef}`)
+      // Keep hash-mode links inside the configured deployment base (for
+      // example /islamqa/ on GitHub Pages).
+      link.setAttribute('href', `${import.meta.env.BASE_URL}#/question/${questionRef}`)
       link.classList.add('internal-link')
       // Remove target="_blank" for internal navigation to work smoothly
       link.removeAttribute('target')
-      console.log(`🔗 Converted link: ${href} → /#/question/${questionRef}`)
+      console.log(`🔗 Converted link: ${href} → ${import.meta.env.BASE_URL}#/question/${questionRef}`)
       return
     }
 

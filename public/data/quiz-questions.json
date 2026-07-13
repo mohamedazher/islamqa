@@ -3739,6 +3739,7 @@
       "source": "IslamQA reference 9211"
     },
     {
+      "reference": 23104,
       "questionText": "What is the Islamic ruling on taking a husband's sperm and his first wife's egg, fertilizing them outside the body, and implanting the embryo in his second wife's womb?",
       "type": "multiple-choice",
       "difficulty": "medium",
@@ -3768,7 +3769,7 @@
       "tags": [
         "Islamic-Rulings"
       ],
-      "source": "IslamQA reference undefined"
+      "source": "IslamQA reference 23104"
     },
     {
       "reference": 109202,

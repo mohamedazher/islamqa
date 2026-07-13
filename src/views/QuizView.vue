@@ -490,7 +490,7 @@
           <div class="prose prose-sm dark:prose-invert max-w-none">
             <div class="bg-primary-50 dark:bg-primary-950/30 border-l-4 border-primary-500 dark:border-primary-600 p-4 rounded">
               <h4 class="text-sm font-semibold text-primary-900 dark:text-primary-100 mb-2">Question</h4>
-              <div class="text-neutral-800 dark:text-neutral-200" v-html="modalQuestion.question"></div>
+              <div class="text-neutral-800 dark:text-neutral-200" v-html="sanitizeHtml(modalQuestion.question)"></div>
             </div>
           </div>
 
@@ -524,6 +524,7 @@ import { useGamificationStore } from '@/stores/gamification'
 import QuizService from '@/services/quizService'
 import leaderboardService from '@/services/leaderboardService'
 import { processAnswerLinks } from '@/utils/linkHandler'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import Icon from '@/components/common/Icon.vue'
 
 const router = useRouter()
@@ -867,7 +868,7 @@ async function completeQuiz() {
   // Submit to leaderboard
   try {
     const timeTaken = quizStartTime.value ? Math.floor((Date.now() - quizStartTime.value) / 1000) : 0
-    await leaderboardService.submitScore({
+    const syncResult = await leaderboardService.submitScore({
       score: quizResults.value.score,
       correct: quizResults.value.correct,
       total: quizResults.value.total,
@@ -876,7 +877,11 @@ async function completeQuiz() {
       mode: currentQuiz.value.mode,
       timeTaken: timeTaken
     })
-    console.log('✅ Score submitted to leaderboard')
+    if (syncResult.ok) {
+      console.log('✅ Score submitted to leaderboard')
+    } else if (syncResult.queued) {
+      console.log('⏳ Score queued for leaderboard sync')
+    }
   } catch (error) {
     console.error('⚠️ Failed to submit score to leaderboard:', error)
     // Don't block user if leaderboard submission fails

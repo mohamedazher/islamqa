@@ -14,6 +14,11 @@ var PrayerWidget = {
    * @param {string} prayerData.timeRemaining - Time until next prayer (e.g., "2h 15m")
    * @param {string} prayerData.currentPrayer - Name of current prayer (optional)
    * @param {string} prayerData.currentPrayerEnd - End time of current prayer (optional)
+   * @param {Object} prayerData.prayerTimestamps - Absolute epoch-millisecond schedule
+   * @param {number} prayerData.prayerTimestamps.fajr - Today's Fajr instant
+   * @param {number} prayerData.prayerTimestamps.sunrise - Today's sunrise instant
+   * @param {number} prayerData.prayerTimestamps.nextFajr - Tomorrow's Fajr instant
+   * @param {string} prayerData.timezone - IANA timezone for the saved location
    * @param {Function} success - Success callback
    * @param {Function} error - Error callback
    */
@@ -37,6 +42,19 @@ var PrayerWidget = {
    */
   forceUpdate: function(success, error) {
     exec(success, error, 'PrayerWidget', 'forceUpdate', []);
+  },
+
+  /** Clear saved widget data when prayer settings/app data are reset. */
+  clearWidget: function(success, error) {
+    exec(success, error, 'PrayerWidget', 'clearWidget', []);
+  },
+
+  /**
+   * Consume a pending native widget launch action. Returns "prayer-times" or "".
+   * Call on deviceready and resume; each action is returned only once.
+   */
+  consumeLaunchAction: function(success, error) {
+    exec(success, error, 'PrayerWidget', 'consumeLaunchAction', []);
   }
 };
 

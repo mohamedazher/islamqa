@@ -28,6 +28,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
 import { useDataStore } from '@/stores/data'
+import dataLoader from '@/services/dataLoader'
 import DesktopSidebar from '@/components/layout/DesktopSidebar.vue'
 import MobileBottomNav from '@/components/layout/MobileBottomNav.vue'
 import OnboardingSlides from '@/components/common/OnboardingSlides.vue'
@@ -74,7 +75,14 @@ async function checkDataImport() {
       console.log('⚠️  Data not imported, redirecting to import page')
       router.push('/import')
     } else if (isImported) {
-      // Initialize data store
+      // Refresh versioned Q&A content when an update is available. Keep the
+      // previously completed offline dataset usable if the refresh fails.
+      try {
+        await dataLoader.loadAndImport()
+      } catch (error) {
+        console.warn('⚠️  Q&A data refresh failed; continuing with the installed dataset:', error.message)
+      }
+
       await dataStore.initialize()
     }
   } catch (error) {

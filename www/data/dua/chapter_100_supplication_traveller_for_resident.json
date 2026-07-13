@@ -1,11 +1,12 @@
 [
   {
     "id": 1,
-    "hisn_number": null,
+    "hisn_number": 211,
     "category_id": "supplication_of_the_traveller_for_the_resident",
     "category_name": "Supplication of the traveller for the resident",
     "title": "Supplication of the traveller for the resident - Hisn al-Muslim 100",
     "arabic": "أَسْتَـوْدِعُكُـمُ اللَّهَ الَّـذي لا تَضـيعُ وَدائِعُـه",
+    "arabic_source_verification": "https://islamhouse.com/ar/books/2522/",
     "transliteration": "Astawdi'ukumu 'llāha 'l-ladhi lā taḍī'u wadā'i'uh.",
     "translation": "I place you in the trust of Allah, whose trust is never misplaced.",
     "reference": "Ahmad 2/403, Ibn Majah 2/943. See also Al-Albani, Sahih Ibn Majah 2/133.",

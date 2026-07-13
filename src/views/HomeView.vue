@@ -102,7 +102,12 @@
       <!-- Prayer Times Card -->
       <div v-if="dataStore.isReady" class="mb-8 animate-slide-up">
         <h3 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4 px-1">Prayer Times</h3>
-        <PrayerTimesCard @openSettings="openPrayerSettings" />
+        <!-- Location change toast -->
+        <div v-if="locationToast" class="mb-3 px-4 py-3 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-xl text-sm text-blue-800 dark:text-blue-200 flex items-center justify-between">
+          <span>{{ locationToast }}</span>
+          <button @click="locationToast = null" class="ml-2 text-blue-500 hover:text-blue-700">&times;</button>
+        </div>
+        <PrayerTimesCard :key="prayerTimesKey" @openSettings="openPrayerSettings" />
       </div>
 
       <!-- Quick Actions Grid -->
@@ -361,6 +366,7 @@ import Card from '@/components/common/Card.vue'
 import Button from '@/components/common/Button.vue'
 import Icon from '@/components/common/Icon.vue'
 import PrayerTimesCard from '@/components/home/PrayerTimesCard.vue'
+import { useLocationAutoDetect } from '@/composables/useLocationAutoDetect'
 
 const router = useRouter()
 const dataStore = useDataStore()
@@ -374,6 +380,9 @@ const stats = ref({
 const questionOfTheDay = ref(null)
 const randomQuestions = ref([])
 const carouselContainer = ref(null)
+const prayerTimesKey = ref(0)
+const locationToast = ref(null)
+const { checkLocationChange } = useLocationAutoDetect()
 let autoScrollInterval = null
 
 const quickActions = [
@@ -458,7 +467,7 @@ onMounted(async () => {
       const dbStats = await dataStore.getStats()
       stats.value.categories = dbStats.categories
 
-      const bookmarked = JSON.parse(localStorage.getItem('bookmarkedQuestions') || '[]')
+      const bookmarked = JSON.parse(localStorage.getItem('bookmarks') || '[]')
       stats.value.bookmarks = bookmarked.length
 
       // Load Question of the Day
@@ -469,6 +478,16 @@ onMounted(async () => {
 
       // Start auto-scroll for carousel on mobile
       startAutoScroll()
+
+      // Auto-detect location changes for prayer times
+      checkLocationChange().then(result => {
+        if (result && result.changed) {
+          locationToast.value = `Location changed: ${result.oldCity} → ${result.newCity}`
+          prayerTimesKey.value++
+          // Auto-dismiss after 5 seconds
+          setTimeout(() => { locationToast.value = null }, 5000)
+        }
+      })
     }
   } catch (error) {
     console.error('Failed to initialize:', error)
@@ -581,16 +600,16 @@ function startImport() {
 
 function viewQuestion(questionId) {
   // Award points for viewing QOTD
-  if (questionOfTheDay.value && questionId === questionOfTheDay.value.id) {
+  if (questionOfTheDay.value && questionId === questionOfTheDay.value.reference) {
     const today = new Date().toDateString()
     const lastClaimed = localStorage.getItem('qotd-points-claimed')
     if (lastClaimed !== today) {
-      gamification.readQuestion()
-      gamification.readQuestion() // Extra points for QOTD (2x5 = 10 points)
+      gamification.readQuestion(questionId)
+      gamification.awardPoints(5, 'QOTD bonus')
       localStorage.setItem('qotd-points-claimed', today)
     }
   } else {
-    gamification.readQuestion()
+    gamification.readQuestion(questionId)
   }
 
   router.push({

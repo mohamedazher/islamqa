@@ -10,7 +10,7 @@
           <!-- App Logo -->
           <div class="pt-6 sm:pt-8 flex justify-center">
             <img
-              src="/logo.png"
+              :src="`${publicBase}logo.png`"
               alt="BetterIslam Q&A"
               class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shadow-2xl"
             />
@@ -19,7 +19,7 @@
           <!-- Slides Container -->
           <div class="flex-1 flex items-center justify-center p-4 sm:p-6 md:p-12 overflow-y-auto">
             <div class="w-full max-w-2xl my-auto">
-              <TransitionGroup name="slide-fade" mode="out-in">
+              <TransitionGroup name="slide-fade">
                 <div
                   v-for="(slide, index) in slides"
                   v-show="currentSlide === index"
@@ -79,29 +79,29 @@
                             </li>
                             <li class="flex items-start gap-2">
                               <span class="text-white/60 flex-shrink-0">•</span>
-                              <span>Search queries (to improve results)</span>
+                              <span>Firebase usage analytics</span>
                             </li>
                             <li class="flex items-start gap-2">
                               <span class="text-white/60 flex-shrink-0">•</span>
-                              <span>Device type and platform</span>
+                              <span>Android interaction analytics through Microsoft Clarity</span>
                             </li>
                           </ul>
                         </div>
 
                         <div class="text-white/90 text-xs sm:text-sm md:text-base space-y-1.5 sm:space-y-2">
-                          <p class="font-semibold">What we never collect:</p>
+                          <p class="font-semibold">Separate online features:</p>
                           <ul class="space-y-0.5 sm:space-y-1 text-xs sm:text-sm">
                             <li class="flex items-start gap-2">
                               <span class="text-red-300 flex-shrink-0">✗</span>
-                              <span>Personal info (name, email, phone)</span>
+                              <span>Ask Islam sends a query only after you enable semantic search</span>
                             </li>
                             <li class="flex items-start gap-2">
                               <span class="text-red-300 flex-shrink-0">✗</span>
-                              <span>Location data</span>
+                              <span>Prayer location sends coordinates only after you approve place-name lookup</span>
                             </li>
                             <li class="flex items-start gap-2">
                               <span class="text-red-300 flex-shrink-0">✗</span>
-                              <span>Contact lists or photos</span>
+                              <span>Leaderboard and feedback clearly disclose their uploads before use</span>
                             </li>
                           </ul>
                         </div>
@@ -292,6 +292,8 @@ const props = defineProps({
     default: false
   }
 })
+
+const publicBase = import.meta.env.BASE_URL
 
 const emit = defineEmits(['update:modelValue', 'complete', 'skip'])
 

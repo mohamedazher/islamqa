@@ -231,6 +231,8 @@ import Button from '@/components/common/Button.vue'
 import Icon from '@/components/common/Icon.vue'
 import CircularCountdown from '@/components/common/CircularCountdown.vue'
 import prayerTimesService from '@/services/prayerTimesService'
+import { isLocationServicesEnabled } from '@/services/privacyConsent'
+import { useLocationAutoDetect } from '@/composables/useLocationAutoDetect'
 
 const router = useRouter()
 const emit = defineEmits(['openSettings'])
@@ -260,13 +262,23 @@ const timePeriodIcon = ref('sun')
 // Update current time every second
 let intervalId = null
 let widgetUpdateCounter = 0
+let refreshKey = ''
+const { checkLocationChange } = useLocationAutoDetect()
+
+const handleForeground = async () => {
+  const result = await checkLocationChange()
+  if (result?.changed) loadPrayerTimes()
+  else refreshForCalendarChange()
+}
 
 onMounted(() => {
   loadPrayerTimes()
+  window.addEventListener('app-foreground', handleForeground)
 
   // Update time every second for countdown
   intervalId = setInterval(() => {
     currentTime.value = new Date()
+    refreshForCalendarChange()
     updatePrayerInfo()
 
     // Update widget every 60 seconds
@@ -288,6 +300,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  window.removeEventListener('app-foreground', handleForeground)
   if (intervalId) {
     clearInterval(intervalId)
   }
@@ -320,6 +333,7 @@ const loadPrayerTimes = () => {
 
       // Generate 7 days of prayer times for carousel
       generateWeekPrayerTimes()
+      refreshKey = prayerTimesService.getRefreshKey()
     }
   } catch (e) {
     console.error('Failed to load prayer times:', e)
@@ -327,6 +341,12 @@ const loadPrayerTimes = () => {
   } finally {
     isLoading.value = false
   }
+}
+
+const refreshForCalendarChange = () => {
+  if (!hasLocation.value) return
+  const nextKey = prayerTimesService.getRefreshKey()
+  if (nextKey !== refreshKey) loadPrayerTimes()
 }
 
 // Update prayer info (current window and next prayer)
@@ -367,6 +387,11 @@ const detectLocation = async () => {
     detectingLocation.value = true
     error.value = null
 
+    if (!isLocationServicesEnabled()) {
+      error.value = 'Location lookup is off. Enable it in Privacy Settings before using automatic detection, or set coordinates manually.'
+      emit('openSettings')
+      return
+    }
     await prayerTimesService.detectLocation()
     loadPrayerTimes()
   } catch (e) {
@@ -405,17 +430,13 @@ const prayersList = computed(() => {
 
 // Get next prayer time formatted
 const nextPrayerTime = computed(() => {
-  if (!prayerTimes.value || !nextPrayerInfo.value) return ''
-
-  const prayerName = nextPrayerInfo.value.prayer
-  const prayer = prayersList.value.find(p => p.name === prayerName)
-
-  return prayer ? prayer.time : ''
+  if (!nextPrayerInfo.value?.timestamp) return ''
+  return prayerTimesService.formatTime(new Date(nextPrayerInfo.value.timestamp))
 })
 
 // Current date display
 const currentDate = computed(() => {
-  return currentTime.value.toLocaleDateString('en-US', {
+  return prayerTimesService.formatDate(currentTime.value, {
     weekday: 'short',
     month: 'short',
     day: 'numeric',
@@ -497,9 +518,9 @@ const generateWeekPrayerTimes = () => {
 
       times.push({
         date: date,
-        dayName: date.toLocaleDateString('en-US', { weekday: 'long' }),
-        shortDate: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-        fullDate: date.toLocaleDateString('en-US', { weekday: 'short', month: 'long', day: 'numeric', year: 'numeric' }),
+        dayName: prayerTimesService.formatDate(date, { weekday: 'long' }),
+        shortDate: prayerTimesService.formatDate(date, { month: 'short', day: 'numeric' }),
+        fullDate: prayerTimesService.formatDate(date, { weekday: 'short', month: 'long', day: 'numeric', year: 'numeric' }),
         prayers: [
           { name: 'Fajr', time: dayTimes.fajr },
           { name: 'Sunrise', time: dayTimes.sunrise },

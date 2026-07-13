@@ -33,9 +33,22 @@ class DataLoaderService {
    */
   async loadAndImport(onProgress) {
     try {
-      // Check if already imported
       const isImported = await dexieDb.isImported()
-      if (isImported) {
+      let metadata
+
+      try {
+        metadata = await this.loadMetadata()
+      } catch (error) {
+        // An existing offline installation remains usable when metadata cannot
+        // be checked. A fresh installation must not claim success without it.
+        if (!isImported) throw error
+        console.warn('⚠️  Could not check for Q&A data updates; using the installed dataset:', error.message)
+      }
+
+      const importedVersion = await dexieDb.getImportedDataVersion()
+      const needsCoreImport = !isImported || (metadata && importedVersion !== metadata.version)
+
+      if (!needsCoreImport) {
         console.log('✅ Data already imported')
 
         // Check if AI data needs to be imported (for existing users)
@@ -51,6 +64,10 @@ class DataLoaderService {
         return true
       }
 
+      if (isImported) {
+        console.log(`📦 Q&A data update available (${importedVersion || 'unversioned'} → ${metadata.version})`)
+      }
+
       this.isLoading = true
       this.progress = 0
 
@@ -59,7 +76,7 @@ class DataLoaderService {
       if (onProgress) onProgress({ step: this.currentStep, progress: 10 })
 
       const categoriesData = await this.loadCategories()
-      if (categoriesData && categoriesData.length > 0) {
+      if (categoriesData.length > 0) {
         // Import with progress updates (10% to 30%)
         await dexieDb.importCategories(categoriesData, (batchProgress) => {
           const batchPercent = batchProgress.percentage / 100
@@ -81,7 +98,7 @@ class DataLoaderService {
       if (onProgress) onProgress({ step: this.currentStep, progress: 35 })
 
       const questionsData = await this.loadQuestions()
-      if (questionsData && questionsData.length > 0) {
+      if (questionsData.length > 0) {
         // Import with progress updates (40% to 75%)
         await dexieDb.importQuestions(questionsData, (batchProgress) => {
           const batchPercent = batchProgress.percentage / 100
@@ -204,7 +221,7 @@ class DataLoaderService {
       }
 
       // Mark as imported
-      await dexieDb.markAsImported()
+      await dexieDb.markAsImported(metadata.version)
 
       this.progress = 100
       if (onProgress) onProgress({ step: 'Import complete!', progress: 100 })
@@ -228,19 +245,17 @@ class DataLoaderService {
    * OLD: Previously loaded from categories.js with regex extraction
    */
   async loadCategories() {
-    try {
-      const basePath = this.getDataPath()
-      const response = await fetch(`${basePath}/categories.json`)
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`)
-      }
-      const data = await response.json()
-      console.log(`📁 Loaded ${data.length} categories from categories.json`)
-      return data
-    } catch (error) {
-      console.error('Failed to load categories:', error)
-      return []
+    const basePath = this.getDataPath()
+    const response = await fetch(`${basePath}/categories.json`)
+    if (!response.ok) {
+      throw new Error(`Failed to load categories.json (HTTP ${response.status}: ${response.statusText})`)
     }
+    const data = await response.json()
+    if (!Array.isArray(data) || data.length === 0) {
+      throw new Error('categories.json is empty or invalid')
+    }
+    console.log(`📁 Loaded ${data.length} categories from categories.json`)
+    return data
   }
 
   /**
@@ -250,19 +265,34 @@ class DataLoaderService {
    * NOTE: Answers are now embedded in question.answer field
    */
   async loadQuestions() {
-    try {
-      const basePath = this.getDataPath()
-      const response = await fetch(`${basePath}/questions.json`)
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`)
-      }
-      const data = await response.json()
-      console.log(`📝 Loaded ${data.length} questions from questions.json`)
-      return data
-    } catch (error) {
-      console.error('Failed to load questions:', error)
-      return []
+    const basePath = this.getDataPath()
+    const response = await fetch(`${basePath}/questions.json`)
+    if (!response.ok) {
+      throw new Error(`Failed to load questions.json (HTTP ${response.status}: ${response.statusText})`)
     }
+    const data = await response.json()
+    if (!Array.isArray(data) || data.length === 0) {
+      throw new Error('questions.json is empty or invalid')
+    }
+    console.log(`📝 Loaded ${data.length} questions from questions.json`)
+    return data
+  }
+
+  /**
+   * Load Q&A dataset metadata used to decide whether an installed dataset
+   * needs a content refresh.
+   */
+  async loadMetadata() {
+    const basePath = this.getDataPath()
+    const response = await fetch(`${basePath}/metadata.json`)
+    if (!response.ok) {
+      throw new Error(`Failed to load metadata.json (HTTP ${response.status}: ${response.statusText})`)
+    }
+    const metadata = await response.json()
+    if (!metadata?.version) {
+      throw new Error('metadata.json does not contain a data version')
+    }
+    return metadata
   }
 
   /**
@@ -290,24 +320,42 @@ class DataLoaderService {
 
       // Map the quiz data to match the expected schema
       // Each quiz needs a 'reference' field (sourceQuestionId) for the primary key
+      const seenReferences = new Set()
+      let invalidReferences = 0
+      let duplicateReferences = 0
       const mappedQuizzes = quizzes
-        .map(quiz => ({
-          reference: quiz.sourceQuestionId || quiz.reference,
-          id: quiz.id,
-          questionText: quiz.questionText,
-          options: quiz.options,
-          explanation: quiz.explanation,
-          difficulty: quiz.difficulty,
-          tags: quiz.tags || [],
-          category: quiz.category,
-          source: quiz.source || 'IslamQA',
-          type: quiz.type || 'multiple-choice'
-        }))
-        .filter(quiz => quiz.reference != null) // Filter out quizzes without valid reference
+        .map(quiz => {
+          const rawReference = quiz.sourceQuestionId ?? quiz.reference
+          const reference = Number(rawReference)
+          if (!Number.isSafeInteger(reference) || reference <= 0) {
+            invalidReferences++
+            return null
+          }
+          if (seenReferences.has(reference)) {
+            duplicateReferences++
+            return null
+          }
+          seenReferences.add(reference)
+          return {
+            reference: reference,
+            id: quiz.id,
+            questionText: quiz.questionText,
+            options: quiz.options,
+            explanation: quiz.explanation,
+            difficulty: quiz.difficulty,
+            tags: quiz.tags || [],
+            category: quiz.category,
+            source: quiz.source || 'IslamQA',
+            type: quiz.type || 'multiple-choice'
+          }
+        })
+        .filter(Boolean)
 
-      const skipped = quizzes.length - mappedQuizzes.length
-      if (skipped > 0) {
-        console.warn(`⚠️  Skipped ${skipped} quiz(zes) without valid reference field`)
+      if (invalidReferences > 0) {
+        console.warn(`⚠️  Skipped ${invalidReferences} quiz(zes) without a valid positive reference`)
+      }
+      if (duplicateReferences > 0) {
+        console.warn(`⚠️  Skipped ${duplicateReferences} duplicate quiz reference(s); keeping the first occurrence`)
       }
 
       console.log(`🎯 Loaded ${mappedQuizzes.length} quiz questions from quiz-questions.json`)

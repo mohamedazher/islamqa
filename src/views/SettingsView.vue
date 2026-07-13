@@ -139,7 +139,7 @@
       </section>
 
       <!-- Profile Section -->
-      <section class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
+      <section v-if="leaderboardEnabled" class="bg-white dark:bg-neutral-900 rounded-lg shadow dark:shadow-neutral-800/50 overflow-hidden">
         <div class="px-4 py-3 border-b border-neutral-200 dark:border-neutral-800">
           <h2 class="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
             <Icon name="user" size="md" class="text-primary-600 dark:text-primary-400" />
@@ -264,6 +264,24 @@
                   class="w-full px-3 py-2 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-neutral-100 text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 />
               </div>
+              <div>
+                <label class="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                  Time Zone
+                </label>
+                <input
+                  v-model.trim="manualLocation.timeZone"
+                  list="iana-time-zones"
+                  type="text"
+                  placeholder="e.g., Asia/Riyadh"
+                  class="w-full px-3 py-2 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-neutral-100 text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                />
+                <datalist id="iana-time-zones">
+                  <option v-for="timeZone in timeZoneOptions" :key="timeZone" :value="timeZone" />
+                </datalist>
+                <p class="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
+                  Use the IANA zone for this location. This is required when the saved city is in a different time zone from your device.
+                </p>
+              </div>
               <button
                 @click="saveManualLocation"
                 :disabled="!isManualLocationValid"
@@ -328,6 +346,29 @@
                 </div>
               </label>
             </div>
+          </div>
+
+          <!-- High-latitude adjustment -->
+          <div>
+            <label class="block font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+              High-Latitude Adjustment
+            </label>
+            <select
+              v-model="prayerSettings.highLatitudeRule"
+              @change="saveHighLatitudeRule"
+              class="w-full px-3 py-2 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-neutral-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            >
+              <option
+                v-for="rule in highLatitudeRules"
+                :key="rule.key"
+                :value="rule.key"
+              >
+                {{ rule.name }}
+              </option>
+            </select>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
+              {{ selectedHighLatitudeRule?.description }}
+            </p>
           </div>
 
           <!-- Qibla Direction -->
@@ -455,7 +496,8 @@
                 <div class="text-xs text-blue-900 dark:text-blue-100">
                   <p><strong>Why do we need location access?</strong></p>
                   <p class="mt-1 text-blue-700 dark:text-blue-300">
-                    We use your location to calculate accurate prayer times for your area. Your location data is only used locally and never shared with third parties.
+                    Prayer calculations stay on your device. If you approve automatic detection or place-name lookup,
+                    your exact coordinates are sent to OpenStreetMap Nominatim to identify the city.
                   </p>
                 </div>
               </div>
@@ -476,7 +518,7 @@
           <!-- App Logo/Icon -->
           <div class="flex items-center gap-4">
             <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-700 dark:from-primary-600 dark:to-primary-800 rounded-2xl flex items-center justify-center shadow-lg p-2">
-              <img src="/logo.png" alt="App Logo" class="w-full h-full object-contain" />
+              <img :src="`${publicBase}logo.png`" alt="App Logo" class="w-full h-full object-contain" />
             </div>
             <div>
               <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100">{{ appName }}</h3>
@@ -649,20 +691,17 @@
                 <h3 class="font-medium text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
                   Analytics
                   <span v-if="!analyticsEnabled" class="text-xs bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-2 py-0.5 rounded">Disabled</span>
-                  <span v-if="isIOSCordova" class="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-2 py-0.5 rounded">iOS Managed</span>
+                  <span v-if="isIOSCordova" class="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-2 py-0.5 rounded">ATT Also Required</span>
                 </h3>
                 <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-0.5">
-                  <span v-if="!isIOSCordova">Help improve the app by sharing anonymous usage data. No personal information is collected.</span>
-                  <span v-else>Tracking permission is managed by iOS App Tracking Transparency.</span>
+                  <span>Help improve the app by sharing anonymous usage data. On iOS, the system ATT permission is also required.</span>
                 </p>
               </div>
               <button
                 @click="toggleAnalytics"
-                :disabled="isIOSCordova"
                 class="relative inline-flex h-9 w-16 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-neutral-900 flex-shrink-0"
                 :class="[
                   analyticsEnabled ? 'bg-primary-600 dark:bg-primary-500' : 'bg-neutral-300 dark:bg-neutral-700',
-                  isIOSCordova ? 'opacity-60 cursor-not-allowed' : ''
                 ]"
               >
                 <span
@@ -691,6 +730,45 @@
               >
                 <Icon name="cog" size="sm" />
                 Open iOS Settings
+              </button>
+            </div>
+          </div>
+
+          <div class="border-t border-neutral-200 pt-4 dark:border-neutral-800">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-medium text-neutral-900 dark:text-neutral-100">Leaderboard participation</h3>
+                <p class="mt-0.5 text-sm text-neutral-600 dark:text-neutral-400">
+                  Creates an anonymous Firebase account and syncs a generated username, scores and learning activity.
+                  Local progress works when disabled.
+                </p>
+              </div>
+              <button
+                @click="toggleLeaderboard"
+                class="relative inline-flex h-9 w-16 flex-shrink-0 items-center rounded-full transition-colors"
+                :class="leaderboardEnabled ? 'bg-primary-600' : 'bg-neutral-300 dark:bg-neutral-700'"
+              >
+                <span class="h-7 w-7 rounded-full bg-white shadow-sm transition-transform" :class="leaderboardEnabled ? 'translate-x-8' : 'translate-x-1'"></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="border-t border-neutral-200 pt-4 dark:border-neutral-800">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-medium text-neutral-900 dark:text-neutral-100">Automatic prayer location</h3>
+                <p class="mt-0.5 text-sm text-neutral-600 dark:text-neutral-400">
+                  Allows GPS detection and sends exact coordinates to OpenStreetMap Nominatim for a place name.
+                  Manual coordinates and prayer calculations remain available when disabled.
+                </p>
+              </div>
+              <button
+                @click="toggleLocationServices"
+                class="relative inline-flex h-9 w-16 flex-shrink-0 items-center rounded-full transition-colors"
+                :class="locationServicesEnabled ? 'bg-primary-600' : 'bg-neutral-300 dark:bg-neutral-700'"
+                :aria-pressed="locationServicesEnabled"
+              >
+                <span class="h-7 w-7 rounded-full bg-white shadow-sm transition-transform" :class="locationServicesEnabled ? 'translate-x-8' : 'translate-x-1'"></span>
               </button>
             </div>
           </div>
@@ -952,23 +1030,28 @@ import { useDuaStore } from '@/stores/dua'
 import dexieDb from '@/services/dexieDatabase'
 import Icon from '@/components/common/Icon.vue'
 import { shareApp } from '@/utils/sharing'
-import { usePrivacyConsent } from '@/services/privacyConsent'
+import {
+  isAnalyticsEnabled,
+  isLeaderboardEnabled,
+  isLocationServicesEnabled,
+  updateConsent
+} from '@/services/privacyConsent'
 import { useAnalytics } from '@/services/analytics'
 import OnboardingSlides from '@/components/common/OnboardingSlides.vue'
 import ClearDataDialog from '@/components/common/ClearDataDialog.vue'
 import leaderboardService from '@/services/leaderboardService'
-import { getFirestore, doc, getDoc } from 'firebase/firestore'
+import { disableFirebaseParticipation } from '@/services/firebase'
 import { resetOnboarding } from '@/services/onboarding'
-import prayerTimesService, { CALCULATION_METHODS, MADHAB_OPTIONS } from '@/services/prayerTimesService'
+import prayerTimesService, { CALCULATION_METHODS, MADHAB_OPTIONS, HIGH_LATITUDE_RULES } from '@/services/prayerTimesService'
 
 const router = useRouter()
 const { isDark, toggleTheme } = useTheme()
 const dataStore = useDataStore()
 const duaStore = useDuaStore()
-const { isAnalyticsEnabled, updateConsent } = usePrivacyConsent()
 const { setEnabled } = useAnalytics()
 
 const appName = 'BetterIslam Q&A'
+const publicBase = import.meta.env.BASE_URL
 const appVersion = __APP_VERSION__ // Injected by Vite from package.json
 const currentYear = new Date().getFullYear()
 
@@ -979,7 +1062,9 @@ const stats = ref({
 })
 
 const isClearing = ref(false)
-const analyticsEnabled = ref(isAnalyticsEnabled)
+const analyticsEnabled = ref(isAnalyticsEnabled())
+const leaderboardEnabled = ref(isLeaderboardEnabled())
+const locationServicesEnabled = ref(isLocationServicesEnabled())
 const showOnboardingDialog = ref(false)
 const showClearDataDialog = ref(false)
 const showImportantNotice = ref(false)
@@ -1009,16 +1094,23 @@ const isUpdatingUsername = ref(false)
 // Prayer Times settings
 const calculationMethods = Object.values(CALCULATION_METHODS)
 const madhabOptions = Object.values(MADHAB_OPTIONS)
+const highLatitudeRules = Object.values(HIGH_LATITUDE_RULES)
 const prayerSettings = ref({
   location: null,
   locationName: 'Not Set',
   calculationMethod: 'UMM_AL_QURA',
-  madhab: 'HANAFI'
+  madhab: 'SHAFI',
+  highLatitudeRule: 'MIDDLE_OF_NIGHT'
 })
+const deviceTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'
+const timeZoneOptions = typeof Intl.supportedValuesOf === 'function'
+  ? Intl.supportedValuesOf('timeZone')
+  : [deviceTimeZone, 'UTC']
 const manualLocation = ref({
   latitude: '',
   longitude: '',
-  name: ''
+  name: '',
+  timeZone: deviceTimeZone
 })
 const detectingLocation = ref(false)
 const qiblaDirection = ref(null)
@@ -1040,6 +1132,10 @@ const isIOSCordova = computed(() => {
 
 const selectedCalculationMethod = computed(() => {
   return calculationMethods.find(m => m.key === prayerSettings.value.calculationMethod)
+})
+
+const selectedHighLatitudeRule = computed(() => {
+  return highLatitudeRules.find(rule => rule.key === prayerSettings.value.highLatitudeRule)
 })
 
 const isManualLocationValid = computed(() => {
@@ -1069,10 +1165,14 @@ onMounted(async () => {
     await Promise.all(loadPromises)
 
     // Load user profile in background (don't block UI)
-    loadUserProfile().catch(error => {
-      console.error('Error loading user profile:', error)
-      userProfile.value.username = 'Error loading profile'
-    })
+    if (leaderboardEnabled.value) {
+      loadUserProfile().catch(error => {
+        console.error('Error loading user profile:', error)
+        userProfile.value.username = 'Error loading profile'
+      })
+    } else {
+      userProfile.value.username = localStorage.getItem('username') || 'Leaderboard disabled'
+    }
   } catch (error) {
     console.error('Error loading settings:', error)
   }
@@ -1105,9 +1205,23 @@ async function handleShareApp() {
 function toggleAnalytics() {
   analyticsEnabled.value = !analyticsEnabled.value
   updateConsent('analytics', analyticsEnabled.value)
+  updateConsent('clarity', analyticsEnabled.value)
   setEnabled(analyticsEnabled.value)
 
   console.log('[Settings] Analytics', analyticsEnabled.value ? 'enabled' : 'disabled')
+}
+
+async function toggleLeaderboard() {
+  leaderboardEnabled.value = !leaderboardEnabled.value
+  updateConsent('leaderboard', leaderboardEnabled.value)
+  if (leaderboardEnabled.value) {
+    await loadUserProfile()
+  } else {
+    await disableFirebaseParticipation()
+    leaderboardService.userId = null
+    leaderboardService.db = null
+    leaderboardService.isAvailable = false
+  }
 }
 
 function openAppSettings() {
@@ -1181,6 +1295,10 @@ async function handleClearData(selections) {
     // Clear app settings
     if (selections.settings || selections.resetEverything) {
       console.log('🗑️  Clearing app settings...')
+      await disableFirebaseParticipation()
+      prayerTimesService.clearSettings()
+      await clearNativePrayerWidget()
+      localStorage.removeItem('location_auto_detect_last')
       localStorage.removeItem('theme')
       localStorage.removeItem('privacy_consent')
       localStorage.removeItem('analytics_enabled')
@@ -1223,11 +1341,30 @@ async function handleClearData(selections) {
   }
 }
 
+async function clearNativePrayerWidget() {
+  if (!window.PrayerWidget?.clearWidget) return
+  await new Promise(resolve => {
+    let finished = false
+    const done = () => {
+      if (finished) return
+      finished = true
+      resolve()
+    }
+    window.PrayerWidget.clearWidget(done, done)
+    setTimeout(done, 1000)
+  })
+}
+
 // Profile management functions
 async function loadUserProfile() {
   try {
+    const { doc, getDoc } = await import('firebase/firestore')
     // Initialize user in leaderboard service
     const userInfo = await leaderboardService.initUser()
+
+    if (!userInfo?.userId) {
+      throw new Error(userInfo?.error?.message || 'Leaderboard is unavailable')
+    }
 
     userProfile.value.userId = userInfo.userId
     userProfile.value.username = userInfo.username
@@ -1278,7 +1415,8 @@ async function handleUpdateUsername() {
     isUpdatingUsername.value = true
 
     // Update username in leaderboard service
-    await leaderboardService.updateUsername(newUsername.value.trim())
+    const result = await leaderboardService.updateUsername(newUsername.value.trim())
+    if (!result?.ok) throw new Error(result?.message || 'Username could not be updated')
 
     // Update local state
     userProfile.value.username = newUsername.value.trim()
@@ -1308,7 +1446,9 @@ function loadPrayerSettings() {
       location: settings.location,
       locationName: settings.locationName,
       calculationMethod: settings.calculationMethod,
-      madhab: settings.madhab
+      madhab: settings.madhab,
+      highLatitudeRule: settings.highLatitudeRule,
+      timeZone: settings.timeZone
     }
 
     // Pre-fill manual location if exists
@@ -1316,6 +1456,7 @@ function loadPrayerSettings() {
       manualLocation.value.latitude = settings.location.latitude.toString()
       manualLocation.value.longitude = settings.location.longitude.toString()
       manualLocation.value.name = settings.locationName
+      manualLocation.value.timeZone = settings.timeZone
 
       // Calculate Qibla direction
       try {
@@ -1333,6 +1474,14 @@ function loadPrayerSettings() {
 
 async function detectLocation() {
   try {
+    if (!isLocationServicesEnabled()) {
+      const approved = confirm(
+        'Detecting your location uses GPS and sends the exact coordinates to OpenStreetMap Nominatim to obtain a city name. Enable this online lookup?'
+      )
+      if (!approved) return null
+      updateConsent('locationServices', true)
+      locationServicesEnabled.value = true
+    }
     detectingLocation.value = true
 
     const location = await prayerTimesService.detectLocation()
@@ -1348,14 +1497,22 @@ async function detectLocation() {
     manualLocation.value.latitude = location.latitude.toString()
     manualLocation.value.longitude = location.longitude.toString()
     manualLocation.value.name = location.locationName
+    manualLocation.value.timeZone = prayerTimesService.getSettings().timeZone
 
     // Update Qibla direction
     qiblaDirection.value = prayerTimesService.getQiblaDirection()
 
     alert(`Location detected: ${location.locationName}`)
+    return location
   } catch (error) {
     console.error('Failed to detect location:', error)
-    alert(error.message || 'Failed to detect location. Please check your browser permissions.')
+    if (error.shouldShowSettings) {
+      const openSettings = confirm(`${error.message}\n\nOpen device settings now?`)
+      if (openSettings) openLocationSettings()
+    } else {
+      alert(error.message || 'Failed to detect location. Please check your browser permissions.')
+    }
+    return null
   } finally {
     detectingLocation.value = false
   }
@@ -1369,10 +1526,22 @@ async function saveManualLocation() {
 
     // If no city name provided, fetch it from coordinates
     if (!name) {
+      if (!isLocationServicesEnabled()) {
+        const approved = confirm(
+          'Looking up a city name sends these exact coordinates to OpenStreetMap Nominatim. Continue?'
+        )
+        if (!approved) {
+          name = 'Manual Location'
+        } else {
+          updateConsent('locationServices', true)
+          locationServicesEnabled.value = true
+        }
+      }
       try {
-        console.log(`🌍 Fetching city name for coordinates: ${lat}, ${lon}`)
-        name = await prayerTimesService.getCityName(lat, lon)
-        console.log(`✅ Fetched city name: ${name}`)
+        if (isLocationServicesEnabled()) {
+          console.log('Fetching city name for saved coordinates')
+          name = await prayerTimesService.getCityName(lat, lon)
+        }
       } catch (error) {
         console.warn('Could not fetch city name, using default:', error)
         name = 'Manual Location'
@@ -1381,7 +1550,7 @@ async function saveManualLocation() {
       manualLocation.value.name = name
     }
 
-    prayerTimesService.saveLocation(lat, lon, name)
+    prayerTimesService.saveLocation(lat, lon, name, manualLocation.value.timeZone)
 
     // Update UI
     prayerSettings.value.location = { latitude: lat, longitude: lon }
@@ -1396,6 +1565,11 @@ async function saveManualLocation() {
     console.error('Failed to save location:', error)
     alert('Failed to save location. Please try again.')
   }
+}
+
+function toggleLocationServices() {
+  locationServicesEnabled.value = !locationServicesEnabled.value
+  updateConsent('locationServices', locationServicesEnabled.value)
 }
 
 function saveCalculationMethod() {
@@ -1413,6 +1587,15 @@ function saveMadhab() {
     console.log('Madhab saved:', prayerSettings.value.madhab)
   } catch (error) {
     console.error('Failed to save madhab:', error)
+  }
+}
+
+function saveHighLatitudeRule() {
+  try {
+    prayerTimesService.saveHighLatitudeRule(prayerSettings.value.highLatitudeRule)
+    console.log('High-latitude rule saved:', prayerSettings.value.highLatitudeRule)
+  } catch (error) {
+    console.error('Failed to save high-latitude rule:', error)
   }
 }
 
@@ -1434,12 +1617,11 @@ async function requestLocationPermission() {
     requestingPermission.value = true
 
     // Try to detect location, which will request permission if needed
-    await detectLocation()
+    const location = await detectLocation()
+    if (!location) return
 
     // Refresh permission status
     await checkLocationPermission()
-
-    alert('Location permission granted! Your location has been detected.')
   } catch (error) {
     console.error('Failed to request permission:', error)
 

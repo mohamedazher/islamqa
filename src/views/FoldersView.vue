@@ -178,12 +178,20 @@ import { useDataStore } from '@/stores/data'
 import { useDuaStore } from '@/stores/dua'
 import Icon from '@/components/common/Icon.vue'
 
+const props = defineProps({
+  defaultTab: {
+    type: String,
+    default: 'questions',
+    validator: value => ['questions', 'duas'].includes(value)
+  }
+})
+
 const router = useRouter()
 const dataStore = useDataStore()
 const duaStore = useDuaStore()
 
 // Tab state
-const activeTab = ref('questions')
+const activeTab = ref(props.defaultTab)
 
 // Questions/Bookmarks
 const bookmarkIds = ref([])

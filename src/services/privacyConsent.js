@@ -5,13 +5,17 @@
  */
 
 const STORAGE_KEY = 'privacy_consent'
-const CONSENT_VERSION = '1.0' // Increment when privacy policy changes
+const CONSENT_VERSION = '2.0' // Increment when privacy policy changes
 
 /**
  * Consent preferences structure
  * @typedef {Object} ConsentPreferences
  * @property {boolean} analytics - Firebase Analytics enabled
  * @property {boolean} crashReporting - Crash reporting enabled (future)
+ * @property {boolean} clarity - Microsoft Clarity session analytics enabled on Android
+ * @property {boolean} leaderboard - Firebase leaderboard participation enabled
+ * @property {boolean} onlineSearch - Sending Ask Islam queries to the HAL search service enabled
+ * @property {boolean} locationServices - Sending coordinates to Nominatim for place names enabled
  * @property {string} version - Consent version
  * @property {number} timestamp - When consent was given
  * @property {boolean} askedUser - Whether user has been asked
@@ -23,6 +27,10 @@ const CONSENT_VERSION = '1.0' // Increment when privacy policy changes
 const DEFAULT_CONSENT = {
   analytics: false,
   crashReporting: false,
+  clarity: false,
+  leaderboard: false,
+  onlineSearch: false,
+  locationServices: false,
   version: CONSENT_VERSION,
   timestamp: null,
   askedUser: false
@@ -47,7 +55,7 @@ export function getConsentPreferences() {
       return { ...DEFAULT_CONSENT }
     }
 
-    return consent
+    return { ...DEFAULT_CONSENT, ...consent }
   } catch (error) {
     console.error('[Privacy] Error reading consent preferences:', error)
     return { ...DEFAULT_CONSENT }
@@ -107,6 +115,22 @@ export function isCrashReportingEnabled() {
   return consent.crashReporting
 }
 
+export function isClarityEnabled() {
+  return getConsentPreferences().clarity === true
+}
+
+export function isLeaderboardEnabled() {
+  return getConsentPreferences().leaderboard === true
+}
+
+export function isOnlineSearchEnabled() {
+  return getConsentPreferences().onlineSearch === true
+}
+
+export function isLocationServicesEnabled() {
+  return getConsentPreferences().locationServices === true
+}
+
 /**
  * Grant all permissions
  * @returns {ConsentPreferences}
@@ -114,7 +138,11 @@ export function isCrashReportingEnabled() {
 export function acceptAll() {
   return saveConsentPreferences({
     analytics: true,
-    crashReporting: true
+    crashReporting: false,
+    clarity: true,
+    leaderboard: false,
+    onlineSearch: false,
+    locationServices: false
   })
 }
 
@@ -125,7 +153,11 @@ export function acceptAll() {
 export function rejectAll() {
   return saveConsentPreferences({
     analytics: false,
-    crashReporting: false
+    crashReporting: false,
+    clarity: false,
+    leaderboard: false,
+    onlineSearch: false,
+    locationServices: false
   })
 }
 
@@ -163,13 +195,24 @@ export function getPrivacyInfo() {
         category: 'Analytics',
         items: [
           'Screen views and navigation patterns',
-          'Search queries and result interactions',
           'Question views and bookmark actions',
           'App performance metrics',
           'Device type and platform (Android/iOS/Web)'
         ],
         purpose: 'To understand how users interact with the app and improve user experience',
         retention: '14 months (automatically deleted after)',
+        required: false
+      },
+      {
+        category: 'Online features (separate opt-ins)',
+        items: [
+          'Ask Islam can send the exact query to the HAL search service for semantic matching',
+          'Prayer location can send exact coordinates to OpenStreetMap Nominatim to obtain a city name',
+          'Leaderboard participation creates an anonymous Firebase account and uploads a generated username, scores and activity',
+          'Feedback sends the email address, message and feedback type you enter; optional diagnostics are sent only if selected'
+        ],
+        purpose: 'To provide features that require a network service. Each feature is disclosed and controlled separately.',
+        retention: 'Controlled by the receiving service; see its privacy policy',
         required: false
       },
       {
@@ -185,8 +228,8 @@ export function getPrivacyInfo() {
       }
     ],
     dataNotCollected: [
-      'Personal information (name, email, phone)',
-      'Location data',
+      'Personal information unless you deliberately submit it through Feedback',
+      'Location data unless you deliberately enable online place-name lookup',
       'Contact information',
       'Photos or media files',
       'Payment information',
@@ -197,6 +240,26 @@ export function getPrivacyInfo() {
         name: 'Google Firebase Analytics',
         purpose: 'Anonymous usage analytics',
         link: 'https://firebase.google.com/support/privacy'
+      },
+      {
+        name: 'Google Firebase Authentication and Firestore',
+        purpose: 'Optional leaderboard account, username, score and activity synchronization',
+        link: 'https://firebase.google.com/support/privacy'
+      },
+      {
+        name: 'Microsoft Clarity',
+        purpose: 'Optional Android session and interaction analytics',
+        link: 'https://privacy.microsoft.com/privacystatement'
+      },
+      {
+        name: 'HAL integrations service',
+        purpose: 'Optional semantic search queries and feedback delivery',
+        link: 'https://www.halsimplify.com/privacy-policy'
+      },
+      {
+        name: 'OpenStreetMap Nominatim',
+        purpose: 'Optional reverse geocoding of exact coordinates to a place name',
+        link: 'https://osmfoundation.org/wiki/Privacy_Policy'
       }
     ],
     userRights: [
@@ -219,6 +282,10 @@ export function usePrivacyConsent() {
     hasBeenAsked: hasUserBeenAsked(),
     isAnalyticsEnabled: isAnalyticsEnabled(),
     isCrashReportingEnabled: isCrashReportingEnabled(),
+    isClarityEnabled: isClarityEnabled(),
+    isLeaderboardEnabled: isLeaderboardEnabled(),
+    isOnlineSearchEnabled: isOnlineSearchEnabled(),
+    isLocationServicesEnabled: isLocationServicesEnabled(),
     acceptAll,
     rejectAll,
     updateConsent,
@@ -234,6 +301,10 @@ export default {
   hasUserBeenAsked,
   isAnalyticsEnabled,
   isCrashReportingEnabled,
+  isClarityEnabled,
+  isLeaderboardEnabled,
+  isOnlineSearchEnabled,
+  isLocationServicesEnabled,
   acceptAll,
   rejectAll,
   updateConsent,

@@ -102,8 +102,6 @@ export function skipOnboarding() {
  */
 export function getOnboardingSlides() {
   // Detect if running on iOS in Cordova
-  const isIOS = window.cordova && window.device && window.device.platform === 'iOS'
-
   const allSlides = [
     {
       id: 'welcome',
@@ -179,11 +177,8 @@ export function getOnboardingSlides() {
     }
   ]
 
-  // Filter out privacy slide on iOS (ATT handles tracking permission)
-  if (isIOS) {
-    return allSlides.filter(slide => slide.id !== 'privacy')
-  }
-
+  // App consent is required on every platform. iOS ATT is an additional OS-level
+  // permission and is requested only after this privacy choice is accepted.
   return allSlides
 }
 

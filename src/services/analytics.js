@@ -10,8 +10,6 @@
  *   logEvent('question_viewed', { question_id: 123 })
  */
 
-import { initializeApp, getApps, getApp } from 'firebase/app'
-import { getAnalytics, logEvent as firebaseLogEvent, setUserId as firebaseSetUserId, setUserProperties as firebaseSetUserProperties, setAnalyticsCollectionEnabled } from 'firebase/analytics'
 import { isAnalyticsEnabled } from './privacyConsent'
 
 // Firebase web config
@@ -26,8 +24,12 @@ const firebaseConfig = {
 }
 
 let analyticsInstance = null
+let firebaseAnalyticsApi = null
 let isInitialized = false
+let initializationPromise = null
 let analyticsEnabled = false
+let platformTrackingAllowed = true
+let listenerRegistered = false
 const isCordova = !!window.cordova
 const isWeb = !isCordova
 
@@ -35,31 +37,48 @@ const isWeb = !isCordova
  * Initialize Firebase Analytics
  * Only collects data if user has consented
  */
-export function initializeAnalytics() {
-  if (isInitialized) {
-    console.log('[Analytics] Already initialized')
-    return
+export async function initializeAnalytics(options = {}) {
+  if (typeof options.platformTrackingAllowed === 'boolean') {
+    platformTrackingAllowed = options.platformTrackingAllowed
   }
-
-  // Check user consent
-  analyticsEnabled = isAnalyticsEnabled()
+  analyticsEnabled = isAnalyticsEnabled() && platformTrackingAllowed
   console.log('[Analytics] User consent status:', analyticsEnabled ? 'Granted' : 'Denied')
 
+  if (!listenerRegistered) {
+    window.addEventListener('consent-changed', handleConsentChange)
+    listenerRegistered = true
+  }
+
+  // Do not create a Firebase app or touch the native plugin until consent exists.
+  if (!analyticsEnabled || isInitialized) return
+
   if (isWeb) {
-    // Initialize Firebase Web SDK
-    try {
-      // Check if Firebase app already exists, otherwise initialize
-      const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp()
-      analyticsInstance = getAnalytics(app)
+    if (initializationPromise) return initializationPromise
 
-      // Set collection enabled based on consent
-      setAnalyticsCollectionEnabled(analyticsInstance, analyticsEnabled)
+    initializationPromise = (async () => {
+      try {
+        const [appApi, analyticsApi] = await Promise.all([
+          import('firebase/app'),
+          import('firebase/analytics')
+        ])
 
-      isInitialized = true
-      console.log('[Analytics] ✅ Firebase Web SDK initialized (collection:', analyticsEnabled ? 'enabled' : 'disabled', ')')
-    } catch (error) {
-      console.error('[Analytics] ❌ Web initialization error:', error)
-    }
+        // Consent may have been revoked while the SDK chunk was downloading.
+        if (!analyticsEnabled || !platformTrackingAllowed) return
+
+        const app = appApi.getApps().length === 0 ? appApi.initializeApp(firebaseConfig) : appApi.getApp()
+        firebaseAnalyticsApi = analyticsApi
+        analyticsInstance = analyticsApi.getAnalytics(app)
+        analyticsApi.setAnalyticsCollectionEnabled(analyticsInstance, true)
+        isInitialized = true
+        console.log('[Analytics] Firebase Web SDK initialized with consent')
+      } catch (error) {
+        console.error('[Analytics] Web initialization error:', error)
+      } finally {
+        initializationPromise = null
+      }
+    })()
+
+    return initializationPromise
   } else {
     // Cordova plugin initializes automatically
     if (window.FirebasePlugin) {
@@ -72,8 +91,6 @@ export function initializeAnalytics() {
     }
   }
 
-  // Listen for consent changes
-  window.addEventListener('consent-changed', handleConsentChange)
 }
 
 /**
@@ -82,7 +99,7 @@ export function initializeAnalytics() {
  */
 function handleConsentChange(event) {
   const newConsent = event.detail
-  const newAnalyticsEnabled = newConsent.analytics
+  const newAnalyticsEnabled = newConsent.analytics === true && platformTrackingAllowed
 
   if (newAnalyticsEnabled === analyticsEnabled) {
     return // No change
@@ -91,12 +108,24 @@ function handleConsentChange(event) {
   analyticsEnabled = newAnalyticsEnabled
   console.log('[Analytics] Consent changed, analytics now:', analyticsEnabled ? 'enabled' : 'disabled')
 
-  if (isInitialized) {
+  if (!isInitialized && analyticsEnabled) {
+    void initializeAnalytics()
+  } else if (isInitialized) {
     if (isWeb && analyticsInstance) {
-      setAnalyticsCollectionEnabled(analyticsInstance, analyticsEnabled)
+      firebaseAnalyticsApi.setAnalyticsCollectionEnabled(analyticsInstance, analyticsEnabled)
     } else if (window.FirebasePlugin) {
       window.FirebasePlugin.setAnalyticsCollectionEnabled(analyticsEnabled)
     }
+  }
+}
+
+export function setPlatformTrackingAllowed(allowed) {
+  platformTrackingAllowed = allowed === true
+  const shouldEnable = isAnalyticsEnabled() && platformTrackingAllowed
+  if (shouldEnable && !isInitialized) {
+    void initializeAnalytics()
+  } else {
+    setEnabled(shouldEnable)
   }
 }
 
@@ -105,15 +134,20 @@ function handleConsentChange(event) {
  * @param {boolean} enabled
  */
 export function setEnabled(enabled) {
-  analyticsEnabled = enabled
+  analyticsEnabled = enabled && platformTrackingAllowed
+
+  if (analyticsEnabled && !isInitialized) {
+    void initializeAnalytics()
+    return
+  }
 
   if (isInitialized) {
     if (isWeb && analyticsInstance) {
-      setAnalyticsCollectionEnabled(analyticsInstance, enabled)
-      console.log('[Analytics] Collection', enabled ? 'enabled' : 'disabled')
+      firebaseAnalyticsApi.setAnalyticsCollectionEnabled(analyticsInstance, analyticsEnabled)
+      console.log('[Analytics] Collection', analyticsEnabled ? 'enabled' : 'disabled')
     } else if (window.FirebasePlugin) {
-      window.FirebasePlugin.setAnalyticsCollectionEnabled(enabled)
-      console.log('[Analytics] Collection', enabled ? 'enabled' : 'disabled')
+      window.FirebasePlugin.setAnalyticsCollectionEnabled(analyticsEnabled)
+      console.log('[Analytics] Collection', analyticsEnabled ? 'enabled' : 'disabled')
     }
   }
 }
@@ -148,7 +182,7 @@ export function useAnalytics() {
     }
 
     if (isWeb && analyticsInstance) {
-      firebaseLogEvent(analyticsInstance, 'screen_view', params)
+      firebaseAnalyticsApi.logEvent(analyticsInstance, 'screen_view', params)
       console.log('[Analytics] 📊 Screen view:', screenName)
     } else if (window.FirebasePlugin) {
       window.FirebasePlugin.logEvent('screen_view', params)
@@ -168,7 +202,7 @@ export function useAnalytics() {
     }
 
     if (isWeb && analyticsInstance) {
-      firebaseLogEvent(analyticsInstance, eventName, params)
+      firebaseAnalyticsApi.logEvent(analyticsInstance, eventName, params)
       console.log('[Analytics] 📊 Event:', eventName, params)
     } else if (window.FirebasePlugin) {
       window.FirebasePlugin.logEvent(eventName, params)
@@ -186,7 +220,7 @@ export function useAnalytics() {
     }
 
     if (isWeb && analyticsInstance) {
-      firebaseSetUserProperties(analyticsInstance, properties)
+      firebaseAnalyticsApi.setUserProperties(analyticsInstance, properties)
       console.log('[Analytics] 👤 User properties:', properties)
     } else if (window.FirebasePlugin) {
       Object.keys(properties).forEach(key => {
@@ -206,7 +240,7 @@ export function useAnalytics() {
     }
 
     if (isWeb && analyticsInstance) {
-      firebaseSetUserId(analyticsInstance, userId)
+      firebaseAnalyticsApi.setUserId(analyticsInstance, userId)
       console.log('[Analytics] 👤 User ID set:', userId)
     } else if (window.FirebasePlugin) {
       window.FirebasePlugin.setUserId(userId)

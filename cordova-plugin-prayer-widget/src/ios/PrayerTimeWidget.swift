@@ -20,6 +20,7 @@ struct PrayerTimeEntry: TimelineEntry {
     let nextPrayerTime: String
     let timeRemaining: String
     let currentPrayer: String
+    let nextPrayerDate: Date? = nil
 }
 
 // MARK: - Timeline Provider
@@ -42,22 +43,84 @@ struct PrayerTimeProvider: TimelineProvider {
     }
 
     func getSnapshot(in context: Context, completion: @escaping (PrayerTimeEntry) -> ()) {
-        let entry = loadPrayerData()
+        let entry = loadPrayerData(at: Date())
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<PrayerTimeEntry>) -> ()) {
-        let entry = loadPrayerData()
-
-        // Update widget every minute
-        let nextUpdate = Calendar.current.date(byAdding: .minute, value: 1, to: Date())!
-        let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
-
-        completion(timeline)
+        let now = Date()
+        let defaults = UserDefaults(suiteName: appGroupName)
+        let keys = ["fajr_timestamp", "sunrise_timestamp", "dhuhr_timestamp", "asr_timestamp",
+                    "maghrib_timestamp", "isha_timestamp", "next_fajr_timestamp"]
+        let boundaries = keys
+            .map { defaults?.double(forKey: $0) ?? 0 }
+            .filter { $0 > now.timeIntervalSince1970 * 1000 }
+            .map { Date(timeIntervalSince1970: $0 / 1000).addingTimeInterval(1) }
+        let dates = [now] + boundaries
+        let entries = dates.map { loadPrayerData(at: $0) }
+        let refresh = boundaries.last?.addingTimeInterval(60)
+            ?? Calendar.current.date(byAdding: .minute, value: 30, to: now)!
+        completion(Timeline(entries: entries, policy: .after(refresh)))
     }
 
-    private func loadPrayerData() -> PrayerTimeEntry {
+    private func loadPrayerData(at date: Date) -> PrayerTimeEntry {
         let userDefaults = UserDefaults(suiteName: appGroupName)
+
+        let keys = ["fajr_timestamp", "sunrise_timestamp", "dhuhr_timestamp", "asr_timestamp",
+                    "maghrib_timestamp", "isha_timestamp", "next_fajr_timestamp"]
+        let milliseconds = keys.map { userDefaults?.double(forKey: $0) ?? 0 }
+        let hasAbsoluteTimes = milliseconds[0] > 0
+            && zip(milliseconds, milliseconds.dropFirst()).allSatisfy { pair in pair.0 < pair.1 }
+
+        if hasAbsoluteTimes {
+            let identifier = userDefaults?.string(forKey: "timezone") ?? ""
+            let zone = TimeZone(identifier: identifier) ?? .current
+            let formatter = DateFormatter()
+            formatter.timeZone = zone
+            formatter.dateFormat = "h:mm a"
+            let instants = milliseconds.map { Date(timeIntervalSince1970: $0 / 1000) }
+            let state: (current: String, next: String, nextIndex: Int, countdownIndex: Int)?
+            if date < instants[0] {
+                state = ("", "Fajr", 0, 0)
+            } else if date < instants[1] {
+                // Sunrise is a timeline boundary that ends Fajr, not a prayer row.
+                state = ("Fajr", "Dhuhr", 2, 1)
+            } else if date < instants[2] {
+                state = ("", "Dhuhr", 2, 2)
+            } else if date < instants[3] {
+                state = ("Dhuhr", "Asr", 3, 3)
+            } else if date < instants[4] {
+                state = ("Asr", "Maghrib", 4, 4)
+            } else if date < instants[5] {
+                state = ("Maghrib", "Isha", 5, 5)
+            } else if date < instants[6] {
+                state = ("Isha", "Fajr", 6, 6)
+            } else {
+                state = nil
+            }
+
+            if let state = state {
+                let nextDate = instants[state.nextIndex]
+                let countdownDate = instants[state.countdownIndex]
+                let remaining = max(0, Int(ceil(countdownDate.timeIntervalSince(date) / 60)))
+                let remainingText = remaining >= 60
+                    ? "\(remaining / 60)h \(remaining % 60)m"
+                    : "\(remaining)m"
+                return PrayerTimeEntry(
+                    date: date,
+                    fajrTime: formatter.string(from: instants[0]),
+                    dhuhrTime: formatter.string(from: instants[2]),
+                    asrTime: formatter.string(from: instants[3]),
+                    maghribTime: formatter.string(from: instants[4]),
+                    ishaTime: formatter.string(from: instants[5]),
+                    nextPrayer: state.next,
+                    nextPrayerTime: formatter.string(from: nextDate),
+                    timeRemaining: remainingText,
+                    currentPrayer: state.current,
+                    nextPrayerDate: countdownDate
+                )
+            }
+        }
 
         // Load all 5 prayer times
         let fajrTime = userDefaults?.string(forKey: "fajr_time") ?? "--:--"
@@ -73,7 +136,7 @@ struct PrayerTimeProvider: TimelineProvider {
         let currentPrayer = userDefaults?.string(forKey: "current_prayer") ?? ""
 
         return PrayerTimeEntry(
-            date: Date(),
+            date: date,
             fajrTime: fajrTime,
             dhuhrTime: dhuhrTime,
             asrTime: asrTime,
@@ -131,9 +194,15 @@ struct SmallWidgetView: View {
                     .foregroundColor(.white)
 
                 // Time remaining (large)
-                Text(entry.timeRemaining)
-                    .font(.system(size: 32, weight: .bold, design: .monospaced))
-                    .foregroundColor(.white)
+                if let nextPrayerDate = entry.nextPrayerDate {
+                    Text(nextPrayerDate, style: .timer)
+                        .font(.system(size: 32, weight: .bold, design: .monospaced))
+                        .foregroundColor(.white)
+                } else {
+                    Text(entry.timeRemaining)
+                        .font(.system(size: 32, weight: .bold, design: .monospaced))
+                        .foregroundColor(.white)
+                }
 
                 // Label
                 Text(entry.currentPrayer.isEmpty ? "until prayer" : "until end")
@@ -180,13 +249,19 @@ struct MediumWidgetView: View {
                         .foregroundColor(.white)
                     Spacer()
                     // Countdown badge
-                    Text(entry.timeRemaining)
-                        .font(.system(size: 15, weight: .bold, design: .monospaced))
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(Color.white.opacity(0.25))
-                        .cornerRadius(6)
+                    Group {
+                        if let nextPrayerDate = entry.nextPrayerDate {
+                            Text(nextPrayerDate, style: .timer)
+                        } else {
+                            Text(entry.timeRemaining)
+                        }
+                    }
+                    .font(.system(size: 15, weight: .bold, design: .monospaced))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(Color.white.opacity(0.25))
+                    .cornerRadius(6)
                 }
                 .padding(.horizontal, 12)
                 .padding(.top, 12)
@@ -255,7 +330,7 @@ struct PrayerTimeWidget: Widget {
             PrayerTimeWidgetView(entry: entry)
         }
         .configurationDisplayName("Prayer Times")
-        .description("Shows all 5 daily prayer times with live countdown")
+        .description("Shows prayer times and a countdown derived from saved prayer timestamps")
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 }

@@ -13,6 +13,14 @@
           <h1 class="text-base font-semibold truncate">{{ category?.title }}</h1>
         </div>
         <div class="flex items-center gap-1">
+          <button
+            v-if="currentDua"
+            @click="toggleCurrentFavorite"
+            class="p-2 rounded-lg hover:bg-white/10"
+            :aria-label="currentDuaIsFavorite ? 'Remove from favorite duas' : 'Add to favorite duas'"
+          >
+            <Icon :name="currentDuaIsFavorite ? 'heartFilled' : 'heart'" size="md" class="text-white" />
+          </button>
           <button @click="handleShareDua" class="p-2 rounded-lg hover:bg-white/10">
             <Icon name="share" size="md" class="text-white" />
           </button>
@@ -193,6 +201,8 @@ const hasTriggeredConfetti = ref(false)
 
 const category = computed(() => duaStore.currentCategory)
 const allDuas = computed(() => duaStore.currentDuas)
+const currentDua = computed(() => allDuas.value[currentScrollIndex.value] || null)
+const currentDuaIsFavorite = ref(false)
 const totalDuas = computed(() => allDuas.value.length)
 const progressPercent = computed(() => {
   if (totalDuas.value === 0) return 0
@@ -205,6 +215,19 @@ const headerGradient = computed(() => {
   }
   return 'bg-gradient-to-br from-teal-500 via-cyan-500 to-blue-500'
 })
+
+async function refreshCurrentFavorite() {
+  currentDuaIsFavorite.value = currentDua.value
+    ? await duaStore.isFavorite(currentDua.value.id)
+    : false
+}
+
+async function toggleCurrentFavorite() {
+  if (!currentDua.value) return
+  currentDuaIsFavorite.value = await duaStore.toggleFavorite(currentDua.value.id)
+}
+
+watch(currentDua, refreshCurrentFavorite)
 
 // Confetti celebration function - subtle and brief
 function triggerConfetti() {
@@ -340,6 +363,7 @@ onMounted(async () => {
   if (allDuas.value.length > 0) {
     readDuaIndices.value.add(0)
     gamificationStore.readDua(allDuas.value[0].id, categoryId)
+    await refreshCurrentFavorite()
   }
 
   // Set adhkar totals if this is a morning/evening category

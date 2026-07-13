@@ -7,8 +7,113 @@
 
 const fs = require('fs')
 const path = require('path')
+const crypto = require('crypto')
 
 const DUA_DIR = path.join(__dirname, '../public/data/dua')
+const HISN_REFERENCE_PATH = path.join(__dirname, '../docs/reference/hisn_al_muslim.txt')
+const DATASET_VERSION = 12
+const EXPECTED_CATEGORY_COUNT = 133
+const EXPECTED_DUA_COUNT = 258
+const ARABIC_MARKS = /[\u064B-\u065F\u0670\u06D6-\u06ED]/g
+
+function nfc(value) {
+  return typeof value === 'string' ? value.normalize('NFC') : value
+}
+
+function sha256(value) {
+  return crypto.createHash('sha256').update(value).digest('hex')
+}
+
+function normalizeArabicForSearch(value) {
+  return nfc(value || '')
+    .normalize('NFD')
+    .replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g, '')
+    .replace(/\u0640/g, '')
+    .normalize('NFC')
+}
+
+function arabicSkeleton(value) {
+  return normalizeArabicForSearch(value)
+    .replace(/[\s\p{P}\p{S}\u0640]/gu, '')
+}
+
+function loadReferenceIndex() {
+  const content = fs.readFileSync(HISN_REFERENCE_PATH, 'utf8').normalize('NFC')
+  const index = new Map()
+  const blocks = content.matchAll(/Hisn al-Muslim\s+([0-9]+[a-z]?)([\s\S]*?)(?=Report Error \| Share \| Copy)/gi)
+  for (const match of blocks) {
+    const identifier = match[1]
+    const arabicLines = match[2].split(/\r?\n/)
+      .map(line => line.trim())
+      .filter(line => /[\u0600-\u06FF]/.test(line) && !line.includes('\uFFFD'))
+    for (const line of arabicLines) {
+      const skeleton = arabicSkeleton(line)
+      if (skeleton.length < 3) continue
+      if (!index.has(skeleton)) index.set(skeleton, new Set())
+      index.get(skeleton).add(identifier)
+    }
+  }
+  return index
+}
+
+function canonicalSourceIdentifier(dua) {
+  const raw = dua.hisn_number ?? dua.hisn_al_muslim_number ?? null
+  if (raw === null || raw === undefined || raw === '') return null
+  return String(raw).replace(/^hisn_/i, '').replace(/^\((.+)\)$/, '$1')
+}
+
+function arabicQuality(arabic) {
+  const letters = (arabic.match(/[\u0621-\u064A\u066E-\u06D3]/g) || []).length
+  const marks = (arabic.match(ARABIC_MARKS) || []).length
+  const coverage = letters === 0 ? 0 : Number((marks / letters).toFixed(3))
+  return {
+    harakat_count: marks,
+    harakat_coverage: coverage,
+    missing_harakat: letters > 0 && marks === 0,
+    low_harakat: letters > 0 && coverage < 0.15
+  }
+}
+
+function validateBuiltData(categories, duasByCategory) {
+  const errors = []
+  const warnings = []
+  const allDuas = Object.values(duasByCategory).flat()
+  const ids = new Set()
+
+  if (categories.length !== EXPECTED_CATEGORY_COUNT) {
+    errors.push(`Expected ${EXPECTED_CATEGORY_COUNT} categories, found ${categories.length}`)
+  }
+  if (allDuas.length !== EXPECTED_DUA_COUNT) {
+    errors.push(`Expected ${EXPECTED_DUA_COUNT} duas, found ${allDuas.length}`)
+  }
+  if (Object.keys(duasByCategory).length !== categories.length) {
+    errors.push('Category/dua-file parity failed')
+  }
+
+  for (const category of categories) {
+    const duas = duasByCategory[category.id]
+    if (!duas) errors.push(`Missing dua array for ${category.id}`)
+    else if (duas.length !== category.dua_count) {
+      errors.push(`Count mismatch for ${category.id}: category=${category.dua_count}, actual=${duas.length}`)
+    }
+  }
+
+  for (const dua of allDuas) {
+    if (ids.has(dua.id)) errors.push(`Duplicate runtime dua id: ${dua.id}`)
+    ids.add(dua.id)
+    if (!dua.source_collection || !dua.source_chapter || !dua.source_file) {
+      errors.push(`Missing provenance for ${dua.id}`)
+    }
+    if (dua.arabic.includes('\uFFFD')) errors.push(`Replacement character in Arabic for ${dua.id}`)
+    if (dua.arabic !== dua.arabic.normalize('NFC')) errors.push(`Arabic is not NFC for ${dua.id}`)
+    if (!dua.source_identifier) warnings.push(`${dua.id}: missing Hisn source identifier`)
+    if (!dua.reference) warnings.push(`${dua.id}: missing bibliographic reference`)
+    if (dua.arabic_quality.low_harakat) warnings.push(`${dua.id}: Arabic has low harakat coverage`)
+  }
+
+  if (errors.length) throw new Error(`Dua data validation failed:\n- ${errors.join('\n- ')}`)
+  return { warnings, totalDuas: allDuas.length }
+}
 
 // Emoji mappings based on category keywords (order matters - more specific first!)
 const EMOJI_KEYWORDS = [
@@ -385,6 +490,8 @@ function buildDuaData() {
 
   const categories = []
   const duasByCategory = {}
+  const idMigrations = {}
+  const referenceIndex = loadReferenceIndex()
   let totalDuas = 0
 
   for (const file of files) {
@@ -458,30 +565,65 @@ function buildDuaData() {
 
     // Update duas with consistent category_id, normalize field names, and add unique global id
     // IMPORTANT: Use categoryId (not chapterNum) in ID to avoid collisions between morning/evening
+    const localIdCounts = new Map()
+    for (const [idx, dua] of duas.entries()) {
+      const localId = String(dua.id ?? idx + 1)
+      localIdCounts.set(localId, (localIdCounts.get(localId) || 0) + 1)
+    }
+    const localIdOccurrences = new Map()
+
     const updatedDuas = duas.map((dua, idx) => {
       // For split chapters (morning/evening), use full categoryId to ensure unique IDs
       // e.g., "chapter_27_morning_hisn_75" vs "chapter_27_evening_hisn_75"
       const idPrefix = (isMorning || isEvening) ? `${chapterNum}_${chapterSlug}` : `${chapterNum}`
 
       // Normalize field names for consistent component access
+      const localId = String(dua.id ?? idx + 1)
+      const occurrence = (localIdOccurrences.get(localId) || 0) + 1
+      localIdOccurrences.set(localId, occurrence)
+      const duplicateCount = localIdCounts.get(localId)
+      // bulkPut historically left the last duplicate visible. Keep its old ID so
+      // existing favorites still point at the same text; expose earlier records.
+      const duplicateSuffix = duplicateCount > 1 && occurrence < duplicateCount ? `_${occurrence}` : ''
+      const runtimeId = `${idPrefix}_${localId}${duplicateSuffix}`
+      const legacyId = `${idPrefix}_${localId}`
+      const declaredSourceIdentifier = canonicalSourceIdentifier(dua)
+      const arabic = nfc(dua.dua_text_arabic || dua.arabic || '')
+      const referenceMatches = referenceIndex.get(arabicSkeleton(arabic))
+      const inferredSourceIdentifier = !declaredSourceIdentifier && referenceMatches?.size === 1
+        ? [...referenceMatches][0]
+        : null
+      const sourceIdentifier = declaredSourceIdentifier || inferredSourceIdentifier
       const normalized = {
-        id: `${idPrefix}_${dua.id || idx + 1}`,
+        id: runtimeId,
         category_id: categoryId,
         category_name: categoryName,
         chapter_num: chapterNum,
         // Normalize text fields (support both old and new field names)
-        arabic: dua.dua_text_arabic || dua.arabic || '',
-        transliteration: dua.dua_text_transliteration || dua.transliteration || '',
-        translation: dua.dua_text_english || dua.translation || '',
+        arabic,
+        arabic_search_text: normalizeArabicForSearch(arabic),
+        arabic_quality: arabicQuality(arabic),
+        transliteration: nfc(dua.dua_text_transliteration || dua.transliteration || ''),
+        translation: nfc(dua.dua_text_english || dua.translation || ''),
         // Generate title from translation if not present
         title: dua.title || (dua.dua_text_english || dua.translation || '').slice(0, 100) + ((dua.dua_text_english || dua.translation || '').length > 100 ? '...' : ''),
         // Keep other fields
-        reference: dua.reference || '',
+        reference: nfc(dua.reference || ''),
         virtue: dua.virtue || dua.hadith || '',
         repetitions: dua.repetitions || dua.repeat || null,
         tags: dua.tags || [],
-        hisn_al_muslim_number: dua.hisn_al_muslim_number || null,
+        // String-valued identifiers (notably "75a") must never be coerced.
+        hisn_al_muslim_number: sourceIdentifier,
+        source_identifier: sourceIdentifier,
+        source_identifier_inferred: Boolean(inferredSourceIdentifier),
+        source_identifier_raw: dua.hisn_number ?? dua.hisn_al_muslim_number ?? null,
+        source_collection: 'Hisn al-Muslim',
+        source_chapter: String(chapterNum),
+        source_file: file,
+        source_verification: dua.arabic_source_verification || 'docs/reference/hisn_al_muslim.txt',
+        arabic_normalization: 'NFC'
       }
+      idMigrations[legacyId] = duplicateCount > 1 ? `${idPrefix}_${localId}` : runtimeId
       return normalized
     })
 
@@ -495,6 +637,9 @@ function buildDuaData() {
   console.log(`  - ${categories.length} categories`)
   console.log(`  - ${totalDuas} total duas`)
 
+  const validation = validateBuiltData(categories, duasByCategory)
+  console.log(`  - ${validation.warnings.length} review warnings (non-destructive; see manifest)`)
+
   // Write categories.json
   const categoriesPath = path.join(DUA_DIR, 'categories.json')
   fs.writeFileSync(categoriesPath, JSON.stringify(categories, null, 2))
@@ -504,6 +649,24 @@ function buildDuaData() {
   const duasPath = path.join(DUA_DIR, 'duas.json')
   fs.writeFileSync(duasPath, JSON.stringify(duasByCategory, null, 2))
   console.log(`✅ Written ${duasPath}`)
+
+  fs.writeFileSync(path.join(DUA_DIR, 'id-migrations.json'), JSON.stringify({
+    dataset_version: DATASET_VERSION,
+    mappings: idMigrations
+  }, null, 2))
+  fs.writeFileSync(path.join(DUA_DIR, 'manifest.json'), JSON.stringify({
+    dataset_version: DATASET_VERSION,
+    source_collection: 'Hisn al-Muslim',
+    organization: 'Existing BetterIslam chapter/category structure',
+    category_count: categories.length,
+    dua_count: validation.totalDuas,
+    unicode_normalization: 'NFC',
+    checked_reference: 'docs/reference/hisn_al_muslim.txt',
+    checked_reference_sha256: sha256(fs.readFileSync(HISN_REFERENCE_PATH)),
+    generated_duas_sha256: sha256(JSON.stringify(duasByCategory)),
+    validation_warnings: validation.warnings
+  }, null, 2))
+  console.log('✅ Written migration map and validation manifest')
 
   console.log('\n🎉 Build complete!')
 }

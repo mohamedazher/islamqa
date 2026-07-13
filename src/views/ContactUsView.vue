@@ -61,6 +61,15 @@
 
         <!-- Form Fields -->
         <form @submit.prevent="submitForm" class="space-y-4">
+          <div class="rounded-lg border border-blue-200 bg-blue-50 p-3 text-xs text-blue-900 dark:border-blue-800 dark:bg-blue-950/30 dark:text-blue-100">
+            Sending submits your email address, feedback type and message to the HAL integrations service for delivery.
+            Nothing is sent until you press Send Feedback.
+          </div>
+
+          <label class="flex items-start gap-2 text-sm text-neutral-700 dark:text-neutral-300">
+            <input v-model="includeDiagnostics" type="checkbox" class="mt-1" :disabled="isLoading" />
+            <span>Include optional device diagnostics (platform, screen size, language, browser/device capabilities and app version).</span>
+          </label>
           <!-- Request Type Dropdown -->
           <div>
             <label class="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-2">
@@ -208,6 +217,7 @@ const form = ref<FormData>({
 const isLoading = ref(false)
 const successMessage = ref('')
 const errorMessage = ref('')
+const includeDiagnostics = ref(false)
 
 const typeDescriptions: Record<RequestType, string> = {
   feature_request: '✨ Great! Feature requests help us understand what would make the app better for you.',
@@ -252,7 +262,8 @@ async function submitForm() {
     const result = await contactUsService.sendFeedback(
       form.value.email,
       form.value.message,
-      form.value.requestType
+      form.value.requestType,
+      includeDiagnostics.value
     )
 
     successMessage.value = result.message

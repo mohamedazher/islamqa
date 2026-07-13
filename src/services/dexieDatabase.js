@@ -6,7 +6,7 @@
 
 import Dexie from 'dexie'
 
-class DexieDatabase extends Dexie {
+export class DexieDatabase extends Dexie {
   constructor() {
     super('IslamQA')
 
@@ -90,6 +90,26 @@ class DexieDatabase extends Dexie {
       dua_settings: 'key'
     })
 
+    // Version 5: add the compound index used to prevent duplicate folder bookmarks
+    this.version(5).stores({
+      categories: 'reference, parent_reference',
+      questions: 'reference, primary_category',
+      folders: '++id, folder_name',
+      folder_questions: '++id, reference, folder_id, [reference+folder_id]',
+      latest_questions: 'reference, primary_category',
+      settings: 'key',
+      quiz_configurations: '++id, mode, difficulty',
+      quiz_attempts: '++id, session_id, completion_date',
+      quiz_sessions: '++id, quiz_config_id',
+      quiz_questions: 'reference',
+      ai_summaries: 'reference',
+      ai_embeddings: 'reference',
+      dua_categories: 'id, parent_id, type, order, numeric_id',
+      duas: 'id, category_id, order',
+      dua_favorites: '++id, dua_id',
+      dua_settings: 'key'
+    })
+
     // Shortcuts to tables
     this.categories = this.table('categories')
     this.questions = this.table('questions')
@@ -129,16 +149,29 @@ class DexieDatabase extends Dexie {
   /**
    * Mark database as imported
    */
-  async markAsImported() {
-    try {
+  async markAsImported(dataVersion = null) {
+    await this.transaction('rw', this.settings, async () => {
       await this.settings.put({
         key: 'import_status',
         value: 'completed',
         timestamp: Date.now()
       })
-    } catch (error) {
-      console.error('Error marking as imported:', error)
-    }
+      if (dataVersion) {
+        await this.settings.put({
+          key: 'qa_data_version',
+          value: dataVersion,
+          timestamp: Date.now()
+        })
+      }
+    })
+  }
+
+  /**
+   * Return the version of the Q&A dataset that completed importing.
+   */
+  async getImportedDataVersion() {
+    const setting = await this.settings.get('qa_data_version')
+    return setting?.value || null
   }
 
   /**
@@ -714,6 +747,7 @@ class DexieDatabase extends Dexie {
    */
   async bulkImportQuizQuestions(quizQuestions) {
     try {
+      const seenReferences = new Set()
       const processed = quizQuestions.map(q => ({
         reference: q.reference,
         questionText: q.questionText,
@@ -724,11 +758,21 @@ class DexieDatabase extends Dexie {
         source: q.source || 'llm-generated',
         generatedDate: q.generatedDate || Date.now(),
         ...q
-      }))
+      })).filter(q => {
+        if (!Number.isSafeInteger(q.reference) || q.reference <= 0 || seenReferences.has(q.reference)) {
+          return false
+        }
+        seenReferences.add(q.reference)
+        return true
+      })
+
+      if (processed.length !== quizQuestions.length) {
+        console.warn(`⚠️  Skipped ${quizQuestions.length - processed.length} invalid or duplicate quiz question(s)`)
+      }
 
       await this.quiz_questions.bulkPut(processed)
-      console.log(`✅ Imported ${quizQuestions.length} quiz questions`)
-      return quizQuestions.length
+      console.log(`✅ Imported ${processed.length} quiz questions`)
+      return processed.length
     } catch (error) {
       console.error('Error bulk importing quiz questions:', error)
       throw error

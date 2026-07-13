@@ -1,11 +1,12 @@
 [
   {
     "id": 1,
-    "hisn_number": null,
+    "hisn_number": 191,
     "category_id": "on_the_wedding_night_or_when_buying_an_animal",
     "category_name": "On the wedding night or when buying an animal",
     "title": "On the wedding night or when buying an animal - Hisn al-Muslim 80",
     "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَهَا، وَخَيْرَ مَا جَبَلْتَهَا عَلَيْهِ، وَأَعُوذُ بِكَ مِنْ شَرِّهَا، وَشَرِّ مَا جَبَلْتَهَا عَلَيْهِ",
+    "arabic_source_verification": "https://islamhouse.com/ar/books/2522/",
     "transliteration": "Allāhumma innī as'aluka khayrahā wa khayra mā jabaltahā 'alayh, wa a'ūdhu bika min sharrihā wa sharri mā jabaltahā 'alayh",
     "translation": "O Allah, I ask You for the goodness within her and the goodness that You have made her inclined towards, and I seek refuge with You from the evil within her and the evil that You have made her inclined towards.",
     "reference": "Abu Dawud 2/248, Ibn Majah 1/617, Al-Albani, Sahih Ibn Majah 1/324",

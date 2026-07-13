@@ -1,152 +1,102 @@
-# Cordova Plugin Prayer Widget
+# Cordova prayer-time widget
 
-A Cordova plugin that provides native home screen widgets for prayer times on Android and iOS.
+This local plugin bridges the app's calculated prayer schedule to native home
+screen widgets. Version 2 of the data contract stores absolute prayer instants,
+not a frozen countdown. Native code derives the current prayer, next prayer,
+formatted times, and remaining duration whenever the widget renders.
 
-## Features
+## Data contract
 
-- ✅ **Android Widget**: Beautiful home screen widget with gradient background
-- ✅ **iOS Widget**: Native WidgetKit widget for iOS 14+
-- ✅ **Live Updates**: Countdown updates every minute automatically
-- ✅ **Current & Next Prayer**: Shows current prayer time or next prayer
-- ✅ **Tap to Open**: Tapping widget opens the app
-- ✅ **Dark/Light Theme**: Matches app theme with teal/cyan gradient
-
-## Installation
-
-```bash
-cordova plugin add /path/to/cordova-plugin-prayer-widget
+```js
+window.PrayerWidget.updateWidget({
+  schemaVersion: 2,
+  timezone: 'Asia/Riyadh',       // IANA timezone of the saved location
+  locationName: 'Makkah',
+  generatedAtMs: Date.now(),
+  prayerTimestamps: {
+    fajr: 1783900000000,
+    sunrise: 1783904800000,       // ends the Fajr current-prayer window
+    dhuhr: 1783920000000,
+    asr: 1783934000000,
+    maghrib: 1783947000000,
+    isha: 1783952000000,
+    nextFajr: 1783986400000      // tomorrow, required after Isha
+  },
+  // Display strings remain for compatibility with an old installed widget.
+  fajr: '4:45 AM',
+  dhuhr: '12:24 PM',
+  asr: '3:44 PM',
+  maghrib: '7:09 PM',
+  isha: '8:39 PM'
+}, success, error)
 ```
 
-Or from your project root:
+Epoch values must be milliseconds, ordered, and within ten years of the device
+clock. Invalid/missing absolute values fall back to legacy display strings and
+show no fabricated live state.
+
+Sunrise is required even though it is not rendered as a prayer. It ends the
+Fajr window; the widget shows no current prayer between sunrise and Dhuhr.
+
+Android formats the instants in the supplied IANA timezone, performs a
+battery-friendly 30-minute fallback refresh, and schedules a one-shot refresh
+at the next prayer boundary. iOS creates timeline entries at prayer boundaries
+and uses WidgetKit's timer rendering for a live countdown. Neither platform
+recalculates astronomical prayer times; the app must refresh and republish the
+schedule after location, calculation-method, madhab, timezone, or date changes.
+
+## Android installation and launch contract
+
+Install the local plugin and rebuild the generated platform:
 
 ```bash
 cordova plugin add ./cordova-plugin-prayer-widget
+cordova prepare android
 ```
 
-## Usage
+The receiver is registered automatically. Tapping the widget launches the app
+with an `openPrayerTimes` Intent extra. The native bridge exposes it once as a
+route-neutral action:
 
-### Update Widget
-
-Call this method whenever prayer time data changes (recommended: every minute):
-
-```javascript
-if (window.PrayerWidget) {
-  const prayerData = {
-    nextPrayer: "Maghrib",
-    nextPrayerTime: "6:45 PM",
-    timeRemaining: "3h 20m",
-    currentPrayer: "Asr",  // Optional: if currently in prayer window
-    currentPrayerEnd: "6:45 PM"  // Optional: when current prayer ends
-  };
-
-  PrayerWidget.updateWidget(
-    prayerData,
-    () => console.log('Widget updated successfully'),
-    (error) => console.error('Widget update failed:', error)
-  );
-}
+```js
+window.PrayerWidget.consumeLaunchAction(action => {
+  if (action === 'prayer-times') router.push('/prayer-times')
+}, console.error)
 ```
 
-### Check if Widget is Installed
+Call that method on both `deviceready` and Cordova `resume`. Consumption clears
+the extra so unrelated future resumes do not navigate unexpectedly. The plugin
+does not import or depend on Vue Router.
 
-```javascript
-PrayerWidget.isWidgetInstalled(
-  (installed) => {
-    if (installed) {
-      console.log('Widget is installed on home screen');
-    }
-  },
-  (error) => console.error(error)
-);
-```
+`isWidgetInstalled(success, error)` reports whether Android has an instance.
+`forceUpdate(success, error)` asks installed widgets to render immediately.
 
-### Force Widget Update
+## iOS integration status
 
-Useful for testing:
+The Cordova plugin installs only the main-app bridge (`PrayerWidget.swift`).
+Cordova does **not** create or sign a Widget Extension target. Therefore the
+provided `src/ios/PrayerTimeWidget.swift` is reference source, not an integrated
+iOS widget until the following native work is completed in Xcode:
 
-```javascript
-PrayerWidget.forceUpdate(
-  () => console.log('Widget force updated'),
-  (error) => console.error(error)
-);
-```
+1. create a Widget Extension target (iOS 14+);
+2. add `PrayerTimeWidget.swift` to that extension target only;
+3. enable `group.com.dkurve.betterislamqa` for the app and extension targets;
+4. configure signing/provisioning for the extension;
+5. ensure both target entitlements contain the same App Group;
+6. repeat/automate those changes after any destructive Cordova platform rebuild.
 
-## Platform-Specific Setup
+Until then, calls from the app can write App Group data but no iOS home-screen
+widget is shipped. `isWidgetInstalled` cannot be implemented accurately on iOS
+because WidgetKit exposes no installation-query API; its current success value
+means only that the bridge is available.
 
-### Android
+## Verification
 
-No additional setup required. Widget will appear in the widget picker after app installation.
+Run repository static contract tests with `yarn test:all`. For device QA:
 
-**Adding the Widget:**
-1. Long-press on home screen
-2. Tap "Widgets"
-3. Find "BetterIslam Q&A"
-4. Drag the Prayer Times widget to home screen
-
-### iOS
-
-**Additional Setup Required:**
-
-1. Open your project in Xcode:
-   ```bash
-   open platforms/ios/BetterIslam\ Q\&A.xcworkspace
-   ```
-
-2. Create a Widget Extension:
-   - File → New → Target
-   - Select "Widget Extension"
-   - Name it "PrayerTimeWidget"
-   - Uncheck "Include Configuration Intent"
-
-3. Replace the generated widget code with `/src/ios/PrayerTimeWidget.swift`
-
-4. Configure App Groups:
-   - Select main app target
-   - Signing & Capabilities → + Capability → App Groups
-   - Add group: `group.com.dkurve.betterislamqa`
-   - Repeat for PrayerTimeWidget target
-
-5. Build and run
-
-**Adding the Widget:**
-1. Long-press on home screen
-2. Tap "+" in top-left corner
-3. Search for "Prayer Times"
-4. Select widget size and tap "Add Widget"
-
-## Widget Display
-
-The widget shows:
-- 🕌 Mosque icon
-- Prayer name (Current or Next)
-- Large countdown timer
-- Prayer time
-- Tap to open hint
-
-## Data Format
-
-```javascript
-{
-  nextPrayer: string,        // "Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"
-  nextPrayerTime: string,    // "5:30 AM"
-  timeRemaining: string,     // "2h 15m" or "45m" or "30s"
-  currentPrayer: string,     // Optional: "Dhuhr" (if currently in prayer window)
-  currentPrayerEnd: string   // Optional: "2:30 PM"
-}
-```
-
-## Requirements
-
-- Cordova >= 9.0.0
-- cordova-android >= 9.0.0
-- cordova-ios >= 6.0.0
-- iOS 14+ (for iOS widgets)
-- Android 5.0+ (API 21+)
-
-## License
-
-MIT
-
-## Author
-
-BetterIslam Q&A Team
+- change location/timezone and verify native formatted times change;
+- cross Fajr, Dhuhr, Asr, Maghrib, Isha, and midnight/next-Fajr boundaries;
+- force-stop/background the app and verify the widget changes at a boundary;
+- tap the Android widget from cold start and resume;
+- remove consent/location and ensure the app no longer publishes coordinates or
+  new schedules (the widget may display the last locally saved schedule).

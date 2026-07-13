@@ -253,6 +253,13 @@
 
     <!-- Input Area -->
     <div class="flex-shrink-0 p-4 bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 safe-area-bottom">
+      <label class="mb-3 flex items-start gap-2 text-xs text-neutral-600 dark:text-neutral-400">
+        <input v-model="onlineSearchEnabled" type="checkbox" class="mt-0.5" @change="saveOnlineSearchPreference" />
+        <span>
+          Enable semantic search. This sends the exact question to the HAL integrations service.
+          When off, searching stays on this device using the offline database.
+        </span>
+      </label>
       <form @submit.prevent="handleSubmit" class="flex items-center gap-2">
         <input
           v-model="inputText"
@@ -350,7 +357,7 @@
             <div class="prose prose-sm dark:prose-invert max-w-none">
               <div class="bg-primary-50 dark:bg-primary-950/30 border-l-4 border-primary-500 dark:border-primary-600 p-4 rounded">
                 <h4 class="text-sm font-semibold text-primary-900 dark:text-primary-100 mb-2">Question</h4>
-                <div class="text-neutral-800 dark:text-neutral-200" v-html="modalQuestion.question"></div>
+                <div class="text-neutral-800 dark:text-neutral-200" v-html="sanitizeHtml(modalQuestion.question)"></div>
               </div>
             </div>
 
@@ -401,7 +408,9 @@ import duaService from '@/services/duaService'
 import unifiedChatSearchService from '@/services/unifiedChatSearchService'
 import { generateToken } from '@/utils/tokenHash'
 import { processAnswerLinks } from '@/utils/linkHandler'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import Icon from '@/components/common/Icon.vue'
+import { isOnlineSearchEnabled, updateConsent } from '@/services/privacyConsent'
 
 // n8n proxy endpoint for embeddings
 const EMBED_API_URL = 'https://integrationsv2.halerp.com/webhook/encode_search'
@@ -415,6 +424,12 @@ const isLoading = ref(false)
 const messagesContainer = ref(null)
 const suggestedQuestions = ref([])
 const searchMode = ref('') // 'semantic' or 'keyword'
+const onlineSearchEnabled = ref(isOnlineSearchEnabled())
+
+const saveOnlineSearchPreference = () => {
+  updateConsent('onlineSearch', onlineSearchEnabled.value)
+  if (!onlineSearchEnabled.value) searchMode.value = 'keyword'
+}
 
 // Modal state
 const showQuestionModal = ref(false)
@@ -494,6 +509,7 @@ const showLessResults = (message) => {
 
 // Get query embedding via n8n proxy
 const getQueryEmbedding = async (text) => {
+  if (!isOnlineSearchEnabled()) return null
   try {
     // Generate token from query + timestamp
     const timestamp = Date.now()
@@ -801,7 +817,7 @@ const startAiImport = async () => {
     ])
 
     const questions = await dataStore.getAllQuestions()
-    await unifiedChatSearchService.initialize(questions, summaries, embeddings, null, null)
+    await unifiedChatSearchService.initialize(questions, [], summaries, embeddings, {})
 
     aiDataMissing.value = false
     isImportingAi.value = false

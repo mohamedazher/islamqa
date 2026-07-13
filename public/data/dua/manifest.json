@@ -1,0 +1,12 @@
+{
+  "dataset_version": 12,
+  "source_collection": "Hisn al-Muslim",
+  "organization": "Existing BetterIslam chapter/category structure",
+  "category_count": 133,
+  "dua_count": 258,
+  "unicode_normalization": "NFC",
+  "checked_reference": "docs/reference/hisn_al_muslim.txt",
+  "checked_reference_sha256": "bef0d1dafb055476d30cfdd5a76bbad176e6ef0c16a14c06ebe2d07910970eee",
+  "generated_duas_sha256": "c87dcbe0e351fcbc81b68ea9e9d84f4c59de4c80791003bcfb65bcb8417344fd",
+  "validation_warnings": []
+}

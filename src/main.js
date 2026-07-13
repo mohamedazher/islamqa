@@ -3,7 +3,13 @@ import { createPinia } from 'pinia'
 import router from './router'
 import App from './App.vue'
 import './assets/styles/main.css'
-import { initializeAnalytics } from './services/analytics'
+import { initializeAnalytics, setEnabled, setPlatformTrackingAllowed } from './services/analytics'
+import { isAnalyticsEnabled, isClarityEnabled } from './services/privacyConsent'
+import { registerServiceWorker } from './services/serviceWorker'
+
+let clarityInitialized = false
+let attRequest = null
+let lifecycleListenersInstalled = false
 
 // Wait for Cordova to be ready
 const initApp = async () => {
@@ -16,20 +22,86 @@ const initApp = async () => {
   app.mount('#app')
 
   console.log('✅ Vue app initialized')
+  void registerServiceWorker()
 
-  // Request App Tracking Transparency permission on iOS before analytics
-  let trackingAllowed = true
-  if (window.cordova && window.device && window.device.platform === 'iOS') {
-    trackingAllowed = await requestTrackingPermission()
-    console.log('📊 Tracking allowed:', trackingAllowed)
+  const isIOS = window.cordova && window.device?.platform === 'iOS'
+  initializeAnalytics({ platformTrackingAllowed: !isIOS })
+  await applyPrivacyServices()
+  window.addEventListener('consent-changed', applyPrivacyServices)
+  installLifecycleListeners()
+  void router.isReady().then(consumeNativeLaunchAction)
+}
+
+function installLifecycleListeners() {
+  if (lifecycleListenersInstalled) return
+  lifecycleListenersInstalled = true
+
+  const notifyForeground = () => {
+    window.dispatchEvent(new CustomEvent('app-foreground', {
+      detail: { timestamp: Date.now() }
+    }))
+    consumeNativeLaunchAction()
   }
 
-  // Initialize Firebase Analytics only if tracking is allowed
-  if (trackingAllowed) {
-    initializeAnalytics()
+  document.addEventListener('resume', notifyForeground, false)
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') notifyForeground()
+  })
+}
+
+function consumeNativeLaunchAction() {
+  if (!window.PrayerWidget?.consumeLaunchAction) return
+  window.PrayerWidget.consumeLaunchAction(
+    action => {
+      if (action === 'prayer-times' && router.currentRoute.value.path !== '/prayer-times') {
+        router.push('/prayer-times').catch(error => console.warn('Could not open prayer times:', error))
+      }
+    },
+    error => console.warn('Could not read widget launch action:', error)
+  )
+}
+
+async function applyPrivacyServices() {
+  const analyticsConsent = isAnalyticsEnabled()
+  const isIOS = window.cordova && window.device?.platform === 'iOS'
+
+  if (isIOS) {
+    if (analyticsConsent) {
+      attRequest ||= requestTrackingPermission().finally(() => { attRequest = null })
+      setPlatformTrackingAllowed(await attRequest)
+    } else {
+      setPlatformTrackingAllowed(false)
+    }
   } else {
-    console.log('ℹ️ Analytics disabled - tracking not authorized')
+    setPlatformTrackingAllowed(true)
+    setEnabled(analyticsConsent)
   }
+
+  applyClarityConsent(isClarityEnabled() && analyticsConsent)
+}
+
+function applyClarityConsent(enabled) {
+  if (!window.cordova || window.device?.platform === 'iOS' || !window.ClarityPlugin) return
+
+  const success = () => {}
+  const failure = (message) => console.error('Microsoft Clarity consent update failed:', message)
+  if (!enabled) {
+    if (clarityInitialized) window.ClarityPlugin.pause(success, failure)
+    return
+  }
+
+  if (clarityInitialized) {
+    window.ClarityPlugin.resume(success, failure)
+    return
+  }
+
+  const clarityConfig = {
+    logLevel: window.ClarityPlugin.LogLevel.None,
+    allowMeteredNetworkUsage: true
+  }
+  window.ClarityPlugin.initialize('u73c1nlpij', () => {
+    clarityInitialized = true
+  }, failure, clarityConfig)
 }
 
 // Request App Tracking Transparency permission (iOS only)
@@ -97,26 +169,6 @@ const requestTrackingPermission = () => {
 if (window.cordova) {
   document.addEventListener('deviceready', () => {
     console.log('📱 Cordova device ready')
-
-    // Initialize Microsoft Clarity (Android only - not supported on iOS)
-    if (window.device && window.device.platform === 'iOS') {
-      console.log('ℹ️ Skipping Microsoft Clarity (not supported on iOS)')
-    } else if (window.ClarityPlugin) {
-      const success = function(message) {
-        console.log('✅ Microsoft Clarity initialized:', message)
-      }
-      const failure = function(message) {
-        console.error('❌ Microsoft Clarity failed to initialize:', message)
-      }
-      const clarityConfig = {
-        logLevel: window.ClarityPlugin.LogLevel.None, // Use LogLevel.Verbose for debugging
-        allowMeteredNetworkUsage: true
-      }
-
-      window.ClarityPlugin.initialize('u73c1nlpij', success, failure, clarityConfig)
-    } else {
-      console.warn('⚠️ Microsoft Clarity plugin not available')
-    }
 
     // Add small delay to ensure Cordova bridge is fully ready
     setTimeout(() => {

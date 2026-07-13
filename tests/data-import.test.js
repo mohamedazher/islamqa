@@ -337,7 +337,9 @@ describe('DataLoader - Full Import Flow (INTEGRATION)', () => {
     const content = fs.readFileSync(loaderPath, 'utf-8');
 
     // Must map to include reference field
-    expect(content).toContain('reference:');
+    // Accept either an explicit object mapping (`reference: value`) or the
+    // equivalent JavaScript property shorthand (`reference,`).
+    expect(content).toMatch(/\breference\s*(?::|,)/);
     expect(content).toContain('sourceQuestionId');
 
     console.log('✅ DataLoader maps quiz data to include reference field');

@@ -124,7 +124,7 @@ function getAppVersion() {
 /**
  * Send feedback to webhook
  */
-export async function sendFeedback(email, message, requestType = 'general') {
+export async function sendFeedback(email, message, requestType = 'general', includeDiagnostics = false) {
   try {
     // Validate inputs
     if (!email || !email.trim()) {
@@ -146,9 +146,6 @@ export async function sendFeedback(email, message, requestType = 'general') {
     // Generate simple auth token
     const appToken = generateAppToken()
 
-    // Collect device information
-    const deviceInfo = collectDeviceInfo()
-
     // Map request type for better readability
     const requestTypeLabels = {
       feature_request: 'Feature Request',
@@ -167,9 +164,12 @@ export async function sendFeedback(email, message, requestType = 'general') {
       request_type_label: requestTypeLabels[requestType] || requestType,
       app_token: appToken,
       timestamp: new Date().toISOString(),
-      user_agent: navigator.userAgent,
-      device: deviceInfo,
       source: 'biqa_app'
+    }
+
+    if (includeDiagnostics) {
+      payload.user_agent = navigator.userAgent
+      payload.device = collectDeviceInfo()
     }
 
     console.log('📧 Sending feedback via webhook...', { email, requestType, timestamp: payload.timestamp })

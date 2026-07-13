@@ -1,4 +1,5 @@
 import MarkdownIt from 'markdown-it'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const md = new MarkdownIt({
   html: true,
@@ -27,5 +28,5 @@ export function renderMarkdown(text) {
     .replace(/\\\|/g, '|')
 
   // Use markdown-it to render properly
-  return md.render(processed)
+  return sanitizeHtml(md.render(processed))
 }

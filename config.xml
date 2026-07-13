@@ -46,6 +46,9 @@
         <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
             <string>We need your location to calculate accurate prayer times and Qibla direction for your area.</string>
         </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSUserTrackingUsageDescription">
+            <string>With your permission, anonymous app usage helps us improve BetterIslam Q&amp;A. Core offline features work without tracking.</string>
+        </edit-config>
         <icon height="180" src="res/ios/Icon-180.png" width="180" />
         <icon height="60" src="res/ios/Icon-60.png" width="60" />
         <icon height="120" src="res/ios/Icon-120.png" width="120" />
@@ -55,7 +58,7 @@
         <icon height="80" src="res/ios/Icon-80.png" width="80" />
         <icon height="87" src="res/ios/Icon-87.png" width="87" />
         <icon height="57" src="res/ios/Icon-57.png" width="57" />
-        <icon height="114" src="res/ios/Icon-144.png" width="114" />
+        <icon height="114" src="res/ios/Icon-114.png" width="114" />
         <icon height="72" src="res/ios/Icon-72.png" width="72" />
         <icon height="144" src="res/ios/Icon-144.png" width="144" />
         <icon height="167" src="res/ios/Icon-167.png" width="167" />

@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; connect-src 'self' https://*.googleapis.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://nominatim.openstreetmap.org https://integrationsv2.halerp.com; script-src 'self' https://www.googletagmanager.com 'unsafe-eval' 'unsafe-inline'; script-src-elem 'self' https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content: https://api.dicebear.com; worker-src 'self' blob:;">
 
     <!-- Favicons and App Icons -->
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="%BASE_URL%favicon.png">
+    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png">
     <meta name="theme-color" content="#f4c430">
 
     <title>BetterIslam Q&A</title>
@@ -18,7 +18,7 @@
     <div id="app"></div>
 
     <!-- Cordova Script (only loaded when running in Cordova) -->
-    <script src="cordova.js"></script>
+    <script src="cordova.js" data-cordova-script></script>
 
     <!-- Vite Module Entry Point -->
     <script type="module" src="/src/main.js"></script>

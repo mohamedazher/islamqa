@@ -35,7 +35,7 @@
           <!-- UPDATED: Changed to title field (new data structure) -->
           <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">{{ currentQuestion.title }}</h2>
           <!-- UPDATED: Changed to question field (HTML content) - removed question_full -->
-          <div class="prose prose-sm dark:prose-invert max-w-none text-neutral-600 dark:text-neutral-400" v-html="currentQuestion.question"></div>
+          <div class="prose prose-sm dark:prose-invert max-w-none text-neutral-600 dark:text-neutral-400" v-html="sanitizeHtml(currentQuestion.question)"></div>
         </div>
 
         <!-- Answer Section -->
@@ -102,6 +102,7 @@ import Button from '@/components/common/Button.vue'
 import { shareQuestion } from '@/utils/sharing'
 import { getRelatedQuestionsData } from '@/utils/relatedQuestions'
 import { setupLinkHandlers, processAnswerLinks } from '@/utils/linkHandler'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const router = useRouter()
 const route = useRoute()

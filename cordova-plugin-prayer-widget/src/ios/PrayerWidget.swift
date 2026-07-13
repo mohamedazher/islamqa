@@ -41,6 +41,18 @@ class PrayerWidget: CDVPlugin {
             userDefaults.set(prayerData["timeRemaining"] as? String ?? "--:--", forKey: "time_remaining")
             userDefaults.set(prayerData["currentPrayer"] as? String ?? "", forKey: "current_prayer")
             userDefaults.set(prayerData["currentPrayerEnd"] as? String ?? "", forKey: "current_prayer_end")
+            userDefaults.set(prayerData["schemaVersion"] as? Int ?? 1, forKey: "schema_version")
+            userDefaults.set(prayerData["timezone"] as? String ?? "", forKey: "timezone")
+            userDefaults.set(prayerData["locationName"] as? String ?? "", forKey: "location_name")
+            persistEpoch(prayerData, key: "generatedAtMs", defaultsKey: "generated_at_ms", defaults: userDefaults)
+            let timestamps = prayerData["prayerTimestamps"] as? [String: Any] ?? prayerData
+            persistEpoch(timestamps, key: "fajr", defaultsKey: "fajr_timestamp", defaults: userDefaults)
+            persistEpoch(timestamps, key: "sunrise", defaultsKey: "sunrise_timestamp", defaults: userDefaults)
+            persistEpoch(timestamps, key: "dhuhr", defaultsKey: "dhuhr_timestamp", defaults: userDefaults)
+            persistEpoch(timestamps, key: "asr", defaultsKey: "asr_timestamp", defaults: userDefaults)
+            persistEpoch(timestamps, key: "maghrib", defaultsKey: "maghrib_timestamp", defaults: userDefaults)
+            persistEpoch(timestamps, key: "isha", defaultsKey: "isha_timestamp", defaults: userDefaults)
+            persistEpoch(timestamps, key: "nextFajr", defaultsKey: "next_fajr_timestamp", defaults: userDefaults)
             userDefaults.set(Date().timeIntervalSince1970, forKey: "last_updated")
             userDefaults.synchronize()
 
@@ -62,6 +74,14 @@ class PrayerWidget: CDVPlugin {
         }
 
         self.commandDelegate!.send(pluginResult, callbackId: command.callbackId)
+    }
+
+    private func persistEpoch(_ data: [String: Any], key: String, defaultsKey: String, defaults: UserDefaults) {
+        let milliseconds = (data[key] as? NSNumber)?.doubleValue ?? 0
+        let now = Date().timeIntervalSince1970 * 1000
+        let tenYears = 10.0 * 365.0 * 24.0 * 60.0 * 60.0 * 1000.0
+        defaults.set(milliseconds > 1_000_000_000_000 && abs(milliseconds - now) < tenYears ? milliseconds : 0,
+                     forKey: defaultsKey)
     }
 
     /**
@@ -99,5 +119,38 @@ class PrayerWidget: CDVPlugin {
             )
             self.commandDelegate!.send(pluginResult, callbackId: command.callbackId)
         }
+    }
+
+    @objc(clearWidget:)
+    func clearWidget(command: CDVInvokedUrlCommand) {
+        guard let defaults = UserDefaults(suiteName: appGroupName) else {
+            self.commandDelegate!.send(
+                CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "Failed to access shared container"),
+                callbackId: command.callbackId
+            )
+            return
+        }
+        for key in defaults.dictionaryRepresentation().keys {
+            defaults.removeObject(forKey: key)
+        }
+        if #available(iOS 14.0, *) {
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+        self.commandDelegate!.send(
+            CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "Widget data cleared"),
+            callbackId: command.callbackId
+        )
+    }
+
+    /** Android widget launches can carry an explicit route. The iOS extension
+     * currently opens the host app without a route, so expose the same API with
+     * an empty one-shot action rather than failing the cross-platform call. */
+    @objc(consumeLaunchAction:)
+    func consumeLaunchAction(command: CDVInvokedUrlCommand) {
+        let pluginResult = CDVPluginResult(
+            status: CDVCommandStatus_OK,
+            messageAs: ""
+        )
+        self.commandDelegate!.send(pluginResult, callbackId: command.callbackId)
     }
 }

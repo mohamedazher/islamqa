@@ -4,7 +4,7 @@
     <div class="flex h-16 shrink-0 items-center justify-between px-6 border-b border-neutral-200 dark:border-neutral-800">
       <router-link to="/" class="flex items-center gap-3">
         <img
-          src="/logo.png"
+          :src="`${publicBase}logo.png`"
           alt="BetterIslam Q&A Logo"
           class="w-10 h-10 rounded-lg shadow-soft"
         />
@@ -78,6 +78,7 @@ import ThemeToggle from '@/components/common/ThemeToggle.vue'
 
 const route = useRoute()
 const gamificationStore = useGamificationStore()
+const publicBase = import.meta.env.BASE_URL
 
 const navigation = [
   { name: 'Home', to: '/', icon: 'home' },

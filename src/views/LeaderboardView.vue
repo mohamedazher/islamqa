@@ -14,8 +14,19 @@
       </div>
     </header>
 
+    <div v-if="!leaderboardEnabled" class="m-4 rounded-xl border border-amber-300 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/30">
+      <h2 class="font-semibold text-neutral-900 dark:text-neutral-100">Leaderboard is optional</h2>
+      <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">
+        Enabling it creates an anonymous Firebase account and uploads a generated username, quiz scores,
+        reading/bookmark/dua activity and timestamps. Offline learning and local progress work without it.
+      </p>
+      <button @click="enableLeaderboard" class="mt-4 rounded-lg bg-amber-600 px-4 py-2 font-medium text-white hover:bg-amber-700">
+        Enable Leaderboard
+      </button>
+    </div>
+
     <!-- Tab Selector -->
-    <div class="bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 px-4 pt-4">
+    <div v-if="leaderboardEnabled" class="bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 px-4 pt-4">
       <div class="flex gap-2">
         <button
           v-for="tab in tabs"
@@ -32,7 +43,7 @@
     </div>
 
     <!-- Leaderboard Content -->
-    <div class="flex-1 overflow-y-auto p-4 space-y-4">
+    <div v-if="leaderboardEnabled" class="flex-1 overflow-y-auto p-4 space-y-4">
       <!-- Loading -->
       <div v-if="loading" class="flex items-center justify-center py-12">
         <div class="text-center">
@@ -58,8 +69,19 @@
         </div>
       </div>
 
+      <div v-if="!loading && loadError" class="rounded-xl border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-950/30">
+        <div class="flex items-start gap-3">
+          <Icon name="exclamation" size="md" class="mt-0.5 text-red-600 dark:text-red-400" />
+          <div class="flex-1">
+            <p class="font-medium text-red-900 dark:text-red-100">Leaderboard could not be loaded</p>
+            <p class="mt-1 text-sm text-red-700 dark:text-red-300">{{ loadError }}</p>
+            <button @click="loadLeaderboard" class="mt-3 rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700">Retry</button>
+          </div>
+        </div>
+      </div>
+
       <!-- Leaderboard List -->
-      <div class="space-y-2">
+      <div v-if="!loadError" class="space-y-2">
         <div
           v-for="entry in leaderboard"
           :key="entry.userId"
@@ -79,11 +101,12 @@
               </div>
               <!-- Other ranks: Show avatar with rank badge -->
               <div v-else class="relative">
-                <img
-                  :src="getAvatarUrl(entry.userId, entry.username)"
-                  :alt="entry.username"
-                  class="w-10 h-10 rounded-full bg-neutral-100 dark:bg-neutral-800"
-                />
+                <div
+                  class="w-10 h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 flex items-center justify-center font-semibold"
+                  :aria-label="`${entry.username} avatar`"
+                >
+                  {{ getInitials(entry.username) }}
+                </div>
                 <!-- Small rank badge overlay -->
                 <div class="absolute -bottom-1 -right-1 bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-white dark:border-neutral-900">
                   {{ entry.rank }}
@@ -117,7 +140,7 @@
       </div>
 
       <!-- Empty State -->
-      <div v-if="!loading && leaderboard.length === 0" class="text-center py-12 px-4">
+      <div v-if="!loading && !loadError && leaderboard.length === 0" class="text-center py-12 px-4">
         <Icon name="trophy" size="xl" class="text-neutral-400 dark:text-neutral-600 mx-auto mb-4" />
         <p class="text-neutral-600 dark:text-neutral-400 font-medium mb-2">
           {{ getEmptyStateMessage() }}
@@ -135,6 +158,7 @@ import { ref, onMounted, onActivated, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import Icon from '@/components/common/Icon.vue'
 import leaderboardService from '@/services/leaderboardService'
+import { isLeaderboardEnabled, updateConsent } from '@/services/privacyConsent'
 
 const router = useRouter()
 const route = useRoute()
@@ -151,14 +175,23 @@ const loading = ref(false)
 const userRank = ref(null)
 const userScore = ref(0)
 const username = ref('')
+const leaderboardEnabled = ref(isLeaderboardEnabled())
+const loadError = ref(null)
+let loadRequestId = 0
+
+async function enableLeaderboard() {
+  updateConsent('leaderboard', true)
+  leaderboardEnabled.value = true
+  await initializeLeaderboard()
+}
 
 onMounted(async () => {
-  await initializeLeaderboard()
+  if (leaderboardEnabled.value) await initializeLeaderboard()
 })
 
 // Reload when navigating back to the page
 onActivated(async () => {
-  await loadLeaderboard()
+  if (leaderboardEnabled.value) await loadLeaderboard()
 })
 
 // Watch for route changes to reload when clicking "Board" tab
@@ -167,48 +200,57 @@ watch(() => route.path, async (newPath) => {
   if (newPath === '/leaderboard') {
     // Reset to Today tab and reload
     selectedTab.value = 'daily'
-    await loadLeaderboard()
+    if (leaderboardEnabled.value) await loadLeaderboard()
   }
 }, { flush: 'post' })
 
 watch(selectedTab, () => {
-  loadLeaderboard()
+  if (leaderboardEnabled.value) loadLeaderboard()
 })
 
-// Get avatar URL using DiceBear API (identicon style)
-function getAvatarUrl(userId, username) {
-  // Use username or userId as seed for consistent avatars
-  const seed = username || userId || 'default'
-  return `https://api.dicebear.com/7.x/identicon/svg?seed=${encodeURIComponent(seed)}`
+function getInitials(username) {
+  const normalized = String(username || '?').trim()
+  const words = normalized.split(/\s+/).filter(Boolean)
+  if (words.length > 1) return `${words[0][0]}${words[1][0]}`.toUpperCase()
+  return normalized.slice(0, 2).toUpperCase()
 }
 
 async function initializeLeaderboard() {
   loading.value = true // Show loading immediately
   try {
     console.log('🎯 Initializing leaderboard view...')
-    await leaderboardService.initUser()
+    const user = await leaderboardService.initUser()
+    if (!user?.userId) throw new Error('Authentication is unavailable. Check your connection and try again.')
     username.value = leaderboardService.username
     console.log(`✅ Leaderboard user initialized: ${username.value}`)
     await loadLeaderboard()
   } catch (error) {
     console.error('❌ Failed to initialize leaderboard:', error)
+    loadError.value = error.message || 'Leaderboard initialization failed.'
     loading.value = false
   }
 }
 
 async function loadLeaderboard() {
+  if (!leaderboardEnabled.value) return
+  const requestId = ++loadRequestId
+  const requestedTab = selectedTab.value
   loading.value = true
+  loadError.value = null
 
   try {
-    console.log(`📊 Loading ${selectedTab.value} leaderboard...`)
+    console.log(`📊 Loading ${requestedTab} leaderboard...`)
 
-    if (selectedTab.value === 'daily') {
-      leaderboard.value = await leaderboardService.getDailyLeaderboard()
-    } else if (selectedTab.value === 'weekly') {
-      leaderboard.value = await leaderboardService.getWeeklyLeaderboard()
+    let entries
+    if (requestedTab === 'daily') {
+      entries = await leaderboardService.getDailyLeaderboard()
+    } else if (requestedTab === 'weekly') {
+      entries = await leaderboardService.getWeeklyLeaderboard()
     } else {
-      leaderboard.value = await leaderboardService.getAllTimeLeaderboard()
+      entries = await leaderboardService.getAllTimeLeaderboard()
     }
+    if (requestId !== loadRequestId) return
+    leaderboard.value = entries
 
     console.log(`✅ Loaded ${leaderboard.value.length} entries`)
 
@@ -216,20 +258,24 @@ async function loadLeaderboard() {
     const userEntry = leaderboard.value.find(entry => entry.isCurrentUser)
     if (userEntry) {
       userRank.value = userEntry.rank
-      userScore.value = selectedTab.value === 'daily' ? (userEntry.score || 0) : (userEntry.totalScore || 0)
+      userScore.value = requestedTab === 'daily' ? (userEntry.score || 0) : (userEntry.totalScore || 0)
       console.log(`👤 User rank: ${userRank.value}, score: ${userScore.value}`)
     } else {
-      userRank.value = null
-      userScore.value = 0
-      console.log('👤 User not found in leaderboard')
+      const standing = await leaderboardService.getUserRank(requestedTab)
+      if (requestId !== loadRequestId) return
+      userRank.value = standing?.rank ?? null
+      userScore.value = standing?.score ?? 0
+      console.log(userRank.value ? `👤 User rank: ${userRank.value}, score: ${userScore.value}` : '👤 User has no score in this period')
     }
   } catch (error) {
+    if (requestId !== loadRequestId) return
     console.error('❌ Failed to load leaderboard:', error)
     leaderboard.value = []
     userRank.value = null
     userScore.value = 0
+    loadError.value = error.message || 'Check your connection and try again.'
   } finally {
-    loading.value = false
+    if (requestId === loadRequestId) loading.value = false
   }
 }
 

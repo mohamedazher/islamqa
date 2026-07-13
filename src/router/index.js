@@ -119,6 +119,7 @@ const router = createRouter({
       path: '/dua/favorites',
       name: 'dua-favorites',
       component: () => import('@/views/FoldersView.vue'),
+      props: { defaultTab: 'duas' },
       meta: { title: 'Saved Items' }
     }
   ]

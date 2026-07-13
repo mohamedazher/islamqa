@@ -8,7 +8,18 @@ const packageJson = JSON.parse(readFileSync('./package.json', 'utf-8'))
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    {
+      name: 'remove-cordova-script-from-web',
+      transformIndexHtml: {
+        order: 'pre',
+        handler(html) {
+          return html.replace(/\s*<script src="cordova\.js" data-cordova-script><\/script>/, '')
+        }
+      }
+    }
+  ],
 
   // Inject app version as global constant
   define: {
