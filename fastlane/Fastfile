@@ -229,7 +229,7 @@ platform :ios do
     build_type = options[:release] ? "Release" : "Debug"
     scheme_name = "App"
     team_id = ENV['FASTLANE_TEAM_ID']
-    sh("cd #{Shellwords.escape(ios_platform_path)} && xcodebuild -quiet -workspace #{Shellwords.escape(ios_workspace_path)} -scheme #{Shellwords.escape(scheme_name)} -configuration #{build_type} -derivedDataPath build -allowProvisioningUpdates DEVELOPMENT_TEAM=#{Shellwords.escape(team_id)} SWIFT_VERSION=5.0 CODE_SIGN_STYLE=Automatic")
+    sh("cd #{Shellwords.escape(ios_platform_path)} && xcodebuild -quiet -workspace #{Shellwords.escape(ios_workspace_path)} -scheme #{Shellwords.escape(scheme_name)} -configuration #{build_type} -derivedDataPath build -allowProvisioningUpdates DEVELOPMENT_TEAM=#{Shellwords.escape(team_id)} SWIFT_VERSION=5.0")
 
     UI.success("✅ iOS #{build_type} build completed!")
   end
@@ -243,7 +243,7 @@ platform :ios do
   lane :build_release do
     prepare_ios_release
 
-    # Export IPA using xcodebuild with automatic code signing
+    # Export IPA using the signing settings configured above.
     scheme_name = "App"
     team_id = ENV['FASTLANE_TEAM_ID']
 
@@ -269,10 +269,9 @@ platform :ios do
 
     # Archive the app
     UI.important("📦 Archiving iOS app...")
-    sh("cd #{Shellwords.escape(ios_platform_path)} && xcodebuild -quiet -workspace #{Shellwords.escape(ios_workspace_path)} -scheme #{Shellwords.escape(scheme_name)} -sdk iphoneos -configuration Release -derivedDataPath build -archivePath build/BetterIslamQA.xcarchive archive -allowProvisioningUpdates DEVELOPMENT_TEAM=#{Shellwords.escape(team_id)} SWIFT_VERSION=5.0 CODE_SIGN_STYLE=Automatic")
+    sh("cd #{Shellwords.escape(ios_platform_path)} && xcodebuild -quiet -workspace #{Shellwords.escape(ios_workspace_path)} -scheme #{Shellwords.escape(scheme_name)} -sdk iphoneos -configuration Release -derivedDataPath build -archivePath build/BetterIslamQA.xcarchive archive -allowProvisioningUpdates DEVELOPMENT_TEAM=#{Shellwords.escape(team_id)} SWIFT_VERSION=5.0")
 
-    # Export IPA with automatic code signing
-    UI.important("📤 Exporting IPA with automatic code signing...")
+    UI.important("📤 Exporting IPA with Match code signing...")
     sh("cd #{Shellwords.escape(ios_platform_path)} && xcodebuild -quiet -exportArchive -archivePath build/BetterIslamQA.xcarchive -exportPath build -exportOptionsPlist #{Shellwords.escape(export_opts_path)} -allowProvisioningUpdates")
 
     ipa_path = Dir[File.join(ios_platform_path, 'build', '*.ipa')].max_by { |path| File.mtime(path) }
