@@ -363,6 +363,7 @@ platform :ios do
       skip_metadata: true,
       skip_screenshots: true,
       force: false,
+      precheck_include_in_app_purchases: false,
       submit_for_review: true,
       automatic_release: false # Manually release after review
     )
