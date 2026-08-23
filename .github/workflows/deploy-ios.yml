@@ -104,7 +104,9 @@ jobs:
           FASTLANE_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}
           MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          MATCH_READONLY: ${{ secrets.MATCH_READONLY }}
+          # Bootstrap may create the first Match certificate/profile. Subsequent
+          # releases should switch this to "true" once signing is established.
+          ISLAMQA_MATCH_READONLY: "false"
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
         run: fastlane ios beta
 
@@ -116,7 +118,7 @@ jobs:
           FASTLANE_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}
           MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          MATCH_READONLY: ${{ secrets.MATCH_READONLY }}
+          ISLAMQA_MATCH_READONLY: "true"
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
           CONFIRM_PRODUCTION_RELEASE: "true"
         run: fastlane ios production

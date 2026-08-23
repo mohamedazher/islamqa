@@ -200,7 +200,9 @@ platform :ios do
       api_key: api_key,
       git_url: ENV['MATCH_GIT_URL'],
       team_id: team_id,
-      readonly: ENV.fetch('MATCH_READONLY', 'true') != 'false'
+      # fastlane treats any non-empty MATCH_READONLY value (including "false")
+      # as enabled. Keep our explicit policy in an app-specific variable.
+      readonly: ENV.fetch('ISLAMQA_MATCH_READONLY', 'true') != 'false'
     )
 
     keychain_name = ENV['MATCH_KEYCHAIN_NAME'].to_s.strip
