@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="176" id="com.dkurve.betterislamqa" version="3.0.13" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="177" id="com.dkurve.betterislamqa" version="3.0.14" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>BetterIslam Q&amp;A</name>
     <description>
         Welcome to Islam Question&amp;Answer
@@ -46,9 +46,6 @@
         <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
             <string>We need your location to calculate accurate prayer times and Qibla direction for your area.</string>
         </edit-config>
-        <edit-config file="*-Info.plist" mode="merge" target="NSUserTrackingUsageDescription">
-            <string>With your permission, anonymous app usage helps us improve BetterIslam Q&amp;A. Core offline features work without tracking.</string>
-        </edit-config>
         <icon height="180" src="res/ios/Icon-180.png" width="180" />
         <icon height="60" src="res/ios/Icon-60.png" width="60" />
         <icon height="120" src="res/ios/Icon-120.png" width="120" />
@@ -85,6 +82,8 @@
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="ANALYTICS_COLLECTION_ENABLED" value="false" />
+    <preference name="AUTOMATIC_SCREEN_REPORTING_ENABLED" value="false" />
     <preference name="android-targetSdkVersion" value="36" />
     <preference name="android-compileSdkVersion" value="36" />
     <preference name="SplashScreenDelay" value="0" />

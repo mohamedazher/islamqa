@@ -28,7 +28,6 @@ let firebaseAnalyticsApi = null
 let isInitialized = false
 let initializationPromise = null
 let analyticsEnabled = false
-let platformTrackingAllowed = true
 let listenerRegistered = false
 const isCordova = !!window.cordova
 const isWeb = !isCordova
@@ -37,11 +36,8 @@ const isWeb = !isCordova
  * Initialize Firebase Analytics
  * Only collects data if user has consented
  */
-export async function initializeAnalytics(options = {}) {
-  if (typeof options.platformTrackingAllowed === 'boolean') {
-    platformTrackingAllowed = options.platformTrackingAllowed
-  }
-  analyticsEnabled = isAnalyticsEnabled() && platformTrackingAllowed
+export async function initializeAnalytics() {
+  analyticsEnabled = isAnalyticsEnabled()
   console.log('[Analytics] User consent status:', analyticsEnabled ? 'Granted' : 'Denied')
 
   if (!listenerRegistered) {
@@ -63,7 +59,7 @@ export async function initializeAnalytics(options = {}) {
         ])
 
         // Consent may have been revoked while the SDK chunk was downloading.
-        if (!analyticsEnabled || !platformTrackingAllowed) return
+        if (!analyticsEnabled) return
 
         const app = appApi.getApps().length === 0 ? appApi.initializeApp(firebaseConfig) : appApi.getApp()
         firebaseAnalyticsApi = analyticsApi
@@ -99,7 +95,7 @@ export async function initializeAnalytics(options = {}) {
  */
 function handleConsentChange(event) {
   const newConsent = event.detail
-  const newAnalyticsEnabled = newConsent.analytics === true && platformTrackingAllowed
+  const newAnalyticsEnabled = newConsent.analytics === true
 
   if (newAnalyticsEnabled === analyticsEnabled) {
     return // No change
@@ -119,22 +115,12 @@ function handleConsentChange(event) {
   }
 }
 
-export function setPlatformTrackingAllowed(allowed) {
-  platformTrackingAllowed = allowed === true
-  const shouldEnable = isAnalyticsEnabled() && platformTrackingAllowed
-  if (shouldEnable && !isInitialized) {
-    void initializeAnalytics()
-  } else {
-    setEnabled(shouldEnable)
-  }
-}
-
 /**
  * Enable or disable analytics collection
  * @param {boolean} enabled
  */
 export function setEnabled(enabled) {
-  analyticsEnabled = enabled && platformTrackingAllowed
+  analyticsEnabled = enabled
 
   if (analyticsEnabled && !isInitialized) {
     void initializeAnalytics()
