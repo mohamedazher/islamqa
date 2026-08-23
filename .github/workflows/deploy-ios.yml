@@ -1,0 +1,130 @@
+name: iOS Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: "Delivery target"
+        required: true
+        default: "testflight"
+        type: choice
+        options:
+          - build
+          - testflight
+          - production
+
+permissions:
+  contents: read
+
+concurrency:
+  group: islamqa-ios-release
+  cancel-in-progress: false
+
+jobs:
+  ios:
+    # This is a dedicated runner registration on the local release Mac. It is
+    # intentionally separate from the Reach mobile factory runner.
+    runs-on: [self-hosted, macOS, ARM64, islamqa_ios]
+    environment: ios-production
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Set up Fastlane on the local Mac
+        shell: bash
+        run: |
+          set -euo pipefail
+          ruby_bin="/opt/homebrew/opt/ruby/bin"
+          test -x "$ruby_bin/ruby"
+          "$ruby_bin/gem" install --user-install --no-document fastlane -v 2.238.0
+          user_gem_bin="$("$ruby_bin/ruby" -e 'print File.join(Gem.user_dir, "bin")')"
+          echo "$ruby_bin" >> "$GITHUB_PATH"
+          echo "$user_gem_bin" >> "$GITHUB_PATH"
+          PATH="$ruby_bin:$user_gem_bin:$PATH" "$user_gem_bin/fastlane" --version
+
+      - name: Install Firebase configuration
+        shell: bash
+        env:
+          FIREBASE_IOS_CONFIG_BASE64: ${{ secrets.FIREBASE_IOS_CONFIG_BASE64 }}
+        run: |
+          set -euo pipefail
+          test -n "$FIREBASE_IOS_CONFIG_BASE64"
+          printf '%s' "$FIREBASE_IOS_CONFIG_BASE64" | base64 -D > GoogleService-Info.plist
+
+      - name: Install App Store Connect API key
+        if: inputs.deployment_target != 'build'
+        shell: bash
+        env:
+          APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}
+          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+        run: |
+          set -euo pipefail
+          test -n "$APP_STORE_CONNECT_API_KEY_CONTENT"
+          test -n "$APP_STORE_CONNECT_API_KEY_ID"
+          key_path="$RUNNER_TEMP/AuthKey_${APP_STORE_CONNECT_API_KEY_ID}.p8"
+          printf '%s' "$APP_STORE_CONNECT_API_KEY_CONTENT" | base64 -D > "$key_path"
+          chmod 600 "$key_path"
+          echo "FASTLANE_API_KEY_PATH=$key_path" >> "$GITHUB_ENV"
+
+      - name: Require isolated iOS signing configuration
+        if: inputs.deployment_target != 'build'
+        shell: bash
+        env:
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        run: |
+          set -euo pipefail
+          test -n "$MATCH_GIT_URL"
+          test -n "$MATCH_PASSWORD"
+
+      - name: Build unsigned iOS gate
+        if: inputs.deployment_target == 'build'
+        shell: bash
+        run: |
+          set -euo pipefail
+          yarn install --frozen-lockfile
+          yarn test:all
+          yarn build
+          yarn cordova prepare ios
+          cd platforms/ios
+          xcodebuild -quiet -workspace App.xcworkspace -scheme App -configuration Debug -sdk iphoneos -derivedDataPath build CODE_SIGNING_ALLOWED=NO build
+
+      - name: Upload to TestFlight
+        if: inputs.deployment_target == 'testflight'
+        env:
+          FASTLANE_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+          FASTLANE_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          FASTLANE_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          MATCH_READONLY: ${{ secrets.MATCH_READONLY }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+        run: fastlane ios beta
+
+      - name: Submit to App Store review
+        if: inputs.deployment_target == 'production'
+        env:
+          FASTLANE_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+          FASTLANE_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          FASTLANE_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          MATCH_READONLY: ${{ secrets.MATCH_READONLY }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          CONFIRM_PRODUCTION_RELEASE: "true"
+        run: fastlane ios production
+
+      - name: Remove temporary credentials
+        if: always()
+        shell: bash
+        run: |
+          rm -f GoogleService-Info.plist
+          rm -f "$RUNNER_TEMP"/AuthKey_*.p8

@@ -3,6 +3,45 @@
 
 default_platform(:android)
 
+require "shellwords"
+
+def islamqa_root
+  File.expand_path("..", __dir__)
+end
+
+def islamqa_sh(command)
+  sh("cd #{Shellwords.escape(islamqa_root)} && #{command}")
+end
+
+def restore_ci_keychain_search_list!
+  return unless @original_keychain_search_list
+
+  sh("security list-keychains -d user -s #{@original_keychain_search_list.map { |path| Shellwords.escape(path) }.join(' ')}")
+  @original_keychain_search_list = nil
+end
+
+def restrict_ci_keychain_search_list!(keychain_path)
+  return unless ENV['CI'] == 'true'
+  return if @original_keychain_search_list
+
+  @original_keychain_search_list = sh('security list-keychains -d user', log: false)
+                                    .split("\n")
+                                    .map { |line| line.strip.delete_prefix('"').delete_suffix('"') }
+                                    .reject(&:empty?)
+  sh("security list-keychains -d user -s #{Shellwords.escape(keychain_path)}")
+end
+
+def grant_ci_codesign_access!
+  return unless ENV['CI'] == 'true'
+
+  keychain_name = ENV['MATCH_KEYCHAIN_NAME'].to_s.strip
+  return if keychain_name.empty?
+
+  keychain_path = FastlaneCore::Helper.keychain_path(keychain_name)
+  keychain_password = ENV['MATCH_KEYCHAIN_PASSWORD'].to_s
+  sh("security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k #{Shellwords.escape(keychain_password)} #{Shellwords.escape(keychain_path)}")
+end
+
 # ============================================================================
 # ANDROID
 # ============================================================================
@@ -118,22 +157,77 @@ end
 
 platform :ios do
 
+  def prepare_ios_release
+    islamqa_sh("yarn install --frozen-lockfile")
+    islamqa_sh("yarn test:all")
+    islamqa_sh("yarn build")
+    islamqa_sh("yarn cordova prepare ios")
+  end
+
+  def ios_platform_path
+    File.join(islamqa_root, "platforms", "ios")
+  end
+
+  def ios_workspace_path
+    File.join(ios_platform_path, "App.xcworkspace")
+  end
+
+  def ios_api_key
+    api_key_path = ENV['FASTLANE_API_KEY_PATH'] || File.expand_path('~/.fastlane/api_key.p8')
+
+    UI.user_error!("App Store Connect API key not found at #{api_key_path}") unless File.file?(api_key_path)
+    UI.user_error!("FASTLANE_API_KEY_ID is required") if ENV['FASTLANE_API_KEY_ID'].to_s.empty?
+    UI.user_error!("FASTLANE_API_ISSUER_ID is required") if ENV['FASTLANE_API_ISSUER_ID'].to_s.empty?
+
+    app_store_connect_api_key(
+      key_id: ENV['FASTLANE_API_KEY_ID'],
+      issuer_id: ENV['FASTLANE_API_ISSUER_ID'],
+      key_filepath: api_key_path,
+      duration: 1200
+    )
+  end
+
+  def configure_ci_ios_signing!(team_id, api_key)
+    required = %w[MATCH_GIT_URL MATCH_PASSWORD]
+    missing = required.select { |key| ENV[key].to_s.empty? }
+    UI.user_error!("Missing iOS signing secret(s): #{missing.join(', ')}") unless missing.empty?
+
+    bundle_id = 'com.dkurve.betterislamqa'
+    setup_ci(set_default_keychain: false)
+    match(
+      type: 'appstore',
+      app_identifier: bundle_id,
+      api_key: api_key,
+      git_url: ENV['MATCH_GIT_URL'],
+      team_id: team_id,
+      readonly: ENV.fetch('MATCH_READONLY', 'true') != 'false'
+    )
+
+    keychain_name = ENV['MATCH_KEYCHAIN_NAME'].to_s.strip
+    restrict_ci_keychain_search_list!(FastlaneCore::Helper.keychain_path(keychain_name)) unless keychain_name.empty?
+    grant_ci_codesign_access!
+
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      path: File.join(ios_platform_path, 'App.xcodeproj'),
+      targets: ['App'],
+      build_configurations: ['Release'],
+      team_id: team_id,
+      bundle_identifier: bundle_id,
+      code_sign_identity: 'Apple Distribution',
+      profile_name: "match AppStore #{bundle_id}"
+    )
+  end
+
   desc "Build and test iOS app (local)"
   lane :build do |options|
-    # Build Vite web app first
-    sh("cd .. && yarn install --frozen-lockfile")
-    sh("cd .. && yarn test:all")
-    sh("cd .. && yarn build")
-
-    # Prepare Cordova (copy web assets to iOS)
-    sh("cd .. && cordova prepare ios")
+    prepare_ios_release
 
     # Build Cordova iOS app with Xcode
     build_type = options[:release] ? "Release" : "Debug"
-    workspace_path = "BetterIslam Q&A.xcworkspace"
-    scheme_name = "BetterIslam Q&A"
+    scheme_name = "App"
     team_id = ENV['FASTLANE_TEAM_ID']
-    sh("cd ../platforms/ios && xcodebuild -workspace \"#{workspace_path}\" -scheme \"#{scheme_name}\" -configuration #{build_type} -derivedDataPath build -allowProvisioningUpdates DEVELOPMENT_TEAM=#{team_id} SWIFT_VERSION=5.0 CODE_SIGN_STYLE=Automatic CODE_SIGN_IDENTITY='' PROVISIONING_PROFILE='' PROVISIONING_PROFILE_SPECIFIER=''")
+    sh("cd #{Shellwords.escape(ios_platform_path)} && xcodebuild -quiet -workspace #{Shellwords.escape(ios_workspace_path)} -scheme #{Shellwords.escape(scheme_name)} -configuration #{build_type} -derivedDataPath build -allowProvisioningUpdates DEVELOPMENT_TEAM=#{Shellwords.escape(team_id)} SWIFT_VERSION=5.0 CODE_SIGN_STYLE=Automatic")
 
     UI.success("✅ iOS #{build_type} build completed!")
   end
@@ -145,27 +239,41 @@ platform :ios do
 
   desc "Build release IPA for TestFlight/App Store"
   lane :build_release do
-    # Build release version
-    build(release: true)
+    prepare_ios_release
 
     # Export IPA using xcodebuild with automatic code signing
-    workspace_path = "BetterIslam Q&A.xcworkspace"
-    scheme_name = "BetterIslam Q&A"
+    scheme_name = "App"
     team_id = ENV['FASTLANE_TEAM_ID']
 
     # Keep export settings outside the generated Cordova platform directory.
     # `cordova prepare` may recreate that directory and remove local files.
     export_opts_path = File.expand_path('ExportOptions.plist', __dir__)
 
+    # Cordova 8 generates several embedded Swift Package/CocoaPods targets.
+    # The app target alone receives the distribution profile; global signing
+    # overrides make those dependency targets conflict.
+    if ENV['CI'] == 'true'
+      configure_ci_ios_signing!(team_id, ios_api_key)
+    else
+      update_code_signing_settings(
+        use_automatic_signing: true,
+        path: File.join(ios_platform_path, 'App.xcodeproj'),
+        targets: ['App'],
+        build_configurations: ['Release'],
+        team_id: team_id,
+        code_sign_identity: 'Apple Distribution'
+      )
+    end
+
     # Archive the app
     UI.important("📦 Archiving iOS app...")
-    sh("cd ../platforms/ios && xcodebuild -workspace \"#{workspace_path}\" -scheme \"#{scheme_name}\" -sdk iphoneos -configuration Release -derivedDataPath build -archivePath build/BetterIslamQA.xcarchive archive -allowProvisioningUpdates DEVELOPMENT_TEAM=#{team_id} SWIFT_VERSION=5.0 CODE_SIGN_STYLE=Automatic CODE_SIGN_IDENTITY='' PROVISIONING_PROFILE='' PROVISIONING_PROFILE_SPECIFIER=''")
+    sh("cd #{Shellwords.escape(ios_platform_path)} && xcodebuild -quiet -workspace #{Shellwords.escape(ios_workspace_path)} -scheme #{Shellwords.escape(scheme_name)} -sdk iphoneos -configuration Release -derivedDataPath build -archivePath build/BetterIslamQA.xcarchive archive -allowProvisioningUpdates DEVELOPMENT_TEAM=#{Shellwords.escape(team_id)} SWIFT_VERSION=5.0 CODE_SIGN_STYLE=Automatic")
 
     # Export IPA with automatic code signing
     UI.important("📤 Exporting IPA with automatic code signing...")
-    sh("cd ../platforms/ios && xcodebuild -exportArchive -archivePath build/BetterIslamQA.xcarchive -exportPath build -exportOptionsPlist \"#{export_opts_path}\" -allowProvisioningUpdates")
+    sh("cd #{Shellwords.escape(ios_platform_path)} && xcodebuild -quiet -exportArchive -archivePath build/BetterIslamQA.xcarchive -exportPath build -exportOptionsPlist #{Shellwords.escape(export_opts_path)} -allowProvisioningUpdates")
 
-    ipa_path = Dir[File.expand_path('../platforms/ios/build/*.ipa', __dir__)].max_by { |path| File.mtime(path) }
+    ipa_path = Dir[File.join(ios_platform_path, 'build', '*.ipa')].max_by { |path| File.mtime(path) }
     UI.user_error!("❌ xcodebuild completed without producing an IPA") unless ipa_path
     Actions.lane_context[:BETTER_ISLAM_IPA_PATH] = ipa_path
 
@@ -183,22 +291,7 @@ platform :ios do
     # Build release IPA
     build_release
 
-    # Get API Key from environment or file
-    api_key_path = ENV['FASTLANE_API_KEY_PATH'] || File.expand_path('~/.fastlane/api_key.p8')
-
-    unless File.exist?(api_key_path)
-      UI.error("❌ API Key not found at #{api_key_path}")
-      UI.important("Please set FASTLANE_API_KEY_PATH or place api_key.json in .fastlane/ directory")
-      UI.important("See fastlane/README_IOS_SETUP.md for setup instructions")
-      exit 1
-    end
-
-    api_key = app_store_connect_api_key(
-      key_id: ENV['FASTLANE_API_KEY_ID'],
-      issuer_id: ENV['FASTLANE_API_ISSUER_ID'],
-      key_filepath: api_key_path,
-      duration: 1200 # 20 minutes
-    )
+    api_key = ios_api_key
 
     # Upload to TestFlight
     UI.important("📤 Uploading to TestFlight...")
@@ -218,22 +311,9 @@ platform :ios do
   lane :upload_ipa do
     UI.important("📤 Uploading pre-built IPA to TestFlight...")
 
-    # Get API Key from environment or file
-    api_key_path = ENV['FASTLANE_API_KEY_PATH'] || File.expand_path('~/.fastlane/api_key.p8')
+    api_key = ios_api_key
 
-    unless File.exist?(api_key_path)
-      UI.error("❌ API Key not found at #{api_key_path}")
-      exit 1
-    end
-
-    api_key = app_store_connect_api_key(
-      key_id: ENV['FASTLANE_API_KEY_ID'],
-      issuer_id: ENV['FASTLANE_API_ISSUER_ID'],
-      key_filepath: api_key_path,
-      duration: 1200
-    )
-
-    ipa_path = Dir[File.expand_path('../platforms/ios/build/*.ipa', __dir__)].max_by { |path| File.mtime(path) }
+    ipa_path = Dir[File.join(ios_platform_path, 'build', '*.ipa')].max_by { |path| File.mtime(path) }
     UI.user_error!("❌ No pre-built IPA found in platforms/ios/build") unless ipa_path
 
     upload_to_testflight(
@@ -254,8 +334,9 @@ platform :ios do
     UI.important("================================================")
     UI.important("⚠️  This will submit to App Store for review!")
 
-    # Prompt user for confirmation
-    unless UI.confirm("Are you sure you want to submit to App Store? (type 'yes'):")
+    # CI must opt in explicitly; local releases preserve the interactive confirmation.
+    confirmed = ENV['CI'] == 'true' ? ENV['CONFIRM_PRODUCTION_RELEASE'] == 'true' : UI.confirm("Are you sure you want to submit to App Store? (type 'yes'):")
+    unless confirmed
       UI.error("❌ Cancelled")
       exit 1
     end
@@ -266,22 +347,7 @@ platform :ios do
     # Build release IPA
     build_release
 
-    # Get API Key from environment or file
-    api_key_path = ENV['FASTLANE_API_KEY_PATH'] || File.expand_path('~/.fastlane/api_key.p8')
-
-    unless File.exist?(api_key_path)
-      UI.error("❌ API Key not found at #{api_key_path}")
-      UI.important("Please set FASTLANE_API_KEY_PATH or place api_key.json in .fastlane/ directory")
-      UI.important("See fastlane/README_IOS_SETUP.md for setup instructions")
-      exit 1
-    end
-
-    api_key = app_store_connect_api_key(
-      key_id: ENV['FASTLANE_API_KEY_ID'],
-      issuer_id: ENV['FASTLANE_API_ISSUER_ID'],
-      key_filepath: api_key_path,
-      duration: 1200 # 20 minutes
-    )
+    api_key = ios_api_key
 
     # Upload to App Store
     UI.important("📤 Uploading to App Store...")
@@ -319,5 +385,6 @@ end
 
 # Error handling
 error do |lane, exception|
+  restore_ci_keychain_search_list!
   UI.error("❌ Error in lane #{lane}: #{exception.message}")
 end
