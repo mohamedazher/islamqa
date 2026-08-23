@@ -187,6 +187,13 @@ platform :ios do
     )
   end
 
+  def ios_release_version
+    config = File.read(File.join(islamqa_root, 'config.xml'))
+    match = config.match(/<widget[^>]*\bversion="([^"]+)"/)
+    UI.user_error!('Could not determine the iOS release version from config.xml') unless match
+    match[1]
+  end
+
   def configure_ci_ios_signing!(team_id, api_key)
     required = %w[MATCH_GIT_URL MATCH_PASSWORD]
     missing = required.select { |key| ENV[key].to_s.empty? }
@@ -342,19 +349,17 @@ platform :ios do
       exit 1
     end
 
-    # Note: Version is managed via git commits with [release]/[production] tags
-    # iOS and Android use the same version to keep them in sync
-
-    # Build release IPA
-    build_release
-
     api_key = ios_api_key
+    release_version = ios_release_version
 
-    # Upload to App Store
-    UI.important("📤 Uploading to App Store...")
+    # The production workflow promotes a build that has already passed the
+    # TestFlight upload/validation stage. Do not upload the same IPA twice.
+    UI.important("📤 Submitting TestFlight build #{release_version} to App Store review...")
     upload_to_app_store(
       api_key: api_key,
-      ipa: Actions.lane_context[:BETTER_ISLAM_IPA_PATH],
+      app_version: release_version,
+      build_number: release_version,
+      skip_binary_upload: true,
       skip_metadata: true,
       skip_screenshots: true,
       force: false,
