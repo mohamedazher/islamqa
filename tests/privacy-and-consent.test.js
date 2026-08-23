@@ -163,11 +163,14 @@ describe('external payload controls', () => {
   })
 })
 
-describe('iOS tracking declaration', () => {
-  it('ships the ATT usage description required before requesting permission', () => {
+describe('iOS analytics privacy configuration', () => {
+  it('does not ship ATT or the IDFA plugin, and starts Firebase collection disabled', () => {
     const here = path.dirname(fileURLToPath(import.meta.url))
     const config = fs.readFileSync(path.join(here, '..', 'config.xml'), 'utf8')
-    expect(config).toContain('NSUserTrackingUsageDescription')
-    expect(config).toContain('Core offline features work without tracking')
+    const packageJson = fs.readFileSync(path.join(here, '..', 'package.json'), 'utf8')
+    expect(config).not.toContain('NSUserTrackingUsageDescription')
+    expect(config).toContain('name="ANALYTICS_COLLECTION_ENABLED" value="false"')
+    expect(config).toContain('name="AUTOMATIC_SCREEN_REPORTING_ENABLED" value="false"')
+    expect(packageJson).not.toContain('cordova-plugin-idfa')
   })
 })
