@@ -173,4 +173,29 @@ describe('iOS analytics privacy configuration', () => {
     expect(config).toContain('name="AUTOMATIC_SCREEN_REPORTING_ENABLED" value="false"')
     expect(packageJson).not.toContain('cordova-plugin-idfa')
   })
+
+  it('ships only the in-use location purpose required for prayer times and Qibla', () => {
+    const here = path.dirname(fileURLToPath(import.meta.url))
+    const config = fs.readFileSync(path.join(here, '..', 'config.xml'), 'utf8')
+    const unusedPurposeKeys = [
+      'NSLocationAlwaysAndWhenInUseUsageDescription',
+      'NSLocationAlwaysUsageDescription',
+      'NSBluetoothPeripheralUsageDescription',
+      'NSBluetoothAlwaysUsageDescription',
+      'NSLocalNetworkUsageDescription',
+      'NSBonjourServices',
+      'NSCameraUsageDescription',
+      'NSPhotoLibraryUsageDescription',
+      'NSMicrophoneUsageDescription',
+      'NSContactsUsageDescription',
+      'NSCalendarsUsageDescription',
+      'NSRemindersUsageDescription',
+      'NSMotionUsageDescription'
+    ]
+
+    expect(config).toContain('We need your location to calculate accurate prayer times and Qibla direction for your area.')
+    for (const key of unusedPurposeKeys) {
+      expect(config).toContain(`mode="remove" target="${key}"`)
+    }
+  })
 })
