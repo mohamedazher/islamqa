@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="178" id="com.dkurve.betterislamqa" version="3.0.15" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="179" id="com.dkurve.betterislamqa" version="3.0.16" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>BetterIslam Q&amp;A</name>
     <description>
         Welcome to Islam Question&amp;Answer
@@ -40,27 +40,12 @@
         <!-- Use app:// scheme instead of file:// for Vite ES modules compatibility -->
         <preference name="scheme" value="app" />
         <preference name="hostname" value="localhost" />
-        <preference name="deployment-target" value="13.0" />
+        <preference name="deployment-target" value="15.0" />
         <!-- Firebase configuration plist -->
         <resource-file src="GoogleService-Info.plist" />
         <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
             <string>We need your location to calculate accurate prayer times and Qibla direction for your area.</string>
         </edit-config>
-        <!-- The diagnostic plugin ships optional permission declarations for every
-             diagnostic module. IslamQA only requests location while the app is in use. -->
-        <edit-config file="*-Info.plist" mode="remove" target="NSLocationAlwaysAndWhenInUseUsageDescription" />
-        <edit-config file="*-Info.plist" mode="remove" target="NSLocationAlwaysUsageDescription" />
-        <edit-config file="*-Info.plist" mode="remove" target="NSBluetoothPeripheralUsageDescription" />
-        <edit-config file="*-Info.plist" mode="remove" target="NSBluetoothAlwaysUsageDescription" />
-        <edit-config file="*-Info.plist" mode="remove" target="NSLocalNetworkUsageDescription" />
-        <edit-config file="*-Info.plist" mode="remove" target="NSBonjourServices" />
-        <edit-config file="*-Info.plist" mode="remove" target="NSCameraUsageDescription" />
-        <edit-config file="*-Info.plist" mode="remove" target="NSPhotoLibraryUsageDescription" />
-        <edit-config file="*-Info.plist" mode="remove" target="NSMicrophoneUsageDescription" />
-        <edit-config file="*-Info.plist" mode="remove" target="NSContactsUsageDescription" />
-        <edit-config file="*-Info.plist" mode="remove" target="NSCalendarsUsageDescription" />
-        <edit-config file="*-Info.plist" mode="remove" target="NSRemindersUsageDescription" />
-        <edit-config file="*-Info.plist" mode="remove" target="NSMotionUsageDescription" />
         <icon height="180" src="res/ios/Icon-180.png" width="180" />
         <icon height="60" src="res/ios/Icon-60.png" width="60" />
         <icon height="120" src="res/ios/Icon-120.png" width="120" />

@@ -193,9 +193,15 @@ describe('iOS analytics privacy configuration', () => {
       'NSMotionUsageDescription'
     ]
 
+    const packageJson = fs.readFileSync(path.join(here, '..', 'package.json'), 'utf8')
+    const iosPreparation = fs.readFileSync(path.join(here, '..', 'scripts', 'cordova', 'prepare-ios.js'), 'utf8')
     expect(config).toContain('We need your location to calculate accurate prayer times and Qibla direction for your area.')
+    expect(config).toContain('name="deployment-target" value="15.0"')
+    expect(packageJson).not.toContain('cordova.plugins.diagnostic')
+    expect(iosPreparation).toContain('requestWhenInUseAuthorization')
+    expect(iosPreparation).toContain('requestAlwaysAuthorization')
     for (const key of unusedPurposeKeys) {
-      expect(config).toContain(`mode="remove" target="${key}"`)
+      expect(config).not.toContain(key)
     }
   })
 })

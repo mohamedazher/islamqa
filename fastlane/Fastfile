@@ -161,7 +161,7 @@ platform :ios do
     islamqa_sh("yarn install --frozen-lockfile")
     islamqa_sh("yarn test:all")
     islamqa_sh("yarn build")
-    islamqa_sh("yarn cordova prepare ios")
+    islamqa_sh("yarn cordova:prepare:ios")
   end
 
   def ios_platform_path
@@ -277,6 +277,12 @@ platform :ios do
     # Archive the app
     UI.important("📦 Archiving iOS app...")
     sh("cd #{Shellwords.escape(ios_platform_path)} && xcodebuild -quiet -workspace #{Shellwords.escape(ios_workspace_path)} -scheme #{Shellwords.escape(scheme_name)} -sdk iphoneos -configuration Release -derivedDataPath build -archivePath build/BetterIslamQA.xcarchive archive -allowProvisioningUpdates DEVELOPMENT_TEAM=#{Shellwords.escape(team_id)} SWIFT_VERSION=5.0")
+
+    archive_app = Dir[File.join(ios_platform_path, 'build', 'BetterIslamQA.xcarchive', 'Products', 'Applications', '*.app')].first
+    UI.user_error!('xcodebuild completed without an archived app bundle') unless archive_app
+    archive_info_plist = File.join(archive_app, 'Info.plist')
+    minimum_os_version = sh("plutil -extract MinimumOSVersion raw #{Shellwords.escape(archive_info_plist)}", log: false).strip
+    UI.user_error!("iOS archive must target iOS 15.0 or later; found #{minimum_os_version}") if Gem::Version.new(minimum_os_version) < Gem::Version.new('15.0')
 
     UI.important("📤 Exporting IPA with Match code signing...")
     sh("cd #{Shellwords.escape(ios_platform_path)} && xcodebuild -quiet -exportArchive -archivePath build/BetterIslamQA.xcarchive -exportPath build -exportOptionsPlist #{Shellwords.escape(export_opts_path)} -allowProvisioningUpdates")

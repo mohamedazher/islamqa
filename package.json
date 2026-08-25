@@ -1,6 +1,6 @@
 {
   "name": "com.dkurve.betterislamqa",
-  "version": "3.0.15",
+  "version": "3.0.16",
   "displayName": "BetterIslam Q&A",
   "scripts": {
     "dev": "vite",
@@ -21,6 +21,7 @@
     "deploy": "gh-pages -d dist",
     "validate:widget": "./scripts/validate-widget-build.sh",
     "cordova:prepare": "cordova prepare",
+    "cordova:prepare:ios": "node scripts/cordova/prepare-ios.js",
     "cordova:build:android": "yarn version:patch && yarn test:all && yarn build && cordova build android",
     "cordova:build:ios": "yarn version:patch && yarn test:all && yarn build && cordova build ios",
     "cordova:run:android": "yarn build && cordova run android",
@@ -33,7 +34,6 @@
       "ios"
     ],
     "plugins": {
-      "cordova.plugins.diagnostic": {},
       "cordova-support-android-plugin": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-geolocation": {
@@ -82,7 +82,6 @@
     "cordova-plugin-prayer-widget": "file:cordova-plugin-prayer-widget",
     "cordova-plugin-statusbar": "^4.0.0",
     "cordova-support-android-plugin": "^2.0.4",
-    "cordova.plugins.diagnostic": "^7.2.7",
     "es6-promise-plugin": "^4.2.2",
     "gh-pages": "^6.3.0",
     "postcss": "^8.5.18",
