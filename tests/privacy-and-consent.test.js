@@ -178,8 +178,6 @@ describe('iOS analytics privacy configuration', () => {
     const here = path.dirname(fileURLToPath(import.meta.url))
     const config = fs.readFileSync(path.join(here, '..', 'config.xml'), 'utf8')
     const unusedPurposeKeys = [
-      'NSLocationAlwaysAndWhenInUseUsageDescription',
-      'NSLocationAlwaysUsageDescription',
       'NSBluetoothPeripheralUsageDescription',
       'NSBluetoothAlwaysUsageDescription',
       'NSLocalNetworkUsageDescription',
@@ -197,9 +195,13 @@ describe('iOS analytics privacy configuration', () => {
     const iosPreparation = fs.readFileSync(path.join(here, '..', 'scripts', 'cordova', 'prepare-ios.js'), 'utf8')
     expect(config).toContain('We need your location to calculate accurate prayer times and Qibla direction for your area.')
     expect(config).toContain('name="deployment-target" value="15.0"')
-    expect(packageJson).not.toContain('cordova.plugins.diagnostic')
+    expect(config).toContain('name="cordova.plugins.diagnostic.modules" value="LOCATION"')
+    expect(packageJson).toContain('cordova.plugins.diagnostic')
     expect(iosPreparation).toContain('requestWhenInUseAuthorization')
     expect(iosPreparation).toContain('requestAlwaysAuthorization')
+    expect(iosPreparation).toContain('Diagnostic_Location.m')
+    expect(config).toContain('mode="remove" target="NSLocationAlwaysAndWhenInUseUsageDescription"')
+    expect(config).toContain('mode="remove" target="NSLocationAlwaysUsageDescription"')
     for (const key of unusedPurposeKeys) {
       expect(config).not.toContain(key)
     }

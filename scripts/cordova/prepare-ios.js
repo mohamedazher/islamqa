@@ -13,6 +13,15 @@ const geolocationSource = path.join(
   'ios',
   'CDVLocation.m'
 )
+const diagnosticLocationSource = path.join(
+  projectRoot,
+  'node_modules',
+  'cordova.plugins.diagnostic',
+  'src',
+  'ios',
+  'Diagnostic_Location.m'
+)
+const diagnosticPluginDirectory = path.dirname(path.dirname(path.dirname(diagnosticLocationSource)))
 
 function replaceExactlyOnce(source, expected, replacement, filePath) {
   const occurrences = source.split(expected).length - 1
@@ -42,6 +51,29 @@ function restrictGeolocationPluginToWhenInUse(filePath) {
   fs.writeFileSync(filePath, source)
 }
 
+function restrictDiagnosticPluginToWhenInUse(filePath) {
+  let source = fs.readFileSync(filePath, 'utf8')
+
+  if (!source.includes('requestAlwaysAuthorization')) return
+
+  source = replaceExactlyOnce(
+    source,
+    `                BOOL always = [[command argumentAtIndex:0] boolValue];\n                if(always){\n                    NSAssert([[[NSBundle mainBundle] infoDictionary] valueForKey:@"NSLocationAlwaysAndWhenInUseUsageDescription"], @"Your app must have a value for NSLocationAlwaysAndWhenInUseUsageDescription in its Info.plist");\n                    [self.locationManager requestAlwaysAuthorization];\n                    [diagnostic logDebug:@"Requesting location authorization: always"];\n                }else{\n                    NSAssert([[[NSBundle mainBundle] infoDictionary] valueForKey:@"NSLocationWhenInUseUsageDescription"], @"Your app must have a value for NSLocationWhenInUseUsageDescription in its Info.plist");\n                    [self.locationManager requestWhenInUseAuthorization];\n                    [diagnostic logDebug:@"Requesting location authorization: when in use"];\n                }`,
+    `                NSAssert([[[NSBundle mainBundle] infoDictionary] valueForKey:@"NSLocationWhenInUseUsageDescription"], @"Your app must have a value for NSLocationWhenInUseUsageDescription in its Info.plist");\n                [self.locationManager requestWhenInUseAuthorization];\n                [diagnostic logDebug:@"Requesting location authorization: when in use"];`,
+    filePath
+  )
+  fs.writeFileSync(filePath, source)
+}
+
+function applyDiagnosticLocationModuleSelection() {
+  const result = spawnSync(process.execPath, ['scripts/apply-modules.js'], {
+    cwd: diagnosticPluginDirectory,
+    stdio: 'inherit'
+  })
+  if (result.error) throw result.error
+  if (result.status !== 0) process.exit(result.status ?? 1)
+}
+
 function prepareIosPlatform() {
   const cordova = path.join(projectRoot, 'node_modules', '.bin', 'cordova')
   const iosPlatformPath = path.join(projectRoot, 'platforms', 'ios')
@@ -56,8 +88,31 @@ function prepareIosPlatform() {
 
 function assertGeneratedIosPrivacySurface() {
   const pluginDirectory = path.join(projectRoot, 'platforms', 'ios', 'App', 'Plugins', 'cordova.plugins.diagnostic')
-  if (fs.existsSync(pluginDirectory)) {
-    throw new Error('cordova.plugins.diagnostic must not be present in the generated iOS project')
+  if (!fs.existsSync(pluginDirectory)) {
+    throw new Error('cordova.plugins.diagnostic LOCATION module is missing from the generated iOS project')
+  }
+
+  const diagnosticLocation = path.join(pluginDirectory, 'Diagnostic_Location.m')
+  const diagnosticSource = fs.readFileSync(diagnosticLocation, 'utf8')
+  if (diagnosticSource.includes('requestAlwaysAuthorization')) {
+    throw new Error('Generated iOS diagnostic location module still references always-location authorization')
+  }
+
+  const unsupportedDiagnosticModules = [
+    'Diagnostic_Bluetooth',
+    'Diagnostic_Calendar',
+    'Diagnostic_Camera',
+    'Diagnostic_Contacts',
+    'Diagnostic_Microphone',
+    'Diagnostic_Motion',
+    'Diagnostic_Notifications',
+    'Diagnostic_Reminders',
+    'Diagnostic_Wifi'
+  ]
+  for (const module of unsupportedDiagnosticModules) {
+    if (fs.existsSync(path.join(pluginDirectory, `${module}.m`))) {
+      throw new Error(`Generated iOS diagnostic plugin unexpectedly includes ${module}`)
+    }
   }
 
   const generatedGeolocation = path.join(projectRoot, 'platforms', 'ios', 'App', 'Plugins', 'cordova-plugin-geolocation', 'CDVLocation.m')
@@ -82,6 +137,9 @@ function assertGeneratedIosPrivacySurface() {
 }
 
 restrictGeolocationPluginToWhenInUse(geolocationSource)
+applyDiagnosticLocationModuleSelection()
+restrictDiagnosticPluginToWhenInUse(diagnosticLocationSource)
 prepareIosPlatform()
 restrictGeolocationPluginToWhenInUse(path.join(projectRoot, 'platforms', 'ios', 'App', 'Plugins', 'cordova-plugin-geolocation', 'CDVLocation.m'))
+restrictDiagnosticPluginToWhenInUse(path.join(projectRoot, 'platforms', 'ios', 'App', 'Plugins', 'cordova.plugins.diagnostic', 'Diagnostic_Location.m'))
 assertGeneratedIosPrivacySurface()
